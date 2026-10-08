@@ -310,3 +310,36 @@ footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);color:v
 @media (max-width:680px){
   .recongrid{grid-template-columns:1fr;}
 }
+
+/* Ficha: grupos de pestañas (Estudiar → Practicar → Pensar) */
+.grouptabs{display:flex;gap:0;margin:18px 0 0;max-width:560px;border:1px solid var(--line-strong);border-radius:12px;overflow:hidden;background:var(--surface);}
+.grouptabs button{flex:1;background:none;border:0;border-right:1px solid var(--line);padding:10px 8px;font-family:var(--font-display);font-size:.98rem;font-weight:600;color:var(--ink-soft);cursor:pointer;}
+.grouptabs button:last-child{border-right:0;}
+.grouptabs button.active{background:var(--accent);color:var(--accent-ink);}
+.grouptabs + .subtabs{margin-top:12px;}
+
+/* Panorama */
+.tesis{line-height:1.6;max-width:68ch;}
+.ruta{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.rutapaso{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--raised);}
+.rutapaso .muted{font-size:.86rem;}
+.rutanum{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-mono);font-size:.8rem;background:var(--surface-2);color:var(--ink-soft);}
+.rutapaso.hecho .rutanum{background:var(--good-soft);color:var(--good-ink);}
+.linkbtn{background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--accent-strong);cursor:pointer;text-align:left;}
+.linkbtn:hover{text-decoration:underline;}
+
+/* Escritura: actividades y preguntas */
+textarea.escritura{display:block;width:100%;box-sizing:border-box;margin-top:10px;padding:10px 12px;border:1px solid var(--line-strong);border-radius:8px;background:var(--surface);color:var(--ink);font-size:.95rem;line-height:1.55;resize:vertical;}
+textarea.escritura:focus{outline:2px solid var(--accent);outline-offset:1px;}
+.wcline{font-family:var(--font-mono);font-size:.74rem;margin:4px 0 8px;}
+.pregcard{margin-top:14px;}
+.pregq{color:var(--ink)!important;font-size:.98rem!important;line-height:1.5;}
+.modelo{margin-top:10px;padding:12px 14px;border-radius:10px;background:var(--info-soft);font-size:.92rem;line-height:1.55;}
+.modelo p{color:var(--ink)!important;margin:6px 0 0!important;}
+.evalrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:.86rem;}
+.evalrow .chip{cursor:pointer;background:var(--surface);font:inherit;}
+
+/* Repaso de hoy */
+.repasohoy{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:16px 18px;border-left:4px solid var(--accent);}
+.repasohoy .muted{font-size:.88rem;margin-top:4px;}
+@media (max-width:560px){ .grouptabs button{font-size:.86rem;padding:9px 4px;} }

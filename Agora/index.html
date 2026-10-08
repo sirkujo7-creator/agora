@@ -28,6 +28,7 @@
   <section class="view" id="view-inicio">
     <h2>¿Qué tradición querés trabajar hoy?</h2>
     <p class="muted">Elegí una tradición para ver sus fichas, o andá directo a Exámenes o Tips desde el menú de arriba.</p>
+    <div id="repasoHoy" style="margin-bottom:22px;"></div>
     <div class="grid levels" id="levelCards"></div>
     <h2 style="margin-top:36px;">Tu progreso</h2>
     <div class="grid stats" id="statCards"></div>
@@ -44,8 +45,16 @@
     <button class="backlink" onclick="showView('modulos')">← Volver a fichas</button>
     <h2 id="detTitle"></h2>
     <p class="muted" id="detMeta" style="margin-top:-8px;"></p>
-    <div class="subtabs" id="detTabs"></div>
+    <div id="detTabs"></div>
     <div id="detBody"></div>
+  </section>
+
+  <!-- REPASO DE HOY (tarjetas vencidas de todas las fichas) -->
+  <section class="view" id="view-repaso">
+    <button class="backlink" onclick="showView('inicio')">← Volver al inicio</button>
+    <h2>Repaso de hoy</h2>
+    <p class="muted" style="margin-top:-8px;">Las tarjetas que tocan hoy, de todas las fichas. Las que no te salgan vuelven al final de la ronda.</p>
+    <div id="repasoBody"></div>
   </section>
 
   <!-- CONSTELACIONES -->
@@ -80,7 +89,7 @@
     </div>
     <div class="tipblock">
       <h3>🔁 Repetición espaciada para los conceptos</h3>
-      <p>En las tarjetas de Conceptos y Obras, marcá cada una como "la tengo clara" o "repasar de nuevo". Volvé a las que marcaste para repasar al día siguiente, después a los tres días, después a la semana. El progreso queda guardado ficha por ficha, en este navegador.</p>
+      <p>En las tarjetas de Conceptos y Obras, marcá cada una como "la tengo clara" o "repasar de nuevo". La app agenda sola cuándo volver a mostrártela: al día siguiente, después a los 3, 7, 14 y 30 días. Las que tocan aparecen en <b>Repaso de hoy</b>, en el Inicio. Diez minutos diarios rinden más que una tarde entera antes del examen.</p>
     </div>
     <div class="tipblock">
       <h3>🧩 Cazá falacias en todos lados, no solo en el taller</h3>
