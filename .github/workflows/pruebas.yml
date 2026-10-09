@@ -1,0 +1,23 @@
+# Corre la verificación de datos y las pruebas en el navegador en cada cambio.
+name: Pruebas
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Agora
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - name: Verificar los datos
+        run: node herramientas/verificar.js
+      - name: Pruebas en el navegador
+        run: node pruebas/navegador.js

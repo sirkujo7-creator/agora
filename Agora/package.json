@@ -1,0 +1,13 @@
+{
+  "name": "agora",
+  "private": true,
+  "description": "Ágora: app de estudio de filosofía. La app no necesita instalar nada; este archivo solo sirve para las pruebas.",
+  "scripts": {
+    "verificar": "node herramientas/verificar.js",
+    "pruebas": "node herramientas/verificar.js && node pruebas/navegador.js",
+    "empaquetar": "node herramientas/empaquetar.js"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}
