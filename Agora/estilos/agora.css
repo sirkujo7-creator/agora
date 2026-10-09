@@ -355,3 +355,23 @@ textarea.escritura:focus{outline:2px solid var(--accent);outline-offset:1px;}
 .emplist{display:flex;flex-direction:column;gap:10px;}
 .empfila{display:grid;grid-template-columns:1fr minmax(160px,220px);gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--raised);line-height:1.45;}
 @media (max-width:560px){ .empfila{grid-template-columns:1fr;} }
+
+/* Buscador */
+.busqzona{position:relative;flex:1 1 280px;max-width:460px;}
+#busqInput{width:100%;box-sizing:border-box;padding:9px 14px;border:1px solid var(--line-strong);border-radius:999px;background:var(--surface);color:var(--ink);font:inherit;font-size:.92rem;}
+#busqInput:focus{outline:2px solid var(--accent);outline-offset:1px;}
+.busqresultados{position:absolute;z-index:50;top:calc(100% + 6px);left:0;right:0;max-height:70vh;overflow:auto;background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;box-shadow:var(--shadow);padding:6px;}
+@media (max-width:640px){ .busqresultados{position:fixed;left:12px;right:12px;top:auto;} }
+.busqcuenta,.busqvacio{font-family:var(--font-mono);font-size:.74rem;color:var(--ink-faint);padding:6px 8px;}
+.busqvacio{font-size:.85rem;}
+.busqitem{display:flex;flex-direction:column;gap:2px;width:100%;text-align:left;background:none;border:0;border-radius:8px;padding:8px 10px;cursor:pointer;color:var(--ink);font:inherit;}
+.busqitem:hover,.busqitem:focus{background:var(--raised);outline:none;}
+.busqtipo{font-family:var(--font-mono);font-size:.7rem;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;}
+.busqtit{font-weight:600;}
+.busqfrag{font-size:.84rem;color:var(--ink-soft);line-height:1.45;}
+.busqitem mark{background:var(--accent-soft);color:inherit;border-radius:3px;padding:0 1px;}
+
+/* Copia y reinicio */
+.progtools p{margin:0 0 10px;font-size:.9rem;}
+.campo{padding:7px 12px;border:1px solid var(--line-strong);border-radius:8px;background:var(--surface);color:var(--ink);font:inherit;font-size:.9rem;}
+.btn.peligro{color:var(--bad);border-color:var(--bad);}

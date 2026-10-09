@@ -18,6 +18,11 @@
       <div class="mark">Á<span>gora</span></div>
       <div class="tag">leer → dialogar → argumentar</div>
     </div>
+    <div class="busqzona" id="busqZona" role="search">
+      <input id="busqInput" type="search" autocomplete="off" placeholder="Buscar autores, conceptos, obras…  ( / )" aria-label="Buscar en Ágora"
+        oninput="renderBusqueda(this.value)" onkeydown="busqKeydown(event)" onfocus="if(this.value) renderBusqueda(this.value)">
+      <div class="busqresultados hidden" id="busqResultados"></div>
+    </div>
     <div class="streakpill">🔥 <span id="streakNum">0</span> días seguidos</div>
   </div>
 

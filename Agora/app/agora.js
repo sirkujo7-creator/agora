@@ -244,6 +244,7 @@ function renderDetTab(){
 /* --- Panorama: tesis, conexión y la ruta sugerida con el avance en esta ficha --- */
 function renderPanorama(){
   const d = currentModule;
+  if(reinicioFicha && reinicioFicha !== d.id) reinicioFicha = null;
   const clr = LEVELS[d.trad].clr;
   const domC = (progress.conceptDone[d.id+":conceptos"]||[]).length;
   const domO = (progress.obraDone[d.id+":obras"]||[]).length;
@@ -270,6 +271,9 @@ function renderPanorama(){
         ${paso(5,"Respondé las preguntas",`Escribí tu respuesta y comparala con la del modelo · ${resp}/${nPreg} respondidas.`,"preguntas", nPreg>0 && resp===nPreg)}
         ${paso(6,"Pensá con los ejercicios",avanzados?"Razonamiento en ramas, reconstrucción de argumentos y un dilema.":"Los ejercicios avanzados de esta ficha todavía no están disponibles.","razonamiento", false)}
       </ol>
+      <div class="row" style="margin-top:18px;">
+        <button class="linkbtn muted" style="font-weight:400;font-size:.85rem;" onclick="reiniciarFicha('${d.id}')">${reinicioFicha===d.id?'¿Seguro? Se borra lo de esta ficha (tarjetas, repasos, cuestionario y lo escrito). Tocá de nuevo para confirmar.':'Reiniciar el progreso de esta ficha'}</button>
+      </div>
     </div>`;
 }
 
@@ -1627,6 +1631,168 @@ function terminarFinal(){
   window.scrollTo({top:0, behavior:"instant"});
 }
 
+/* ============================= BUSCADOR =============================
+   Índice construido una vez al arrancar: fichas, tesis, conceptos, obras, lecturas, términos
+   del glosario y constelaciones. Se busca sin mayúsculas ni tildes (śūnyatā = sunyata), y
+   todas las palabras de la consulta tienen que aparecer. Atajo: "/" abre el buscador. */
+let BUSQ_INDICE = null;
+function normBusq(s){ return String(s||"").replace(/<[^>]+>/g," ").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(); }
+const esLetra = c=>/[a-z0-9]/.test(c||"");
+/* Posición de `t` en `norm` solo al comienzo de una palabra (o -1). */
+function inicioPalabra(norm, t, desde){
+  let p = norm.indexOf(t, desde||0);
+  while(p>0 && esLetra(norm[p-1])) p = norm.indexOf(t, p+1);
+  return p;
+}
+function textoPlano(s){ return String(s||"").replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim(); }
+function construirIndice(){
+  const ix = [];
+  /* Texto normalizado con un espacio delante de cada palabra: así " nada" coincide con el
+     comienzo de una palabra y no con el medio de "determinada". */
+  const pal = s=>" "+normBusq(s).replace(/[^a-z0-9]+/g," ");
+  const add = (o)=>{ o.nt = pal(o.titulo); o.nx = pal(o.texto); ix.push(o); };
+  MODULES.forEach(m=>{
+    add({ tipo:"Ficha", mod:m, titulo:m.nombre, texto:`${m.escuela} · ${m.fechas} · ${m.tesis}`, ir:()=>openModule(m.id) });
+    (m.conceptos||[]).forEach((c,i)=>add({ tipo:"Concepto", mod:m, titulo:c.t, texto:c.d, ir:()=>abrirTarjeta(m.id,"conceptos",i) }));
+    (m.obras||[]).forEach((o,i)=>add({ tipo:"Obra", mod:m, titulo:o.t, texto:o.d, ir:()=>abrirTarjeta(m.id,"obras",i) }));
+    (m.lecturas||[]).forEach(l=>add({ tipo:"Lectura", mod:m, titulo:l.titulo, texto:`${l.fuente} ${l.extracto}`, ir:()=>openModule(m.id,"lecturas") }));
+    getQuiz(m).forEach(q=>add({ tipo:"Pregunta", mod:m, titulo:textoPlano(q.q), texto:q.p, ir:()=>openModule(m.id,"preguntas") }));
+  });
+  (typeof POLYSEMOUS_TERMS!=="undefined"?POLYSEMOUS_TERMS:[]).forEach(([t,d])=>add({ tipo:"Glosario", mod:null, titulo:t, texto:d, ir:()=>showView("consejos") }));
+  (typeof CONSTELACIONES!=="undefined"?CONSTELACIONES:[]).forEach(c=>add({ tipo:"Constelación", mod:null, titulo:c.tema, texto:`${c.nucleo} ${c.entradas.map(e=>e.postura).join(" ")}`, ir:()=>{ showView("constelaciones"); abrirConstelacion(c.id); } }));
+  BUSQ_INDICE = ix;
+}
+const BUSQ_PESO = { "Ficha":6, "Concepto":4, "Obra":4, "Constelación":3, "Glosario":3, "Lectura":2, "Pregunta":1 };
+function buscar(q){
+  const terms = normBusq(q).split(/\s+/).filter(t=>t.length>=2);
+  if(!terms.length) return [];
+  if(!BUSQ_INDICE) construirIndice();
+  return BUSQ_INDICE.map(e=>{
+    let s = 0;
+    for(const t of terms){
+      const enT = e.nt.includes(" "+t), enX = e.nx.includes(" "+t);
+      if(!enT && !enX) return null;
+      s += enT ? 10 : 1;
+    }
+    return { e, s: s + BUSQ_PESO[e.tipo] };
+  }).filter(Boolean).sort((a,b)=>b.s-a.s).slice(0,40).map(x=>x.e);
+}
+/* Fragmento alrededor de la primera coincidencia, con las palabras resaltadas. */
+function fragmento(e, q){
+  const plano = textoPlano(e.texto), norm = normBusq(plano);
+  const terms = normBusq(q).split(/\s+/).filter(t=>t.length>=2);
+  let pos = -1; for(const t of terms){ const p = inicioPalabra(norm, t); if(p>=0 && (pos<0 || p<pos)) pos = p; }
+  const ini = Math.max(0, pos - 60), fin = Math.min(plano.length, (pos<0?0:pos) + 140);
+  let frag = (ini>0?"…":"") + plano.slice(ini, fin) + (fin<plano.length?"…":"");
+  return resaltar(frag, terms);
+}
+function resaltar(texto, terms){
+  const norm = normBusq(texto);
+  const marcas = new Array(texto.length).fill(false);
+  terms.forEach(t=>{ let p = inicioPalabra(norm, t); while(p>=0){ for(let k=p;k<p+t.length;k++) marcas[k]=true; p = inicioPalabra(norm, t, p+1); } });
+  let out = "", abierto = false;
+  for(let k=0;k<texto.length;k++){
+    if(marcas[k] && !abierto){ out += "<mark>"; abierto = true; }
+    if(!marcas[k] && abierto){ out += "</mark>"; abierto = false; }
+    out += escapeHtml(texto[k]);
+  }
+  return out + (abierto?"</mark>":"");
+}
+let busqResultados = [];
+function renderBusqueda(q){
+  const box = document.getElementById("busqResultados");
+  if(!box) return;
+  if(normBusq(q).trim().length < 2){ box.classList.add("hidden"); box.innerHTML = ""; busqResultados = []; return; }
+  busqResultados = buscar(q);
+  box.classList.remove("hidden");
+  if(!busqResultados.length){ box.innerHTML = `<div class="busqvacio">No hay resultados para «${escapeHtml(q)}».</div>`; return; }
+  const terms = normBusq(q).split(/\s+/).filter(t=>t.length>=2);
+  box.innerHTML = `<div class="busqcuenta">${busqResultados.length}${busqResultados.length===40?'+':''} resultado${busqResultados.length===1?'':'s'} · Enter abre el primero · Esc cierra</div>` +
+    busqResultados.map((e,i)=>`<button class="busqitem" onclick="abrirResultado(${i})">
+      <span class="busqtipo">${e.tipo}${e.mod?` · ${e.mod.icon} ${escapeHtml(e.mod.nombre)}`:''}</span>
+      <span class="busqtit">${resaltar(textoPlano(e.titulo), terms)}</span>
+      <span class="busqfrag">${fragmento(e, q)}</span></button>`).join("");
+}
+function abrirResultado(i){
+  const e = busqResultados[i];
+  if(!e) return;
+  cerrarBusqueda();
+  e.ir();
+}
+function cerrarBusqueda(){
+  const inp = document.getElementById("busqInput"), box = document.getElementById("busqResultados");
+  if(inp){ inp.value = ""; inp.blur(); }
+  if(box){ box.classList.add("hidden"); box.innerHTML = ""; }
+  busqResultados = [];
+}
+function busqKeydown(ev){
+  if(ev.key === "Escape"){ cerrarBusqueda(); }
+  else if(ev.key === "Enter"){ ev.preventDefault(); abrirResultado(0); }
+}
+/* Abre una ficha en Conceptos u Obras, directamente en la tarjeta buscada. */
+function abrirTarjeta(id, kind, idx){
+  openModule(id, kind);
+  const k = flashDeck.findIndex(c=>c.idx===idx);
+  if(k>=0){ flashIndex = k; drawFlash(); }
+}
+document.addEventListener("keydown", ev=>{
+  const t = ev.target, escribiendo = t && (t.tagName==="INPUT" || t.tagName==="TEXTAREA" || t.tagName==="SELECT" || t.isContentEditable);
+  if(ev.key === "/" && !escribiendo){ ev.preventDefault(); const inp = document.getElementById("busqInput"); if(inp) inp.focus(); }
+});
+document.addEventListener("click", ev=>{
+  const zona = document.getElementById("busqZona");
+  if(zona && !zona.contains(ev.target)){ const box = document.getElementById("busqResultados"); if(box) box.classList.add("hidden"); }
+});
+
+/* ============================= COPIA Y REINICIO DEL PROGRESO =============================
+   Guardar copia: baja un .json con todo el progreso (también lo escrito). Recuperar copia:
+   lo vuelve a cargar, pasando por sanitizeProgress. Reiniciar: borra todo, con confirmación
+   escrita. También se puede reiniciar una sola ficha desde su Panorama. */
+function guardarCopia(){
+  const datos = { app:"agora", version:1, fecha:new Date().toISOString(), progreso:progress };
+  const url = URL.createObjectURL(new Blob([JSON.stringify(datos, null, 1)], {type:"application/json"}));
+  const a = document.createElement("a");
+  a.href = url; a.download = `agora-progreso-${todayStr()}.json`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 1000);
+}
+function avisoProgreso(msg, ok){
+  const el = document.getElementById("progAviso");
+  if(el){ el.className = "gfeedback show " + (ok?"ok":"no"); el.textContent = msg; }
+}
+function recuperarCopia(input){
+  const f = input.files && input.files[0];
+  input.value = "";
+  if(!f) return;
+  const lector = new FileReader();
+  lector.onload = ()=>{
+    let datos;
+    try{ datos = JSON.parse(lector.result); }catch(e){ avisoProgreso("Ese archivo no es una copia de Ágora válida.", false); return; }
+    const raw = datos && datos.app==="agora" ? datos.progreso : null;
+    if(!isPlainObj(raw)){ avisoProgreso("Ese archivo no es una copia de Ágora válida.", false); return; }
+    progress = sanitizeProgress(raw);
+    saveProgress(); refreshProgressUI();
+    avisoProgreso(`Copia recuperada${datos.fecha?` (guardada el ${datos.fecha.slice(0,10)})`:''}.`, true);
+  };
+  lector.readAsText(f);
+}
+function reiniciarTodo(){
+  const inp = document.getElementById("confReinicio");
+  if(!inp || inp.value.trim().toUpperCase() !== "REINICIAR"){ avisoProgreso("Para reiniciar, escribí REINICIAR en el recuadro.", false); return; }
+  progress = defaultProgress();
+  saveProgress(); refreshProgressUI(); renderExamFinalCard();
+  avisoProgreso("Listo: el progreso quedó en cero.", true);
+}
+let reinicioFicha = null;
+function reiniciarFicha(id){
+  if(reinicioFicha !== id){ reinicioFicha = id; renderPanorama(); return; }   // primer toque: pide confirmar
+  reinicioFicha = null;
+  const pref = id+":";
+  ["conceptDone","obraDone","respuestas","repaso"].forEach(k=>Object.keys(progress[k]).forEach(key=>{ if(key.startsWith(pref)) delete progress[k][key]; }));
+  delete progress.moduleQuiz[id];
+  saveProgress(); refreshProgressUI(); renderPanorama();
+}
+
 /* ============================= TIPS ============================= */
 function renderTips(){
   const falaciasMod = moduleById("falacias");
@@ -1660,6 +1826,21 @@ function renderProgressView(){
     </div>
     <h3>Por ficha</h3>
     ${rows}
+    <h3 style="margin-top:32px;">Copia y reinicio</h3>
+    <div class="card tight progtools">
+      <p class="muted">Tu progreso vive solo en este navegador. Guardá una copia para no perderlo o para llevarlo a otro computador.</p>
+      <div class="row">
+        <button class="btn sm" onclick="guardarCopia()">⬇️ Guardar copia</button>
+        <label class="btn ghost sm" style="cursor:pointer;">⬆️ Recuperar copia<input type="file" accept=".json,application/json" class="hidden" onchange="recuperarCopia(this)"></label>
+      </div>
+      <div class="sechead">Reiniciar todo</div>
+      <p class="muted">Borra tarjetas, repasos, cuestionarios, exámenes, racha y todo lo escrito. No se puede deshacer: guardá una copia antes.</p>
+      <div class="row">
+        <input id="confReinicio" class="campo" placeholder="Escribí REINICIAR" aria-label="Confirmación: escribí REINICIAR">
+        <button class="btn ghost sm peligro" onclick="reiniciarTodo()">Reiniciar todo</button>
+      </div>
+      <div class="gfeedback" id="progAviso" role="status" aria-live="polite"></div>
+    </div>
   `;
 }
 
