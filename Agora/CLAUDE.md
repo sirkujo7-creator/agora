@@ -34,6 +34,15 @@ Las pestañas van en tres grupos (`DET_GRUPOS` en `app/agora.js`): **Estudiar** 
 - Los enunciados que se arman con definiciones pasan por `pista()` / `enmascarar()`, que tapa las palabras del propio título y recorta el texto. Así la respuesta no aparece en la pregunta.
 - Tarjetas con repetición espaciada (cajas de Leitner: 1, 3, 7, 14 y 30 días). Las tarjetas vencidas de todas las fichas aparecen en **Repaso de hoy**, en el Inicio.
 
+## Identidad visual
+
+- **Tipografías** (Google Fonts): Instrument Serif para títulos (tiene un solo peso: nunca `font-weight` de negrita en títulos), Newsreader para leer y Bricolage Grotesque para la interfaz (`--font-ui`; `--font-mono` apunta a la misma).
+- **Color**: papel cálido y tinta oscura; cada tradición tiene su color (`--eu`, `--asia`, `--am`, `--me` y sus `-soft`), usado como acento: cabeceras, monogramas, puntos de avance y letra capital. Nunca como relleno saturado ni con bordes negros gruesos.
+- **Patrones** por tradición (`.pat-eu`, `.pat-asia`, `.pat-am`, `.pat-me`): textura suave en las cabeceras de tradición y en el encabezado de cada ficha.
+- **Monogramas** (`MONOGRAMA` en `app/agora.js`) en lugar de emojis para identificar fichas. Una ficha nueva necesita su entrada.
+- **Tema claro/oscuro**: sigue al sistema hasta que se toca el botón ☾/☀; la elección se guarda en `localStorage["agora-tema"]`, aparte del progreso.
+- **Inicio**: portada, Repaso de hoy, Tu recorrido (`fraccionFicha`), insignias (`INSIGNIAS`) y una tarjeta por tradición con sus fichas y su estado (nueva, empezada o completa).
+
 ## Forma de una ficha
 
 ```
@@ -79,4 +88,4 @@ Nivel esperado de cada ficha: ~9 conceptos y 5 obras con párrafos sustanciales,
 3. ~~**Examen final**~~: hecho (octubre de 2026), en Exámenes. Banco de 28 preguntas de selección, 24 de verdadero o falso y 24 ideas para emparejar, que cubre las 25 fichas. Para ampliarlo, agregar preguntas en `datos/examen.js`.
 4. **Decidido por Juan (octubre de 2026)**: los dilemas se quedan como están, sin suavizar, incluidos el de Kant («La pregunta del padre»), el de Nagarjuna (diagnóstico de TDAH), el de Nishida (1943) y los pasajes de Vasconcelos. Pendiente: cotejar con una edición las citas de memoria (La raza cósmica, Lecciones de Hegel, Daodejing, Zhuangzi).
 5. ~~Buscador~~ (arriba, atajo `/`; busca por comienzo de palabra, sin tildes, en fichas, conceptos, obras, lecturas, preguntas, glosario y constelaciones) y ~~copia y reinicio del progreso~~ (en Progreso: guardar y recuperar un `.json`, reiniciar todo escribiendo REINICIAR; y reiniciar una ficha desde su Panorama): hechos en octubre de 2026.
-6. **Rediseño visual** (en curso): Juan pidió una transformación visual definitiva. Se le presentaron maquetas para elegir antes de tocar la app.
+6. ~~**Rediseño visual**~~ (octubre de 2026): estilo «biblioteca viva», elegido por Juan entre maquetas (combinación de «Biblioteca» y «Plaza viva», con el color más contenido). Ver «Identidad visual» más arriba.

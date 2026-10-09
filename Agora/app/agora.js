@@ -91,7 +91,7 @@ function loadProgress(){
 function saveProgress(){
   try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); saveFailed = false; }
   catch(e){ saveFailed = true; }
-  renderStreak(); renderStatCards(); renderRepasoHoy(); renderStorageNotice();
+  renderStreak(); renderStatCards(); renderRepasoHoy(); renderLevelCards(); renderStorageNotice();
 }
 function renderStorageNotice(){
   const el = document.getElementById("storageNotice");
@@ -156,29 +156,91 @@ function showView(id){
   window.scrollTo({top:0, behavior:"instant"});
 }
 
+/* ============================= IDENTIDAD VISUAL =============================
+   Monograma de cada ficha (en lugar de emojis), patrón suave por tradición y tema claro/oscuro. */
+const MONOGRAMA = { platon:"Pl", aristoteles:"Ar", descartes:"De", kant:"Ka", hegel:"He", nietzsche:"Nz", heidegger:"Hd",
+  wittgenstein:"Wi", confucio:"Co", laozi:"La", zhuangzi:"Zh", nagarjuna:"Na", shankara:"Sh", dogen:"Dō", nishida:"Ni",
+  wangyangming:"Wy", peirce:"Pe", james:"Ja", dewey:"Dw", vasconcelos:"Va", zea:"Ze", dussel:"Du", rorty:"Ro", west:"We", falacias:"∴" };
+function clrDe(m){ return LEVELS[m.trad].clr; }
+function varsTrad(m){ const c = clrDe(m); return `--tclr:var(--${c});--tsoft:var(--${c}-soft);`; }
+function monograma(m, extra){ return `<span class="monog ${extra||''}" style="${varsTrad(m)}" aria-hidden="true">${MONOGRAMA[m.id] || m.nombre.slice(0,2)}</span>`; }
+function cambiarTema(){
+  const html = document.documentElement;
+  const oscuro = html.dataset.theme ? html.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  html.dataset.theme = oscuro ? "light" : "dark";
+  try{ localStorage.setItem("agora-tema", html.dataset.theme); }catch(e){}
+  marcarTemaBtn();
+}
+function marcarTemaBtn(){
+  const b = document.getElementById("temaBtn"); if(!b) return;
+  const html = document.documentElement;
+  const oscuro = html.dataset.theme ? html.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  b.textContent = oscuro ? "☀" : "☾";
+  b.title = oscuro ? "Pasar al tema claro" : "Pasar al tema oscuro";
+}
+
+/* Avance de una ficha entre 0 y 1: conceptos y obras dominados, cuestionario y preguntas escritas. */
+function preguntasEscritas(m){ return getQuiz(m).filter((_,i)=>palabras((progress.respuestas[m.id+":preguntas:"+i]||{}).texto)>0).length; }
+function fraccionFicha(m){
+  const c = (progress.conceptDone[m.id+":conceptos"]||[]).length / Math.max(1,m.conceptos.length);
+  const o = (progress.obraDone[m.id+":obras"]||[]).length / Math.max(1,m.obras.length);
+  const q = Math.min(100, progress.moduleQuiz[m.id]||0) / 100;
+  const p = preguntasEscritas(m) / Math.max(1,getQuiz(m).length);
+  return (c+o+q+p)/4;
+}
+function estadoFicha(m){
+  const f = fraccionFicha(m);
+  if(f===0) return "nueva";
+  const completa = (progress.moduleQuiz[m.id]||0)>=70 && (progress.conceptDone[m.id+":conceptos"]||[]).length===m.conceptos.length && preguntasEscritas(m)===getQuiz(m).length;
+  return completa ? "completa" : "empezada";
+}
+const INSIGNIAS = [
+  { i:"🏛️", n:"Primeros pasos", c:"Terminá el cuestionario final de una ficha.", ok:()=>Object.keys(progress.moduleQuiz).length>0 },
+  { i:"🌍", n:"Tres tradiciones", c:"Aprobá (70 % o más) el cuestionario de una ficha europea, una asiática y una americana.",
+    ok:()=>["europea","asiatica","americana"].every(t=>modulesByTrad(t).some(m=>(progress.moduleQuiz[m.id]||0)>=70)) },
+  { i:"✍️", n:"Pluma", c:"Respondé por escrito 10 preguntas.", ok:()=>MODULES.reduce((a,m)=>a+preguntasEscritas(m),0)>=10 },
+  { i:"🧠", n:"Memoria larga", c:"Llevá 20 tarjetas a la caja 3 o más del repaso espaciado.", ok:()=>Object.values(progress.repaso).filter(r=>r.caja>=3).length>=20 },
+  { i:"🔥", n:"Constancia", c:"Estudiá 7 días seguidos.", ok:()=>(progress.streak.count||0)>=7 },
+  { i:"🎓", n:"Examen final", c:"Aprobá el examen final integrador.", ok:()=>(progress.examHistory||[]).some(h=>h.trad==="final" && h.score>=70) }
+];
+
 /* ============================= HOME ============================= */
 function renderLevelCards(){
-  $("#levelCards").innerHTML = Object.entries(LEVELS).map(([k,l])=>`
-    <div class="card lvlcard" style="--tclr:var(--${l.clr});--tsoft:var(--${l.clr}-soft);" onclick="openLevel('${k}')">
-      <span class="lvltag">${l.tag}</span>
-      <h3>${l.label}</h3>
-      <p>${l.desc}</p>
-    </div>`).join("");
+  $("#levelCards").innerHTML = Object.entries(LEVELS).map(([k,l])=>{
+    const ms = modulesByTrad(k);
+    if(!ms.length) return "";
+    const hechas = ms.filter(m=>estadoFicha(m)!=="nueva").length;
+    return `<section class="tradcard" style="--tclr:var(--${l.clr});--tsoft:var(--${l.clr}-soft);">
+      <button class="tradcab pat-${l.clr}" onclick="openLevel('${k}')">
+        <span class="kicker">${ms.length} ficha${ms.length===1?'':'s'} · ${hechas} empezada${hechas===1?'':'s'}</span>
+        <span class="tradnom">${l.label}</span>
+        <span class="traddesc">${l.desc}</span>
+      </button>
+      <ol class="tradlist">${ms.map(m=>{ const e = estadoFicha(m); return `
+        <li><button onclick="openModule('${m.id}')"><span class="punto ${e}" title="${e==='nueva'?'Sin empezar':e==='completa'?'Completa':'Empezada'}"></span>
+          <span class="tradn">${m.nombre}</span><span class="tradf">${m.fechas.split("·")[0].trim()}</span></button></li>`; }).join("")}</ol>
+    </section>`;
+  }).join("");
 }
 function openLevel(t){ showView("modulos"); setModFilter(t); }
 function renderStatCards(){
-  const totalModules = MODULES.length;
-  const doneModules = MODULES.filter(m => (progress.moduleQuiz[m.id]||0) > 0).length;
-  const scores = Object.values(progress.moduleQuiz||{});
-  const avg = scores.length ? Math.round(scores.reduce((a,b)=>a+b,0)/scores.length) : 0;
-  const conceptTotal = MODULES.reduce((a,m)=>a+m.conceptos.length,0);
-  const conceptKnown = Object.values(progress.conceptDone||{}).reduce((a,arr)=>a+(arr?arr.length:0),0);
-  $("#statCards").innerHTML = `
-    <div class="card statbox tight"><div class="num mono">${doneModules}/${totalModules}</div><div class="lbl">fichas con cuestionario</div></div>
-    <div class="card statbox tight"><div class="num mono">${avg}%</div><div class="lbl">promedio cuestionarios</div></div>
-    <div class="card statbox tight"><div class="num mono">${conceptKnown}/${conceptTotal}</div><div class="lbl">conceptos dominados</div></div>
-    <div class="card statbox tight"><div class="num mono">${(progress.examHistory||[]).length}</div><div class="lbl">exámenes dados</div></div>
-  `;
+  const el = $("#statCards"); if(!el) return;
+  const fichas = MODULES.filter(m=>m.trad!=="metodo");
+  const total = Math.round(100 * MODULES.reduce((a,m)=>a+fraccionFicha(m),0) / MODULES.length);
+  const empezadas = MODULES.filter(m=>estadoFicha(m)!=="nueva").length, completas = MODULES.filter(m=>estadoFicha(m)==="completa").length;
+  const ganadas = INSIGNIAS.filter(x=>x.ok()), prox = INSIGNIAS.find(x=>!x.ok());
+  el.innerHTML = `
+    <div class="card hoycard">
+      <div class="kicker">Tu recorrido</div>
+      <div class="hoynum">${total} %</div>
+      <div class="recbar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${total}"><i style="width:${total}%"></i></div>
+      <div class="muted">${empezadas} ficha${empezadas===1?'':'s'} empezada${empezadas===1?'':'s'} · ${completas} completa${completas===1?'':'s'}</div>
+    </div>
+    <div class="card hoycard">
+      <div class="kicker">Insignias · ${ganadas.length}/${INSIGNIAS.length}</div>
+      <div class="insignias">${INSIGNIAS.map(x=>`<span class="insignia ${x.ok()?'ok':''}" title="${x.n}: ${x.c}${x.ok()?' (ganada)':''}">${x.i}</span>`).join("")}</div>
+      <div class="muted">${prox?`Próxima: <b>${prox.n}</b>. ${prox.c}`:'¡Las tenés todas!'}</div>
+    </div>`;
 }
 
 /* ============================= MODULES ============================= */
@@ -194,11 +256,14 @@ function renderModuleCards(){
   $("#moduleCards").innerHTML = list.map(m=>{
     const score = progress.moduleQuiz[m.id];
     const clr = LEVELS[m.trad].clr;
-    return `<div class="card modcard" style="--tclr:var(--${clr});--tsoft:var(--${clr}-soft);" onclick="openModule('${m.id}')">
-      <span class="emo">${m.icon}</span>
-      <h4>${m.nombre} ${m.profundizada?'<span class="badge">◆ profundizada</span>':''}</h4>
-      <span class="meta">${LEVELS[m.trad].label} · ${score!=null?('cuestionario: '+score+'%'):'sin empezar'}</span>
-    </div>`;
+    const pct = Math.round(100*fraccionFicha(m));
+    return `<button class="card modcard pat-${clr}-borde" style="--tclr:var(--${clr});--tsoft:var(--${clr}-soft);" onclick="openModule('${m.id}')">
+      ${monograma(m)}
+      <span class="modtxt"><span class="kicker">${LEVELS[m.trad].label} · ${m.fechas.split("·")[0].trim()}</span>
+      <span class="modnom">${m.nombre}</span>
+      <span class="meta">${m.escuela}</span></span>
+      <span class="modbar" title="Avance ${pct} %"><i style="width:${pct}%"></i></span>
+    </button>`;
   }).join("");
 }
 
@@ -222,8 +287,10 @@ function grupoDe(tab){ return DET_GRUPOS.find(g=>g.tabs.some(([k])=>k===tab)) ||
 function openModule(id, tab){
   currentModule = moduleById(id);
   currentDetTab = DET_RENDER[tab] ? tab : "panorama";
-  $("#detTitle").textContent = currentModule.icon+"  "+currentModule.nombre;
-  $("#detMeta").textContent = currentModule.fechas+" · "+currentModule.escuela;
+  const m = currentModule, partes = m.fechas.split("·").map(x=>x.trim());
+  $("#view-detalle").setAttribute("style", varsTrad(m));
+  $("#detHero").innerHTML = `<div class="dethero pat-${clrDe(m)}">${monograma(m,"grande")}
+    <div><div class="kicker">${LEVELS[m.trad].label} · ${m.escuela}</div><h1>${m.nombre}</h1><div class="detmeta">${partes.join(" · ")}</div></div></div>`;
   showView("detalle");
   renderDetTab();
 }
@@ -231,8 +298,9 @@ function setDetTab(k){ currentDetTab = k; renderDetTab(); }
 function setDetGrupo(g){ setDetTab(DET_GRUPOS.find(x=>x.id===g).tabs[0][0]); }
 function renderDetTabs(){
   const g = grupoDe(currentDetTab);
+  const SUB = { estudiar:"panorama, conceptos, obras, lecturas", practicar:"repaso, emparejar, cuestionario", pensar:"preguntas, razonamiento, dilema" };
   $("#detTabs").innerHTML = `
-    <div class="grouptabs" role="tablist">${DET_GRUPOS.map(x=>`<button class="${x.id===g.id?'active':''}" aria-pressed="${x.id===g.id}" onclick="setDetGrupo('${x.id}')">${x.label}</button>`).join("")}</div>
+    <div class="grouptabs" role="tablist">${DET_GRUPOS.map(x=>`<button class="${x.id===g.id?'active':''}" aria-pressed="${x.id===g.id}" onclick="setDetGrupo('${x.id}')"><b>${x.label}</b><small>${SUB[x.id]}</small></button>`).join("")}</div>
     <div class="subtabs">${g.tabs.map(([k,l])=>`<button data-dt="${k}" class="${k===currentDetTab?'active':''}" onclick="setDetTab('${k}')">${l}</button>`).join("")}</div>`;
 }
 function renderDetTab(){
@@ -255,25 +323,26 @@ function renderPanorama(){
   const avanzados = ["cadena","reconstruccion","dilemas"].filter(k=>d[k] && (!Array.isArray(d[k]) || d[k].length)).length;
   const paso = (n, titulo, detalle, tab, hecho)=>`
     <li class="rutapaso${hecho?' hecho':''}"><span class="rutanum">${hecho?'✓':n}</span>
-      <div><button class="linkbtn" onclick="setDetTab('${tab}')">${titulo}</button><div class="muted">${detalle}</div></div></li>`;
+      <div><button class="linkbtn" onclick="setDetTab('${tab}')">${titulo}</button><div class="rutadet">${detalle}</div></div></li>`;
   $("#detBody").innerHTML = `
-    <div style="--tclr:var(--${clr});">
-      <h4>Tesis central</h4>
-      <p class="tesis">${d.tesis}</p>
-      <h4 style="margin-top:22px;">Para no confundir</h4>
-      <div class="mistake">🔗 <span>${d.conexion}</span></div>
-      <div class="sechead">Ruta sugerida para esta ficha</div>
-      <ol class="ruta">
-        ${paso(1,"Leé las lecturas","Fuente primaria o comentario, con su nota de lectura.","lecturas", false)}
-        ${paso(2,"Estudiá conceptos y obras",`Dominadas: ${domC}/${d.conceptos.length} conceptos · ${domO}/${d.obras.length} obras${hoy?` · <b>${hoy} para repasar hoy</b>`:''}.`,"conceptos", domC===d.conceptos.length && domO===d.obras.length && !hoy)}
-        ${paso(3,"Leé el diálogo","Las objeciones fuertes y cómo responde el autor.","dialogo", false)}
-        ${paso(4,"Practicá","Repaso mixto y emparejar; cerrá con el cuestionario final"+(quiz!=null?` (último: ${quiz}%)`:'')+".","repaso", quiz!=null && quiz>=70)}
-        ${paso(5,"Respondé las preguntas",`Escribí tu respuesta y comparala con la del modelo · ${resp}/${nPreg} respondidas.`,"preguntas", nPreg>0 && resp===nPreg)}
-        ${paso(6,"Pensá con los ejercicios",avanzados?"Razonamiento en ramas, reconstrucción de argumentos y un dilema.":"Los ejercicios avanzados de esta ficha todavía no están disponibles.","razonamiento", false)}
-      </ol>
-      <div class="row" style="margin-top:18px;">
-        <button class="linkbtn muted" style="font-weight:400;font-size:.85rem;" onclick="reiniciarFicha('${d.id}')">${reinicioFicha===d.id?'¿Seguro? Se borra lo de esta ficha (tarjetas, repasos, cuestionario y lo escrito). Tocá de nuevo para confirmar.':'Reiniciar el progreso de esta ficha'}</button>
+    <div class="panocols">
+      <div>
+        <div class="kicker">Tesis central</div>
+        <p class="tesis capital">${d.tesis}</p>
+        <div class="paraconf"><div class="kicker">Para no confundir</div><div>${d.conexion}</div></div>
       </div>
+      <aside class="margen">
+        <div class="kicker">Tu ruta en esta ficha</div>
+        <ol class="ruta">
+          ${paso(1,"Lecturas","Fuente o comentario, con su nota de lectura.","lecturas", false)}
+          ${paso(2,"Conceptos y obras",`${domC}/${d.conceptos.length} conceptos · ${domO}/${d.obras.length} obras${hoy?` · <b>${hoy} para hoy</b>`:''}`,"conceptos", domC===d.conceptos.length && domO===d.obras.length && !hoy)}
+          ${paso(3,"Diálogo","Las objeciones fuertes y las respuestas.","dialogo", false)}
+          ${paso(4,"Practicar",quiz!=null?`Último cuestionario: ${quiz} %`:"Repaso mixto, emparejar y cuestionario.","repaso", quiz!=null && quiz>=70)}
+          ${paso(5,"Preguntas",`${resp}/${nPreg} respondidas por escrito`,"preguntas", nPreg>0 && resp===nPreg)}
+          ${paso(6,"Pensar",avanzados?"Razonamiento, argumentos y dilema.":"Ejercicios todavía no disponibles.","razonamiento", false)}
+        </ol>
+        <button class="linkbtn reset" onclick="reiniciarFicha('${d.id}')">${reinicioFicha===d.id?'¿Seguro? Se borra lo de esta ficha (tarjetas, repasos, cuestionario y lo escrito). Tocá de nuevo para confirmar.':'Reiniciar el progreso de esta ficha'}</button>
+      </aside>
     </div>`;
 }
 
@@ -319,10 +388,13 @@ function renderRepasoHoy(){
   if(!el) return;
   const n = tarjetasParaHoy().length;
   el.innerHTML = n
-    ? `<div class="card repasohoy"><div><b>📅 Tenés ${n} tarjeta${n===1?'':'s'} para repasar hoy.</b>
-        <div class="muted">Son las que marcaste como claras hace un tiempo: repasarlas justo ahora es lo que las fija.</div></div>
-        <button class="btn" onclick="startRepasoGlobal()">Empezar el repaso</button></div>`
-    : `<div class="lecnote">📅 No tenés tarjetas para repasar hoy. Cuando marques una tarjeta como «la tengo clara», la app te la vuelve a mostrar al día siguiente, después a los 3, 7, 14 y 30 días.</div>`;
+    ? `<div class="card hoycard repasohoy"><div class="kicker">Repaso de hoy</div>
+        <div class="hoytit">${n} tarjeta${n===1?' te espera':'s te esperan'}</div>
+        <div class="muted">Las marcaste como claras hace un tiempo: repasarlas justo ahora es lo que las fija.</div>
+        <button class="btn" onclick="startRepasoGlobal()">Empezar el repaso →</button></div>`
+    : `<div class="card hoycard repasohoy"><div class="kicker">Repaso de hoy</div>
+        <div class="hoytit">Nada pendiente</div>
+        <div class="muted">Cuando marques una tarjeta como «la tengo clara», la app te la vuelve a mostrar al día siguiente, y después a los 3, 7, 14 y 30 días.</div></div>`;
 }
 function startRepasoGlobal(){
   flashGlobal = true;
@@ -354,7 +426,7 @@ function drawFlash(){
       <div class="flashnotice">${flashNotice || ""}${saveFailed?' · ⚠️ no se pudo guardar en este navegador':''}</div>
       <div class="flashcard"><div class="flashinner" id="flashInner" tabindex="0" role="button" aria-label="Voltear tarjeta" onclick="flipFlash()" onkeydown="flashKeydown(event)">
         <div class="flashface front">
-          <div class="emo">${c.mod.icon}</div>
+          ${monograma(c.mod)}
           <div class="clue${largo?' long':''}">“${enmascarar(item.d, item.t)}”</div>
           <div class="hintline">${largo?'desplazá el texto si hace falta · tocá la tarjeta para ver el nombre':'tocá la tarjeta para ver el nombre'}</div>
         </div>
@@ -1303,7 +1375,7 @@ function renderConstelaciones(){
     <div class="constgrid">
       ${entradas.map(({e,m})=>{ const clr = LEVELS[m.trad].clr; return `
         <article class="constpost" style="--tclr:var(--${clr});--tsoft:var(--${clr}-soft);">
-          <header><span class="emo" aria-hidden="true">${m.icon}</span><div><h4>${m.nombre}</h4><span class="lvltag mono">${LEVELS[m.trad].label} · ${m.escuela}</span></div></header>
+          <header>${monograma(m)}<div><h4>${m.nombre}</h4><span class="lvltag mono">${LEVELS[m.trad].label} · ${m.escuela}</span></div></header>
           <p>${e.postura}</p>
           <button class="btn ghost sm" onclick="openModule('${m.id}')">Abrir la ficha →</button>
         </article>`; }).join("")}
@@ -1510,7 +1582,7 @@ function renderExamFinalCard(){
   el.innerHTML = `
     <div class="card finalcard">
       <div>
-        <span class="lvltag mono">Las 25 fichas</span>
+        <span class="kicker" style="color:var(--accent)">Las 25 fichas</span>
         <h3>Examen final integrador</h3>
         <p class="muted">${FINAL_N.sel} preguntas de selección múltiple con situación, al estilo Saber Pro · ${FINAL_N.vf} de verdadero o falso · un emparejamiento de ${FINAL_N.emp} ideas con su autor. Sin límite de tiempo: las respuestas y las explicaciones se ven al final.${ult?` <b>Último intento: ${ult.score}%</b> (${ult.date}).`:''}</p>
       </div>
@@ -1625,7 +1697,7 @@ function terminarFinal(){
       <p class="mono" style="font-size:.85rem;">Selección ${pts.sel[0]}/${pts.sel[1]} · Verdadero o falso ${pts.vf[0]}/${pts.vf[1]} · Emparejamiento ${pts.emp[0]}/${pts.emp[1]}</p>
       <button class="btn ghost" onclick="cerrarExamenFinal()">Volver</button>
     </div>
-    ${fichas.length?`<h4 style="margin-top:24px;">Fichas para repasar</h4><div class="chiprow">${fichas.map(m=>`<button class="chip" onclick="openModule('${m.id}')">${m.icon} ${m.nombre}</button>`).join("")}</div>`:''}
+    ${fichas.length?`<h4 style="margin-top:24px;">Fichas para repasar</h4><div class="chiprow">${fichas.map(m=>`<button class="chip" onclick="openModule('${m.id}')">${m.nombre}</button>`).join("")}</div>`:''}
     <h4 style="margin-top:20px;">Revisión de todas las respuestas</h4>
     ${revision.join("")}`;
   window.scrollTo({top:0, behavior:"instant"});
@@ -1709,7 +1781,7 @@ function renderBusqueda(q){
   const terms = normBusq(q).split(/\s+/).filter(t=>t.length>=2);
   box.innerHTML = `<div class="busqcuenta">${busqResultados.length}${busqResultados.length===40?'+':''} resultado${busqResultados.length===1?'':'s'} · Enter abre el primero · Esc cierra</div>` +
     busqResultados.map((e,i)=>`<button class="busqitem" onclick="abrirResultado(${i})">
-      <span class="busqtipo">${e.tipo}${e.mod?` · ${e.mod.icon} ${escapeHtml(e.mod.nombre)}`:''}</span>
+      <span class="busqtipo">${e.tipo}${e.mod?` · ${escapeHtml(e.mod.nombre)}`:''}</span>
       <span class="busqtit">${resaltar(textoPlano(e.titulo), terms)}</span>
       <span class="busqfrag">${fragmento(e, q)}</span></button>`).join("");
 }
@@ -1813,7 +1885,7 @@ function renderProgressView(){
     const clr = LEVELS[m.trad].clr;
     return `
       <div class="card tight" style="margin-bottom:12px;border-left:4px solid var(--${clr});">
-        <div class="row"><b>${m.icon} ${m.nombre}</b><div class="spacer"></div><span class="muted mono">${LEVELS[m.trad].label}</span></div>
+        <div class="row">${monograma(m,"chico")}<b>${m.nombre}</b><div class="spacer"></div><span class="muted mono">${LEVELS[m.trad].label}</span></div>
         <div class="row muted" style="font-size:.85rem;margin-top:6px;"><span>Conceptos: ${knownC}/${m.conceptos.length} (${pct}%)</span><div class="spacer"></div><span>Preguntas escritas: ${resp}/${nPreg}</span><div class="spacer"></div><span>Cuestionario: ${quiz!=null?quiz+'%':'—'}</span></div>
       </div>`;
   }).join("");
@@ -1851,6 +1923,7 @@ function init(){
   renderStorageNotice();
   renderStreak();   // también cuando hoy ya se había contado y bumpStreak() no guarda
   renderTabs();
+  marcarTemaBtn();
   renderLevelCards();
   renderStatCards();
   renderRepasoHoy();
