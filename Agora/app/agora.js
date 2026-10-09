@@ -1305,7 +1305,7 @@ function renderConstelaciones(){
     ${q?`<div class="qcard" style="margin-top:20px;">
       <div class="sechead" style="margin-top:0;">Pregunta de comparación</div>
       <div class="prompt" style="font-size:1.05rem;margin-bottom:14px;">${q.enunciado}</div>
-      <div class="optrow constopts" id="constOpts">${q.opciones.map((o,i)=>`<button class="optbtn" data-ix="${i}" onclick="responderConstelacion(${i},this)">${o}</button>`).join("")}</div>
+      <div class="optrow constopts" id="constOpts">${shuffle(q.opciones.map((o,i)=>({o,i}))).map(({o,i})=>`<button class="optbtn" data-ix="${i}" onclick="responderConstelacion(${i},this)">${o}</button>`).join("")}</div>
       <div class="gfeedback" id="constFb" role="status" aria-live="polite"></div>
     </div>`:""}`;
 }

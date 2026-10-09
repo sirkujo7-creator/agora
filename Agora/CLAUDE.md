@@ -68,7 +68,7 @@ Nivel esperado de cada ficha: ~9 conceptos y 5 obras con párrafos sustanciales,
 ## Trabajo pendiente (a octubre de 2026)
 
 1. ~~**Ejercicios avanzados**~~: hechos en las 25 fichas (octubre de 2026). Al agregar una ficha nueva, incluirlos desde el principio; `verificar.js` avisa si faltan.
-2. **Constelaciones**: hoy hay un solo tema (Platón–Aristóteles, "¿Qué es conocer?"). Faltan temas que crucen tradiciones (por ejemplo Nagarjuna–Descartes, Wittgenstein–Dewey, Heidegger–Nishida, que ya aparecen como puentes en los Tips).
+2. ~~**Constelaciones**~~: 8 temas (octubre de 2026): conocer, el yo, la nada, saber y hacer, la verdad, el lenguaje, quién está dentro de la historia y la muerte. Las opciones de la pregunta se muestran mezcladas, así que la `explicacion` nombra cada opción por su contenido, nunca por su posición («la tercera…»).
 3. **Examen final**: un examen integrador de las 25 fichas con selección múltiple estilo Saber Pro (enunciado con situación y cuatro opciones plausibles), verdadero/falso y emparejamiento cruzado entre filósofos. Sin preguntas abiertas ni calificación por IA.
 4. **Para revisar con Juan**: el dilema de Kant "La pregunta del padre" plantea el caso de un estudiante de 16 años que le cuenta a un docente que es gay, con un padre violento. Está tratado con cuidado, pero Juan tiene que decidir si lo deja, lo suaviza o lo reemplaza antes de usarlo con estudiantes.
 5. Ideas sin decidir: buscador de fichas, botón de tema claro/oscuro, exportar y reiniciar el progreso completo (hoy se exporta solo lo escrito, ficha por ficha).
