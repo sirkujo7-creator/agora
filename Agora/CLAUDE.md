@@ -1,6 +1,6 @@
 # Ágora — guía del proyecto para Claude Code
 
-Ágora es una app de estudio de filosofía en español (voseo rioplatense en toda la interfaz y los textos). La usa Juan, docente de filosofía en Ibagué, para estudiar por su cuenta y eventualmente con estudiantes. Es HTML + CSS + JavaScript sin dependencias ni paso de compilación: se abre haciendo doble clic en `index.html`.
+Ágora es una app de estudio de filosofía en español (voseo rioplatense en toda la interfaz y los textos). La usa Juan, docente de filosofía en Ibagué, para estudiar por su cuenta y eventualmente con estudiantes. Es HTML + CSS + JavaScript sin dependencias ni paso de compilación: se abre haciendo doble clic en `index.html`, y además se publica en GitHub Pages como app instalable que funciona sin internet.
 
 ## Estructura
 
@@ -11,9 +11,15 @@ datos/base.js              LEVELS (tradiciones) y los contenedores vacíos MODUL
 datos/modulos/<trad>/<id>.js   Una ficha por archivo: MODULES.push({...}) + LECTURAS.<id> = {...}
 datos/transversal.js       POLYSEMOUS_TERMS y CONSTELACIONES (no pertenecen a una sola ficha)
 datos/examen.js            EXAMEN_FINAL: banco del examen final integrador
+datos/claves.js            CLAVES: 3-4 ideas clave por pregunta del cuestionario de cada ficha
 app/agora.js               Toda la lógica: estado, progreso, navegación, motores de ejercicios
 herramientas/verificar.js  Chequeo de integridad de los datos (correrlo después de cada cambio)
-herramientas/empaquetar.js Genera dist/agora.html: la app entera en un solo archivo para compartir (dist/ no se versiona)
+herramientas/empaquetar.js Genera dist/agora.html: la app entera en un solo archivo (tipografías incluidas) para compartir (dist/ no se versiona)
+fuentes/                   Tipografías .woff2 incluidas en el proyecto + fuentes.css (@font-face)
+iconos/, manifest.webmanifest, sw.js   App instalable (PWA) y caché para usarla sin internet (solo por http/https)
+pruebas/navegador.js       Pruebas en Chromium con Playwright: recorre toda la app, también sin internet y desde file://
+package.json               Solo para las pruebas (Playwright); la app no instala nada
+../.github/workflows/      pruebas.yml (corre verificar + pruebas en cada cambio) y pages.yml (publica Agora/ en GitHub Pages)
 ```
 
 El orden de las fichas en la app es el orden de los `<script>` en `index.html`. Para agregar una ficha nueva: crear `datos/modulos/<trad>/<id>.js` con la misma forma que las demás y agregar su `<script>` en el lugar que corresponda.
@@ -21,15 +27,15 @@ El orden de las fichas en la app es el orden de los `<script>` en `index.html`. 
 ## Reglas que no hay que romper
 
 - **Scripts clásicos, nada de ES modules ni `fetch`**: la app se abre desde `file://`, donde los módulos y `fetch` fallan por CORS. Las variables globales (`MODULES`, `LECTURAS`, funciones de `app/agora.js`) se comparten entre los `<script>` y los `onclick` del HTML las usan.
-- **Sin dependencias externas** salvo las fuentes de Google Fonts (si no hay internet, caen en las serif/mono del sistema).
+- **Sin dependencias externas**: ni siquiera las tipografías, que están en `fuentes/`. El service worker (`sw.js`) solo se registra por http(s); desde `file://` no hace nada. Lee `index.html` y `fuentes/fuentes.css` para saber qué guardar, así que una ficha nueva queda incluida sola; cambiar `CACHE` en `sw.js` solo si hace falta forzar que se borre la caché vieja.
 - **No usar `claude.use(...)` ni capacidades de artefactos de claude.ai.** Ágora dejó de ser un artefacto; se eliminaron a propósito Dialogar y Revisor (IA en vivo) porque eran poco confiables. Todo es determinista.
-- **Progreso en `localStorage`**, clave `"agora-progress-v1"`, forma `{conceptDone, obraDone, examHistory, streak:{last,count}, moduleQuiz, respuestas, repaso}`. `respuestas` (lo escrito en Preguntas y Escribir: `{texto, visto?, eval?}` por `"<id>:preguntas|actividades:<i>"`) y `repaso` (repetición espaciada: `{caja:0-5, prox}` por `"<id>:conceptos|obras:<i>"`) son opcionales y se agregaron sin migrar. No cambiar la forma sin migrar; todo campo nuevo pasa por `sanitizeProgress`. `conceptDone["<id>:conceptos"]`, `repaso` y `respuestas` guardan **índices** de `conceptos`, `obras`, `cuestionario` y `actividades`: al editar una ficha, agregar al final y no reordenar, o el progreso guardado apuntará a otra tarjeta o pregunta.
+- **Progreso en `localStorage`**, clave `"agora-progress-v1"`, forma `{conceptDone, obraDone, examHistory, streak:{last,count}, moduleQuiz, respuestas, repaso}`. `respuestas` (lo escrito en Preguntas y Escribir: `{texto, visto?, eval?, claves?}` por `"<id>:preguntas|actividades:<i>"`) y `repaso` (repetición espaciada: `{caja:0-5, prox}` por `"<id>:conceptos|obras:<i>"`) son opcionales y se agregaron sin migrar. No cambiar la forma sin migrar; todo campo nuevo pasa por `sanitizeProgress`. `conceptDone["<id>:conceptos"]`, `repaso` y `respuestas` guardan **índices** de `conceptos`, `obras`, `cuestionario` y `actividades`: al editar una ficha, agregar al final y no reordenar, o el progreso guardado apuntará a otra tarjeta o pregunta.
 - Fechas de racha y exámenes en **hora local** (no UTC).
 
 ## Cómo se recorre una ficha
 
 Las pestañas van en tres grupos (`DET_GRUPOS` en `app/agora.js`): **Estudiar** (Panorama con tesis, conexión y ruta sugerida · Conceptos · Obras · Lecturas · Diálogo), **Practicar** (Repaso mixto · Emparejar · Cuestionario final) y **Pensar** (Preguntas · Razonamiento · Argumentos · Dilema · Escribir).
-- `cuestionario:[{q,p}]` se muestra en **Preguntas**: se escribe primero, después se ve la respuesta del modelo y se autoevalúa.
+- `cuestionario:[{q,p}]` se muestra en **Preguntas**: se escribe primero, después se ve la respuesta del modelo y se marcan las ideas clave (`CLAVES.<id>[i]`) que aparecen en lo escrito. De ahí sale la autoevaluación (`eval`: todas → si, algunas → parte, ninguna → no) y los índices marcados quedan en `respuestas[k].claves`. El modo **Revisar a un compañero** usa las mismas claves sobre la respuesta de otra persona, con un comentario, y se baja en `.txt`. No se guarda: vive en memoria hasta cambiar de ficha.
 - `actividades` se desarrollan en **Escribir**, que guarda el texto, permite bajarlo en `.txt` y tiene la ruleta.
 - Los enunciados que se arman con definiciones pasan por `pista()` / `enmascarar()`, que tapa las palabras del propio título y recorta el texto. Así la respuesta no aparece en la pregunta.
 - Tarjetas con repetición espaciada (cajas de Leitner: 1, 3, 7, 14 y 30 días). Las tarjetas vencidas de todas las fichas aparecen en **Repaso de hoy**, en el Inicio.
@@ -78,14 +84,17 @@ Nivel esperado de cada ficha: ~9 conceptos y 5 obras con párrafos sustanciales,
 ## Después de cada cambio
 
 1. `node herramientas/verificar.js` — tiene que terminar en "✓ Sin errores". También lista qué fichas faltan de ejercicios avanzados.
-2. Abrir `index.html` y recorrer las pestañas tocadas (sin errores en la consola).
-3. Si Juan quiere compartir la app como un solo archivo: `node herramientas/empaquetar.js` → `dist/agora.html`.
+2. `node pruebas/navegador.js` — tiene que terminar en "✓ Todas las pruebas pasaron" (usa Playwright: `npm install` y `npx playwright install chromium` la primera vez). GitHub Actions corre las dos cosas en cada pull request.
+3. Si se tocó algo visual, mirar las pestañas tocadas en el navegador (claro, oscuro y celular).
+4. Si Juan quiere compartir la app como un solo archivo: `node herramientas/empaquetar.js` → `dist/agora.html`.
 
 ## Trabajo pendiente (a octubre de 2026)
 
-1. ~~**Ejercicios avanzados**~~: hechos en las 25 fichas (octubre de 2026). Al agregar una ficha nueva, incluirlos desde el principio; `verificar.js` avisa si faltan.
-2. ~~**Constelaciones**~~: 8 temas (octubre de 2026): conocer, el yo, la nada, saber y hacer, la verdad, el lenguaje, quién está dentro de la historia y la muerte. Las opciones de la pregunta se muestran mezcladas, así que la `explicacion` nombra cada opción por su contenido, nunca por su posición («la tercera…»).
-3. ~~**Examen final**~~: hecho (octubre de 2026), en Exámenes. Banco de 28 preguntas de selección, 24 de verdadero o falso y 24 ideas para emparejar, que cubre las 25 fichas. Para ampliarlo, agregar preguntas en `datos/examen.js`.
+1. ~~**Ejercicios avanzados**~~: hechos en todas las fichas (octubre de 2026). Al agregar una ficha nueva, incluirlos desde el principio; `verificar.js` avisa si faltan.
+2. ~~**Constelaciones**~~: 9 temas (octubre de 2026): conocer, el yo, la nada, saber y hacer, la verdad, el lenguaje, quién está dentro de la historia, la muerte y quién tiene derecho a la palabra. Las opciones de la pregunta se muestran mezcladas, así que la `explicacion` nombra cada opción por su contenido, nunca por su posición («la tercera…»).
+3. ~~**Examen final**~~: hecho (octubre de 2026), en Exámenes. El banco cubre todas las fichas; `verificar.js` avisa si una ficha nueva no tiene preguntas. Para ampliarlo, agregar preguntas en `datos/examen.js`.
 4. **Decidido por Juan (octubre de 2026)**: los dilemas se quedan como están, sin suavizar, incluidos el de Kant («La pregunta del padre»), el de Nagarjuna (diagnóstico de TDAH), el de Nishida (1943) y los pasajes de Vasconcelos. Juan decidió que no hace falta cotejar con una edición las citas escritas de memoria.
 5. ~~Buscador~~ (arriba, atajo `/`; busca por comienzo de palabra, sin tildes, en fichas, conceptos, obras, lecturas, preguntas, glosario y constelaciones) y ~~copia y reinicio del progreso~~ (en Progreso: guardar y recuperar un `.json`, reiniciar todo escribiendo REINICIAR; y reiniciar una ficha desde su Panorama): hechos en octubre de 2026.
 6. ~~**Rediseño visual**~~ (octubre de 2026): estilo «biblioteca viva», elegido por Juan entre maquetas (combinación de «Biblioteca» y «Plaza viva», con el color más contenido). Ver «Identidad visual» más arriba.
+7. ~~**Fichas nuevas**~~ (octubre de 2026): Hannah Arendt, Simone de Beauvoir y María Zambrano (europeas), Sor Juana Inés de la Cruz y Estanislao Zuleta (americanas). Son 30 fichas. Antes no había ninguna mujer. Las fuentes de sus lecturas son artículos de Wikipedia en español: la red del entorno de trabajo no permitía verificar otros enlaces. Al agregar una ficha: su `<script>` en `index.html`, su entrada en `MONOGRAMA`, preguntas en `datos/examen.js` y, si corresponde, en `ESCUELAS`.
+8. ~~**Devolución de lo escrito con ideas clave**~~ (octubre de 2026): `datos/claves.js` con 3-4 ideas por pregunta, sacadas de la respuesta del modelo, y el modo de revisión entre pares en Preguntas. Una ficha nueva necesita su entrada en `CLAVES` (`verificar.js` lo controla); al agregar una pregunta al cuestionario, agregar su lista al final.
