@@ -67,7 +67,7 @@ Nivel esperado de cada ficha: ~9 conceptos y 5 obras con párrafos sustanciales,
 
 ## Trabajo pendiente (a octubre de 2026)
 
-1. **Ejercicios avanzados** (`cadena`, `reconstruccion`, `dilemas`) para las 12 fichas que faltan, en tandas chicas: Dōgen, Nishida, Wang Yangming → Peirce, James, Dewey, Vasconcelos, Zea → Dussel, Rorty, West, Falacias. `verificar.js` muestra la lista actualizada.
+1. **Ejercicios avanzados** (`cadena`, `reconstruccion`, `dilemas`) para las 9 fichas que faltan, en tandas chicas: Peirce, James, Dewey, Vasconcelos, Zea → Dussel, Rorty, West, Falacias. `verificar.js` muestra la lista actualizada.
 2. **Constelaciones**: hoy hay un solo tema (Platón–Aristóteles, "¿Qué es conocer?"). Faltan temas que crucen tradiciones (por ejemplo Nagarjuna–Descartes, Wittgenstein–Dewey, Heidegger–Nishida, que ya aparecen como puentes en los Tips).
 3. **Examen final**: un examen integrador de las 25 fichas con selección múltiple estilo Saber Pro (enunciado con situación y cuatro opciones plausibles), verdadero/falso y emparejamiento cruzado entre filósofos. Sin preguntas abiertas ni calificación por IA.
 4. **Para revisar con Juan**: el dilema de Kant "La pregunta del padre" plantea el caso de un estudiante de 16 años que le cuenta a un docente que es gay, con un padre violento. Está tratado con cuidado, pero Juan tiene que decidir si lo deja, lo suaviza o lo reemplaza antes de usarlo con estudiantes.
