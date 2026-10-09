@@ -7,7 +7,8 @@
    - la forma básica de cada ficha (conceptos, obras, cuestionario, diálogo),
    - los ejercicios avanzados: cadena (enlaces y nodos alcanzables),
      reconstruccion (exactamente un distractor, ordenCorrecto válido) y dilemas,
-   - que las Constelaciones apunten a fichas existentes.
+   - que las Constelaciones apunten a fichas existentes,
+   - que cada pregunta del cuestionario tenga sus 3-4 ideas clave (datos/claves.js).
    Sale con código 1 si encuentra errores. */
 const fs = require("fs"), path = require("path"), vm = require("vm");
 const RAIZ = path.join(__dirname, "..");
@@ -36,8 +37,8 @@ for (const trad of fs.readdirSync(dirMod)) for (const f of fs.readdirSync(path.j
 if (errores.length) fin();
 
 const ctx = {}; vm.createContext(ctx);
-vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL};", ctx);
-const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EXAMEN_FINAL } = ctx.__d;
+vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES};", ctx);
+const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EXAMEN_FINAL, CLAVES } = ctx.__d;
 
 const ids = new Set();
 for (const m of MODULES) {
@@ -126,6 +127,20 @@ else {
   if ((E.seleccion || []).length < 12 || (E.vf || []).length < 8) err("examen final: el banco necesita al menos 12 preguntas de selección y 8 de verdadero o falso");
   const sinCubrir = MODULES.filter(m => ![...(E.seleccion || []), ...(E.vf || [])].some(x => (x.fichas || []).includes(m.id))).map(m => m.id);
   if (sinCubrir.length) aviso(`examen final: fichas sin preguntas en el banco: ${sinCubrir.join(", ")}`);
+}
+// Ideas clave de las preguntas escritas: una lista de 3-4 por pregunta del cuestionario
+if (!CLAVES) err("no hay ideas clave (datos/claves.js)");
+else {
+  MODULES.forEach(m => {
+    const c = CLAVES[m.id], n = (m.cuestionario || []).length;
+    if (!Array.isArray(c)) { err(`${m.id}: no tiene ideas clave en datos/claves.js`); return; }
+    if (c.length !== n) err(`${m.id}: tiene ${c.length} listas de ideas clave para ${n} preguntas`);
+    c.forEach((l, i) => {
+      if (!Array.isArray(l) || l.length < 3 || l.length > 4) err(`${m.id}: la pregunta ${i + 1} necesita entre 3 y 4 ideas clave`);
+      else if (l.some(x => typeof x !== "string" || !x.trim())) err(`${m.id}: la pregunta ${i + 1} tiene una idea clave vacía`);
+    });
+  });
+  Object.keys(CLAVES).forEach(k => { if (!ids.has(k)) aviso(`CLAVES.${k} no corresponde a ninguna ficha`); });
 }
 Object.keys(LECTURAS).forEach(k => { if (!ids.has(k)) aviso(`LECTURAS.${k} no corresponde a ninguna ficha`); });
 
