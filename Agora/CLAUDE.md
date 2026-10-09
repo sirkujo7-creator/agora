@@ -10,9 +10,10 @@ estilos/agora.css          Todo el CSS (tokens de color claro/oscuro en :root)
 datos/base.js              LEVELS (tradiciones) y los contenedores vacíos MODULES = [] y LECTURAS = {}
 datos/modulos/<trad>/<id>.js   Una ficha por archivo: MODULES.push({...}) + LECTURAS.<id> = {...}
 datos/transversal.js       POLYSEMOUS_TERMS y CONSTELACIONES (no pertenecen a una sola ficha)
+datos/examen.js            EXAMEN_FINAL: banco del examen final integrador
 app/agora.js               Toda la lógica: estado, progreso, navegación, motores de ejercicios
 herramientas/verificar.js  Chequeo de integridad de los datos (correrlo después de cada cambio)
-herramientas/empaquetar.js Genera dist/agora.html: la app entera en un solo archivo para compartir
+herramientas/empaquetar.js Genera dist/agora.html: la app entera en un solo archivo para compartir (dist/ no se versiona)
 ```
 
 El orden de las fichas en la app es el orden de los `<script>` en `index.html`. Para agregar una ficha nueva: crear `datos/modulos/<trad>/<id>.js` con la misma forma que las demás y agregar su `<script>` en el lugar que corresponda.
@@ -22,8 +23,25 @@ El orden de las fichas en la app es el orden de los `<script>` en `index.html`. 
 - **Scripts clásicos, nada de ES modules ni `fetch`**: la app se abre desde `file://`, donde los módulos y `fetch` fallan por CORS. Las variables globales (`MODULES`, `LECTURAS`, funciones de `app/agora.js`) se comparten entre los `<script>` y los `onclick` del HTML las usan.
 - **Sin dependencias externas** salvo las fuentes de Google Fonts (si no hay internet, caen en las serif/mono del sistema).
 - **No usar `claude.use(...)` ni capacidades de artefactos de claude.ai.** Ágora dejó de ser un artefacto; se eliminaron a propósito Dialogar y Revisor (IA en vivo) porque eran poco confiables. Todo es determinista.
-- **Progreso en `localStorage`**, clave `"agora-progress-v1"`, forma `{conceptDone, obraDone, examHistory, streak:{last,count}, moduleQuiz}`. No cambiar la forma sin migrar. `conceptDone["<id>:conceptos"]` guarda **índices** de `conceptos`: al editar una ficha, agregar conceptos u obras al final y no reordenar los existentes, o el progreso guardado apuntará a otra tarjeta.
+- **Progreso en `localStorage`**, clave `"agora-progress-v1"`, forma `{conceptDone, obraDone, examHistory, streak:{last,count}, moduleQuiz, respuestas, repaso}`. `respuestas` (lo escrito en Preguntas y Escribir: `{texto, visto?, eval?}` por `"<id>:preguntas|actividades:<i>"`) y `repaso` (repetición espaciada: `{caja:0-5, prox}` por `"<id>:conceptos|obras:<i>"`) son opcionales y se agregaron sin migrar. No cambiar la forma sin migrar; todo campo nuevo pasa por `sanitizeProgress`. `conceptDone["<id>:conceptos"]`, `repaso` y `respuestas` guardan **índices** de `conceptos`, `obras`, `cuestionario` y `actividades`: al editar una ficha, agregar al final y no reordenar, o el progreso guardado apuntará a otra tarjeta o pregunta.
 - Fechas de racha y exámenes en **hora local** (no UTC).
+
+## Cómo se recorre una ficha
+
+Las pestañas van en tres grupos (`DET_GRUPOS` en `app/agora.js`): **Estudiar** (Panorama con tesis, conexión y ruta sugerida · Conceptos · Obras · Lecturas · Diálogo), **Practicar** (Repaso mixto · Emparejar · Cuestionario final) y **Pensar** (Preguntas · Razonamiento · Argumentos · Dilema · Escribir).
+- `cuestionario:[{q,p}]` se muestra en **Preguntas**: se escribe primero, después se ve la respuesta del modelo y se autoevalúa.
+- `actividades` se desarrollan en **Escribir**, que guarda el texto, permite bajarlo en `.txt` y tiene la ruleta.
+- Los enunciados que se arman con definiciones pasan por `pista()` / `enmascarar()`, que tapa las palabras del propio título y recorta el texto. Así la respuesta no aparece en la pregunta.
+- Tarjetas con repetición espaciada (cajas de Leitner: 1, 3, 7, 14 y 30 días). Las tarjetas vencidas de todas las fichas aparecen en **Repaso de hoy**, en el Inicio.
+
+## Identidad visual
+
+- **Tipografías** (Google Fonts): Instrument Serif para títulos (tiene un solo peso: nunca `font-weight` de negrita en títulos), Newsreader para leer y Bricolage Grotesque para la interfaz (`--font-ui`; `--font-mono` apunta a la misma).
+- **Color**: papel cálido y tinta oscura; cada tradición tiene su color (`--eu`, `--asia`, `--am`, `--me` y sus `-soft`), usado como acento: cabeceras, monogramas, puntos de avance y letra capital. Nunca como relleno saturado ni con bordes negros gruesos.
+- **Patrones** por tradición (`.pat-eu`, `.pat-asia`, `.pat-am`, `.pat-me`): textura suave en las cabeceras de tradición y en el encabezado de cada ficha.
+- **Monogramas** (`MONOGRAMA` en `app/agora.js`) en lugar de emojis para identificar fichas. Una ficha nueva necesita su entrada.
+- **Tema claro/oscuro**: sigue al sistema hasta que se toca el botón ☾/☀; la elección se guarda en `localStorage["agora-tema"]`, aparte del progreso.
+- **Inicio**: portada, Repaso de hoy, Tu recorrido (`fraccionFicha`), insignias (`INSIGNIAS`) y una tarjeta por tradición con sus fichas y su estado (nueva, empezada o completa).
 
 ## Forma de una ficha
 
@@ -41,7 +59,13 @@ LECTURAS.<id> = { lecturas:[{titulo, fuente, url, extracto (template literal, p�
                   preguntasLectura:[{q, opciones:[...], r:"<texto exacto de la opción correcta>", why}] }
 
 CONSTELACIONES: [{ id, tema, nucleo, entradas:[{mod:"<id>", postura}], pregunta:{enunciado, opciones, correcta:<índice>, explicacion} }]
+
+EXAMEN_FINAL = { seleccion:[{fichas:[ids], situacion, pregunta, opciones:[4], correcta:<índice>, explicacion}],
+                 vf:[{fichas, afirmacion, verdadero:true|false, explicacion}],
+                 emparejar:[{mod:"<id>", idea}] }
 ```
+
+El examen final saca 12 preguntas de selección, 8 de verdadero o falso y 6 ideas para emparejar (de autores distintos y al menos tres tradiciones). Las opciones se mezclan, así que las explicaciones de constelaciones y del examen nombran cada opción por su contenido, nunca por su posición; `verificar.js` lo controla. El resultado va a `examHistory` con `trad:"final"`.
 
 Nivel esperado de cada ficha: ~9 conceptos y 5 obras con párrafos sustanciales, diálogo escrito a mano, 3 actividades, 5 preguntas de cuestionario. Ejercicios avanzados: `cadena` de 3-4 niveles con al menos dos ramas que enseñen algo distinto (no "correcta vs. absurda"); 2 `reconstruccion` con argumentos reales del autor, exactamente un distractor y una explicación que nombre el punto débil; 1 `dilema` de 2-3 decisiones con rúbrica de 6-7 criterios de autoevaluación (no se califica automáticamente).
 
@@ -59,8 +83,9 @@ Nivel esperado de cada ficha: ~9 conceptos y 5 obras con párrafos sustanciales,
 
 ## Trabajo pendiente (a octubre de 2026)
 
-1. **Ejercicios avanzados** (`cadena`, `reconstruccion`, `dilemas`) para las 14 fichas que faltan, en tandas chicas: Nagarjuna, Shankara, Dōgen, Nishida, Wang Yangming → Peirce, James, Dewey, Vasconcelos, Zea → Dussel, Rorty, West, Falacias. `verificar.js` muestra la lista actualizada.
-2. **Constelaciones**: hoy hay un solo tema (Platón–Aristóteles, "¿Qué es conocer?"). Faltan temas que crucen tradiciones (por ejemplo Nagarjuna–Descartes, Wittgenstein–Dewey, Heidegger–Nishida, que ya aparecen como puentes en los Tips).
-3. **Examen final**: un examen integrador de las 25 fichas con selección múltiple estilo Saber Pro (enunciado con situación y cuatro opciones plausibles), verdadero/falso y emparejamiento cruzado entre filósofos. Sin preguntas abiertas ni calificación por IA.
-4. **Para revisar con Juan**: el dilema de Kant "La pregunta del padre" plantea el caso de un estudiante de 16 años que le cuenta a un docente que es gay, con un padre violento. Está tratado con cuidado, pero Juan tiene que decidir si lo deja, lo suaviza o lo reemplaza antes de usarlo con estudiantes.
-5. Ideas sin decidir: repetición espaciada real (hoy "la tengo clara" es solo sí/no), buscador de fichas, botón de tema claro/oscuro, exportar y reiniciar progreso.
+1. ~~**Ejercicios avanzados**~~: hechos en las 25 fichas (octubre de 2026). Al agregar una ficha nueva, incluirlos desde el principio; `verificar.js` avisa si faltan.
+2. ~~**Constelaciones**~~: 8 temas (octubre de 2026): conocer, el yo, la nada, saber y hacer, la verdad, el lenguaje, quién está dentro de la historia y la muerte. Las opciones de la pregunta se muestran mezcladas, así que la `explicacion` nombra cada opción por su contenido, nunca por su posición («la tercera…»).
+3. ~~**Examen final**~~: hecho (octubre de 2026), en Exámenes. Banco de 28 preguntas de selección, 24 de verdadero o falso y 24 ideas para emparejar, que cubre las 25 fichas. Para ampliarlo, agregar preguntas en `datos/examen.js`.
+4. **Decidido por Juan (octubre de 2026)**: los dilemas se quedan como están, sin suavizar, incluidos el de Kant («La pregunta del padre»), el de Nagarjuna (diagnóstico de TDAH), el de Nishida (1943) y los pasajes de Vasconcelos. Juan decidió que no hace falta cotejar con una edición las citas escritas de memoria.
+5. ~~Buscador~~ (arriba, atajo `/`; busca por comienzo de palabra, sin tildes, en fichas, conceptos, obras, lecturas, preguntas, glosario y constelaciones) y ~~copia y reinicio del progreso~~ (en Progreso: guardar y recuperar un `.json`, reiniciar todo escribiendo REINICIAR; y reiniciar una ficha desde su Panorama): hechos en octubre de 2026.
+6. ~~**Rediseño visual**~~ (octubre de 2026): estilo «biblioteca viva», elegido por Juan entre maquetas (combinación de «Biblioteca» y «Plaza viva», con el color más contenido). Ver «Identidad visual» más arriba.

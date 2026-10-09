@@ -7,8 +7,9 @@
 <meta name="description" content="Ágora: fichas, lecturas, juegos y exámenes de filosofía. Archivo autónomo; el progreso se guarda en este navegador.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="estilos/agora.css">
+<script>try{var t=localStorage.getItem("agora-tema");if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
 <body>
 
@@ -16,21 +17,28 @@
   <div class="topbar">
     <div class="brand">
       <div class="mark">Á<span>gora</span></div>
-      <div class="tag">leer → dialogar → argumentar</div>
     </div>
-    <div class="streakpill">🔥 <span id="streakNum">0</span> días seguidos</div>
+    <nav class="tabs" id="mainTabs" aria-label="Secciones"></nav>
+    <div class="busqzona" id="busqZona" role="search">
+      <input id="busqInput" type="search" autocomplete="off" placeholder="Buscar autores, conceptos, obras…  ( / )" aria-label="Buscar en Ágora"
+        oninput="renderBusqueda(this.value)" onkeydown="busqKeydown(event)" onfocus="if(this.value) renderBusqueda(this.value)">
+      <div class="busqresultados hidden" id="busqResultados"></div>
+    </div>
+    <div class="streakpill" title="Días seguidos de estudio">🔥 <span id="streakNum">0</span></div>
+    <button class="temabtn" id="temaBtn" onclick="cambiarTema()" aria-label="Cambiar entre tema claro y oscuro">☾</button>
   </div>
 
   <div class="storenotice hidden" id="storageNotice" role="status"></div>
-  <nav class="tabs" id="mainTabs"></nav>
 
   <!-- HOME -->
   <section class="view" id="view-inicio">
-    <h2>¿Qué tradición querés trabajar hoy?</h2>
-    <p class="muted">Elegí una tradición para ver sus fichas, o andá directo a Exámenes o Tips desde el menú de arriba.</p>
-    <div class="grid levels" id="levelCards"></div>
-    <h2 style="margin-top:36px;">Tu progreso</h2>
-    <div class="grid stats" id="statCards"></div>
+    <h1 class="portada">Veinticinco maneras de <em>pensar</em> el mundo</h1>
+    <p class="lead">Tres tradiciones y un taller de método. Elegí por dónde seguir, o retomá donde quedaste.</p>
+    <div class="hoygrid">
+      <div id="repasoHoy"></div>
+      <div id="statCards" class="hoystats"></div>
+    </div>
+    <div class="tradgrid" id="levelCards"></div>
   </section>
 
   <!-- MODULES -->
@@ -42,10 +50,17 @@
   <!-- MODULE DETAIL -->
   <section class="view" id="view-detalle">
     <button class="backlink" onclick="showView('modulos')">← Volver a fichas</button>
-    <h2 id="detTitle"></h2>
-    <p class="muted" id="detMeta" style="margin-top:-8px;"></p>
-    <div class="subtabs" id="detTabs"></div>
+    <div id="detHero"></div>
+    <div id="detTabs"></div>
     <div id="detBody"></div>
+  </section>
+
+  <!-- REPASO DE HOY (tarjetas vencidas de todas las fichas) -->
+  <section class="view" id="view-repaso">
+    <button class="backlink" onclick="showView('inicio')">← Volver al inicio</button>
+    <h2>Repaso de hoy</h2>
+    <p class="muted" style="margin-top:-8px;">Las tarjetas que tocan hoy, de todas las fichas. Las que no te salgan vuelven al final de la ronda.</p>
+    <div id="repasoBody"></div>
   </section>
 
   <!-- CONSTELACIONES -->
@@ -59,7 +74,8 @@
   <section class="view" id="view-examenes">
     <div id="examIntro">
       <h2>Exámenes por tradición</h2>
-      <p class="muted">Un examen cronometrado y mixto (conceptos + obras) por tradición. Vas viendo tu puntaje al final y podés revisar cada error.</p>
+      <div id="examFinalCard"></div>
+      <p class="muted" style="margin-top:26px;">Un examen cronometrado y mixto (conceptos + obras) por tradición. Vas viendo tu puntaje al final y podés revisar cada error.</p>
       <div class="grid levels" id="examLevelCards"></div>
       <h3 style="margin-top:32px;">Historial</h3>
       <div id="examHistory" class="muted">Todavía no diste ningún examen.</div>
@@ -80,7 +96,7 @@
     </div>
     <div class="tipblock">
       <h3>🔁 Repetición espaciada para los conceptos</h3>
-      <p>En las tarjetas de Conceptos y Obras, marcá cada una como "la tengo clara" o "repasar de nuevo". Volvé a las que marcaste para repasar al día siguiente, después a los tres días, después a la semana. El progreso queda guardado ficha por ficha, en este navegador.</p>
+      <p>En las tarjetas de Conceptos y Obras, marcá cada una como "la tengo clara" o "repasar de nuevo". La app agenda sola cuándo volver a mostrártela: al día siguiente, después a los 3, 7, 14 y 30 días. Las que tocan aparecen en <b>Repaso de hoy</b>, en el Inicio. Diez minutos diarios rinden más que una tarde entera antes del examen.</p>
     </div>
     <div class="tipblock">
       <h3>🧩 Cazá falacias en todos lados, no solo en el taller</h3>
@@ -106,7 +122,7 @@
     <div id="progBody"></div>
   </section>
 
-  <footer>Ágora · leer, dialogar, argumentar · tu progreso se guarda solo en este navegador y este dispositivo</footer>
+  <footer>Ágora · leer → dialogar → argumentar · tu progreso se guarda solo en este navegador y este dispositivo</footer>
 </div>
 
 <!-- Datos: base → una ficha por archivo (en este orden) → transversales → lógica -->
@@ -137,6 +153,7 @@
 <script src="datos/modulos/americana/west.js"></script>
 <script src="datos/modulos/metodo/falacias.js"></script>
 <script src="datos/transversal.js"></script>
+<script src="datos/examen.js"></script>
 <script src="app/agora.js"></script>
 
 </body>

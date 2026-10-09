@@ -4,12 +4,14 @@
 MODULES.forEach(m=>{ const L = LECTURAS[m.id]; if(L){ m.lecturas = L.lecturas; m.preguntasLectura = L.preguntasLectura; } });
 
 /* ============================= STATE ============================= */
-/* Forma del progreso guardado. Es la misma que usaba la versión anterior, así que
-   el resto de la app sigue leyendo y escribiendo `progress.xxx` sin cambios. */
-function defaultProgress(){ return { conceptDone:{}, obraDone:{}, examHistory:[], streak:{last:null,count:0}, moduleQuiz:{} }; }
+/* Forma del progreso guardado. `respuestas` y `repaso` se agregaron después: son
+   opcionales, así que un progreso viejo se lee sin migrar (arrancan vacíos).
+   - respuestas["<id>:preguntas:<i>" | "<id>:actividades:<i>"] = {texto, visto?, eval?}
+   - repaso["<id>:conceptos:<i>" | "<id>:obras:<i>"] = {caja:0-5, prox:"AAAA-MM-DD"} */
+function defaultProgress(){ return { conceptDone:{}, obraDone:{}, examHistory:[], streak:{last:null,count:0}, moduleQuiz:{}, respuestas:{}, repaso:{} }; }
 let progress = defaultProgress();
-let currentModule = null, currentDetTab = "conceptos";
-let flashIndex = 0, flashOrder = [], flashKind = "conceptos";
+let currentModule = null, currentDetTab = "panorama";
+let flashIndex = 0, flashDeck = [], flashKind = "conceptos", flashTarget = "#detBody", flashGlobal = false;
 let matchState = null;
 let examState = null;
 
@@ -25,7 +27,8 @@ function modulesByTrad(t){ return MODULES.filter(m=>m.trad===t); }
    a medianoche en el reloj de quien estudia, no a las 19 h en Colombia. */
 function localDateStr(d){ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
 function todayStr(){ return localDateStr(new Date()); }
-function yesterdayStr(){ const d = new Date(); d.setDate(d.getDate()-1); return localDateStr(d); }
+function yesterdayStr(){ return diasDesdeHoy(-1); }
+function diasDesdeHoy(n){ const d = new Date(); d.setDate(d.getDate()+n); return localDateStr(d); }
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function getQuiz(d){ return (d.cuestionario && d.cuestionario.length) ? d.cuestionario : []; }
 
@@ -46,10 +49,25 @@ function sanitizeProgress(raw){
     });
   });
   if(Array.isArray(raw.examHistory)){
-    p.examHistory = raw.examHistory.filter(h=>isPlainObj(h) && LEVELS[h.trad] && typeof h.score==="number");
+    p.examHistory = raw.examHistory.filter(h=>isPlainObj(h) && (LEVELS[h.trad] || h.trad==="final") && typeof h.score==="number");
   }
   if(isPlainObj(raw.moduleQuiz)){
     Object.entries(raw.moduleQuiz).forEach(([k,v])=>{ if(typeof v==="number" && isFinite(v)) p.moduleQuiz[k] = v; });
+  }
+  if(isPlainObj(raw.respuestas)){
+    Object.entries(raw.respuestas).forEach(([k,v])=>{
+      if(!isPlainObj(v)) return;
+      const r = { texto: typeof v.texto==="string" ? v.texto.slice(0,20000) : "" };
+      if(v.visto===true) r.visto = true;
+      if(["si","parte","no"].includes(v.eval)) r.eval = v.eval;
+      p.respuestas[k] = r;
+    });
+  }
+  if(isPlainObj(raw.repaso)){
+    Object.entries(raw.repaso).forEach(([k,v])=>{
+      if(isPlainObj(v) && Number.isInteger(v.caja) && v.caja>=0 && v.caja<=5 && typeof v.prox==="string" && /^\d{4}-\d{2}-\d{2}$/.test(v.prox))
+        p.repaso[k] = { caja:v.caja, prox:v.prox };
+    });
   }
   if(isPlainObj(raw.streak)){
     p.streak.last = (typeof raw.streak.last==="string" && /^\d{4}-\d{2}-\d{2}$/.test(raw.streak.last)) ? raw.streak.last : null;
@@ -73,7 +91,7 @@ function loadProgress(){
 function saveProgress(){
   try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); saveFailed = false; }
   catch(e){ saveFailed = true; }
-  renderStreak(); renderStatCards(); renderStorageNotice();
+  renderStreak(); renderStatCards(); renderRepasoHoy(); renderLevelCards(); renderStorageNotice();
 }
 function renderStorageNotice(){
   const el = document.getElementById("storageNotice");
@@ -85,9 +103,10 @@ function renderStorageNotice(){
   el.classList.toggle("hidden", !msg);
 }
 function refreshProgressUI(){
-  renderStreak(); renderStatCards(); renderProgressView(); renderModuleCards(); renderExamHistory();
+  renderStreak(); renderStatCards(); renderRepasoHoy(); renderProgressView(); renderModuleCards(); renderExamHistory();
   const detActivo = document.getElementById("view-detalle").classList.contains("active");
-  if(detActivo && currentModule && (currentDetTab==="conceptos" || currentDetTab==="obras") && flashOrder.length) drawFlash();
+  const repActivo = document.getElementById("view-repaso").classList.contains("active");
+  if(flashDeck.length && ((detActivo && !flashGlobal && (currentDetTab==="conceptos" || currentDetTab==="obras")) || (repActivo && flashGlobal))) drawFlash();
 }
 /* Si la app está abierta en dos pestañas, la otra se entera de los cambios. */
 window.addEventListener("storage", e=>{
@@ -127,6 +146,8 @@ function showView(id){
     if(intro) intro.classList.remove("hidden");
     renderExamHistory();
   }
+  /* El examen final no tiene cronómetro, pero si se sale a mitad se descarta, igual que el otro. */
+  if(id !== "examenes" && finalState) cerrarExamenFinal();
   if(id === "constelaciones"){ constelActual = null; renderConstelaciones(); }
   $all(".view").forEach(v=>v.classList.remove("active"));
   const v = document.getElementById("view-"+id);
@@ -135,29 +156,91 @@ function showView(id){
   window.scrollTo({top:0, behavior:"instant"});
 }
 
+/* ============================= IDENTIDAD VISUAL =============================
+   Monograma de cada ficha (en lugar de emojis), patrón suave por tradición y tema claro/oscuro. */
+const MONOGRAMA = { platon:"Pl", aristoteles:"Ar", descartes:"De", kant:"Ka", hegel:"He", nietzsche:"Nz", heidegger:"Hd",
+  wittgenstein:"Wi", confucio:"Co", laozi:"La", zhuangzi:"Zh", nagarjuna:"Na", shankara:"Sh", dogen:"Dō", nishida:"Ni",
+  wangyangming:"Wy", peirce:"Pe", james:"Ja", dewey:"Dw", vasconcelos:"Va", zea:"Ze", dussel:"Du", rorty:"Ro", west:"We", falacias:"∴" };
+function clrDe(m){ return LEVELS[m.trad].clr; }
+function varsTrad(m){ const c = clrDe(m); return `--tclr:var(--${c});--tsoft:var(--${c}-soft);`; }
+function monograma(m, extra){ return `<span class="monog ${extra||''}" style="${varsTrad(m)}" aria-hidden="true">${MONOGRAMA[m.id] || m.nombre.slice(0,2)}</span>`; }
+function cambiarTema(){
+  const html = document.documentElement;
+  const oscuro = html.dataset.theme ? html.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  html.dataset.theme = oscuro ? "light" : "dark";
+  try{ localStorage.setItem("agora-tema", html.dataset.theme); }catch(e){}
+  marcarTemaBtn();
+}
+function marcarTemaBtn(){
+  const b = document.getElementById("temaBtn"); if(!b) return;
+  const html = document.documentElement;
+  const oscuro = html.dataset.theme ? html.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  b.textContent = oscuro ? "☀" : "☾";
+  b.title = oscuro ? "Pasar al tema claro" : "Pasar al tema oscuro";
+}
+
+/* Avance de una ficha entre 0 y 1: conceptos y obras dominados, cuestionario y preguntas escritas. */
+function preguntasEscritas(m){ return getQuiz(m).filter((_,i)=>palabras((progress.respuestas[m.id+":preguntas:"+i]||{}).texto)>0).length; }
+function fraccionFicha(m){
+  const c = (progress.conceptDone[m.id+":conceptos"]||[]).length / Math.max(1,m.conceptos.length);
+  const o = (progress.obraDone[m.id+":obras"]||[]).length / Math.max(1,m.obras.length);
+  const q = Math.min(100, progress.moduleQuiz[m.id]||0) / 100;
+  const p = preguntasEscritas(m) / Math.max(1,getQuiz(m).length);
+  return (c+o+q+p)/4;
+}
+function estadoFicha(m){
+  const f = fraccionFicha(m);
+  if(f===0) return "nueva";
+  const completa = (progress.moduleQuiz[m.id]||0)>=70 && (progress.conceptDone[m.id+":conceptos"]||[]).length===m.conceptos.length && preguntasEscritas(m)===getQuiz(m).length;
+  return completa ? "completa" : "empezada";
+}
+const INSIGNIAS = [
+  { i:"🏛️", n:"Primeros pasos", c:"Terminá el cuestionario final de una ficha.", ok:()=>Object.keys(progress.moduleQuiz).length>0 },
+  { i:"🌍", n:"Tres tradiciones", c:"Aprobá (70 % o más) el cuestionario de una ficha europea, una asiática y una americana.",
+    ok:()=>["europea","asiatica","americana"].every(t=>modulesByTrad(t).some(m=>(progress.moduleQuiz[m.id]||0)>=70)) },
+  { i:"✍️", n:"Pluma", c:"Respondé por escrito 10 preguntas.", ok:()=>MODULES.reduce((a,m)=>a+preguntasEscritas(m),0)>=10 },
+  { i:"🧠", n:"Memoria larga", c:"Llevá 20 tarjetas a la caja 3 o más del repaso espaciado.", ok:()=>Object.values(progress.repaso).filter(r=>r.caja>=3).length>=20 },
+  { i:"🔥", n:"Constancia", c:"Estudiá 7 días seguidos.", ok:()=>(progress.streak.count||0)>=7 },
+  { i:"🎓", n:"Examen final", c:"Aprobá el examen final integrador.", ok:()=>(progress.examHistory||[]).some(h=>h.trad==="final" && h.score>=70) }
+];
+
 /* ============================= HOME ============================= */
 function renderLevelCards(){
-  $("#levelCards").innerHTML = Object.entries(LEVELS).map(([k,l])=>`
-    <div class="card lvlcard" style="--tclr:var(--${l.clr});--tsoft:var(--${l.clr}-soft);" onclick="openLevel('${k}')">
-      <span class="lvltag">${l.tag}</span>
-      <h3>${l.label}</h3>
-      <p>${l.desc}</p>
-    </div>`).join("");
+  $("#levelCards").innerHTML = Object.entries(LEVELS).map(([k,l])=>{
+    const ms = modulesByTrad(k);
+    if(!ms.length) return "";
+    const hechas = ms.filter(m=>estadoFicha(m)!=="nueva").length;
+    return `<section class="tradcard" style="--tclr:var(--${l.clr});--tsoft:var(--${l.clr}-soft);">
+      <button class="tradcab pat-${l.clr}" onclick="openLevel('${k}')">
+        <span class="kicker">${ms.length} ficha${ms.length===1?'':'s'} · ${hechas} empezada${hechas===1?'':'s'}</span>
+        <span class="tradnom">${l.label}</span>
+        <span class="traddesc">${l.desc}</span>
+      </button>
+      <ol class="tradlist">${ms.map(m=>{ const e = estadoFicha(m); return `
+        <li><button onclick="openModule('${m.id}')"><span class="punto ${e}" title="${e==='nueva'?'Sin empezar':e==='completa'?'Completa':'Empezada'}"></span>
+          <span class="tradn">${m.nombre}</span><span class="tradf">${m.fechas.split("·")[0].trim()}</span></button></li>`; }).join("")}</ol>
+    </section>`;
+  }).join("");
 }
 function openLevel(t){ showView("modulos"); setModFilter(t); }
 function renderStatCards(){
-  const totalModules = MODULES.length;
-  const doneModules = MODULES.filter(m => (progress.moduleQuiz[m.id]||0) > 0).length;
-  const scores = Object.values(progress.moduleQuiz||{});
-  const avg = scores.length ? Math.round(scores.reduce((a,b)=>a+b,0)/scores.length) : 0;
-  const conceptTotal = MODULES.reduce((a,m)=>a+m.conceptos.length,0);
-  const conceptKnown = Object.values(progress.conceptDone||{}).reduce((a,arr)=>a+(arr?arr.length:0),0);
-  $("#statCards").innerHTML = `
-    <div class="card statbox tight"><div class="num mono">${doneModules}/${totalModules}</div><div class="lbl">fichas con cuestionario</div></div>
-    <div class="card statbox tight"><div class="num mono">${avg}%</div><div class="lbl">promedio cuestionarios</div></div>
-    <div class="card statbox tight"><div class="num mono">${conceptKnown}/${conceptTotal}</div><div class="lbl">conceptos dominados</div></div>
-    <div class="card statbox tight"><div class="num mono">${(progress.examHistory||[]).length}</div><div class="lbl">exámenes dados</div></div>
-  `;
+  const el = $("#statCards"); if(!el) return;
+  const fichas = MODULES.filter(m=>m.trad!=="metodo");
+  const total = Math.round(100 * MODULES.reduce((a,m)=>a+fraccionFicha(m),0) / MODULES.length);
+  const empezadas = MODULES.filter(m=>estadoFicha(m)!=="nueva").length, completas = MODULES.filter(m=>estadoFicha(m)==="completa").length;
+  const ganadas = INSIGNIAS.filter(x=>x.ok()), prox = INSIGNIAS.find(x=>!x.ok());
+  el.innerHTML = `
+    <div class="card hoycard">
+      <div class="kicker">Tu recorrido</div>
+      <div class="hoynum">${total} %</div>
+      <div class="recbar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${total}"><i style="width:${total}%"></i></div>
+      <div class="muted">${empezadas} ficha${empezadas===1?'':'s'} empezada${empezadas===1?'':'s'} · ${completas} completa${completas===1?'':'s'}</div>
+    </div>
+    <div class="card hoycard">
+      <div class="kicker">Insignias · ${ganadas.length}/${INSIGNIAS.length}</div>
+      <div class="insignias">${INSIGNIAS.map(x=>`<span class="insignia ${x.ok()?'ok':''}" title="${x.n}: ${x.c}${x.ok()?' (ganada)':''}">${x.i}</span>`).join("")}</div>
+      <div class="muted">${prox?`Próxima: <b>${prox.n}</b>. ${prox.c}`:'¡Las tenés todas!'}</div>
+    </div>`;
 }
 
 /* ============================= MODULES ============================= */
@@ -173,65 +256,178 @@ function renderModuleCards(){
   $("#moduleCards").innerHTML = list.map(m=>{
     const score = progress.moduleQuiz[m.id];
     const clr = LEVELS[m.trad].clr;
-    return `<div class="card modcard" style="--tclr:var(--${clr});--tsoft:var(--${clr}-soft);" onclick="openModule('${m.id}')">
-      <span class="emo">${m.icon}</span>
-      <h4>${m.nombre} ${m.profundizada?'<span class="badge">◆ profundizada</span>':''}</h4>
-      <span class="meta">${LEVELS[m.trad].label} · ${score!=null?('cuestionario: '+score+'%'):'sin empezar'}</span>
-    </div>`;
+    const pct = Math.round(100*fraccionFicha(m));
+    return `<button class="card modcard pat-${clr}-borde" style="--tclr:var(--${clr});--tsoft:var(--${clr}-soft);" onclick="openModule('${m.id}')">
+      ${monograma(m)}
+      <span class="modtxt"><span class="kicker">${LEVELS[m.trad].label} · ${m.fechas.split("·")[0].trim()}</span>
+      <span class="modnom">${m.nombre}</span>
+      <span class="meta">${m.escuela}</span></span>
+      <span class="modbar" title="Avance ${pct} %"><i style="width:${pct}%"></i></span>
+    </button>`;
   }).join("");
 }
 
 /* ============================= MODULE DETAIL ============================= */
-const DET_TABS = [["conceptos","Conceptos"],["obras","Obras"],["lecturas","Lecturas"],["dialogo","Diálogo"],["metodo","Método"],["emparejar","Emparejar"],["actividades","Actividades"],["razonamiento","Razonamiento"],["argumentos","Argumentos"],["dilema","Dilema"],["cuestionario","Cuestionario final"]];
-function openModule(id){
+/* Las pestañas de una ficha se agrupan en tres momentos, en el orden en que conviene
+   recorrerlos: primero se estudia, después se practica el reconocimiento y al final
+   se piensa y se escribe. Solo se muestran las pestañas del grupo activo. */
+const DET_GRUPOS = [
+  { id:"estudiar",  label:"1 · Estudiar",  tabs:[["panorama","Panorama"],["conceptos","Conceptos"],["obras","Obras"],["lecturas","Lecturas"],["dialogo","Diálogo"]] },
+  { id:"practicar", label:"2 · Practicar", tabs:[["repaso","Repaso mixto"],["emparejar","Emparejar"],["cuestionario","Cuestionario final"]] },
+  { id:"pensar",    label:"3 · Pensar",    tabs:[["preguntas","Preguntas"],["razonamiento","Razonamiento"],["argumentos","Argumentos"],["dilema","Dilema"],["actividades","Escribir"]] }
+];
+const DET_RENDER = {
+  panorama:()=>renderPanorama(), conceptos:()=>renderFlashcards("conceptos"), obras:()=>renderFlashcards("obras"),
+  lecturas:()=>renderLecturas(), dialogo:()=>renderDialogue(),
+  repaso:()=>renderRepasoMixto(), emparejar:()=>renderMatching(), cuestionario:()=>renderModuleQuiz(),
+  preguntas:()=>renderPreguntas(), razonamiento:()=>renderCadena(), argumentos:()=>renderReconstruccion(),
+  dilema:()=>renderDilema(), actividades:()=>renderActivities()
+};
+function grupoDe(tab){ return DET_GRUPOS.find(g=>g.tabs.some(([k])=>k===tab)) || DET_GRUPOS[0]; }
+function openModule(id, tab){
   currentModule = moduleById(id);
-  currentDetTab = "conceptos";
-  $("#detTitle").textContent = currentModule.icon+"  "+currentModule.nombre;
-  $("#detMeta").textContent = currentModule.fechas+" · "+currentModule.escuela;
-  $("#detTabs").innerHTML = DET_TABS.map(([k,l])=>`<button data-dt="${k}" onclick="setDetTab('${k}')">${l}</button>`).join("");
+  currentDetTab = DET_RENDER[tab] ? tab : "panorama";
+  const m = currentModule, partes = m.fechas.split("·").map(x=>x.trim());
+  $("#view-detalle").setAttribute("style", varsTrad(m));
+  $("#detHero").innerHTML = `<div class="dethero pat-${clrDe(m)}">${monograma(m,"grande")}
+    <div><div class="kicker">${LEVELS[m.trad].label} · ${m.escuela}</div><h1>${m.nombre}</h1><div class="detmeta">${partes.join(" · ")}</div></div></div>`;
   showView("detalle");
   renderDetTab();
 }
 function setDetTab(k){ currentDetTab = k; renderDetTab(); }
+function setDetGrupo(g){ setDetTab(DET_GRUPOS.find(x=>x.id===g).tabs[0][0]); }
+function renderDetTabs(){
+  const g = grupoDe(currentDetTab);
+  const SUB = { estudiar:"panorama, conceptos, obras, lecturas", practicar:"repaso, emparejar, cuestionario", pensar:"preguntas, razonamiento, dilema" };
+  $("#detTabs").innerHTML = `
+    <div class="grouptabs" role="tablist">${DET_GRUPOS.map(x=>`<button class="${x.id===g.id?'active':''}" aria-pressed="${x.id===g.id}" onclick="setDetGrupo('${x.id}')"><b>${x.label}</b><small>${SUB[x.id]}</small></button>`).join("")}</div>
+    <div class="subtabs">${g.tabs.map(([k,l])=>`<button data-dt="${k}" class="${k===currentDetTab?'active':''}" onclick="setDetTab('${k}')">${l}</button>`).join("")}</div>`;
+}
 function renderDetTab(){
-  $all("#detTabs button").forEach(b=>b.classList.toggle("active", b.dataset.dt===currentDetTab));
-  if(currentDetTab==="conceptos") renderFlashcards("conceptos");
-  else if(currentDetTab==="obras") renderFlashcards("obras");
-  else if(currentDetTab==="lecturas") renderLecturas();
-  else if(currentDetTab==="dialogo") renderDialogue();
-  else if(currentDetTab==="metodo") renderMetodo();
-  else if(currentDetTab==="emparejar") renderMatching();
-  else if(currentDetTab==="actividades") renderActivities();
-  else if(currentDetTab==="razonamiento") renderCadena();
-  else if(currentDetTab==="argumentos") renderReconstruccion();
-  else if(currentDetTab==="dilema") renderDilema();
-  else if(currentDetTab==="cuestionario") renderModuleQuiz();
+  flashGlobal = false;
+  renderDetTabs();
+  DET_RENDER[currentDetTab]();
 }
 
-/* --- Flashcards (shared by Conceptos and Obras) --- */
+/* --- Panorama: tesis, conexión y la ruta sugerida con el avance en esta ficha --- */
+function renderPanorama(){
+  const d = currentModule;
+  if(reinicioFicha && reinicioFicha !== d.id) reinicioFicha = null;
+  const clr = LEVELS[d.trad].clr;
+  const domC = (progress.conceptDone[d.id+":conceptos"]||[]).length;
+  const domO = (progress.obraDone[d.id+":obras"]||[]).length;
+  const nPreg = getQuiz(d).length;
+  const resp = getQuiz(d).filter((_,i)=>palabras((progress.respuestas[d.id+":preguntas:"+i]||{}).texto)>0).length;
+  const quiz = progress.moduleQuiz[d.id];
+  const hoy = mazoFicha(d, "conceptos").concat(mazoFicha(d, "obras")).filter(c=>srsVence(c)).length;
+  const avanzados = ["cadena","reconstruccion","dilemas"].filter(k=>d[k] && (!Array.isArray(d[k]) || d[k].length)).length;
+  const paso = (n, titulo, detalle, tab, hecho)=>`
+    <li class="rutapaso${hecho?' hecho':''}"><span class="rutanum">${hecho?'✓':n}</span>
+      <div><button class="linkbtn" onclick="setDetTab('${tab}')">${titulo}</button><div class="rutadet">${detalle}</div></div></li>`;
+  $("#detBody").innerHTML = `
+    <div class="panocols">
+      <div>
+        <div class="kicker">Tesis central</div>
+        <p class="tesis capital">${d.tesis}</p>
+        <div class="paraconf"><div class="kicker">Para no confundir</div><div>${d.conexion}</div></div>
+      </div>
+      <aside class="margen">
+        <div class="kicker">Tu ruta en esta ficha</div>
+        <ol class="ruta">
+          ${paso(1,"Lecturas","Fuente o comentario, con su nota de lectura.","lecturas", false)}
+          ${paso(2,"Conceptos y obras",`${domC}/${d.conceptos.length} conceptos · ${domO}/${d.obras.length} obras${hoy?` · <b>${hoy} para hoy</b>`:''}`,"conceptos", domC===d.conceptos.length && domO===d.obras.length && !hoy)}
+          ${paso(3,"Diálogo","Las objeciones fuertes y las respuestas.","dialogo", false)}
+          ${paso(4,"Practicar",quiz!=null?`Último cuestionario: ${quiz} %`:"Repaso mixto, emparejar y cuestionario.","repaso", quiz!=null && quiz>=70)}
+          ${paso(5,"Preguntas",`${resp}/${nPreg} respondidas por escrito`,"preguntas", nPreg>0 && resp===nPreg)}
+          ${paso(6,"Pensar",avanzados?"Razonamiento, argumentos y dilema.":"Ejercicios todavía no disponibles.","razonamiento", false)}
+        </ol>
+        <button class="linkbtn reset" onclick="reiniciarFicha('${d.id}')">${reinicioFicha===d.id?'¿Seguro? Se borra lo de esta ficha (tarjetas, repasos, cuestionario y lo escrito). Tocá de nuevo para confirmar.':'Reiniciar el progreso de esta ficha'}</button>
+      </aside>
+    </div>`;
+}
+
+/* --- Tarjetas (Conceptos, Obras y el repaso de hoy) con repetición espaciada ---
+   Sistema de cajas (Leitner): "la tengo clara" sube la tarjeta una caja y la agenda
+   para dentro de 1, 3, 7, 14 o 30 días; "repasar de nuevo" la devuelve a la caja 0
+   y queda para hoy. `conceptDone`/`obraDone` siguen marcando las dominadas, como antes. */
+const SRS_DIAS = [0, 1, 3, 7, 14, 30];
 function progKeyStore(kind){ return kind==="obras" ? progress.obraDone : progress.conceptDone; }
+function srsKey(c){ return c.mod.id+":"+c.kind+":"+c.idx; }
+function esDominada(c){ return (progKeyStore(c.kind)[c.mod.id+":"+c.kind]||[]).includes(c.idx); }
+/* Estado de una tarjeta: null si nunca se marcó. Las dominadas de antes del repaso
+   espaciado no tienen fecha: se toman como vencidas para que entren en el ciclo. */
+function srsEstado(c){
+  const r = progress.repaso[srsKey(c)];
+  if(r) return r;
+  return esDominada(c) ? { caja:1, prox:todayStr() } : null;
+}
+function srsVence(c){ const r = srsEstado(c); return !!r && r.prox <= todayStr(); }
+function mazoFicha(mod, kind){ return (mod[kind]||[]).map((_,idx)=>({mod, kind, idx})); }
+function tarjetasParaHoy(){ return MODULES.flatMap(m=>[...mazoFicha(m,"conceptos"), ...mazoFicha(m,"obras")]).filter(srsVence); }
+function diasEntre(a, b){ return Math.round((new Date(b+"T12:00") - new Date(a+"T12:00"))/86400000); }
+function srsEtiqueta(c){
+  const r = srsEstado(c);
+  if(!r) return "nueva";
+  if(r.prox <= todayStr()) return "📅 toca repasarla hoy";
+  const n = diasEntre(todayStr(), r.prox);
+  return `✅ próximo repaso ${n===1?'mañana':'en '+n+' días'} · caja ${r.caja}/5`;
+}
 function renderFlashcards(kind){
   flashKind = kind;
-  const list = currentModule[kind];
-  flashOrder = shuffle(list.map((_,i)=>i));
+  flashTarget = "#detBody";
+  const mazo = mazoFicha(currentModule, kind);
+  /* Primero las que vencen hoy, después las nuevas y al final las que todavía no tocan. */
+  const vencen = mazo.filter(srsVence), nuevas = mazo.filter(c=>!srsEstado(c)), resto = mazo.filter(c=>srsEstado(c) && !srsVence(c));
+  flashDeck = [...shuffle(vencen), ...shuffle(nuevas), ...shuffle(resto)];
   flashIndex = 0;
   drawFlash();
 }
+/* Repaso de hoy: todas las tarjetas vencidas de todas las fichas, en una sola sesión. */
+function renderRepasoHoy(){
+  const el = document.getElementById("repasoHoy");
+  if(!el) return;
+  const n = tarjetasParaHoy().length;
+  el.innerHTML = n
+    ? `<div class="card hoycard repasohoy"><div class="kicker">Repaso de hoy</div>
+        <div class="hoytit">${n} tarjeta${n===1?' te espera':'s te esperan'}</div>
+        <div class="muted">Las marcaste como claras hace un tiempo: repasarlas justo ahora es lo que las fija.</div>
+        <button class="btn" onclick="startRepasoGlobal()">Empezar el repaso →</button></div>`
+    : `<div class="card hoycard repasohoy"><div class="kicker">Repaso de hoy</div>
+        <div class="hoytit">Nada pendiente</div>
+        <div class="muted">Cuando marques una tarjeta como «la tengo clara», la app te la vuelve a mostrar al día siguiente, y después a los 3, 7, 14 y 30 días.</div></div>`;
+}
+function startRepasoGlobal(){
+  flashGlobal = true;
+  flashTarget = "#repasoBody";
+  flashDeck = shuffle(tarjetasParaHoy());
+  flashIndex = 0;
+  showView("repaso");
+  drawFlash();
+}
 function drawFlash(){
-  const list = currentModule[flashKind];
-  const store = progKeyStore(flashKind);
-  const known = store[currentModule.id+":"+flashKind] || [];
-  const idx = flashOrder[flashIndex];
-  const item = list[idx];
+  const box = $(flashTarget);
+  if(!flashDeck.length){
+    box.innerHTML = `<div class="qcard center"><div class="resultbig">🎉</div><p>Terminaste el repaso de hoy.</p>
+      <button class="btn ghost" onclick="showView('inicio')">Volver al inicio</button></div>`;
+    return;
+  }
+  if(flashIndex >= flashDeck.length) flashIndex = 0;
+  const c = flashDeck[flashIndex];
+  const item = c.mod[c.kind][c.idx];
+  const known = progKeyStore(c.kind)[c.mod.id+":"+c.kind] || [];
   const largo = String(item.d||"").length > 260;
-  $("#detBody").innerHTML = `
+  const tipo = c.kind==="obras" ? "Obra" : "Concepto";
+  const contador = flashGlobal
+    ? `Repaso de hoy · quedan ${flashDeck.length} · ${tipo} de ${c.mod.nombre}`
+    : `${tipo} ${flashIndex+1} / ${flashDeck.length} · dominadas ${known.length}/${c.mod[c.kind].length} · para hoy ${flashDeck.filter(srsVence).length}`;
+  box.innerHTML = `
     <div class="flashwrap">
-      <div class="flashcounter">${flashKind==="obras"?"Obra":"Concepto"} ${flashIndex+1} / ${flashOrder.length} · dominadas ${known.length}/${list.length}</div>
+      <div class="flashcounter">${contador}</div>
       <div class="flashnotice">${flashNotice || ""}${saveFailed?' · ⚠️ no se pudo guardar en este navegador':''}</div>
       <div class="flashcard"><div class="flashinner" id="flashInner" tabindex="0" role="button" aria-label="Voltear tarjeta" onclick="flipFlash()" onkeydown="flashKeydown(event)">
         <div class="flashface front">
-          <div class="emo">${currentModule.icon}</div>
-          <div class="clue${largo?' long':''}">“${item.d}”</div>
+          ${monograma(c.mod)}
+          <div class="clue${largo?' long':''}">“${enmascarar(item.d, item.t)}”</div>
           <div class="hintline">${largo?'desplazá el texto si hace falta · tocá la tarjeta para ver el nombre':'tocá la tarjeta para ver el nombre'}</div>
         </div>
         <div class="flashface back">
@@ -239,13 +435,13 @@ function drawFlash(){
         </div>
       </div></div>
       <div class="flashactions">
-        <button class="btn ghost sm" onclick="markKnown(${idx}, false)">🔁 Repasar de nuevo</button>
-        <button class="btn sm" onclick="markKnown(${idx}, true)">👍 La tengo clara</button>
+        <button class="btn ghost sm" onclick="markKnown(false)">🔁 Repasar de nuevo</button>
+        <button class="btn sm" onclick="markKnown(true)">👍 La tengo clara</button>
       </div>
       <div class="flashnav">
-        <button class="iconbtn" onclick="stepFlash(-1)">←</button>
-        <span class="muted" style="font-size:.8rem;">${known.includes(idx)?'✅ dominada':'todavía no'}</span>
-        <button class="iconbtn" onclick="stepFlash(1)">→</button>
+        ${flashGlobal?'<span></span>':'<button class="iconbtn" onclick="stepFlash(-1)" aria-label="Anterior">←</button>'}
+        <span class="muted" style="font-size:.8rem;">${srsEtiqueta(c)}</span>
+        ${flashGlobal?'<span></span>':'<button class="iconbtn" onclick="stepFlash(1)" aria-label="Siguiente">→</button>'}
       </div>
     </div>`;
   flashNotice = "";
@@ -275,26 +471,31 @@ function flashKeydown(e){
     if(inner) inner.classList.toggle("flipped");
   }
 }
-function stepFlash(d){ flashIndex = (flashIndex + d + flashOrder.length) % flashOrder.length; drawFlash(); }
+function stepFlash(d){ flashIndex = (flashIndex + d + flashDeck.length) % flashDeck.length; drawFlash(); }
 /* Mensaje corto que explica qué acaba de hacer el botón: sin esto no se veía
-   que "dominadas" había cambiado, porque la tarjeta salta a la siguiente. */
+   el cambio, porque la tarjeta salta a la siguiente. */
 let flashNotice = "";
-function markKnown(idx, known){
-  const store = progKeyStore(flashKind);
-  const key = currentModule.id+":"+flashKind;
+function markKnown(known){
+  const c = flashDeck[flashIndex];
+  if(!c) return;
+  const antes = srsEstado(c);   // antes de tocar `conceptDone`, que también cuenta para el estado
+  const store = progKeyStore(c.kind);
+  const key = c.mod.id+":"+c.kind;
   const list = new Set(store[key] || []);
-  const antes = list.size;
-  if(known) list.add(idx); else list.delete(idx);
+  if(known) list.add(c.idx); else list.delete(c.idx);
   store[key] = Array.from(list);
-  const total = currentModule[flashKind].length;
-  const nombre = currentModule[flashKind][idx] ? currentModule[flashKind][idx].t : "";
+  const caja = known ? Math.min(5, (antes ? antes.caja : 0) + 1) : 0;
+  progress.repaso[srsKey(c)] = { caja, prox: diasDesdeHoy(SRS_DIAS[caja]) };
+  const nombre = c.mod[c.kind][c.idx].t;
   flashNotice = known
-    ? (list.size>antes ? `✅ “${nombre}” queda como dominada · ${list.size}/${total}`
-                       : `✅ “${nombre}” ya estaba dominada · ${list.size}/${total}`)
-    : (list.size<antes ? `🔁 “${nombre}” vuelve a la lista de repaso · ${list.size}/${total}`
-                       : `🔁 “${nombre}” queda para repasar · ${list.size}/${total}`);
+    ? `✅ “${nombre}”: la vas a volver a ver ${SRS_DIAS[caja]===1?'mañana':'en '+SRS_DIAS[caja]+' días'}`
+    : `🔁 “${nombre}” vuelve a la lista de hoy`;
   saveProgress();
-  stepFlash(1);
+  if(flashGlobal){
+    flashDeck.splice(flashIndex, 1);
+    if(!known) flashDeck.push(c);   // la que no salió vuelve al final de la sesión
+    drawFlash();
+  } else stepFlash(1);
 }
 
 /* --- Lecturas (textos fuente + comentario) --- */
@@ -355,7 +556,6 @@ function renderDialogue(){
     </div>`;
 }
 
-/* --- Método (explicación + ejercicios generados de Obras) --- */
 /* --- Distractores cercanos: más difíciles, pero siempre inequívocamente incorrectos ---
    En lugar de elegir distractores al azar en todo el catálogo, se ordenan los candidatos
    por parecido léxico/temático con la respuesta correcta (palabras compartidas en el
@@ -416,6 +616,45 @@ function titleTokens(s){
   return set;
 }
 function headOf(t){ return String(t).split(/[(:]/)[0]; }
+/* --- Enunciados sin pistas ---
+   Las definiciones suelen nombrar su propio término ("Svabhava significa..."), y así la
+   pregunta se resolvía buscando la palabra. `enmascarar` tapa en el texto las palabras
+   del título del ítem (sin acentos, singular y por raíz de 6 letras), sin tocar el HTML.
+   `pista` además recorta a las primeras oraciones, para que el enunciado se pueda leer. */
+function normPalabra(w){
+  let n = w.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+  if(n.length>4 && n.endsWith("s")) n = n.slice(0,-1);
+  return n;
+}
+function enmascarar(texto, titulo){
+  const claves = titleTokens(titulo);
+  return String(texto||"").split(/(<[^>]+>)/).map(seg=> seg.startsWith("<") ? seg :
+    seg.replace(/[\p{L}\p{M}]+/gu, w=>{
+      const n = normPalabra(w);
+      if(n.length<3) return w;
+      if(n.length===3) return claves.has(n) ? "▁▁▁" : w;
+      if(claves.has(n.slice(0,6))) return "▁▁▁";
+      /* raíces cortas del título ("moral") también tapan sus variantes ("morales") */
+      for(const c of claves) if(c.length>=4 && c.length<6 && n.startsWith(c) && n.length<=c.length+3) return "▁▁▁";
+      return w;
+    })).join("");
+}
+function palabras(s){ return String(s||"").replace(/<[^>]+>/g," ").trim().split(/\s+/).filter(Boolean).length; }
+function recortar(texto, min, max){
+  min = min||40; max = max||90;
+  const oraciones = String(texto||"").split(/(?<=[.!?…»])\s+(?=[¿¡«“"A-ZÁÉÍÓÚÑ])/);
+  let out = "";
+  for(const o of oraciones){
+    if(out && palabras(out+" "+o) > max) break;
+    out = out ? out+" "+o : o;
+    if(palabras(out) >= min) break;
+  }
+  if(palabras(out) > max+30){   // una sola oración larguísima: se corta por palabras, sin HTML
+    out = out.replace(/<[^>]+>/g,"").split(/\s+/).slice(0,max).join(" ")+"…";
+  } else if(out.length < String(texto||"").length) out += " […]";
+  return out;
+}
+function pista(item){ return recortar(enmascarar(item.d, item.t)); }
 /* ¿El candidato podría pasar por correcto? Sí si comparte un término de título con `ref.titles`,
    o si todo su término principal ya aparece en `ref.text`. */
 function riesgoAmbiguo(cand, ref){
@@ -466,7 +705,7 @@ function obrasMCQ(mod, n){
   return chosen.map(i=>{
     const correct = pool[i].t;
     const distractors = pickClosest(pool[i], distractorTiers(mod,"obras",pool[i]), 3).map(x=>x.t);
-    return { prompt:`¿Qué obra corresponde a: “${pool[i].d}”?`, options:shuffle([correct,...distractors]), answer:correct };
+    return { prompt:`¿Qué obra corresponde a: “${pista(pool[i])}”?`, options:shuffle([correct,...distractors]), answer:correct };
   });
 }
 function conceptMCQ(mod, n){
@@ -475,39 +714,9 @@ function conceptMCQ(mod, n){
   return chosen.map(i=>{
     const correct = pool[i].t;
     const distractors = pickClosest(pool[i], distractorTiers(mod,"conceptos",pool[i]), 3).map(x=>x.t);
-    return { prompt:`¿Qué concepto corresponde a: “${pool[i].d}”?`, options:shuffle([correct,...distractors]), answer:correct };
+    return { prompt:`¿Qué concepto corresponde a: “${pista(pool[i])}”?`, options:shuffle([correct,...distractors]), answer:correct };
   });
 }
-function renderMetodo(){
-  const d = currentModule;
-  const exercises = [...conceptMCQ(d,2), ...obrasMCQ(d,2)];
-  $("#detBody").innerHTML = `
-    <h4>${d.escuela}</h4>
-    <p style="line-height:1.6;max-width:68ch;">${d.tesis}</p>
-    <h4 style="margin-top:22px;">Para no confundir</h4>
-    <div class="mistake">🔗 <span>${d.conexion}</span></div>
-    <h4 style="margin-top:22px;">Practicá identificando conceptos y obras</h4>
-    <div id="metEx">
-      ${exercises.map((ex,i)=>`
-        <div class="exq" id="mex${i}">
-          <div class="prompt">${i+1}. ${ex.prompt}</div>
-          <div class="optrow">
-            ${ex.options.map(o=>`<button class="optbtn" onclick="answerMetodo(${i},'${String(o).replace(/'/g,"\\'")}',this)">${o}</button>`).join("")}
-          </div>
-        </div>`).join("")}
-    </div>`;
-  window._metEx = exercises;
-}
-function answerMetodo(i, chosen, btn){
-  const ex = window._metEx[i];
-  const box = document.getElementById("mex"+i);
-  $all(".optbtn", box).forEach(b=>{
-    b.disabled = true;
-    if(b.textContent === ex.answer) b.classList.add("correct");
-    else if(b===btn) b.classList.add("wrong");
-  });
-}
-
 /* --- Matching (Emparejar) ---
    Más pares por ronda (7, u 8 si la ficha tiene 10 o más conceptos) y dos definiciones
    "sobrantes" que no corresponden a ningún término de la izquierda: así la última pareja
@@ -531,7 +740,7 @@ function renderMatching(){
       decoys.push({ key:-1-decoys.length, d:x.d, t:x.t, de:x.de });
     });
   }
-  const right = shuffle([...items.map(i=>({key:i, d:pool[i].d})), ...decoys.map(x=>({key:x.key, d:x.d}))]);
+  const right = shuffle([...items.map(i=>({key:i, d:pista(pool[i])})), ...decoys.map(x=>({key:x.key, d:pista(x)}))]);
   const left = shuffle(items.slice());
   matchState = { items, matched:new Set(), selLeft:null, pool, decoys };
   const nd = decoys.length;
@@ -573,47 +782,178 @@ function pickMatch(side, i, el){
   }
 }
 
-/* --- Activities (read-only) --- */
-function renderActivities(){
-  const acts = currentModule.actividades && currentModule.actividades.length ? currentModule.actividades : [
-    {t:"Resumir la tesis en tus propias palabras", d:`Explicá la tesis central de ${currentModule.nombre} en dos o tres frases, sin usar ninguno de los términos técnicos de "Conceptos".`},
-    {t:"Buscar un caso actual", d:`Encontrá una situación o debate actual que pueda leerse a la luz de ${currentModule.nombre} — y explicá qué aportaría su perspectiva.`},
-    {t:"Confrontar con la conexión propuesta", d:`Tomá la conexión con el otro pensador de esta ficha y escribí un párrafo defendiendo la postura de ${currentModule.nombre} frente a la de esa otra persona.`}
+/* --- Escribir: actividades con un cuaderno que se guarda, y la ruleta --- */
+function respKey(kind, i){ return currentModule.id+":"+kind+":"+i; }
+function respDe(kind, i){ return progress.respuestas[respKey(kind,i)] || {}; }
+let respTimer = null;
+/* Se guarda medio segundo después de dejar de escribir, para no escribir en disco a cada tecla. */
+function guardarResp(kind, i, texto){
+  const k = respKey(kind, i);
+  progress.respuestas[k] = Object.assign({}, progress.respuestas[k], { texto: String(texto).slice(0,20000) });
+  const wc = document.getElementById(`wc-${kind}-${i}`);
+  if(wc){ const n = palabras(texto); wc.textContent = `${n} palabra${n===1?'':'s'} · guardando…`; }
+  clearTimeout(respTimer);
+  respTimer = setTimeout(()=>{
+    saveProgress();
+    if(wc){ const n = palabras(texto); wc.textContent = `${n} palabra${n===1?'':'s'}${saveFailed?' · ⚠️ no se pudo guardar':' · guardado'}`; }
+  }, 500);
+}
+function cajaEscritura(kind, i, placeholder){
+  const t = respDe(kind, i).texto || "";
+  const n = palabras(t);
+  return `<textarea class="escritura" rows="6" aria-label="${escapeHtml(placeholder)}" placeholder="${escapeHtml(placeholder)}" oninput="guardarResp('${kind}',${i},this.value)">${escapeHtml(t)}</textarea>
+    <div class="wcline muted" id="wc-${kind}-${i}">${n} palabra${n===1?'':'s'}</div>`;
+}
+function actividadesDe(d){
+  return d.actividades && d.actividades.length ? d.actividades : [
+    {t:"Resumir la tesis en tus propias palabras", d:`Explicá la tesis central de ${d.nombre} en dos o tres frases, sin usar ninguno de los términos técnicos de "Conceptos".`},
+    {t:"Buscar un caso actual", d:`Encontrá una situación o debate actual que pueda leerse a la luz de ${d.nombre} — y explicá qué aportaría su perspectiva.`},
+    {t:"Confrontar con la conexión propuesta", d:`Tomá la conexión con el otro pensador de esta ficha y escribí un párrafo defendiendo la postura de ${d.nombre} frente a la de esa otra persona.`}
   ];
+}
+function renderActivities(){
+  const acts = actividadesDe(currentModule);
   const clr = LEVELS[currentModule.trad].clr;
   $("#detBody").innerHTML = `
     <div style="--tclr:var(--${clr});">
+      <div class="lecnote">✍️ Lo que escribas acá y en <b>Preguntas</b> se guarda en este navegador. Con el botón del final lo bajás en un archivo de texto, por ejemplo para entregarlo.</div>
       <div class="sechead">Para escribir y pensar</div>
-      <div class="activities">${acts.map(a=>`<div class="activity"><h4>${a.t}</h4><p>${a.d}</p></div>`).join("")}</div>
-      <div class="sechead">Minijuegos · práctica rápida</div>
-      <div class="games">
-        <section class="game" id="gameMC"></section>
-        <section class="game" id="gameTF"></section>
-        <section class="game" id="gameIN"></section>
-        <section class="game" id="gameWH"></section>
-      </div>
+      <div class="activities">${acts.map((a,i)=>`<div class="activity"><h4>${a.t}</h4><p>${a.d}</p>${cajaEscritura("actividades", i, "Tu desarrollo…")}</div>`).join("")}</div>
+      <div class="row" style="margin-top:14px;"><button class="btn ghost sm" onclick="exportarEscritos()">⬇️ Bajar lo que escribí en esta ficha</button></div>
+      <div class="sechead">Para hablar · un minuto sin mirar la ficha</div>
+      <section class="game" id="gameWH"></section>
     </div>`;
-  initMinijuegos();
+  miniState = { wheel:{ prompts:buildWheelPrompts(currentModule), spinning:false, turn:0 } };
+  drawWheel();
+}
+/* Archivo de texto con las preguntas, actividades y lo escrito en esta ficha. */
+function exportarEscritos(){
+  const d = currentModule;
+  const bloques = [`ÁGORA · ${d.nombre}`, `Exportado el ${todayStr()}`, ""];
+  getQuiz(d).forEach((q,i)=>{
+    const r = respDe("preguntas", i);
+    bloques.push(`PREGUNTA ${i+1}. ${q.q}`, "", (r.texto||"").trim() || "(sin responder)", "");
+  });
+  actividadesDe(d).forEach((a,i)=>{
+    bloques.push(`ACTIVIDAD ${i+1}. ${a.t}`, a.d.replace(/<[^>]+>/g,""), "", (respDe("actividades", i).texto||"").trim() || "(sin desarrollar)", "");
+  });
+  const url = URL.createObjectURL(new Blob([bloques.join("\n")], {type:"text/plain;charset=utf-8"}));
+  const a = document.createElement("a");
+  a.href = url; a.download = `agora-${d.id}.txt`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 1000);
 }
 
-/* ============================= MINIJUEGOS ============================= */
-/* Auto-generados desde los propios `conceptos` / `obras` / `lecturas` de cada ficha.
-   Single-user: puntaje por ronda, sin equipos. */
-let miniState = null;
+/* --- Preguntas: el cuestionario escrito de la ficha ---
+   Primero se escribe la respuesta y recién después se ve la del modelo: el esfuerzo de
+   formularla es lo que la fija. Después, una autoevaluación de tres niveles. */
+const PREG_EVAL = [["si","Tenía lo central"],["parte","En parte"],["no","Se me escapó lo central"]];
+let pregAviso = {};
+function renderPreguntas(){
+  const qs = getQuiz(currentModule);
+  if(!qs.length){ sinEjercicio(); return; }
+  pregAviso = {};
+  const clr = LEVELS[currentModule.trad].clr;
+  $("#detBody").innerHTML = `
+    <div style="--tclr:var(--${clr});">
+      <div class="lecnote">✍️ Escribí tu respuesta antes de mirar la del modelo. La del modelo no es la única válida: usala para ver qué se te escapó y qué viste vos que ella no dice.</div>
+      ${qs.map((q,i)=>`
+        <article class="activity pregcard">
+          <h4>Pregunta ${i+1}</h4>
+          <p class="pregq">${q.q}</p>
+          ${cajaEscritura("preguntas", i, "Tu respuesta…")}
+          <div id="modelo-${i}"></div>
+        </article>`).join("")}
+    </div>`;
+  qs.forEach((_,i)=>drawModelo(i));
+}
+function drawModelo(i){
+  const box = document.getElementById("modelo-"+i);
+  if(!box) return;
+  const r = respDe("preguntas", i);
+  if(!r.visto){
+    box.innerHTML = `<button class="btn sm" onclick="verModelo(${i})">Ver la respuesta del modelo</button>
+      ${pregAviso[i]?`<span class="muted" style="margin-left:8px;font-size:.85rem;">Todavía escribiste poco. Tocá de nuevo para verla igual.</span>`:''}`;
+    return;
+  }
+  box.innerHTML = `
+    <div class="modelo"><b>Respuesta del modelo</b><p>${getQuiz(currentModule)[i].p}</p></div>
+    <div class="evalrow"><span class="muted">Comparada con la tuya:</span>
+      ${PREG_EVAL.map(([k,l])=>`<button class="chip ${r.eval===k?'active':''}" aria-pressed="${r.eval===k}" onclick="evaluarPregunta(${i},'${k}')">${l}</button>`).join("")}</div>`;
+}
+function verModelo(i){
+  if(palabras(respDe("preguntas", i).texto) < 15 && !pregAviso[i]){ pregAviso[i] = true; drawModelo(i); return; }
+  const k = respKey("preguntas", i);
+  progress.respuestas[k] = Object.assign({texto:""}, progress.respuestas[k], { visto:true });
+  saveProgress();
+  drawModelo(i);
+}
+function evaluarPregunta(i, ev){
+  const k = respKey("preguntas", i);
+  progress.respuestas[k] = Object.assign({texto:""}, progress.respuestas[k], { eval:ev });
+  saveProgress();
+  drawModelo(i);
+}
 
+/* ============================= REPASO MIXTO ============================= */
+/* Una sola ronda que mezcla los tres tipos de práctica de reconocimiento (identificar,
+   verdadero o falso, intruso), con la explicación a la vista hasta que se pide la siguiente.
+   Los generadores de cada tipo están más abajo. */
+let miniState = null;
+let repState = null;
 function otherModules(mod){ return MODULES.filter(m=>m.id!==mod.id); }
 function pickFrom(arr,n){ return shuffle(arr.slice()).slice(0,n); }
-
-function initMinijuegos(){
-  const d = currentModule;
-  miniState = {
-    mc:{ items:buildMCItems(d), i:0, ok:0 },
-    tf:{ items:buildTFItems(d), i:0, ok:0 },
-    intruso:{ items:buildIntrusoItems(d), i:0, ok:0 },
-    wheel:{ prompts:buildWheelPrompts(d), spinning:false, turn:0 }
-  };
-  drawMC(); drawTF(); drawIntruso(); drawWheel();
+function buildRepasoItems(d){
+  const mc = buildMCItems(d).slice(0,4).map(q=>({ tipo:"🎯 Identificá", prompt:q.prompt, options:q.options, answer:q.answer, why:q.why }));
+  const tf = buildTFItems(d).slice(0,4).map(q=>({ tipo:"⚡ Verdadero o falso", prompt:q.texto, options:["Verdadero","Falso"], answer:q.verdadero?"Verdadero":"Falso", why:q.why }));
+  const intr = buildIntrusoItems(d).slice(0,2).map(q=>({ tipo:"🕵️ El intruso",
+    prompt:`Tres de ${q.etiqueta==='obras'?'estas obras':'estos conceptos'} están en la ficha de ${d.nombre}. ¿Cuál viene de otra ficha? (Suele ser de un autor cercano.)`,
+    options:q.opciones.map(o=>o.txt), answer:q.opciones.find(o=>o.malo).txt, why:q.why }));
+  return shuffle([...mc, ...tf, ...intr]);
 }
+function renderRepasoMixto(){
+  repState = { items:buildRepasoItems(currentModule), i:0, ok:0, respondida:false };
+  drawRepaso();
+}
+function drawRepaso(){
+  const st = repState, box = $("#detBody");
+  if(!st.items.length){ box.innerHTML = `<div class="lecnote">No hay suficiente material en esta ficha para armar un repaso.</div>`; return; }
+  if(st.i >= st.items.length){
+    box.innerHTML = `<div class="qcard center"><div class="resultbig">${st.ok}/${st.items.length}</div>
+      <p class="muted">Este repaso no se guarda: es para practicar. El que cuenta es el <b>Cuestionario final</b>.</p>
+      <button class="btn" onclick="renderRepasoMixto()">↺ Otra ronda</button>
+      <button class="btn ghost" onclick="setDetTab('cuestionario')">Ir al cuestionario final</button></div>`;
+    return;
+  }
+  const q = st.items[st.i];
+  box.innerHTML = `
+    <div class="qhead"><span>${q.tipo} · ${st.i+1} / ${st.items.length}</span><span>✅ ${st.ok}</span></div>
+    <div class="qcard">
+      <div class="prompt" style="margin-bottom:14px;">${q.prompt}</div>
+      <div class="optrow" id="repOpts">${q.options.map((o,ix)=>`<button class="optbtn" data-ix="${ix}" onclick="answerRepaso(${ix})">${escapeHtml(o)}</button>`).join("")}</div>
+      <div class="gfeedback" id="repFb" aria-live="polite"></div>
+    </div>`;
+}
+function answerRepaso(ix){
+  const st = repState, q = st.items[st.i];
+  if(st.respondida) return;
+  st.respondida = true;
+  const bien = q.options[ix] === q.answer;
+  if(bien) st.ok++;
+  $all("#repOpts .optbtn").forEach(b=>{
+    b.disabled = true;
+    const o = q.options[Number(b.dataset.ix)];
+    if(o === q.answer) b.classList.add("correct");
+    else if(Number(b.dataset.ix) === ix) b.classList.add("wrong");
+  });
+  const fb = document.getElementById("repFb");
+  fb.className = "gfeedback show " + (bien?"ok":"no");
+  fb.innerHTML = (bien?"✅ ":"❌ La respuesta era <b>"+escapeHtml(q.answer)+"</b>. ") + (q.why||"") +
+    `<div style="margin-top:10px;"><button class="btn sm" id="repNext" onclick="repState.i++; repState.respondida=false; drawRepaso();">Siguiente →</button></div>`;
+  enfocar("#repNext");
+}
+
+/* --- Generadores de práctica (los usa el Repaso mixto) --- */
 
 /* (a) Opción múltiple: ¿quién lo dijo / qué obra es?
    Distractores cercanos: uno de la misma ficha y el resto de las fichas más parecidas
@@ -622,12 +962,12 @@ function buildMCItems(d){
   const items = [];
   (d.obras||[]).forEach(o=>{
     const distract = pickClosest(o, distractorTiers(d,"obras",o,{maxSame:1}), 3).map(x=>x.t);
-    if(distract.length===3) items.push({ prompt:`¿A qué obra corresponde esta descripción?<br><span class="muted">“${o.d}”</span>`, options:shuffle([o.t,...distract]), answer:o.t,
+    if(distract.length===3) items.push({ prompt:`¿A qué obra corresponde esta descripción?<br><span class="muted">“${pista(o)}”</span>`, options:shuffle([o.t,...distract]), answer:o.t,
       why:`“${o.t}” es de ${d.nombre}.` });
   });
   (d.conceptos||[]).forEach(c=>{
     const distract = pickClosest(c, distractorTiers(d,"conceptos",c,{maxSame:1}), 3).map(x=>x.t);
-    if(distract.length===3) items.push({ prompt:`¿Qué concepto se define así?<br><span class="muted">“${c.d}”</span>`, options:shuffle([c.t,...distract]), answer:c.t,
+    if(distract.length===3) items.push({ prompt:`¿Qué concepto se define así?<br><span class="muted">“${pista(c)}”</span>`, options:shuffle([c.t,...distract]), answer:c.t,
       why:`${c.t} pertenece a ${d.nombre} (${d.escuela}).` });
   });
   // ¿quién lo dijo?: la tesis de este autor contra las de los tres autores más cercanos
@@ -642,43 +982,6 @@ function buildMCItems(d){
   }
   return shuffle(items).slice(0,6);
 }
-function drawMC(){
-  const st = miniState.mc, box = document.getElementById("gameMC");
-  if(!box) return;
-  if(!st.items.length){ box.innerHTML = `<h4>🎯 ¿Quién lo dijo?</h4><p class="gamesub">No hay suficiente material en esta ficha para este juego.</p>`; return; }
-  if(st.i >= st.items.length){
-    box.innerHTML = `<h4>🎯 ¿Quién lo dijo?<span class="gamescore">ronda terminada</span></h4>
-      <p class="gamesub">Acertaste <b>${st.ok}</b> de ${st.items.length}.</p>
-      <button class="btn sm" onclick="restartMC()">↺ Jugar otra ronda</button>`;
-    return;
-  }
-  const q = st.items[st.i];
-  box.innerHTML = `
-    <h4>🎯 ¿Quién lo dijo?<span class="gamescore">${st.i+1}/${st.items.length} · ✅ ${st.ok}</span></h4>
-    <p class="gamesub">Identificá el concepto, la obra o el autor a partir de la descripción.</p>
-    <div class="tfstatement">${q.prompt}</div>
-    <div class="optrow" style="margin-top:10px;" id="mcOpts">
-      ${q.options.map(o=>`<button class="optbtn" onclick="answerMC(this)">${escapeHtml(o)}</button>`).join("")}
-    </div>
-    <div class="gfeedback" id="mcFb"></div>`;
-}
-function answerMC(btn){
-  const st = miniState.mc, q = st.items[st.i];
-  if(st.locked) return; st.locked = true;
-  const chosen = btn.textContent;
-  const bien = chosen === q.answer;
-  if(bien) st.ok++;
-  $all("#mcOpts .optbtn").forEach(b=>{
-    b.disabled = true;
-    if(b.textContent === q.answer) b.classList.add("correct");
-    else if(b===btn) b.classList.add("wrong");
-  });
-  const fb = document.getElementById("mcFb");
-  fb.className = "gfeedback show " + (bien?"ok":"no");
-  fb.innerHTML = (bien?"✅ Correcto. ":"❌ La respuesta era <b>"+escapeHtml(q.answer)+"</b>. ") + (q.why||"");
-  setTimeout(()=>{ st.i++; st.locked=false; drawMC(); }, bien?1200:2200);
-}
-function restartMC(){ miniState.mc = { items:buildMCItems(currentModule), i:0, ok:0 }; drawMC(); }
 
 /* (b) Verdadero o falso sobre definiciones de conceptos.
    Las afirmaciones falsas ya no pegan una definición cualquiera del catálogo: toman la
@@ -690,12 +993,12 @@ function buildTFItems(d){
   const items = [];
   const own = d.conceptos||[];
   own.forEach((c,k)=>{
-    items.push({ texto:`<b>${c.t}</b> se define como: “${c.d}”`, verdadero:true,
+    items.push({ texto:`<b>${c.t}</b> se define como: “${pista(c)}”`, verdadero:true,
       why:`Correcto: es la definición que usa la ficha de ${d.nombre}.` });
     const t = distractorTiers(d,"conceptos",c,{modo:"def"});        // [misma ficha, misma tradición, resto]
     const tiers = (k%2===0) ? t : [t[1], t[0], t[2]];
     const falsa = pickClosest(c, tiers, 1)[0];
-    if(falsa) items.push({ texto:`<b>${c.t}</b> se define como: “${falsa.d}”`, verdadero:false,
+    if(falsa) items.push({ texto:`<b>${c.t}</b> se define como: “${pista(falsa)}”`, verdadero:false,
       why: falsa.de.id===d.id
         ? `Falso: esa es la definición de <b>${falsa.t}</b>, otro concepto de ${d.nombre}. Vale la pena precisar qué distingue a uno del otro.`
         : `Falso: esa es la definición de <b>${falsa.t}</b> (${falsa.de.nombre}), no la de <b>${c.t}</b>.` });
@@ -709,38 +1012,6 @@ function buildTFItems(d){
   });
   return shuffle(items).slice(0,8);
 }
-function drawTF(){
-  const st = miniState.tf, box = document.getElementById("gameTF");
-  if(!box) return;
-  if(st.i >= st.items.length){
-    box.innerHTML = `<h4>⚡ Verdadero o falso<span class="gamescore">ronda terminada</span></h4>
-      <p class="gamesub">Acertaste <b>${st.ok}</b> de ${st.items.length}.</p>
-      <button class="btn sm" onclick="restartTF()">↺ Jugar otra ronda</button>`;
-    return;
-  }
-  const q = st.items[st.i];
-  box.innerHTML = `
-    <h4>⚡ Verdadero o falso<span class="gamescore">${st.i+1}/${st.items.length} · ✅ ${st.ok}</span></h4>
-    <p class="gamesub">Rápido: ¿la definición corresponde al término?</p>
-    <div class="tfstatement">${q.texto}</div>
-    <div class="tfrow">
-      <button class="btn sm" onclick="answerTF(true)">✔ Verdadero</button>
-      <button class="btn ghost sm" onclick="answerTF(false)">✘ Falso</button>
-    </div>
-    <div class="gfeedback" id="tfFb"></div>`;
-}
-function answerTF(resp){
-  const st = miniState.tf, q = st.items[st.i];
-  if(st.locked) return; st.locked = true;
-  const bien = resp === q.verdadero;
-  if(bien) st.ok++;
-  const fb = document.getElementById("tfFb");
-  fb.className = "gfeedback show " + (bien?"ok":"no");
-  fb.innerHTML = (bien?"✅ ":"❌ ") + q.why;
-  $all("#gameTF .btn").forEach(b=>b.disabled=true);
-  setTimeout(()=>{ st.i++; st.locked=false; drawTF(); }, bien?1100:2200);
-}
-function restartTF(){ miniState.tf = { items:buildTFItems(currentModule), i:0, ok:0 }; drawTF(); }
 
 /* (c) Intruso: 3 elementos de esta ficha + 1 ajeno.
    El intruso ya no es uno cualquiera: es el concepto/obra de OTRO autor más parecido a los
@@ -765,42 +1036,6 @@ function buildIntrusoItems(d){
   for(let k=0;k<2;k++){ const r = mkRound("obras","obras"); if(r) items.push(r); }
   return shuffle(items).slice(0,4);
 }
-function drawIntruso(){
-  const st = miniState.intruso, box = document.getElementById("gameIN");
-  if(!box) return;
-  if(!st.items.length){ box.innerHTML = `<h4>🕵️ El intruso</h4><p class="gamesub">Esta ficha no tiene suficientes elementos para armar rondas.</p>`; return; }
-  if(st.i >= st.items.length){
-    box.innerHTML = `<h4>🕵️ El intruso<span class="gamescore">ronda terminada</span></h4>
-      <p class="gamesub">Acertaste <b>${st.ok}</b> de ${st.items.length}.</p>
-      <button class="btn sm" onclick="restartIntruso()">↺ Jugar otra ronda</button>`;
-    return;
-  }
-  const q = st.items[st.i];
-  box.innerHTML = `
-    <h4>🕵️ El intruso<span class="gamescore">${st.i+1}/${st.items.length} · ✅ ${st.ok}</span></h4>
-    <p class="gamesub">Tres de estos ${q.etiqueta} están en la ficha de ${currentModule.nombre}. Encontrá el que viene de otra ficha (ojo: suele ser de un autor cercano).</p>
-    <div class="intrusogrid" id="inOpts">
-      ${q.opciones.map((o,ix)=>`<button class="intrusobtn" data-ix="${ix}" onclick="answerIntruso(${ix},this)">${escapeHtml(o.txt)}</button>`).join("")}
-    </div>
-    <div class="gfeedback" id="inFb"></div>`;
-}
-function answerIntruso(ix, btn){
-  const st = miniState.intruso, q = st.items[st.i];
-  if(st.locked) return; st.locked = true;
-  const bien = q.opciones[ix].malo;
-  if(bien) st.ok++;
-  $all("#inOpts .intrusobtn").forEach(b=>{
-    b.disabled = true;
-    const o = q.opciones[Number(b.dataset.ix)];
-    if(o.malo) b.classList.add("correct");
-    else if(b===btn) b.classList.add("wrong");
-  });
-  const fb = document.getElementById("inFb");
-  fb.className = "gfeedback show " + (bien?"ok":"no");
-  fb.innerHTML = (bien?"✅ ¡Bien! ":"❌ ") + q.why;
-  setTimeout(()=>{ st.i++; st.locked=false; drawIntruso(); }, bien?1300:2300);
-}
-function restartIntruso(){ miniState.intruso = { items:buildIntrusoItems(currentModule), i:0, ok:0 }; drawIntruso(); }
 
 /* (d) Ruleta: consigna filosófica al azar para hablar/escribir un minuto */
 function buildWheelPrompts(d){
@@ -1140,7 +1375,7 @@ function renderConstelaciones(){
     <div class="constgrid">
       ${entradas.map(({e,m})=>{ const clr = LEVELS[m.trad].clr; return `
         <article class="constpost" style="--tclr:var(--${clr});--tsoft:var(--${clr}-soft);">
-          <header><span class="emo" aria-hidden="true">${m.icon}</span><div><h4>${m.nombre}</h4><span class="lvltag mono">${LEVELS[m.trad].label} · ${m.escuela}</span></div></header>
+          <header>${monograma(m)}<div><h4>${m.nombre}</h4><span class="lvltag mono">${LEVELS[m.trad].label} · ${m.escuela}</span></div></header>
           <p>${e.postura}</p>
           <button class="btn ghost sm" onclick="openModule('${m.id}')">Abrir la ficha →</button>
         </article>`; }).join("")}
@@ -1148,7 +1383,7 @@ function renderConstelaciones(){
     ${q?`<div class="qcard" style="margin-top:20px;">
       <div class="sechead" style="margin-top:0;">Pregunta de comparación</div>
       <div class="prompt" style="font-size:1.05rem;margin-bottom:14px;">${q.enunciado}</div>
-      <div class="optrow constopts" id="constOpts">${q.opciones.map((o,i)=>`<button class="optbtn" data-ix="${i}" onclick="responderConstelacion(${i},this)">${o}</button>`).join("")}</div>
+      <div class="optrow constopts" id="constOpts">${shuffle(q.opciones.map((o,i)=>({o,i}))).map(({o,i})=>`<button class="optbtn" data-ix="${i}" onclick="responderConstelacion(${i},this)">${o}</button>`).join("")}</div>
       <div class="gfeedback" id="constFb" role="status" aria-live="polite"></div>
     </div>`:""}`;
 }
@@ -1248,6 +1483,7 @@ function renderExamLevelCards(){
       <h3>Examen ${l.label}</h3>
       <p>${examQuestionCount(k)} preguntas mixtas · cronometrado.</p>
     </div>`).join("");
+  renderExamFinalCard();
   renderExamHistory();
 }
 function renderExamHistory(){
@@ -1255,7 +1491,7 @@ function renderExamHistory(){
   if(!hist.length){ $("#examHistory").innerHTML = `<span class="muted">Todavía no diste ningún examen.</span>`; return; }
   $("#examHistory").innerHTML = hist.slice().reverse().slice(0,8).map(h=>`
     <div class="reviewrow"><span class="tag">${h.score>=70?'✅':'🔻'}</span>
-    <span>${LEVELS[h.trad].label} — <b>${h.score}%</b> (${h.correct}/${h.total}) · ${h.date}</span></div>
+    <span>${h.trad==="final" ? "Examen final integrador" : LEVELS[h.trad].label} — <b>${h.score}%</b> (${h.correct}/${h.total}) · ${h.date}</span></div>
   `).join("");
 }
 let examTimer = null;
@@ -1329,6 +1565,306 @@ function backToExamIntro(){
   renderExamHistory();
 }
 
+/* ============================= EXAMEN FINAL INTEGRADOR =============================
+   Banco en datos/examen.js. Cada intento: 12 de selección múltiple con situación (estilo
+   Saber Pro), 8 de verdadero o falso y una ronda de emparejamiento de 6 ideas de autores
+   distintos y de al menos tres tradiciones. Sin cronómetro y sin corrección durante el
+   examen: al final se ve el puntaje por sección, cada respuesta con su explicación y las
+   fichas para repasar. */
+const FINAL_N = { sel:12, vf:8, emp:6 };
+let finalState = null;
+function examenFinalDisponible(){ return typeof EXAMEN_FINAL !== "undefined" && EXAMEN_FINAL.seleccion && EXAMEN_FINAL.seleccion.length; }
+function renderExamFinalCard(){
+  const el = document.getElementById("examFinalCard");
+  if(!el) return;
+  if(!examenFinalDisponible()){ el.innerHTML = ""; return; }
+  const ult = (progress.examHistory||[]).filter(h=>h.trad==="final").slice(-1)[0];
+  el.innerHTML = `
+    <div class="card finalcard">
+      <div>
+        <span class="kicker" style="color:var(--accent)">Las 25 fichas</span>
+        <h3>Examen final integrador</h3>
+        <p class="muted">${FINAL_N.sel} preguntas de selección múltiple con situación, al estilo Saber Pro · ${FINAL_N.vf} de verdadero o falso · un emparejamiento de ${FINAL_N.emp} ideas con su autor. Sin límite de tiempo: las respuestas y las explicaciones se ven al final.${ult?` <b>Último intento: ${ult.score}%</b> (${ult.date}).`:''}</p>
+      </div>
+      <button class="btn" onclick="startExamenFinal()">Empezar el examen</button>
+    </div>`;
+}
+/* Ronda de emparejamiento: una idea por tradición primero, después se completa sin repetir autor. */
+function armarEmparejamiento(){
+  const pool = shuffle(EXAMEN_FINAL.emparejar.filter(x=>moduleById(x.mod)));
+  const elegidas = [], usados = new Set();
+  ["europea","asiatica","americana"].forEach(t=>{
+    const x = pool.find(p=>!usados.has(p.mod) && moduleById(p.mod).trad===t);
+    if(x){ elegidas.push(x); usados.add(x.mod); }
+  });
+  for(const p of pool){ if(elegidas.length>=FINAL_N.emp) break; if(!usados.has(p.mod)){ elegidas.push(p); usados.add(p.mod); } }
+  const extra = shuffle(pool.filter(p=>!usados.has(p.mod))).slice(0,2).map(p=>p.mod);
+  const autores = [...usados, ...extra].map(moduleById).sort((a,b)=>a.nombre.localeCompare(b.nombre,"es"));
+  return { tipo:"emp", pares:shuffle(elegidas), autores };
+}
+function startExamenFinal(){
+  const sel = shuffle(EXAMEN_FINAL.seleccion).slice(0, FINAL_N.sel).map(q=>({ tipo:"sel", q, orden:shuffle(q.opciones.map((_,i)=>i)) }));
+  const vf = shuffle(EXAMEN_FINAL.vf).slice(0, FINAL_N.vf).map(q=>({ tipo:"vf", q }));
+  finalState = { items:[...sel, ...vf, armarEmparejamiento()], i:0, resp:{}, aviso:false, inicio:Date.now() };
+  document.getElementById("examIntro").classList.add("hidden");
+  document.getElementById("examRunner").classList.remove("hidden");
+  drawFinal();
+}
+function cerrarExamenFinal(){
+  finalState = null;
+  const runner = document.getElementById("examRunner"), intro = document.getElementById("examIntro");
+  if(runner){ runner.classList.add("hidden"); runner.innerHTML = ""; }
+  if(intro) intro.classList.remove("hidden");
+  renderExamFinalCard(); renderExamHistory();
+}
+function finalSinResponder(){
+  const st = finalState;
+  return st.items.reduce((n,it,k)=>{
+    const r = st.resp[k];
+    if(it.tipo==="emp") return n + it.pares.filter((_,j)=>!(r && r[j])).length;
+    return n + (r==null ? 1 : 0);
+  }, 0);
+}
+function drawFinal(){
+  const st = finalState, it = st.items[st.i], r = st.resp[st.i];
+  const seccion = it.tipo==="sel" ? "Selección múltiple" : it.tipo==="vf" ? "Verdadero o falso" : "Emparejamiento";
+  let cuerpo = "";
+  if(it.tipo==="sel"){
+    cuerpo = `<div class="situacion">${it.q.situacion}</div>
+      <div class="prompt" style="margin:14px 0;">${it.q.pregunta}</div>
+      <div class="finalopts">${it.orden.map((ix,k)=>`<button class="optbtn${r===ix?' elegida':''}" aria-pressed="${r===ix}" onclick="elegirFinal(${ix})"><span class="mono">${"ABCD"[k]}.</span> ${it.q.opciones[ix]}</button>`).join("")}</div>`;
+  } else if(it.tipo==="vf"){
+    cuerpo = `<div class="prompt" style="margin-bottom:14px;">${it.q.afirmacion}</div>
+      <div class="optrow">${[[true,"Verdadero"],[false,"Falso"]].map(([v,l])=>`<button class="optbtn${r===v?' elegida':''}" aria-pressed="${r===v}" onclick="elegirFinal(${v})">${l}</button>`).join("")}</div>`;
+  } else {
+    cuerpo = `<p class="muted" style="margin-top:0;">Elegí el autor de cada idea. Hay ${it.autores.length - it.pares.length} nombres de más.</p>
+      <div class="emplist">${it.pares.map((p,j)=>`<label class="empfila"><span>${p.idea}</span>
+        <select onchange="elegirPar(${j}, this.value)" aria-label="Autor de la idea ${j+1}"><option value="">— elegí —</option>${it.autores.map(m=>`<option value="${m.id}" ${(r&&r[j])===m.id?'selected':''}>${m.nombre}</option>`).join("")}</select></label>`).join("")}</div>`;
+  }
+  const ult = st.i === st.items.length-1;
+  const faltan = finalSinResponder();
+  document.getElementById("examRunner").innerHTML = `
+    <div class="qhead"><span>${seccion} · ${st.i+1} / ${st.items.length}</span><span id="finalFaltan">sin responder: ${faltan}</span></div>
+    <div class="qcard">${cuerpo}</div>
+    <div class="row" style="margin-top:14px;">
+      <button class="btn ghost sm" onclick="cerrarExamenFinal()">Abandonar</button>
+      <div class="spacer"></div>
+      ${st.i>0?`<button class="btn ghost sm" onclick="finalState.i--; drawFinal();">← Anterior</button>`:''}
+      ${ult?`<button class="btn sm" onclick="terminarFinal()">Terminar el examen</button>`:`<button class="btn sm" onclick="finalState.i++; drawFinal();">Siguiente →</button>`}
+    </div>
+    ${st.aviso && faltan?`<p class="muted" style="margin-top:10px;">Te quedan ${faltan} respuesta${faltan===1?'':'s'} sin marcar, que cuentan como incorrectas. Tocá «Terminar» otra vez para entregar igual.</p>`:''}`;
+}
+function elegirFinal(v){ finalState.resp[finalState.i] = v; drawFinal(); }
+function elegirPar(j, mod){
+  const k = finalState.i;
+  finalState.resp[k] = Object.assign({}, finalState.resp[k], { [j]: mod || undefined });
+  const el = document.getElementById("finalFaltan");
+  if(el) el.textContent = "sin responder: " + finalSinResponder();
+}
+function terminarFinal(){
+  const st = finalState;
+  if(finalSinResponder() && !st.aviso){ st.aviso = true; drawFinal(); return; }
+  const pts = { sel:[0,0], vf:[0,0], emp:[0,0] };
+  const repasar = new Set();
+  const revision = st.items.map((it,k)=>{
+    const r = st.resp[k];
+    if(it.tipo==="emp"){
+      return it.pares.map((p,j)=>{
+        const ok = r && r[j]===p.mod;
+        pts.emp[1]++; if(ok) pts.emp[0]++; else repasar.add(p.mod);
+        const elegido = r && r[j] ? moduleById(r[j]).nombre : "sin responder";
+        return `<div class="reviewrow"><span class="tag">${ok?'✅':'🔻'}</span><span>«${p.idea}»<br>${ok?`<b>${moduleById(p.mod).nombre}</b>`:`Tu respuesta: ${elegido} · Correcta: <b>${moduleById(p.mod).nombre}</b>`}</span></div>`;
+      }).join("");
+    }
+    const ok = it.tipo==="sel" ? r===it.q.correcta : r===it.q.verdadero;
+    pts[it.tipo][1]++; if(ok) pts[it.tipo][0]++; else (it.q.fichas||[]).forEach(f=>repasar.add(f));
+    const tuya = r==null ? "sin responder" : it.tipo==="sel" ? it.q.opciones[r] : (r?"Verdadero":"Falso");
+    const buena = it.tipo==="sel" ? it.q.opciones[it.q.correcta] : (it.q.verdadero?"Verdadero":"Falso");
+    return `<div class="reviewrow"><span class="tag">${ok?'✅':'🔻'}</span><span>${it.tipo==="sel"?`<span class="muted">${it.q.situacion}</span><br><b>${it.q.pregunta}</b>`:`<b>${it.q.afirmacion}</b>`}<br>
+      ${ok?`Respondiste: ${tuya}`:`Tu respuesta: ${tuya} · Correcta: <b>${buena}</b>`}<div class="muted" style="margin-top:4px;">${it.q.explicacion}</div></span></div>`;
+  });
+  const correct = pts.sel[0]+pts.vf[0]+pts.emp[0], total = pts.sel[1]+pts.vf[1]+pts.emp[1];
+  const pct = total ? Math.round(100*correct/total) : 0;
+  progress.examHistory = (progress.examHistory||[]).concat([{ trad:"final", score:pct, correct, total, date:todayStr() }]);
+  saveProgress();
+  const mins = Math.max(1, Math.round((Date.now()-st.inicio)/60000));
+  const fichas = [...repasar].map(moduleById).filter(Boolean);
+  finalState = null;
+  document.getElementById("examRunner").innerHTML = `
+    <div class="qcard center">
+      <div class="resultbig" style="color:${pct>=70?'var(--good)':'var(--bad)'}">${pct}%</div>
+      <p class="muted">${correct} de ${total} puntos · ${mins} min · ${pct>=70?'¡Aprobado!':'A seguir estudiando'}</p>
+      <p class="mono" style="font-size:.85rem;">Selección ${pts.sel[0]}/${pts.sel[1]} · Verdadero o falso ${pts.vf[0]}/${pts.vf[1]} · Emparejamiento ${pts.emp[0]}/${pts.emp[1]}</p>
+      <button class="btn ghost" onclick="cerrarExamenFinal()">Volver</button>
+    </div>
+    ${fichas.length?`<h4 style="margin-top:24px;">Fichas para repasar</h4><div class="chiprow">${fichas.map(m=>`<button class="chip" onclick="openModule('${m.id}')">${m.nombre}</button>`).join("")}</div>`:''}
+    <h4 style="margin-top:20px;">Revisión de todas las respuestas</h4>
+    ${revision.join("")}`;
+  window.scrollTo({top:0, behavior:"instant"});
+}
+
+/* ============================= BUSCADOR =============================
+   Índice construido una vez al arrancar: fichas, tesis, conceptos, obras, lecturas, términos
+   del glosario y constelaciones. Se busca sin mayúsculas ni tildes (śūnyatā = sunyata), y
+   todas las palabras de la consulta tienen que aparecer. Atajo: "/" abre el buscador. */
+let BUSQ_INDICE = null;
+function normBusq(s){ return String(s||"").replace(/<[^>]+>/g," ").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(); }
+const esLetra = c=>/[a-z0-9]/.test(c||"");
+/* Posición de `t` en `norm` solo al comienzo de una palabra (o -1). */
+function inicioPalabra(norm, t, desde){
+  let p = norm.indexOf(t, desde||0);
+  while(p>0 && esLetra(norm[p-1])) p = norm.indexOf(t, p+1);
+  return p;
+}
+function textoPlano(s){ return String(s||"").replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim(); }
+function construirIndice(){
+  const ix = [];
+  /* Texto normalizado con un espacio delante de cada palabra: así " nada" coincide con el
+     comienzo de una palabra y no con el medio de "determinada". */
+  const pal = s=>" "+normBusq(s).replace(/[^a-z0-9]+/g," ");
+  const add = (o)=>{ o.nt = pal(o.titulo); o.nx = pal(o.texto); ix.push(o); };
+  MODULES.forEach(m=>{
+    add({ tipo:"Ficha", mod:m, titulo:m.nombre, texto:`${m.escuela} · ${m.fechas} · ${m.tesis}`, ir:()=>openModule(m.id) });
+    (m.conceptos||[]).forEach((c,i)=>add({ tipo:"Concepto", mod:m, titulo:c.t, texto:c.d, ir:()=>abrirTarjeta(m.id,"conceptos",i) }));
+    (m.obras||[]).forEach((o,i)=>add({ tipo:"Obra", mod:m, titulo:o.t, texto:o.d, ir:()=>abrirTarjeta(m.id,"obras",i) }));
+    (m.lecturas||[]).forEach(l=>add({ tipo:"Lectura", mod:m, titulo:l.titulo, texto:`${l.fuente} ${l.extracto}`, ir:()=>openModule(m.id,"lecturas") }));
+    getQuiz(m).forEach(q=>add({ tipo:"Pregunta", mod:m, titulo:textoPlano(q.q), texto:q.p, ir:()=>openModule(m.id,"preguntas") }));
+  });
+  (typeof POLYSEMOUS_TERMS!=="undefined"?POLYSEMOUS_TERMS:[]).forEach(([t,d])=>add({ tipo:"Glosario", mod:null, titulo:t, texto:d, ir:()=>showView("consejos") }));
+  (typeof CONSTELACIONES!=="undefined"?CONSTELACIONES:[]).forEach(c=>add({ tipo:"Constelación", mod:null, titulo:c.tema, texto:`${c.nucleo} ${c.entradas.map(e=>e.postura).join(" ")}`, ir:()=>{ showView("constelaciones"); abrirConstelacion(c.id); } }));
+  BUSQ_INDICE = ix;
+}
+const BUSQ_PESO = { "Ficha":6, "Concepto":4, "Obra":4, "Constelación":3, "Glosario":3, "Lectura":2, "Pregunta":1 };
+function buscar(q){
+  const terms = normBusq(q).split(/\s+/).filter(t=>t.length>=2);
+  if(!terms.length) return [];
+  if(!BUSQ_INDICE) construirIndice();
+  return BUSQ_INDICE.map(e=>{
+    let s = 0;
+    for(const t of terms){
+      const enT = e.nt.includes(" "+t), enX = e.nx.includes(" "+t);
+      if(!enT && !enX) return null;
+      s += enT ? 10 : 1;
+    }
+    return { e, s: s + BUSQ_PESO[e.tipo] };
+  }).filter(Boolean).sort((a,b)=>b.s-a.s).slice(0,40).map(x=>x.e);
+}
+/* Fragmento alrededor de la primera coincidencia, con las palabras resaltadas. */
+function fragmento(e, q){
+  const plano = textoPlano(e.texto), norm = normBusq(plano);
+  const terms = normBusq(q).split(/\s+/).filter(t=>t.length>=2);
+  let pos = -1; for(const t of terms){ const p = inicioPalabra(norm, t); if(p>=0 && (pos<0 || p<pos)) pos = p; }
+  const ini = Math.max(0, pos - 60), fin = Math.min(plano.length, (pos<0?0:pos) + 140);
+  let frag = (ini>0?"…":"") + plano.slice(ini, fin) + (fin<plano.length?"…":"");
+  return resaltar(frag, terms);
+}
+function resaltar(texto, terms){
+  const norm = normBusq(texto);
+  const marcas = new Array(texto.length).fill(false);
+  terms.forEach(t=>{ let p = inicioPalabra(norm, t); while(p>=0){ for(let k=p;k<p+t.length;k++) marcas[k]=true; p = inicioPalabra(norm, t, p+1); } });
+  let out = "", abierto = false;
+  for(let k=0;k<texto.length;k++){
+    if(marcas[k] && !abierto){ out += "<mark>"; abierto = true; }
+    if(!marcas[k] && abierto){ out += "</mark>"; abierto = false; }
+    out += escapeHtml(texto[k]);
+  }
+  return out + (abierto?"</mark>":"");
+}
+let busqResultados = [];
+function renderBusqueda(q){
+  const box = document.getElementById("busqResultados");
+  if(!box) return;
+  if(normBusq(q).trim().length < 2){ box.classList.add("hidden"); box.innerHTML = ""; busqResultados = []; return; }
+  busqResultados = buscar(q);
+  box.classList.remove("hidden");
+  if(!busqResultados.length){ box.innerHTML = `<div class="busqvacio">No hay resultados para «${escapeHtml(q)}».</div>`; return; }
+  const terms = normBusq(q).split(/\s+/).filter(t=>t.length>=2);
+  box.innerHTML = `<div class="busqcuenta">${busqResultados.length}${busqResultados.length===40?'+':''} resultado${busqResultados.length===1?'':'s'} · Enter abre el primero · Esc cierra</div>` +
+    busqResultados.map((e,i)=>`<button class="busqitem" onclick="abrirResultado(${i})">
+      <span class="busqtipo">${e.tipo}${e.mod?` · ${escapeHtml(e.mod.nombre)}`:''}</span>
+      <span class="busqtit">${resaltar(textoPlano(e.titulo), terms)}</span>
+      <span class="busqfrag">${fragmento(e, q)}</span></button>`).join("");
+}
+function abrirResultado(i){
+  const e = busqResultados[i];
+  if(!e) return;
+  cerrarBusqueda();
+  e.ir();
+}
+function cerrarBusqueda(){
+  const inp = document.getElementById("busqInput"), box = document.getElementById("busqResultados");
+  if(inp){ inp.value = ""; inp.blur(); }
+  if(box){ box.classList.add("hidden"); box.innerHTML = ""; }
+  busqResultados = [];
+}
+function busqKeydown(ev){
+  if(ev.key === "Escape"){ cerrarBusqueda(); }
+  else if(ev.key === "Enter"){ ev.preventDefault(); abrirResultado(0); }
+}
+/* Abre una ficha en Conceptos u Obras, directamente en la tarjeta buscada. */
+function abrirTarjeta(id, kind, idx){
+  openModule(id, kind);
+  const k = flashDeck.findIndex(c=>c.idx===idx);
+  if(k>=0){ flashIndex = k; drawFlash(); }
+}
+document.addEventListener("keydown", ev=>{
+  const t = ev.target, escribiendo = t && (t.tagName==="INPUT" || t.tagName==="TEXTAREA" || t.tagName==="SELECT" || t.isContentEditable);
+  if(ev.key === "/" && !escribiendo){ ev.preventDefault(); const inp = document.getElementById("busqInput"); if(inp) inp.focus(); }
+});
+document.addEventListener("click", ev=>{
+  const zona = document.getElementById("busqZona");
+  if(zona && !zona.contains(ev.target)){ const box = document.getElementById("busqResultados"); if(box) box.classList.add("hidden"); }
+});
+
+/* ============================= COPIA Y REINICIO DEL PROGRESO =============================
+   Guardar copia: baja un .json con todo el progreso (también lo escrito). Recuperar copia:
+   lo vuelve a cargar, pasando por sanitizeProgress. Reiniciar: borra todo, con confirmación
+   escrita. También se puede reiniciar una sola ficha desde su Panorama. */
+function guardarCopia(){
+  const datos = { app:"agora", version:1, fecha:new Date().toISOString(), progreso:progress };
+  const url = URL.createObjectURL(new Blob([JSON.stringify(datos, null, 1)], {type:"application/json"}));
+  const a = document.createElement("a");
+  a.href = url; a.download = `agora-progreso-${todayStr()}.json`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 1000);
+}
+function avisoProgreso(msg, ok){
+  const el = document.getElementById("progAviso");
+  if(el){ el.className = "gfeedback show " + (ok?"ok":"no"); el.textContent = msg; }
+}
+function recuperarCopia(input){
+  const f = input.files && input.files[0];
+  input.value = "";
+  if(!f) return;
+  const lector = new FileReader();
+  lector.onload = ()=>{
+    let datos;
+    try{ datos = JSON.parse(lector.result); }catch(e){ avisoProgreso("Ese archivo no es una copia de Ágora válida.", false); return; }
+    const raw = datos && datos.app==="agora" ? datos.progreso : null;
+    if(!isPlainObj(raw)){ avisoProgreso("Ese archivo no es una copia de Ágora válida.", false); return; }
+    progress = sanitizeProgress(raw);
+    saveProgress(); refreshProgressUI();
+    avisoProgreso(`Copia recuperada${datos.fecha?` (guardada el ${datos.fecha.slice(0,10)})`:''}.`, true);
+  };
+  lector.readAsText(f);
+}
+function reiniciarTodo(){
+  const inp = document.getElementById("confReinicio");
+  if(!inp || inp.value.trim().toUpperCase() !== "REINICIAR"){ avisoProgreso("Para reiniciar, escribí REINICIAR en el recuadro.", false); return; }
+  progress = defaultProgress();
+  saveProgress(); refreshProgressUI(); renderExamFinalCard();
+  avisoProgreso("Listo: el progreso quedó en cero.", true);
+}
+let reinicioFicha = null;
+function reiniciarFicha(id){
+  if(reinicioFicha !== id){ reinicioFicha = id; renderPanorama(); return; }   // primer toque: pide confirmar
+  reinicioFicha = null;
+  const pref = id+":";
+  ["conceptDone","obraDone","respuestas","repaso"].forEach(k=>Object.keys(progress[k]).forEach(key=>{ if(key.startsWith(pref)) delete progress[k][key]; }));
+  delete progress.moduleQuiz[id];
+  saveProgress(); refreshProgressUI(); renderPanorama();
+}
+
 /* ============================= TIPS ============================= */
 function renderTips(){
   const falaciasMod = moduleById("falacias");
@@ -1344,11 +1880,13 @@ function renderProgressView(){
     const knownC = (progress.conceptDone[m.id+":conceptos"]||[]).length;
     const pct = Math.round(100*knownC/m.conceptos.length);
     const quiz = progress.moduleQuiz[m.id];
+    const nPreg = getQuiz(m).length;
+    const resp = getQuiz(m).filter((_,i)=>palabras((progress.respuestas[m.id+":preguntas:"+i]||{}).texto)>0).length;
     const clr = LEVELS[m.trad].clr;
     return `
       <div class="card tight" style="margin-bottom:12px;border-left:4px solid var(--${clr});">
-        <div class="row"><b>${m.icon} ${m.nombre}</b><div class="spacer"></div><span class="muted mono">${LEVELS[m.trad].label}</span></div>
-        <div class="row muted" style="font-size:.85rem;margin-top:6px;"><span>Conceptos: ${knownC}/${m.conceptos.length} (${pct}%)</span><div class="spacer"></div><span>Cuestionario: ${quiz!=null?quiz+'%':'—'}</span></div>
+        <div class="row">${monograma(m,"chico")}<b>${m.nombre}</b><div class="spacer"></div><span class="muted mono">${LEVELS[m.trad].label}</span></div>
+        <div class="row muted" style="font-size:.85rem;margin-top:6px;"><span>Conceptos: ${knownC}/${m.conceptos.length} (${pct}%)</span><div class="spacer"></div><span>Preguntas escritas: ${resp}/${nPreg}</span><div class="spacer"></div><span>Cuestionario: ${quiz!=null?quiz+'%':'—'}</span></div>
       </div>`;
   }).join("");
   const hist = progress.examHistory||[];
@@ -1360,6 +1898,21 @@ function renderProgressView(){
     </div>
     <h3>Por ficha</h3>
     ${rows}
+    <h3 style="margin-top:32px;">Copia y reinicio</h3>
+    <div class="card tight progtools">
+      <p class="muted">Tu progreso vive solo en este navegador. Guardá una copia para no perderlo o para llevarlo a otro computador.</p>
+      <div class="row">
+        <button class="btn sm" onclick="guardarCopia()">⬇️ Guardar copia</button>
+        <label class="btn ghost sm" style="cursor:pointer;">⬆️ Recuperar copia<input type="file" accept=".json,application/json" class="hidden" onchange="recuperarCopia(this)"></label>
+      </div>
+      <div class="sechead">Reiniciar todo</div>
+      <p class="muted">Borra tarjetas, repasos, cuestionarios, exámenes, racha y todo lo escrito. No se puede deshacer: guardá una copia antes.</p>
+      <div class="row">
+        <input id="confReinicio" class="campo" placeholder="Escribí REINICIAR" aria-label="Confirmación: escribí REINICIAR">
+        <button class="btn ghost sm peligro" onclick="reiniciarTodo()">Reiniciar todo</button>
+      </div>
+      <div class="gfeedback" id="progAviso" role="status" aria-live="polite"></div>
+    </div>
   `;
 }
 
@@ -1370,8 +1923,10 @@ function init(){
   renderStorageNotice();
   renderStreak();   // también cuando hoy ya se había contado y bumpStreak() no guarda
   renderTabs();
+  marcarTemaBtn();
   renderLevelCards();
   renderStatCards();
+  renderRepasoHoy();
   renderModFilterChips();
   renderModuleCards();
   renderExamLevelCards();
