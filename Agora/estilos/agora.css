@@ -343,3 +343,15 @@ textarea.escritura:focus{outline:2px solid var(--accent);outline-offset:1px;}
 .repasohoy{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:16px 18px;border-left:4px solid var(--accent);}
 .repasohoy .muted{font-size:.88rem;margin-top:4px;}
 @media (max-width:560px){ .grouptabs button{font-size:.86rem;padding:9px 4px;} }
+
+/* Examen final integrador */
+.finalcard{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:18px 20px;border-left:4px solid var(--accent);}
+.finalcard h3{margin:6px 0 4px;}
+.finalcard p{margin:0;max-width:68ch;font-size:.92rem;line-height:1.55;}
+.situacion{background:var(--raised);border:1px solid var(--line);border-radius:10px;padding:12px 14px;line-height:1.55;font-size:.95rem;}
+.finalopts{display:flex;flex-direction:column;gap:8px;}
+.finalopts .optbtn{text-align:left;line-height:1.45;}
+.optbtn.elegida{background:var(--accent-soft);border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);}
+.emplist{display:flex;flex-direction:column;gap:10px;}
+.empfila{display:grid;grid-template-columns:1fr minmax(160px,220px);gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--raised);line-height:1.45;}
+@media (max-width:560px){ .empfila{grid-template-columns:1fr;} }

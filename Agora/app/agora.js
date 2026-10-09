@@ -49,7 +49,7 @@ function sanitizeProgress(raw){
     });
   });
   if(Array.isArray(raw.examHistory)){
-    p.examHistory = raw.examHistory.filter(h=>isPlainObj(h) && LEVELS[h.trad] && typeof h.score==="number");
+    p.examHistory = raw.examHistory.filter(h=>isPlainObj(h) && (LEVELS[h.trad] || h.trad==="final") && typeof h.score==="number");
   }
   if(isPlainObj(raw.moduleQuiz)){
     Object.entries(raw.moduleQuiz).forEach(([k,v])=>{ if(typeof v==="number" && isFinite(v)) p.moduleQuiz[k] = v; });
@@ -146,6 +146,8 @@ function showView(id){
     if(intro) intro.classList.remove("hidden");
     renderExamHistory();
   }
+  /* El examen final no tiene cronómetro, pero si se sale a mitad se descarta, igual que el otro. */
+  if(id !== "examenes" && finalState) cerrarExamenFinal();
   if(id === "constelaciones"){ constelActual = null; renderConstelaciones(); }
   $all(".view").forEach(v=>v.classList.remove("active"));
   const v = document.getElementById("view-"+id);
@@ -1405,6 +1407,7 @@ function renderExamLevelCards(){
       <h3>Examen ${l.label}</h3>
       <p>${examQuestionCount(k)} preguntas mixtas · cronometrado.</p>
     </div>`).join("");
+  renderExamFinalCard();
   renderExamHistory();
 }
 function renderExamHistory(){
@@ -1412,7 +1415,7 @@ function renderExamHistory(){
   if(!hist.length){ $("#examHistory").innerHTML = `<span class="muted">Todavía no diste ningún examen.</span>`; return; }
   $("#examHistory").innerHTML = hist.slice().reverse().slice(0,8).map(h=>`
     <div class="reviewrow"><span class="tag">${h.score>=70?'✅':'🔻'}</span>
-    <span>${LEVELS[h.trad].label} — <b>${h.score}%</b> (${h.correct}/${h.total}) · ${h.date}</span></div>
+    <span>${h.trad==="final" ? "Examen final integrador" : LEVELS[h.trad].label} — <b>${h.score}%</b> (${h.correct}/${h.total}) · ${h.date}</span></div>
   `).join("");
 }
 let examTimer = null;
@@ -1484,6 +1487,144 @@ function backToExamIntro(){
   document.getElementById("examRunner").classList.add("hidden");
   document.getElementById("examIntro").classList.remove("hidden");
   renderExamHistory();
+}
+
+/* ============================= EXAMEN FINAL INTEGRADOR =============================
+   Banco en datos/examen.js. Cada intento: 12 de selección múltiple con situación (estilo
+   Saber Pro), 8 de verdadero o falso y una ronda de emparejamiento de 6 ideas de autores
+   distintos y de al menos tres tradiciones. Sin cronómetro y sin corrección durante el
+   examen: al final se ve el puntaje por sección, cada respuesta con su explicación y las
+   fichas para repasar. */
+const FINAL_N = { sel:12, vf:8, emp:6 };
+let finalState = null;
+function examenFinalDisponible(){ return typeof EXAMEN_FINAL !== "undefined" && EXAMEN_FINAL.seleccion && EXAMEN_FINAL.seleccion.length; }
+function renderExamFinalCard(){
+  const el = document.getElementById("examFinalCard");
+  if(!el) return;
+  if(!examenFinalDisponible()){ el.innerHTML = ""; return; }
+  const ult = (progress.examHistory||[]).filter(h=>h.trad==="final").slice(-1)[0];
+  el.innerHTML = `
+    <div class="card finalcard">
+      <div>
+        <span class="lvltag mono">Las 25 fichas</span>
+        <h3>Examen final integrador</h3>
+        <p class="muted">${FINAL_N.sel} preguntas de selección múltiple con situación, al estilo Saber Pro · ${FINAL_N.vf} de verdadero o falso · un emparejamiento de ${FINAL_N.emp} ideas con su autor. Sin límite de tiempo: las respuestas y las explicaciones se ven al final.${ult?` <b>Último intento: ${ult.score}%</b> (${ult.date}).`:''}</p>
+      </div>
+      <button class="btn" onclick="startExamenFinal()">Empezar el examen</button>
+    </div>`;
+}
+/* Ronda de emparejamiento: una idea por tradición primero, después se completa sin repetir autor. */
+function armarEmparejamiento(){
+  const pool = shuffle(EXAMEN_FINAL.emparejar.filter(x=>moduleById(x.mod)));
+  const elegidas = [], usados = new Set();
+  ["europea","asiatica","americana"].forEach(t=>{
+    const x = pool.find(p=>!usados.has(p.mod) && moduleById(p.mod).trad===t);
+    if(x){ elegidas.push(x); usados.add(x.mod); }
+  });
+  for(const p of pool){ if(elegidas.length>=FINAL_N.emp) break; if(!usados.has(p.mod)){ elegidas.push(p); usados.add(p.mod); } }
+  const extra = shuffle(pool.filter(p=>!usados.has(p.mod))).slice(0,2).map(p=>p.mod);
+  const autores = [...usados, ...extra].map(moduleById).sort((a,b)=>a.nombre.localeCompare(b.nombre,"es"));
+  return { tipo:"emp", pares:shuffle(elegidas), autores };
+}
+function startExamenFinal(){
+  const sel = shuffle(EXAMEN_FINAL.seleccion).slice(0, FINAL_N.sel).map(q=>({ tipo:"sel", q, orden:shuffle(q.opciones.map((_,i)=>i)) }));
+  const vf = shuffle(EXAMEN_FINAL.vf).slice(0, FINAL_N.vf).map(q=>({ tipo:"vf", q }));
+  finalState = { items:[...sel, ...vf, armarEmparejamiento()], i:0, resp:{}, aviso:false, inicio:Date.now() };
+  document.getElementById("examIntro").classList.add("hidden");
+  document.getElementById("examRunner").classList.remove("hidden");
+  drawFinal();
+}
+function cerrarExamenFinal(){
+  finalState = null;
+  const runner = document.getElementById("examRunner"), intro = document.getElementById("examIntro");
+  if(runner){ runner.classList.add("hidden"); runner.innerHTML = ""; }
+  if(intro) intro.classList.remove("hidden");
+  renderExamFinalCard(); renderExamHistory();
+}
+function finalSinResponder(){
+  const st = finalState;
+  return st.items.reduce((n,it,k)=>{
+    const r = st.resp[k];
+    if(it.tipo==="emp") return n + it.pares.filter((_,j)=>!(r && r[j])).length;
+    return n + (r==null ? 1 : 0);
+  }, 0);
+}
+function drawFinal(){
+  const st = finalState, it = st.items[st.i], r = st.resp[st.i];
+  const seccion = it.tipo==="sel" ? "Selección múltiple" : it.tipo==="vf" ? "Verdadero o falso" : "Emparejamiento";
+  let cuerpo = "";
+  if(it.tipo==="sel"){
+    cuerpo = `<div class="situacion">${it.q.situacion}</div>
+      <div class="prompt" style="margin:14px 0;">${it.q.pregunta}</div>
+      <div class="finalopts">${it.orden.map((ix,k)=>`<button class="optbtn${r===ix?' elegida':''}" aria-pressed="${r===ix}" onclick="elegirFinal(${ix})"><span class="mono">${"ABCD"[k]}.</span> ${it.q.opciones[ix]}</button>`).join("")}</div>`;
+  } else if(it.tipo==="vf"){
+    cuerpo = `<div class="prompt" style="margin-bottom:14px;">${it.q.afirmacion}</div>
+      <div class="optrow">${[[true,"Verdadero"],[false,"Falso"]].map(([v,l])=>`<button class="optbtn${r===v?' elegida':''}" aria-pressed="${r===v}" onclick="elegirFinal(${v})">${l}</button>`).join("")}</div>`;
+  } else {
+    cuerpo = `<p class="muted" style="margin-top:0;">Elegí el autor de cada idea. Hay ${it.autores.length - it.pares.length} nombres de más.</p>
+      <div class="emplist">${it.pares.map((p,j)=>`<label class="empfila"><span>${p.idea}</span>
+        <select onchange="elegirPar(${j}, this.value)" aria-label="Autor de la idea ${j+1}"><option value="">— elegí —</option>${it.autores.map(m=>`<option value="${m.id}" ${(r&&r[j])===m.id?'selected':''}>${m.nombre}</option>`).join("")}</select></label>`).join("")}</div>`;
+  }
+  const ult = st.i === st.items.length-1;
+  const faltan = finalSinResponder();
+  document.getElementById("examRunner").innerHTML = `
+    <div class="qhead"><span>${seccion} · ${st.i+1} / ${st.items.length}</span><span id="finalFaltan">sin responder: ${faltan}</span></div>
+    <div class="qcard">${cuerpo}</div>
+    <div class="row" style="margin-top:14px;">
+      <button class="btn ghost sm" onclick="cerrarExamenFinal()">Abandonar</button>
+      <div class="spacer"></div>
+      ${st.i>0?`<button class="btn ghost sm" onclick="finalState.i--; drawFinal();">← Anterior</button>`:''}
+      ${ult?`<button class="btn sm" onclick="terminarFinal()">Terminar el examen</button>`:`<button class="btn sm" onclick="finalState.i++; drawFinal();">Siguiente →</button>`}
+    </div>
+    ${st.aviso && faltan?`<p class="muted" style="margin-top:10px;">Te quedan ${faltan} respuesta${faltan===1?'':'s'} sin marcar, que cuentan como incorrectas. Tocá «Terminar» otra vez para entregar igual.</p>`:''}`;
+}
+function elegirFinal(v){ finalState.resp[finalState.i] = v; drawFinal(); }
+function elegirPar(j, mod){
+  const k = finalState.i;
+  finalState.resp[k] = Object.assign({}, finalState.resp[k], { [j]: mod || undefined });
+  const el = document.getElementById("finalFaltan");
+  if(el) el.textContent = "sin responder: " + finalSinResponder();
+}
+function terminarFinal(){
+  const st = finalState;
+  if(finalSinResponder() && !st.aviso){ st.aviso = true; drawFinal(); return; }
+  const pts = { sel:[0,0], vf:[0,0], emp:[0,0] };
+  const repasar = new Set();
+  const revision = st.items.map((it,k)=>{
+    const r = st.resp[k];
+    if(it.tipo==="emp"){
+      return it.pares.map((p,j)=>{
+        const ok = r && r[j]===p.mod;
+        pts.emp[1]++; if(ok) pts.emp[0]++; else repasar.add(p.mod);
+        const elegido = r && r[j] ? moduleById(r[j]).nombre : "sin responder";
+        return `<div class="reviewrow"><span class="tag">${ok?'✅':'🔻'}</span><span>«${p.idea}»<br>${ok?`<b>${moduleById(p.mod).nombre}</b>`:`Tu respuesta: ${elegido} · Correcta: <b>${moduleById(p.mod).nombre}</b>`}</span></div>`;
+      }).join("");
+    }
+    const ok = it.tipo==="sel" ? r===it.q.correcta : r===it.q.verdadero;
+    pts[it.tipo][1]++; if(ok) pts[it.tipo][0]++; else (it.q.fichas||[]).forEach(f=>repasar.add(f));
+    const tuya = r==null ? "sin responder" : it.tipo==="sel" ? it.q.opciones[r] : (r?"Verdadero":"Falso");
+    const buena = it.tipo==="sel" ? it.q.opciones[it.q.correcta] : (it.q.verdadero?"Verdadero":"Falso");
+    return `<div class="reviewrow"><span class="tag">${ok?'✅':'🔻'}</span><span>${it.tipo==="sel"?`<span class="muted">${it.q.situacion}</span><br><b>${it.q.pregunta}</b>`:`<b>${it.q.afirmacion}</b>`}<br>
+      ${ok?`Respondiste: ${tuya}`:`Tu respuesta: ${tuya} · Correcta: <b>${buena}</b>`}<div class="muted" style="margin-top:4px;">${it.q.explicacion}</div></span></div>`;
+  });
+  const correct = pts.sel[0]+pts.vf[0]+pts.emp[0], total = pts.sel[1]+pts.vf[1]+pts.emp[1];
+  const pct = total ? Math.round(100*correct/total) : 0;
+  progress.examHistory = (progress.examHistory||[]).concat([{ trad:"final", score:pct, correct, total, date:todayStr() }]);
+  saveProgress();
+  const mins = Math.max(1, Math.round((Date.now()-st.inicio)/60000));
+  const fichas = [...repasar].map(moduleById).filter(Boolean);
+  finalState = null;
+  document.getElementById("examRunner").innerHTML = `
+    <div class="qcard center">
+      <div class="resultbig" style="color:${pct>=70?'var(--good)':'var(--bad)'}">${pct}%</div>
+      <p class="muted">${correct} de ${total} puntos · ${mins} min · ${pct>=70?'¡Aprobado!':'A seguir estudiando'}</p>
+      <p class="mono" style="font-size:.85rem;">Selección ${pts.sel[0]}/${pts.sel[1]} · Verdadero o falso ${pts.vf[0]}/${pts.vf[1]} · Emparejamiento ${pts.emp[0]}/${pts.emp[1]}</p>
+      <button class="btn ghost" onclick="cerrarExamenFinal()">Volver</button>
+    </div>
+    ${fichas.length?`<h4 style="margin-top:24px;">Fichas para repasar</h4><div class="chiprow">${fichas.map(m=>`<button class="chip" onclick="openModule('${m.id}')">${m.icon} ${m.nombre}</button>`).join("")}</div>`:''}
+    <h4 style="margin-top:20px;">Revisión de todas las respuestas</h4>
+    ${revision.join("")}`;
+  window.scrollTo({top:0, behavior:"instant"});
 }
 
 /* ============================= TIPS ============================= */

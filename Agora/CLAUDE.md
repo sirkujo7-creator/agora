@@ -10,9 +10,10 @@ estilos/agora.css          Todo el CSS (tokens de color claro/oscuro en :root)
 datos/base.js              LEVELS (tradiciones) y los contenedores vacíos MODULES = [] y LECTURAS = {}
 datos/modulos/<trad>/<id>.js   Una ficha por archivo: MODULES.push({...}) + LECTURAS.<id> = {...}
 datos/transversal.js       POLYSEMOUS_TERMS y CONSTELACIONES (no pertenecen a una sola ficha)
+datos/examen.js            EXAMEN_FINAL: banco del examen final integrador
 app/agora.js               Toda la lógica: estado, progreso, navegación, motores de ejercicios
 herramientas/verificar.js  Chequeo de integridad de los datos (correrlo después de cada cambio)
-herramientas/empaquetar.js Genera dist/agora.html: la app entera en un solo archivo para compartir
+herramientas/empaquetar.js Genera dist/agora.html: la app entera en un solo archivo para compartir (dist/ no se versiona)
 ```
 
 El orden de las fichas en la app es el orden de los `<script>` en `index.html`. Para agregar una ficha nueva: crear `datos/modulos/<trad>/<id>.js` con la misma forma que las demás y agregar su `<script>` en el lugar que corresponda.
@@ -49,7 +50,13 @@ LECTURAS.<id> = { lecturas:[{titulo, fuente, url, extracto (template literal, p�
                   preguntasLectura:[{q, opciones:[...], r:"<texto exacto de la opción correcta>", why}] }
 
 CONSTELACIONES: [{ id, tema, nucleo, entradas:[{mod:"<id>", postura}], pregunta:{enunciado, opciones, correcta:<índice>, explicacion} }]
+
+EXAMEN_FINAL = { seleccion:[{fichas:[ids], situacion, pregunta, opciones:[4], correcta:<índice>, explicacion}],
+                 vf:[{fichas, afirmacion, verdadero:true|false, explicacion}],
+                 emparejar:[{mod:"<id>", idea}] }
 ```
+
+El examen final saca 12 preguntas de selección, 8 de verdadero o falso y 6 ideas para emparejar (de autores distintos y al menos tres tradiciones). Las opciones se mezclan, así que las explicaciones de constelaciones y del examen nombran cada opción por su contenido, nunca por su posición; `verificar.js` lo controla. El resultado va a `examHistory` con `trad:"final"`.
 
 Nivel esperado de cada ficha: ~9 conceptos y 5 obras con párrafos sustanciales, diálogo escrito a mano, 3 actividades, 5 preguntas de cuestionario. Ejercicios avanzados: `cadena` de 3-4 niveles con al menos dos ramas que enseñen algo distinto (no "correcta vs. absurda"); 2 `reconstruccion` con argumentos reales del autor, exactamente un distractor y una explicación que nombre el punto débil; 1 `dilema` de 2-3 decisiones con rúbrica de 6-7 criterios de autoevaluación (no se califica automáticamente).
 
@@ -69,6 +76,6 @@ Nivel esperado de cada ficha: ~9 conceptos y 5 obras con párrafos sustanciales,
 
 1. ~~**Ejercicios avanzados**~~: hechos en las 25 fichas (octubre de 2026). Al agregar una ficha nueva, incluirlos desde el principio; `verificar.js` avisa si faltan.
 2. ~~**Constelaciones**~~: 8 temas (octubre de 2026): conocer, el yo, la nada, saber y hacer, la verdad, el lenguaje, quién está dentro de la historia y la muerte. Las opciones de la pregunta se muestran mezcladas, así que la `explicacion` nombra cada opción por su contenido, nunca por su posición («la tercera…»).
-3. **Examen final**: un examen integrador de las 25 fichas con selección múltiple estilo Saber Pro (enunciado con situación y cuatro opciones plausibles), verdadero/falso y emparejamiento cruzado entre filósofos. Sin preguntas abiertas ni calificación por IA.
-4. **Para revisar con Juan**: el dilema de Kant "La pregunta del padre" plantea el caso de un estudiante de 16 años que le cuenta a un docente que es gay, con un padre violento. Está tratado con cuidado, pero Juan tiene que decidir si lo deja, lo suaviza o lo reemplaza antes de usarlo con estudiantes.
+3. ~~**Examen final**~~: hecho (octubre de 2026), en Exámenes. Banco de 28 preguntas de selección, 24 de verdadero o falso y 24 ideas para emparejar, que cubre las 25 fichas. Para ampliarlo, agregar preguntas en `datos/examen.js`.
+4. **Decidido por Juan (octubre de 2026)**: los dilemas se quedan como están, sin suavizar, incluidos el de Kant («La pregunta del padre»), el de Nagarjuna (diagnóstico de TDAH), el de Nishida (1943) y los pasajes de Vasconcelos. Pendiente: cotejar con una edición las citas de memoria (La raza cósmica, Lecciones de Hegel, Daodejing, Zhuangzi).
 5. Ideas sin decidir: buscador de fichas, botón de tema claro/oscuro, exportar y reiniciar el progreso completo (hoy se exporta solo lo escrito, ficha por ficha).

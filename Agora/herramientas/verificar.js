@@ -36,8 +36,8 @@ for (const trad of fs.readdirSync(dirMod)) for (const f of fs.readdirSync(path.j
 if (errores.length) fin();
 
 const ctx = {}; vm.createContext(ctx);
-vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES};", ctx);
-const { LEVELS, MODULES, LECTURAS, CONSTELACIONES } = ctx.__d;
+vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL};", ctx);
+const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EXAMEN_FINAL } = ctx.__d;
 
 const ids = new Set();
 for (const m of MODULES) {
@@ -95,12 +95,45 @@ for (const m of MODULES) {
 for (const c of CONSTELACIONES) (c.entradas || []).forEach(e => {
   if (!ids.has(e.mod)) err(`constelación "${c.id}": la ficha "${e.mod}" no existe`);
 });
+// Las opciones se muestran mezcladas: las explicaciones no pueden nombrar opciones por su posición.
+const ORDINAL = /\b[Ll]a (primera|segunda|tercera|cuarta) (es|opción)\b/;
+for (const c of CONSTELACIONES) if (c.pregunta && ORDINAL.test(c.pregunta.explicacion || "")) err(`constelación "${c.id}": la explicación nombra opciones por su posición`);
+
+// Examen final integrador
+if (!EXAMEN_FINAL) aviso("no hay banco de examen final (datos/examen.js)");
+else {
+  const E = EXAMEN_FINAL, q = (t, i) => `examen final, ${t}[${i}]`;
+  const fichasOk = (x, t, i) => (x.fichas || []).forEach(f => { if (!ids.has(f)) err(`${q(t, i)}: la ficha "${f}" no existe`); });
+  (E.seleccion || []).forEach((x, i) => {
+    if (!x.situacion || !x.pregunta || !x.explicacion) err(`${q("seleccion", i)}: falta situación, pregunta o explicación`);
+    if (!Array.isArray(x.opciones) || x.opciones.length !== 4) err(`${q("seleccion", i)}: tiene que tener exactamente 4 opciones`);
+    else if (!Number.isInteger(x.correcta) || x.correcta < 0 || x.correcta > 3) err(`${q("seleccion", i)}: "correcta" fuera de rango`);
+    if (ORDINAL.test(x.explicacion || "")) err(`${q("seleccion", i)}: la explicación nombra opciones por su posición`);
+    fichasOk(x, "seleccion", i);
+  });
+  (E.vf || []).forEach((x, i) => {
+    if (!x.afirmacion || typeof x.verdadero !== "boolean" || !x.explicacion) err(`${q("vf", i)}: falta afirmación, "verdadero" (true/false) o explicación`);
+    fichasOk(x, "vf", i);
+  });
+  const mods = new Set();
+  (E.emparejar || []).forEach((x, i) => {
+    if (!ids.has(x.mod)) err(`${q("emparejar", i)}: la ficha "${x.mod}" no existe`);
+    if (!x.idea) err(`${q("emparejar", i)}: falta la idea`);
+    mods.add(x.mod);
+  });
+  if (mods.size < 8) err(`examen final: el emparejamiento necesita ideas de al menos 8 fichas distintas (hay ${mods.size})`);
+  for (const t of ["europea", "asiatica", "americana"]) if (![...mods].some(m => (MODULES.find(x => x.id === m) || {}).trad === t)) err(`examen final: el emparejamiento no tiene ideas de la tradición ${t}`);
+  if ((E.seleccion || []).length < 12 || (E.vf || []).length < 8) err("examen final: el banco necesita al menos 12 preguntas de selección y 8 de verdadero o falso");
+  const sinCubrir = MODULES.filter(m => ![...(E.seleccion || []), ...(E.vf || [])].some(x => (x.fichas || []).includes(m.id))).map(m => m.id);
+  if (sinCubrir.length) aviso(`examen final: fichas sin preguntas en el banco: ${sinCubrir.join(", ")}`);
+}
 Object.keys(LECTURAS).forEach(k => { if (!ids.has(k)) aviso(`LECTURAS.${k} no corresponde a ninguna ficha`); });
 
 const conEj = MODULES.filter(m => m.cadena && (m.reconstruccion || []).length && (m.dilemas || []).length).map(m => m.id);
 console.log(`Fichas: ${MODULES.length} · con los 3 ejercicios avanzados: ${conEj.length}`);
 console.log(`Pendientes de ejercicios avanzados: ${MODULES.filter(m => !conEj.includes(m.id)).map(m => m.id).join(", ") || "ninguna"}`);
 console.log(`Constelaciones: ${CONSTELACIONES.length}`);
+if (EXAMEN_FINAL) console.log(`Examen final: ${EXAMEN_FINAL.seleccion.length} de selección · ${EXAMEN_FINAL.vf.length} de verdadero o falso · ${EXAMEN_FINAL.emparejar.length} ideas para emparejar`);
 fin();
 
 function fin() {
