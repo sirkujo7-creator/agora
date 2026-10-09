@@ -162,5 +162,24 @@ const CONSTELACIONES = [
      ],
      correcta:2,
      explicacion:"Las transformaciones como estaciones son Zhuangzi y la muerte de su esposa (capítulo 18): primero el dolor, después la comprensión de la muerte como una transformación más. La leña y la ceniza son Dōgen, y es la respuesta que más se le parece: la diferencia es que Zhuangzi ve un flujo de cambios, mientras que Dōgen insiste en que cada posición —la vida, la muerte— es completa en sí misma y no un tramo de paso. Asumir la muerte como posibilidad más propia es Heidegger, el ser-para-la-muerte. Querer vivir esta vida infinitas veces es Nietzsche, el eterno retorno. Ninguna de las cuatro le promete a tu amiga volver a ver a su madre; cada una le ofrece otra manera de mirar."
+   } },
+ { id:"palabra", tema:"¿Quién tiene derecho a la palabra?",
+   nucleo:"Cuatro pensadoras, de tres siglos y dos continentes, se preguntan por quién puede hablar, saber y aparecer ante los demás, y por qué algunos quedaron afuera. No dicen lo mismo: para una el problema es el acceso al saber, para otra la constitución de la mujer como lo Otro, para otra la pérdida de un lugar en el mundo, y para la última la razón que dejó sin voz a los vencidos.",
+   entradas:[
+     {mod:"sorjuana", postura:"La inclinación a saber es natural, puesta por Dios en el entendimiento, y no distingue entre hombres y mujeres. La frase de san Pablo que manda callar a las mujeres se refiere a la predicación pública, no al estudio ni a la escritura: si fuera una prohibición general, la Iglesia tendría que condenar a las santas doctas que celebra. Sor Juana no rechaza la autoridad, disputa su sentido. Y su silencio final, tras la polémica de 1691, muestra lo frágil que era el espacio que había conquistado."},
+     {mod:"beauvoir", postura:"El hombre se definió como el sujeto, lo esencial, y definió a la mujer en relación con él, como lo Otro. Por eso un hombre no necesita declarar que es hombre para hablar, y una mujer sí. El problema no es solo que a las mujeres se les niegue la palabra, sino que se las ha constituido como objeto del discurso de otros, en mitos como el del eterno femenino. Hablar como sujeto exige transformar una situación histórica, no solo conquistar un derecho."},
+     {mod:"arendt", postura:"Los apátridas del siglo XX descubrieron que, siendo solo seres humanos, no tenían ningún derecho efectivo. Lo que perdieron no fue un derecho particular, sino un lugar en el mundo donde sus opiniones contaran y sus acciones tuvieran efecto. El derecho fundamental es el derecho a tener derechos: pertenecer a una comunidad política, al espacio público donde uno aparece ante otros y es escuchado. Sin ese espacio, la palabra no tiene dónde resonar."},
+     {mod:"zambrano", postura:"Desde Platón, la filosofía decidió que solo valía como saber lo que se podía demostrar, y dejó sin voz a la poesía, a la experiencia vivida y a los vencidos de la historia. El exilio, que Zambrano vivió durante cuarenta y cinco años, es el lugar desde donde se ve lo que los instalados no ven. Darles la palabra a los que fueron silenciados exige una razón distinta, una razón poética que escuche antes de definir y que reciba la confesión de una persona y no la cuente como estadística."}
+   ],
+   pregunta:{
+     enunciado:"Una familia desplazada por la violencia llega a una ciudad. Tiene documentos y recibe ayuda humanitaria, pero nadie la consulta en las decisiones del barrio y sus miembros sienten que su voz no cuenta. ¿Cuál de estas lecturas es la de Hannah Arendt?",
+     opciones:[
+       "Les falta un lugar en una comunidad política donde sus opiniones cuenten y sus acciones tengan efecto: el derecho a tener derechos.",
+       "Su experiencia es una forma de saber que la razón discursiva no sabe escuchar, y que exige una razón poética.",
+       "Han sido constituidos como lo Otro de los habitantes del barrio, que se definen a sí mismos como los verdaderos sujetos.",
+       "Tienen la inclinación natural a saber y a hablar, y basta con interpretar bien las normas para que se la reconozcan."
+     ],
+     correcta:0,
+     explicacion:"El derecho a tener derechos es la tesis de Arendt en Los orígenes del totalitarismo: la protección material no basta si falta la pertenencia a un espacio donde la palabra tenga efecto. La experiencia como saber que exige una razón poética es Zambrano, desde el exilio. La constitución como lo Otro es el concepto de Beauvoir. La inclinación natural a saber y la estrategia de interpretar la autoridad son de Sor Juana."
    } }
 ];

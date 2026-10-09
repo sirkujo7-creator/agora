@@ -1,4 +1,4 @@
-/* Ágora · banco del examen final integrador (las 25 fichas).
+/* Ágora · banco del examen final integrador (todas las fichas).
    - seleccion: situación + pregunta + 4 opciones; `correcta` es el índice de la opción correcta.
      La app mezcla las opciones, así que la `explicacion` nombra cada opción por su contenido, nunca por su posición.
    - vf: afirmaciones de verdadero o falso, inequívocas para quien conoce las fichas.
@@ -174,7 +174,37 @@ const EXAMEN_FINAL = {
     pregunta:"¿Con qué filósofo y con qué episodio se relaciona mejor esa idea?",
     opciones:["Con Heidegger, que describe el ser-para-la-muerte en la muerte de su esposa.","Con Nietzsche, que canta golpeando un cuenco cuando muere su madre.","Con Zhuangzi, que después del dolor canta golpeando un cuenco cuando muere su esposa, porque entiende la muerte como una transformación.","Con Dōgen, que llora durante años la muerte de su maestro Rujing."],
     correcta:2,
-    explicacion:"El episodio está en el capítulo 18 del Zhuangzi: Hui Shi lo encuentra cantando y golpeando un cuenco tras la muerte de su esposa, y Zhuangzi le explica que la vida y la muerte se suceden como las estaciones. Las otras tres opciones atribuyen episodios que no existen: Heidegger trata la muerte como posibilidad propia, no a partir de un duelo; Nietzsche no tiene ese episodio; y Dōgen piensa la vida y la muerte como posiciones completas en el tiempo." }
+    explicacion:"El episodio está en el capítulo 18 del Zhuangzi: Hui Shi lo encuentra cantando y golpeando un cuenco tras la muerte de su esposa, y Zhuangzi le explica que la vida y la muerte se suceden como las estaciones. Las otras tres opciones atribuyen episodios que no existen: Heidegger trata la muerte como posibilidad propia, no a partir de un duelo; Nietzsche no tiene ese episodio; y Dōgen piensa la vida y la muerte como posiciones completas en el tiempo." },
+  { fichas:["arendt"],
+    situacion:"En el juicio por un crimen masivo, el acusado repite que solo cumplía órdenes, que habla con el lenguaje de los reglamentos y que, si no lo hubiera hecho él, lo habría hecho otro.",
+    pregunta:"¿Qué respondería Hannah Arendt a esa defensa?",
+    opciones:["Que tiene razón: si el sistema era criminal, el responsable es el sistema y no sus piezas.","Que en un tribunal se juzga a una persona, no a un sistema, y que obedecer, en un adulto, es apoyar.","Que la culpa es de la naturaleza humana, que es mala por esencia.","Que no se puede juzgar a nadie, porque cada uno actúa según su perspectiva."],
+    correcta:1,
+    explicacion:"Arendt rechaza la teoría del engranaje: en el tribunal se juzga a un hombre por lo que hizo, y que otro lo hubiera hecho no cambia que lo hizo él; en política, obedecer es apoyar. Responsabilizar solo al sistema es la defensa que ella discute. Atribuirlo a una maldad esencial contradice la banalidad del mal. Y el perspectivismo que impide juzgar no es su posición: ella defendió el juicio." },
+  { fichas:["beauvoir"],
+    situacion:"Una estudiante dice: «Mi mamá deja de trabajar cada vez que alguien en la familia se enferma, pero lo hace porque quiere, nadie la obliga».",
+    pregunta:"¿Qué análisis haría Simone de Beauvoir?",
+    opciones:["Que la madre actúa por naturaleza: el cuidado es una inclinación femenina biológica.","Que la madre es libre, pero elige dentro de una situación que no eligió y que le enseñó desde niña que cuidar es lo suyo.","Que la madre no tiene ninguna libertad: la sociedad decide todo por ella.","Que el cuidado no tiene importancia y que la madre debería dedicarse solo a su carrera."],
+    correcta:1,
+    explicacion:"Para Beauvoir, la libertad siempre está en situación: la madre elige, pero dentro de un campo de posibilidades que su educación y su sociedad formaron. Atribuirlo a la naturaleza es lo que «no se nace mujer» discute. Negar toda libertad es un determinismo que Beauvoir rechaza. Y despreciar el cuidado no es su tesis: critica que sea un destino impuesto, no que exista." },
+  { fichas:["zambrano"],
+    situacion:"Un filósofo sostiene que solo vale como conocimiento lo que se puede demostrar, y que la poesía, los sueños y la experiencia vivida son asunto de la literatura, no de la filosofía.",
+    pregunta:"¿Cuál sería la respuesta de María Zambrano?",
+    opciones:["Que tiene razón, y que la filosofía debe expulsar a los poetas, como hizo Platón.","Que hace falta una razón poética: una razón que, sin renunciar a pensar, escuche lo que la razón discursiva dejó afuera.","Que hay que abandonar la razón y entregarse a los sentimientos.","Que la experiencia vivida no existe, porque todo es lenguaje."],
+    correcta:1,
+    explicacion:"Zambrano critica la separación entre filosofía y poesía que empezó con Platón, y propone una razón poética que amplíe la razón, no que la abandone. Darle la razón al filósofo es aceptar la separación que ella discute. Entregarse a los sentimientos sin pensar no es su propuesta. Y negar la experiencia vivida es lo contrario de su filosofía." },
+  { fichas:["sorjuana"],
+    situacion:"En el siglo XVII, a una monja que estudia astronomía y teología le recuerdan la frase de san Pablo: «que las mujeres callen en la iglesia».",
+    pregunta:"¿Cómo responde Sor Juana Inés de la Cruz en la Respuesta a sor Filotea?",
+    opciones:["Rechaza la autoridad de san Pablo, porque las Escrituras no tienen valor para ella.","Interpreta que la frase se refiere a la predicación pública, no al estudio privado, y recuerda a las mujeres sabias que la Iglesia celebra.","Acepta la prohibición y abandona sus estudios de inmediato.","Sostiene que las mujeres deben predicar en las iglesias igual que los hombres."],
+    correcta:1,
+    explicacion:"Sor Juana no rechaza la autoridad de la Escritura: disputa su interpretación, y muestra que una prohibición general obligaría a condenar a las santas doctas. Rechazar a san Pablo no era su estrategia ni su creencia. En la Respuesta no abandona sus estudios; la renuncia llega años después, y su sentido se discute. Y no reclama el derecho a predicar, sino a estudiar y escribir." },
+  { fichas:["zuleta"],
+    situacion:"Después de un acuerdo de paz, un líder político dice: «Por fin vamos a vivir sin conflictos; ahora todos los colombianos estaremos unidos».",
+    pregunta:"¿Qué objetaría Estanislao Zuleta?",
+    opciones:["Que la paz solo es posible si se derrota militarmente a todos los enemigos.","Que la paz no es la ausencia de conflicto, sino la capacidad de vivirlo sin destruir al otro; un pueblo maduro para la paz es un pueblo maduro para el conflicto.","Que el conflicto es malo y hay que eliminarlo con más educación en valores.","Que la unidad nacional se logra encontrando un enemigo común."],
+    correcta:1,
+    explicacion:"Zuleta sostiene que el conflicto es constitutivo de la vida social, y que el ideal de una sociedad sin conflictos termina buscando culpables. La derrota militar del enemigo es la lógica de la guerra que critica. Eliminar el conflicto es el ideal de felicidad que discute. Y unir contra un enemigo común es precisamente la «fiesta» de la guerra." }
  ],
  vf:[
   { fichas:["aristoteles"], afirmacion:"Para Aristóteles, las formas existen separadas de las cosas sensibles, en un mundo aparte.", verdadero:false, explicacion:"Esa es la tesis de Platón que Aristóteles critica. Para Aristóteles la forma está en las cosas mismas, unida a su materia (hilemorfismo)." },
@@ -200,7 +230,12 @@ const EXAMEN_FINAL = {
   { fichas:["zhuangzi"], afirmacion:"Según el Zhuangzi, cuando murió su esposa, Zhuangzi primero sintió dolor y después cantó golpeando un cuenco.", verdadero:true, explicacion:"Es el capítulo 18: le explica a Hui Shi que la vida y la muerte se suceden como las estaciones." },
   { fichas:["vasconcelos"], afirmacion:"Vasconcelos fue secretario de Educación Pública de México y promovió campañas de alfabetización y bibliotecas populares.", verdadero:true, explicacion:"Fue secretario entre 1921 y 1924, y su gestión incluyó alfabetización, bibliotecas, ediciones populares de clásicos y el impulso al muralismo." },
   { fichas:["james"], afirmacion:"James sostiene que es legítimo creer lo que uno quiera, aunque la evidencia disponible lo contradiga.", verdadero:false, explicacion:"La voluntad de creer vale solo para opciones vivas, forzosas y trascendentales que la evidencia no puede decidir. Donde la evidencia decide, James está de acuerdo con Clifford." },
-  { fichas:["platon"], afirmacion:"Para Platón, de lo sensible solo hay opinión (doxa), y el saber verdadero tiene por objeto las Formas.", verdadero:true, explicacion:"Lo sensible cambia y admite propiedades contrarias; el saber (epistēmē) es de lo que no cambia." }
+  { fichas:["platon"], afirmacion:"Para Platón, de lo sensible solo hay opinión (doxa), y el saber verdadero tiene por objeto las Formas.", verdadero:true, explicacion:"Lo sensible cambia y admite propiedades contrarias; el saber (epistēmē) es de lo que no cambia." },
+  { fichas:["arendt"], afirmacion:"Para Hannah Arendt, la expresión «banalidad del mal» significa que los crímenes nazis fueron poco graves.", verdadero:false, explicacion:"Lo banal no son los crímenes, que fueron monstruosos, sino el criminal: el mal extremo no necesitó una maldad profunda en quien lo ejecutaba." },
+  { fichas:["beauvoir"], afirmacion:"La frase «No se nace mujer: se llega a serlo» abre el segundo volumen de El segundo sexo.", verdadero:true, explicacion:"Es la primera frase del segundo volumen, «La experiencia vivida», que describe cómo se forma la mujer desde la infancia." },
+  { fichas:["zambrano"], afirmacion:"María Zambrano vivió en el exilio desde 1939 hasta 1984, en países como México, Cuba, Puerto Rico, Italia, Francia y Suiza.", verdadero:true, explicacion:"Salió de España con la derrota de la República y volvió en 1984; el exilio es una condición central de su pensamiento." },
+  { fichas:["sorjuana"], afirmacion:"En la Respuesta a sor Filotea, Sor Juana sostiene que las mujeres no deben estudiar asuntos profanos.", verdadero:false, explicacion:"Sostiene lo contrario: que la inclinación a saber es natural y que estudió todas las ciencias como escalones para llegar a la teología." },
+  { fichas:["zuleta"], afirmacion:"Estanislao Zuleta escribió el Elogio de la dificultad como discurso al recibir un doctorado honoris causa de la Universidad del Valle.", verdadero:true, explicacion:"Fue en 1980, en psicología; Zuleta nunca había terminado el bachillerato." }
  ],
  emparejar:[
   { mod:"platon", idea:"La alegoría de la caverna: lo que vemos son sombras de lo que verdaderamente es." },
@@ -226,6 +261,11 @@ const EXAMEN_FINAL = {
   { mod:"zea", idea:"La filosofía americana como filosofía sin más." },
   { mod:"dussel", idea:"Antes del «yo pienso» estuvo el «yo conquisto»." },
   { mod:"rorty", idea:"La ironista liberal duda de su vocabulario final, y cree que la crueldad es lo peor que hacemos." },
-  { mod:"west", idea:"La esperanza no es optimismo: es no dejar que el mal tenga la última palabra." }
+  { mod:"west", idea:"La esperanza no es optimismo: es no dejar que el mal tenga la última palabra." },
+  { mod:"arendt", idea:"El mal extremo puede ser cometido por personas que dejaron de pensar lo que hacían." },
+  { mod:"beauvoir", idea:"No se nace mujer: se llega a serlo." },
+  { mod:"zambrano", idea:"Hace falta una razón poética, que escuche lo que la razón discursiva dejó afuera." },
+  { mod:"sorjuana", idea:"Si Aristóteles hubiera guisado, mucho más hubiera escrito." },
+  { mod:"zuleta", idea:"Un pueblo maduro para la paz es un pueblo maduro para el conflicto." }
  ]
 };

@@ -160,7 +160,8 @@ function showView(id){
    Monograma de cada ficha (en lugar de emojis), patrón suave por tradición y tema claro/oscuro. */
 const MONOGRAMA = { platon:"Pl", aristoteles:"Ar", descartes:"De", kant:"Ka", hegel:"He", nietzsche:"Nz", heidegger:"Hd",
   wittgenstein:"Wi", confucio:"Co", laozi:"La", zhuangzi:"Zh", nagarjuna:"Na", shankara:"Sh", dogen:"Dō", nishida:"Ni",
-  wangyangming:"Wy", peirce:"Pe", james:"Ja", dewey:"Dw", vasconcelos:"Va", zea:"Ze", dussel:"Du", rorty:"Ro", west:"We", falacias:"∴" };
+  wangyangming:"Wy", peirce:"Pe", james:"Ja", dewey:"Dw", vasconcelos:"Va", zea:"Ze", dussel:"Du", rorty:"Ro", west:"We", falacias:"∴",
+  arendt:"Ha", beauvoir:"Be", zambrano:"Za", sorjuana:"SJ", zuleta:"Zu" };
 function clrDe(m){ return LEVELS[m.trad].clr; }
 function varsTrad(m){ const c = clrDe(m); return `--tclr:var(--${c});--tsoft:var(--${c}-soft);`; }
 function monograma(m, extra){ return `<span class="monog ${extra||''}" style="${varsTrad(m)}" aria-hidden="true">${MONOGRAMA[m.id] || m.nombre.slice(0,2)}</span>`; }
@@ -205,7 +206,10 @@ const INSIGNIAS = [
 ];
 
 /* ============================= HOME ============================= */
+const NUM_PALABRA = {25:"Veinticinco",26:"Veintiséis",27:"Veintisiete",28:"Veintiocho",29:"Veintinueve",30:"Treinta",31:"Treinta y una",32:"Treinta y dos",33:"Treinta y tres",34:"Treinta y cuatro",35:"Treinta y cinco"};
 function renderLevelCards(){
+  const port = document.getElementById("portada");
+  if(port) port.innerHTML = `${NUM_PALABRA[MODULES.length] || MODULES.length} maneras de <em>pensar</em> el mundo`;
   $("#levelCards").innerHTML = Object.entries(LEVELS).map(([k,l])=>{
     const ms = modulesByTrad(k);
     if(!ms.length) return "";
@@ -1582,7 +1586,7 @@ function renderExamFinalCard(){
   el.innerHTML = `
     <div class="card finalcard">
       <div>
-        <span class="kicker" style="color:var(--accent)">Las 25 fichas</span>
+        <span class="kicker" style="color:var(--accent)">Las ${MODULES.length} fichas</span>
         <h3>Examen final integrador</h3>
         <p class="muted">${FINAL_N.sel} preguntas de selección múltiple con situación, al estilo Saber Pro · ${FINAL_N.vf} de verdadero o falso · un emparejamiento de ${FINAL_N.emp} ideas con su autor. Sin límite de tiempo: las respuestas y las explicaciones se ven al final.${ult?` <b>Último intento: ${ult.score}%</b> (${ult.date}).`:''}</p>
       </div>

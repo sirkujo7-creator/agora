@@ -47,7 +47,8 @@ function servidor(){
   // 2. Todas las pestañas de todas las fichas
   const vistas = await p.evaluate(() => { const tabs = DET_GRUPOS.flatMap(g => g.tabs.map(t => t[0])); let n = 0;
     for (const m of MODULES) { openModule(m.id); for (const t of tabs) { setDetTab(t); n++; } } return n; });
-  comprobar(vistas === 25 * 13 && !errores.length, `${vistas} vistas de fichas sin errores`);
+  const nFichas = await p.evaluate(() => MODULES.length);
+  comprobar(vistas === nFichas * 13 && !errores.length, `${vistas} vistas de fichas sin errores`);
 
   // 3. Repaso espaciado
   await p.evaluate(() => openModule("kant", "conceptos"));
@@ -106,16 +107,16 @@ function servidor(){
   await p.reload(); await p.evaluate(() => navigator.serviceWorker.ready);
   await ctx.setOffline(true);
   await p.reload();
-  const sinRed = await p.evaluate(() => typeof MODULES !== "undefined" && MODULES.length === 25 && document.fonts.check('16px "Instrument Serif"'));
+  const sinRed = await p.evaluate(() => typeof MODULES !== "undefined" && MODULES.length >= 25 && document.fonts.check('16px "Instrument Serif"'));
   await ctx.setOffline(false);
-  comprobar(sinRed, "sin internet, la app vuelve a abrir con sus 25 fichas y sus tipografías");
+  comprobar(sinRed, "sin internet, la app vuelve a abrir con todas sus fichas y sus tipografías");
 
   // 10. Doble clic: abierta desde file://
   const errFile = [];
   const pf = await b.newPage(); pf.on("pageerror", e => errFile.push(e.message));
   await pf.goto("file://" + path.join(RAIZ, "index.html"));
   const fichasFile = await pf.evaluate(() => MODULES.length);
-  comprobar(fichasFile === 25 && !errFile.length, "abierta desde file:// funciona sin errores");
+  comprobar(fichasFile >= 25 && !errFile.length, "abierta desde file:// funciona sin errores");
 
   comprobar(!errores.length, `sin errores en la consola${errores.length ? ": " + errores.slice(0, 3).join(" | ") : ""}`);
   await b.close(); srv.close();
