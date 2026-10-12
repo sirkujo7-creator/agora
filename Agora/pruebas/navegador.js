@@ -56,6 +56,27 @@ function servidor(){
   const caja = await p.evaluate(() => { const r = Object.values(progress.repaso)[0]; return r && r.caja === 1 && r.prox === diasDesdeHoy(1); });
   comprobar(caja, "la primera tarjeta marcada vuelve mañana");
 
+  // 3a. Tarjetas de concepto: el término nunca queda a la vista y los huecos no se amontonan
+  const tarj = await p.evaluate(() => {
+    const sinTilde = x => x.replace(/<[^>]+>/g, " ").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ");
+    let term = 0, tema = 0; const fugas = [], pegados = [];
+    MODULES.forEach(m => m.conceptos.forEach((c, i) => {
+      const t = TERMINOS[m.id][i];
+      if (t.q) { tema++; return; }
+      term++;
+      const txt = extractoTermino(c, t);
+      if (sinTilde(txt).includes(sinTilde(t.k))) fugas.push(m.id + ":" + i);
+      if ((txt + pista(c)).includes(HUECO + " " + HUECO)) pegados.push(m.id + ":" + i);
+    }));
+    return { term, tema, fugas, pegados };
+  });
+  comprobar(tarj.term > 0 && tarj.tema > 0 && !tarj.fugas.length && !tarj.pegados.length,
+    `tarjetas de concepto: ${tarj.term} con término y ${tarj.tema} con pregunta, sin fugas${tarj.fugas.length ? " (fugas: " + tarj.fugas.slice(0, 5).join(", ") + ")" : ""}`);
+  await p.evaluate(() => openModule("platon", "conceptos"));
+  const frente = await p.textContent(".flashface.front");
+  await p.click("#flashInner"); await p.waitForTimeout(600);
+  comprobar(/\?/.test(frente) && (await p.locator(".flashface.back .backdef").count()) === 1, "la tarjeta muestra un hueco o una pregunta, y al dorso la explicación completa");
+
   // 3b. Preguntas: ideas clave y revisión entre pares
   await p.evaluate(() => openModule("kant", "preguntas"));
   await p.fill("#detBody textarea.escritura >> nth=0", "La prueba de universalización detecta contradicciones en las máximas, aunque Hegel la acusó de formalismo vacío sin contenido propio.");
@@ -100,13 +121,28 @@ function servidor(){
   comprobar((await p.textContent(".resultbig")).trim() === "100%", "examen final respondido bien: 100 %");
   await p.click('#examRunner button:has-text("Volver")');
 
-  // 6. Constelaciones
-  const consts = await p.evaluate(() => CONSTELACIONES.map(c => [c.id, c.pregunta.correcta]));
+  // 6. Constelaciones: el mapa, cada caso acepta su respuesta y el eje se resuelve en orden
+  const consts = await p.evaluate(() => CONSTELACIONES.map(c => ({ id: c.id, qs: preguntasDe(c).map(q => q.correcta), eje: c.eje ? c.eje.orden : null })));
   await p.evaluate(() => showView("constelaciones"));
-  let constOk = 0;
-  for (const [id, c] of consts) { await p.evaluate(id => abrirConstelacion(id), id); await p.click(`#constOpts .optbtn[data-ix="${c}"]`);
-    if ((await p.textContent("#constFb")).startsWith("✅")) constOk++; }
-  comprobar(constOk === consts.length, `${constOk}/${consts.length} constelaciones aceptan su respuesta correcta`);
+  const puntos = await p.locator("#mapaBox .mpunto").count();
+  await p.selectOption(".mapasel select", consts[0].id);
+  const resaltados = await p.locator("#mapaBox .mpunto.sel").count();
+  let casos = 0, casosOk = 0, ejes = 0, ejesOk = 0;
+  for (const c of consts) {
+    await p.evaluate(id => abrirConstelacion(id), c.id);
+    for (let qi = 0; qi < c.qs.length; qi++) {
+      casos++; await p.click(`#constOpts-${qi} .optbtn[data-ix="${c.qs[qi]}"]`);
+      if ((await p.textContent(`#constFb-${qi}`)).startsWith("✅")) casosOk++;
+    }
+    if (c.eje) {
+      ejes++;
+      for (const id of c.eje) await p.evaluate(id => ponerEje(id), id);
+      await p.click('#ejeBox button:has-text("Comprobar")');
+      if ((await p.textContent("#ejeBox .gfeedback")).includes(`${c.eje.length} de ${c.eje.length}`)) ejesOk++;
+    }
+  }
+  comprobar(puntos === nFichas - 1 && resaltados >= 2, `el mapa muestra ${puntos} fichas y resalta una constelación (${resaltados} puntos)`);
+  comprobar(casosOk === casos && ejesOk === ejes, `${consts.length} constelaciones: ${casosOk}/${casos} casos aceptan su respuesta y ${ejesOk}/${ejes} ejes se resuelven`);
 
   // 7. Copia, reinicio y recuperación del progreso
   await p.evaluate(() => { progress.moduleQuiz.platon = 80; progress.respuestas["platon:preguntas:0"] = { texto: "prueba" }; saveProgress(); showView("progreso"); });

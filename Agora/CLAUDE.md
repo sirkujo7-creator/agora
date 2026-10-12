@@ -9,9 +9,10 @@ index.html                 Marcado de la app y carga de scripts EN ORDEN
 estilos/agora.css          Todo el CSS (tokens de color claro/oscuro en :root)
 datos/base.js              LEVELS (tradiciones) y los contenedores vacíos MODULES = [] y LECTURAS = {}
 datos/modulos/<trad>/<id>.js   Una ficha por archivo: MODULES.push({...}) + LECTURAS.<id> = {...}
-datos/transversal.js       POLYSEMOUS_TERMS y CONSTELACIONES (no pertenecen a una sola ficha)
+datos/transversal.js       POLYSEMOUS_TERMS, EPOCA (año de cada ficha para el mapa) y CONSTELACIONES
 datos/examen.js            EXAMEN_FINAL: banco del examen final integrador
 datos/claves.js            CLAVES: 3-4 ideas clave por pregunta del cuestionario de cada ficha
+datos/terminos.js          TERMINOS: cómo se arma la tarjeta de cada concepto ({k, tapar} o {q})
 app/agora.js               Toda la lógica: estado, progreso, navegación, motores de ejercicios
 herramientas/verificar.js  Chequeo de integridad de los datos (correrlo después de cada cambio)
 herramientas/empaquetar.js Genera dist/agora.html: la app entera en un solo archivo (tipografías incluidas) para compartir (dist/ no se versiona)
@@ -37,7 +38,8 @@ El orden de las fichas en la app es el orden de los `<script>` en `index.html`. 
 Las pestañas van en tres grupos (`DET_GRUPOS` en `app/agora.js`): **Estudiar** (Panorama con tesis, conexión y ruta sugerida · Conceptos · Obras · Lecturas · Diálogo), **Practicar** (Repaso mixto · Emparejar · Cuestionario final) y **Pensar** (Preguntas · Razonamiento · Argumentos · Dilema · Escribir).
 - `cuestionario:[{q,p}]` se muestra en **Preguntas**: se escribe primero, después se ve la respuesta del modelo y se marcan las ideas clave (`CLAVES.<id>[i]`) que aparecen en lo escrito. De ahí sale la autoevaluación (`eval`: todas → si, algunas → parte, ninguna → no) y los índices marcados quedan en `respuestas[k].claves`. El modo **Revisar a un compañero** usa las mismas claves sobre la respuesta de otra persona, con un comentario, y se baja en `.txt`. No se guarda: vive en memoria hasta cambiar de ficha.
 - `actividades` se desarrollan en **Escribir**, que guarda el texto, permite bajarlo en `.txt` y tiene la ruleta.
-- Los enunciados que se arman con definiciones pasan por `pista()` / `enmascarar()`, que tapa las palabras del propio título y recorta el texto. Así la respuesta no aparece en la pregunta.
+- Los enunciados que se arman con definiciones pasan por `pista()`, que tapa la respuesta y recorta el texto. Para conceptos con término (`TERMINOS.<id>[i] = {k, tapar}`) se tapan solo k y las expresiones de `tapar` (`taparTermino`); si no, las palabras del título (`enmascarar`). Cada tramo tapado se ve como **un solo hueco** (`HUECO`, `juntarHuecos`).
+- **Tarjetas de concepto**: con término, el frente muestra las oraciones desde donde aparece el hueco (`extractoTermino`) y pregunta qué concepto va ahí (o qué concepto describe el texto, si el término no aparece); con tema (`{q}`), el frente hace la pregunta. Al dorso siempre van el título y la explicación completa. Una ficha nueva necesita sus `TERMINOS` (`verificar.js` lo controla y las pruebas revisan que el término nunca quede a la vista).
 - Tarjetas con repetición espaciada (cajas de Leitner: 1, 3, 7, 14 y 30 días). Las tarjetas vencidas de todas las fichas aparecen en **Repaso de hoy**, en el Inicio.
 
 ## Identidad visual
@@ -64,7 +66,10 @@ Las pestañas van en tres grupos (`DET_GRUPOS` en `app/agora.js`): **Estudiar** 
 LECTURAS.<id> = { lecturas:[{titulo, fuente, url, extracto (template literal, párrafos), comentario}],
                   preguntasLectura:[{q, opciones:[...], r:"<texto exacto de la opción correcta>", why}] }
 
-CONSTELACIONES: [{ id, tema, nucleo, entradas:[{mod:"<id>", postura}], pregunta:{enunciado, opciones, correcta:<índice>, explicacion} }]
+CONSTELACIONES: [{ id, tema, nucleo, entradas:[{mod:"<id>", postura}],
+                  preguntas:[{enunciado, opciones:[4], correcta:<índice>, explicacion}],   // 2-3 casos, cada uno con otro autor como respuesta
+                  eje:{izq, der, orden:[ids de izq a der], explicacion} }]
+EPOCA = { <id>: <año de la obra principal> }   // mapa de Constelaciones; las fichas de método no van
 
 EXAMEN_FINAL = { seleccion:[{fichas:[ids], situacion, pregunta, opciones:[4], correcta:<índice>, explicacion}],
                  vf:[{fichas, afirmacion, verdadero:true|false, explicacion}],
@@ -91,10 +96,11 @@ Nivel esperado de cada ficha: ~9 conceptos y 5 obras con párrafos sustanciales,
 ## Trabajo pendiente (a octubre de 2026)
 
 1. ~~**Ejercicios avanzados**~~: hechos en todas las fichas (octubre de 2026). Al agregar una ficha nueva, incluirlos desde el principio; `verificar.js` avisa si faltan.
-2. ~~**Constelaciones**~~: 9 temas (octubre de 2026): conocer, el yo, la nada, saber y hacer, la verdad, el lenguaje, quién está dentro de la historia, la muerte y quién tiene derecho a la palabra. Las opciones de la pregunta se muestran mezcladas, así que la `explicacion` nombra cada opción por su contenido, nunca por su posición («la tercera…»).
+2. ~~**Constelaciones**~~: 20 temas (octubre de 2026), cada uno con 2-3 casos y un eje. Arriba, un **mapa** (SVG, `mapaSVG`) con cada ficha en su época (`EPOCA`) y su tradición, y líneas entre quienes comparten constelación; se puede resaltar una y en el celular se centra sola. Dentro de cada constelación, el mismo mapa resaltado, las posturas, el **eje** (tocar las fichas en orden entre dos polos y comprobar) y los casos. Las opciones se muestran mezcladas, así que las explicaciones nombran cada opción por su contenido, nunca por su posición («la tercera…», «la última opción»); `verificar.js` lo controla, junto con que el orden del eje tenga exactamente las fichas de la constelación.
 3. ~~**Examen final**~~: hecho (octubre de 2026), en Exámenes. El banco cubre todas las fichas; `verificar.js` avisa si una ficha nueva no tiene preguntas. Para ampliarlo, agregar preguntas en `datos/examen.js`.
 4. **Decidido por Juan (octubre de 2026)**: los dilemas se quedan como están, sin suavizar, incluidos el de Kant («La pregunta del padre»), el de Nagarjuna (diagnóstico de TDAH), el de Nishida (1943) y los pasajes de Vasconcelos. Juan decidió que no hace falta cotejar con una edición las citas escritas de memoria.
 5. ~~Buscador~~ (arriba, atajo `/`; busca por comienzo de palabra, sin tildes, en fichas, conceptos, obras, lecturas, preguntas, glosario y constelaciones) y ~~copia y reinicio del progreso~~ (en Progreso: guardar y recuperar un `.json`, reiniciar todo escribiendo REINICIAR; y reiniciar una ficha desde su Panorama): hechos en octubre de 2026.
 6. ~~**Rediseño visual**~~ (octubre de 2026): estilo «biblioteca viva», elegido por Juan entre maquetas (combinación de «Biblioteca» y «Plaza viva», con el color más contenido). Ver «Identidad visual» más arriba.
-7. ~~**Fichas nuevas**~~ (octubre de 2026): Hannah Arendt, Simone de Beauvoir y María Zambrano (europeas), Sor Juana Inés de la Cruz y Estanislao Zuleta (americanas). Son 30 fichas. Antes no había ninguna mujer. Las fuentes de sus lecturas son artículos de Wikipedia en español: la red del entorno de trabajo no permitía verificar otros enlaces. Al agregar una ficha: su `<script>` en `index.html`, su entrada en `MONOGRAMA`, preguntas en `datos/examen.js` y, si corresponde, en `ESCUELAS`.
+7. ~~**Fichas nuevas**~~ (octubre de 2026): Hannah Arendt, Simone de Beauvoir y María Zambrano (europeas), Sor Juana Inés de la Cruz y Estanislao Zuleta (americanas). Son 30 fichas. Antes no había ninguna mujer. Las fuentes de sus lecturas son artículos de Wikipedia en español: la red del entorno de trabajo no permitía verificar otros enlaces. Al agregar una ficha: su `<script>` en `index.html`, su entrada en `MONOGRAMA`, su año en `EPOCA`, sus `TERMINOS`, sus `CLAVES`, preguntas en `datos/examen.js` y, si corresponde, en `ESCUELAS`.
 8. ~~**Devolución de lo escrito con ideas clave**~~ (octubre de 2026): `datos/claves.js` con 3-4 ideas por pregunta, sacadas de la respuesta del modelo, y el modo de revisión entre pares en Preguntas. Una ficha nueva necesita su entrada en `CLAVES` (`verificar.js` lo controla); al agregar una pregunta al cuestionario, agregar su lista al final.
+9. **Plan acordado con Juan (octubre de 2026)**, cada paso en su propio PR: ~~1. conceptos con un solo hueco o una pregunta~~ (hecho); ~~2. constelaciones: más temas, casos, mapa y eje~~ (hecho); 3. «Vida y contexto» de cada autor con línea de tiempo; 4. diagramas SVG propios con modo «completá»; 5. lecturas con extractos literales (dominio público largos; con derechos, citas breves); 6. autores nuevos en tres tandas (ver `../MATERIALES.md`, que también lista los textos e imágenes que Juan tiene que conseguir, porque la red del entorno bloquea Wikisource, Wikimedia y Gutenberg).

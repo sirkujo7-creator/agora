@@ -8,7 +8,8 @@
    - los ejercicios avanzados: cadena (enlaces y nodos alcanzables),
      reconstruccion (exactamente un distractor, ordenCorrecto válido) y dilemas,
    - que las Constelaciones apunten a fichas existentes,
-   - que cada pregunta del cuestionario tenga sus 3-4 ideas clave (datos/claves.js).
+   - que cada pregunta del cuestionario tenga sus 3-4 ideas clave (datos/claves.js),
+   - que cada concepto tenga su término o su pregunta de tarjeta (datos/terminos.js).
    Sale con código 1 si encuentra errores. */
 const fs = require("fs"), path = require("path"), vm = require("vm");
 const RAIZ = path.join(__dirname, "..");
@@ -37,8 +38,8 @@ for (const trad of fs.readdirSync(dirMod)) for (const f of fs.readdirSync(path.j
 if (errores.length) fin();
 
 const ctx = {}; vm.createContext(ctx);
-vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES};", ctx);
-const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EXAMEN_FINAL, CLAVES } = ctx.__d;
+vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS};", ctx);
+const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, EXAMEN_FINAL, CLAVES, TERMINOS } = ctx.__d;
 
 const ids = new Set();
 for (const m of MODULES) {
@@ -97,8 +98,29 @@ for (const c of CONSTELACIONES) (c.entradas || []).forEach(e => {
   if (!ids.has(e.mod)) err(`constelación "${c.id}": la ficha "${e.mod}" no existe`);
 });
 // Las opciones se muestran mezcladas: las explicaciones no pueden nombrar opciones por su posición.
-const ORDINAL = /\b[Ll]a (primera|segunda|tercera|cuarta) (es|opción)\b/;
-for (const c of CONSTELACIONES) if (c.pregunta && ORDINAL.test(c.pregunta.explicacion || "")) err(`constelación "${c.id}": la explicación nombra opciones por su posición`);
+const ORDINAL = /\b[Ll]a (primera|segunda|tercera|cuarta|última) (es|opción)\b|\b[Ll]a (primera|segunda|tercera|cuarta|última) opción\b/;
+const constIds = new Set();
+for (const c of CONSTELACIONES) {
+  const q = `constelación "${c.id}"`;
+  if (constIds.has(c.id)) err(`${q}: id repetido`); constIds.add(c.id);
+  if (!c.tema || !c.nucleo || (c.entradas || []).length < 2) err(`${q}: falta tema, núcleo o al menos 2 entradas`);
+  (c.entradas || []).forEach(e => { if (!e.postura) err(`${q}: la entrada de ${e.mod} no tiene postura`); });
+  const ps = c.preguntas || (c.pregunta ? [c.pregunta] : []);
+  if (!ps.length) err(`${q}: no tiene preguntas`);
+  ps.forEach((p, i) => {
+    if (!p.enunciado || !p.explicacion || !Array.isArray(p.opciones) || p.opciones.length !== 4) err(`${q}, caso ${i + 1}: falta enunciado o explicación, o no tiene 4 opciones`);
+    else if (!Number.isInteger(p.correcta) || p.correcta < 0 || p.correcta > 3) err(`${q}, caso ${i + 1}: "correcta" fuera de rango`);
+    if (ORDINAL.test(p.explicacion || "")) err(`${q}, caso ${i + 1}: la explicación nombra opciones por su posición`);
+  });
+  if (c.eje) {
+    const mods = (c.entradas || []).map(e => e.mod).sort().join(), orden = (c.eje.orden || []).slice().sort().join();
+    if (!c.eje.izq || !c.eje.der || !c.eje.explicacion) err(`${q}: al eje le falta un polo o la explicación`);
+    if (mods !== orden) err(`${q}: el orden del eje tiene que incluir exactamente las fichas de la constelación`);
+  }
+}
+// Mapa de Constelaciones: cada ficha (salvo las de método) necesita su año en EPOCA
+if (!EPOCA) err("falta EPOCA en datos/transversal.js (años del mapa)");
+else MODULES.filter(m => m.trad !== "metodo" && typeof EPOCA[m.id] !== "number").forEach(m => err(`${m.id}: falta su año en EPOCA (datos/transversal.js)`));
 
 // Examen final integrador
 if (!EXAMEN_FINAL) aviso("no hay banco de examen final (datos/examen.js)");
@@ -142,12 +164,28 @@ else {
   });
   Object.keys(CLAVES).forEach(k => { if (!ids.has(k)) aviso(`CLAVES.${k} no corresponde a ninguna ficha`); });
 }
+// Términos de los conceptos (tarjetas): {k, tapar} o {q}, uno por concepto
+if (!TERMINOS) err("no hay términos de conceptos (datos/terminos.js)");
+else {
+  MODULES.forEach(m => {
+    const t = TERMINOS[m.id], n = (m.conceptos || []).length;
+    if (!Array.isArray(t)) { err(`${m.id}: no tiene términos en datos/terminos.js`); return; }
+    if (t.length !== n) err(`${m.id}: tiene ${t.length} términos para ${n} conceptos`);
+    t.forEach((x, i) => {
+      const donde = `${m.id}, concepto ${i + 1} («${(m.conceptos[i] || {}).t}»)`;
+      if (!x || (typeof x.k === "string") === (typeof x.q === "string")) { err(`${donde}: necesita k (término) o q (pregunta), no ambos`); return; }
+      if (x.k !== undefined && (!x.k.trim() || !Array.isArray(x.tapar))) err(`${donde}: término vacío o sin lista «tapar»`);
+      if (x.q !== undefined && !/\?$/.test(x.q.trim())) err(`${donde}: la pregunta tiene que terminar en «?»`);
+    });
+  });
+  Object.keys(TERMINOS).forEach(k => { if (!ids.has(k)) aviso(`TERMINOS.${k} no corresponde a ninguna ficha`); });
+}
 Object.keys(LECTURAS).forEach(k => { if (!ids.has(k)) aviso(`LECTURAS.${k} no corresponde a ninguna ficha`); });
 
 const conEj = MODULES.filter(m => m.cadena && (m.reconstruccion || []).length && (m.dilemas || []).length).map(m => m.id);
 console.log(`Fichas: ${MODULES.length} · con los 3 ejercicios avanzados: ${conEj.length}`);
 console.log(`Pendientes de ejercicios avanzados: ${MODULES.filter(m => !conEj.includes(m.id)).map(m => m.id).join(", ") || "ninguna"}`);
-console.log(`Constelaciones: ${CONSTELACIONES.length}`);
+console.log(`Constelaciones: ${CONSTELACIONES.length} · casos: ${CONSTELACIONES.reduce((n, c) => n + (c.preguntas || [c.pregunta]).length, 0)} · con eje: ${CONSTELACIONES.filter(c => c.eje).length}`);
 if (EXAMEN_FINAL) console.log(`Examen final: ${EXAMEN_FINAL.seleccion.length} de selección · ${EXAMEN_FINAL.vf.length} de verdadero o falso · ${EXAMEN_FINAL.emparejar.length} ideas para emparejar`);
 fin();
 

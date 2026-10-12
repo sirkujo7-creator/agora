@@ -422,6 +422,18 @@ function drawFlash(){
   const known = progKeyStore(c.kind)[c.mod.id+":"+c.kind] || [];
   const largo = String(item.d||"").length > 260;
   const tipo = c.kind==="obras" ? "Obra" : "Concepto";
+  /* Conceptos: con término, unas pocas oraciones con un solo hueco; con tema, una pregunta.
+     Al dar vuelta se ve el nombre y la explicación completa. Obras: como antes. */
+  const term = c.kind==="conceptos" ? terminoDe(item) : null;
+  const extracto = term && term.k ? extractoTermino(item, term) : "";
+  const frente = term && term.q
+    ? `<div class="flashq">Para responder de memoria</div><div class="flashpregunta">${escapeHtml(term.q)}</div>
+       <div class="hintline">pensá tu respuesta · tocá la tarjeta para ver la explicación</div>`
+    : term && term.k
+    ? `<div class="flashq">${extracto.includes(HUECO) ? "¿Qué concepto va en el hueco?" : "¿Qué concepto describe este texto?"}</div><div class="clue">“${extracto}”</div>
+       <div class="hintline">tocá la tarjeta para ver el nombre y la explicación completa</div>`
+    : `<div class="clue${largo?' long':''}">“${enmascarar(item.d, item.t)}”</div>
+       <div class="hintline">${largo?'desplazá el texto si hace falta · tocá la tarjeta para ver el nombre':'tocá la tarjeta para ver el nombre'}</div>`;
   const contador = flashGlobal
     ? `Repaso de hoy · quedan ${flashDeck.length} · ${tipo} de ${c.mod.nombre}`
     : `${tipo} ${flashIndex+1} / ${flashDeck.length} · dominadas ${known.length}/${c.mod[c.kind].length} · para hoy ${flashDeck.filter(srsVence).length}`;
@@ -432,11 +444,12 @@ function drawFlash(){
       <div class="flashcard"><div class="flashinner" id="flashInner" tabindex="0" role="button" aria-label="Voltear tarjeta" onclick="flipFlash()" onkeydown="flashKeydown(event)">
         <div class="flashface front">
           ${monograma(c.mod)}
-          <div class="clue${largo?' long':''}">“${enmascarar(item.d, item.t)}”</div>
-          <div class="hintline">${largo?'desplazá el texto si hace falta · tocá la tarjeta para ver el nombre':'tocá la tarjeta para ver el nombre'}</div>
+          ${frente}
         </div>
         <div class="flashface back">
           <div class="big">${item.t}</div>
+          ${term && term.k && normPalabra(term.k)!==normPalabra(item.t) ? `<div class="flashterm">${escapeHtml(term.k)}</div>` : ''}
+          ${c.kind==="conceptos" ? `<div class="clue long backdef">${item.d}</div>` : ''}
         </div>
       </div></div>
       <div class="flashactions">
@@ -631,18 +644,73 @@ function normPalabra(w){
   if(n.length>4 && n.endsWith("s")) n = n.slice(0,-1);
   return n;
 }
+const HUECO = '<span class="hueco" aria-label="palabra oculta">?</span>';
+/* Varias palabras tapadas seguidas («el ▁ de ▁») se juntan en un solo hueco. */
+function juntarHuecos(html){
+  const h = HUECO.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+  return html.replace(new RegExp(`${h}(?:[\\s,-]+(?:(?:de|del|la|el|los|las|y|e|o|en|a)[\\s,-]+)?${h})+`,"g"), HUECO);
+}
 function enmascarar(texto, titulo){
   const claves = titleTokens(titulo);
-  return String(texto||"").split(/(<[^>]+>)/).map(seg=> seg.startsWith("<") ? seg :
+  return juntarHuecos(String(texto||"").split(/(<[^>]+>)/).map(seg=> seg.startsWith("<") ? seg :
     seg.replace(/[\p{L}\p{M}]+/gu, w=>{
       const n = normPalabra(w);
       if(n.length<3) return w;
-      if(n.length===3) return claves.has(n) ? "▁▁▁" : w;
-      if(claves.has(n.slice(0,6))) return "▁▁▁";
+      if(n.length===3) return claves.has(n) ? HUECO : w;
+      if(claves.has(n.slice(0,6))) return HUECO;
       /* raíces cortas del título ("moral") también tapan sus variantes ("morales") */
-      for(const c of claves) if(c.length>=4 && c.length<6 && n.startsWith(c) && n.length<=c.length+3) return "▁▁▁";
+      for(const c of claves) if(c.length>=4 && c.length<6 && n.startsWith(c) && n.length<=c.length+3) return HUECO;
       return w;
-    })).join("");
+    })).join(""));
+}
+/* --- Término de cada concepto (datos/terminos.js) ---
+   TERMINOS.<id>[i] = {k, tapar} cuando el concepto tiene un nombre que se puede recordar:
+   se tapan solo k y las expresiones de `tapar`, cada aparición con un único hueco.
+   O {q} cuando el título es un tema descriptivo: la tarjeta pregunta en vez de tapar. */
+let _termDe = null;
+function terminoDe(item){
+  if(!_termDe){
+    _termDe = new Map();
+    if(typeof TERMINOS !== "undefined") MODULES.forEach(m=>(m.conceptos||[]).forEach((c,i)=>{ const t=(TERMINOS[m.id]||[])[i]; if(t) _termDe.set(c.d,t); }));
+  }
+  return (item && _termDe.get(item.d)) || null;
+}
+function _mismaPalabra(a, b){ return a===b || (a.length>=5 && b.length>=5 && a.slice(0,6)===b.slice(0,6) && Math.abs(a.length-b.length)<=3); }
+function taparTermino(texto, frases){
+  const pats = frases.filter(Boolean).map(f=>(String(f).match(/[\p{L}\p{M}\d]+/gu)||[]).map(normPalabra)).filter(p=>p.length).sort((x,y)=>y.length-x.length);
+  return juntarHuecos(String(texto||"").split(/(<[^>]+>)/).map(seg=>{
+    if(seg.startsWith("<")) return seg;
+    const toks = [...seg.matchAll(/[\p{L}\p{M}\d]+/gu)];
+    let out = "", pos = 0;
+    for(let i=0; i<toks.length; i++){
+      const pat = pats.find(p=> p.every((w,j)=>{
+        const t = toks[i+j];
+        if(!t || !_mismaPalabra(normPalabra(t[0]), w)) return false;
+        return j===0 || /^[\s'’-]*$/.test(seg.slice(toks[i+j-1].index+toks[i+j-1][0].length, t.index));
+      }));
+      if(!pat) continue;
+      const fin = toks[i+pat.length-1];
+      out += seg.slice(pos, toks[i].index) + HUECO;
+      pos = fin.index + fin[0].length;
+      i += pat.length-1;
+    }
+    return out + seg.slice(pos);
+  }).join(""));
+}
+/* Frente de una tarjeta con término: arranca en la oración donde aparece el hueco (o la
+   anterior, si la hay), porque muchas definiciones empiezan con una frase de presentación
+   («Es su concepto más útil…») que no alcanza para reconocerlo. */
+function extractoTermino(item, term){
+  const tapado = taparTermino(item.d, [term.k, ...(term.tapar||[])]);
+  const oraciones = tapado.split(/(?<=[.!?…»])\s+(?=[¿¡«“"A-ZÁÉÍÓÚÑ<])/);
+  const i = oraciones.findIndex(o=>o.includes(HUECO));
+  if(i <= 1) return recortar(tapado);
+  return "[…] " + recortar(oraciones.slice(i-1).join(" "));
+}
+/* Texto de un ítem con su respuesta tapada: por término si el concepto lo tiene, si no por título. */
+function ocultar(item){
+  const t = terminoDe(item);
+  return t && t.k ? taparTermino(item.d, [t.k, ...(t.tapar||[])]) : enmascarar(item.d, item.t);
 }
 function palabras(s){ return String(s||"").replace(/<[^>]+>/g," ").trim().split(/\s+/).filter(Boolean).length; }
 function recortar(texto, min, max){
@@ -655,11 +723,11 @@ function recortar(texto, min, max){
     if(palabras(out) >= min) break;
   }
   if(palabras(out) > max+30){   // una sola oración larguísima: se corta por palabras, sin HTML
-    out = out.replace(/<[^>]+>/g,"").split(/\s+/).slice(0,max).join(" ")+"…";
+    out = out.split(HUECO).map(x=>x.replace(/<[^>]+>/g,"")).join("\u0000").split(/\s+/).slice(0,max).join(" ").split("\u0000").join(HUECO)+"…";
   } else if(out.length < String(texto||"").length) out += " […]";
   return out;
 }
-function pista(item){ return recortar(enmascarar(item.d, item.t)); }
+function pista(item){ return recortar(ocultar(item)); }
 /* ¿El candidato podría pasar por correcto? Sí si comparte un término de título con `ref.titles`,
    o si todo su término principal ya aparece en `ref.text`. */
 function riesgoAmbiguo(cand, ref){
@@ -1444,31 +1512,126 @@ function dilemaCheck(i, on){
 
 /* ============================= CONSTELACIONES ============================= */
 /* Un mismo problema visto desde varias fichas. Las entradas solo guardan el id del módulo
-   y la postura; nombre, ícono y tradición se leen de MODULES. */
+   y la postura; nombre, ícono y tradición se leen de MODULES. Cada constelación tiene
+   `preguntas` (casos de opción múltiple) y un `eje` para ubicar las posturas entre dos polos.
+   Arriba, el mapa: cada ficha en su época (EPOCA, en datos/transversal.js) y su tradición. */
 let constelActual = null;
+let mapaSel = "";
+function preguntasDe(c){ return c.preguntas || (c.pregunta ? [c.pregunta] : []); }
+
+/* --- Mapa por época y tradición (SVG) --- */
+const MAPA_CARRILES = { europea:95, asiatica:235, americana:375 };
+const MAPA_ANCHO = 1000, MAPA_ALTO = 470;
+/* Escala de tiempo por tramos: la Antigüedad se comprime y el siglo XX se estira. */
+const MAPA_TRAMOS = [[-600,110],[0,215],[1500,385],[1850,550],[1900,630],[2000,985]];
+function mapaX(anio){
+  const T = MAPA_TRAMOS;
+  if(anio <= T[0][0]) return T[0][1];
+  for(let i=1;i<T.length;i++) if(anio <= T[i][0]){
+    const [a0,x0] = T[i-1], [a1,x1] = T[i];
+    return x0 + (anio-a0)/(a1-a0)*(x1-x0);
+  }
+  return T[T.length-1][1];
+}
+function mapaNombre(m){
+  const corto = { sorjuana:"Sor Juana", wangyangming:"Wang Yangming", confucio:"Confucio", nishida:"Nishida", beauvoir:"Beauvoir", shankara:"Shankara" };
+  return corto[m.id] || m.nombre.replace(/\s*\(.*\)/,"").split(" ").slice(-1)[0];
+}
+/* Posición de cada ficha en su carril. Hay cuatro filas por carril (cerca y lejos de la línea,
+   arriba y abajo): cada ficha va a la primera fila donde ni su punto ni su nombre pisan al anterior. */
+const MAPA_FILAS = [-15, 15, -42, 42];
+function mapaPuntos(){
+  const pts = {};
+  Object.keys(MAPA_CARRILES).forEach(trad=>{
+    const mods = MODULES.filter(m=>m.trad===trad && typeof EPOCA!=="undefined" && EPOCA[m.id]!=null)
+      .sort((a,b)=>EPOCA[a.id]-EPOCA[b.id]);
+    const finFila = MAPA_FILAS.map(()=>-Infinity);
+    mods.forEach(m=>{
+      const x = mapaX(EPOCA[m.id]), medio = mapaNombre(m).length*3.6 + 4;
+      let f = MAPA_FILAS.findIndex((_,i)=> x - medio > finFila[i] + 6);
+      if(f < 0) f = finFila.indexOf(Math.min(...finFila));
+      finFila[f] = x + medio;
+      const dy = MAPA_FILAS[f];
+      pts[m.id] = { m, x, y:MAPA_CARRILES[trad]+dy, arriba: dy<0 };
+    });
+  });
+  return pts;
+}
+function mapaSVG(opts){
+  opts = opts || {};
+  const pts = mapaPuntos();
+  const sel = opts.constel ? CONSTELACIONES.find(c=>c.id===opts.constel) : null;
+  const activos = sel ? new Set(sel.entradas.map(e=>e.mod)) : null;
+  const curva = (a,b,fuerte)=>{
+    const mx = (a.x+b.x)/2, my = Math.min(a.y,b.y) - 30 - Math.abs(a.x-b.x)*0.12;
+    return `<path d="M${a.x.toFixed(1)},${a.y} Q${mx.toFixed(1)},${my.toFixed(1)} ${b.x.toFixed(1)},${b.y}" class="${fuerte?'mlinea on':'mlinea'}"/>`;
+  };
+  const lineas = [];
+  CONSTELACIONES.forEach(c=>{
+    const fuerte = sel && c.id===sel.id;
+    if(sel && !fuerte) return;
+    const ps = c.entradas.map(e=>pts[e.mod]).filter(Boolean).sort((a,b)=>a.x-b.x);
+    for(let i=1;i<ps.length;i++) lineas.push(curva(ps[i-1], ps[i], fuerte));
+  });
+  const marcas = [[-500,"500 a.C."],[0,"0"],[500,"500"],[1000,"1000"],[1500,"1500"],[1800,"1800"],[1900,"1900"],[1950,"1950"],[2000,"2000"]];
+  return `<svg class="mapa" viewBox="0 0 ${MAPA_ANCHO} ${MAPA_ALTO}" role="img" aria-label="Mapa de las fichas por época y tradición${sel?': '+escapeHtml(sel.tema):''}">
+    ${Object.entries(MAPA_CARRILES).map(([t,y])=>`<line x1="20" x2="${MAPA_ANCHO-10}" y1="${y}" y2="${y}" class="mcarril"/><text x="20" y="${y-58}" class="mtrad" style="fill:var(--${LEVELS[t].clr})">${LEVELS[t].label}</text>`).join("")}
+    ${marcas.map(([a,l])=>`<line x1="${mapaX(a)}" x2="${mapaX(a)}" y1="30" y2="${MAPA_ALTO-34}" class="mtick"/><text x="${mapaX(a)}" y="${MAPA_ALTO-14}" class="manio">${l}</text>`).join("")}
+    ${lineas.join("")}
+    ${Object.values(pts).map(p=>{
+      const on = !activos || activos.has(p.m.id);
+      return `<g class="mpunto${on?'':' off'}${activos&&on?' sel':''}" tabindex="0" role="link" aria-label="${escapeHtml(p.m.nombre)}" onclick="openModule('${p.m.id}')" onkeydown="if(event.key==='Enter')openModule('${p.m.id}')">
+        <circle cx="${p.x.toFixed(1)}" cy="${p.y}" r="${activos&&on?8:6}" style="fill:var(--${LEVELS[p.m.trad].clr})"/>
+        <text x="${p.x.toFixed(1)}" y="${p.arriba?p.y-13:p.y+22}" class="mnombre">${escapeHtml(mapaNombre(p.m))}</text></g>`;
+    }).join("")}
+  </svg>`;
+}
+function resaltarMapa(id){ mapaSel = id; const box = document.getElementById("mapaBox"); if(box){ box.innerHTML = mapaSVG({constel:mapaSel}); centrarMapa(box); } }
+/* En pantallas angostas el mapa se desplaza de costado: se centra en las fichas resaltadas. */
+function centrarMapa(box){
+  const svg = box && box.querySelector("svg"); if(!svg) return;
+  const xs = [...svg.querySelectorAll(".mpunto.sel circle")].map(c=>Number(c.getAttribute("cx")));
+  if(!xs.length) return;
+  const medio = (Math.min(...xs)+Math.max(...xs))/2;
+  box.scrollLeft = medio/MAPA_ANCHO*svg.getBoundingClientRect().width - box.clientWidth/2;
+}
+
 function renderConstelaciones(){
   const box = document.getElementById("constelBody");
   if(!box) return;
   const temas = CONSTELACIONES.filter(c=>c.entradas.some(e=>moduleById(e.mod)));
   if(!constelActual){
-    box.innerHTML = temas.length ? `<div class="grid modules">${temas.map(c=>{
+    box.innerHTML = `
+      <section class="mapawrap">
+        <div class="sechead" style="margin-top:0;">Mapa · ${MODULES.filter(m=>EPOCA[m.id]!=null).length} fichas por época y tradición</div>
+        <p class="muted mapanota">Cada punto es una ficha; tocalo para abrirla. Las líneas unen a quienes discuten un mismo problema. Elegí una constelación para verla sola.</p>
+        <label class="mapasel">Resaltar <select onchange="resaltarMapa(this.value)" aria-label="Resaltar constelación">
+          <option value="">Todas las constelaciones</option>
+          ${temas.map(c=>`<option value="${c.id}" ${mapaSel===c.id?'selected':''}>${escapeHtml(c.tema)}</option>`).join("")}
+        </select></label>
+        <div class="mapascroll" id="mapaBox">${mapaSVG({constel:mapaSel})}</div>
+        <p class="muted mapanota mapadesliza">Deslizá el mapa de costado para recorrer las épocas.</p>
+      </section>
+      ${temas.length ? `<div class="grid modules">${temas.map(c=>{
       const mods = c.entradas.map(e=>moduleById(e.mod)).filter(Boolean);
       return `<button class="card constcard" onclick="abrirConstelacion('${c.id}')">
-        <span class="lvltag mono">${mods.length} fichas</span>
+        <span class="lvltag mono">${mods.length} fichas · ${preguntasDe(c).length} casos${c.eje?' · eje':''}</span>
         <h3>${c.tema}</h3>
         <span class="constwho">${mods.map(m=>`<span class="constpill" style="--tclr:var(--${LEVELS[m.trad].clr});--tsoft:var(--${LEVELS[m.trad].clr}-soft);">${m.icon} ${m.nombre}</span>`).join("")}</span>
         ${c.nucleo?`<span class="muted" style="font-size:.88rem;line-height:1.5;">${c.nucleo}</span>`:""}
-      </button>`; }).join("")}</div>` : `<div class="lecnote">Todavía no hay constelaciones cargadas.</div>`;
+      </button>`; }).join("")}</div>` : `<div class="lecnote">Todavía no hay constelaciones cargadas.</div>`}`;
+    centrarMapa(document.getElementById("mapaBox"));
     return;
   }
   const c = CONSTELACIONES.find(x=>x.id===constelActual);
   if(!c){ constelActual = null; renderConstelaciones(); return; }
   const entradas = c.entradas.map(e=>({e, m:moduleById(e.mod)})).filter(x=>x.m);
-  const q = c.pregunta;
+  const qs = preguntasDe(c);
   box.innerHTML = `
     <button class="backlink" onclick="constelActual=null; renderConstelaciones();">← Todas las constelaciones</button>
     <h3 style="margin:0 0 6px;" id="constFocus" tabindex="-1">${c.tema}</h3>
     ${c.nucleo?`<p class="muted" style="max-width:68ch;line-height:1.55;">${c.nucleo}</p>`:""}
+    <div class="mapascroll mini" id="mapaMini">${mapaSVG({constel:c.id})}</div>
     <div class="constgrid">
       ${entradas.map(({e,m})=>{ const clr = LEVELS[m.trad].clr; return `
         <article class="constpost" style="--tclr:var(--${clr});--tsoft:var(--${clr}-soft);">
@@ -1477,25 +1640,62 @@ function renderConstelaciones(){
           <button class="btn ghost sm" onclick="openModule('${m.id}')">Abrir la ficha →</button>
         </article>`; }).join("")}
     </div>
-    ${q?`<div class="qcard" style="margin-top:20px;">
-      <div class="sechead" style="margin-top:0;">Pregunta de comparación</div>
+    ${c.eje?`<section class="qcard eje" style="margin-top:20px;" id="ejeBox"></section>`:""}
+    ${qs.map((q,qi)=>`<div class="qcard" style="margin-top:20px;">
+      <div class="sechead" style="margin-top:0;">Caso ${qi+1} de ${qs.length}</div>
       <div class="prompt" style="font-size:1.05rem;margin-bottom:14px;">${q.enunciado}</div>
-      <div class="optrow constopts" id="constOpts">${shuffle(q.opciones.map((o,i)=>({o,i}))).map(({o,i})=>`<button class="optbtn" data-ix="${i}" onclick="responderConstelacion(${i},this)">${o}</button>`).join("")}</div>
-      <div class="gfeedback" id="constFb" role="status" aria-live="polite"></div>
-    </div>`:""}`;
+      <div class="optrow constopts" id="constOpts-${qi}">${shuffle(q.opciones.map((o,i)=>({o,i}))).map(({o,i})=>`<button class="optbtn" data-ix="${i}" onclick="responderConstelacion(${qi},${i},this)">${o}</button>`).join("")}</div>
+      <div class="gfeedback" id="constFb-${qi}" role="status" aria-live="polite"></div>
+    </div>`).join("")}`;
+  centrarMapa(document.getElementById("mapaMini"));
+  if(c.eje){ ejeState = { id:c.id, puestos:[], pool:shuffle(c.eje.orden.slice()), visto:false }; drawEje(); }
 }
 function abrirConstelacion(id){ constelActual = id; renderConstelaciones(); window.scrollTo({top:0, behavior:"instant"}); enfocar("#constFocus"); }
-function responderConstelacion(i, btn){
+function responderConstelacion(qi, i, btn){
   const c = CONSTELACIONES.find(x=>x.id===constelActual); if(!c) return;
-  const q = c.pregunta;
-  const opts = $all("#constOpts .optbtn");
+  const q = preguntasDe(c)[qi];
+  const opts = $all(`#constOpts-${qi} .optbtn`);
   if(opts.some(b=>b.disabled)) return;
   opts.forEach(b=>{ b.disabled = true; const k = Number(b.dataset.ix); if(k===q.correcta) b.classList.add("correct"); else if(b===btn) b.classList.add("wrong"); });
   const bien = i===q.correcta;
-  const fb = document.getElementById("constFb");
+  const fb = document.getElementById("constFb-"+qi);
   fb.className = "gfeedback show " + (bien?"ok":"no");
   fb.innerHTML = (bien?"✅ Correcto. ":"❌ No es esa. ") + q.explicacion;
 }
+
+/* --- Eje: ubicar las posturas entre dos polos ---
+   Se tocan las fichas en orden, del polo izquierdo al derecho; tocar una ya puesta la devuelve. */
+let ejeState = null;
+function drawEje(){
+  const box = document.getElementById("ejeBox"); if(!box || !ejeState) return;
+  const c = CONSTELACIONES.find(x=>x.id===ejeState.id), e = c.eje, n = e.orden.length;
+  const chip = (id, onclick, extra)=>{ const m = moduleById(id); const clr = LEVELS[m.trad].clr;
+    return `<button class="ejechip ${extra||''}" style="--tclr:var(--${clr});--tsoft:var(--${clr}-soft);" onclick="${onclick}">${escapeHtml(mapaNombre(m))}</button>`; };
+  const visto = ejeState.visto;
+  box.innerHTML = `
+    <div class="sechead" style="margin-top:0;">Ubicá las posturas en el eje</div>
+    <p class="muted" style="margin:0 0 12px;font-size:.9rem;">Tocá las fichas en orden, desde el polo de la izquierda hasta el de la derecha. Tocá una ya ubicada para sacarla.</p>
+    <div class="ejepolos"><span>${escapeHtml(e.izq)}</span><span>${escapeHtml(e.der)}</span></div>
+    <div class="ejelinea" style="--n:${n};">
+      ${Array.from({length:n},(_,i)=>{ const id = ejeState.puestos[i];
+        const marca = visto ? (id===e.orden[i] ? ' ok' : ' no') : '';
+        return `<div class="ejeslot${marca}">${id ? chip(id, visto?'':`sacarEje(${i})`, '') : `<span class="ejevacio">${i+1}</span>`}</div>`; }).join("")}
+    </div>
+    <div class="ejepool">${ejeState.pool.map(id=>chip(id, `ponerEje('${id}')`, '')).join("")}</div>
+    <div class="row" style="gap:8px;margin-top:12px;">
+      ${visto ? `<button class="btn ghost sm" onclick="reiniciarEje()">Volver a intentar</button>`
+              : `<button class="btn sm" onclick="comprobarEje()" ${ejeState.puestos.length<n?'disabled':''}>Comprobar</button>`}
+    </div>
+    <div class="gfeedback ${visto?'show '+(ejeState.puestos.every((id,i)=>id===e.orden[i])?'ok':'no'):''}" role="status" aria-live="polite">${visto ? ejeResultado(e) : ''}</div>`;
+}
+function ejeResultado(e){
+  const bien = ejeState.puestos.filter((id,i)=>id===e.orden[i]).length;
+  return `${bien===e.orden.length?'✅':'🔎'} ${bien} de ${e.orden.length} en su lugar. Orden esperado: ${e.orden.map(id=>mapaNombre(moduleById(id))).join(" → ")}.<br>${e.explicacion}`;
+}
+function ponerEje(id){ if(!ejeState || ejeState.visto) return; ejeState.pool = ejeState.pool.filter(x=>x!==id); ejeState.puestos.push(id); drawEje(); }
+function sacarEje(i){ if(!ejeState || ejeState.visto) return; const id = ejeState.puestos.splice(i,1)[0]; ejeState.pool.push(id); drawEje(); }
+function comprobarEje(){ if(!ejeState) return; ejeState.visto = true; drawEje(); }
+function reiniciarEje(){ const c = CONSTELACIONES.find(x=>x.id===ejeState.id); ejeState = { id:c.id, puestos:[], pool:shuffle(c.eje.orden.slice()), visto:false }; drawEje(); }
 
 /* --- Module Quiz --- */
 /* Preguntas de comprensión lectora, generadas desde el campo `preguntasLectura`
