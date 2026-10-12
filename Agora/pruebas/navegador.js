@@ -64,7 +64,7 @@ function servidor(){
       const t = TERMINOS[m.id][i];
       if (t.q) { tema++; return; }
       term++;
-      const txt = recortar(taparTermino(c.d, [t.k, ...t.tapar]));
+      const txt = extractoTermino(c, t);
       if (sinTilde(txt).includes(sinTilde(t.k))) fugas.push(m.id + ":" + i);
       if ((txt + pista(c)).includes(HUECO + " " + HUECO)) pegados.push(m.id + ":" + i);
     }));

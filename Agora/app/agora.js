@@ -425,11 +425,12 @@ function drawFlash(){
   /* Conceptos: con término, unas pocas oraciones con un solo hueco; con tema, una pregunta.
      Al dar vuelta se ve el nombre y la explicación completa. Obras: como antes. */
   const term = c.kind==="conceptos" ? terminoDe(item) : null;
+  const extracto = term && term.k ? extractoTermino(item, term) : "";
   const frente = term && term.q
     ? `<div class="flashq">Para responder de memoria</div><div class="flashpregunta">${escapeHtml(term.q)}</div>
        <div class="hintline">pensá tu respuesta · tocá la tarjeta para ver la explicación</div>`
     : term && term.k
-    ? `<div class="flashq">¿Cuál es el concepto que va en el hueco?</div><div class="clue">“${recortar(taparTermino(item.d, [term.k, ...(term.tapar||[])]))}”</div>
+    ? `<div class="flashq">${extracto.includes(HUECO) ? "¿Qué concepto va en el hueco?" : "¿Qué concepto describe este texto?"}</div><div class="clue">“${extracto}”</div>
        <div class="hintline">tocá la tarjeta para ver el nombre y la explicación completa</div>`
     : `<div class="clue${largo?' long':''}">“${enmascarar(item.d, item.t)}”</div>
        <div class="hintline">${largo?'desplazá el texto si hace falta · tocá la tarjeta para ver el nombre':'tocá la tarjeta para ver el nombre'}</div>`;
@@ -695,6 +696,16 @@ function taparTermino(texto, frases){
     }
     return out + seg.slice(pos);
   }).join(""));
+}
+/* Frente de una tarjeta con término: arranca en la oración donde aparece el hueco (o la
+   anterior, si la hay), porque muchas definiciones empiezan con una frase de presentación
+   («Es su concepto más útil…») que no alcanza para reconocerlo. */
+function extractoTermino(item, term){
+  const tapado = taparTermino(item.d, [term.k, ...(term.tapar||[])]);
+  const oraciones = tapado.split(/(?<=[.!?…»])\s+(?=[¿¡«“"A-ZÁÉÍÓÚÑ<])/);
+  const i = oraciones.findIndex(o=>o.includes(HUECO));
+  if(i <= 1) return recortar(tapado);
+  return "[…] " + recortar(oraciones.slice(i-1).join(" "));
 }
 /* Texto de un ítem con su respuesta tapada: por término si el concepto lo tiene, si no por título. */
 function ocultar(item){
