@@ -277,12 +277,12 @@ function renderModuleCards(){
    recorrerlos: primero se estudia, después se practica el reconocimiento y al final
    se piensa y se escribe. Solo se muestran las pestañas del grupo activo. */
 const DET_GRUPOS = [
-  { id:"estudiar",  label:"1 · Estudiar",  tabs:[["panorama","Panorama"],["conceptos","Conceptos"],["obras","Obras"],["lecturas","Lecturas"],["dialogo","Diálogo"]] },
+  { id:"estudiar",  label:"1 · Estudiar",  tabs:[["panorama","Panorama"],["vida","Vida y contexto"],["conceptos","Conceptos"],["obras","Obras"],["lecturas","Lecturas"],["dialogo","Diálogo"]] },
   { id:"practicar", label:"2 · Practicar", tabs:[["repaso","Repaso mixto"],["emparejar","Emparejar"],["cuestionario","Cuestionario final"]] },
   { id:"pensar",    label:"3 · Pensar",    tabs:[["preguntas","Preguntas"],["razonamiento","Razonamiento"],["argumentos","Argumentos"],["dilema","Dilema"],["actividades","Escribir"]] }
 ];
 const DET_RENDER = {
-  panorama:()=>renderPanorama(), conceptos:()=>renderFlashcards("conceptos"), obras:()=>renderFlashcards("obras"),
+  panorama:()=>renderPanorama(), vida:()=>renderVida(), conceptos:()=>renderFlashcards("conceptos"), obras:()=>renderFlashcards("obras"),
   lecturas:()=>renderLecturas(), dialogo:()=>renderDialogue(),
   repaso:()=>renderRepasoMixto(), emparejar:()=>renderMatching(), cuestionario:()=>renderModuleQuiz(),
   preguntas:()=>renderPreguntas(), razonamiento:()=>renderCadena(), argumentos:()=>renderReconstruccion(),
@@ -326,6 +326,7 @@ function renderPanorama(){
   const quiz = progress.moduleQuiz[d.id];
   const hoy = mazoFicha(d, "conceptos").concat(mazoFicha(d, "obras")).filter(c=>srsVence(c)).length;
   const avanzados = ["cadena","reconstruccion","dilemas"].filter(k=>d[k] && (!Array.isArray(d[k]) || d[k].length)).length;
+  let nPaso = 0; const sig = ()=>++nPaso;   // los pasos se numeran solos (Vida y contexto puede faltar)
   const paso = (n, titulo, detalle, tab, hecho)=>`
     <li class="rutapaso${hecho?' hecho':''}"><span class="rutanum">${hecho?'✓':n}</span>
       <div><button class="linkbtn" onclick="setDetTab('${tab}')">${titulo}</button><div class="rutadet">${detalle}</div></div></li>`;
@@ -339,15 +340,40 @@ function renderPanorama(){
       <aside class="margen">
         <div class="kicker">Tu ruta en esta ficha</div>
         <ol class="ruta">
-          ${paso(1,"Lecturas","Fuente o comentario, con su nota de lectura.","lecturas", false)}
-          ${paso(2,"Conceptos y obras",`${domC}/${d.conceptos.length} conceptos · ${domO}/${d.obras.length} obras${hoy?` · <b>${hoy} para hoy</b>`:''}`,"conceptos", domC===d.conceptos.length && domO===d.obras.length && !hoy)}
-          ${paso(3,"Diálogo","Las objeciones fuertes y las respuestas.","dialogo", false)}
-          ${paso(4,"Practicar",quiz!=null?`Último cuestionario: ${quiz} %`:"Repaso mixto, emparejar y cuestionario.","repaso", quiz!=null && quiz>=70)}
-          ${paso(5,"Preguntas",`${resp}/${nPreg} respondidas por escrito`,"preguntas", nPreg>0 && resp===nPreg)}
-          ${paso(6,"Pensar",avanzados?"Razonamiento, argumentos y dilema.":"Ejercicios todavía no disponibles.","razonamiento", false)}
+          ${vidaDe(d)?paso(sig(),"Vida y contexto","Quién fue, en qué mundo pensó y por qué piensa así.","vida", false):''}
+          ${paso(sig(),"Lecturas","Fuente o comentario, con su nota de lectura.","lecturas", false)}
+          ${paso(sig(),"Conceptos y obras",`${domC}/${d.conceptos.length} conceptos · ${domO}/${d.obras.length} obras${hoy?` · <b>${hoy} para hoy</b>`:''}`,"conceptos", domC===d.conceptos.length && domO===d.obras.length && !hoy)}
+          ${paso(sig(),"Diálogo","Las objeciones fuertes y las respuestas.","dialogo", false)}
+          ${paso(sig(),"Practicar",quiz!=null?`Último cuestionario: ${quiz} %`:"Repaso mixto, emparejar y cuestionario.","repaso", quiz!=null && quiz>=70)}
+          ${paso(sig(),"Preguntas",`${resp}/${nPreg} respondidas por escrito`,"preguntas", nPreg>0 && resp===nPreg)}
+          ${paso(sig(),"Pensar",avanzados?"Razonamiento, argumentos y dilema.":"Ejercicios todavía no disponibles.","razonamiento", false)}
         </ol>
         <button class="linkbtn reset" onclick="reiniciarFicha('${d.id}')">${reinicioFicha===d.id?'¿Seguro? Se borra lo de esta ficha (tarjetas, repasos, cuestionario y lo escrito). Tocá de nuevo para confirmar.':'Reiniciar el progreso de esta ficha'}</button>
       </aside>
+    </div>`;
+}
+
+/* --- Vida y contexto (datos/vidas.js) ---
+   VIDAS.<id> = { lema, secciones:[{titulo, texto}], hitos:[{anio, texto}] }. La última sección,
+   «Por qué piensa así», une el contexto con las ideas; los hitos arman la línea de tiempo. */
+function vidaDe(d){ return (typeof VIDAS !== "undefined" && VIDAS[d.id]) || null; }
+function parrafos(t){ return String(t).split(/\n\s*\n/).map(x=>`<p>${x.trim()}</p>`).join(""); }
+function renderVida(){
+  const d = currentModule, v = vidaDe(d);
+  if(!v){ $("#detBody").innerHTML = `<div class="lecnote">Esta ficha no tiene biografía: es un taller de método, no un autor.</div>`; return; }
+  const ultima = v.secciones.length-1;
+  $("#detBody").innerHTML = `
+    <div class="vida">
+      <p class="vidalema">${v.lema}</p>
+      <div class="vidacols">
+        <div class="vidatexto">
+          ${v.secciones.map((s,i)=>`<section class="${i===ultima?'vidaporque':''}"><h3>${s.titulo}</h3>${parrafos(s.texto)}</section>`).join("")}
+        </div>
+        <aside class="vidahitos" aria-label="Línea de tiempo">
+          <div class="kicker">Línea de tiempo</div>
+          <ol>${v.hitos.map(h=>`<li><span class="hanio">${h.anio}</span><span class="htexto">${h.texto}</span></li>`).join("")}</ol>
+        </aside>
+      </div>
     </div>`;
 }
 
@@ -2023,6 +2049,8 @@ function construirIndice(){
   MODULES.forEach(m=>{
     add({ tipo:"Ficha", mod:m, titulo:m.nombre, texto:`${m.escuela} · ${m.fechas} · ${m.tesis}`, ir:()=>openModule(m.id) });
     (m.conceptos||[]).forEach((c,i)=>add({ tipo:"Concepto", mod:m, titulo:c.t, texto:c.d, ir:()=>abrirTarjeta(m.id,"conceptos",i) }));
+    const v = vidaDe(m);
+    if(v) add({ tipo:"Vida", mod:m, titulo:`Vida y contexto de ${m.nombre}`, texto:`${v.lema} ${v.secciones.map(x=>x.titulo+" "+x.texto).join(" ")} ${v.hitos.map(h=>h.anio+" "+h.texto).join(" ")}`, ir:()=>openModule(m.id,"vida") });
     (m.obras||[]).forEach((o,i)=>add({ tipo:"Obra", mod:m, titulo:o.t, texto:o.d, ir:()=>abrirTarjeta(m.id,"obras",i) }));
     (m.lecturas||[]).forEach(l=>add({ tipo:"Lectura", mod:m, titulo:l.titulo, texto:`${l.fuente} ${l.extracto}`, ir:()=>openModule(m.id,"lecturas") }));
     getQuiz(m).forEach(q=>add({ tipo:"Pregunta", mod:m, titulo:textoPlano(q.q), texto:q.p, ir:()=>openModule(m.id,"preguntas") }));

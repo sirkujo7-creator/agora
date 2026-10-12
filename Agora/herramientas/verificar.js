@@ -38,8 +38,8 @@ for (const trad of fs.readdirSync(dirMod)) for (const f of fs.readdirSync(path.j
 if (errores.length) fin();
 
 const ctx = {}; vm.createContext(ctx);
-vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS};", ctx);
-const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, EXAMEN_FINAL, CLAVES, TERMINOS } = ctx.__d;
+vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS};", ctx);
+const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, VIDAS, EXAMEN_FINAL, CLAVES, TERMINOS } = ctx.__d;
 
 const ids = new Set();
 for (const m of MODULES) {
@@ -117,6 +117,19 @@ for (const c of CONSTELACIONES) {
     if (!c.eje.izq || !c.eje.der || !c.eje.explicacion) err(`${q}: al eje le falta un polo o la explicación`);
     if (mods !== orden) err(`${q}: el orden del eje tiene que incluir exactamente las fichas de la constelación`);
   }
+}
+// Vida y contexto: cada ficha de autor (no las de método) con su lema, secciones e hitos
+if (!VIDAS) err("no hay biografías (datos/vidas.js)");
+else {
+  MODULES.filter(m => m.trad !== "metodo").forEach(m => {
+    const v = VIDAS[m.id], q = `${m.id}: vida y contexto`;
+    if (!v) { err(`${q}: falta en datos/vidas.js`); return; }
+    if (!v.lema || !Array.isArray(v.secciones) || v.secciones.length < 3) err(`${q}: falta el lema o al menos 3 secciones`);
+    else if (v.secciones.some(s => !s.titulo || !s.texto)) err(`${q}: hay una sección sin título o sin texto`);
+    else if (v.secciones[v.secciones.length - 1].titulo !== "Por qué piensa así") err(`${q}: la última sección tiene que ser «Por qué piensa así»`);
+    if (!Array.isArray(v.hitos) || v.hitos.length < 5 || v.hitos.some(h => !h.anio || !h.texto)) err(`${q}: necesita al menos 5 hitos con año y texto`);
+  });
+  Object.keys(VIDAS).forEach(k => { if (!ids.has(k)) aviso(`VIDAS.${k} no corresponde a ninguna ficha`); });
 }
 // Mapa de Constelaciones: cada ficha (salvo las de método) necesita su año en EPOCA
 if (!EPOCA) err("falta EPOCA en datos/transversal.js (años del mapa)");
