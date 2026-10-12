@@ -365,17 +365,28 @@ function renderVida(){
   $("#detBody").innerHTML = `
     <div class="vida">
       <p class="vidalema">${v.lema}</p>
-      <div class="vidacols">
-        <div class="vidatexto">
-          ${v.secciones.map((s,i)=>`<section class="${i===ultima?'vidaporque':''}"><h3>${s.titulo}</h3>${parrafos(s.texto)}</section>`).join("")}
+      <section class="cinta" aria-label="Línea de tiempo">
+        <div class="cintahead">
+          <span class="kicker">Línea de tiempo · ${v.hitos.length} momentos</span>
+          <span class="cintadesliza">deslizá →</span>
+          <span class="cintanav">
+            <button class="iconbtn" onclick="moverCinta(-1)" aria-label="Momentos anteriores">←</button>
+            <button class="iconbtn" onclick="moverCinta(1)" aria-label="Momentos siguientes">→</button>
+          </span>
         </div>
-        <aside class="vidahitos" aria-label="Línea de tiempo">
-          <div class="kicker">Línea de tiempo</div>
-          <ol>${v.hitos.map(h=>`<li><span class="hanio">${h.anio}</span><span class="htexto">${h.texto}</span></li>`).join("")}</ol>
-        </aside>
+        <ol class="cintapista" id="cinta">
+          ${v.hitos.map((h,i)=>`<li class="hito${i%2?' abajo':''}" style="--i:${i}">
+            <div class="hcard"><span class="hanio">${h.anio}</span><span class="htexto">${h.texto}</span></div>
+            <span class="hpunto" aria-hidden="true"></span>
+          </li>`).join("")}
+        </ol>
+      </section>
+      <div class="vidatexto">
+        ${v.secciones.map((s,i)=>`<section class="${i===ultima?'vidaporque':''}"><h3>${s.titulo}</h3>${parrafos(s.texto)}</section>`).join("")}
       </div>
     </div>`;
 }
+function moverCinta(dir){ const c = document.getElementById("cinta"); if(c) c.scrollBy({left: dir*Math.max(240, c.clientWidth*0.8), behavior:"smooth"}); }
 
 /* --- Tarjetas (Conceptos, Obras y el repaso de hoy) con repetición espaciada ---
    Sistema de cajas (Leitner): "la tengo clara" sube la tarjeta una caja y la agenda

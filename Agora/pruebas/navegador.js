@@ -53,7 +53,7 @@ function servidor(){
 
   // 2b. Vida y contexto: relato con «Por qué piensa así» y línea de tiempo
   await p.evaluate(() => openModule("kant", "vida"));
-  const vida = { secc: await p.locator(".vidatexto section").count(), porque: await p.locator(".vidaporque h3").textContent(), hitos: await p.locator(".vidahitos li").count() };
+  const vida = { secc: await p.locator(".vidatexto section").count(), porque: await p.locator(".vidaporque h3").textContent(), hitos: await p.locator(".cintapista .hito").count() };
   comprobar(vida.secc >= 3 && vida.porque === "Por qué piensa así" && vida.hitos >= 5, `vida y contexto: ${vida.secc} secciones y ${vida.hitos} hitos en la línea de tiempo`);
 
   // 3. Repaso espaciado
