@@ -422,6 +422,17 @@ function drawFlash(){
   const known = progKeyStore(c.kind)[c.mod.id+":"+c.kind] || [];
   const largo = String(item.d||"").length > 260;
   const tipo = c.kind==="obras" ? "Obra" : "Concepto";
+  /* Conceptos: con término, unas pocas oraciones con un solo hueco; con tema, una pregunta.
+     Al dar vuelta se ve el nombre y la explicación completa. Obras: como antes. */
+  const term = c.kind==="conceptos" ? terminoDe(item) : null;
+  const frente = term && term.q
+    ? `<div class="flashq">Para responder de memoria</div><div class="flashpregunta">${escapeHtml(term.q)}</div>
+       <div class="hintline">pensá tu respuesta · tocá la tarjeta para ver la explicación</div>`
+    : term && term.k
+    ? `<div class="flashq">¿Cuál es el concepto que va en el hueco?</div><div class="clue">“${recortar(taparTermino(item.d, [term.k, ...(term.tapar||[])]))}”</div>
+       <div class="hintline">tocá la tarjeta para ver el nombre y la explicación completa</div>`
+    : `<div class="clue${largo?' long':''}">“${enmascarar(item.d, item.t)}”</div>
+       <div class="hintline">${largo?'desplazá el texto si hace falta · tocá la tarjeta para ver el nombre':'tocá la tarjeta para ver el nombre'}</div>`;
   const contador = flashGlobal
     ? `Repaso de hoy · quedan ${flashDeck.length} · ${tipo} de ${c.mod.nombre}`
     : `${tipo} ${flashIndex+1} / ${flashDeck.length} · dominadas ${known.length}/${c.mod[c.kind].length} · para hoy ${flashDeck.filter(srsVence).length}`;
@@ -432,11 +443,12 @@ function drawFlash(){
       <div class="flashcard"><div class="flashinner" id="flashInner" tabindex="0" role="button" aria-label="Voltear tarjeta" onclick="flipFlash()" onkeydown="flashKeydown(event)">
         <div class="flashface front">
           ${monograma(c.mod)}
-          <div class="clue${largo?' long':''}">“${enmascarar(item.d, item.t)}”</div>
-          <div class="hintline">${largo?'desplazá el texto si hace falta · tocá la tarjeta para ver el nombre':'tocá la tarjeta para ver el nombre'}</div>
+          ${frente}
         </div>
         <div class="flashface back">
           <div class="big">${item.t}</div>
+          ${term && term.k && normPalabra(term.k)!==normPalabra(item.t) ? `<div class="flashterm">${escapeHtml(term.k)}</div>` : ''}
+          ${c.kind==="conceptos" ? `<div class="clue long backdef">${item.d}</div>` : ''}
         </div>
       </div></div>
       <div class="flashactions">
@@ -631,18 +643,63 @@ function normPalabra(w){
   if(n.length>4 && n.endsWith("s")) n = n.slice(0,-1);
   return n;
 }
+const HUECO = '<span class="hueco" aria-label="palabra oculta">?</span>';
+/* Varias palabras tapadas seguidas («el ▁ de ▁») se juntan en un solo hueco. */
+function juntarHuecos(html){
+  const h = HUECO.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+  return html.replace(new RegExp(`${h}(?:[\\s,-]+(?:(?:de|del|la|el|los|las|y|e|o|en|a)[\\s,-]+)?${h})+`,"g"), HUECO);
+}
 function enmascarar(texto, titulo){
   const claves = titleTokens(titulo);
-  return String(texto||"").split(/(<[^>]+>)/).map(seg=> seg.startsWith("<") ? seg :
+  return juntarHuecos(String(texto||"").split(/(<[^>]+>)/).map(seg=> seg.startsWith("<") ? seg :
     seg.replace(/[\p{L}\p{M}]+/gu, w=>{
       const n = normPalabra(w);
       if(n.length<3) return w;
-      if(n.length===3) return claves.has(n) ? "▁▁▁" : w;
-      if(claves.has(n.slice(0,6))) return "▁▁▁";
+      if(n.length===3) return claves.has(n) ? HUECO : w;
+      if(claves.has(n.slice(0,6))) return HUECO;
       /* raíces cortas del título ("moral") también tapan sus variantes ("morales") */
-      for(const c of claves) if(c.length>=4 && c.length<6 && n.startsWith(c) && n.length<=c.length+3) return "▁▁▁";
+      for(const c of claves) if(c.length>=4 && c.length<6 && n.startsWith(c) && n.length<=c.length+3) return HUECO;
       return w;
-    })).join("");
+    })).join(""));
+}
+/* --- Término de cada concepto (datos/terminos.js) ---
+   TERMINOS.<id>[i] = {k, tapar} cuando el concepto tiene un nombre que se puede recordar:
+   se tapan solo k y las expresiones de `tapar`, cada aparición con un único hueco.
+   O {q} cuando el título es un tema descriptivo: la tarjeta pregunta en vez de tapar. */
+let _termDe = null;
+function terminoDe(item){
+  if(!_termDe){
+    _termDe = new Map();
+    if(typeof TERMINOS !== "undefined") MODULES.forEach(m=>(m.conceptos||[]).forEach((c,i)=>{ const t=(TERMINOS[m.id]||[])[i]; if(t) _termDe.set(c.d,t); }));
+  }
+  return (item && _termDe.get(item.d)) || null;
+}
+function _mismaPalabra(a, b){ return a===b || (a.length>=5 && b.length>=5 && a.slice(0,6)===b.slice(0,6) && Math.abs(a.length-b.length)<=3); }
+function taparTermino(texto, frases){
+  const pats = frases.filter(Boolean).map(f=>(String(f).match(/[\p{L}\p{M}\d]+/gu)||[]).map(normPalabra)).filter(p=>p.length).sort((x,y)=>y.length-x.length);
+  return juntarHuecos(String(texto||"").split(/(<[^>]+>)/).map(seg=>{
+    if(seg.startsWith("<")) return seg;
+    const toks = [...seg.matchAll(/[\p{L}\p{M}\d]+/gu)];
+    let out = "", pos = 0;
+    for(let i=0; i<toks.length; i++){
+      const pat = pats.find(p=> p.every((w,j)=>{
+        const t = toks[i+j];
+        if(!t || !_mismaPalabra(normPalabra(t[0]), w)) return false;
+        return j===0 || /^[\s'’-]*$/.test(seg.slice(toks[i+j-1].index+toks[i+j-1][0].length, t.index));
+      }));
+      if(!pat) continue;
+      const fin = toks[i+pat.length-1];
+      out += seg.slice(pos, toks[i].index) + HUECO;
+      pos = fin.index + fin[0].length;
+      i += pat.length-1;
+    }
+    return out + seg.slice(pos);
+  }).join(""));
+}
+/* Texto de un ítem con su respuesta tapada: por término si el concepto lo tiene, si no por título. */
+function ocultar(item){
+  const t = terminoDe(item);
+  return t && t.k ? taparTermino(item.d, [t.k, ...(t.tapar||[])]) : enmascarar(item.d, item.t);
 }
 function palabras(s){ return String(s||"").replace(/<[^>]+>/g," ").trim().split(/\s+/).filter(Boolean).length; }
 function recortar(texto, min, max){
@@ -655,11 +712,11 @@ function recortar(texto, min, max){
     if(palabras(out) >= min) break;
   }
   if(palabras(out) > max+30){   // una sola oración larguísima: se corta por palabras, sin HTML
-    out = out.replace(/<[^>]+>/g,"").split(/\s+/).slice(0,max).join(" ")+"…";
+    out = out.split(HUECO).map(x=>x.replace(/<[^>]+>/g,"")).join("\u0000").split(/\s+/).slice(0,max).join(" ").split("\u0000").join(HUECO)+"…";
   } else if(out.length < String(texto||"").length) out += " […]";
   return out;
 }
-function pista(item){ return recortar(enmascarar(item.d, item.t)); }
+function pista(item){ return recortar(ocultar(item)); }
 /* ¿El candidato podría pasar por correcto? Sí si comparte un término de título con `ref.titles`,
    o si todo su término principal ya aparece en `ref.text`. */
 function riesgoAmbiguo(cand, ref){

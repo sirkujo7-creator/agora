@@ -56,6 +56,27 @@ function servidor(){
   const caja = await p.evaluate(() => { const r = Object.values(progress.repaso)[0]; return r && r.caja === 1 && r.prox === diasDesdeHoy(1); });
   comprobar(caja, "la primera tarjeta marcada vuelve mañana");
 
+  // 3a. Tarjetas de concepto: el término nunca queda a la vista y los huecos no se amontonan
+  const tarj = await p.evaluate(() => {
+    const sinTilde = x => x.replace(/<[^>]+>/g, " ").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ");
+    let term = 0, tema = 0; const fugas = [], pegados = [];
+    MODULES.forEach(m => m.conceptos.forEach((c, i) => {
+      const t = TERMINOS[m.id][i];
+      if (t.q) { tema++; return; }
+      term++;
+      const txt = recortar(taparTermino(c.d, [t.k, ...t.tapar]));
+      if (sinTilde(txt).includes(sinTilde(t.k))) fugas.push(m.id + ":" + i);
+      if ((txt + pista(c)).includes(HUECO + " " + HUECO)) pegados.push(m.id + ":" + i);
+    }));
+    return { term, tema, fugas, pegados };
+  });
+  comprobar(tarj.term > 0 && tarj.tema > 0 && !tarj.fugas.length && !tarj.pegados.length,
+    `tarjetas de concepto: ${tarj.term} con término y ${tarj.tema} con pregunta, sin fugas${tarj.fugas.length ? " (fugas: " + tarj.fugas.slice(0, 5).join(", ") + ")" : ""}`);
+  await p.evaluate(() => openModule("platon", "conceptos"));
+  const frente = await p.textContent(".flashface.front");
+  await p.click("#flashInner"); await p.waitForTimeout(600);
+  comprobar(/\?/.test(frente) && (await p.locator(".flashface.back .backdef").count()) === 1, "la tarjeta muestra un hueco o una pregunta, y al dorso la explicación completa");
+
   // 3b. Preguntas: ideas clave y revisión entre pares
   await p.evaluate(() => openModule("kant", "preguntas"));
   await p.fill("#detBody textarea.escritura >> nth=0", "La prueba de universalización detecta contradicciones en las máximas, aunque Hegel la acusó de formalismo vacío sin contenido propio.");

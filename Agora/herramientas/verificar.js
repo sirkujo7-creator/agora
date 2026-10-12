@@ -8,7 +8,8 @@
    - los ejercicios avanzados: cadena (enlaces y nodos alcanzables),
      reconstruccion (exactamente un distractor, ordenCorrecto válido) y dilemas,
    - que las Constelaciones apunten a fichas existentes,
-   - que cada pregunta del cuestionario tenga sus 3-4 ideas clave (datos/claves.js).
+   - que cada pregunta del cuestionario tenga sus 3-4 ideas clave (datos/claves.js),
+   - que cada concepto tenga su término o su pregunta de tarjeta (datos/terminos.js).
    Sale con código 1 si encuentra errores. */
 const fs = require("fs"), path = require("path"), vm = require("vm");
 const RAIZ = path.join(__dirname, "..");
@@ -37,8 +38,8 @@ for (const trad of fs.readdirSync(dirMod)) for (const f of fs.readdirSync(path.j
 if (errores.length) fin();
 
 const ctx = {}; vm.createContext(ctx);
-vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES};", ctx);
-const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EXAMEN_FINAL, CLAVES } = ctx.__d;
+vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS};", ctx);
+const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EXAMEN_FINAL, CLAVES, TERMINOS } = ctx.__d;
 
 const ids = new Set();
 for (const m of MODULES) {
@@ -141,6 +142,22 @@ else {
     });
   });
   Object.keys(CLAVES).forEach(k => { if (!ids.has(k)) aviso(`CLAVES.${k} no corresponde a ninguna ficha`); });
+}
+// Términos de los conceptos (tarjetas): {k, tapar} o {q}, uno por concepto
+if (!TERMINOS) err("no hay términos de conceptos (datos/terminos.js)");
+else {
+  MODULES.forEach(m => {
+    const t = TERMINOS[m.id], n = (m.conceptos || []).length;
+    if (!Array.isArray(t)) { err(`${m.id}: no tiene términos en datos/terminos.js`); return; }
+    if (t.length !== n) err(`${m.id}: tiene ${t.length} términos para ${n} conceptos`);
+    t.forEach((x, i) => {
+      const donde = `${m.id}, concepto ${i + 1} («${(m.conceptos[i] || {}).t}»)`;
+      if (!x || (typeof x.k === "string") === (typeof x.q === "string")) { err(`${donde}: necesita k (término) o q (pregunta), no ambos`); return; }
+      if (x.k !== undefined && (!x.k.trim() || !Array.isArray(x.tapar))) err(`${donde}: término vacío o sin lista «tapar»`);
+      if (x.q !== undefined && !/\?$/.test(x.q.trim())) err(`${donde}: la pregunta tiene que terminar en «?»`);
+    });
+  });
+  Object.keys(TERMINOS).forEach(k => { if (!ids.has(k)) aviso(`TERMINOS.${k} no corresponde a ninguna ficha`); });
 }
 Object.keys(LECTURAS).forEach(k => { if (!ids.has(k)) aviso(`LECTURAS.${k} no corresponde a ninguna ficha`); });
 

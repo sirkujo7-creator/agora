@@ -520,3 +520,12 @@ footer{font-family:var(--font-ui);}
 .parnombre input{font:inherit;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);}
 .pregcard .modelo + .clavesq{margin-top:12px!important;}
 .pregcard textarea + .modelo{margin-bottom:4px;}
+
+/* Tarjetas de concepto: un solo hueco visible, pregunta de tema y explicación al dorso */
+.hueco{display:inline-block;min-width:3.2em;padding:0 .5em;margin:0 .1em;border-radius:6px;border:1.5px dashed var(--tclr, var(--accent));
+  background:var(--accent-soft);color:var(--accent-strong);font-family:var(--font-ui);font-size:.85em;font-weight:600;line-height:1.5;text-align:center;vertical-align:baseline;}
+.flashq{font-family:var(--font-ui);font-size:.82rem;font-weight:600;letter-spacing:.02em;color:var(--ink-soft);flex:none;}
+.flashpregunta{font-family:var(--font-display);font-size:1.55rem;line-height:1.2;color:var(--ink);max-width:360px;}
+.flashterm{font-family:var(--font-ui);font-size:.9rem;color:var(--accent-strong);flex:none;}
+.flashface .backdef{max-height:min(46vh,380px);color:var(--ink-soft);}
+.flashface.back:has(.backdef){justify-content:flex-start;}
