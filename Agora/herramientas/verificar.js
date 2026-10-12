@@ -98,7 +98,7 @@ for (const c of CONSTELACIONES) (c.entradas || []).forEach(e => {
   if (!ids.has(e.mod)) err(`constelación "${c.id}": la ficha "${e.mod}" no existe`);
 });
 // Las opciones se muestran mezcladas: las explicaciones no pueden nombrar opciones por su posición.
-const ORDINAL = /\b[Ll]a (primera|segunda|tercera|cuarta) (es|opción)\b/;
+const ORDINAL = /\b[Ll]a (primera|segunda|tercera|cuarta|última) (es|opción)\b|\b[Ll]a (primera|segunda|tercera|cuarta|última) opción\b/;
 const constIds = new Set();
 for (const c of CONSTELACIONES) {
   const q = `constelación "${c.id}"`;

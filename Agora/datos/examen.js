@@ -126,7 +126,7 @@ const EXAMEN_FINAL = {
     pregunta:"¿Qué objetaría Enrique Dussel?",
     opciones:["Que la modernidad nace en 1492, con la conquista de América, y que antes del «yo pienso» estuvo el «yo conquisto».","Que la modernidad nace con la Revolución francesa, cuando se proclaman los derechos del hombre.","Que la modernidad nunca existió: es una invención de los historiadores del siglo XX.","Que el manual tiene razón, y que América entró en la historia universal recién con la independencia."],
     correcta:0,
-    explicacion:"Para Dussel, Europa se constituye como centro del mundo al conquistar su periferia, y el «ego conquiro» precede al «ego cogito» (1492: el encubrimiento del Otro). La Revolución francesa es otra fecha posible en los manuales, no la de Dussel. Negar que haya existido la modernidad no es su posición: él la critica, no la niega. Y la última opción es la tesis que discute." },
+    explicacion:"Para Dussel, Europa se constituye como centro del mundo al conquistar su periferia, y el «ego conquiro» precede al «ego cogito» (1492: el encubrimiento del Otro). La Revolución francesa es otra fecha posible en los manuales, no la de Dussel. Negar que haya existido la modernidad no es su posición: él la critica, no la niega. Y la idea de que América entró en la historia universal recién con la independencia es justamente la tesis que discute." },
   { fichas:["rorty"],
     situacion:"Una fundación produce documentales con historias de familias migrantes, y se nota que los barrios donde se proyectan se vuelven menos hostiles hacia los recién llegados.",
     pregunta:"¿Cómo interpretaría Richard Rorty este efecto?",

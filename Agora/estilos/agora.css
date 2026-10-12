@@ -561,6 +561,7 @@ footer{font-family:var(--font-ui);}
 .eje .ejevacio{font-family:var(--font-ui);font-size:.8rem;color:var(--ink-faint);}
 .eje .ejepool{display:flex;flex-wrap:wrap;gap:8px;min-height:36px;}
 .ejechip{font-family:var(--font-ui);font-size:.82rem;padding:6px 10px;border-radius:999px;border:1px solid var(--tclr);background:var(--tsoft);color:var(--ink);cursor:pointer;max-width:100%;overflow-wrap:anywhere;}
-.ejeslot .ejechip{width:100%;border-radius:8px;padding:6px 4px;}
+.ejeslot .ejechip{width:100%;border-radius:8px;padding:6px 3px;font-size:.74rem;overflow-wrap:normal;word-break:normal;hyphens:none;line-height:1.2;}
+.eje .ejelinea{gap:4px;}
 .mapadesliza{display:none;margin-top:8px;font-size:.8rem;}
 @media (max-width:760px){ .mapadesliza{display:block;} }
