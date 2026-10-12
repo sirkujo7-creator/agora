@@ -12,6 +12,15 @@ const POLYSEMOUS_TERMS = [
 
 /* ============ CONSTELACIONES: un mismo problema, varias fichas ============
    Cada entrada referencia un módulo por id; nombre, ícono y tradición se leen de MODULES. */
+/* Año aproximado de la obra principal de cada ficha: ubica su punto en el mapa de Constelaciones
+   (no es la fecha de nacimiento). Las fichas de método no van en el mapa. Una ficha nueva necesita su año. */
+const EPOCA = {
+  platon:-380, aristoteles:-335, descartes:1641, kant:1781, hegel:1807, nietzsche:1883, heidegger:1927,
+  wittgenstein:1936, zambrano:1955, arendt:1958, beauvoir:1949,
+  confucio:-500, laozi:-420, zhuangzi:-310, nagarjuna:180, shankara:780, dogen:1240, nishida:1925, wangyangming:1515,
+  sorjuana:1691, peirce:1878, james:1907, dewey:1916, vasconcelos:1925, zea:1969, dussel:1977, zuleta:1982, rorty:1979, west:1993
+};
+
 const CONSTELACIONES = [
  { id:"conocimiento", tema:"¿Qué es conocer?",
    nucleo:"Maestro y discípulo coinciden en que la ciencia es de lo universal y necesario. Discrepan sobre dónde está ese universal y cómo llega a nosotros: ¿separado de las cosas y recordado, o en las cosas mismas y abstraído de la experiencia?",
