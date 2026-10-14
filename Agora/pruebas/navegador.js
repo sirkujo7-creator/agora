@@ -56,6 +56,27 @@ function servidor(){
   const vida = { secc: await p.locator(".vidatexto section").count(), porque: await p.locator(".vidaporque h3").textContent(), hitos: await p.locator(".cintapista .hito").count() };
   comprobar(vida.secc >= 3 && vida.porque === "Por qué piensa así" && vida.hitos >= 5, `vida y contexto: ${vida.secc} secciones y ${vida.hitos} hitos en la línea de tiempo`);
 
+  // 2c. Diagramas: explorar muestra la explicación; «Completá» con las etiquetas bien puestas da todo correcto
+  const diag = await p.evaluate(() => {
+    let piezas = 0, completos = 0, total = 0;
+    MODULES.forEach(m => diagramasDe(m).forEach((g, gi) => {
+      total++; openModule(m.id, "diagramas"); cambiarDiagrama(gi); modoDiagrama("explorar");
+      piezas += document.querySelectorAll("#diagLienzo .dnodo").length === diagEtiquetas(g).length ? 1 : 0;
+      modoDiagrama("completar");
+      const et = diagEtiquetas(g);
+      et.forEach(e => { elegirEtiqueta(e.k); tocarHueco(e.k); });
+      comprobarDiagrama();
+      if (document.querySelectorAll("#diagLienzo .dnodo.ok").length === et.length) completos++;
+    }));
+    modoDiagrama("explorar");
+    return { piezas, completos, total };
+  });
+  await p.evaluate(() => openModule("platon", "diagramas"));
+  await p.click("#diagLienzo .dnodo >> nth=0");
+  const info = await p.textContent("#diagInfo");
+  comprobar(diag.total > 0 && diag.piezas === diag.total && diag.completos === diag.total && info.length > 20,
+    `diagramas: ${diag.total} se dibujan, se exploran y se completan bien`);
+
   // 3. Repaso espaciado
   await p.evaluate(() => openModule("kant", "conceptos"));
   await p.click('#detBody button:has-text("La tengo clara")');
