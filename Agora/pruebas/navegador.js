@@ -48,7 +48,13 @@ function servidor(){
   const vistas = await p.evaluate(() => { const tabs = DET_GRUPOS.flatMap(g => g.tabs.map(t => t[0])); let n = 0;
     for (const m of MODULES) { openModule(m.id); for (const t of tabs) { setDetTab(t); n++; } } return n; });
   const nFichas = await p.evaluate(() => MODULES.length);
-  comprobar(vistas === nFichas * 13 && !errores.length, `${vistas} vistas de fichas sin errores`);
+  const nTabs = await p.evaluate(() => DET_GRUPOS.flatMap(g => g.tabs).length);
+  comprobar(vistas === nFichas * nTabs && !errores.length, `${vistas} vistas de fichas sin errores`);
+
+  // 2b. Vida y contexto: relato con «Por qué piensa así» y línea de tiempo
+  await p.evaluate(() => openModule("kant", "vida"));
+  const vida = { secc: await p.locator(".vidatexto section").count(), porque: await p.locator(".vidaporque h3").textContent(), hitos: await p.locator(".cintapista .hito").count() };
+  comprobar(vida.secc >= 3 && vida.porque === "Por qué piensa así" && vida.hitos >= 5, `vida y contexto: ${vida.secc} secciones y ${vida.hitos} hitos en la línea de tiempo`);
 
   // 3. Repaso espaciado
   await p.evaluate(() => openModule("kant", "conceptos"));
