@@ -88,10 +88,12 @@ function lienzoRadial(g, conCentro){
   </div>`;
 }
 
+/* En pantallas angostas, cinco o más piezas en círculo se pisan: se usa una disposición vertical. */
+function compacto(g){ return window.innerWidth < 620 && g.nodos.length > 4; }
 function lienzo(g){
   switch(g.tipo){
-    case "ciclo":  return lienzoRadial(g, false);
-    case "partes": return lienzoRadial(g, true);
+    case "ciclo":  return compacto(g) ? `<div class="dsecuencia dciclov">${g.nodos.map((nd,i)=>`${i?'<span class="dflechita" aria-hidden="true">→</span>':''}${pieza(g, String(i), nd.t)}`).join("")}<span class="dvuelve">↺ y vuelve a empezar</span></div>` : lienzoRadial(g, false);
+    case "partes": return compacto(g) ? `<div class="dpartesv"><div class="dcentro dcentrov">${escapeHtml(g.centro||"")}</div><div class="dpartesgrid">${g.nodos.map((nd,i)=>pieza(g, String(i), nd.t)).join("")}</div></div>` : lienzoRadial(g, true);
     case "niveles": return `<div class="dniveles">
         ${g.eje?`<div class="deje"><span>${escapeHtml(g.eje)}</span></div>`:''}
         <div class="dpila">${g.nodos.map((nd,i)=>`<div class="dnivel" style="--i:${i};--n:${g.nodos.length};">${pieza(g, String(i), nd.t)}</div>`).join("")}</div>
