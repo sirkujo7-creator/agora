@@ -2,6 +2,7 @@
 
 const LEVELS = {
   europea:  {label:"Europea",  tag:"Europea",  desc:"De los presocráticos a la fenomenología del siglo XX.", clr:"eu"},
+  islamica: {label:"Islámica", tag:"Islámica", desc:"Falsafa en tierras del islam: la herencia griega repensada entre Bagdad, Bujará y Córdoba.", clr:"isl"},
   asiatica: {label:"Asiática", tag:"Asiática", desc:"Confucianismo, taoísmo, budismo y la Escuela de Kioto.", clr:"asia"},
   americana:{label:"Americana",tag:"Americana",desc:"Pragmatismo, filosofía latinoamericana y pensamiento afroamericano.", clr:"am"},
   metodo:   {label:"Método",   tag:"Pensamiento crítico", desc:"Herramientas transversales: falacias y estructura del argumento.", clr:"me"}
