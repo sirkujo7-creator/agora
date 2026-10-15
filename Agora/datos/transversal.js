@@ -16,7 +16,15 @@ const EPOCA = {
   platon:-380, aristoteles:-335, descartes:1641, kant:1781, hegel:1807, nietzsche:1883, heidegger:1927,
   wittgenstein:1936, zambrano:1955, arendt:1958, beauvoir:1949,
   confucio:-500, laozi:-420, zhuangzi:-310, nagarjuna:180, shankara:780, dogen:1240, nishida:1925, wangyangming:1515,
-  sorjuana:1691, peirce:1878, james:1907, dewey:1916, vasconcelos:1925, zea:1969, dussel:1977, zuleta:1982, rorty:1979, west:1993
+  sorjuana:1691, peirce:1878, james:1907, dewey:1916, vasconcelos:1925, zea:1969, dussel:1977, zuleta:1982, rorty:1979, west:1993,
+  tales:-585,
+  heraclito:-500,
+  parmenides:-475,
+  socrates:-399,
+  agustin:397,
+  tomas:1265,
+  avicena:1025,
+  averroes:1180
 };
 
 /* ============ CONSTELACIONES: un mismo problema, varias fichas ============

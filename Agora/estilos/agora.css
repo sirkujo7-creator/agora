@@ -538,7 +538,7 @@ footer{font-family:var(--font-ui);}
 .mapasel select{font:inherit;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);max-width:100%;}
 .mapascroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);overscroll-behavior-x:contain;}
 .mapascroll.mini{margin:12px 0 4px;}
-.mapa{display:block;width:100%;min-width:760px;height:auto;}
+.mapa{display:block;width:100%;min-width:900px;height:auto;}
 .mapa .mcarril{stroke:var(--line);stroke-dasharray:3 5;}
 .mapa .mtick{stroke:var(--line);opacity:.6;}
 .mapa .mtrad{font-family:var(--font-ui);font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;}

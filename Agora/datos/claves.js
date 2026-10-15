@@ -4,6 +4,34 @@
    (y al revisar la respuesta de un compañero). Mismo orden que el cuestionario: al agregar
    una pregunta, agregar su lista al final. verificar.js controla que no falte ninguna. */
 const CLAVES = {
+  tales: [
+    ["Se reconoce la forma de la pregunta, no el acierto de la respuesta", "Un principio único, natural y apoyado en razones discutibles", "Hace posible una tradición crítica: el discípulo corrige al maestro", "El título de primer filósofo es retrospectivo y se lo da Aristóteles"],
+    ["No dejó escritos seguros: todo llega de segunda o tercera mano", "Criterios: antigüedad del testimonio y dudas del propio testigo", "Las anécdotas del pozo y del aceite son historias ejemplares", "El eclipse es dudoso; queda un núcleo: milesio prestigioso que puso el agua como principio"],
+    ["El ápeiron responde a un problema lógico: un elemento ilimitado destruiría a su contrario", "El ápeiron no explica cómo sale lo determinado de lo indeterminado", "Anaxímenes aporta un mecanismo: condensación y rarefacción", "Lo cualitativo se explica por lo cuantitativo"],
+    ["Las respuestas milesias son impersonales y expuestas a la crítica", "Continuidad con Océano y con las cosmogonías de Egipto y Babilonia", "Lo divino no desaparece: todo está lleno de dioses, el ápeiron es divino", "Según Vernant cambia el estatuto de la respuesta, ligado a la discusión en la ciudad"],
+    ["Los opuestos se invaden y pagan la injusticia retrocediendo", "Primera idea de la naturaleza como orden necesario, con ley", "El orden del cosmos se piensa con categorías políticas", "Lecturas discutidas y cita incierta: no sabemos dónde termina la frase"]
+  ],
+  heraclito: [
+    ["«Todo fluye» no aparece en ningún fragmento: viene de Platón", "DK 12: los ríos son los mismos y las aguas cambian", "La identidad se mantiene a través del cambio (lectura de Kirk)", "Crátilo radicalizó la tesis: ni una sola vez"],
+    ["Aristóteles lo acusa de negar la no contradicción", "Los ejemplos especifican un respecto: para quién, desde dónde, cuándo", "La unidad es conexión entre opuestos, no identidad", "Heráclito escribe con paradojas y no distingue respectos con precisión"],
+    ["Lectura cosmológica: tensión de contrarios, como el arco y la lira", "La discordia es justicia dentro de una medida; la desmesura se apaga", "Lectura literal: esclavos, libres y caídos en combate", "Heidegger la leyó como confrontación; Dussel la critica como dominación"],
+    ["El logos es común: el mismo para todos y accesible a cualquiera", "Los muchos viven como dormidos, con un entendimiento privado", "Pide escuchar al logos y no a él", "Objeción: ¿quién certifica lo común si casi nadie lo ve?"],
+    ["Los milesios buscaban una sustancia: agua, aire", "El fuego es proceso: solo existe mientras cambia", "Se enciende y se apaga según medidas, como el oro en el intercambio", "Nadie hizo el mundo; la conflagración estoica es discutida"]
+  ],
+  parmenides: [
+    ["Pensar y decir son siempre pensar y decir algo que es", "Objeción: hablamos con sentido de lo que no existe", "Parménides no distingue usos del verbo ser (existir, ser algo, ser verdad)", "Platón: no ser como diferencia; lógica moderna: el no niega una oración"],
+    ["La diosa la llama orden engañoso pero la expone", "Lectura: catálogo de creencias ajenas, quizá pitagóricas", "Lectura: la mejor descripción posible de lo que aparece", "Aristóteles: obligado a seguir los fenómenos, admitió dos principios"],
+    ["Zenón devuelve la burla a quienes se reían de Parménides", "Son reducciones al absurdo de la hipótesis del movimiento", "Aristóteles: el tiempo también se divide y el infinito es potencial", "La suma finita de una serie infinita no cierra para todos la pregunta"],
+    ["La tradición y Platón los opusieron: devenir contra ser inmóvil", "Diferencia real: unidad de opuestos frente a error de los mortales", "El pasaje de los de dos cabezas quizá alude a Heráclito, sin prueba", "Coinciden en despreciar la opinión de la mayoría y buscar un logos"],
+    ["Ambos aceptan que el saber necesita un objeto estable", "Platón da a las Formas los rasgos del ser eleático", "Sofista: parricidio, el no ser como lo diferente", "Aristóteles: el ser se dice de muchas maneras; potencia y acto"]
+  ],
+  socrates: [
+    ["Tres fuentes que no coinciden: Aristófanes, Jenofonte y Platón", "Aristóteles: buscaba definiciones universales sin separarlas de las cosas", "Los diálogos tempranos de Platón como base (Vlastos), las Formas son de Platón", "Es una hipótesis: algunos creen que el Sócrates histórico es inalcanzable"],
+    ["No lo dijo así: no cree saber lo que no sabe (Apología)", "La fórmula viene de autores posteriores como Cicerón y Diógenes Laercio", "Afirma con seguridad que cometer injusticia es malo", "Niega un saber experto, no tener convicciones examinadas"],
+    ["Choca con la experiencia de saber lo mejor y hacer lo peor", "Objeción de Aristóteles y corrección de Platón con el alma dividida", "Protágoras: ser vencido por el placer es un error de medida", "Consecuencia: al que obra mal hay que enseñarle más que castigarlo"],
+    ["Apología: obedecerá al dios antes que a los atenienses; León de Salamina", "Critón: persuadir u obedecer a las Leyes", "Se niega a cometer injusticias, pero no evade el castigo", "Distingue la ley de los hombres que la aplican mal"],
+    ["Cargos formales: impiedad y corrupción de los jóvenes", "Prejuicios de los acusadores antiguos, como Las nubes", "Trasfondo político: Critias, Alcibíades y la amnistía del 403", "Nada de eso vuelve justa la condena, pero los jueces no eran simples ignorantes"]
+  ],
   platon: [
     ["Ninguna evidencia sensible basta para salir de las sombras", "Hace falta un giro del alma hacia el razonamiento dialéctico", "La evidencia decisiva es racional, no de los sentidos", "Riesgo de que la tesis resulte infalsable"],
     ["Nunca se ha visto un triángulo perfecto y aun así se entiende", "Ese conocimiento no proviene de los sentidos", "La intuición sostiene la Teoría de las Formas"],
@@ -17,6 +45,20 @@ const CLAVES = {
     ["La naturaleza obra por un fin inmanente", "El ojo es para ver sin que nadie lo haya diseñado", "La física moderna eliminó la causa final", "La biología sigue hablando de funciones, el debate sigue abierto"],
     ["Vivir fuera de la pólis no es una opción neutral", "Sin ciudad no se desarrolla la deliberación sobre lo justo", "Quien vive sin ciudad es una bestia o un dios", "Objeción moderna: confunde un hecho estadístico con una naturaleza"],
     ["Aristóteles no separa hecho y valor como Hume", "La forma de una cosa ya incluye su fin", "Describir plenamente al humano es describir su plenitud", "Ese supuesto es lo que discute la filosofía moderna"]
+  ],
+  agustin: [
+    ["La tesis responde al dualismo maniqueo del mal como sustancia", "Todo lo que existe es bueno; el mal vive en lo bueno como falta", "La privación es real, como la ceguera o un agujero: no se niega el mal", "Objeción: el dolor no se siente como ausencia; la discusión sigue abierta"],
+    ["En la forma sí: si me engaño, existo, porque quien no existe no puede engañarse", "Agustín refuta al escéptico, no duda metódicamente para reconstruir el saber", "La certeza de sí es un peldaño hacia Dios: imagen de la Trinidad en ser, conocer y amar", "Descartes hace del cogito el fundamento de una ciencia: antecedente, no cartesiano adelantado"],
+    ["El libre albedrío, capacidad de elegir, nunca se pierde y funda la responsabilidad", "La libertad verdadera, poder querer el bien, está herida y la gracia la sana", "Pelagio: Dios no manda imposibles; Julián: dar la gracia a unos y no a otros es injusto", "La tensión entre gracia y libertad atravesó la historia posterior"],
+    ["Las ciudades son dos amores, no instituciones", "En esta vida están entremezcladas y solo el juicio final las separa", "La ciudad celestial usa la paz terrena, pero ningún reino es sagrado", "Agustinismo político y apoyo a la coerción contra los donatistas"],
+    ["Paradoja: el pasado ya no es, el futuro no es todavía, el presente no tiene extensión", "Tres presentes en el alma: memoria, atención y espera", "El tiempo como distensión del alma; no hay un antes de la creación", "Objeción: queda sin explicar el tiempo del mundo, anterior a toda alma"]
+  ],
+  tomas: [
+    ["Las vías prueban un primer principio, no la Trinidad ni la Encarnación", "Objeción a las premisas: la inercia y el salto de la tercera vía", "Objeción de Hume y Kant: unicidad y dependencia del argumento ontológico", "Respuesta tomista: dependencia presente, no serie en el tiempo"],
+    ["Si una conclusión contradice la fe, el argumento tiene un error", "Costo: la fe queda como juez último de la razón", "Límite reconocido: no se puede demostrar que el mundo empezó", "La doble verdad se atribuyó a los averroístas en la condena de 1277"],
+    ["Una ley contraria a la ley natural es corrupción de ley", "No obliga en conciencia, salvo para evitar escándalo o desorden", "Contra la ley divina nunca debe cumplirse; King citó esta doctrina", "Objeción positivista: quién decide el contenido de la ley natural"],
+    ["El alma es forma del cuerpo, pero de un tipo especial", "Entender no es acto de un órgano, por eso el alma subsiste", "El alma separada no es la persona: importancia de la resurrección", "Objeciones dualista y materialista (neurociencia)"],
+    ["No esconder: herejes reincidentes entregados a la muerte (II-II, q.11)", "La mujer como varón defectuoso, tomado de Aristóteles", "Que su época lo compartiera no lo vuelve correcto", "Separar lo que se sostiene por argumentos y discutirlo, sin absolver ni descartar en bloque"]
   ],
   descartes: [
     ["El cogito solo garantiza que hay pensamiento ahora", "La sustancia persistente proviene de la teoría de la sustancia, no del cogito", "Hume solo encuentra percepciones sueltas al buscar el yo", "Lichtenberg: lo legítimo sería decir «se piensa»"],
@@ -80,6 +122,20 @@ const CLAVES = {
     ["Beauvoir insiste en que la libertad está situada", "Sartre describía una libertad absoluta incluso para el prisionero", "Su ética exige crear condiciones para que otros sean libres", "Varias ideas atribuidas a Sartre aparecen antes en sus escritos"],
     ["Suspensión de 1943, testimonio de Lamblin y petición de 1977", "Su propia ética condena reducir al otro a objeto", "Su teoría de la situación permite ver esas asimetrías", "No hace falta elegir entre descartar la obra y ocultar los hechos"],
     ["Escribió desde la posición de una mujer blanca, europea y burguesa", "Feminismo negro y decolonial señalan raza, clase y colonización", "Bell hooks: trabajar fuera de casa fue necesidad, no conquista", "El libro como punto de partida, no última palabra"]
+  ],
+  avicena: [
+    ["El conocimiento de la propia existencia no depende de percibir el cuerpo", "Pensarse sin el cuerpo no prueba poder existir sin él", "Puede leerse como indicación y no como demostración completa", "Comparación con el cogito de Descartes y su objeción parecida"],
+    ["Saber qué es una cosa no dice si existe", "Toda criatura es posible por sí y necesaria por otro", "Tomás de Aquino retoma y transforma la distinción", "Objeciones: Averroes (existencia como accidente) y Kant (no es predicado real)"],
+    ["Parte de que algo existe y de la distinción posible/necesario", "No necesita negar una serie infinita de causas", "Punto débil: el paso de cada miembro al conjunto (Hume)", "Falta mostrar que el Necesario es el Dios de una religión"],
+    ["Al-Ghazali condena tres tesis: eternidad del mundo, conocimiento universal de lo particular, resurrección", "Critica que los filósofos no demuestran lo que dicen demostrar", "Defensa: mundo eterno pero causado, Dios conoce todo por sus causas, resurrección aceptada por revelación", "Averroes responde en La incoherencia de la incoherencia"],
+    ["Traducciones latinas en Toledo (Gundisalvo y Avendauth) y Gerardo de Cremona", "Influye en Alberto Magno, Tomás de Aquino y Duns Escoto", "El Canon fue manual de medicina hasta el siglo XVII", "El resumen de al-Ghazali se leyó en latín como obra de un filósofo"]
+  ],
+  averroes: [
+    ["La etiqueta viene de la condena de Tempier en París (1277)", "Averroes sostiene que la verdad no contradice a la verdad", "Si chocan, se corrige la interpretación del texto", "Una verdad con varios modos de expresión, no dos verdades"],
+    ["La Ley llega a todos porque usa los tres métodos", "La división parece fija y justifica ocultar interpretaciones", "Objeción de paternalismo: alguien decide qué pueden entender los demás", "Lectura generosa: algo parecido a la divulgación"],
+    ["Al-Ghazali: la necesidad del vínculo causal no se observa", "Averroes: sin acciones propias no hay esencias ni ciencia", "Averroes no responde del todo a que la necesidad no se percibe", "Al-Ghazali no niega la regularidad, sino su necesidad sin Dios"],
+    ["El intelecto material es separado, eterno y uno para todos", "Problema: explicar que este hombre concreto piensa", "Tomás lo combatió en 1270 y la tesis fue condenada en París", "Amenaza la inmortalidad individual y la responsabilidad personal"],
+    ["Evitar la tesis simplista de que el islam rechazó la razón", "Caída almohade y desgracia de 1195", "En Oriente la filosofía siguió por la vía de Avicena", "Traducciones tempranas al hebreo y al latín, y reivindicación árabe moderna"]
   ],
   confucio: [
     ["Las Analectas plantean obligaciones recíprocas entre superior e inferior", "El gobernante que no gobierna pierde el nombre; Mencio admite derrocar al tirano", "La asimetría persiste: nada obliga al superior y las mujeres quedan excluidas", "La versión imperial de los tres vínculos endureció la jerarquía"],

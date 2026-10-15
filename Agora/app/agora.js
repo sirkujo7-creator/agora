@@ -162,7 +162,7 @@ function showView(id){
 const MONOGRAMA = { platon:"Pl", aristoteles:"Ar", descartes:"De", kant:"Ka", hegel:"He", nietzsche:"Nz", heidegger:"Hd",
   wittgenstein:"Wi", confucio:"Co", laozi:"La", zhuangzi:"Zh", nagarjuna:"Na", shankara:"Sh", dogen:"Dō", nishida:"Ni",
   wangyangming:"Wy", peirce:"Pe", james:"Ja", dewey:"Dw", vasconcelos:"Va", zea:"Ze", dussel:"Du", rorty:"Ro", west:"We", falacias:"∴",
-  arendt:"Ha", beauvoir:"Be", zambrano:"Za", sorjuana:"SJ", zuleta:"Zu" };
+  arendt:"Ha", beauvoir:"Be", zambrano:"Za", sorjuana:"SJ", zuleta:"Zu", tales:"Ta", heraclito:"Hr", parmenides:"Pa", socrates:"So", agustin:"Ag", tomas:"Aq", avicena:"Av", averroes:"IR" };
 function clrDe(m){ return LEVELS[m.trad].clr; }
 function varsTrad(m){ const c = clrDe(m); return `--tclr:var(--${c});--tsoft:var(--${c}-soft);`; }
 function monograma(m, extra){ return `<span class="monog ${extra||''}" style="${varsTrad(m)}" aria-hidden="true">${MONOGRAMA[m.id] || m.nombre.slice(0,2)}</span>`; }
@@ -845,7 +845,7 @@ function riesgoAmbiguo(cand, ref){
 /* Fichas de una misma escuela comparten vocabulario y doctrinas (wú wéi en Laozi y Zhuangzi,
    la piedad filial en Confucio y Wang Yangming, el método pragmático en Peirce y James...).
    Entre ellas no se toman distractores: "esto no es de Zhuangzi, es de Laozi" podría ser discutible. */
-const ESCUELAS = [["laozi","zhuangzi"],["confucio","wangyangming"],["nagarjuna","dogen","nishida"],["peirce","james","dewey","rorty","west"],["vasconcelos","zea","dussel"]];
+const ESCUELAS = [["socrates","platon"],["avicena","averroes"],["laozi","zhuangzi"],["confucio","wangyangming"],["nagarjuna","dogen","nishida"],["peirce","james","dewey","rorty","west"],["vasconcelos","zea","dussel"]];
 function mismaEscuela(a,b){ return ESCUELAS.some(g=>g.includes(a.id) && g.includes(b.id)); }
 function textoFicha(mod){ return [mod.tesis, ...(mod.conceptos||[]).map(c=>c.t+" "+c.d), ...(mod.obras||[]).map(o=>o.t+" "+o.d)].join(" "); }
 /* Niveles de candidatos para un concepto/obra `item` de `mod`, en orden de preferencia:
@@ -1623,9 +1623,9 @@ function preguntasDe(c){ return c.preguntas || (c.pregunta ? [c.pregunta] : []);
 
 /* --- Mapa por época y tradición (SVG) --- */
 const MAPA_CARRILES = { europea:95, islamica:225, asiatica:355, americana:495 };
-const MAPA_ANCHO = 1000, MAPA_ALTO = 590;
+const MAPA_ANCHO = 1200, MAPA_ALTO = 590;
 /* Escala de tiempo por tramos: la Antigüedad se comprime y el siglo XX se estira. */
-const MAPA_TRAMOS = [[-600,110],[0,215],[1500,385],[1850,550],[1900,630],[2000,985]];
+const MAPA_TRAMOS = [[-650,95],[-300,330],[0,390],[1500,600],[1850,790],[1900,885],[2000,1185]];
 function mapaX(anio){
   const T = MAPA_TRAMOS;
   if(anio <= T[0][0]) return T[0][1];
@@ -1636,7 +1636,8 @@ function mapaX(anio){
   return T[T.length-1][1];
 }
 function mapaNombre(m){
-  const corto = { sorjuana:"Sor Juana", wangyangming:"Wang Yangming", confucio:"Confucio", nishida:"Nishida", beauvoir:"Beauvoir", shankara:"Shankara" };
+  const corto = { sorjuana:"Sor Juana", wangyangming:"Wang Yangming", confucio:"Confucio", nishida:"Nishida", beauvoir:"Beauvoir", shankara:"Shankara",
+    tales:"Tales", heraclito:"Heráclito", parmenides:"Parménides", agustin:"Agustín", tomas:"Tomás de Aquino", avicena:"Avicena", averroes:"Averroes" };
   return corto[m.id] || m.nombre.replace(/\s*\(.*\)/,"").split(" ").slice(-1)[0];
 }
 /* Posición de cada ficha en su carril. Hay cuatro filas por carril (cerca y lejos de la línea,
@@ -1675,7 +1676,7 @@ function mapaSVG(opts){
     const ps = c.entradas.map(e=>pts[e.mod]).filter(Boolean).sort((a,b)=>a.x-b.x);
     for(let i=1;i<ps.length;i++) lineas.push(curva(ps[i-1], ps[i], fuerte));
   });
-  const marcas = [[-500,"500 a.C."],[0,"0"],[500,"500"],[1000,"1000"],[1500,"1500"],[1800,"1800"],[1900,"1900"],[1950,"1950"],[2000,"2000"]];
+  const marcas = [[-600,"600 a.C."],[-450,"450 a.C."],[-300,"300 a.C."],[0,"0"],[500,"500"],[1000,"1000"],[1500,"1500"],[1800,"1800"],[1900,"1900"],[1950,"1950"],[2000,"2000"]];
   return `<svg class="mapa" viewBox="0 0 ${MAPA_ANCHO} ${MAPA_ALTO}" role="img" aria-label="Mapa de las fichas por época y tradición${sel?': '+escapeHtml(sel.tema):''}">
     ${Object.entries(MAPA_CARRILES).map(([t,y])=>`<line x1="20" x2="${MAPA_ANCHO-10}" y1="${y}" y2="${y}" class="mcarril"/><text x="20" y="${y-58}" class="mtrad" style="fill:var(--${LEVELS[t].clr})">${LEVELS[t].label}</text>`).join("")}
     ${marcas.map(([a,l])=>`<line x1="${mapaX(a)}" x2="${mapaX(a)}" y1="30" y2="${MAPA_ALTO-34}" class="mtick"/><text x="${mapaX(a)}" y="${MAPA_ALTO-14}" class="manio">${l}</text>`).join("")}
