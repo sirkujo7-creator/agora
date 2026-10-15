@@ -277,12 +277,12 @@ function renderModuleCards(){
    recorrerlos: primero se estudia, después se practica el reconocimiento y al final
    se piensa y se escribe. Solo se muestran las pestañas del grupo activo. */
 const DET_GRUPOS = [
-  { id:"estudiar",  label:"1 · Estudiar",  tabs:[["panorama","Panorama"],["vida","Vida y contexto"],["conceptos","Conceptos"],["obras","Obras"],["lecturas","Lecturas"],["dialogo","Diálogo"]] },
+  { id:"estudiar",  label:"1 · Estudiar",  tabs:[["panorama","Panorama"],["vida","Vida y contexto"],["conceptos","Conceptos"],["diagramas","Diagramas"],["obras","Obras"],["lecturas","Lecturas"],["dialogo","Diálogo"]] },
   { id:"practicar", label:"2 · Practicar", tabs:[["repaso","Repaso mixto"],["emparejar","Emparejar"],["cuestionario","Cuestionario final"]] },
   { id:"pensar",    label:"3 · Pensar",    tabs:[["preguntas","Preguntas"],["razonamiento","Razonamiento"],["argumentos","Argumentos"],["dilema","Dilema"],["actividades","Escribir"]] }
 ];
 const DET_RENDER = {
-  panorama:()=>renderPanorama(), vida:()=>renderVida(), conceptos:()=>renderFlashcards("conceptos"), obras:()=>renderFlashcards("obras"),
+  panorama:()=>renderPanorama(), vida:()=>renderVida(), diagramas:()=>{ diagIdx = 0; renderDiagramas(); }, conceptos:()=>renderFlashcards("conceptos"), obras:()=>renderFlashcards("obras"),
   lecturas:()=>renderLecturas(), dialogo:()=>renderDialogue(),
   repaso:()=>renderRepasoMixto(), emparejar:()=>renderMatching(), cuestionario:()=>renderModuleQuiz(),
   preguntas:()=>renderPreguntas(), razonamiento:()=>renderCadena(), argumentos:()=>renderReconstruccion(),

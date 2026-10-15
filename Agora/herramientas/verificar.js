@@ -38,8 +38,8 @@ for (const trad of fs.readdirSync(dirMod)) for (const f of fs.readdirSync(path.j
 if (errores.length) fin();
 
 const ctx = {}; vm.createContext(ctx);
-vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS};", ctx);
-const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, VIDAS, EXAMEN_FINAL, CLAVES, TERMINOS } = ctx.__d;
+vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, DIAGRAMAS: typeof DIAGRAMAS==='undefined' ? null : DIAGRAMAS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS};", ctx);
+const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, VIDAS, DIAGRAMAS, EXAMEN_FINAL, CLAVES, TERMINOS } = ctx.__d;
 
 const ids = new Set();
 for (const m of MODULES) {
@@ -130,6 +130,27 @@ else {
     if (!Array.isArray(v.hitos) || v.hitos.length < 5 || v.hitos.some(h => !h.anio || !h.texto)) err(`${q}: necesita al menos 5 hitos con año y texto`);
   });
   Object.keys(VIDAS).forEach(k => { if (!ids.has(k)) aviso(`VIDAS.${k} no corresponde a ninguna ficha`); });
+}
+// Diagramas: tipos conocidos, cantidad de piezas por tipo y etiquetas distintas (para «Completá»)
+const DIAG_TIPOS = { ciclo:[3, 6], partes:[3, 6], niveles:[3, 6], secuencia:[3, 6], polos:[2, 5], cuadrantes:[4, 4], capas:[2, 4] };
+if (!DIAGRAMAS) err("no hay diagramas (datos/diagramas.js)");
+else {
+  MODULES.filter(m => m.trad !== "metodo" && !(DIAGRAMAS[m.id] || []).length).forEach(m => err(`${m.id}: no tiene diagramas en datos/diagramas.js`));
+  Object.entries(DIAGRAMAS).forEach(([id, gs]) => {
+    if (!ids.has(id)) aviso(`DIAGRAMAS.${id} no corresponde a ninguna ficha`);
+    (gs || []).forEach((g, i) => {
+      const q = `${id}, diagrama ${i + 1} («${g.titulo}»)`, rango = DIAG_TIPOS[g.tipo], n = (g.nodos || []).length;
+      if (!rango) { err(`${q}: tipo desconocido «${g.tipo}»`); return; }
+      if (!g.titulo) err(`${q}: falta el título`);
+      if (n < rango[0] || n > rango[1]) err(`${q}: un diagrama «${g.tipo}» lleva entre ${rango[0]} y ${rango[1]} piezas (tiene ${n})`);
+      if (g.tipo === "partes" && !g.centro) err(`${q}: falta el centro`);
+      if (g.tipo === "polos" && (!g.polos || !g.polos.izq || !g.polos.der)) err(`${q}: faltan los polos`);
+      const etiquetas = g.tipo === "polos" ? (g.nodos || []).flatMap(x => [x.a, x.b]) : (g.nodos || []).map(x => x.t);
+      if (etiquetas.some(t => !t) || (g.nodos || []).some(x => !x.d)) err(`${q}: hay una pieza sin etiqueta o sin explicación`);
+      else if (new Set(etiquetas).size !== etiquetas.length) err(`${q}: hay etiquetas repetidas (en «Completá» no se distinguirían)`);
+      else if (etiquetas.some(t => t.length > 44)) err(`${q}: una etiqueta pasa de 44 caracteres: «${etiquetas.find(t => t.length > 44)}»`);
+    });
+  });
 }
 // Mapa de Constelaciones: cada ficha (salvo las de método) necesita su año en EPOCA
 if (!EPOCA) err("falta EPOCA en datos/transversal.js (años del mapa)");
