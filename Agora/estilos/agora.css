@@ -707,3 +707,33 @@ footer{font-family:var(--font-ui);}
 .dcentrov{position:static;transform:none;width:auto;max-width:90%;}
 .dpartesgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;position:relative;}
 .dpartesgrid::before{content:"";position:absolute;left:50%;top:-14px;height:14px;width:2px;background:var(--c);opacity:.5;}
+
+/* Lecturas: textos de la obra como página de libro, con glosas que se despliegan */
+.textoorig{position:relative;margin:0 0 26px;padding:26px 30px 22px;border-radius:var(--radius);border:1px solid var(--line);
+  background:linear-gradient(90deg,var(--tsoft, var(--surface-2)) 0 6px,var(--surface) 6px);box-shadow:var(--shadow);}
+.textoorig header{margin-bottom:14px;}
+.txsello{display:inline-block;font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--surface);background:var(--tclr, var(--accent));padding:3px 9px;border-radius:999px;margin-bottom:10px;}
+.txsello.cita{background:var(--ink-soft);}
+.textoorig h4{font-family:var(--font-display);font-weight:400;font-size:1.7rem;line-height:1.15;margin:0 0 6px;}
+.txmeta{font-family:var(--font-ui);font-size:.82rem;color:var(--ink-soft);line-height:1.5;}
+.txmeta a{color:var(--tclr, var(--accent-strong));}
+.txcontexto{margin:0 0 18px;padding:12px 16px;border-radius:12px;background:var(--tsoft, var(--surface-2));font-size:.93rem;line-height:1.55;}
+.txcontexto .kicker{margin-bottom:4px;color:var(--tclr, var(--accent-strong));}
+.txcuerpo{font-family:var(--font-body);font-size:1.08rem;line-height:1.85;max-width:66ch;}
+.txcuerpo p{margin:0 0 14px;text-align:justify;hyphens:auto;}
+.txcuerpo p:first-child::first-letter{font-family:var(--font-display);float:left;font-size:3.4em;line-height:.85;padding:6px 8px 0 0;color:var(--tclr, var(--accent));}
+.glosa{display:inline;white-space:normal;box-decoration-break:clone;-webkit-box-decoration-break:clone;font:inherit;color:inherit;background:none;border:0;padding:0 1px;cursor:pointer;text-align:inherit;
+  background-image:linear-gradient(var(--tsoft, var(--accent-soft)),var(--tsoft, var(--accent-soft)));background-repeat:no-repeat;background-position:0 100%;background-size:100% 38%;
+  border-bottom:2px solid var(--tclr, var(--accent));transition:background-size .25s ease;}
+.glosa:hover,.glosa.abierta{background-size:100% 100%;}
+.glosa sup{font-family:var(--font-ui);font-size:.62em;font-weight:700;color:var(--tclr, var(--accent-strong));margin-left:2px;}
+.glosaslot:empty{display:none;}
+.glosanota{margin:-6px 0 14px;padding:10px 14px;border-left:3px solid var(--tclr, var(--accent));border-radius:0 10px 10px 0;background:var(--surface-2);
+  font-family:var(--font-ui);font-size:.88rem;line-height:1.5;animation:glosaAbre .25s ease;}
+.glosanota b{color:var(--tclr, var(--accent-strong));font-weight:600;}
+@keyframes glosaAbre{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
+.txpreg{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);}
+.txpreg .prompt{font-weight:600;margin-bottom:10px;}
+@media (max-width:620px){ .textoorig{padding:20px 16px 16px;} .txcuerpo{font-size:1.02rem;} .txcuerpo p{text-align:left;} }
+@media (prefers-reduced-motion:reduce){ .glosanota{animation:none;} .glosa{transition:none;} }
