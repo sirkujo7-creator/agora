@@ -3,6 +3,67 @@
    al principio de app/diagramas.js. Las etiquetas (t, o a/b en los polos) son cortas y distintas
    dentro de cada diagrama, porque en «Completá» el estudiante las ubica en su lugar. */
 const DIAGRAMAS = {
+  tales: [
+    {tipo:"partes", titulo:"Tres respuestas a la pregunta por el principio", intro:"La misma pregunta —de qué está hecho todo y de dónde viene— recibió en Mileto tres respuestas, y cada una corrigió a la anterior.", centro:"Arché: ¿de dónde viene todo?", nota:"Presentar a los tres como maestro y discípulos viene de la tradición antigua, de Teofrasto a Diógenes Laercio; los vínculos personales no están documentados con certeza.",
+     nodos:[
+      {t:"Agua (Tales)", d:"Según Aristóteles, Tales puso el agua como principio y sostuvo que la tierra descansa sobre ella; sus razones, conjeturadas por Aristóteles, son que el alimento y las semillas son húmedos."},
+      {t:"Ápeiron (Anaximandro)", d:"Lo ilimitado e indeterminado: el principio de los opuestos no puede ser uno de ellos, porque si fuera ilimitado habría destruido a su contrario."},
+      {t:"Aire (Anaxímenes)", d:"Un principio determinado que se transforma por condensación y rarefacción: enrarecido es fuego; condensado, viento, nube, agua, tierra y piedras."}]},
+    {tipo:"capas", titulo:"Cómo nos llegan los milesios", intro:"Del núcleo más seguro a la capa más legendaria: lo que sabemos de Tales, Anaximandro y Anaxímenes pasa por muchas manos.", nota:"La división es una simplificación: un mismo autor, como Diógenes Laercio, transmite en la misma página datos de cronógrafos, opiniones y leyendas.",
+     nodos:[
+      {t:"Fragmentos: palabras propias", d:"Lo que se cree dicho por el autor mismo. De Tales, nada seguro; de Anaximandro, una frase sobre la injusticia y el orden del tiempo; de Anaxímenes, quizás ninguna."},
+      {t:"Testimonios: Aristóteles y Teofrasto", d:"Informes del siglo IV a.C., dos siglos después de los milesios, hechos por lectores con una teoría propia, como la de las cuatro causas."},
+      {t:"Doxografía tardía", d:"Resúmenes copiados y abreviados durante siglos, de Aecio a Simplicio, que dependen sobre todo de la obra perdida de Teofrasto."},
+      {t:"Anécdotas y leyenda", d:"El eclipse, el pozo, las prensas de aceite, el trípode de los Siete Sabios: historias ejemplares sobre el sabio, que crecieron con el tiempo."}]}
+  ],
+  heraclito: [
+    {tipo:"ciclo", titulo:"Las transformaciones del fuego", intro:"DK 30, 31, 60 y 90: el fuego siempre vivo se convierte en mar y en tierra, y vuelve a ser fuego, según medidas.", nota:"El orden del ciclo y el regreso del mar al fuego son una reconstrucción a partir de los fragmentos y de Diógenes Laercio (IX 9); Heráclito no lo expone como esquema.",
+     nodos:[
+      {t:"Fuego siempre vivo", d:"El mundo no lo hizo ningún dios ni ningún hombre: siempre fue, es y será fuego siempre vivo, que se enciende y se apaga según medidas (DK 30)."},
+      {t:"Mar", d:"La primera transformación del fuego es el mar (DK 31): es el camino hacia abajo."},
+      {t:"Tierra y torbellino", d:"La mitad del mar se vuelve tierra, y la otra mitad, torbellino ardiente (DK 31)."},
+      {t:"La tierra se licúa en mar", d:"La tierra vuelve a ser mar y se mide en la misma proporción que tenía antes: el cambio conserva la medida (DK 31)."},
+      {t:"Del mar al fuego", d:"Es el camino hacia arriba: el camino hacia arriba y hacia abajo es uno y el mismo (DK 60). Todo se cambia por fuego como las mercancías por oro (DK 90)."}]},
+    {tipo:"secuencia", titulo:"Del río de Heráclito al «todo fluye»", intro:"Cómo un fragmento sobre los ríos se convirtió, a través de sus lectores, en la fórmula más famosa de la filosofía antigua.", nota:"La fórmula panta rhei no figura en ningún fragmento conservado. Qué versión del río es la original sigue en discusión.",
+     nodos:[
+      {t:"Heráclito: aguas distintas, mismos ríos", d:"DK 12, conservado por Ario Dídimo: sobre los que entran en los mismos ríos fluyen aguas distintas y distintas. El río es el mismo; lo que cambia es el agua."},
+      {t:"Platón: todo se mueve, nada permanece", d:"En el Cratilo (402a), Sócrates resume a Heráclito con esa fórmula y la ilustra con el río en que no se puede entrar dos veces."},
+      {t:"Crátilo: ni una sola vez", d:"Según Aristóteles (Metafísica IV), este seguidor de Heráclito llevó la tesis al extremo, terminó por no decir nada y solo movía el dedo."},
+      {t:"Plutarco: no se puede entrar dos veces", d:"La versión más citada (DK 91), del siglo I-II d.C., que muchos estudiosos consideran una paráfrasis que ya incorpora la lectura platónica."},
+      {t:"Kirk: lo mismo a través del cambio", d:"G. S. Kirk (1954) y otros intérpretes defienden que Heráclito afirmaba una medida que permanece en el cambio, no un flujo sin permanencia."}]}
+  ],
+  parmenides: [
+    {tipo:"partes", titulo:"Los signos de lo que es", intro:"Fragmento 8: las propiedades que la diosa deduce, una por una, del rechazo del «no es».", centro:"Lo que es", nota:"Agrupar así los signos es una simplificación: el poema los anuncia juntos en los primeros versos y los demuestra en un orden un poco distinto.",
+     nodos:[
+      {t:"Ingénito e imperecedero", d:"No nace ni muere: nacer sería salir de lo que no es, que no se puede pensar ni decir, y nada explicaría que surgiera más tarde y no antes."},
+      {t:"Ahora, todo junto", d:"No fue ni será: es ahora, todo a la vez. Lo que es no tiene un pasado en que no era ni un futuro en que dejará de ser."},
+      {t:"Indivisible y continuo", d:"No hay más ser en un lugar que en otro, ni huecos de no ser: todo está lleno de lo que es, y lo que es está en contacto con lo que es."},
+      {t:"Inmóvil", d:"Permanece en el mismo lugar, sujeto por las cadenas del límite. Moverse sería ir hacia donde no está, es decir, hacia lo que no es."},
+      {t:"Completo y limitado", d:"No le falta nada; por eso no es infinito, porque lo ilimitado sería lo incompleto. Es como una esfera bien redonda, equilibrada desde el centro."}]},
+    {tipo:"polos", titulo:"Verdad y opinión", intro:"Las dos partes del discurso de la diosa: lo que enseña el razonamiento y lo que creen los mortales.", polos:{"izq":"Vía de la verdad","der":"Vía de la opinión"}, nota:"La vía de la opinión no es un simple error: la diosa la expone con detalle, y por qué lo hace sigue siendo una pregunta abierta.",
+     nodos:[
+      {a:"Una sola realidad", b:"Dos formas: luz y noche", d:"La verdad conoce lo que es, uno y continuo; los mortales nombraron dos formas opuestas, el fuego etéreo y la noche densa, y de su mezcla explican todo."},
+      {a:"Se juzga con el razonamiento", b:"Se guía por ojos y oídos", d:"La diosa pide juzgar con el logos; los mortales, llevados por la costumbre, siguen el ojo sin meta y el oído resonante."},
+      {a:"Nada nace ni perece", b:"Nacer, morir y cambiar", d:"Para la verdad, el cambio es imposible; para la opinión, el mundo nace, se mueve y cambia de color, y esos son solo nombres de los mortales."},
+      {a:"Discurso digno de confianza", b:"Orden engañoso de palabras", d:"Así llama la diosa a cada parte de su enseñanza: la primera persuade porque la acompaña la verdad; la segunda tiene un orden, pero engaña."}]}
+  ],
+  socrates: [
+    {tipo:"ciclo", titulo:"Cómo avanza un élenchos", intro:"Los diálogos tempranos de Platón: el movimiento típico de una conversación socrática en torno a la pregunta «¿qué es X?».", nota:"Es un esquema reconstruido por los intérpretes a partir de diálogos como el Laques o el Eutifrón; Sócrates no describe su método en estos pasos.",
+     nodos:[
+      {t:"¿Qué es X?", d:"Sócrates pide una definición de una virtud o de un valor: qué es la valentía, la piedad, la templanza. No le sirve un ejemplo: quiere lo que todos los casos tienen en común."},
+      {t:"El interlocutor define", d:"El otro propone una definición y Sócrates le pide que diga lo que realmente piensa, porque lo que se examina es la persona además de la tesis."},
+      {t:"Acuerdos en otras premisas", d:"Sócrates obtiene el acuerdo del interlocutor en otras afirmaciones que parecen obvias: por ejemplo, que la valentía es algo noble."},
+      {t:"Contradicción", d:"Las premisas aceptadas, juntas, contradicen la definición inicial. El interlocutor descubre que no sabía lo que creía saber."},
+      {t:"Aporía", d:"La conversación queda sin salida: perplejidad, a veces enojo. Para Sócrates es un progreso, porque ya no se cree saber lo que no se sabe."},
+      {t:"Nueva definición", d:"Se propone otra definición, más cuidadosa, y el examen vuelve a empezar. Muchos diálogos terminan sin haber encontrado la definición buscada."}]},
+    {tipo:"partes", titulo:"Las fuentes del problema socrático", intro:"Sócrates no escribió nada: lo conocemos por lo que dijeron de él otros, que lo vieron de maneras distintas.", centro:"Sócrates", nota:"Tomar los diálogos tempranos de Platón como el retrato más fiel es la solución más extendida, no un hecho establecido.",
+     nodos:[
+      {t:"Aristófanes, Las nubes", d:"Comedia del 423 a.C., el único testimonio escrito en vida de Sócrates: lo pinta como un sofista que estudia el cielo, niega a los dioses tradicionales y enseña a ganar con el peor argumento."},
+      {t:"Jenofonte, Recuerdos", d:"Un Sócrates práctico, piadoso y convencional, que da consejos sobre la amistad y la casa. Jenofonte no estuvo en el juicio y escribió para defender su memoria."},
+      {t:"Platón, diálogos tempranos", d:"Apología, Critón, Eutifrón, Laques: un Sócrates que pregunta, refuta, dice no saber y no expone una metafísica. Suele tomarse como el retrato más cercano al histórico."},
+      {t:"Platón, diálogos de madurez", d:"En República, Fedón o Banquete, Sócrates expone la teoría de las Formas, la anámnesis y el alma tripartita: doctrinas que casi todos atribuyen a Platón."},
+      {t:"Aristóteles, testigo indirecto", d:"Nacido después de la muerte de Sócrates, informa que buscó definiciones universales en ética, pero no separó los universales de las cosas, como hizo Platón."}]}
+  ],
   platon: [
     {tipo:"niveles", titulo:"La línea dividida", intro:"República VI: los grados del ser y del conocer, de lo más alto a lo más bajo.", eje:"más realidad y más verdad",
      nodos:[
@@ -30,6 +91,35 @@ const DIAGRAMAS = {
       {a:"Cobardía", b:"Temeridad", d:"Entre ambas está el valor: temer lo que se debe, cuando y como se debe, ni huir de todo peligro ni arrojarse a cualquiera."},
       {a:"Avaricia", b:"Prodigalidad", d:"Entre ambas está la generosidad: dar y gastar en la medida adecuada, ni retener lo que conviene dar ni derrochar lo propio."},
       {a:"Insensibilidad", b:"Intemperancia", d:"Entre ambas está la templanza respecto de los placeres corporales; Aristóteles nota que el defecto es raro y casi no tiene nombre."}]}
+  ],
+  agustin: [
+    {tipo:"secuencia", titulo:"El camino de una conversión", intro:"Confesiones III-VIII: las etapas por las que pasó Agustín antes del jardín de Milán.", nota:"El orden es el del relato de las Confesiones, escrito más de diez años después; Agustín organiza su vida desde el final, y los historiadores discuten cuánto de ese relato es reconstrucción.",
+     nodos:[
+      {t:"El Hortensio de Cicerón", d:"A los diecinueve años, en Cartago, un libro de Cicerón le despierta el amor por la sabiduría; le falta, dice, el nombre de Cristo."},
+      {t:"Nueve años de maniqueísmo", d:"Encuentra una religión que promete explicarlo todo por la razón y que hace del mal una sustancia; lo decepciona la incapacidad de sus maestros para responder."},
+      {t:"La duda de los académicos", d:"Desconfiado de todo, se inclina por el escepticismo de la Academia: el sabio no debe asentir a nada."},
+      {t:"Los libros de los platónicos", d:"En Milán lee a Plotino y Porfirio: aprende a entrar en sí y a pensar a Dios y al alma sin imágenes corporales, pero no encuentra el camino para llegar."},
+      {t:"El jardín de Milán", d:"Ya sabe qué hacer y no puede quererlo; oye «toma y lee», abre las cartas de Pablo y la voluntad dividida se reúne. La conversión se vive como un don."}]},
+    {tipo:"polos", titulo:"Las dos ciudades", intro:"La ciudad de Dios XIV, 28: dos amores fundaron dos ciudades, que en esta vida están entremezcladas.", polos:{"izq":"ciudad terrena","der":"ciudad celestial"}, nota:"No son la Iglesia y el Estado: son dos maneras de amar, que atraviesan todas las instituciones y solo se separan en el juicio final.",
+     nodos:[
+      {a:"Amor de sí hasta despreciar a Dios", b:"Amor de Dios hasta despreciarse", d:"Lo que funda cada ciudad no es un territorio ni una ley, sino la orientación del amor."},
+      {a:"Busca la gloria de los hombres", b:"Pone su gloria en Dios", d:"Una se gloría en sí misma y en la opinión ajena; la otra tiene por mayor gloria a Dios, testigo de la conciencia."},
+      {a:"Deseo de dominar", b:"Servicio mutuo por caridad", d:"En una, los príncipes y las naciones son dominados por el deseo de dominar; en la otra, los que gobiernan y los que obedecen se sirven mutuamente."},
+      {a:"Hace de la paz terrena su fin", b:"Usa la paz terrena como peregrina", d:"La ciudad celestial también necesita la tranquilidad del orden, pero no pone su esperanza en ningún imperio."}]}
+  ],
+  tomas: [
+    {tipo:"partes", titulo:"Las cinco vías", intro:"Suma teológica I, q.2, a.3: cinco caminos que van de algo observado en el mundo a su causa primera.", centro:"Existencia de Dios", nota:"Todas son pruebas a posteriori, desde los efectos. Lo que concluyen es un primer principio; que sea el Dios de la fe se discute en las cuestiones siguientes.",
+     nodos:[
+      {t:"Movimiento", d:"Todo lo que pasa de la potencia al acto es movido por otro, y esa serie de motores no puede ir al infinito: hay un primer motor no movido."},
+      {t:"Causa eficiente", d:"Nada es causa eficiente de sí mismo, y en las causas ordenadas no se puede ir al infinito: hay una primera causa eficiente."},
+      {t:"Lo posible y lo necesario", d:"Las cosas que se generan y se corrompen pueden no ser; si todo pudiera no ser, ahora no habría nada: tiene que haber algo necesario por sí mismo."},
+      {t:"Grados de perfección", d:"Hay cosas más y menos buenas, verdaderas y nobles; el más y el menos suponen un máximo que es causa de esas perfecciones."},
+      {t:"Gobierno del mundo", d:"Cosas sin conocimiento obran por un fin, como la flecha que va al blanco; tiene que haber una inteligencia que las ordena."}]},
+    {tipo:"niveles", titulo:"Los órdenes de la ley", intro:"Suma teológica I-II, q.91-95: de la razón con que Dios gobierna el universo a las leyes de una ciudad.", eje:"cada nivel participa del anterior", nota:"Tomás agrega la ley divina, revelada en la Escritura, que no está debajo de la natural, sino que la completa para orientar al ser humano a un fin que supera la naturaleza.",
+     nodos:[
+      {t:"Ley eterna", d:"El plan de la razón divina que gobierna todo el universo. Nadie la conoce entera, pero todo lo creado la refleja de algún modo."},
+      {t:"Ley natural", d:"La participación de la ley eterna en la criatura racional. Su primer precepto es hacer el bien y evitar el mal, y se ordena según las inclinaciones naturales."},
+      {t:"Ley humana", d:"Concreta la ley natural para una comunidad, por conclusión o por determinación. Si la contradice, no es ley, sino corrupción de ley."}]}
   ],
   descartes: [
     {tipo:"secuencia", titulo:"El camino de la duda", intro:"Meditaciones I y II: de la duda a la primera certeza.",
@@ -157,6 +247,33 @@ const DIAGRAMAS = {
       {t:"Los mitos", d:"La literatura, la religión y el arte pensaron a la mujer como misterio, naturaleza, madre o musa; el mito del eterno femenino permite no ver a las mujeres concretas."},
       {t:"La experiencia vivida", d:"El segundo volumen abre con «No se nace mujer: se llega a serlo» y describe cómo la niña aprende a ser mujer por la educación y los límites que recibe."},
       {t:"Hacia la liberación", d:"La liberación exige renunciar a las ventajas de la complicidad y apunta a una relación recíproca en la que cada uno reconozca al otro como libertad."}]}
+  ],
+  avicena: [
+    {tipo:"niveles", titulo:"La emanación desde el Necesario", intro:"De lo uno procede solo uno: así explica Avicena cómo sale la multiplicidad del mundo de un principio simple.", eje:"del Uno a la multiplicidad", nota:"Avicena cuenta diez intelectos y nueve esferas; aquí los intermedios se agrupan en un solo nivel.",
+     nodos:[
+      {t:"El Ser necesario por sí", d:"Uno y simple, su esencia es existir. Al pensarse a sí mismo, produce eternamente un único efecto: el primer intelecto."},
+      {t:"El primer intelecto", d:"Piensa al Necesario, y de ahí procede el segundo intelecto; piensa su existencia como necesaria por otro, y procede el alma de la primera esfera; piensa su ser como posible, y procede el cuerpo de esa esfera."},
+      {t:"Intelectos y esferas celestes", d:"El proceso se repite en cada intelecto: cada uno produce otro intelecto, el alma y el cuerpo de una esfera, hasta la esfera de la Luna."},
+      {t:"El intelecto agente (décimo)", d:"El último intelecto ya no produce otra esfera: gobierna el mundo sublunar, da las formas a la materia preparada e ilumina las almas humanas."},
+      {t:"El mundo debajo de la Luna", d:"El mundo de la generación y la corrupción: los cuatro elementos, las plantas, los animales y los seres humanos, cuyas formas vienen del dador de las formas."}]},
+    {tipo:"secuencia", titulo:"Los grados del intelecto humano", intro:"Cómo pasa nuestra mente de la pura capacidad al conocimiento, según el Libro del alma.", nota:"En cada paso de la potencia al acto, la forma inteligible se recibe del intelecto agente; los sentidos y la imaginación solo preparan el alma.",
+     nodos:[
+      {t:"Intelecto material", d:"Pura capacidad de conocer, como la del niño: nada está todavía escrito en él. Se llama material por semejanza con la materia, que puede recibir cualquier forma."},
+      {t:"Intelecto en hábito", d:"Ya posee los primeros principios evidentes, como que el todo es mayor que la parte, y con ellos puede empezar a razonar."},
+      {t:"Intelecto en acto", d:"Ha adquirido formas inteligibles y puede pensarlas cuando quiere, aunque no las esté pensando ahora, como quien sabe geometría y no está resolviendo un problema."},
+      {t:"Intelecto adquirido", d:"Contempla efectivamente las formas inteligibles, en contacto con el intelecto agente: es la perfección del alma racional."}]}
+  ],
+  averroes: [
+    {tipo:"niveles", titulo:"Tres clases de personas y de argumentos", intro:"Doctrina decisiva: los modos en que los seres humanos asienten a la verdad, del más riguroso al más común.", eje:"más certeza en las premisas", nota:"La jerarquía es de Averroes, pero no excluye a nadie de la verdad: la Ley habla a las tres clases, cada una con su método.",
+     nodos:[
+      {t:"Gente de la demostración", d:"Los pocos que asienten solo a lo que se prueba a partir de premisas ciertas: los filósofos. Solo ellos están autorizados a interpretar los pasajes que chocan con lo demostrado."},
+      {t:"Gente de la dialéctica", d:"Los que se convencen con argumentos que parten de opiniones aceptadas: los teólogos del kalam. Averroes los acusa de haber sembrado dudas en la gente común."},
+      {t:"Gente de la retórica", d:"La gran mayoría, que asiente por imágenes, ejemplos y exhortaciones. El sentido literal de la Ley es para ellos la verdad en la forma que pueden recibir."}]},
+    {tipo:"polos", titulo:"¿Quema el fuego?", intro:"La incoherencia de la incoherencia (c. 1180), discusión sobre la causalidad: la respuesta de Averroes a La incoherencia de los filósofos de Al-Ghazali.", polos:{"izq":"Al-Ghazali","der":"Averroes"}, nota:"Al-Ghazali no niega que el mundo sea regular, sino que su regularidad sea necesaria con independencia de la voluntad de Dios.",
+     nodos:[
+      {a:"Solo observamos sucesión", b:"Las cosas tienen acciones propias", d:"Al-Ghazali: vemos que el algodón arde cuando lo toca el fuego, no que el fuego lo queme. Averroes: las naturalezas de las cosas se manifiestan en sus acciones."},
+      {a:"Dios crea cada efecto", b:"Sin acciones propias no hay esencias", d:"Para Al-Ghazali, lo que quema al algodón es Dios. Para Averroes, si el fuego no quemara no tendría definición: no se distinguiría del agua."},
+      {a:"El milagro: Dios rompe la costumbre", b:"Negar las causas es negar el intelecto", d:"Al-Ghazali quiere salvar la posibilidad de los milagros. Averroes responde que sin causas no hay ciencia, y lo que queda es sofística."}]}
   ],
   confucio: [
     {tipo:"polos", titulo:"La persona ejemplar y el hombre pequeño", intro:"Analectas: los rasgos del junzi se dan siempre por contraste con los del xiaoren, en pares.", polos:{"izq":"Jūnzǐ (persona ejemplar)","der":"Xiǎorén (hombre pequeño)"}, nota:"Ninguno de los dos es una clase social: Confucio arrebata la palabra junzi a la aristocracia y la convierte en un logro moral que se conquista con años de práctica.",

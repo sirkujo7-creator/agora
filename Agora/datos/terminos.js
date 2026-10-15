@@ -6,6 +6,51 @@
    Al dar vuelta la tarjeta se ve el título y la explicación completa. Mismo orden que
    conceptos: al agregar un concepto, agregar su entrada al final. */
 const TERMINOS = {
+  tales: [
+    {k:"arché", tapar:["principio"]},
+    {k:"physis", tapar:["naturaleza"]},
+    {q:"¿Qué tiene de verdadero y qué simplifica la fórmula «del mito al logos» aplicada a los milesios?"},
+    {q:"¿Qué principio propuso Tales, según Aristóteles, y qué razones le atribuye?"},
+    {k:"ápeiron", tapar:["ilimitado","indeterminado","Anaximandro"]},
+    {q:"¿Qué dice el único fragmento conservado de Anaximandro y cómo suele interpretarse?"},
+    {q:"¿Qué principio propuso Anaxímenes y cómo explicaba que de él salieran cosas distintas?"},
+    {q:"¿Por qué se dice que Tales pensó que todo está lleno de dioses, y qué muestra eso sobre la materia para los milesios?"},
+    {k:"doxografía", tapar:["doxógrafos"]}
+  ],
+  heraclito: [
+    {k:"logos", tapar:[]},
+    {q:"¿Qué opone Heráclito entre lo común y el entendimiento privado, y por qué compara a los muchos con los dormidos?"},
+    {k:"unidad de los contrarios", tapar:[]},
+    {k:"armonía", tapar:[]},
+    {k:"fuego", tapar:[]},
+    {k:"pólemos", tapar:["guerra"]},
+    {q:"¿Dijo Heráclito que «todo fluye»? ¿Qué dicen las distintas versiones del fragmento del río?"},
+    {k:"medida", tapar:["medidas"]},
+    {q:"¿Qué dice Heráclito sobre el alma y qué quiere decir que el carácter es el destino del hombre?"}
+  ],
+  parmenides: [
+    {k:"proemio", tapar:[]},
+    {q:"¿Cuáles son los dos caminos de búsqueda que presenta la diosa y por qué uno de ellos queda cerrado?"},
+    {k:"mortales de dos cabezas", tapar:["de dos cabezas"]},
+    {q:"¿Qué relación establece Parménides entre pensar y ser, y por qué eso cierra el camino del «no es»?"},
+    {k:"signos", tapar:["signo","sēmata"]},
+    {k:"esfera", tapar:[]},
+    {k:"vía de la opinión", tapar:["opinión"]},
+    {q:"¿Qué le pide Parménides al oyente frente a lo que muestran los sentidos, y qué pregunta deja abierta?"},
+    {k:"reducción al absurdo", tapar:["Zenón"]}
+  ],
+  socrates: [
+    {k:"problema socrático", tapar:[]},
+    {q:"¿Qué dice realmente Sócrates sobre su ignorancia en la Apología, y de dónde viene la fórmula «solo sé que no sé nada»?"},
+    {k:"oráculo", tapar:["Delfos","Pitia"]},
+    {k:"élenchos", tapar:["refutación","refuta"]},
+    {k:"ironía", tapar:["eironeia","ironizando"]},
+    {k:"mayéutica", tapar:[]},
+    {k:"daimonion", tapar:["demoníaco"]},
+    {k:"intelectualismo moral", tapar:[]},
+    {k:"cuidado del alma", tapar:[]},
+    {q:"¿Qué le dicen las Leyes de Atenas a Sócrates en el Critón, y cómo se concilia eso con su negativa a obedecer en la Apología?"}
+  ],
   platon: [
     {k:"teoría de las Formas", tapar:["Formas","Ideas"]},
     {k:"mito de la caverna", tapar:["caverna"]},
@@ -27,6 +72,29 @@ const TERMINOS = {
     {k:"phrónesis", tapar:["prudencia"]},
     {k:"silogismo", tapar:[]},
     {k:"zoon politikon", tapar:[]}
+  ],
+  agustin: [
+    {k:"interioridad", tapar:[]},
+    {k:"si me engaño", tapar:[]},
+    {k:"privación", tapar:[]},
+    {q:"¿Qué es el tiempo según el libro XI de las Confesiones, y cómo puede el alma medir algo que ya no es o todavía no es?"},
+    {k:"iluminación", tapar:["maestro interior"]},
+    {k:"libre albedrío", tapar:[]},
+    {q:"¿Qué sostenía Pelagio, y qué le respondió Agustín sobre la gracia y el pecado original?"},
+    {k:"dos ciudades", tapar:[]},
+    {q:"¿Qué significa para Agustín que el amor tenga un orden, y en qué consiste el pecado según esa idea?"},
+    {k:"conversión", tapar:["convirtió","convertirse"]}
+  ],
+  tomas: [
+    {q:"¿Cómo articula Tomás la fe y la razón, y qué verdades sobre Dios corresponden a cada una?"},
+    {q:"¿Cuáles son las cinco vías de Tomás y qué tienen en común como pruebas?"},
+    {q:"¿Qué distingue Tomás en El ente y la esencia, y por qué solo en Dios coinciden las dos cosas?"},
+    {k:"analogía", tapar:["analógico","analógica"]},
+    {q:"¿Qué relación hay entre la ley eterna, la ley natural y la ley humana, y qué pasa con una ley humana injusta?"},
+    {k:"primer precepto", tapar:[]},
+    {k:"forma del cuerpo", tapar:[]},
+    {k:"cuestión disputada", tapar:["cuestiones disputadas","disputatio"]},
+    {q:"¿Cómo llegó Aristóteles a Tomás, qué defendían los averroístas latinos y qué fueron las condenas de 1277?"}
   ],
   descartes: [
     {k:"duda metódica", tapar:[]},
@@ -126,6 +194,28 @@ const TERMINOS = {
     {q:"¿Qué relación establece la ética de Beauvoir entre mi libertad y la de los otros, y qué criterio de juicio deriva?"},
     {k:"eterno femenino", tapar:[]},
     {k:"reciprocidad", tapar:["recíproca"]}
+  ],
+  avicena: [
+    {k:"hombre volante", tapar:[]},
+    {q:"¿Cómo define Avicena el alma, cuáles son los sentidos internos y qué ejemplo da de la facultad estimativa?"},
+    {k:"esencia", tapar:["existencia","esencias"]},
+    {q:"¿Qué distingue Avicena entre lo imposible, lo posible por sí y lo necesario por sí, y qué significa ser necesario por otro?"},
+    {q:"¿Cómo demuestra Avicena la existencia del Ser necesario en la prueba de los veraces, y cuál es la objeción clásica contra ella?"},
+    {k:"emanación", tapar:["emana","procede"]},
+    {k:"intelecto agente", tapar:["dador de las formas"]},
+    {q:"¿Por qué sostiene Avicena que el mundo es eterno aunque sea causado, y qué le objetó al-Ghazali?"},
+    {q:"¿Cómo conoce Dios lo particular según Avicena, qué ejemplo usa y por qué al-Ghazali lo rechazó?"}
+  ],
+  averroes: [
+    {q:"¿Por qué sostiene Averroes que la Ley revelada ordena estudiar filosofía, y a quiénes se lo ordena?"},
+    {q:"¿Qué principio usa Averroes para negar que pueda haber un conflicto real entre la Ley revelada y la demostración?"},
+    {k:"ta'wil", tapar:["interpretación","interpretaciones","interpretaban"]},
+    {q:"¿Qué tres clases de personas distingue Averroes según el tipo de argumento que las convence, y qué consecuencia saca de esa distinción?"},
+    {q:"¿Cómo responde Averroes a la tesis de Al-Ghazali de que el fuego no quema por sí mismo?"},
+    {k:"eternidad del mundo", tapar:["eterno"]},
+    {k:"intelecto material", tapar:[]},
+    {q:"¿Por qué en la Europa latina se llamó a Averroes «el Comentador» y qué buscaba con sus comentarios?"},
+    {k:"doble verdad", tapar:["dos verdades"]}
   ],
   confucio: [
     {k:"rén (humanidad)", tapar:["rén","humanidad","benevolencia"]},
