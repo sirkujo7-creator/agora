@@ -622,7 +622,7 @@ function renderLecturas(){
       ${txs.map((t,ti)=>{ const pal = wordCount(t.texto); return `
         <article class="textoorig">
           <header>
-            <span class="txsello ${t.estado==="cita breve"?'cita':''}">${t.estado==="cita breve"?'Cita breve · obra con derechos de autor':'Texto completo del pasaje · dominio público'}</span>
+            <span class="txsello ${t.estado==="cita breve"?'cita':''}">${t.estado==="cita breve"?'Cita breve · obra con derechos de autor':'Texto de la obra · dominio público'}</span>
             <h4>${escapeHtml(t.titulo)}</h4>
             <div class="txmeta"><i>${escapeHtml(t.obra)}</i>${t.pasaje?` · ${escapeHtml(t.pasaje)}`:''}</div>
             <div class="txmeta">${escapeHtml(t.traduccion||'')}${t.url?` · <a href="${t.url}" target="_blank" rel="noopener noreferrer">ver la fuente ↗</a>`:''}</div>

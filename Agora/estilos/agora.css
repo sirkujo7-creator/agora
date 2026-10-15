@@ -723,7 +723,7 @@ footer{font-family:var(--font-ui);}
 .txcuerpo{font-family:var(--font-body);font-size:1.08rem;line-height:1.85;max-width:66ch;}
 .txcuerpo p{margin:0 0 14px;text-align:justify;hyphens:auto;}
 .txcuerpo p:first-child::first-letter{font-family:var(--font-display);float:left;font-size:3.4em;line-height:.85;padding:6px 8px 0 0;color:var(--tclr, var(--accent));}
-.glosa{font:inherit;color:inherit;background:none;border:0;padding:0 1px;cursor:pointer;text-align:inherit;
+.glosa{display:inline;white-space:normal;box-decoration-break:clone;-webkit-box-decoration-break:clone;font:inherit;color:inherit;background:none;border:0;padding:0 1px;cursor:pointer;text-align:inherit;
   background-image:linear-gradient(var(--tsoft, var(--accent-soft)),var(--tsoft, var(--accent-soft)));background-repeat:no-repeat;background-position:0 100%;background-size:100% 38%;
   border-bottom:2px solid var(--tclr, var(--accent));transition:background-size .25s ease;}
 .glosa:hover,.glosa.abierta{background-size:100% 100%;}

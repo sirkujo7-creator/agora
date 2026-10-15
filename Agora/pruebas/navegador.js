@@ -77,6 +77,24 @@ function servidor(){
   comprobar(diag.total > 0 && diag.piezas === diag.total && diag.completos === diag.total && info.length > 20,
     `diagramas: ${diag.total} se dibujan, se exploran y se completan bien`);
 
+  // 2d. Textos de la obra: las glosas se despliegan y las preguntas se corrigen
+  const tx = await p.evaluate(() => {
+    let glosasOk = 0, glosasTot = 0, pregOk = 0, pregTot = 0;
+    MODULES.forEach(m => { if (!textosDe(m).length) return; openModule(m.id, "lecturas");
+      textosDe(m).forEach((t, ti) => {
+        glosasTot += t.glosas.length;
+        t.preguntas.forEach((q, qi) => { pregTot++; const b = [...document.querySelectorAll(`#txq-${ti}-${qi} .optbtn`)].find(x => q.opciones[Number(x.dataset.ix)] === q.r); b.click(); if (document.querySelector(`#txq-${ti}-${qi} .gfeedback`).textContent.startsWith("✅")) pregOk++; });
+      });
+      glosasOk += document.querySelectorAll(".txcuerpo .glosa").length;
+    });
+    return { glosasOk, glosasTot, pregOk, pregTot };
+  });
+  await p.evaluate(() => openModule("kant", "lecturas"));
+  await p.click(".txcuerpo .glosa >> nth=0");
+  const notaVisible = await p.locator(".glosanota").count();
+  comprobar(tx.glosasOk === tx.glosasTot && tx.pregOk === tx.pregTot && notaVisible === 1,
+    `textos de la obra: ${tx.glosasOk} glosas marcadas y ${tx.pregOk}/${tx.pregTot} preguntas que aceptan su respuesta`);
+
   // 3. Repaso espaciado
   await p.evaluate(() => openModule("kant", "conceptos"));
   await p.click('#detBody button:has-text("La tengo clara")');

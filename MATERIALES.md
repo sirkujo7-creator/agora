@@ -83,6 +83,15 @@ Casi todo lo de esta lista es de dominio público y está en internet. Si habili
 
 ## B. Lecturas literales para los 30 autores que ya están
 
+> **Actualización (octubre de 2026):** con la red abierta ya se cargaron 47 textos de la obra en 25 fichas (traducciones libres de Wikisource y Gutenberg, o traducciones de trabajo desde originales libres) y citas breves de los autores con derechos. **Lo que todavía falta y solo podés conseguir vos:**
+> - [ ] **Nagarjuna**: un pasaje de las *Estrofas de la vía media* (I, 1 y XXIV, 18–19) en cualquier traducción española (foto o PDF).
+> - [ ] **Dōgen**: el *Genjōkōan* completo (es breve) en una traducción española.
+> - [ ] **Nishida**: *Indagación del bien*, cap. 1 (la experiencia pura).
+> - [ ] **Zea**: 1–2 páginas de *La filosofía americana como filosofía sin más*.
+> - [ ] Para los autores con derechos (Heidegger, Arendt, Beauvoir, Zambrano, Vasconcelos, Dussel, Zuleta, Rorty, West) hay citas breves escritas de memoria: si tenés las ediciones, una foto de esas páginas sirve para cotejarlas.
+>
+> La lista original sigue abajo como referencia.
+
 ### Dominio público: solo hace falta la edición
 
 Con la red abierta, Claude los busca solo.
