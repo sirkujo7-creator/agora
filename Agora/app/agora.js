@@ -558,27 +558,92 @@ function wordCount(s){ return String(s).trim().split(/\s+/).filter(Boolean).leng
 /* Marca las fuentes que están en inglés: el extracto y el comentario siempre van en español. */
 const FUENTES_EN = [/plato\.stanford\.edu/i, /zcla\.org/i];
 function fuenteEnIngles(url){ return FUENTES_EN.some(re=>re.test(url||"")); }
+/* --- Lecturas: primero los textos de la obra (TEXTOS, en datos/textos.js), después las síntesis ---
+   TEXTOS.<id> = [{titulo, obra, pasaje, traduccion, estado:"dominio público"|"cita breve", url, contexto,
+                   texto, glosas:[{frase, nota}], preguntas:[{q, opciones, r, why}]}]
+   Cada glosa marca la primera aparición de su frase en el texto; al tocarla se despliega la nota. */
+function textosDe(d){ return (typeof TEXTOS !== "undefined" && TEXTOS[d.id]) || []; }
+function textoConGlosas(t, ti){
+  const usadas = new Set();
+  let n = 0;
+  return String(t.texto).split(/\n\s*\n/).map((par, pi)=>{
+    par = par.trim();
+    const marcas = [];
+    (t.glosas||[]).forEach((g,gi)=>{
+      if(usadas.has(gi)) return;
+      const at = par.indexOf(g.frase);
+      if(at < 0 || marcas.some(m=> at < m.fin && at + g.frase.length > m.ini)) return;
+      usadas.add(gi); marcas.push({ini:at, fin:at+g.frase.length, gi});
+    });
+    marcas.sort((a,b)=>a.ini-b.ini);
+    let out = "", pos = 0;
+    marcas.forEach(m=>{
+      n++;
+      out += escapeHtml(par.slice(pos, m.ini)) + `<button class="glosa" onclick="verGlosa(${ti},${m.gi},${pi},this)" aria-expanded="false">${escapeHtml(par.slice(m.ini, m.fin))}<sup>${n}</sup></button>`;
+      pos = m.fin;
+    });
+    out += escapeHtml(par.slice(pos));
+    return `<p id="tx-${ti}-p${pi}">${out}</p><div class="glosaslot" id="tx-${ti}-n${pi}"></div>`;
+  }).join("");
+}
+function verGlosa(ti, gi, pi, btn){
+  const g = textosDe(currentModule)[ti].glosas[gi];
+  const slot = document.getElementById(`tx-${ti}-n${pi}`);
+  const id = `glosa-${ti}-${gi}`, ya = document.getElementById(id);
+  if(ya){ ya.remove(); btn.setAttribute("aria-expanded","false"); btn.classList.remove("abierta"); return; }
+  btn.setAttribute("aria-expanded","true"); btn.classList.add("abierta");
+  slot.insertAdjacentHTML("beforeend", `<div class="glosanota" id="${id}"><b>${escapeHtml(g.frase)}</b> ${g.nota}</div>`);
+}
+function responderTexto(ti, qi, oi, btn){
+  const q = textosDe(currentModule)[ti].preguntas[qi];
+  const box = document.getElementById(`txq-${ti}-${qi}`);
+  const opts = [...box.querySelectorAll(".optbtn")];
+  if(opts.some(b=>b.disabled)) return;
+  const bien = q.opciones[oi] === q.r;
+  opts.forEach(b=>{ b.disabled = true; if(q.opciones[Number(b.dataset.ix)] === q.r) b.classList.add("correct"); else if(b===btn) b.classList.add("wrong"); });
+  const fb = box.querySelector(".gfeedback");
+  fb.className = "gfeedback show " + (bien?"ok":"no");
+  fb.innerHTML = (bien?"✅ Correcto. ":"❌ No es esa. ") + (q.why||"");
+}
 function renderLecturas(){
   const d = currentModule;
   const clr = LEVELS[d.trad].clr;
-  const lecs = d.lecturas || [];
-  if(!lecs.length){
+  const lecs = d.lecturas || [], txs = textosDe(d);
+  if(!lecs.length && !txs.length){
     $("#detBody").innerHTML = `<div class="lecnote">Todavía no hay lecturas cargadas para esta ficha.</div>`;
     return;
   }
-  const nPreg = (d.preguntasLectura||[]).length;
+  const nPreg = (d.preguntasLectura||[]).length + txs.reduce((n,t)=>n+(t.preguntas||[]).length,0);
   $("#detBody").innerHTML = `
     <div class="lecwrap" style="--tclr:var(--${clr});">
-      <div class="lecnote">📖 ${lecs.length} ${lecs.length===1?'lectura':'lecturas'} para esta ficha.
-        Los extractos son síntesis de trabajo con citas directas, pensadas para el aula; seguí siempre el enlace a la fuente para leer el texto completo.
-        ${nPreg?`En el <b>Cuestionario final</b> vas a encontrar ${nPreg} pregunta${nPreg===1?'':'s'} basada${nPreg===1?'':'s'} en estas lecturas.`:''}</div>
+      <div class="lecnote">📖 ${txs.length?`<b>${txs.length} ${txs.length===1?'texto':'textos'} de la obra</b>, para leer en el original (o en traducción), con notas que se despliegan al tocar las palabras marcadas. Después, `:''}${lecs.length} ${lecs.length===1?'síntesis comentada':'síntesis comentadas'}.
+        ${nPreg?`En el <b>Cuestionario final</b> vas a encontrar ${nPreg} pregunta${nPreg===1?'':'s'} sobre estas lecturas.`:''}</div>
+      ${txs.length?`<div class="sechead">Textos de la obra</div>`:''}
+      ${txs.map((t,ti)=>{ const pal = wordCount(t.texto); return `
+        <article class="textoorig">
+          <header>
+            <span class="txsello ${t.estado==="cita breve"?'cita':''}">${t.estado==="cita breve"?'Cita breve · obra con derechos de autor':'Texto completo del pasaje · dominio público'}</span>
+            <h4>${escapeHtml(t.titulo)}</h4>
+            <div class="txmeta"><i>${escapeHtml(t.obra)}</i>${t.pasaje?` · ${escapeHtml(t.pasaje)}`:''}</div>
+            <div class="txmeta">${escapeHtml(t.traduccion||'')}${t.url?` · <a href="${t.url}" target="_blank" rel="noopener noreferrer">ver la fuente ↗</a>`:''}</div>
+          </header>
+          ${t.contexto?`<div class="txcontexto"><span class="kicker">Antes de leer</span>${t.contexto}</div>`:''}
+          <div class="txcuerpo">${textoConGlosas(t, ti)}</div>
+          <div class="lecmeta">~${pal} palabras · lectura de ${Math.max(1,Math.round(pal/150))} min${(t.glosas||[]).length?` · ${(t.glosas||[]).length} notas: tocá las palabras subrayadas`:''}</div>
+          ${(t.preguntas||[]).map((q,qi)=>`<div class="txpreg" id="txq-${ti}-${qi}">
+            <div class="prompt">${escapeHtml(q.q)}</div>
+            <div class="optrow">${shuffle(q.opciones.map((o,i)=>({o,i}))).map(({o,i})=>`<button class="optbtn" data-ix="${i}" onclick="responderTexto(${ti},${qi},${i},this)">${escapeHtml(o)}</button>`).join("")}</div>
+            <div class="gfeedback" role="status" aria-live="polite"></div>
+          </div>`).join("")}
+        </article>`; }).join("")}
+      ${txs.length && lecs.length?`<div class="sechead">Síntesis comentadas</div>`:''}
       ${lecs.map(l=>`
         <article class="lectura">
           <header>
             <h4>${l.titulo}</h4>
             <div class="lecsrc"><span>📚 ${l.fuente}</span>${fuenteEnIngles(l.url)?`<span>·</span><span title="La fuente original está en inglés; el extracto y el comentario están traducidos y resumidos al español.">🌐 fuente en inglés</span>`:""}${l.url?`<span>·</span><a href="${l.url}" target="_blank" rel="noopener noreferrer">abrir la fuente ↗</a>`:""}</div>
           </header>
-          <div class="lecmeta">~${wordCount(l.extracto)} palabras · tiempo estimado de lectura ${Math.max(1,Math.round(wordCount(l.extracto)/180))} min</div>
+          <div class="lecmeta">Síntesis de trabajo con citas · ~${wordCount(l.extracto)} palabras · ${Math.max(1,Math.round(wordCount(l.extracto)/180))} min</div>
           <div class="lecbody">${l.extracto.split(/\n\s*\n/).map(p=>`<p>${p.trim()}</p>`).join("")}</div>
           ${l.comentario?`<div class="leccoment"><b>Para leerlo con la ficha</b>${l.comentario}</div>`:""}
         </article>`).join("")}
@@ -1738,7 +1803,7 @@ function reiniciarEje(){ const c = CONSTELACIONES.find(x=>x.id===ejeState.id); e
 /* Preguntas de comprensión lectora, generadas desde el campo `preguntasLectura`
    de cada ficha (mismo formato de opción múltiple que el resto del cuestionario). */
 function lecturaMCQ(mod, n){
-  const pool = mod.preguntasLectura || [];
+  const pool = (mod.preguntasLectura || []).concat(textosDe(mod).flatMap(t=>t.preguntas||[]));
   if(!pool.length) return [];
   const chosen = shuffle(pool.slice()).slice(0, n==null ? pool.length : Math.min(n, pool.length));
   return chosen.map(p=>({
@@ -2063,6 +2128,7 @@ function construirIndice(){
     const v = vidaDe(m);
     if(v) add({ tipo:"Vida", mod:m, titulo:`Vida y contexto de ${m.nombre}`, texto:`${v.lema} ${v.secciones.map(x=>x.titulo+" "+x.texto).join(" ")} ${v.hitos.map(h=>h.anio+" "+h.texto).join(" ")}`, ir:()=>openModule(m.id,"vida") });
     (m.obras||[]).forEach((o,i)=>add({ tipo:"Obra", mod:m, titulo:o.t, texto:o.d, ir:()=>abrirTarjeta(m.id,"obras",i) }));
+    textosDe(m).forEach(t=>add({ tipo:"Texto", mod:m, titulo:`${t.titulo} (${t.obra})`, texto:`${t.contexto||""} ${t.texto}`, ir:()=>openModule(m.id,"lecturas") }));
     (m.lecturas||[]).forEach(l=>add({ tipo:"Lectura", mod:m, titulo:l.titulo, texto:`${l.fuente} ${l.extracto}`, ir:()=>openModule(m.id,"lecturas") }));
     getQuiz(m).forEach(q=>add({ tipo:"Pregunta", mod:m, titulo:textoPlano(q.q), texto:q.p, ir:()=>openModule(m.id,"preguntas") }));
   });

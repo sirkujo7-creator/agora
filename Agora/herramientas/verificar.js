@@ -38,8 +38,8 @@ for (const trad of fs.readdirSync(dirMod)) for (const f of fs.readdirSync(path.j
 if (errores.length) fin();
 
 const ctx = {}; vm.createContext(ctx);
-vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, DIAGRAMAS: typeof DIAGRAMAS==='undefined' ? null : DIAGRAMAS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS};", ctx);
-const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, VIDAS, DIAGRAMAS, EXAMEN_FINAL, CLAVES, TERMINOS } = ctx.__d;
+vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, DIAGRAMAS: typeof DIAGRAMAS==='undefined' ? null : DIAGRAMAS, TEXTOS: typeof TEXTOS==='undefined' ? null : TEXTOS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS};", ctx);
+const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, VIDAS, DIAGRAMAS, TEXTOS, EXAMEN_FINAL, CLAVES, TERMINOS } = ctx.__d;
 
 const ids = new Set();
 for (const m of MODULES) {
@@ -151,6 +151,25 @@ else {
       else if (etiquetas.some(t => t.length > 44)) err(`${q}: una etiqueta pasa de 44 caracteres: «${etiquetas.find(t => t.length > 44)}»`);
     });
   });
+}
+// Textos de la obra: literales, con sus glosas (cada frase tiene que estar en el texto) y preguntas
+if (!TEXTOS) err("no hay textos de la obra (datos/textos.js)");
+else {
+  const palabras = t => String(t).trim().split(/\s+/).length;
+  Object.entries(TEXTOS).forEach(([id, ts]) => {
+    if (!ids.has(id)) aviso(`TEXTOS.${id} no corresponde a ninguna ficha`);
+    (ts || []).forEach((t, i) => {
+      const q = `${id}, texto ${i + 1} («${t.titulo}»)`;
+      if (!t.titulo || !t.obra || !t.texto || !t.traduccion) err(`${q}: falta título, obra, traducción o texto`);
+      if (!["dominio público", "cita breve"].includes(t.estado)) err(`${q}: estado tiene que ser «dominio público» o «cita breve»`);
+      if (t.estado === "dominio público" && !/^https?:\/\//.test(t.url || "")) err(`${q}: un texto de dominio público necesita la URL de su fuente`);
+      if (t.estado === "cita breve" && palabras(t.texto || "") > 140) err(`${q}: una cita breve no puede pasar de 140 palabras`);
+      (t.glosas || []).forEach(g => { if (!g.frase || !g.nota || !String(t.texto).includes(g.frase)) err(`${q}: la glosa «${g.frase}» no aparece tal cual en el texto`); });
+      (t.preguntas || []).forEach((p, j) => { if (!p.q || !Array.isArray(p.opciones) || !p.opciones.includes(p.r)) err(`${q}, pregunta ${j + 1}: la respuesta no está entre las opciones`); });
+    });
+  });
+  const sin = MODULES.filter(m => m.trad !== "metodo" && !(TEXTOS[m.id] || []).length).map(m => m.id);
+  if (sin.length) aviso(`fichas sin textos de la obra: ${sin.join(", ")}`);
 }
 // Mapa de Constelaciones: cada ficha (salvo las de método) necesita su año en EPOCA
 if (!EPOCA) err("falta EPOCA en datos/transversal.js (años del mapa)");
