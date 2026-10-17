@@ -107,6 +107,29 @@ const TERMINOS = {
     {q:"¿Cómo clasifica Descartes las ideas según su origen y qué significa que una idea sea innata?"},
     {k:"glándula pineal", tapar:["pineal"]}
   ],
+  hume: [
+    {k:"impresiones", tapar:["impresión","impresiones","principio de copia"]},
+    {k:"cuestiones de hecho", tapar:["relaciones de ideas"]},
+    {k:"conexión necesaria", tapar:[]},
+    {k:"costumbre", tapar:["hábito"]},
+    {k:"inducción", tapar:["inductivas","inductiva"]},
+    {k:"haz o colección de percepciones", tapar:["haz de percepciones"]},
+    {q:"¿Por qué dice Hume que la razón es y debe ser esclava de las pasiones, y qué no quiere decir con eso?"},
+    {q:"¿Qué observa Hume sobre el paso de las proposiciones con «es» a las proposiciones con «debe», y por qué importa?"},
+    {q:"¿Qué máxima propone Hume para juzgar el testimonio de un milagro y en qué se apoya?"},
+    {q:"¿Qué objeciones opone Filón al argumento del diseño en los Diálogos sobre la religión natural?"}
+  ],
+  rousseau: [
+    {k:"estado de naturaleza", tapar:["hombre natural","ser humano natural"]},
+    {q:"¿Cuáles son los dos principios que Rousseau encuentra en el alma antes de la razón y qué hace cada uno?"},
+    {k:"amor propio", tapar:[]},
+    {k:"perfectibilidad", tapar:[]},
+    {q:"¿Cuál es el problema que resuelve el pacto social según Rousseau y por qué propone la enajenación total?"},
+    {k:"voluntad general", tapar:[]},
+    {q:"¿Qué quiere decir Rousseau con «se lo obligará a ser libre» y qué tres libertades distingue?"},
+    {k:"educación negativa", tapar:["puramente negativa"]},
+    {k:"religión civil", tapar:["profesión de fe puramente civil"]}
+  ],
   kant: [
     {k:"revolución copernicana", tapar:["Copérnico"]},
     {q:"¿Qué distingue Kant entre fenómeno y noúmeno, y qué función cumple este último?"},
@@ -128,6 +151,18 @@ const TERMINOS = {
     {q:"¿En qué sentido el Estado es para Hegel la realidad de la idea ética, y qué objeciones siguen en pie?"},
     {k:"búho de Minerva", tapar:[]},
     {q:"¿Qué distinción usa Hegel para corregir la lectura conservadora de su frase sobre lo racional y lo real?"}
+  ],
+  marx: [
+    {k:"materialismo histórico", tapar:["materialismo","materialista"]},
+    {q:"¿Qué relación establece Marx entre la estructura económica de una sociedad y su derecho, su política y sus formas de conciencia?"},
+    {k:"lucha de clases", tapar:["luchas de clases","lucha"]},
+    {k:"enajenación", tapar:["enajenado","enajenada","alienación","extraño"]},
+    {k:"ideología", tapar:["ideologías","ideológico"]},
+    {k:"fetichismo", tapar:["fetiche","fetichismo de la mercancía"]},
+    {k:"plusvalía", tapar:[]},
+    {q:"¿Qué le reprocha Marx al materialismo anterior en las Tesis sobre Feuerbach y qué pide la tesis XI?"},
+    {q:"¿Qué aportó Engels por cuenta propia sobre la clase obrera industrial, la familia y el Estado?"},
+    {q:"¿Qué dijo Marx sobre la sociedad posterior al capitalismo y qué relación tiene con los regímenes que gobernaron en su nombre?"}
   ],
   nietzsche: [
     {k:"muerte de Dios", tapar:["Dios ha muerto"]},
@@ -183,6 +218,17 @@ const TERMINOS = {
     {q:"¿Qué distingue Arendt entre pensar y juzgar, y qué relación tienen con la posibilidad de evitar el mal?"},
     {q:"¿Cómo distingue Arendt el poder de la violencia y qué relación hay entre ambos?"},
     {q:"¿Qué dos fragilidades tiene la acción según Arendt y qué remedios encuentra para ellas?"}
+  ],
+  sartre: [
+    {k:"la existencia precede a la esencia", tapar:[]},
+    {k:"condenado a ser libre", tapar:["condenado"]},
+    {q:"¿Qué entiende Sartre por angustia, desamparo y desesperación, y por qué ninguna de las tres lleva a no actuar?"},
+    {k:"mala fe", tapar:[]},
+    {q:"¿Qué distingue el ser en-sí del ser para-sí en El ser y la nada?"},
+    {k:"mirada", tapar:["mira","mirón"]},
+    {q:"¿Qué relación hay, según Sartre, entre la situación en que vivimos y el proyecto que elegimos?"},
+    {k:"compromiso", tapar:["comprometida"]},
+    {q:"¿Qué son la praxis, la escasez y lo práctico-inerte en la Crítica de la razón dialéctica?"}
   ],
   beauvoir: [
     {q:"¿Qué quiere decir Beauvoir con «No se nace mujer: se llega a serlo» y qué distinción posterior abrió?"},
@@ -250,6 +296,18 @@ const TERMINOS = {
     {q:"¿Con qué preguntas cuestiona Zhuangzi la existencia de un criterio único para el saber?"},
     {q:"¿Qué le objeta Zhuangzi a la disputa entre confucianos y moístas?"}
   ],
+  buda: [
+    {q:"¿Cuáles son las cuatro nobles verdades y qué tarea corresponde a cada una?"},
+    {k:"dukkha", tapar:[]},
+    {k:"anicca", tapar:["impermanencia","impermanente"]},
+    {k:"anattā", tapar:["no-yo"]},
+    {k:"origen dependiente", tapar:["paṭicca samuppāda"]},
+    {k:"camino medio", tapar:[]},
+    {k:"óctuple sendero", tapar:[]},
+    {q:"¿Qué es el karma para el Buda y cómo puede haber renacimiento sin un yo que renazca?"},
+    {k:"nirvana", tapar:["nibbāna"]},
+    {q:"¿Por qué el Buda se negó a responder ciertas preguntas metafísicas y qué ilustra la parábola de la flecha?"}
+  ],
   nagarjuna: [
     {k:"śūnyatā (vacuidad)", tapar:["śūnyatā","sunyata","vacuidad","vacía"]},
     {k:"svabhāva", tapar:["svabhava"]},
@@ -305,6 +363,18 @@ const TERMINOS = {
     {k:"yì (intención)", tapar:["yì","intención","intenciones"]},
     {k:"shì shàng mó liàn (pulirse en los asuntos)", tapar:["shì shàng mó liàn","pulirse en los asuntos","se pule"]},
     {k:"wànwù yītǐ (un solo cuerpo con los diez mil seres)", tapar:["wànwù yītǐ","un solo cuerpo"]}
+  ],
+  lascasas: [
+    {q:"¿Cómo pasó Las Casas de encomendero a defensor de los indios y qué texto provocó su conversión en 1514?"},
+    {k:"encomienda", tapar:["encomendaba","encomendero","encomenderos"]},
+    {q:"¿Qué dijo Antonio de Montesinos en su sermón de Adviento de 1511 y qué relación tuvo con Las Casas?"},
+    {q:"¿Qué quiere decir Las Casas con que todas las naciones del mundo son hombres y qué consecuencias políticas saca de eso?"},
+    {k:"bárbaros", tapar:["bárbaro","bárbara"]},
+    {k:"único modo", tapar:["Único modo"]},
+    {k:"restitución", tapar:["restituir","restituyeran","devolviendo","devolver"]},
+    {k:"siervos por naturaleza", tapar:["servidumbre natural"]},
+    {k:"Leyes Nuevas", tapar:[]},
+    {q:"¿Qué recomendó Las Casas sobre los esclavos africanos y qué escribió después sobre ese consejo?"}
   ],
   sorjuana: [
     {q:"¿Qué tesis central defiende Sor Juana en la Respuesta y con qué ejemplos la sostiene?"},
@@ -372,6 +442,17 @@ const TERMINOS = {
     {q:"¿Qué toma y qué rechaza Zea del marxismo, de la Escuela de Frankfurt y del indigenismo?"},
     {q:"¿Qué hizo Zea institucionalmente para que la historia de las ideas latinoamericanas fuera una disciplina?"}
   ],
+  freire: [
+    {k:"educación bancaria", tapar:["bancaria"]},
+    {k:"educación problematizadora", tapar:["problematizadora"]},
+    {q:"¿Qué quiere decir Freire con que el oprimido aloja al opresor, y qué consecuencias tiene para la liberación?"},
+    {k:"concientización", tapar:[]},
+    {k:"diálogo", tapar:["antidiálogo"]},
+    {k:"palabras generadoras", tapar:["círculo de cultura"]},
+    {k:"praxis", tapar:[]},
+    {q:"¿Qué son los temas generadores, las situaciones límite y el inédito viable, y cómo se relacionan?"},
+    {q:"¿Cómo distingue Freire la autoridad del autoritarismo y del espontaneísmo en el aula?"}
+  ],
   dussel: [
     {k:"exterioridad", tapar:[]},
     {k:"analéctica", tapar:["ana-logos","analéctico"]},
@@ -382,6 +463,17 @@ const TERMINOS = {
     {q:"¿Por qué sostiene Dussel que un sistema no puede diagnosticar desde dentro lo que produce, y quién sí puede?"},
     {q:"¿Cómo fue la polémica de Dussel con Apel y qué cambió en cada sistema?"},
     {q:"¿Qué otros autores y divisiones internas tuvo la Filosofía de la Liberación además de Dussel?"}
+  ],
+  falsborda: [
+    {k:"investigación-acción participativa", tapar:["IAP"]},
+    {q:"¿Por qué propone Fals Borda pasar de una relación sujeto-objeto a una relación sujeto-sujeto en la investigación social?"},
+    {k:"ciencia propia", tapar:["colonialismo intelectual"]},
+    {k:"sentipensante", tapar:[]},
+    {k:"devolución sistemática", tapar:[]},
+    {q:"¿Para qué sirve, según Fals Borda, recuperar críticamente la historia de una comunidad?"},
+    {q:"¿Cómo responde Fals Borda a la objeción de que el compromiso destruye la objetividad?"},
+    {q:"¿Qué cambió La violencia en Colombia (1962) en la manera de estudiar la guerra de mediados del siglo XX?"},
+    {k:"cultura anfibia", tapar:["hombre hicotea","hicotea"]}
   ],
   zuleta: [
     {k:"elogio de la dificultad", tapar:["dificultad"]},

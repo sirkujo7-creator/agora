@@ -24,7 +24,15 @@ const EPOCA = {
   agustin:397,
   tomas:1265,
   avicena:1025,
-  averroes:1180
+  averroes:1180,
+  hume:1739,
+  rousseau:1762,
+  marx:1867,
+  sartre:1943,
+  buda:-450,
+  lascasas:1552,
+  freire:1968,
+  falsborda:1979
 };
 
 /* ============ CONSTELACIONES: un mismo problema, varias fichas ============

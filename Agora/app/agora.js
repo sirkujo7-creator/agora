@@ -162,7 +162,7 @@ function showView(id){
 const MONOGRAMA = { platon:"Pl", aristoteles:"Ar", descartes:"De", kant:"Ka", hegel:"He", nietzsche:"Nz", heidegger:"Hd",
   wittgenstein:"Wi", confucio:"Co", laozi:"La", zhuangzi:"Zh", nagarjuna:"Na", shankara:"Sh", dogen:"Dō", nishida:"Ni",
   wangyangming:"Wy", peirce:"Pe", james:"Ja", dewey:"Dw", vasconcelos:"Va", zea:"Ze", dussel:"Du", rorty:"Ro", west:"We", falacias:"∴",
-  arendt:"Ha", beauvoir:"Be", zambrano:"Za", sorjuana:"SJ", zuleta:"Zu", tales:"Ta", heraclito:"Hr", parmenides:"Pa", socrates:"So", agustin:"Ag", tomas:"Aq", avicena:"Av", averroes:"IR" };
+  arendt:"Ha", beauvoir:"Be", zambrano:"Za", sorjuana:"SJ", zuleta:"Zu", tales:"Ta", heraclito:"Hr", parmenides:"Pa", socrates:"So", agustin:"Ag", tomas:"Aq", avicena:"Av", averroes:"IR", hume:"Hu", rousseau:"Rs", marx:"Mx", sartre:"Sa", buda:"Bu", lascasas:"LC", freire:"Fr", falsborda:"FB" };
 function clrDe(m){ return LEVELS[m.trad].clr; }
 function varsTrad(m){ const c = clrDe(m); return `--tclr:var(--${c});--tsoft:var(--${c}-soft);`; }
 function monograma(m, extra){ return `<span class="monog ${extra||''}" style="${varsTrad(m)}" aria-hidden="true">${MONOGRAMA[m.id] || m.nombre.slice(0,2)}</span>`; }
@@ -845,7 +845,7 @@ function riesgoAmbiguo(cand, ref){
 /* Fichas de una misma escuela comparten vocabulario y doctrinas (wú wéi en Laozi y Zhuangzi,
    la piedad filial en Confucio y Wang Yangming, el método pragmático en Peirce y James...).
    Entre ellas no se toman distractores: "esto no es de Zhuangzi, es de Laozi" podría ser discutible. */
-const ESCUELAS = [["socrates","platon"],["avicena","averroes"],["laozi","zhuangzi"],["confucio","wangyangming"],["nagarjuna","dogen","nishida"],["peirce","james","dewey","rorty","west"],["vasconcelos","zea","dussel"]];
+const ESCUELAS = [["socrates","platon"],["sartre","beauvoir"],["avicena","averroes"],["laozi","zhuangzi"],["confucio","wangyangming"],["nagarjuna","dogen","nishida"],["peirce","james","dewey","rorty","west"],["vasconcelos","zea","dussel"]];
 function mismaEscuela(a,b){ return ESCUELAS.some(g=>g.includes(a.id) && g.includes(b.id)); }
 function textoFicha(mod){ return [mod.tesis, ...(mod.conceptos||[]).map(c=>c.t+" "+c.d), ...(mod.obras||[]).map(o=>o.t+" "+o.d)].join(" "); }
 /* Niveles de candidatos para un concepto/obra `item` de `mod`, en orden de preferencia:
@@ -1637,7 +1637,8 @@ function mapaX(anio){
 }
 function mapaNombre(m){
   const corto = { sorjuana:"Sor Juana", wangyangming:"Wang Yangming", confucio:"Confucio", nishida:"Nishida", beauvoir:"Beauvoir", shankara:"Shankara",
-    tales:"Tales", heraclito:"Heráclito", parmenides:"Parménides", agustin:"Agustín", tomas:"Tomás de Aquino", avicena:"Avicena", averroes:"Averroes" };
+    tales:"Tales", heraclito:"Heráclito", parmenides:"Parménides", agustin:"Agustín", tomas:"Tomás de Aquino", avicena:"Avicena", averroes:"Averroes",
+    marx:"Marx y Engels", buda:"Buda", lascasas:"Las Casas", falsborda:"Fals Borda" };
   return corto[m.id] || m.nombre.replace(/\s*\(.*\)/,"").split(" ").slice(-1)[0];
 }
 /* Posición de cada ficha en su carril. Hay cuatro filas por carril (cerca y lejos de la línea,

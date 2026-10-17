@@ -67,6 +67,20 @@ const CLAVES = {
     ["Las sensaciones no se tienen como un piloto en su nave", "Se viven confusamente por estar unido y mezclado con el cuerpo", "La unión es una tercera noción primitiva irreductible", "Isabel de Bohemia: el sistema reconoce un hecho que no explica"],
     ["La acción no puede esperar a la certeza", "Imagen de no destruir la casa antes de tener otra", "Dewey: una duda sin situación real es artificial", "Cuestión de si una duda inoperante en la vida es realmente duda"]
   ],
+  hume: [
+    ["Hume no niega que hagamos inducciones, niega que se funden en un razonamiento", "El supuesto de uniformidad no se demuestra ni se prueba por experiencia sin círculo", "No todas las creencias valen igual: hay experiencia buena y mala", "Respuestas posteriores: Kant, Popper, justificaciones probabilísticas"],
+    ["La razón informa sobre hechos y medios, pero no mueve a actuar", "Una pasión solo es irracional si se funda en una creencia falsa o elige malos medios", "Las pasiones tranquilas se confunden con la razón", "Objeción de Kant y respuesta: la simpatía hace uniformes los sentimientos morales"],
+    ["De premisas descriptivas no se sigue sola una conclusión normativa", "Hay que hacer explícita la premisa normativa que se cuela", "Para Hume la moral se funda en sentimientos de aprobación", "Objeciones: Searle y los neoaristotélicos"],
+    ["Parte de principio: contra el milagro hay una experiencia uniforme", "Parte de hecho: gusto por lo maravilloso, pueblos crédulos, religiones rivales", "Objeción de circularidad sobre la experiencia uniforme", "Price y la probabilidad: testigos independientes; Hume no dice que sean imposibles"],
+    ["La nota de 1753 sobre la supuesta inferioridad de los negros", "Beattie la criticó y Hume la mantuvo corregida en 1777", "Edimburgo le quitó su nombre a una torre en 2020", "La nota contradice su propio método de generalizar con experiencia suficiente"]
+  ],
+  rousseau: [
+    ["El hombre natural no es virtuoso, sino ajeno al bien y al mal", "Los vicios que Hobbes atribuía a la naturaleza nacen en sociedad", "El amor de sí y la piedad no llevan a la guerra", "El estado de naturaleza es una hipótesis que sirve de medida"],
+    ["El amor de sí es absoluto y se satisface con lo necesario", "El amor propio es relativo, nace de la comparación y es insaciable", "La desigualdad produce la escisión entre ser y parecer y una dependencia mutua", "El amor propio puede volverse deseo de ser reconocido como igual"],
+    ["La voluntad de todos es la suma de intereses particulares", "La voluntad general mira al interés común y es siempre recta", "El pueblo puede equivocarse por engaño o por facciones", "Objeción: alguien puede decir que conoce la voluntad del pueblo mejor que el pueblo"],
+    ["Leída sola parece justificar la tiranía (Talmon, Berlin)", "Distingue libertad natural, civil y moral", "Obligar a cumplir la ley común impide la dependencia personal", "Solo se sostiene si la ley es realmente general"],
+    ["Descubre la infancia como etapa con su propia lógica", "Aprender de las cosas y de las consecuencias, no de sermones", "El preceptor manipula en secreto el entorno: libertad dirigida", "El libro V subordina la educación de Sofía, y el autor abandonó a sus hijos"]
+  ],
   kant: [
     ["La universalización detecta contradicciones, no calcula resultados", "La promesa falsa universalizada anula la posibilidad de prometer", "Hegel: la forma sola es vacía y presupone instituciones", "La misma acción admite máximas que pasan y no pasan la prueba"],
     ["Kant mantiene el deber de no mentir contra Constant en 1797", "Argumento débil: no se pueden prever las consecuencias de mentir", "Argumento fuerte: mentir destruye la confianza que permite toda declaración", "Objeción: negarse a declarar no es mentir y el asesino rompió las condiciones"],
@@ -80,6 +94,13 @@ const CLAVES = {
     ["La contradicción es la determinación de lo real, no un error", "El método sigue el desarrollo inmanente del contenido", "Objeción: abandonar la no contradicción impide distinguir argumentos válidos", "La fórmula tesis-antítesis-síntesis no es de Hegel sino de Fichte"],
     ["La mediación funciona en el pensamiento pero no en la existencia", "Se vive en la elección singular, la angustia y el instante", "Réplica hegeliana: solo una época moderna puede formular esa crítica", "Duda de si el sufrimiento singular es momento del todo o resto"],
     ["Se conserva la estructura: contradicción, negación determinada y superación", "Cambia el sujeto: relaciones materiales de producción en lugar del Espíritu", "La contradicción es entre fuerzas productivas y relaciones sociales", "Objeción: Marx conserva la certeza de un desenlace necesario"]
+  ],
+  marx: [
+    ["Los crímenes de esos regímenes son un hecho que no se suaviza", "Marx no describió un partido único y elogió la Comuna de París", "Críticos: leyes de la historia y dictadura del proletariado sin garantías", "Su silencio sobre cómo limitar el poder dejó un vacío que otros llenaron"],
+    ["El prólogo de 1859 se presta a una lectura determinista", "Carta de Engels a Bloch: la economía determina solo en última instancia", "La superestructura actúa a su vez sobre la base", "Objeción: «en última instancia» puede volverse una fórmula que no se pone a prueba"],
+    ["Falló la revolución en los países industriales y el empobrecimiento absoluto", "No previó sindicatos, reformas ni Estado de bienestar", "Siguen vigentes la globalización, la concentración y las crisis", "Separar el análisis de tendencias de las predicciones políticas"],
+    ["La ideología depende de quién controla la producción de ideas", "El fetichismo surge de la producción para el mercado y no desaparece al explicarlo", "Sirve para pensar la ropa barata o los mercados financieros", "Objeción del autor que se incluye: la teoría de Marx también sería ideológica"],
+    ["Textos eurocéntricos: India en 1853 y el artículo sobre Bolívar", "La acumulación originaria incluye la conquista y la esclavitud", "Carta a Zasulich: no hay un camino único para todos los pueblos", "Mariátegui y Dussel lo releen desde América Latina sin aplicarlo como plantilla"]
   ],
   nietzsche: [
     ["La objeción de autorrefutación tiene fuerza", "El perspectivismo como práctica de lectura, no verdad sobre el mundo", "Multiplicar perspectivas en lugar de abolir el conocimiento", "Distinción entre perspectivismo global y restringido a los valores"],
@@ -115,6 +136,13 @@ const CLAVES = {
     ["Ningún gobierno se sostiene solo con violencia", "Cuando el apoyo se retira, la violencia no alcanza", "Objeción de Weber: el monopolio de la violencia legítima define al Estado", "La palabra legítima ya supone reconocimiento de los otros"],
     ["El derecho de refugiados responde a lo que Arendt describió", "La protección depende de que algún Estado acepte cumplirla", "Arendt hablaba de pertenencia política, no solo protección física", "Su solución parece depender del Estado nacional en crisis"],
     ["En 1959 se opuso a imponer la integración escolar", "Distinguía esfera política de igualdad y esfera social", "Ellison le respondió desde la experiencia de los padres negros", "El caso muestra límites de separar lo social de lo político"]
+  ],
+  sartre: [
+    ["No hay naturaleza humana, pero sí una condición humana común", "Cada elección afirma lo que parece bueno, y eso vale para todos", "Objeción: una libertad sin valores previos no justifica universalizar", "Sartre nunca publicó la moral que prometió"],
+    ["En El ser y la nada la libertad es total, incluso en la cárcel", "Beauvoir y Merleau-Ponty objetan que la opresión reduce la libertad", "Saint Genet: lo que hacemos con lo que hicieron de nosotros", "La tesis vale como advertencia contra la mala fe"],
+    ["No critica el trabajo bien hecho, sino identificarse con un papel", "Mala fe es tratarse a sí mismo como una cosa", "Objeción: el camarero actúa por necesidad económica, no por evasión", "La autenticidad no es un estado que se alcanza de una vez"],
+    ["La frase de A puerta cerrada no dice que toda relación sea mala", "Si la relación está viciada, el otro se vuelve un infierno", "Los personajes están muertos y ya no pueden actuar", "En El ser y la nada la relación con el otro sí es conflicto"],
+    ["Aciertos: oposición a la guerra de Argelia y a la tortura", "Errores: cercanía al Partido Comunista y elogios a la URSS en 1954", "Rechazó el Nobel para no volverse una institución", "Su propia filosofía le exige responder por sus actos sin excusas"]
   ],
   beauvoir: [
     ["Beauvoir no niega las diferencias biológicas", "Esas diferencias no explican el lugar social de las mujeres", "El cuerpo es una situación, no una cosa", "Butler: Beauvoir mantuvo la idea de un sexo natural"],
@@ -158,6 +186,13 @@ const CLAVES = {
     ["Juego de palabras: an significa cómo y también dónde", "Hui Shi presupone que el otro puede saber algo", "Reducción al absurdo del criterio escéptico del adversario", "No prueba que los peces sean felices; trata la frontera entre observar y suponer"],
     ["Los Capítulos Interiores 1 a 7 se atribuyen a un solo autor", "Exteriores y Misceláneos reúnen corrientes posteriores distintas", "Escenas famosas como la de los peces están en los Exteriores", "No resolver contradicciones por evolución del autor; leer como tradición"]
   ],
+  buda: [
+    ["Dukkha no significa que la vida sea solo dolor, sino insatisfacción de lo condicionado", "La tercera verdad afirma que dukkha puede cesar", "Estructura de diagnóstico y cura, no de lamento", "Objeción: parece desvalorizar bienes como el amor o el arte"],
+    ["Anattā niega un yo permanente, no la persona convencional", "Karma es la intención y produce efectos en el mismo proceso causal", "El renacimiento es continuidad causal, como la llama que enciende otra lámpara", "Reemplazar «¿quién?» por «¿de qué depende?»"],
+    ["Parábola de la flecha: esas preguntas no conducen a la liberación", "No es ignorancia: sabe más de lo que enseña (hojas del bosque)", "Responder sí o no lleva a eternalismo o aniquilacionismo", "Objeción: el budismo afirma otras tesis no comprobables, como el renacimiento"],
+    ["Las Upanishads y Shankara identifican el ātman con Brahman", "El Buda examina los cinco agregados y no encuentra un yo permanente", "Shankara llega a un testigo que queda; el Buda no deja residuo", "Mismo método y vocabulario, resultados contrarios"],
+    ["El Buda no escribió nada; transmisión oral de unos cuatro siglos", "Canon escrito en Sri Lanka en el siglo I a.C., en pali", "Comparar colecciones paralelas para hallar la capa más antigua", "La biografía legendaria es posterior a los discursos"]
+  ],
   nagarjuna: [
     ["Nagarjuna no se exceptúa a sí mismo de la vacuidad", "La objeción supone que refutar exige naturaleza propia: petición de principio", "Declara no tener tesis propia y usa la reducción al absurdo", "Imagen del ser mágico que detiene a otro ser mágico"],
     ["Capítulo 24: la vacuidad no destruye las cuatro nobles verdades", "Con naturaleza propia nada podría cambiar y el sufrimiento sería incesable", "Doctrina de las dos verdades: la ética opera en el nivel convencional", "La Guirnalda preciosa aconseja hospitales y liberar presos"],
@@ -192,6 +227,13 @@ const CLAVES = {
     ["Ambos rechazan una autoridad moral externa", "Kant: ley universal y prueba de universalización; desconfía del sentimiento", "Wang: respuesta afectiva inmediata, situada y particular", "Kant gana un criterio público; Wang gana sensibilidad y motivación"],
     ["Zhu Xi era la base oficial de los exámenes imperiales desde 1313", "Discutir géwù era discutir quién accedía al poder", "Las Conclusiones definitivas se entienden como estrategia de legitimación", "Mostrar la función política no refuta la doctrina: falacia genética"],
     ["Sofocó la rebelión del príncipe de Ning en poco más de un mes", "Su doctrina designa la acción como terreno de prueba", "La eficacia no es criterio de verdad moral y un caso no prueba nada", "Sus campañas incluyeron represión sangrienta"]
+  ],
+  lascasas: [
+    ["Las cifras de muertos no son un recuento y las epidemias pesaron mucho", "Las epidemias golpearon a pueblos ya sometidos a guerra y trabajo forzado", "Muchas matanzas narradas están confirmadas por otras fuentes", "El uso propagandístico no vuelve falsa la denuncia ni justifica condenar a un pueblo"],
+    ["Recomendó en 1516-1518 llevar esclavos africanos para liberar a los indios", "No inventó la trata, pero su consejo contribuyó a expandirla", "Se arrepintió tarde, en privado y sin consecuencias", "Muestra el punto ciego de un humanismo que no se aplicó a todos"],
+    ["Ambos afirmaban el dominio legítimo de los indios aunque fueran infieles", "Vitoria admitía títulos como el derecho de comunicación y la protección de inocentes", "Las Casas negó que los sacrificios justificaran la guerra y exigió restitución", "Vitoria pensó desde la cátedra; Las Casas, como testigo y litigante"],
+    ["No hubo veredicto, pero Sepúlveda no pudo imprimir su libro", "Las ordenanzas de 1573 cambiaron conquista por pacificación", "Un imperio suspendió sus conquistas para discutir si su guerra era justa", "Los indios no hablaron en un debate sobre ellos"],
+    ["Desmontó el mito que justifica la violencia como misión civilizatoria", "Pensó desde el sufrimiento de las víctimas y exigió restitución", "Nunca dudó de la evangelización ni de la soberanía del rey", "Habló por los indios y los idealizó, y su compasión no alcanzó a los africanos"]
   ],
   sorjuana: [
     ["Llamarla feminista sin matices es anacrónico: no pedía derechos políticos", "Sostiene que la capacidad de entender no depende del sexo", "Critica que la costumbre, y no la razón, limite a las mujeres", "Es una precursora que argumenta dentro de los marcos teológicos de su tiempo"],
@@ -235,12 +277,26 @@ const CLAVES = {
     ["Conserva de Hegel la historia como proceso de la conciencia por contradicciones", "Invierte quién ocupa el lugar de la lucidez: el margen, no Europa", "La verdad de un proceso se ve donde se pagan sus costos", "Situar la verdad en el margen elimina la jerarquía del sistema hegeliano"],
     ["Dirigió instituciones y colecciones y recibió honores, a diferencia de Dussel", "Lectura sospechosa: su culturalismo era compatible con casi cualquier gobierno", "Institucionalizar permite que una tradición sobreviva a su fundador", "Quedó fuera la pregunta por quiénes dentro del nosotros no tienen voz"]
   ],
+  freire: [
+    ["Lo bancario es la relación, no el hecho de exponer", "Una exposición puede ser problematizadora y un trabajo en grupo bancario", "La forma bancaria enseña adaptación por debajo de los contenidos", "Las condiciones escolares empujan hacia lo bancario"],
+    ["Berger: la concientización supone una jerarquía de conciencias y es paternalista", "Ninguna educación es neutral", "El educador declara su lectura pero no la impone", "Tensión: Freire cree en una lectura más verdadera de la opresión"],
+    ["La opresión se incorpora: autodesvalorización, fatalismo, miedo a la libertad", "Liberarse no es invertir los lugares", "Solo los oprimidos pueden liberarse, con educadores que trabajan con ellos", "Crítica feminista al binarismo y al lenguaje masculino"],
+    ["Investigación del universo vocabular y palabras generadoras", "Codificación en imágenes y discusión en círculos de cultura", "Angicos, 1963: unos trescientos trabajadores y un programa nacional cortado por el golpe", "Pocas evaluaciones independientes de los resultados"],
+    ["Ambos critican la transmisión de saber terminado y valoran la experiencia reflexionada", "Freire leyó a Dewey a través de Anísio Teixeira", "Dewey parte de la cooperación y el crecimiento; Freire, de la opresión y el conflicto", "Para Freire la educación nunca es neutral"]
+  ],
   dussel: [
     ["La vida humana digna no es mera supervivencia biológica", "El principio formal deja el contenido a la comunidad de afectados", "Si lo formal decide todo, depende más de Apel y Habermas de lo admitido", "La negatividad se constata: hambre y muerte prematura son hechos verificables"],
     ["El concepto se define sobre todo por negación", "Sus valores concretos ya los defiende la tradición moderna crítica", "Dussel: la diferencia está en quién formula los valores y desde qué tradición", "Es fértil como programa, pero más horizonte que categoría filosófica"],
     ["Cerutti Guldberg criticó en 1983 el populismo filosófico del pueblo en singular", "Víctimas del mismo sistema pueden tener intereses incompatibles", "El criterio es la negatividad concreta, no la identidad del sujeto", "En conflictos entre víctimas cede el turno a la ética del discurso"],
     ["La Aufhebung hegeliana también conserva lo negado", "En Hegel no hay afuera; en la analéctica irrumpe una palabra no deducible", "Comprender al Otro ya es reducirlo a las propias categorías", "Vale como disciplina de método, no como diferencia lógica tajante"],
     ["El primer Dussel escribe desde la periferia latinoamericana y la dependencia", "El Dussel tardío propone un diálogo entre grandes tradiciones civilizatorias", "América Latina es una periferia interior a Occidente, no un exterior", "Coherencia: la salida es una pluralidad de centros, no otro centro"]
+  ],
+  falsborda: [
+    ["La diferencia está en la relación entre investigador y comunidad, no en los instrumentos", "La comunidad participa en todas las fases: preguntas, datos, interpretación y uso", "Paso de la relación sujeto-objeto a la relación sujeto-sujeto", "Devolución sistemática y ciclo de investigar, actuar y reflexionar"],
+    ["La neutralidad de la ciencia social tradicional es en buena medida una ilusión", "El compromiso exige más rigor, porque una comunidad que actúa con información falsa fracasa", "La validez se prueba también en la práctica", "Riesgos que siguen en pie: sesgo de confirmación e idealización del pueblo"],
+    ["El colonialismo intelectual importa teorías, problemas y criterios del norte", "La ciencia propia define sus preguntas y conceptos desde la realidad latinoamericana", "No rechaza lo extranjero: pide usar esas herramientas con independencia", "Riesgo de esencialismo: lo propio se construye desde regiones y comunidades concretas"],
+    ["Canal A narrativo para los habitantes; canal B teórico para los académicos", "La forma del libro es la devolución sistemática", "Diálogo entre saber académico y saber popular sin que uno absorba al otro", "Objeción: el canal teórico podría conservar la última palabra"],
+    ["El libro de 1962 ya rompía con una ciencia social que no toma partido", "Trató la Violencia como fenómeno social con causas y responsables", "La reacción furiosa mostró que el conocimiento social es políticamente explosivo", "Las comunidades pasaron de fuente de testimonios a coautoras"]
   ],
   zuleta: [
     ["Zuleta no elogia el sufrimiento ni pide aceptar la injusticia", "Critica el deseo de un mundo sin dificultades que busca culpables", "La dificultad de convivir con otros distintos es condición de la libertad", "Combatir la injusticia exige conflicto, negociación y no demonizar al adversario"],
