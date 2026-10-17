@@ -73,6 +73,29 @@ const TERMINOS = {
     {k:"silogismo", tapar:[]},
     {k:"zoon politikon", tapar:[]}
   ],
+  epicuro: [
+    {k:"ataraxia", tapar:["aponía"]},
+    {q:"¿Qué distingue Epicuro entre los placeres en movimiento y los placeres en reposo, y cuál considera más alto?"},
+    {q:"¿Cuáles son las tres clases de deseos que distingue la Carta a Meneceo y qué ejemplo corresponde a cada una?"},
+    {k:"tetrafármaco", tapar:["remedio cuádruple"]},
+    {q:"¿Con qué argumento sostiene Epicuro que la muerte no es nada para nosotros?"},
+    {k:"prudencia", tapar:["phrónesis"]},
+    {k:"amistad", tapar:["Jardín"]},
+    {k:"átomos", tapar:["átomo"]},
+    {k:"clinamen", tapar:["desvío","desvían"]},
+    {k:"pacto", tapar:[]}
+  ],
+  estoicos: [
+    {q:"¿Qué cosas dependen de nosotros según Epicteto, cuáles no, y por qué la distinción no invita a la pasividad?"},
+    {k:"asentimiento", tapar:["asentir","asiente"]},
+    {q:"¿Qué significa para los estoicos vivir según la naturaleza, y qué papel cumple el logos?"},
+    {k:"virtud", tapar:["virtudes"]},
+    {k:"indiferentes", tapar:["indiferente","adiáphora"]},
+    {k:"pasiones", tapar:["pasión","páthe"]},
+    {q:"¿Cómo pasan los estoicos del cuidado de uno mismo (oikeíosis) a la idea de que todos somos ciudadanos del mundo?"},
+    {q:"¿Por qué dice Séneca que la vida no es breve, y qué propone hacer con el tiempo?"},
+    {q:"¿Qué ejercicios practicaban los estoicos romanos, como el examen de conciencia, y para qué servían?"}
+  ],
   agustin: [
     {k:"interioridad", tapar:[]},
     {k:"si me engaño", tapar:[]},
@@ -85,6 +108,18 @@ const TERMINOS = {
     {q:"¿Qué significa para Agustín que el amor tenga un orden, y en qué consiste el pecado según esa idea?"},
     {k:"conversión", tapar:["convirtió","convertirse"]}
   ],
+  anselmo: [
+    {k:"fides quaerens intellectum", tapar:["fe que busca entender","creer para entender"]},
+    {k:"aquello mayor que lo cual nada puede pensarse", tapar:["algo mayor que lo cual nada puede pensarse","aliquid quo nihil maius cogitari possit"]},
+    {q:"¿Cómo pasa el argumento del capítulo II del Proslogion de la existencia en el entendimiento a la existencia en la realidad?"},
+    {q:"¿Qué agrega el capítulo III del Proslogion al argumento y por qué algunos filósofos del siglo XX vieron allí una versión distinta?"},
+    {q:"¿Cómo explica Anselmo que el insensato pueda decir que Dios no existe, si no puede pensarse que no exista?"},
+    {k:"isla perdida", tapar:[]},
+    {k:"satisfacción", tapar:[]},
+    {k:"rectitud", tapar:["rectitudes","recto"]},
+    {q:"¿Cómo define Anselmo la libertad del albedrío y por qué el poder de pecar no forma parte de ella?"},
+    {q:"¿Qué objetan Tomás de Aquino y Kant al argumento de Anselmo, y en qué se diferencian sus críticas?"}
+  ],
   tomas: [
     {q:"¿Cómo articula Tomás la fe y la razón, y qué verdades sobre Dios corresponden a cada una?"},
     {q:"¿Cuáles son las cinco vías de Tomás y qué tienen en común como pruebas?"},
@@ -96,6 +131,18 @@ const TERMINOS = {
     {k:"cuestión disputada", tapar:["cuestiones disputadas","disputatio"]},
     {q:"¿Cómo llegó Aristóteles a Tomás, qué defendían los averroístas latinos y qué fueron las condenas de 1277?"}
   ],
+  ockham: [
+    {k:"nominalismo", tapar:[]},
+    {q:"¿En qué sentido es universal un concepto para Ockham, si en sí mismo es tan singular como cualquier cosa?"},
+    {k:"lenguaje mental", tapar:["oratio mentalis"]},
+    {k:"suposición", tapar:[]},
+    {k:"principio de economía", tapar:["navaja"]},
+    {q:"¿Qué distingue el conocimiento intuitivo del abstractivo según Ockham, y qué problema plantea la visión de una estrella que ya no existe?"},
+    {k:"potencia absoluta", tapar:["potencia ordenada"]},
+    {q:"¿Depende el bien moral solo de la voluntad de Dios para Ockham, o tiene un papel la recta razón?"},
+    {q:"¿Por qué la razón no puede demostrar, según Ockham, que hay un solo Dios infinito y omnipotente, y qué consecuencia tiene eso para la teología?"},
+    {k:"uso de hecho", tapar:["usus facti"]}
+  ],
   descartes: [
     {k:"duda metódica", tapar:[]},
     {k:"cogito ergo sum", tapar:["cogito","yo soy, yo existo"]},
@@ -106,6 +153,30 @@ const TERMINOS = {
     {q:"¿Cuáles son las cuatro reglas del método cartesiano y qué se discute sobre su alcance?"},
     {q:"¿Cómo clasifica Descartes las ideas según su origen y qué significa que una idea sea innata?"},
     {k:"glándula pineal", tapar:["pineal"]}
+  ],
+  hobbeslocke: [
+    {q:"¿Cómo concibe Hobbes al ser humano, sus pasiones y su deseo de poder desde su materialismo?"},
+    {k:"guerra de todos contra todos", tapar:[]},
+    {q:"¿Qué diferencia hay, según Hobbes, entre el derecho de naturaleza y una ley de naturaleza, y por qué las leyes de naturaleza no bastan para tener paz?"},
+    {k:"Leviatán", tapar:["dios mortal"]},
+    {q:"¿Qué ley gobierna el estado de naturaleza según Locke y qué le falta a ese estado para no ser incómodo?"},
+    {k:"propiedad", tapar:["propietario"]},
+    {q:"¿Qué límites pone Locke al poder del gobierno y en qué caso puede el pueblo resistirlo?"},
+    {k:"tolerancia", tapar:["tolerarla","tolerar"]},
+    {k:"papel en blanco", tapar:["tabula rasa"]},
+    {q:"¿Qué relación tuvo Locke con la esclavitud y con la colonización de América, y cómo se usó su teoría de la propiedad?"}
+  ],
+  spinoza: [
+    {k:"Deus sive Natura", tapar:["Dios, o sea, la Naturaleza","naturaleza naturante","naturaleza naturada"]},
+    {q:"¿Qué son la sustancia, los atributos y los modos en la Ética de Spinoza, y en qué se aparta de Descartes?"},
+    {k:"paralelismo", tapar:["el orden y la conexión de las ideas es el mismo que el orden y la conexión de las cosas","idea del cuerpo"]},
+    {k:"determinismo", tapar:["no hay nada contingente"]},
+    {k:"finalismo", tapar:["con vistas a fines"]},
+    {k:"conatus", tapar:["se esfuerza por perseverar en su ser"]},
+    {q:"¿Cuáles son los tres afectos primarios según Spinoza y cómo se definen la alegría y la tristeza?"},
+    {q:"¿Qué llama Spinoza servidumbre y cómo puede el ser humano volverse más libre?"},
+    {q:"¿Cuáles son los tres géneros de conocimiento que distingue Spinoza y qué nace del tercero?"},
+    {q:"¿Qué argumentos da el Tratado teológico-político a favor de la libertad de pensar y qué papel cumple la crítica bíblica?"}
   ],
   hume: [
     {k:"impresiones", tapar:["impresión","impresiones","principio de copia"]},
@@ -152,6 +223,18 @@ const TERMINOS = {
     {k:"búho de Minerva", tapar:[]},
     {q:"¿Qué distinción usa Hegel para corregir la lectura conservadora de su frase sobre lo racional y lo real?"}
   ],
+  kierkegaard: [
+    {k:"individuo", tapar:["individuos"]},
+    {q:"¿Cuáles son los tres estadios de la existencia que distingue Kierkegaard y cómo se pasa de uno a otro?"},
+    {k:"angustia", tapar:["angustiarse"]},
+    {k:"desesperación", tapar:[]},
+    {q:"¿Qué quiere decir Kierkegaard cuando define el yo como una relación que se relaciona consigo misma?"},
+    {k:"salto", tapar:[]},
+    {q:"¿Qué significa la tesis del Postscriptum de que la subjetividad es la verdad, y qué no significa?"},
+    {k:"suspensión teleológica de lo ético", tapar:[]},
+    {k:"comunicación indirecta", tapar:["seudónimos","seudónimo"]},
+    {k:"cristiandad", tapar:[]}
+  ],
   marx: [
     {k:"materialismo histórico", tapar:["materialismo","materialista"]},
     {q:"¿Qué relación establece Marx entre la estructura económica de una sociedad y su derecho, su política y sus formas de conciencia?"},
@@ -163,6 +246,17 @@ const TERMINOS = {
     {q:"¿Qué le reprocha Marx al materialismo anterior en las Tesis sobre Feuerbach y qué pide la tesis XI?"},
     {q:"¿Qué aportó Engels por cuenta propia sobre la clase obrera industrial, la familia y el Estado?"},
     {q:"¿Qué dijo Marx sobre la sociedad posterior al capitalismo y qué relación tiene con los regímenes que gobernaron en su nombre?"}
+  ],
+  mill: [
+    {k:"principio de la mayor felicidad", tapar:["mayor felicidad"]},
+    {q:"¿Por qué Mill sostiene que unos placeres valen más que otros por su calidad, y quién decide cuáles son superiores?"},
+    {q:"¿Cómo intenta Mill «probar» el principio de utilidad y qué objeciones recibió esa prueba?"},
+    {k:"principio del daño", tapar:[]},
+    {q:"¿Cuáles son los cuatro argumentos de Mill a favor de la libertad de expresión y dónde pone su límite?"},
+    {k:"tiranía de la mayoría", tapar:["tiranía social"]},
+    {k:"experimentos de vida", tapar:["individualidad"]},
+    {q:"¿Qué sostiene Mill en La sujeción de las mujeres sobre la «naturaleza» femenina y el matrimonio, y cuál es su límite?"},
+    {q:"¿Qué excepción pone Mill al principio de libertad y por qué es la parte más discutida de su obra?"}
   ],
   nietzsche: [
     {k:"muerte de Dios", tapar:["Dios ha muerto"]},
@@ -252,6 +346,17 @@ const TERMINOS = {
     {q:"¿Por qué sostiene Avicena que el mundo es eterno aunque sea causado, y qué le objetó al-Ghazali?"},
     {q:"¿Cómo conoce Dios lo particular según Avicena, qué ejemplo usa y por qué al-Ghazali lo rechazó?"}
   ],
+  ghazali: [
+    {k:"certeza", tapar:["cierto"]},
+    {q:"¿Por qué la crisis escéptica de Al-Ghazali alcanza también a la razón, y cómo sale de ella?"},
+    {q:"¿Qué cuatro clases de buscadores de la verdad examina Al-Ghazali en el Munqidh, y qué le reprocha a cada una de las tres primeras?"},
+    {q:"¿Cuál es la estrategia de Al-Ghazali en La incoherencia de los filósofos, y qué actitud toma frente a la lógica?"},
+    {q:"¿Cómo responde Al-Ghazali a la pregunta de por qué Dios no creó el mundo antes, y por qué la eternidad del mundo le parece incredulidad?"},
+    {q:"¿Qué objeta Al-Ghazali a la tesis de que Dios conoce los particulares solo de modo universal y a la negación de la resurrección de los cuerpos?"},
+    {k:"ocasionalismo", tapar:["ocasionalista"]},
+    {k:"dhawq", tapar:["saborear"]},
+    {q:"¿Por qué sería un error leer a Al-Ghazali como enemigo de toda razón, y qué no hay que suavizar en su condena de los filósofos?"}
+  ],
   averroes: [
     {q:"¿Por qué sostiene Averroes que la Ley revelada ordena estudiar filosofía, y a quiénes se lo ordena?"},
     {q:"¿Qué principio usa Averroes para negar que pueda haber un conflicto real entre la Ley revelada y la demostración?"},
@@ -262,6 +367,17 @@ const TERMINOS = {
     {k:"intelecto material", tapar:[]},
     {q:"¿Por qué en la Europa latina se llamó a Averroes «el Comentador» y qué buscaba con sus comentarios?"},
     {k:"doble verdad", tapar:["dos verdades"]}
+  ],
+  ibnjaldun: [
+    {k:"ʿilm al-ʿumrān", tapar:["ʿumrān","ʿilm al-ʿumrān"]},
+    {q:"¿Qué regla propone Ibn Jaldún para juzgar los relatos históricos, y qué ejemplo usa para mostrar que hasta los historiadores famosos se equivocan?"},
+    {q:"¿Con qué argumentos muestra Ibn Jaldún que el ser humano necesita vivir en sociedad y bajo una autoridad?"},
+    {k:"badawa", tapar:["hadara"]},
+    {k:"ʿasabiyya", tapar:["cohesión de grupo"]},
+    {q:"¿Qué efecto tiene la religión sobre la cohesión de un grupo, según Ibn Jaldún, y por qué dice que una prédica sin cohesión fracasa?"},
+    {q:"¿Cuántas generaciones suele durar una dinastía según Ibn Jaldún, y qué cambia de una generación a otra?"},
+    {q:"¿De dónde vienen las ganancias según Ibn Jaldún, y por qué las ciudades grandes son más ricas?"},
+    {q:"¿Por qué, según Ibn Jaldún, al final de una dinastía se cobran tasas más altas y se recauda menos?"}
   ],
   confucio: [
     {k:"rén (humanidad)", tapar:["rén","humanidad","benevolencia"]},
@@ -284,6 +400,18 @@ const TERMINOS = {
     {q:"¿Por qué el Dao De Jing desconfía del estudio acumulativo y de las virtudes predicadas como la benevolencia y la rectitud?"},
     {q:"¿Qué lógica sobre los pares de opuestos formula el capítulo 2 del Dao De Jing?"},
     {q:"¿Cómo describe el Dao De Jing al mejor gobernante y qué efecto atribuye a la multiplicación de prohibiciones?"}
+  ],
+  mencioxunzi: [
+    {k:"naturaleza buena", tapar:["xìng shàn","naturaleza humana es buena","naturaleza es buena","bondad de la naturaleza"]},
+    {k:"cuatro brotes", tapar:["sì duān","brotes","brote"]},
+    {q:"¿Qué dos maneras de fracasar en el cultivo moral ilustran el monte Niu y el campesino de Song, y cuál es el método que propone Mencio?"},
+    {q:"¿Qué responde Mencio cuando el rey Xuan le pregunta si un ministro puede matar a su soberano, y en qué se apoya su teoría del mandato del Cielo?"},
+    {k:"artificio (wěi)", tapar:["wěi","artificio"]},
+    {q:"Según Xunzi, ¿de dónde nacen los ritos y qué hacen con los deseos humanos?"},
+    {q:"¿Por qué dice Xunzi que el hombre de la calle puede llegar a ser como Yu, y qué distingue entre poder y llegar a hacerlo?"},
+    {q:"¿Cómo entiende Xunzi el Cielo, y qué dice de los eclipses y de la danza para pedir lluvia?"},
+    {k:"convención", tapar:["convención","acuerdo","rectificación de los nombres","rectificar los nombres"]},
+    {k:"Han Fei", tapar:["Han Fei","legalismo","legista"]}
   ],
   zhuangzi: [
     {k:"sueño de la mariposa", tapar:["mariposa"]},
@@ -420,6 +548,17 @@ const TERMINOS = {
     {k:"eclipse del público", tapar:["público","eclipsado"]},
     {q:"¿Qué critica Dewey del museo y cómo reconecta el arte con la experiencia cotidiana?"}
   ],
+  marti: [
+    {k:"nuestra América", tapar:["Nuestra América"]},
+    {k:"creador", tapar:["crear","creadora","crea"]},
+    {k:"hombre natural", tapar:["hombres naturales"]},
+    {q:"¿Qué quiere decir Martí con «injértese en nuestras repúblicas el mundo; pero el tronco ha de ser el de nuestras repúblicas»?"},
+    {q:"¿Qué significa «no hay odio de razas, porque no hay razas» y qué límites tiene esa afirmación en el mismo ensayo?"},
+    {q:"¿Por qué el peligro mayor de nuestra América es, según Martí, el desdén del vecino del norte y no una maldad suya?"},
+    {q:"¿Qué relación ve Martí entre ser culto y ser libre, y cómo la aplicó en La Edad de Oro y en los maestros ambulantes?"},
+    {k:"guerra necesaria", tapar:[]},
+    {k:"modernismo", tapar:["modernista","modernistas"]}
+  ],
   vasconcelos: [
     {k:"raza cósmica", tapar:["quinta raza"]},
     {k:"mestizaje", tapar:["mestiza"]},
@@ -430,6 +569,17 @@ const TERMINOS = {
     {k:"monismo estético", tapar:["monismo"]},
     {q:"¿Qué giro político dio Vasconcelos después de 1929 y por qué complica su legado?"},
     {q:"¿Qué lema escribió Vasconcelos para la UNAM y qué dos lecturas admite?"}
+  ],
+  mariategui: [
+    {q:"¿Qué quiere decir Mariátegui con que el socialismo en América no debe ser «calco y copia», y qué malentendido hay que evitar?"},
+    {q:"¿Por qué sostiene Mariátegui que el problema del indio es el problema de la tierra?"},
+    {k:"gamonalismo", tapar:["gamonal","gamonales"]},
+    {q:"¿Qué seis maneras de plantear el problema del indio descarta Mariátegui, y por qué no alcanzan?"},
+    {k:"comunidad", tapar:["comunidades","ayllu","elementos de socialismo práctico"]},
+    {k:"mito", tapar:["mitos"]},
+    {q:"¿Cómo describe Mariátegui la economía peruana, y qué conclusión política saca de la falta de una burguesía nacional?"},
+    {q:"¿Qué separó a Mariátegui de Haya de la Torre y del APRA en 1928?"},
+    {q:"¿Por qué chocó Mariátegui con la Komintern, y qué pasó con su partido después de su muerte?"}
   ],
   zea: [
     {k:"filosofía sin más", tapar:["filosofía a secas","sin adjetivo"]},

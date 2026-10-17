@@ -46,12 +46,33 @@ const CLAVES = {
     ["Vivir fuera de la pólis no es una opción neutral", "Sin ciudad no se desarrolla la deliberación sobre lo justo", "Quien vive sin ciudad es una bestia o un dios", "Objeción moderna: confunde un hecho estadístico con una naturaleza"],
     ["Aristóteles no separa hecho y valor como Hume", "La forma de una cosa ya incluye su fin", "Describir plenamente al humano es describir su plenitud", "Ese supuesto es lo que discute la filosofía moderna"]
   ],
+  epicuro: [
+    ["El placer más alto es la ausencia de dolor y de turbación", "El placer tiene un límite: suprimido el dolor, solo varía", "Los deseos naturales se satisfacen con poco; los vacíos no tienen límite", "Objeción de Cicerón: llamar placer a la ausencia de dolor cambia la palabra"],
+    ["Todo bien y todo mal están en la sensación; la muerte es privación de sensación", "Temer por anticipado lo que no dañará cuando esté presente es absurdo", "Simetría de Lucrecio con el tiempo antes de nacer", "Objeción de la privación (Nagel) y el miedo a morir no queda resuelto"],
+    ["La física tiene una función terapéutica, no de curiosidad", "Los fenómenos tienen causas naturales y los dioses no castigan", "El alma es atómica y se dispersa con la muerte", "El desvío de los átomos rompe la necesidad y deja lugar a la libertad"],
+    ["La amistad empieza por la utilidad pero lo que importa es la confianza", "Puede volverse deseable por sí misma (lectura discutida del manuscrito)", "El sabio moriría por un amigo; el Jardín y el testamento", "Crítica de Cicerón: una amistad interesada no es amistad"],
+    ["La vida pública trae más turbación que seguridad: «vive oculto»", "La justicia es un pacto útil, no una causa", "A favor: lucidez frente a la ambición en el mundo helenístico; el Jardín era comunidad", "En contra: si los que pueden se retiran, los que dañan quedan sin oposición; los estoicos piden participar"]
+  ],
+  estoicos: [
+    ["Ningún estoico romano pidió abolir la esclavitud", "La distinción pide actuar en lo que depende de uno y aceptar el resultado", "La justicia es virtud cardinal y hubo oposición estoica a los tiranos", "Da fuerza para resistir, pero poco para transformar instituciones"],
+    ["Los indiferentes preferidos tienen valor y es razonable buscarlos", "La virtud consiste en elegir bien entre los indiferentes", "Carnéades: la distinción sería solo de palabras", "Aristóteles: la desgracia extrema impide la felicidad"],
+    ["Las pasiones son juicios equivocados que se pueden corregir", "Apátheia no es insensibilidad: hay primeros movimientos y emociones buenas", "Séneca: la ira es una aliada peligrosa", "Objeción: algunos juicios emocionales, como el duelo, son verdaderos"],
+    ["Crisipo: el cilindro rueda por su propia forma", "Las causas externas provocan, pero el carácter decide la respuesta", "El perro atado al carro: seguir de buena gana o ser arrastrado", "Crítica: sería una libertad muy pobre"],
+    ["Epicuro: el fin es el placer como ausencia de dolor y turbación", "Estoicos: el único bien es la virtud", "Átomos sin providencia frente a un cosmos gobernado por la razón", "Vida retirada frente a participación en la ciudad y cosmopolitismo"]
+  ],
   agustin: [
     ["La tesis responde al dualismo maniqueo del mal como sustancia", "Todo lo que existe es bueno; el mal vive en lo bueno como falta", "La privación es real, como la ceguera o un agujero: no se niega el mal", "Objeción: el dolor no se siente como ausencia; la discusión sigue abierta"],
     ["En la forma sí: si me engaño, existo, porque quien no existe no puede engañarse", "Agustín refuta al escéptico, no duda metódicamente para reconstruir el saber", "La certeza de sí es un peldaño hacia Dios: imagen de la Trinidad en ser, conocer y amar", "Descartes hace del cogito el fundamento de una ciencia: antecedente, no cartesiano adelantado"],
     ["El libre albedrío, capacidad de elegir, nunca se pierde y funda la responsabilidad", "La libertad verdadera, poder querer el bien, está herida y la gracia la sana", "Pelagio: Dios no manda imposibles; Julián: dar la gracia a unos y no a otros es injusto", "La tensión entre gracia y libertad atravesó la historia posterior"],
     ["Las ciudades son dos amores, no instituciones", "En esta vida están entremezcladas y solo el juicio final las separa", "La ciudad celestial usa la paz terrena, pero ningún reino es sagrado", "Agustinismo político y apoyo a la coerción contra los donatistas"],
     ["Paradoja: el pasado ya no es, el futuro no es todavía, el presente no tiene extensión", "Tres presentes en el alma: memoria, atención y espera", "El tiempo como distensión del alma; no hay un antes de la creación", "Objeción: queda sin explicar el tiempo del mundo, anterior a toda alma"]
+  ],
+  anselmo: [
+    ["No dice que una definición cree la cosa, sino que un concepto no puede existir solo en el pensamiento", "Es una reducción al absurdo", "Supone que existir en la realidad es mayor (lo ataca Kant)", "Supone que del concepto se pasa a la realidad (lo ataca Tomás)"],
+    ["La isla es una parodia que usa la misma forma de argumento", "Anselmo responde que su fórmula no es lo mayor de una clase", "Una isla siempre puede pensarse mejor o inexistente", "Queda abierto si un máximo de todas las perfecciones es coherente"],
+    ["Los dos niegan el paso del concepto a la existencia", "Tomás: evidente en sí, no para nosotros; prefiere las cinco vías", "Kant: el ser no es un predicado real", "Kant: la razón teórica no puede demostrar a Dios; Tomás solo rechaza el atajo"],
+    ["El vocabulario de honor y deuda tiene ecos feudales", "La satisfacción es la alternativa al castigo, no un castigo sustituto", "El honor de Dios es el orden del universo, no su orgullo", "Abelardo y otros: salva el amor, no un pago"],
+    ["Algo es verdadero cuando es o hace lo que debe", "La verdad es la rectitud perceptible solo por la mente", "Une conocer y obrar: verdad, justicia y libertad como rectitud", "Objeción: mezcla correspondencia con corrección moral"]
   ],
   tomas: [
     ["Las vías prueban un primer principio, no la Trinidad ni la Encarnación", "Objeción a las premisas: la inercia y el salto de la tercera vía", "Objeción de Hume y Kant: unicidad y dependencia del argumento ontológico", "Respuesta tomista: dependencia presente, no serie en el tiempo"],
@@ -60,12 +81,33 @@ const CLAVES = {
     ["El alma es forma del cuerpo, pero de un tipo especial", "Entender no es acto de un órgano, por eso el alma subsiste", "El alma separada no es la persona: importancia de la resurrección", "Objeciones dualista y materialista (neurociencia)"],
     ["No esconder: herejes reincidentes entregados a la muerte (II-II, q.11)", "La mujer como varón defectuoso, tomado de Aristóteles", "Que su época lo compartiera no lo vuelve correcto", "Separar lo que se sostiene por argumentos y discutirlo, sin absolver ni descartar en bloque"]
   ],
+  ockham: [
+    ["Las palabras son convencionales, los conceptos son signos naturales", "Ockham no niega que el parecido entre las cosas sea real", "El parecido no es una entidad más ni una naturaleza común", "Objeción realista: el parecido real ya parece algo común"],
+    ["Es una regla sobre lo que estamos autorizados a afirmar, no sobre el mundo", "Solo se afirma lo que exigen la experiencia, la razón o la fe", "La fórmula de las entidades es del siglo XVII y el principio es anterior a Ockham", "La ciencia lo usa para elegir entre teorías, no como prueba de verdad"],
+    ["La potencia absoluta es lo que Dios podría hacer sin contradicción, no otra manera de actuar", "En el orden establecido, la experiencia es confiable", "La contingencia empuja a conocer el mundo por experiencia", "Objeción: el caso de la estrella inexistente abre una puerta al escepticismo"],
+    ["Nicolás III había aprobado el uso de hecho sin propiedad", "Juan XXII declaró herético que Cristo no tuviera nada", "Un papa que contradice la fe definida pierde su autoridad", "El poder papal es ministerial, no una plenitud ilimitada"],
+    ["Lectura negativa: disolvió la síntesis de Tomás", "Lectura positiva: originó la vía moderna, atenta a lógica y experiencia", "Influyó en Buridán, Ailly, Biel y en la formación de Lutero", "No destruyó la escolástica, cambió sus preguntas"]
+  ],
   descartes: [
     ["El cogito solo garantiza que hay pensamiento ahora", "La sustancia persistente proviene de la teoría de la sustancia, no del cogito", "Hume solo encuentra percepciones sueltas al buscar el yo", "Lichtenberg: lo legítimo sería decir «se piensa»"],
     ["Sin descartar al genio maligno, la evidencia podría ser el engaño", "El criterio sería psicológicamente irresistible pero metafísicamente vacío", "La prueba de Dios usa el mismo criterio: el círculo de Arnauld", "Respuesta cartesiana: distinguir intuición actual de recuerdo de la demostración"],
     ["Supone que lo concebible con claridad indica lo realmente posible", "Supone que la concepción de sí mismo es completa y no parcial", "Contraejemplo de Arnauld con el triángulo rectángulo y Pitágoras", "La inferencia sigue viva en los argumentos modales y los zombis de Chalmers"],
     ["Las sensaciones no se tienen como un piloto en su nave", "Se viven confusamente por estar unido y mezclado con el cuerpo", "La unión es una tercera noción primitiva irreductible", "Isabel de Bohemia: el sistema reconoce un hecho que no explica"],
     ["La acción no puede esperar a la certeza", "Imagen de no destruir la casa antes de tener otra", "Dewey: una duda sin situación real es artificial", "Cuestión de si una duda inoperante en la vida es realmente duda"]
+  ],
+  hobbeslocke: [
+    ["Hobbes: igualdad, competencia, desconfianza y gloria sin poder común llevan a la guerra", "Locke: hay ley natural y propiedad antes del gobierno; faltan ley, juez y poder ejecutor", "Si la alternativa es la guerra, conviene un soberano absoluto; si es una incomodidad, un gobierno limitado", "La diferencia es si la razón obliga ya antes del Estado"],
+    ["Nadie está obligado a matarse ni a dejarse matar: el derecho a defender la vida no se transfiere", "La obediencia dura mientras el soberano pueda proteger", "No hay derecho colectivo a derrocar al soberano por injusticia: los súbditos son autores de sus actos", "La libertad de los súbditos está en el silencio de las leyes"],
+    ["Al mezclar su trabajo con lo común, cada uno lo hace propio sin consentimiento ajeno", "Límites: dejar suficiente y tan bueno, y no desperdiciar; el dinero los debilita", "Objeciones de Nozick (mezclar trabajo) y Macpherson (acumulación ilimitada)", "Uso colonial: la tierra indígena aparece como vacía; también sirvió a campesinos contra latifundistas"],
+    ["Hechos: secretario de Carolina, Constituciones de 1669 y acciones en la Royal African Company", "Su propia teoría de la esclavitud por guerra justa no cubre la trata", "Lecturas: incoherencia personal o puntos ciegos funcionales a la colonización", "Juzgar su conducta con sus propios principios, sin borrar la obra ni la contradicción"],
+    ["No hay ideas innatas: todas vienen de la sensación y la reflexión", "Conocimiento limitado y en gran parte probable", "Consecuencias políticas: contra la autoridad basada en verdades innatas y a favor de la tolerancia", "Tensión: cómo se conoce la ley natural sin principios innatos"]
+  ],
+  spinoza: [
+    ["Para sus contemporáneos era ateo: su Dios no es persona ni tiene fines", "Los románticos lo leyeron como ebrio de Dios", "Panteísmo es impreciso: las cosas son en Dios, con infinitos atributos", "El amor intelectual de Dios no espera ser correspondido"],
+    ["La necesidad no vuelve inofensivo al daño: la sociedad puede protegerse", "Desaparecen el odio, la burla y la venganza", "La ética es conocimiento de lo que aumenta la potencia, no un código para una voluntad libre", "Entender es una causa que cambia la conducta"],
+    ["Bien y mal nombran cómo las cosas nos afectan", "En la cuarta parte el bien es lo que con certeza nos es útil: aumenta la potencia", "Eso depende de la naturaleza humana, que se puede conocer", "Nada es más útil a un ser humano que otro que vive según la razón"],
+    ["La facultad de juzgar no se puede transferir al soberano", "Reprimir opiniones produce hipócritas y premia a los aduladores", "Límite: criticar con razones sin actuar contra las leyes por la propia autoridad", "Con Hobbes comparte el derecho natural como potencia; Locke excluía a los ateos"],
+    ["La comunidad era de antiguos conversos que habían huido de la Inquisición", "El herem contra Spinoza fue excepcionalmente duro y nunca se levantó", "Los motivos precisos no se conocen: vienen de fuentes posteriores", "Comprender las razones de la comunidad no es justificarlas"]
   ],
   hume: [
     ["Hume no niega que hagamos inducciones, niega que se funden en un razonamiento", "El supuesto de uniformidad no se demuestra ni se prueba por experiencia sin círculo", "No todas las creencias valen igual: hay experiencia buena y mala", "Respuestas posteriores: Kant, Popper, justificaciones probabilísticas"],
@@ -95,12 +137,26 @@ const CLAVES = {
     ["La mediación funciona en el pensamiento pero no en la existencia", "Se vive en la elección singular, la angustia y el instante", "Réplica hegeliana: solo una época moderna puede formular esa crítica", "Duda de si el sufrimiento singular es momento del todo o resto"],
     ["Se conserva la estructura: contradicción, negación determinada y superación", "Cambia el sujeto: relaciones materiales de producción en lugar del Espíritu", "La contradicción es entre fuerzas productivas y relaciones sociales", "Objeción: Marx conserva la certeza de un desenlace necesario"]
   ],
+  kierkegaard: [
+    ["El libro plantea un dilema, no una receta para suspender la ética", "Habla un seudónimo que se declara incapaz de imitar a Abraham", "El caballero de la fe no busca seguidores ni actúa por odio", "Objeción de Buber y Levinas: una voz que ordena matar no viene de Dios"],
+    ["Distingue el qué de la verdad del cómo de la relación con ella", "La tesis vale para las cuestiones de la existencia, no para la ciencia", "Kierkegaard no era relativista: creía verdadero el cristianismo", "La fe es una incertidumbre objetiva sostenida con pasión"],
+    ["En Hegel el paso es mediación necesaria; en Kierkegaard, elección y salto", "Nadie está obligado a pasar de un estadio a otro", "El estadio religioso puede suspender lo ético en vez de conservarlo", "Objeción: al ordenar los estadios se acerca a Hegel"],
+    ["Los seudónimos eran un método, no un escondite", "La verdad existencial no se transmite como un dato", "Herencia de Sócrates: ayudar al otro a decidir por sí mismo", "Dificultad: es difícil saber qué pensaba el propio Kierkegaard"],
+    ["La desesperación es una categoría espiritual, no un diagnóstico", "Puede haber desesperación sin sentirla", "Su curación, para Kierkegaard, es religiosa y no clínica", "Una lectura laica conserva el yo como tarea"]
+  ],
   marx: [
     ["Los crímenes de esos regímenes son un hecho que no se suaviza", "Marx no describió un partido único y elogió la Comuna de París", "Críticos: leyes de la historia y dictadura del proletariado sin garantías", "Su silencio sobre cómo limitar el poder dejó un vacío que otros llenaron"],
     ["El prólogo de 1859 se presta a una lectura determinista", "Carta de Engels a Bloch: la economía determina solo en última instancia", "La superestructura actúa a su vez sobre la base", "Objeción: «en última instancia» puede volverse una fórmula que no se pone a prueba"],
     ["Falló la revolución en los países industriales y el empobrecimiento absoluto", "No previó sindicatos, reformas ni Estado de bienestar", "Siguen vigentes la globalización, la concentración y las crisis", "Separar el análisis de tendencias de las predicciones políticas"],
     ["La ideología depende de quién controla la producción de ideas", "El fetichismo surge de la producción para el mercado y no desaparece al explicarlo", "Sirve para pensar la ropa barata o los mercados financieros", "Objeción del autor que se incluye: la teoría de Marx también sería ideológica"],
     ["Textos eurocéntricos: India en 1853 y el artículo sobre Bolívar", "La acumulación originaria incluye la conquista y la esclavitud", "Carta a Zasulich: no hay un camino único para todos los pueblos", "Mariátegui y Dussel lo releen desde América Latina sin aplicarlo como plantilla"]
+  ],
+  mill: [
+    ["Responde a la acusación de moral de cerdos: felicidad no es contento", "Si la calidad no es placer, Mill abandona el hedonismo", "Los jueces competentes reflejan los gustos de su clase", "No autoriza imponer a otros un modo de vida"],
+    ["Excluye el paternalismo y la imposición moral de la mayoría", "Casi toda conducta afecta a otros: se castiga el daño, no el acto", "La frontera entre ofensa y daño es lo discutido", "Excepción: no se puede uno vender como esclavo"],
+    ["Defiende incluso opiniones falsas y odiosas", "Desconfía de quien decide qué es odio", "El comerciante de granos: la incitación a un daño concreto se limita", "Discusión: si la humillación acumulada cuenta como daño"],
+    ["Trabajó 35 años en la Compañía y justificó el despotismo sobre «bárbaros»", "Defensores: criterio de desarrollo, caso Eyre", "Críticos: la jerarquía civilizatoria es estructural y la aplica el colonizador", "Su argumento de la infalibilidad se vuelve contra la excepción"],
+    ["Propuso el voto femenino en 1867 y perdió 73 contra 196", "La naturaleza femenina es un producto artificial", "Reconoció la deuda con Harriet Taylor", "Dejó intacta la división del trabajo doméstico"]
   ],
   nietzsche: [
     ["La objeción de autorrefutación tiene fuerza", "El perspectivismo como práctica de lectura, no verdad sobre el mundo", "Multiplicar perspectivas en lugar de abolir el conocimiento", "Distinción entre perspectivismo global y restringido a los valores"],
@@ -158,12 +214,26 @@ const CLAVES = {
     ["Al-Ghazali condena tres tesis: eternidad del mundo, conocimiento universal de lo particular, resurrección", "Critica que los filósofos no demuestran lo que dicen demostrar", "Defensa: mundo eterno pero causado, Dios conoce todo por sus causas, resurrección aceptada por revelación", "Averroes responde en La incoherencia de la incoherencia"],
     ["Traducciones latinas en Toledo (Gundisalvo y Avendauth) y Gerardo de Cremona", "Influye en Alberto Magno, Tomás de Aquino y Duns Escoto", "El Canon fue manual de medicina hasta el siglo XVII", "El resumen de al-Ghazali se leyó en latín como obra de un filósofo"]
   ],
+  ghazali: [
+    ["Criterio de certeza exigente en ambos y duda de la autoridad y de los sentidos", "Los dos usan el argumento del sueño", "Descartes elige la duda como método; Al-Ghazali la padece como enfermedad", "Descartes sale con argumentos; Al-Ghazali, por una luz divina y no por pruebas"],
+    ["Eternidad del mundo, conocimiento solo universal de los particulares y negación de la resurrección corporal", "Contradicen lo que el Corán enseña claramente", "Las otras diecisiete son innovaciones, no incredulidad; la causalidad se discute por los milagros", "La calificación de incredulidad tenía consecuencias jurídicas graves"],
+    ["Los dos dicen que no se observa la conexión necesaria, solo la concomitancia", "Para Al-Ghazali la costumbre es de Dios; para Hume, de la mente", "Propósitos opuestos: salvar los milagros o desconfiar de ellos", "Paralelo estructural, sin prueba de que Hume lo leyera"],
+    ["Es una simplificación que la mayoría de los historiadores discute", "Al-Ghazali defendió la lógica y la hizo entrar en la formación religiosa", "La filosofía siguió en Oriente: Razi, Suhrawardi, Tusi, Mulla Sadra", "Hubo otras causas políticas y económicas; cambió el rumbo, no la mató"],
+    ["Descubrió que enseñaba por fama y no por Dios", "Seis meses de vacilación, pérdida de la voz y enfermedad en 1095", "Saber qué es la renuncia no es renunciar (dhawq)", "Posibles razones políticas que el propio relato menciona"]
+  ],
   averroes: [
     ["La etiqueta viene de la condena de Tempier en París (1277)", "Averroes sostiene que la verdad no contradice a la verdad", "Si chocan, se corrige la interpretación del texto", "Una verdad con varios modos de expresión, no dos verdades"],
     ["La Ley llega a todos porque usa los tres métodos", "La división parece fija y justifica ocultar interpretaciones", "Objeción de paternalismo: alguien decide qué pueden entender los demás", "Lectura generosa: algo parecido a la divulgación"],
     ["Al-Ghazali: la necesidad del vínculo causal no se observa", "Averroes: sin acciones propias no hay esencias ni ciencia", "Averroes no responde del todo a que la necesidad no se percibe", "Al-Ghazali no niega la regularidad, sino su necesidad sin Dios"],
     ["El intelecto material es separado, eterno y uno para todos", "Problema: explicar que este hombre concreto piensa", "Tomás lo combatió en 1270 y la tesis fue condenada en París", "Amenaza la inmortalidad individual y la responsabilidad personal"],
     ["Evitar la tesis simplista de que el islam rechazó la razón", "Caída almohade y desgracia de 1195", "En Oriente la filosofía siguió por la vía de Avicena", "Traducciones tempranas al hebreo y al latín, y reivindicación árabe moderna"]
+  ],
+  ibnjaldun: [
+    ["Los historiadores aceptaban relatos por la autoridad de los transmisores", "Primero hay que preguntar si el hecho es posible según la naturaleza de la sociedad", "Ejemplo: el ejército de seiscientos mil israelitas de al-Masʿudi", "El método de los transmisores sirve para la Ley, no basta para los hechos"],
+    ["La ʿasabiyya es cohesión de grupo, no solo parentesco de sangre", "Es más fuerte en la vida beduina", "El grupo más cohesionado conquista el poder", "El lujo y la concentración del poder disuelven la cohesión"],
+    ["Habla de una tendencia natural con cifras: tres generaciones, unos 120 años", "Admite excepciones", "La injusticia del gobernante acelera la caída y la moderación la retrasa", "Generaliza desde el Magreb y al-Ándalus"],
+    ["Los dos parten de cómo se produce la vida material", "Los dos ven en el trabajo la fuente del valor", "Ciclo frente a progreso; cohesión frente a lucha de clases", "No hay pruebas de que Marx lo leyera"],
+    ["Pocos continuadores inmediatos; leído por los otomanos", "Descubierto por Europa en el siglo XIX y leído con categorías modernas", "Era un jurista malikí que criticó a los filósofos", "Aspectos incómodos: juicios sobre los africanos y conducta política"]
   ],
   confucio: [
     ["Las Analectas plantean obligaciones recíprocas entre superior e inferior", "El gobernante que no gobierna pierde el nombre; Mencio admite derrocar al tirano", "La asimetría persiste: nada obliga al superior y las mujeres quedan excluidas", "La versión imperial de los tres vínculos endureció la jerarquía"],
@@ -178,6 +248,13 @@ const CLAVES = {
     ["Ambos aceptan que el rito surge de una carencia", "Para Confucio solo la práctica permite volver; el carácter se forma practicando", "Para Laozi el rito perpetúa la carencia al volverla obligación externa", "Distinguir dominios: oficios frente a sinceridad afectiva; convivencia histórica de ambos"],
     ["Tratarla como hipótesis que se examina con dureza", "Casos favorables: agua y roca, estructuras flexibles, artes marciales internas", "Sesgo de selección y problema de escala temporal", "Versión modesta: la persistencia flexible rinde más a largo plazo"],
     ["Para evaluar los argumentos la autoría importa poco o nada", "Las contradicciones no se explican por evolución de un autor", "Hay que datar las capas, como muestra Guodian", "El texto es un caudal y no un edificio, como Homero o las Analectas"]
+  ],
+  mencioxunzi: [
+    ["Los dos aceptan los mismos hechos: la gente puede volverse buena o mala y el cultivo importa", "Para Mencio naturaleza es la tendencia de desarrollo, como el agua que baja", "Para Xunzi naturaleza es lo dado sin aprender; lo logrado es artificio (wěi)", "Queda un desacuerdo real: brotes orientados al bien o deseos que hay que reorientar desde afuera"],
+    ["Muestra una reacción de compasión inmediata, sin los tres motivos interesados", "Mencio afirma un brote, no que todos salven al niño", "Un caso no prueba la universalidad y los otros tres brotes van por analogía", "Xunzi: junto al sobresalto están el amor al provecho y la envidia"],
+    ["Xunzi: los ritos nacen del artificio de los sabios, como la vasija del alfarero", "La inteligencia ve que el desorden perjudica a todos y crea distinciones", "Los ritos se depuran por acumulación histórica", "Esa capacidad de querer el orden acerca a Xunzi a Mencio"],
+    ["Mencio: el tirano es un simple individuo; ajusticiarlo no es regicidio (1B8)", "El pueblo es lo más importante; el Cielo ve como ve el pueblo", "No hay derecho general de rebelión ni instituciones que limiten el poder", "Xunzi coincide sobre Tang y Wu, pero teme más al desorden y confía en ritos y leyes"],
+    ["Han Fei y Li Si tomaron la desconfianza ante los impulsos y el convencionalismo de los nombres", "Descartaron lo esencial: rito, maestro, transformación del carácter", "Xunzi criticó a Qin por no tener letrados", "La acusación tradicional sirvió para consagrar a Mencio como heredero legítimo"]
   ],
   zhuangzi: [
     ["Admitir que el relativismo aplicado a sí mismo parece autorrefutarse", "Zhuangzi muestra, no afirma: escepticismo terapéutico como la nasa abandonada", "Lo negado es un criterio neutral para arbitrar entre criterios", "El saber del cocinero es no proposicional y escapa a la paradoja"],
@@ -263,12 +340,26 @@ const CLAVES = {
     ["Dewey anticipó la objeción del ladrón que crece como ladrón", "Crecer es aumentar la capacidad de seguir creciendo", "Un fin externo fijado de antemano detiene la revisión", "Peters: el criterio depende de una concepción sustantiva de la buena vida"],
     ["Ambos rechazan que saber el bien baste y forman el carácter por la práctica", "Lo confuciano mira al pasado; Dewey trata el pasado como material a reconstruir", "El li busca armonía; para Dewey el conflicto impulsa la indagación", "El hábito podría ser el terreno común entre ambos"]
   ],
+  marti: [
+    ["La incapacidad no está en los pueblos sino en los gobernantes que importan leyes ajenas", "El buen gobernante conoce los elementos de su país y crea instituciones nacidas de él", "El injerto: las ideas de afuera sirven si el tronco es propio", "Queda abierto quién define los elementos del país"],
+    ["Negaba el fundamento científico del racismo cuando dominaba la ciencia racial", "Respondía al miedo a la guerra de razas usado por España contra la independencia", "El mismo ensayo conserva vocabulario racial y cierto paternalismo", "La fórmula pudo usarse después para negar el racismo, como en Cuba en 1912"],
+    ["El peligro es el desdén de un vecino que no conoce a nuestra América", "Niega una maldad ingénita del pueblo del norte", "Nace de quince años de crónicas en Nueva York y de las conferencias de 1889-1891", "Se leyó como profecía tras la intervención de 1898"],
+    ["Ser culto es el único modo de ser libre: la educación es base de la república", "Educación científica, práctica y adecuada a cada región, con maestros ambulantes", "Con Freire comparte partir de la realidad y no copiar modelos", "Pero todavía piensa el saber como depósito que se lleva al que no sabe"],
+    ["Pensar es servir: no separó escritura y acción política", "Modernismo sin torre de marfil: imágenes para mover a lectores no especialistas", "Fundó el Partido Revolucionario Cubano para que la guerra no dejara una república de caudillos", "Su muerte en Dos Ríos lo volvió símbolo apropiado por bandos opuestos"]
+  ],
   vasconcelos: [
     ["Escribe contra la tesis de la degeneración por mestizaje y el blanqueamiento", "El libro conserva vocabulario eugenésico y la raza como sujeto histórico", "Lectura más honesta: el texto hace ambas cosas a la vez", "La ideología del mestizaje sirvió para negar un racismo persistente"],
     ["El contraste es mayormente un estereotipo refutable con los textos", "Dewey en El arte como experiencia integra lo estético en la experiencia ordinaria", "Un espíritu latino común es una generalización como las que denuncia", "Queda legítima la pregunta de para qué se quiere ser eficiente"],
     ["Gestión y obra teórica son dos preguntas distintas que no deben mezclarse", "Creó la SEP, bibliotecas, alfabetización, misiones culturales y apoyó el muralismo", "El modelo era misionero, vertical y de canon europeo", "La integración dejó a las culturas indígenas como pasado, no como presente"],
     ["Valoró lo indígena cuando la opinión ilustrada lo veía como lastre", "Su pensamiento subordina lo indígena a una síntesis mestiza por diseño", "Los movimientos indígenas actuales reclaman reconocimiento como pueblos, no integración", "Celebró lo indígena mientras deseaba su disolución en el conjunto"],
     ["Tras 1929 giró hacia un hispanismo católico y conservador", "En 1940 dirigió Timón, financiada por Alemania y favorable al nazismo", "Su idea de raza con misión ofrece poca resistencia al nacionalismo racial", "Posición mayoritaria: señalar dónde el marco resistió y dónde no"]
+  ],
+  mariategui: [
+    ["La miseria indígena es consecuencia del latifundio y la servidumbre, no de la naturaleza ni de la cultura", "El gamonalismo neutraliza leyes, escuelas y prédicas humanitarias", "La explicación racial repite ideas imperialistas, desmentidas por los pueblos asiáticos", "Objeción: el racismo tiene vida propia y no desaparece solo con la reforma agraria"],
+    ["Rechaza la idea de que el socialismo es una ideología extranjera", "Rechaza copiar el esquema europeo de etapas", "El marxismo como método aplicado a una realidad de campesinos indígenas y comunidades", "La Komintern lo miró con sospecha; tensión entre crear y seguir siendo marxista"],
+    ["Llamó comunismo inkaico a un Estado jerárquico y tributario, y pasó por alto desigualdades de la comunidad", "Distinguió el comunismo moderno del incaico: no se trata de restaurar el pasado", "La comunidad como punto de apoyo práctico que el liberalismo quiso destruir", "La reforma agraria de 1969 como caso para discutirlo"],
+    ["Haya: el imperialismo es la primera etapa del capitalismo y la fuerza decisiva son las clases medias", "Mariátegui: las burguesías son socias del imperialismo y el antiimperialismo solo no es programa", "En juego: frente policlasista nacional o movimiento de clase socialista", "El APRA ganó la organización; Mariátegui, la influencia intelectual"],
+    ["Ambos: ninguna educación es neutral", "Mariátegui: la escuela no funciona dentro del latifundio; primero la tierra", "Freire: la educación misma puede ser parte de la lucha", "Corrección mutua: concientización sin tierra frustra; tierra sin lectura crítica cae en nuevos patrones"]
   ],
   zea: [
     ["Declarar imaginario el tribunal no cambia la asimetría institucional", "La maniobra parece terapéutica más que estructural", "Ninguna filosofía surge fuera de una circunstancia: la universalidad europea es falsa", "La legitimidad se obtiene produciendo obra, no discutiéndola"],

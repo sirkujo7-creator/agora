@@ -92,6 +92,36 @@ const DIAGRAMAS = {
       {a:"Avaricia", b:"Prodigalidad", d:"Entre ambas está la generosidad: dar y gastar en la medida adecuada, ni retener lo que conviene dar ni derrochar lo propio."},
       {a:"Insensibilidad", b:"Intemperancia", d:"Entre ambas está la templanza respecto de los placeres corporales; Aristóteles nota que el defecto es raro y casi no tiene nombre."}]}
   ],
+  epicuro: [
+    {tipo:"partes", titulo:"La clasificación de los deseos", intro:"Carta a Meneceo: cómo distingue Epicuro los deseos para saber cuáles satisfacer y cuáles descartar.", centro:"Deseos", nota:"La subdivisión de los necesarios (para la vida, para el cuerpo, para la felicidad) es de la Carta; los ejemplos de cada clase vienen de un comentario antiguo a las Máximas capitales y de la tradición epicúrea.",
+     nodos:[
+      {t:"Necesarios para la vida", d:"Naturales y necesarios: si no se satisfacen, se sufre y se muere. Comer y beber cuando hay hambre y sed. Se satisfacen con poco: pan y agua."},
+      {t:"Necesarios para el bienestar del cuerpo", d:"Naturales y necesarios para que el cuerpo no sufra: abrigo, techo, descanso."},
+      {t:"Necesarios para la felicidad", d:"Naturales y necesarios para la tranquilidad del alma: la amistad y la filosofía, que liberan del miedo."},
+      {t:"Naturales no necesarios", d:"Varían un placer que ya tenemos, pero no suprimen ningún dolor: comer manjares en vez de pan. No son malos, pero no hay que depender de ellos."},
+      {t:"Vacíos (vanos)", d:"No nacen de la naturaleza sino de opiniones falsas, y no tienen límite: riqueza sin fin, fama, poder, estatuas y coronas. Traen más turbación que placer."}]},
+    {tipo:"polos", titulo:"El Jardín y el Pórtico", intro:"Epicúreos y estoicos, las dos grandes escuelas helenísticas: buscan la tranquilidad por caminos opuestos.", polos:{"izq":"epicúreos","der":"estoicos"}, nota:"Es una comparación de las doctrinas típicas de cada escuela; dentro de cada una hubo matices y cambios a lo largo de los siglos. Los estoicos tendrán su propia ficha.",
+     nodos:[
+      {a:"El bien es el placer", b:"El único bien es la virtud", d:"Para Epicuro, el placer como ausencia de dolor y turbación es el fin, y las virtudes son medios para alcanzarlo; para los estoicos, la virtud es el único bien y el placer es indiferente."},
+      {a:"Átomos, vacío y azar", b:"Una razón divina ordena todo", d:"Los epicúreos explican el mundo por átomos que se combinan sin plan; los estoicos ven en el cosmos un logos providente que lo gobierna todo."},
+      {a:"Dioses que no intervienen", b:"Providencia y destino", d:"Los dioses de Epicuro viven felices sin ocuparse de los humanos, y el desvío de los átomos rompe la necesidad; los estoicos aceptan un destino que el sabio debe querer."},
+      {a:"Vivir retirado entre amigos", b:"Participar como ciudadano del mundo", d:"Epicuro aconseja apartarse de la política y vivir en comunidad de amigos; los estoicos piden que el sabio participe en la vida pública si nada se lo impide."}]}
+  ],
+  estoicos: [
+    {tipo:"polos", titulo:"Lo que depende y lo que no depende de nosotros", intro:"Enquiridión 1: la distinción con que Epicteto abre su manual y que organiza toda la ética estoica romana.", polos:{"izq":"depende de nosotros","der":"no depende de nosotros"}, nota:"Los ejemplos de cada par son de Epicteto; la presentación en pares es una simplificación didáctica.",
+     nodos:[
+      {a:"El juicio y la opinión", b:"El cuerpo y la salud", d:"Puedo decidir qué pienso de lo que me pasa; no puedo decidir no enfermarme. Epicteto pone el cuerpo entre lo que no depende de nosotros."},
+      {a:"El deseo y la aversión", b:"Los bienes y la riqueza", d:"Depende de mí qué deseo y qué rechazo; no depende de mí conservar lo que tengo. El que desea lo que no depende de él se condena a la frustración."},
+      {a:"El impulso a actuar", b:"La reputación y los cargos", d:"Mis decisiones son obra mía; lo que otros piensen de mí y los puestos que me den, no. Lo primero es libre; lo segundo, ajeno y sujeto a impedimentos."},
+      {a:"Cómo respondo a lo que pasa", b:"Lo que pasa", d:"La muerte, el exilio o la pobreza pueden llegar; lo que depende de mí es el juicio con que los recibo. No nos perturban las cosas, sino nuestros juicios sobre ellas."}]},
+    {tipo:"secuencia", titulo:"Cómo nace una pasión", intro:"La psicología estoica de Crisipo y Séneca: la pasión no es una fuerza ciega, sino el resultado de un asentimiento.", nota:"La división en pasos sigue a Séneca, De ira II 1-4, y a la doctrina de Crisipo; los nombres de cada paso son de esta ficha.",
+     nodos:[
+      {t:"Impresión", d:"Algo se nos presenta como bueno o malo: un insulto, una amenaza, una oferta. Recibir la impresión no depende de nosotros."},
+      {t:"Primer movimiento", d:"El cuerpo reacciona solo: el sobresalto, el rubor, la palidez. Séneca dice que incluso el sabio los siente, y que todavía no son pasión."},
+      {t:"Asentimiento", d:"La mente da por verdadero el juicio «esto es un mal» o «esto es un bien». Aquí está nuestra libertad y nuestra responsabilidad."},
+      {t:"Pasión", d:"El impulso desmesurado que sigue al asentimiento: la ira, el miedo, la aflicción o el deseo desbordado. Es un juicio equivocado hecho emoción."},
+      {t:"Examen y corrección", d:"Detenerse y decirle a la impresión: «sos una impresión, y no del todo lo que parecés». Revisar el juicio es la terapia estoica."}]}
+  ],
   agustin: [
     {tipo:"secuencia", titulo:"El camino de una conversión", intro:"Confesiones III-VIII: las etapas por las que pasó Agustín antes del jardín de Milán.", nota:"El orden es el del relato de las Confesiones, escrito más de diez años después; Agustín organiza su vida desde el final, y los historiadores discuten cuánto de ese relato es reconstrucción.",
      nodos:[
@@ -107,6 +137,22 @@ const DIAGRAMAS = {
       {a:"Deseo de dominar", b:"Servicio mutuo por caridad", d:"En una, los príncipes y las naciones son dominados por el deseo de dominar; en la otra, los que gobiernan y los que obedecen se sirven mutuamente."},
       {a:"Hace de la paz terrena su fin", b:"Usa la paz terrena como peregrina", d:"La ciudad celestial también necesita la tranquilidad del orden, pero no pone su esperanza en ningún imperio."}]}
   ],
+  anselmo: [
+    {tipo:"secuencia", titulo:"El argumento del Proslogion II", intro:"Los pasos de la reducción al absurdo con la que Anselmo pasa del entendimiento a la realidad.", nota:"La división en cinco pasos es una reconstrucción didáctica; Anselmo lo expone en un solo párrafo continuo.",
+     nodos:[
+      {t:"El insensato entiende la fórmula", d:"Cuando oye «algo mayor que lo cual nada puede pensarse», el que niega a Dios entiende lo que oye; y lo que se entiende está en el entendimiento."},
+      {t:"Existir en la realidad es mayor", d:"Lo que existe en el entendimiento y en la realidad es mayor que lo que existe solo en el entendimiento. Es la premisa que atacará Kant."},
+      {t:"Supuesto: solo en el entendimiento", d:"Se supone lo contrario de lo que se quiere probar: que aquello mayor que lo cual nada puede pensarse existe solo como pensamiento."},
+      {t:"Contradicción", d:"Entonces podría pensarse algo mayor: lo mismo, existiendo también en la realidad. Lo máximo pensable no sería lo máximo pensable."},
+      {t:"Existe también en la realidad", d:"Como el supuesto lleva a una contradicción, se concluye que aquello mayor que lo cual nada puede pensarse existe en el entendimiento y en la realidad."}]},
+    {tipo:"partes", titulo:"La verdad como rectitud", intro:"Sobre la verdad (c. 1080–1085): los ámbitos en los que Anselmo encuentra verdad, y la definición que los une.", centro:"Rectitud perceptible solo por la mente", nota:"Anselmo trata también la verdad de los sentidos y la verdad suprema, que es Dios, causa de todas las rectitudes; el diagrama agrupa las principales.",
+     nodos:[
+      {t:"Enunciado", d:"Es verdadero cuando significa que es lo que es: cumple lo que debe hacer al significar."},
+      {t:"Pensamiento", d:"Es verdadero cuando piensa que es lo que es, y que no es lo que no es."},
+      {t:"Voluntad", d:"Es verdadera cuando quiere lo que debe querer. De aquí sale la definición de la justicia: rectitud de la voluntad conservada por sí misma."},
+      {t:"Acción", d:"Es verdadera cuando hace lo que debe: obrar bien es, en este sentido, hacer la verdad."},
+      {t:"Esencia de las cosas", d:"Las cosas son verdaderas cuando son lo que deben ser según la verdad suprema de la que reciben el ser."}]}
+  ],
   tomas: [
     {tipo:"partes", titulo:"Las cinco vías", intro:"Suma teológica I, q.2, a.3: cinco caminos que van de algo observado en el mundo a su causa primera.", centro:"Existencia de Dios", nota:"Todas son pruebas a posteriori, desde los efectos. Lo que concluyen es un primer principio; que sea el Dios de la fe se discute en las cuestiones siguientes.",
      nodos:[
@@ -121,6 +167,20 @@ const DIAGRAMAS = {
       {t:"Ley natural", d:"La participación de la ley eterna en la criatura racional. Su primer precepto es hacer el bien y evitar el mal, y se ordena según las inclinaciones naturales."},
       {t:"Ley humana", d:"Concreta la ley natural para una comunidad, por conclusión o por determinación. Si la contradice, no es ley, sino corrupción de ley."}]}
   ],
+  ockham: [
+    {tipo:"secuencia", titulo:"De la cosa singular a la palabra escrita", intro:"Suma de lógica I, 1-15: cómo se encadenan, según Ockham, el conocimiento de los singulares y los tres lenguajes.", nota:"Ockham no presenta estos pasos como una lista numerada; el orden es una reconstrucción de su explicación sobre el origen de los conceptos y la subordinación de los signos.",
+     nodos:[
+      {t:"Cosas singulares", d:"Fuera de la mente solo existen individuos: este hombre, esta piedra, esta blancura. No hay naturalezas comunes repartidas en ellos."},
+      {t:"Conocimiento intuitivo", d:"El primer contacto con lo singular: saber de manera evidente que esta cosa existe y cómo está, aquí y ahora."},
+      {t:"Concepto: signo natural", d:"La mente forma naturalmente un concepto que está en lugar de muchos individuos parecidos. Es singular en sí mismo, universal por su función."},
+      {t:"Palabra hablada", d:"Signo convencional subordinado al concepto: «hombre», homo o man significan lo mismo por acuerdo de cada comunidad."},
+      {t:"Palabra escrita", d:"Signo convencional subordinado a la palabra hablada; como ella, significa las cosas, no los conceptos, pero según el orden de los conceptos."}]},
+    {tipo:"polos", titulo:"Realismo y nominalismo", intro:"El problema de los universales: la posición de Ockham frente al realismo de Tomás y de Escoto.", polos:{"izq":"realismo","der":"nominalismo de Ockham"}, nota:"Tomás y Escoto no defienden el mismo realismo: para Tomás la naturaleza es universal solo en la mente; Escoto le da en las cosas una unidad menor que la numérica. Ockham rechaza ambas versiones.",
+     nodos:[
+      {a:"Hay una naturaleza común en las cosas", b:"Fuera de la mente todo es singular", d:"El realista pone en Sócrates y Platón algo común, la humanidad; Ockham sostiene que cada uno tiene solo su ser singular."},
+      {a:"El universal se funda en una realidad", b:"El universal es un signo de muchos", d:"Para Ockham, lo universal es el concepto, que está en lugar de muchos individuos parecidos; no hace falta otra entidad que lo fundamente."},
+      {a:"Distinción formal en la cosa", b:"Solo distinción real o de razón", d:"Escoto distinguía en la cosa la naturaleza y lo que la individúa; Ockham considera esa distinción ininteligible fuera de la Trinidad y la corta con la navaja."}]}
+  ],
   descartes: [
     {tipo:"secuencia", titulo:"El camino de la duda", intro:"Meditaciones I y II: de la duda a la primera certeza.",
      nodos:[
@@ -133,6 +193,36 @@ const DIAGRAMAS = {
       {a:"Atributo: pensamiento", b:"Atributo: extensión", d:"La mente duda, entiende, afirma, niega, quiere, imagina y siente; el cuerpo tiene longitud, anchura y profundidad."},
       {a:"Indivisible, sin lugar", b:"Infinitamente divisible", d:"La sustancia pensante no ocupa espacio ni tiene partes; la extensa puede dividirse sin término y ocupa lugar."},
       {a:"Más conocida que el cuerpo", b:"Sin fines ni interioridad", d:"La mente se conoce antes y mejor que cualquier cuerpo; la materia carece de cualidades sensibles y de finalidad, y por eso es enteramente geometrizable."}]}
+  ],
+  hobbeslocke: [
+    {tipo:"secuencia", titulo:"Del miedo al Leviatán", intro:"Leviatán, capítulos XIII a XVII: el camino que va de la igualdad natural a la creación del Estado.", nota:"Hobbes presenta este camino como un razonamiento, no como una historia de cómo nacieron los Estados reales; la división en seis pasos es didáctica.",
+     nodos:[
+      {t:"Igualdad natural", d:"Nadie es tan superior que no pueda ser vencido: el más débil puede matar al más fuerte con astucia o con aliados."},
+      {t:"Competencia, desconfianza y gloria", d:"Las tres causas de discordia: atacar por ganancia, por seguridad anticipándose a otros y por reputación."},
+      {t:"Guerra de todos contra todos", d:"Sin poder común no hay industria, ni artes, ni sociedad, ni justicia: la vida es solitaria, pobre, desagradable, brutal y breve."},
+      {t:"Las leyes de naturaleza", d:"El miedo a la muerte y la razón aconsejan buscar la paz y renunciar al derecho a todo si los demás también lo hacen."},
+      {t:"El pacto de cada uno con cada uno", d:"Todos autorizan a un hombre o a una asamblea a actuar en su nombre, porque los pactos sin la espada son solo palabras."},
+      {t:"El soberano, dios mortal", d:"Nace el Leviatán, con poder absoluto e indivisible; solo el derecho a defender la propia vida queda fuera del pacto."}]},
+    {tipo:"polos", titulo:"Hobbes y Locke frente a frente", intro:"Leviatán (1651) y Segundo tratado (1689): las mismas piezas teóricas con respuestas opuestas.", polos:{"izq":"Hobbes","der":"Locke"}, nota:"La comparación simplifica: los dos parten de la igualdad natural, y Hobbes también reconoce un derecho inalienable a defender la vida.",
+     nodos:[
+      {a:"Estado de naturaleza: guerra", b:"Estado de naturaleza: ley natural", d:"Para Hobbes, sin poder común no hay justicia y todos tienen derecho a todo; para Locke, la razón ya obliga a no dañar a otros."},
+      {a:"Propiedad después del soberano", b:"Propiedad antes del gobierno", d:"Para Hobbes no hay mío y tuyo sin ley; para Locke la propiedad nace del trabajo y el gobierno existe para protegerla."},
+      {a:"Soberano absoluto e indivisible", b:"Gobierno limitado y poderes separados", d:"Hobbes cree que dividir el poder lleva a la guerra civil; Locke, que concentrarlo deja a los súbditos indefensos frente al gobernante."},
+      {a:"Sin derecho de rebelión", b:"Derecho de resistencia del pueblo", d:"Para Hobbes los súbditos son autores de los actos del soberano; para Locke, si el gobierno traiciona la confianza, se disuelve."},
+      {a:"El soberano fija las doctrinas", b:"Tolerancia religiosa", d:"Hobbes da al soberano el control de lo que se enseña para evitar guerras de religión; Locke separa el Estado de la Iglesia, con exclusiones."}]}
+  ],
+  spinoza: [
+    {tipo:"niveles", titulo:"Los tres géneros de conocimiento", intro:"Ética, parte II, proposición 40, escolio 2: tres maneras de conocer, de la más confusa a la más alta.", nota:"Spinoza ilustra los tres con un mismo problema de proporciones, resuelto de memoria, por demostración o de un golpe de vista.",
+     nodos:[
+      {t:"Imaginación u opinión", d:"Primer género: conocimiento por los sentidos, de oídas o por signos. Es fragmentario y confuso, y la única fuente de falsedad."},
+      {t:"Razón", d:"Segundo género: conocimiento por nociones comunes, lo que todas las cosas comparten. Es adecuado y necesariamente verdadero."},
+      {t:"Ciencia intuitiva", d:"Tercer género: va de la idea adecuada de un atributo de Dios a la esencia de las cosas singulares. De él nace el amor intelectual de Dios y la beatitud."}]},
+    {tipo:"polos", titulo:"Servidumbre y libertad", intro:"Ética, partes IV y V: dos maneras de vivir los afectos.", polos:{"izq":"servidumbre","der":"libertad"}, nota:"No son dos clases de personas, sino dos extremos entre los que cada uno se mueve: la libertad humana es de grado.",
+     nodos:[
+      {a:"Padecer: causas externas", b:"Actuar: por la propia naturaleza", d:"En la servidumbre, la causa adecuada de lo que hacemos está fuera de nosotros; en la libertad, lo que hacemos se sigue de lo que comprendemos."},
+      {a:"Ideas inadecuadas", b:"Ideas adecuadas", d:"Quien padece conoce de manera confusa, por la imaginación; quien es libre forma ideas claras y distintas de sus afectos y de sus causas."},
+      {a:"Pasiones tristes", b:"Alegría que nace de la razón", d:"La tristeza disminuye la potencia de obrar; la alegría que nace de entender la aumenta y culmina en el amor intelectual de Dios."},
+      {a:"Meditación de la muerte", b:"Meditación de la vida", d:"El hombre libre, dice la proposición 67 de la cuarta parte, en nada piensa menos que en la muerte: su sabiduría es una meditación de la vida."}]}
   ],
   hume: [
     {tipo:"secuencia", titulo:"Cómo nace la idea de causa", intro:"Investigación sobre el entendimiento humano, secciones IV, V y VII: del primer choque de las bolas de billar a la idea de conexión necesaria.", nota:"Hume no presenta estos pasos como una lista numerada: es una reconstrucción de su análisis.",
@@ -193,6 +283,19 @@ const DIAGRAMAS = {
       {t:"Espíritu objetivo", d:"La libertad hecha mundo en el derecho, la moralidad y las instituciones de la eticidad: familia, sociedad civil y Estado."},
       {t:"Espíritu subjetivo", d:"El espíritu en el individuo: alma, conciencia y vida psicológica, todavía sin plasmarse en instituciones compartidas."}]}
   ],
+  kierkegaard: [
+    {tipo:"niveles", titulo:"Los tres estadios de la existencia", intro:"O lo uno o lo otro, Estadios en el camino de la vida y el Postscriptum: tres maneras de vivir, de la más alta a la más inmediata.", eje:"se pasa por un salto, no por necesidad", nota:"Kierkegaard no los presenta como etapas obligatorias: muchos viven toda la vida en el estadio estético. Entre ellos sitúa zonas de transición, la ironía y el humor; ordenarlos como escalera es una simplificación.",
+     nodos:[
+      {t:"Religioso", d:"El individuo descubre su culpa y se relaciona de manera absoluta con Dios, por encima de lo universal. Su figura extrema es Abraham, el caballero de la fe."},
+      {t:"Ético", d:"Quien se elige a sí mismo asume deberes y expresa su vida en lo universal: el matrimonio, el trabajo, la palabra dada. Su figura es el juez Wilhelm."},
+      {t:"Estético", d:"La vida en lo inmediato: el placer, lo interesante, las posibilidades sin compromiso. Su figura es el seductor, y su destino, el aburrimiento y la desesperación."}]},
+    {tipo:"polos", titulo:"El Sistema y el individuo", intro:"El Postscriptum (1846) y Temor y temblor frente a la filosofía de Hegel y sus seguidores daneses.", polos:{"izq":"Hegel","der":"Kierkegaard"}, nota:"Es la versión de Hegel que Kierkegaard combate, en buena parte la de los hegelianos de Copenhague; los lectores de Hegel discuten si le hace justicia.",
+     nodos:[
+      {a:"Mediación", b:"Salto", d:"Para Hegel, cada figura pasa necesariamente a la siguiente, que la conserva y la supera; para Kierkegaard, en la existencia se pasa por una decisión que ningún argumento obliga a tomar."},
+      {a:"El todo es lo verdadero", b:"La subjetividad es la verdad", d:"Hegel busca la verdad en el sistema completo; Kierkegaard sostiene que en las cuestiones de la existencia lo decisivo es cómo el individuo se apropia de ella."},
+      {a:"Lo universal es lo más alto", b:"El individuo sobre lo universal", d:"Para la ética hegeliana, el individuo se realiza en las instituciones; para Temor y temblor, en la fe el individuo puede estar por encima de lo universal."},
+      {a:"La fe superada por el concepto", b:"La fe como paradoja", d:"Para Hegel, la filosofía piensa en conceptos lo que la religión representa; para Kierkegaard, la fe no es una etapa que se supera, sino una tarea de toda la vida."}]}
+  ],
   marx: [
     {tipo:"niveles", titulo:"Base y superestructura", intro:"Prólogo a la Contribución a la crítica de la economía política (1859): el edificio de una sociedad, de las formas de conciencia a las fuerzas productivas.", eje:"condiciona en última instancia, de abajo hacia arriba", nota:"Engels advirtió en su carta a Joseph Bloch (1890) que la determinación económica es solo «en última instancia»: los niveles superiores también actúan sobre los inferiores. La división en cuatro niveles es una simplificación didáctica del texto de 1859.",
      nodos:[
@@ -207,6 +310,20 @@ const DIAGRAMAS = {
       {t:"Producción y plusvalía", d:"Durante la jornada, los obreros producen más valor del que cuesta su salario. Ese trabajo excedente no pagado es la plusvalía."},
       {t:"Venta de las mercancías", d:"Las mercancías producidas se venden en el mercado y el valor que contienen, incluida la plusvalía, se realiza en dinero."},
       {t:"Dinero aumentado y reinversión", d:"El capitalista recupera más dinero del que adelantó, y la competencia lo obliga a reinvertir buena parte para volver a empezar a mayor escala: es la acumulación."}]}
+  ],
+  mill: [
+    {tipo:"partes", titulo:"Los cuatro argumentos por la libertad de expresión", intro:"Sobre la libertad (1859), capítulo II: cuatro razones para no silenciar ninguna opinión.", centro:"No silenciar opiniones", nota:"Mill los resume al final del capítulo II. El límite no está en la opinión sino en la incitación a un daño concreto, como en el ejemplo del comerciante de granos.",
+     nodos:[
+      {t:"Puede ser verdadera", d:"Suprimir una opinión es suponerse infalible, y ninguna autoridad lo es: las que condenaron a Sócrates y a Jesús estaban seguras de tener razón."},
+      {t:"Puede tener parte de verdad", d:"La opinión dominante rara vez es toda la verdad; solo el choque con las opiniones contrarias completa lo que le falta."},
+      {t:"Sin discusión, la verdad es prejuicio", d:"Aunque la opinión aceptada sea verdadera, si nadie la discute se sostiene sin comprender sus razones: quien solo conoce su lado sabe poco incluso de eso."},
+      {t:"Sin discusión, el sentido muere", d:"La doctrina no discutida se vuelve un dogma muerto, una fórmula que se repite y ya no orienta la conducta ni el carácter."}]},
+    {tipo:"polos", titulo:"Bentham y Mill: dos utilitarismos", intro:"El utilitarismo que Mill heredó de Bentham y el que propuso en El utilitarismo (1861).", polos:{"izq":"Bentham","der":"Mill"}, nota:"Mill no rompió con Bentham: corrigió su psicología y su idea del placer. Algunos críticos piensan que, al hacerlo, abandonó sin decirlo el hedonismo.",
+     nodos:[
+      {a:"Solo cantidad de placer", b:"Calidad de los placeres", d:"Bentham medía los placeres por intensidad, duración y otras dimensiones cuantitativas; Mill sostiene que unos placeres son superiores en clase, según la preferencia de los jueces competentes."},
+      {a:"Un juego vale tanto como la poesía", b:"Mejor Sócrates insatisfecho", d:"Para Bentham, a igual placer, un juego infantil vale lo mismo que la poesía; para Mill, es mejor ser Sócrates insatisfecho que un tonto satisfecho."},
+      {a:"Calcular las consecuencias", b:"Reglas como almanaque náutico", d:"Bentham proponía un cálculo de placeres y dolores; Mill sostiene que las reglas morales corrientes recogen la experiencia de la humanidad y sirven de guía, como el almanaque para el navegante."},
+      {a:"Ser humano como calculador", b:"Ser humano capaz de progreso", d:"Mill reprocha a Bentham una visión pobre de la naturaleza humana y funda la libertad en los intereses permanentes de un ser que se desarrolla."}]}
   ],
   nietzsche: [
     {tipo:"secuencia", titulo:"Las tres transformaciones", intro:"Así habló Zaratustra: camello, león y niño ordenan el trabajo de transmutar los valores.", nota:"Relacionar las figuras con genealogía, crítica y creación es una lectura de conjunto, no una correspondencia que Nietzsche enuncie paso por paso.",
@@ -320,6 +437,22 @@ const DIAGRAMAS = {
       {t:"Intelecto en acto", d:"Ha adquirido formas inteligibles y puede pensarlas cuando quiere, aunque no las esté pensando ahora, como quien sabe geometría y no está resolviendo un problema."},
       {t:"Intelecto adquirido", d:"Contempla efectivamente las formas inteligibles, en contacto con el intelecto agente: es la perfección del alma racional."}]}
   ],
+  ghazali: [
+    {tipo:"secuencia", titulo:"El camino del Munqidh", intro:"El que libra del extravío (c. 1106–1110): las etapas de la búsqueda de la certeza tal como Al-Ghazali las cuenta.", nota:"El orden es el del relato del propio Al-Ghazali, escrito años después y con intención apologética; los historiadores no lo toman como una crónica exacta.",
+     nodos:[
+      {t:"Las creencias heredadas", d:"Ve que los hijos de cristianos crecen cristianos y los de musulmanes, musulmanes, y decide buscar los fundamentos de la certeza."},
+      {t:"La duda de los sentidos", d:"La razón corrige a la vista: la sombra que parece quieta se mueve, la estrella que parece pequeña es mayor que la Tierra."},
+      {t:"La duda de la razón", d:"Quizás haya un juez superior a la razón, como la vigilia es superior al sueño. Sin primeros principios no hay prueba: dos meses de escepticismo."},
+      {t:"La luz en el corazón", d:"La salida no viene de argumentos, sino de una luz que Dios pone en el pecho y que devuelve su fuerza a los primeros principios."},
+      {t:"Examen de los buscadores", d:"Teólogos, filósofos y partidarios de un imán infalible: ninguno da la certeza que promete, aunque los filósofos aciertan en lógica y matemáticas."},
+      {t:"El camino sufí", d:"El saber más alto se saborea (dhawq): exige renunciar a la fama y a la riqueza. Por eso deja Bagdad en 1095."}]},
+    {tipo:"polos", titulo:"Al-Ghazali y Hume ante la causalidad", intro:"La discusión XVII de La incoherencia de los filósofos (1095) y la Investigación sobre el entendimiento humano de Hume (1748): un argumento parecido con fines distintos.", polos:{"izq":"Al-Ghazali","der":"Hume"}, nota:"El paralelo es estructural: no hay pruebas de que Hume haya leído a Al-Ghazali.",
+     nodos:[
+      {a:"El algodón arde «junto con» el fuego", b:"Solo vemos conjunción constante", d:"Los dos parten de lo mismo: la observación no capta la conexión necesaria entre causa y efecto, solo que los hechos van juntos."},
+      {a:"La costumbre de Dios", b:"La costumbre de la mente", d:"Para Al-Ghazali, lo que une los hechos es Dios, que los crea juntos según su costumbre. Para Hume, es la mente, que se habitúa a pasar de uno al otro."},
+      {a:"Dios crea el saber de la regularidad", b:"La naturaleza nos impone creer", d:"Al-Ghazali: Dios pone en nosotros el conocimiento de que no hará lo meramente posible. Hume: la naturaleza humana es demasiado fuerte para que la duda nos paralice."},
+      {a:"Salvar el milagro", b:"Desconfiar del milagro", d:"Al-Ghazali quiere mostrar que los milagros son posibles; Hume, en cambio, sostiene que nunca es razonable creer en el testimonio de un milagro."}]}
+  ],
   averroes: [
     {tipo:"niveles", titulo:"Tres clases de personas y de argumentos", intro:"Doctrina decisiva: los modos en que los seres humanos asienten a la verdad, del más riguroso al más común.", eje:"más certeza en las premisas", nota:"La jerarquía es de Averroes, pero no excluye a nadie de la verdad: la Ley habla a las tres clases, cada una con su método.",
      nodos:[
@@ -331,6 +464,21 @@ const DIAGRAMAS = {
       {a:"Solo observamos sucesión", b:"Las cosas tienen acciones propias", d:"Al-Ghazali: vemos que el algodón arde cuando lo toca el fuego, no que el fuego lo queme. Averroes: las naturalezas de las cosas se manifiestan en sus acciones."},
       {a:"Dios crea cada efecto", b:"Sin acciones propias no hay esencias", d:"Para Al-Ghazali, lo que quema al algodón es Dios. Para Averroes, si el fuego no quemara no tendría definición: no se distinguiría del agua."},
       {a:"El milagro: Dios rompe la costumbre", b:"Negar las causas es negar el intelecto", d:"Al-Ghazali quiere salvar la posibilidad de los milagros. Averroes responde que sin causas no hay ciencia, y lo que queda es sofística."}]}
+  ],
+  ibnjaldun: [
+    {tipo:"ciclo", titulo:"Las cinco etapas de una dinastía", intro:"Muqaddima, sobre las dinastías: el recorrido de un poder desde la conquista hasta el derroche, que deja el lugar a un grupo nuevo.", nota:"Las cinco etapas son de Ibn Jaldún; que la última cierre el círculo con la llegada de otro grupo es la lectura de su teoría del ciclo, no una etapa que él numere.",
+     nodos:[
+      {t:"Conquista", d:"El grupo con más cohesión vence a la dinastía anterior. El gobernante comparte la gloria con los suyos y gobierna con ellos."},
+      {t:"Autocracia", d:"El gobernante concentra el poder en sí mismo, aparta a sus antiguos compañeros y se apoya en clientes y servidores."},
+      {t:"Ocio y prosperidad", d:"Momento de esplendor: se recauda bien, se construyen ciudades y monumentos, se disfruta de los frutos del poder."},
+      {t:"Conformismo", d:"El gobernante se limita a imitar a sus predecesores, satisfecho con lo heredado, sin entender lo que lo sostuvo."},
+      {t:"Derroche", d:"Se gasta en lujos y favoritos, se suben los impuestos, se pierde el apoyo y la cohesión: la dinastía queda expuesta a un grupo más fuerte."}]},
+    {tipo:"polos", titulo:"Beduinos y sedentarios", intro:"Muqaddima, sobre la vida beduina y la vida urbana: dos formas de vida cuya tensión mueve la historia.", polos:{"izq":"Badawa (vida beduina)","der":"Hadara (vida sedentaria)"}, nota:"Ibn Jaldún no idealiza a ninguno de los dos polos: la vida beduina tiene la fuerza, pero la civilización, las ciencias y los oficios solo florecen en la ciudad.",
+     nodos:[
+      {a:"Lo necesario", b:"Lo superfluo y el refinamiento", d:"La vida beduina se ocupa de sobrevivir; la ciudad nace del excedente y busca el lujo."},
+      {a:"Fuerte cohesión de grupo", b:"Cohesión debilitada", d:"En el desierto nadie sobrevive solo; en la ciudad cada uno confía en las murallas, las leyes y el gobierno."},
+      {a:"Valentía y autonomía", b:"Dependencia de leyes y soldados", d:"El beduino se defiende por sí mismo; el habitante de la ciudad delega su defensa y se vuelve temeroso."},
+      {a:"Pocas ciencias y oficios", b:"Ciencias, oficios y riqueza", d:"La división del trabajo y la población numerosa de la ciudad producen la civilización refinada."}]}
   ],
   confucio: [
     {tipo:"polos", titulo:"La persona ejemplar y el hombre pequeño", intro:"Analectas: los rasgos del junzi se dan siempre por contraste con los del xiaoren, en pares.", polos:{"izq":"Jūnzǐ (persona ejemplar)","der":"Xiǎorén (hombre pequeño)"}, nota:"Ninguno de los dos es una clase social: Confucio arrebata la palabra junzi a la aristocracia y la convierte en un logro moral que se conquista con años de práctica.",
@@ -360,6 +508,21 @@ const DIAGRAMAS = {
       {t:"La benevolencia (rén)", d:"Perdida la virtud aparece la benevolencia, el valor confuciano central. Para el libro, que haya que predicarla es síntoma de que algo ya se perdió, como dice también el capítulo 18."},
       {t:"La rectitud (yì)", d:"Perdida la benevolencia aparece la rectitud: otro escalón de la caída, en el que lo correcto ya tiene que formularse y enseñarse en vez de darse por sí mismo."},
       {t:"El rito (lǐ)", d:"Última estación de la caída: el rito es la corteza delgada de la lealtad y el comienzo del desorden. Es la acusación que cayó sobre el confucianismo entero."}]}
+  ],
+  mencioxunzi: [
+    {tipo:"partes", titulo:"Los cuatro brotes", intro:"Mencio 2A6: cada uno de los cuatro corazones que todos traen es el brote de una virtud.", centro:"El corazón (xīn) que no soporta el sufrimiento ajeno", nota:"El orden de las piezas sigue el de Mencio. «Brote» (duān) es la punta de un retoño: no es la virtud acabada, sino su comienzo, que hay que ensanchar.",
+     nodos:[
+      {t:"Compasión → benevolencia (rén)", d:"El sobresalto ante el niño que va a caer al pozo. Es el brote del que Mencio da el ejemplo más vívido."},
+      {t:"Vergüenza y aversión → rectitud (yì)", d:"Sentir vergüenza del mal propio y aversión al ajeno: el brote del sentido de lo que corresponde hacer."},
+      {t:"Ceder y apartarse → rito (lǐ)", d:"La disposición a dar paso al otro, a no tomar primero. De ella crecen las formas del respeto."},
+      {t:"Distinguir lo correcto → sabiduría (zhì)", d:"El discernimiento entre lo correcto y lo incorrecto, que con el cultivo se vuelve sabiduría práctica."}]},
+    {tipo:"polos", titulo:"Mencio y Xunzi", intro:"Las dos herencias de Confucio, pieza por pieza.", polos:{"izq":"Mencio","der":"Xunzi"}, nota:"El contraste simplifica: en la práctica los dos coinciden en mucho, por ejemplo en que el tirano pierde la legitimidad y en que cualquiera puede llegar a ser un sabio.",
+     nodos:[
+      {a:"La naturaleza humana es buena", b:"La naturaleza humana es mala", d:"Para Mencio la naturaleza es la tendencia de desarrollo; para Xunzi, lo dado sin aprender, que sin forma lleva a la disputa."},
+      {a:"Cultivar brotes, como un agricultor", b:"Enderezar madera, como un artesano", d:"Las imágenes centrales: la planta que hay que proteger sin tirar de ella, y la madera torcida que necesita la prensa."},
+      {a:"El rito expresa lo que ya hay adentro", b:"El rito forma lo que todavía no hay", d:"Para Mencio el rito crece del brote de la deferencia; para Xunzi es obra de los sabios, como la vasija del alfarero."},
+      {a:"El Cielo, fuente moral del mandato", b:"El Cielo, curso regular de la naturaleza", d:"Mencio conserva el Cielo que ve como ve el pueblo; Xunzi lo despoja de intenciones: no premia ni castiga."},
+      {a:"Despertar al rey con su compasión", b:"Asegurar el orden con ritos y leyes", d:"Mencio apela a la compasión del gobernante; Xunzi prefiere instituciones que no dependan de ella."}]}
   ],
   zhuangzi: [
     {tipo:"partes", titulo:"¿Desde dónde se juzga?", intro:"Capítulo 2 (Qiwulun): las preguntas por el criterio correcto, que muestran que toda afirmación se hace desde algún lugar.", centro:"¿Quién sabe el criterio correcto?", nota:"No se sigue que nada sea verdad: Zhuangzi usa la incertidumbre como terapia contra la arrogancia del que discute, no como tesis de que todo da igual.",
@@ -531,6 +694,23 @@ const DIAGRAMAS = {
       {a:"La idea como copia", b:"La idea como herramienta", d:"Una idea no es un espejo de una realidad previa, como un martillo no se parece al clavo; se juzga por lo que permite hacer."},
       {a:"Lo más real, lo inmóvil", b:"Cambiar el mundo inestable", d:"Ante un mundo peligroso, la filosofía buscó refugio en un orden inmutable alcanzado por el pensamiento puro; Dewey propone, en cambio, cambiar el mundo mediante la acción."}]}
   ],
+  marti: [
+    {tipo:"polos", titulo:"El gobernante importador y el creador", intro:"Las dos figuras que Nuestra América contrapone: el que gobierna con libros ajenos y el que gobierna conociendo su país.", polos:{"izq":"Gobernante importador","der":"Gobernante creador"}, nota:"Las etiquetas resumen frases del ensayo; la organización en pares es de Ágora.",
+     nodos:[
+      {a:"Sabe cómo se gobierna el francés", b:"Sabe con qué elementos está hecho su país", d:"El buen gobernante en América no es el que conoce los modelos extranjeros, sino el que conoce la composición real de su pueblo."},
+      {a:"Leyes heredadas de otros pueblos", b:"Instituciones nacidas del país", d:"Con un decreto de Hamilton no se para al potro del llanero: las formas de gobierno tienen que acomodarse a los elementos propios."},
+      {a:"Lee para copiar", b:"Lee para aplicar", d:"Martí no rechaza el libro extranjero: injerta el mundo en el tronco propio y usa lo ajeno para responder a problemas de aquí."},
+      {a:"Falsa erudición", b:"Conocimiento del país", d:"No hay batalla entre civilización y barbarie, sino entre la falsa erudición y la naturaleza: conocer el país es el único modo de librarlo de tiranías."},
+      {a:"Gobierna sin el hombre natural", b:"La razón de todos en las cosas de todos", d:"La república que se hizo con los campesinos e indios no puede gobernarse contra ellos ni sin ellos."}]},
+    {tipo:"secuencia", titulo:"El recorrido de Nuestra América", intro:"Los pasos del ensayo de 1891, del aldeano vanidoso a la negación del odio de razas.", nota:"El ensayo avanza por imágenes y no por apartados; la división en pasos es de Ágora.",
+     nodos:[
+      {t:"El aldeano vanidoso", d:"Cree que el mundo es su aldea y no ve a los gigantes de siete leguas: los pueblos de América tienen que despertar y conocerse para unirse."},
+      {t:"Los sietemesinos", d:"Los que no tienen fe en su tierra y se avergüenzan de la madre india: Martí los opone al orgullo de nuestras repúblicas dolorosas."},
+      {t:"El gobierno ha de nacer del país", d:"La incapacidad no está en los pueblos sino en quienes los rigen con leyes ajenas; gobernante, en un pueblo nuevo, quiere decir creador."},
+      {t:"La colonia continuó en la república", d:"La independencia cambió las formas pero no el espíritu; el tigre de la colonia vuelve de noche con zarpas de terciopelo."},
+      {t:"Crear es la palabra de pase", d:"La generación nueva lee para aplicar y no para copiar, y empieza a preguntarse cómo somos."},
+      {t:"El vecino formidable y las razas", d:"El peligro mayor es el desdén del vecino que no nos conoce; y no hay odio de razas, porque no hay razas."}]}
+  ],
   vasconcelos: [
     {tipo:"secuencia", titulo:"Los tres estados de la humanidad", intro:"La periodización de la historia que Vasconcelos propone en La raza cósmica (1925), del pasado guerrero al porvenir estético.", nota:"La periodización se afirma más que se prueba, y un tercer estado guiado por el gusto ofrece menos garantías contra el abuso que el de las normas jurídicas.",
      nodos:[
@@ -542,6 +722,22 @@ const DIAGRAMAS = {
       {a:"Una jerarquía fija de razas", b:"La raza como sujeto histórico", d:"Rechaza que las razas estén ordenadas de una vez para siempre, pero sigue tomando la raza como unidad real del análisis histórico."},
       {a:"Que la mezcla degenere", b:"La síntesis como mejoramiento", d:"Contra la antropología de 1925, el mestizaje no degrada; pero la quinta raza se proyecta como mejora, lo que supone tipos humanos mejores y peores."},
       {a:"Una raza destinada a dominar", b:"El vocabulario eugenésico", d:"Ninguna raza debe imponerse, y sin embargo el texto habla de selección, de eliminación de tipos inferiores y de un cruce dirigido por el gusto."}]}
+  ],
+  mariategui: [
+    {tipo:"partes", titulo:"Seis soluciones que no alcanzan", intro:"«El problema del indio»: las seis maneras de plantear la cuestión que Mariátegui descarta, todas alrededor de la raíz que dejan intacta.", centro:"La tierra: latifundio y servidumbre", nota:"El orden y la agrupación siguen la enumeración del propio ensayo; las razones de cada pieza están resumidas.",
+     nodos:[
+      {t:"Administrativa", d:"Ordenanzas y decretos de protección se acumulan desde la colonia, pero el gamonal, como antes el encomendero, sabe que la práctica es distinta."},
+      {t:"Jurídica", d:"La reforma de las leyes no tiene más valor que la administrativa frente a un feudalismo intacto; sin disolver el feudo no funciona ningún derecho liberal."},
+      {t:"Étnica", d:"Esperar la emancipación del cruce con inmigrantes blancos repite el viejo repertorio imperialista de razas inferiores."},
+      {t:"Moral o humanitaria", d:"Confía en conmover a los opresores; la prédica humanitaria no detuvo ni suavizó la explotación colonial."},
+      {t:"Educacional", d:"La escuela no puede funcionar dentro del latifundio: el gamonal tiene interés en la ignorancia del indio y el maestro queda sometido."},
+      {t:"Eclesiástica", d:"Ni siquiera la autoridad de frailes como Las Casas logró más que leyes sabias que no cambiaron la suerte de los indios."}]},
+    {tipo:"polos", titulo:"Mariátegui frente a Haya de la Torre", intro:"La polémica de 1928 sobre el APRA: dos maneras de pensar la lucha contra el imperialismo en América Latina.", polos:{"izq":"Haya de la Torre (APRA)","der":"Mariátegui"}, nota:"La oposición está simplificada: los dos venían del mismo movimiento y sus posiciones se fueron precisando en la polémica misma.",
+     nodos:[
+      {a:"Imperialismo, primera etapa del capitalismo", b:"Imperialismo y feudalidad, aliados", d:"Para Haya el capital extranjero trae el capitalismo a América Latina; para Mariátegui se apoya en la feudalidad sobreviviente y la refuerza."},
+      {a:"Clases medias al frente", b:"Obreros y campesinos al frente", d:"Haya confía en las clases medias como fuerza decisiva; Mariátegui, en los obreros y en los campesinos indígenas."},
+      {a:"Estado antiimperialista primero", b:"Antiimperialismo dentro del socialismo", d:"Haya propone una etapa nacional antes del socialismo; Mariátegui sostiene que el antiimperialismo solo no es programa."},
+      {a:"Partido nacionalista", b:"Partido socialista de clase", d:"En 1928 Haya convierte el frente en partido con candidato propio; Mariátegui funda el Partido Socialista del Perú."}]}
   ],
   zea: [
     {tipo:"secuencia", titulo:"Hacia una filosofía sin más", intro:"El argumento de La filosofía americana como filosofía sin más (1969), de la pregunta mal planteada a la consigna final.", nota:"La división en pasos es una reconstrucción; la objeción que la ficha discute es que una desigualdad institucional no desaparece por declararla mal planteada.",
