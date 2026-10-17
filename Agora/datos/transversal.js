@@ -32,7 +32,20 @@ const EPOCA = {
   buda:-450,
   lascasas:1552,
   freire:1968,
-  falsborda:1979
+  falsborda:1979,
+  epicuro:-300,
+  estoicos:125,
+  anselmo:1078,
+  ockham:1323,
+  hobbeslocke:1651,
+  spinoza:1677,
+  kierkegaard:1843,
+  mill:1859,
+  ghazali:1095,
+  ibnjaldun:1377,
+  mencioxunzi:-300,
+  marti:1891,
+  mariategui:1928
 };
 
 /* ============ CONSTELACIONES: un mismo problema, varias fichas ============

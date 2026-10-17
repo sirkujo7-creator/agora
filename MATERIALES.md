@@ -49,19 +49,19 @@ Casi todo lo de esta lista es de dominio público y está en internet. Si habili
 
 | Autor | Textos | Imagen |
 |---|---|---|
-| [ ] Epicuro | *Carta a Meneceo* (completa: es breve) | Busto de Epicuro |
-| [ ] Los estoicos | Epicteto, *Enquiridión* 1–5; Marco Aurelio, *Meditaciones* II 1; Séneca, *Cartas a Lucilio* 1 | Estatua ecuestre de Marco Aurelio |
-| [ ] Anselmo de Canterbury | *Proslogion* II–IV (el argumento ontológico) | Vitral o miniatura |
-| [ ] Guillermo de Ockham | El principio de economía; textos sobre los universales | Vitral de Surrey o boceto (Commons) |
-| [ ] Al-Ghazali | *Tahafut* (la causalidad: el algodón y el fuego); *El que libra del error* | Caligrafía o manuscrito |
-| [ ] Ibn Jaldún | *Muqaddima*, sobre la *asabiyya* | Estatua de Túnez |
-| [ ] Baruch Spinoza | *Ética* I, apéndice; *Ética* III, prefacio | Retrato anónimo (1665) |
-| [ ] Hobbes y Locke | *Leviatán* cap. XIII; *Segundo tratado* cap. II y V | Frontispicio del *Leviatán* (Abraham Bosse) |
-| [ ] Søren Kierkegaard | *Temor y temblor* (Abraham); *La enfermedad mortal*, inicio | Dibujo de Niels Christian Kierkegaard |
-| [ ] John Stuart Mill | *Sobre la libertad* cap. I (el principio del daño); *El utilitarismo* cap. II | Fotografía de London Stereoscopic Company |
-| [ ] Mencio y Xunzi | *Mencio* 2A6 (el niño en el pozo); *Xunzi* 23 (la naturaleza humana es mala) | Grabado chino (Commons) |
-| [ ] José Martí | *Nuestra América* (1891), completo | Fotografía de Martí (Kingston, 1892) |
-| [ ] José Carlos Mariátegui | *Siete ensayos*, «El problema del indio» | Fotografía de Mariátegui |
+| [x] Epicuro | *Carta a Meneceo* (completa: es breve) | Busto de Epicuro |
+| [x] Los estoicos | Epicteto, *Enquiridión* 1–5; Marco Aurelio, *Meditaciones* II 1; Séneca, *Cartas a Lucilio* 1 | Estatua ecuestre de Marco Aurelio |
+| [x] Anselmo de Canterbury | *Proslogion* II–IV (el argumento ontológico) | Vitral o miniatura |
+| [x] Guillermo de Ockham | El principio de economía; textos sobre los universales | Vitral de Surrey o boceto (Commons) |
+| [x] Al-Ghazali | *Tahafut* (la causalidad: el algodón y el fuego); *El que libra del error* | Caligrafía o manuscrito |
+| [x] Ibn Jaldún | *Muqaddima*, sobre la *asabiyya* | Estatua de Túnez |
+| [x] Baruch Spinoza | *Ética* I, apéndice; *Ética* III, prefacio | Retrato anónimo (1665) |
+| [x] Hobbes y Locke | *Leviatán* cap. XIII; *Segundo tratado* cap. II y V | Frontispicio del *Leviatán* (Abraham Bosse) |
+| [x] Søren Kierkegaard | *Temor y temblor* (Abraham); *La enfermedad mortal*, inicio | Dibujo de Niels Christian Kierkegaard |
+| [x] John Stuart Mill | *Sobre la libertad* cap. I (el principio del daño); *El utilitarismo* cap. II | Fotografía de London Stereoscopic Company |
+| [x] Mencio y Xunzi | *Mencio* 2A6 (el niño en el pozo); *Xunzi* 23 (la naturaleza humana es mala) | Grabado chino (Commons) |
+| [x] José Martí | *Nuestra América* (1891), completo | Fotografía de Martí (Kingston, 1892) |
+| [x] José Carlos Mariátegui | *Siete ensayos*, «El problema del indio» | Fotografía de Mariátegui |
 
 ### Tanda 3
 

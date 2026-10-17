@@ -158,6 +158,58 @@ const VIDAS = {
       {anio:"Siglo XIII", texto:"Traducido al latín, se convierte en la gran autoridad de las universidades medievales gracias a Tomás de Aquino."}
     ]
   },
+  epicuro: {
+    lema:"Hijo de colonos atenienses en Samos, fundó en las afueras de Atenas una comunidad de amigos, el Jardín, donde enseñó que la felicidad es una vida sin miedo y sin dolor, al alcance de cualquiera.",
+    secciones:[
+      {titulo:"Samos, Teos, Atenas",
+       texto:"Epicuro nació en 341 a.C. en la isla de Samos, donde su familia, de origen ateniense, había recibido tierras como colonos. Su padre, Neocles, era maestro de escuela. Según Diógenes Laercio, empezó a filosofar a los catorce años, porque sus maestros no supieron explicarle de dónde había salido el caos del que habla Hesíodo.\n\nEstudió con Nausífanes, un seguidor de Demócrito, en Teos, y de él tomó el atomismo, aunque después habló de su maestro con desprecio y se presentó como alguien que se había formado solo. A los dieciocho años fue a Atenas para cumplir el servicio militar de los jóvenes ciudadanos, justo cuando murió Alejandro Magno, en 323 a.C."},
+      {titulo:"Un mundo sin pólis",
+       texto:"Epicuro vivió en la época helenística, después de las conquistas de Alejandro. Las ciudades griegas, que habían sido el centro de la vida política y de la filosofía de Platón y Aristóteles, quedaron sometidas a los reinos de los sucesores de Alejandro, que se hacían la guerra entre sí. Atenas cambió de manos varias veces en vida de Epicuro.\n\nPoco después de la muerte de Alejandro, los colonos atenienses fueron expulsados de Samos, y la familia de Epicuro se refugió en Colofón, en Asia Menor. Era un mundo inestable, donde un ciudadano común tenía poca influencia sobre su destino político. Las filosofías de la época —epicúreos, estoicos, escépticos— dejaron de preguntar sobre todo por la ciudad ideal y se preguntaron cómo puede una persona vivir tranquila en medio de esa inestabilidad."},
+      {titulo:"El Jardín",
+       texto:"Hacia 311 a.C. empezó a enseñar en Mitilene, en la isla de Lesbos, y después en Lámpsaco, donde reunió a sus primeros discípulos, entre ellos Metrodoro y Hermarco. Hacia 307-306 a.C. se instaló en Atenas y compró una casa con un huerto, el Jardín, que dio nombre a la escuela. Allí vivió hasta su muerte con sus amigos y discípulos, entre ellos mujeres, como Leontion y Temista, y esclavos, como Mys.\n\nLa vida en el Jardín era sencilla: se dice que bastaban el pan y el agua, y que Epicuro pedía un poco de queso cuando quería darse un banquete. Escribía mucho, sobre todo cartas a las comunidades epicúreas de otras ciudades. Sus enemigos difundieron historias de excesos, en parte por boca de Timócrates, un discípulo que abandonó la escuela; Diógenes Laercio las recoge y las considera calumnias."},
+      {titulo:"Muerte, escuela y herencia",
+       texto:"Epicuro sufrió durante años de cálculos renales y murió en 270 a.C. En una carta escrita el último día, según Diógenes Laercio, dice que lo escribe en un día feliz, que es también el último, y que a los dolores opone la alegría del recuerdo de las conversaciones filosóficas. Su testamento dejó el Jardín a Hermarco, ordenó cuidar a los hijos de su amigo Metrodoro, liberó a varios esclavos y pidió que se celebrara una reunión el día veinte de cada mes en memoria suya y de Metrodoro.\n\nLa escuela duró siglos. En Roma, Lucrecio expuso su física en el poema De la naturaleza de las cosas, y Filodemo de Gádara reunió la biblioteca que se encontró en Herculano. El cristianismo lo rechazó por negar la providencia y la inmortalidad del alma, y Dante puso a los epicúreos en el infierno. Fue recuperado en el Renacimiento, tras el redescubrimiento del poema de Lucrecio en 1417, y en el siglo XVII por Pierre Gassendi, que influyó en la nueva ciencia; en 1841 Marx le dedicó su tesis doctoral."},
+      {titulo:"Por qué piensa así",
+       texto:"En un mundo donde los reinos se hacían la guerra y la vida política de las ciudades había perdido su sentido, Epicuro buscó una felicidad que no dependiera de la fortuna ni del poder: una vida retirada, sencilla y compartida con amigos. Su propia experiencia de expulsión y de exilio en Colofón le mostró lo frágil que es la seguridad que dan la ciudad y la riqueza.\n\nEl atomismo de Demócrito, que conoció de joven, le dio una física sin dioses que intervengan y sin un alma que sobreviva, y la usó como medicina contra los dos miedos más extendidos de su tiempo: el miedo a los dioses y el miedo al castigo después de la muerte. Y su larga enfermedad, que soportó con serenidad hasta el final, le dio una autoridad particular para decir que el dolor intenso dura poco y que el recuerdo de los bienes compartidos puede más que él."}
+    ],
+    hitos:[
+      {anio:"341 a.C.", texto:"Nace en Samos, en una familia de colonos atenienses."},
+      {anio:"c. 327 a.C.", texto:"Empieza a filosofar; estudia con Nausífanes, seguidor de Demócrito, en Teos."},
+      {anio:"323 a.C.", texto:"Servicio militar en Atenas; muere Alejandro Magno. Poco después, su familia es expulsada de Samos y se refugia en Colofón."},
+      {anio:"c. 311 a.C.", texto:"Comienza a enseñar en Mitilene y luego en Lámpsaco, donde reúne a sus primeros discípulos."},
+      {anio:"c. 307–306 a.C.", texto:"Se instala en Atenas y funda el Jardín, una comunidad abierta a mujeres y esclavos."},
+      {anio:"270 a.C.", texto:"Muere en Atenas tras una larga enfermedad; deja el Jardín a Hermarco."},
+      {anio:"Siglo I a.C.", texto:"Lucrecio escribe De la naturaleza de las cosas; Filodemo reúne la biblioteca epicúrea de Herculano."},
+      {anio:"1417", texto:"Poggio Bracciolini redescubre el poema de Lucrecio, que reaviva el interés por el atomismo."},
+      {anio:"1888", texto:"Se publican las Sentencias Vaticanas, encontradas en un manuscrito de la Biblioteca Vaticana."}
+    ]
+  },
+  estoicos: {
+    lema:"Una escuela nacida en un pórtico de Atenas que, cinco siglos después, enseñaba a vivir a un esclavo liberto, a un senador millonario y a un emperador en guerra.",
+    secciones:[
+      {titulo:"La Estoa griega",
+       texto:"Hacia el 312 a.C., según cuenta Diógenes Laercio, Zenón, un comerciante de Citio, en Chipre, llegó a Atenas después de un naufragio. En una librería leyó un libro sobre Sócrates y preguntó dónde podía encontrar a alguien así; le señalaron al cínico Crates, que pasaba por ahí. Zenón estudió con él y con otros maestros, y hacia el 300 a.C. empezó a enseñar en la Stoa Poikíle, el Pórtico Pintado de la plaza pública. Sus seguidores se llamaron estoicos, «los del pórtico».\n\nCleantes, un antiguo boxeador que trabajaba de noche sacando agua para pagar sus estudios, lo sucedió y escribió un Himno a Zeus. Crisipo, el tercer director, escribió cientos de libros y dio a la escuela su forma sistemática. De todos ellos se conservan solo fragmentos y testimonios. En los siglos II y I a.C., Panecio y Posidonio llevaron la doctrina a Roma, y Cicerón, que no era estoico, la difundió en latín."},
+      {titulo:"Séneca: el senador y el emperador que educó",
+       texto:"Lucio Anneo Séneca nació en Córdoba hacia el año 4 a.C., en una familia rica de la provincia, y se formó en Roma en la retórica y la filosofía. Fue abogado y senador. En el 41 el emperador Claudio lo desterró a Córcega, acusado de adulterio con una princesa; ocho años después, Agripina lo hizo volver para que fuera tutor de su hijo, Nerón.\n\nCuando Nerón llegó al poder en el 54, Séneca fue durante años su consejero principal y acumuló una de las mayores fortunas del imperio. Estuvo cerca de los crímenes del régimen: después del asesinato de Agripina, en el 59, se le atribuye la carta con que Nerón lo justificó ante el Senado. Sus contemporáneos ya le reprochaban predicar la pobreza siendo millonario. Se retiró de la corte hacia el 62 y escribió entonces las Cartas a Lucilio. En el 65, acusado de participar en la conjura de Pisón, recibió la orden de quitarse la vida, y lo hizo, según Tácito, conversando con sus amigos como si fuera una lección."},
+      {titulo:"Epicteto: el esclavo que enseñó la libertad",
+       texto:"Epicteto nació hacia el año 50 en Hierápolis, en Frigia, y fue esclavo; su nombre significa «adquirido». En Roma perteneció a Epafrodito, un liberto que fue secretario de Nerón. Era cojo: una tradición antigua dice que su amo le torció la pierna y que él le advirtió con calma que se la iba a romper, y otra fuente habla de una enfermedad. Con permiso de su amo estudió con el estoico Musonio Rufo, y en algún momento fue liberado.\n\nHacia el año 93, el emperador Domiciano expulsó de Roma a los filósofos, y Epicteto se instaló en Nicópolis, en el noroeste de Grecia, donde abrió una escuela a la que llegaban jóvenes de familias importantes. Vivió pobremente, no escribió nada y murió hacia el 135. Su alumno Arriano anotó sus clases en las Disertaciones y las resumió en el Enquiridión."},
+      {titulo:"Marco Aurelio: filosofía en campaña",
+       texto:"Marco Aurelio nació en Roma en el 121. El emperador Adriano lo destinó a la sucesión y dispuso que Antonino Pío lo adoptara. De joven, Junio Rústico le hizo leer a Epicteto, y Marco lo agradece en el primer libro de sus Meditaciones. Fue emperador desde el 161 hasta su muerte, en el 180.\n\nSu reinado fue de los más difíciles: la guerra contra los partos, la peste que trajeron las legiones al volver de Oriente, la sublevación de Avidio Casio y, sobre todo, las largas guerras contra los marcomanos y los cuados en la frontera del Danubio, donde pasó buena parte de sus últimos años y donde escribió, en griego, sus notas para sí mismo. Bajo su reinado hubo persecuciones locales de cristianos, como la de Lyon en el 177; su grado de responsabilidad personal se discute. Lo sucedió su hijo Cómodo, uno de los peores emperadores de Roma."},
+      {titulo:"Por qué piensa así",
+       texto:"El estoicismo griego nació en una Atenas que había perdido su independencia política ante Macedonia: cuando la ciudad ya no podía garantizar una vida libre, la filosofía buscó una libertad que nadie pudiera quitar, y un ciudadano del mundo en lugar de un ciudadano de la polis. Los estoicos romanos heredaron esa respuesta en un imperio donde la vida de cualquiera dependía del capricho de un emperador.\n\nPor eso no es casual que la doctrina se haya vuelto tan concreta en estas tres vidas. Epicteto, que había sido propiedad de otro, sabía en el cuerpo qué significa que algo no dependa de uno. Séneca, que vivió entre el destierro, la riqueza y la sombra de Nerón, escribe sobre el tiempo y la muerte como quien sabe que puede recibir la orden de morir en cualquier momento. Y Marco Aurelio, con todo el poder del mundo, se recuerda cada mañana que el poder no hace a nadie bueno y que pronto todo, él incluido, será olvidado."}
+    ],
+    hitos:[
+      {anio:"c. 300 a.C.", texto:"Zenón de Citio empieza a enseñar en el Pórtico Pintado (Stoa Poikíle) de Atenas."},
+      {anio:"c. 232–206 a.C.", texto:"Crisipo dirige la escuela y sistematiza la lógica, la física y la ética estoicas."},
+      {anio:"c. 4 a.C.", texto:"Nace Séneca en Córdoba, en la provincia romana de Hispania."},
+      {anio:"41–49", texto:"Séneca, desterrado en Córcega por Claudio; vuelve para ser tutor de Nerón."},
+      {anio:"c. 62–65", texto:"Séneca, retirado de la corte, escribe las Cartas a Lucilio; muere por orden de Nerón en el 65."},
+      {anio:"c. 93", texto:"Domiciano expulsa a los filósofos de Roma; Epicteto, ya liberto, funda su escuela en Nicópolis."},
+      {anio:"c. 108–135", texto:"Arriano asiste a las clases de Epicteto y las publica en las Disertaciones y el Enquiridión."},
+      {anio:"161", texto:"Marco Aurelio se convierte en emperador de Roma."},
+      {anio:"c. 170–180", texto:"En las campañas del Danubio, Marco Aurelio escribe sus notas para sí mismo; muere en el 180."}
+    ]
+  },
   agustin: {
     lema:"Retórico africano que pasó por el maniqueísmo, el escepticismo y el neoplatonismo antes de convertirse, y que como obispo de Hipona escribió las obras que formaron el pensamiento cristiano de Occidente.",
     secciones:[
@@ -182,6 +234,32 @@ const VIDAS = {
       {anio:"c. 397–401", texto:"Escribe las Confesiones."},
       {anio:"410–426", texto:"Tras el saqueo de Roma por Alarico, escribe La ciudad de Dios; polémica contra Pelagio desde 411."},
       {anio:"430", texto:"Muere en Hipona, sitiada por los vándalos."}
+    ]
+  },
+  anselmo: {
+    lema:"Monje italiano que llegó a arzobispo de Canterbury y que, creyendo para entender, buscó razones necesarias de la fe: entre ellas, el argumento más discutido de la historia de la filosofía.",
+    secciones:[
+      {titulo:"De Aosta a Bec",
+       texto:"Anselmo nació hacia 1033 en Aosta, en los Alpes, entonces parte del reino de Borgoña, en una familia de nobleza menor. Según su biógrafo y secretario Eadmero, de niño quiso entrar en un monasterio y su padre se lo impidió; la relación con el padre fue mala, y tras la muerte de su madre dejó su casa, hacia 1056.\n\nDespués de unos años recorriendo Borgoña y Francia, llegó en 1059 a la abadía de Bec, en Normandía, atraído por la fama de Lanfranco, el maestro más célebre de su tiempo. Allí se hizo monje en 1060, fue prior desde 1063, cuando Lanfranco se fue a Caen, y abad desde 1078."},
+      {titulo:"Un siglo de monasterios y dialécticos",
+       texto:"El siglo XI europeo es el de la reforma de la Iglesia, la lucha entre papas y reyes por el nombramiento de los obispos y la conquista normanda de Inglaterra en 1066. La cultura estaba en los monasterios, donde se leía a Agustín y a Boecio y se rezaban los salmos.\n\nAl mismo tiempo, la dialéctica, el arte de argumentar con la lógica heredada de Aristóteles y Boecio, se estaba volviendo una herramienta poderosa y discutida. Algunos la temían como peligro para la fe; Lanfranco y Berengario de Tours se enfrentaron en torno a la eucaristía. Anselmo criticó a los dialécticos de su tiempo, como Roscelino, que según él reducían los universales a soplos de voz; pero hizo de la razón, guiada por la fe, el centro de su trabajo."},
+      {titulo:"Abad, arzobispo y exiliado",
+       texto:"En Bec escribió el Monologion y el Proslogion, la respuesta a Gaunilo y los diálogos sobre la verdad y la libertad. En 1093, el rey Guillermo II de Inglaterra, gravemente enfermo, lo nombró arzobispo de Canterbury, cargo que había tenido Lanfranco; Anselmo se resistió y, según Eadmero, le pusieron el báculo en la mano a la fuerza.\n\nSu arzobispado fue una cadena de conflictos con la corona sobre los bienes de la Iglesia, la obediencia al papa y la investidura de los obispos. Partió al exilio en 1097; en Italia terminó Cur Deus homo y en el concilio de Bari, en 1098, defendió ante los griegos la doctrina latina del Espíritu Santo. Volvió en 1100 con Enrique I y se exilió otra vez entre 1103 y 1106, hasta un acuerdo sobre la investidura que se cerró en 1107."},
+      {titulo:"Obra y recepción",
+       texto:"Murió en Canterbury en 1109. Su argumento del Proslogion fue discutido de inmediato por Gaunilo, rechazado por Tomás de Aquino en el siglo XIII, retomado por Descartes y Leibniz y bautizado como ontológico por Kant, que lo consideró refutado. En el siglo XX volvió a defenderse en versiones modales, con Malcolm, Hartshorne y Plantinga, y Karl Barth lo leyó como teología y no como prueba para incrédulos.\n\nSu teoría de la satisfacción marcó la teología occidental de la redención, y su definición de la libertad influyó en Duns Escoto. En 1720 fue declarado doctor de la Iglesia."},
+      {titulo:"Por qué piensa así",
+       texto:"Anselmo pensó desde el monasterio: su filosofía nace de la oración y de la lectura de Agustín, y por eso el Proslogion está escrito como una plegaria. Pero sus monjes le pedían razones que no dependieran de citar la Biblia, y la dialéctica de su siglo ofrecía herramientas nuevas; de ahí su confianza en razones necesarias, capaces de convencer al insensato.\n\nSu teoría de la satisfacción usa el lenguaje de un mundo feudal, donde el honor del señor y la reparación de la ofensa ordenaban la vida social, y que él conocía bien por sus conflictos con dos reyes. Y su idea de la verdad y la justicia como rectitud refleja la vida de una comunidad regida por una regla: obrar como se debe, y quererlo porque se debe."}
+    ],
+    hitos:[
+      {anio:"c. 1033", texto:"Nace en Aosta, en los Alpes, en una familia de nobleza menor."},
+      {anio:"1059–1060", texto:"Llega a la abadía de Bec, en Normandía, atraído por Lanfranco, y se hace monje."},
+      {anio:"1063", texto:"Es elegido prior de Bec cuando Lanfranco se va a la abadía de Caen."},
+      {anio:"c. 1076–1078", texto:"Escribe el Monologion y el Proslogion; Gaunilo le responde en favor del insensato."},
+      {anio:"1078", texto:"Es elegido abad de Bec tras la muerte del fundador, Herluino."},
+      {anio:"1093", texto:"Guillermo II lo nombra arzobispo de Canterbury."},
+      {anio:"1097–1100", texto:"Primer exilio; termina Cur Deus homo en Italia y participa en el concilio de Bari (1098)."},
+      {anio:"1103–1107", texto:"Segundo exilio y acuerdo con Enrique I sobre la investidura de los obispos."},
+      {anio:"1109", texto:"Muere en Canterbury; en 1720 es declarado doctor de la Iglesia."}
     ]
   },
   tomas: {
@@ -210,6 +288,32 @@ const VIDAS = {
       {anio:"1277–1323", texto:"Algunas de sus tesis caen bajo las condenas de París y Oxford; en 1323 es canonizado."}
     ]
   },
+  ockham: {
+    lema:"Fraile franciscano inglés que afiló la lógica para negar que lo universal sea una cosa, y que pasó sus últimos veinte años excomulgado en Múnich, escribiendo contra el poder absoluto del papa.",
+    secciones:[
+      {titulo:"De un pueblo de Surrey a Oxford",
+       texto:"Guillermo nació hacia 1287, probablemente en Ockham, un pueblo del condado de Surrey, al sur de Londres; su nombre es el de su lugar de origen. De su familia y su infancia no se sabe casi nada. Siendo muy joven entró en la orden franciscana, fundada un siglo antes por Francisco de Asís, que hacía de la pobreza absoluta su seña de identidad.\n\nEstudió en el convento franciscano de Londres y en la Universidad de Oxford, donde comentó las Sentencias de Pedro Lombardo entre 1317 y 1319. Completó los requisitos para ser maestro en teología, pero nunca llegó a ejercer la cátedra. Por eso la tradición lo llamó venerabilis inceptor, «venerable incipiente», y no doctor."},
+      {titulo:"Una universidad y una orden en discusión",
+       texto:"Ockham llegó a una escolástica en plena madurez. Tomás de Aquino había muerto en 1274 y en 1277 el obispo de París había condenado 219 tesis, algunas cercanas a las suyas, en defensa de la libertad y la omnipotencia de Dios. Duns Escoto, franciscano como Ockham, había construido en Oxford y París un realismo sutil, con naturalezas comunes y distinciones formales. Contra él se escribe buena parte de la obra de Ockham.\n\nAl mismo tiempo, la orden franciscana estaba dividida sobre cómo vivir la pobreza, y el papado, instalado en Aviñón desde 1309, buscaba afirmar su autoridad sobre los reyes y el emperador. Juan XXII, elegido en 1316, era un jurista enérgico que decidió terminar con la doctrina franciscana de la pobreza."},
+      {titulo:"De Aviñón a Múnich",
+       texto:"En 1323, Juan Lutterell, ex canciller de la Universidad de Oxford, denunció ante el papa varias tesis del comentario de Ockham. En 1324 Ockham fue llamado a Aviñón, donde una comisión examinó sus escritos durante años; elaboró listas de tesis censurables, pero nunca hubo una condena formal.\n\nEn Aviñón, el ministro general de los franciscanos, Miguel de Cesena, le pidió que estudiara las bulas de Juan XXII sobre la pobreza. Ockham concluyó que el papa enseñaba herejías. En mayo de 1328 huyó de noche con Miguel de Cesena y otros frailes, y se refugió con el emperador Luis de Baviera, también enfrentado al papa. Fue excomulgado y expulsado de la orden. Desde 1330 vivió en Múnich, en el convento franciscano, bajo protección imperial. La frase «defiéndeme con la espada y yo te defenderé con la pluma», que se le atribuye, aparece en fuentes muy posteriores y probablemente es una leyenda."},
+      {titulo:"La obra y su herencia",
+       texto:"Antes de 1328, Ockham había escrito su obra filosófica y teológica: el comentario a las Sentencias, la Suma de lógica, los comentarios a Aristóteles y los Quodlibetos. En Múnich se dedicó casi por completo a la política: la Obra de noventa días contra Juan XXII, el enorme Diálogo, el Brevilocuio sobre el principado tiránico y otros escritos contra los papas siguientes, Benedicto XII y Clemente VI. Murió en Múnich en 1347; la fecha de 1349, que relacionaba su muerte con la peste negra, hoy se considera errónea.\n\nSus ideas se difundieron rápido. En 1339 y 1340 la Facultad de Artes de París prohibió enseñar algunas doctrinas ockhamistas, pero la vía moderna, como se llamó a la corriente de los nominalistas, se volvió dominante en muchas universidades de los siglos XIV y XV. Lutero se formó en Erfurt con maestros de esa escuela."},
+      {titulo:"Por qué piensa así",
+       texto:"Su nominalismo y su navaja no nacen de un gusto por la simplicidad, sino de una teología franciscana de la omnipotencia y la libertad de Dios, que la condena de 1277 había reforzado: si Dios puede hacer todo lo que no implica contradicción, el mundo no está hecho de esencias necesarias, y solo se conoce mirando los singulares. La polémica con el realismo de Escoto, su compañero de orden, le dio el adversario contra el que afinó sus argumentos.\n\nSu pensamiento político viene de su vida. La pobreza franciscana, que había prometido vivir, fue declarada herética por un papa, y esa experiencia lo llevó a preguntarse qué límites tiene toda autoridad. La excomunión, el exilio y la protección de un emperador le dieron un lugar desde donde escribir, y también un interés: sus críticos señalan que su teoría del poder limitado del papa convenía a quien lo protegía. La misma exigencia atraviesa su lógica y su política: no aceptar entidades ni poderes que no estén justificados."}
+    ],
+    hitos:[
+      {anio:"c. 1287", texto:"Nace probablemente en Ockham, en el condado de Surrey, Inglaterra; entra joven en la orden franciscana."},
+      {anio:"1317–1319", texto:"Comenta las Sentencias de Pedro Lombardo en Oxford; nunca llega a ejercer como maestro en teología."},
+      {anio:"c. 1323", texto:"Escribe la Suma de lógica; Juan Lutterell denuncia sus tesis ante el papa."},
+      {anio:"1324", texto:"Es llamado a Aviñón, donde una comisión examina sus escritos sin llegar a una condena formal."},
+      {anio:"1328", texto:"Huye de Aviñón con Miguel de Cesena y se refugia con Luis de Baviera; es excomulgado."},
+      {anio:"1330", texto:"Se instala en Múnich, en el convento franciscano, bajo protección del emperador."},
+      {anio:"1332–1334", texto:"Escribe la Obra de noventa días contra la bula Quia vir reprobus de Juan XXII."},
+      {anio:"c. 1341", texto:"Escribe el Brevilocuio sobre el principado tiránico, contra la plenitud de poder del papa."},
+      {anio:"1347", texto:"Muere en Múnich; sus ideas inspiran la vía moderna en las universidades de los siglos XIV y XV."}
+    ]
+  },
   descartes: {
     lema:"Matemático y filósofo francés que, en una Europa desgarrada por guerras religiosas y por la nueva ciencia, buscó un fundamento indudable para todo el saber.",
     secciones:[
@@ -234,6 +338,57 @@ const VIDAS = {
       {anio:"1637", texto:"Publica el Discurso del método con la Dióptrica, los Meteoros y la Geometría."},
       {anio:"1641", texto:"Publica las Meditaciones metafísicas con objeciones y respuestas."},
       {anio:"1650", texto:"Muere en Estocolmo, invitado por la reina Cristina de Suecia."}
+    ]
+  },
+  hobbeslocke: {
+    lema:"Un hijo del miedo que vivió noventa y un años y un médico que escribió en el exilio: dos ingleses del siglo de las guerras civiles y las revoluciones que fundaron, desde lados opuestos, el lenguaje del contrato, los derechos y el gobierno limitado.",
+    secciones:[
+      {titulo:"Hobbes: el miedo y la geometría",
+       texto:"Thomas Hobbes nació en 1588 en Westport, junto a Malmesbury, hijo de un clérigo pobre y pendenciero que abandonó a la familia. Según contó él mismo en una autobiografía en verso latino, su madre lo dio a luz antes de tiempo por el terror que causaba la llegada de la Armada Invencible española, de modo que el miedo y él nacieron gemelos. Un tío pagó sus estudios en Oxford, y en 1608 entró al servicio de la familia Cavendish, futuros condes de Devonshire, como preceptor y secretario; a esa familia estuvo ligado casi toda su vida.\n\nViajó por Europa con sus alumnos, tradujo a Tucídides (1629) para mostrar los peligros de la democracia, y hacia los cuarenta años, según el relato de su amigo John Aubrey, descubrió la geometría al encontrar abierto el libro de Euclides. Conoció en París al círculo de Mersenne y visitó a Galileo en 1636. De allí salió su proyecto: una filosofía de los cuerpos, del ser humano y del Estado construida con el rigor de la geometría y el modelo de la nueva física."},
+      {titulo:"Locke: el médico y el conde",
+       texto:"John Locke nació en 1632 en Wrington, en Somerset, en una familia puritana; su padre, abogado, combatió como capitán de caballería del lado del Parlamento en la guerra civil. Estudió en la Westminster School y en Christ Church, Oxford, donde se aburrió con la escolástica, se entusiasmó con Descartes y la nueva ciencia, trabajó con Robert Boyle y estudió medicina.\n\nEn 1666 conoció a Anthony Ashley Cooper, luego primer conde de Shaftesbury, uno de los políticos más poderosos de Inglaterra, y se fue a vivir a su casa como médico: en 1668 dirigió la operación de un quiste en el hígado que le salvó la vida. Desde entonces fue su secretario, consejero y colaborador. Por Shaftesbury fue secretario de los Lores Propietarios de Carolina, participó en la redacción de las Constituciones Fundamentales de la colonia (1669), trabajó en el Consejo de Comercio y Plantaciones y compró acciones de la Royal African Company, la compañía inglesa de la trata de esclavos."},
+      {titulo:"Un siglo de guerras civiles y revoluciones",
+       texto:"Los dos vivieron el siglo más violento de la historia política inglesa. Entre 1642 y 1651 el rey Carlos I y el Parlamento se enfrentaron en una guerra civil que terminó con la ejecución del rey en 1649 y el gobierno de Oliver Cromwell. Hobbes, que había defendido el poder real, huyó a París en 1640; allí fue profesor de matemáticas del futuro Carlos II y escribió el Leviatán, que publicó en Londres en 1651. Ese mismo año volvió a Inglaterra y se sometió al gobierno de Cromwell, lo que los realistas le reprocharon.\n\nCon la restauración de la monarquía en 1660, Carlos II recibió a su antiguo profesor y le dio una pensión. Pero tras la peste y el incendio de Londres (1665-1666), una comisión del Parlamento investigó libros ateos y blasfemos, entre ellos el Leviatán, y a Hobbes se le prohibió publicar sobre política y religión en Inglaterra. Locke, por su parte, siguió a Shaftesbury en su enfrentamiento con la corona: cuando el conde intentó excluir de la sucesión al católico Jacobo, fracasó y huyó a Holanda, Locke también tuvo que exiliarse en 1683. Vivió en Holanda, a veces con nombre falso, hasta la Revolución Gloriosa de 1688."},
+      {titulo:"Obra y recepción",
+       texto:"Hobbes siguió escribiendo hasta el final: polémicas matemáticas con John Wallis, en las que se empeñó en haber resuelto la cuadratura del círculo, traducciones de Homero a los ochenta y tantos años, y el Behemoth. Murió en 1679 en Hardwick Hall, una casa de los Cavendish, a los noventa y un años. En 1683 la Universidad de Oxford condenó y quemó el Leviatán y el De cive. Durante mucho tiempo fue sobre todo un adversario, «el monstruo de Malmesbury»; hoy se lo considera el fundador de la filosofía política moderna.\n\nLocke volvió a Inglaterra en 1689 en el barco que llevaba a la reina María, y ese mismo año aparecieron la Carta sobre la tolerancia, los Dos tratados, ambos sin su nombre, y el Ensayo sobre el entendimiento humano, que lo hizo famoso. Fue miembro de la Junta de Comercio entre 1696 y 1700. Pasó sus últimos años en Oates, en Essex, en casa de la filósofa Damaris Masham, y murió allí en 1704. Sus ideas sobre el gobierno limitado y los derechos influyeron en la Ilustración francesa, en la Declaración de Independencia de Estados Unidos y en el liberalismo, y su empirismo abrió el camino de Berkeley y Hume."},
+      {titulo:"Por qué piensa así",
+       texto:"Hobbes escribió con la guerra civil a la vista. Su pregunta no era cómo hacer justo al poder, sino cómo evitar que los seres humanos se maten cuando cada uno cree tener razón, y especialmente cuando creen tenerla por motivos religiosos: por eso el soberano decide también qué doctrinas se enseñan. Su materialismo y su admiración por la geometría le dieron el método: descomponer el Estado en sus elementos, los individuos y sus pasiones, y volverlo a armar.\n\nLocke escribió desde la oposición a una monarquía que parecía encaminarse al absolutismo y al catolicismo, y desde el exilio. Su problema no era el caos, sino un rey que concentra todo el poder: de ahí el gobierno limitado, la separación de poderes, el derecho de resistencia y la tolerancia, aprendida también en la Holanda donde convivían muchas confesiones. Su trabajo con Shaftesbury en la administración colonial y el comercio explica que piense la propiedad desde el trabajo agrícola y mire a América como tierra por cultivar, y también la contradicción entre su defensa de la libertad natural y su participación en la esclavitud colonial."}
+    ],
+    hitos:[
+      {anio:"1588", texto:"Nace Thomas Hobbes en Westport, Malmesbury, el año de la Armada Invencible."},
+      {anio:"1632", texto:"Nace John Locke en Wrington, Somerset."},
+      {anio:"1640–1642", texto:"Hobbes huye a París y publica De cive; empieza la guerra civil inglesa."},
+      {anio:"1649–1651", texto:"Ejecución de Carlos I; Hobbes publica el Leviatán y vuelve a Inglaterra."},
+      {anio:"1666–1669", texto:"Locke entra al servicio de Shaftesbury y participa en las Constituciones Fundamentales de Carolina."},
+      {anio:"1679", texto:"Muere Hobbes a los noventa y un años; Locke trabaja en los Dos tratados durante la crisis de la exclusión."},
+      {anio:"1683", texto:"Locke se exilia en Holanda; Oxford quema los libros de Hobbes."},
+      {anio:"1689", texto:"Tras la Revolución Gloriosa, Locke vuelve y publica la Carta sobre la tolerancia, los Dos tratados y el Ensayo."},
+      {anio:"1704", texto:"Muere Locke en Oates, Essex."}
+    ]
+  },
+  spinoza: {
+    lema:"Hijo de una comunidad judía de antiguos conversos en Ámsterdam, expulsado a los veintitrés años, vivió puliendo lentes y escribió una ética en forma geométrica para mostrar que entender es la forma más alta de libertad.",
+    secciones:[
+      {titulo:"La nación portuguesa de Ámsterdam",
+       texto:"Baruch —en portugués Bento, en latín Benedictus— de Espinosa nació en Ámsterdam el 24 de noviembre de 1632. Su familia pertenecía a la comunidad judía sefardí, la llamada nación portuguesa: descendientes de judíos obligados a convertirse al cristianismo en España y Portugal, que vivieron durante generaciones bajo la sospecha de la Inquisición y que en la República de las Provincias Unidas pudieron volver abiertamente al judaísmo. Su padre, Miguel, era un comerciante de frutas secas y otros productos, y miembro respetado de la congregación.\n\nSpinoza estudió en la escuela de la comunidad, donde aprendió hebreo y leyó la Biblia y los comentaristas medievales. Su madre murió cuando él tenía seis años. En 1654, tras la muerte de su padre, se hizo cargo con su hermano del negocio familiar, que pasaba por dificultades."},
+      {titulo:"Una república de comerciantes",
+       texto:"Las Provincias Unidas eran entonces el país más rico y más tolerante de Europa: una república de comerciantes, con imprentas que publicaban lo que no se podía imprimir en otras partes, puerto de refugiados religiosos y centro de la nueva ciencia. Descartes había vivido allí veinte años. Pero la tolerancia tenía límites: los predicadores calvinistas presionaban contra los libros heterodoxos, y la política oscilaba entre el partido republicano de los hermanos De Witt y los partidarios de la casa de Orange.\n\nDentro de la comunidad judía, la ortodoxia también era una cuestión de supervivencia: una congregación de antiguos conversos debía mostrar a sus anfitriones que no amparaba ideas que negaran la inmortalidad del alma o la autoridad de la Escritura. En 1640, el disidente Uriel da Costa, excomulgado y obligado a humillarse públicamente, se había quitado la vida."},
+      {titulo:"El herem y la vida de pulidor de lentes",
+       texto:"El 27 de julio de 1656, la congregación Talmud Torah pronunció contra Spinoza un herem de una dureza excepcional: lo maldecía de día y de noche, prohibía a todos comunicarse con él de palabra o por escrito, estar bajo su mismo techo o leer lo que escribiera. El texto habla de abominables herejías y actos monstruosos, pero no dice cuáles. Un informe a la Inquisición de 1659 cuenta que Spinoza y su amigo Juan de Prado decían que la Ley no era verdadera, que el alma muere con el cuerpo y que Dios existe solo filosóficamente. La expulsión nunca fue levantada.\n\nSpinoza estudió latín con Franciscus van den Enden, un exjesuita librepensador, y se ganó la vida puliendo lentes para microscopios y telescopios, oficio en el que llegó a tener prestigio entre científicos como Christiaan Huygens. Vivió en Rijnsburg, cerca de Leiden, desde 1661, en Voorburg desde 1663 y en La Haya desde 1670, rodeado de un círculo de amigos —menonitas, colegiantes, médicos y comerciantes— que copiaban y discutían sus manuscritos."},
+      {titulo:"Obra, persecución y recepción",
+       texto:"En 1663 publicó con su nombre los Principios de la filosofía de Descartes. Interrumpió la Ética para escribir el Tratado teológico-político, que salió anónimo en 1670 y provocó un escándalo: fue prohibido en 1674. En 1672, una multitud linchó en La Haya a los hermanos De Witt, líderes del partido republicano; según Leibniz, Spinoza quiso salir a pegar un cartel que decía «los últimos de los bárbaros», y su casero lo encerró para evitarlo. En 1673 rechazó una cátedra en Heidelberg para no comprometer su libertad de filosofar. En 1676 lo visitó Leibniz.\n\nMurió en La Haya el 21 de febrero de 1677, a los cuarenta y cuatro años, probablemente de una enfermedad pulmonar. Sus amigos publicaron ese mismo año las Obras póstumas, con la Ética. Durante un siglo, spinozista fue sinónimo de ateo. Después lo rescataron Lessing, Goethe y los románticos, Hegel escribió que había que elegir entre el spinozismo o ninguna filosofía, y en el siglo XX lo reivindicaron pensadores tan distintos como Einstein, Deleuze y los estudiosos de las emociones."},
+      {titulo:"Por qué piensa así",
+       texto:"Spinoza creció en una comunidad marcada por la persecución religiosa, entre gente que había tenido que cambiar de fe por la fuerza y que conocía de cerca lo que la autoridad puede hacer con las conciencias. Esa experiencia, y la suya propia en 1656, explican que el Tratado teológico-político defienda que nadie puede ser obligado a pensar como otro y que las autoridades religiosas no deben tener poder coercitivo.\n\nLa lectura de Descartes y de la nueva ciencia le dio el método geométrico y la convicción de que la naturaleza entera se rige por leyes; Spinoza llevó esa idea más lejos que Descartes, hasta incluir en ella a Dios, a la mente humana y a los afectos. Su formación en la Biblia hebrea y en los comentaristas medievales le dio las herramientas de la crítica bíblica. Y la política de su tiempo —la tolerancia frágil de la república, el linchamiento de los De Witt— lo llevó a pensar el Estado desde las pasiones reales de las personas, sin ilusiones sobre la naturaleza humana, pero con la convicción de que la libertad es la condición de la paz."}
+    ],
+    hitos:[
+      {anio:"1632", texto:"Nace en Ámsterdam, en una familia de comerciantes judíos de origen portugués."},
+      {anio:"1656", texto:"La congregación Talmud Torah lo expulsa con un herem que nunca será levantado."},
+      {anio:"1661", texto:"Se instala en Rijnsburg; trabaja como pulidor de lentes y escribe el Tratado de la reforma del entendimiento."},
+      {anio:"1663", texto:"Publica los Principios de la filosofía de Descartes, su único libro firmado; se muda a Voorburg."},
+      {anio:"1670", texto:"Aparece anónimo el Tratado teológico-político; se muda a La Haya."},
+      {anio:"1672", texto:"Los hermanos De Witt son linchados en La Haya."},
+      {anio:"1673–1674", texto:"Rechaza una cátedra en Heidelberg; las autoridades de Holanda prohíben el Tratado teológico-político."},
+      {anio:"1677", texto:"Muere en La Haya; sus amigos publican las Obras póstumas, con la Ética."}
     ]
   },
   hume: {
@@ -340,6 +495,32 @@ const VIDAS = {
       {anio:"1831", texto:"Muere en Berlín durante una epidemia de cólera."}
     ]
   },
+  kierkegaard: {
+    lema:"Pensador danés que hizo de su propia vida, de su ruptura con Regine Olsen y de su lucha contra la Iglesia oficial, el material de una filosofía del individuo que tiene que elegir.",
+    secciones:[
+      {titulo:"El hijo menor de un padre melancólico",
+       texto:"Søren Aabye Kierkegaard nació en Copenhague en 1813, el último de siete hijos. Su padre, Michael Pedersen Kierkegaard, había sido un niño pastor pobre en Jutlandia y se había hecho rico como comerciante; era un hombre severo, de una piedad luterana muy marcada por el pietismo, y cargaba con una melancolía que le transmitió a su hijo. Según los diarios de Søren, de niño, en los páramos, había maldecido a Dios por su miseria, y vivía con la sensación de que sobre la familia pesaba un castigo. La madre, Ane Lund, había sido criada de la casa antes de casarse con él.\n\nCinco de los siete hermanos murieron antes de que Søren cumpliera veintidós años, y también la madre. En sus diarios aparece un «gran terremoto», un descubrimiento sobre la culpa de su padre que nunca explicó con claridad y que los biógrafos interpretan de maneras distintas."},
+      {titulo:"La Copenhague del Siglo de Oro",
+       texto:"Kierkegaard vivió casi toda su vida en Copenhague, una ciudad pequeña que atravesaba lo que los daneses llaman su Siglo de Oro: Hans Christian Andersen escribía sus cuentos, el escultor Thorvaldsen era una celebridad y el crítico Johan Ludvig Heiberg dominaba la vida cultural. La filosofía de moda era la de Hegel, que Heiberg y el teólogo Hans Lassen Martensen difundían en Dinamarca.\n\nLa Iglesia luterana era la Iglesia del Estado: casi todos los daneses estaban bautizados en ella y sus pastores eran funcionarios. Ese mundo de cristianos por nacimiento y de filosofía que lo explicaba todo es el blanco de casi toda su obra. Estudió teología en la Universidad de Copenhague y en 1841 se doctoró con una tesis sobre el concepto de ironía en Sócrates."},
+      {titulo:"Regine, los seudónimos y El Corsario",
+       texto:"En 1840 se comprometió con Regine Olsen, de dieciocho años. Casi enseguida empezó a dudar y en 1841 rompió el compromiso, comportándose a propósito con frialdad para que ella lo dejara sin culpa. Se fue unos meses a Berlín, donde escuchó las lecciones de Schelling, que lo decepcionaron, y volvió con el manuscrito de O lo uno o lo otro. Entre 1843 y 1846 publicó, casi siempre con seudónimos, la mayor parte de su obra filosófica. Regine se casó en 1847 con Johan Frederik Schlegel.\n\nEn 1845 provocó al periódico satírico El Corsario, que respondió ridiculizándolo durante meses con caricaturas: sus piernas flacas y sus pantalones desparejos se volvieron objeto de burla en la calle. La experiencia le confirmó su desprecio por la prensa y el público, y lo convenció de que su tarea era la de un individuo solo frente a la multitud."},
+      {titulo:"El ataque a la cristiandad",
+       texto:"Desde fines de la década de 1840 escribió sobre todo como autor cristiano: La enfermedad mortal (1849) y Ejercitación del cristianismo (1850), firmados por Anti-Climacus. Cuando murió el obispo Jakob Peter Mynster, en 1854, Martensen lo llamó «testigo de la verdad». Kierkegaard, que había respetado a Mynster por ser el pastor de su padre, respondió en la prensa que los testigos de la verdad eran los mártires, no los obispos con buena renta, y en 1855 lanzó su propia publicación, El instante, contra la Iglesia oficial.\n\nEn octubre de 1855 se desplomó en la calle. Murió en el hospital Frederiks de Copenhague el 11 de noviembre, a los 42 años, después de rechazar la comunión de manos de un pastor. Dejó sus bienes a Regine. Fue casi desconocido fuera de Dinamarca hasta que, a comienzos del siglo XX, las traducciones al alemán lo hicieron leer a Unamuno, Jaspers, Heidegger, Barth, Sartre y Camus."},
+      {titulo:"Por qué piensa así",
+       texto:"Su obsesión por el individuo que tiene que elegir viene de una vida marcada por decisiones que nadie podía tomar por él, sobre todo la ruptura con Regine, que lo acompañó hasta el final. La melancolía heredada de su padre y la sensación de culpa familiar explican la precisión con que describió la angustia y la desesperación, y su idea de que solo la fe puede curarlas.\n\nSu crítica de Hegel nace de una Copenhague donde el Sistema era la moda intelectual y parecía explicarlo todo, también el cristianismo, como un momento superado. Su desprecio por la multitud viene, en parte, del episodio de El Corsario. Y su ataque a la Iglesia nace de la distancia que veía entre el cristianismo exigente que había aprendido de su padre y una Iglesia de funcionarios en un país donde todos eran cristianos sin haberlo elegido."}
+    ],
+    hitos:[
+      {anio:"1813", texto:"Nace en Copenhague, último hijo de un comerciante rico y profundamente melancólico."},
+      {anio:"1830–1841", texto:"Estudia teología en la Universidad de Copenhague; se doctora con una tesis sobre la ironía en Sócrates."},
+      {anio:"1840–1841", texto:"Se compromete con Regine Olsen y rompe el compromiso al año siguiente; viaja a Berlín y escucha a Schelling."},
+      {anio:"1843", texto:"Publica O lo uno o lo otro, Temor y temblor y La repetición, con seudónimos."},
+      {anio:"1844", texto:"Aparecen Migajas filosóficas y El concepto de la angustia."},
+      {anio:"1846", texto:"Postscriptum no científico y definitivo; asume la autoría de los seudónimos. Es ridiculizado por El Corsario."},
+      {anio:"1849", texto:"Publica La enfermedad mortal, firmada por Anti-Climacus."},
+      {anio:"1854–1855", texto:"Ataca a la Iglesia oficial danesa tras la muerte del obispo Mynster y publica El instante."},
+      {anio:"1855", texto:"Muere en Copenhague el 11 de noviembre, a los 42 años."}
+    ]
+  },
   marx: {
     lema:"Un filósofo renano y el hijo de un fabricante textil que, desde el exilio en Londres, escribieron la crítica del capitalismo más influyente de la historia, y cuyas ideas fueron invocadas por movimientos obreros, revoluciones y Estados de partido único.",
     secciones:[
@@ -364,6 +545,32 @@ const VIDAS = {
       {anio:"1864", texto:"Fundación de la Asociación Internacional de los Trabajadores."},
       {anio:"1867", texto:"Aparece el primer tomo de El capital."},
       {anio:"1883–1895", texto:"Muere Marx (1883); Engels publica El origen de la familia (1884) y los tomos II y III de El capital, y muere en 1895."}
+    ]
+  },
+  mill: {
+    lema:"Educado desde la cuna para ser el heredero del utilitarismo, atravesó una crisis que le enseñó el valor de los sentimientos y dedicó su obra a defender la libertad individual, la igualdad de las mujeres y una felicidad de calidad, mientras trabajaba para el gobierno colonial de la India.",
+    secciones:[
+      {titulo:"Un niño como experimento",
+       texto:"John Stuart Mill nació en Londres en 1806. Su padre, James Mill, historiador y economista escocés, era el colaborador más cercano de Jeremy Bentham, y ambos decidieron hacer del niño una prueba de lo que podía lograr la educación. Empezó a estudiar griego a los tres años y latín a los ocho; antes de los doce había leído a Platón, a los historiadores antiguos y buena parte de la lógica aristotélica, y a los trece estudiaba economía política con las obras de Ricardo. No fue a la escuela, casi no tuvo amigos de su edad y fue criado sin religión.\n\nA los quince leyó a Bentham y sintió que había encontrado una religión: reformar el mundo según el principio de la mayor felicidad. Fundó con amigos una Sociedad Utilitarista y empezó a escribir en las revistas de los radicales filosóficos, el grupo que pedía reformas del derecho, del Parlamento y de la economía."},
+      {titulo:"La Inglaterra de la reforma y del imperio",
+       texto:"Mill creció en la Inglaterra de la revolución industrial: fábricas, ciudades obreras, trabajo infantil y un Parlamento elegido por una pequeña minoría de propietarios. Los radicales filosóficos querían usar el cálculo de la utilidad para reformar instituciones que se justificaban por la tradición. La Ley de Reforma de 1832 amplió el voto, y el debate sobre la democracia ocupó toda la vida de Mill.\n\nEsa misma Inglaterra era un imperio. En 1823, con diecisiete años, Mill entró a trabajar en la Compañía de las Indias Orientales, que gobernaba gran parte de la India, en la oficina donde su padre redactaba la correspondencia con los administradores. Allí pasó treinta y cinco años, llegó a dirigir esa oficina en 1856 y nunca viajó a la India. Cuando, después de la rebelión de 1857, el Parlamento decidió pasar la India a la Corona, Mill redactó la defensa de la Compañía y se retiró en 1858."},
+      {titulo:"La crisis de 1826 y Harriet Taylor",
+       texto:"En el otoño de 1826, a los veinte años, Mill se hizo una pregunta: si todos los cambios por los que luchaba se realizaran en ese instante, ¿sería eso una gran alegría para él? Una voz interior respondió que no, y se hundió en una depresión de meses. Contó en su Autobiografía que empezó a salir de ella al llorar leyendo, en las memorias de Marmontel, la escena de la muerte del padre del autor, y que la poesía de Wordsworth le enseñó una cultura de los sentimientos que su educación había descuidado. Desde entonces leyó a Coleridge, a Carlyle y a los sansimonianos, y se propuso ampliar el utilitarismo en vez de abandonarlo.\n\nEn 1830 conoció a Harriet Taylor, casada con un comerciante y madre de tres hijos. Durante veinte años mantuvieron una amistad intelectual muy estrecha, que escandalizó a su círculo. Se casaron en 1851, dos años después de la muerte del marido de ella. Harriet murió en Aviñón en 1858, y Mill compró una casa cerca de su tumba, donde pasó buena parte de sus últimos años."},
+      {titulo:"Obra, Parlamento y polémicas",
+       texto:"El Sistema de lógica (1843) y los Principios de economía política (1848) lo convirtieron en el filósofo más leído de la Inglaterra victoriana. Después vinieron Sobre la libertad (1859), dedicado a Harriet, Consideraciones sobre el gobierno representativo (1861), El utilitarismo (1861) y La sujeción de las mujeres (1869). En 1865 fue elegido diputado por Westminster; en 1867 propuso dar el voto a las mujeres, cambiando «hombre» por «persona» en la ley de reforma, y perdió 73 votos contra 196. También presidió el Comité de Jamaica, que intentó que se juzgara al gobernador Eyre por la represión de Morant Bay. Perdió su escaño en 1868.\n\nMurió en Aviñón en 1873 y fue enterrado junto a Harriet. Su Autobiografía apareció ese mismo año. Su obra fue leída por los reformadores liberales, por el movimiento sufragista y, en el siglo XX, por los críticos que discutieron su utilitarismo y su papel en el imperio británico."},
+      {titulo:"Por qué piensa así",
+       texto:"Su utilitarismo viene de Bentham y de su padre: lo recibió como una herencia y como una misión. Pero la crisis de 1826 le mostró que una vida dedicada al cálculo podía quedar vacía, y de ahí viene su insistencia en la calidad de los placeres, en los sentimientos y en el desarrollo de las facultades: corregía, desde la propia experiencia, la educación que lo había formado.\n\nSu defensa de la individualidad y su miedo a la tiranía de la mayoría vienen de la Inglaterra victoriana, conformista y moralista, que juzgó con dureza su relación con Harriet Taylor, y de su lectura de Tocqueville sobre la democracia. Su feminismo nació del diálogo con Harriet y de ver de cerca la situación legal de una mujer casada. Y su excepción para los pueblos «atrasados» viene de los treinta y cinco años en que gobernó la India desde un escritorio en Londres: su liberalismo se pensó dentro de un imperio y llevó esa marca."}
+    ],
+    hitos:[
+      {anio:"1806", texto:"Nace en Londres, hijo del economista James Mill, colaborador de Bentham."},
+      {anio:"1809–1820", texto:"Educación intensiva en casa: griego a los tres años, latín a los ocho, economía política a los trece."},
+      {anio:"1823", texto:"Entra a la Compañía de las Indias Orientales, donde trabaja treinta y cinco años."},
+      {anio:"1826", texto:"Crisis mental: descubre que la realización de sus metas no lo haría feliz; sale de ella con la poesía de Wordsworth."},
+      {anio:"1830", texto:"Conoce a Harriet Taylor, con quien se casa en 1851."},
+      {anio:"1843", texto:"Publica el Sistema de lógica, que lo consagra como filósofo."},
+      {anio:"1858–1859", texto:"Muere Harriet en Aviñón, se disuelve la Compañía y publica Sobre la libertad."},
+      {anio:"1865–1868", texto:"Diputado por Westminster; en 1867 propone el voto femenino y pierde 73 contra 196."},
+      {anio:"1869–1873", texto:"Publica La sujeción de las mujeres; muere en Aviñón en 1873."}
     ]
   },
   nietzsche: {
@@ -573,6 +780,32 @@ const VIDAS = {
       {anio:"siglo XII", texto:"En Toledo se traducen al latín partes de El libro de la curación y El canon de medicina."}
     ]
   },
+  ghazali: {
+    lema:"Teólogo, jurista y místico persa que dudó de todo, desafió a los filósofos con sus propias armas y dejó la cátedra más prestigiosa del islam para buscar un saber que se vive.",
+    secciones:[
+      {titulo:"Un huérfano de Tus",
+       texto:"Abu Hamid Muhammad ibn Muhammad al-Ghazali nació en 1058 en Tus, en el Jorasán, al noreste del actual Irán. Su nombre se explica de dos maneras: según la más difundida, su padre era hilandero (ghazzal) de lana; según otra, la familia venía de una aldea llamada Ghazala. El padre murió cuando él y su hermano Ahmad eran niños, y los dejó al cuidado de un amigo sufí, que les pagó los estudios mientras pudo y después los mandó a una madrasa donde se daba alojamiento y comida a los estudiantes.\n\nEstudió derecho en Tus y en Jurjan, y hacia 1077 llegó a Nishapur, donde fue discípulo de al-Juwayni, el teólogo asharí más importante de su tiempo. Allí aprendió derecho de la escuela shafií, teología del kalam y lógica. Su hermano Ahmad sería después un predicador sufí célebre."},
+      {titulo:"El mundo de los selyúcidas",
+       texto:"Al-Ghazali vivió en el imperio de los turcos selyúcidas, que gobernaban el Oriente islámico en nombre del califa abasí de Bagdad. Su gran visir, Nizam al-Mulk, fundó una red de madrasas, las Nizamiyyas, para formar juristas y teólogos suníes contra la influencia del califato fatimí de El Cairo y de los ismailíes, que predicaban la obediencia a un imán infalible y tenían su propia red de propaganda.\n\nEn ese mundo, la falsafa de Al-Farabi y Avicena gozaba de prestigio entre las élites cultas, y los teólogos la veían como una amenaza para la fe. Hacia el final de la vida de Al-Ghazali llegaron además los cruzados, que tomaron Jerusalén en 1099, poco después de que él la visitara; en sus obras conocidas casi no hay alusiones a ese hecho."},
+      {titulo:"De Bagdad al retiro",
+       texto:"Después de la muerte de al-Juwayni en 1085, Al-Ghazali se unió al séquito de Nizam al-Mulk, y en 1091 el visir lo nombró profesor de la Nizamiyya de Bagdad, el puesto académico más prestigioso del islam suní. Tenía treinta y tres años. Allí estudió por su cuenta a los filósofos, escribió Las intenciones de los filósofos y, en 1095, La incoherencia de los filósofos, además de obras de derecho y un libro contra los ismailíes por encargo del califa.\n\nEn 1092, Nizam al-Mulk fue asesinado y murió el sultán Malikshah, y el imperio entró en una guerra de sucesión. En julio de 1095 comenzó la crisis que cuenta el Munqidh: perdió la voz, enfermó y, en noviembre, dejó Bagdad anunciando una peregrinación. Vivió en Damasco y en Jerusalén, peregrinó a La Meca en 1096 y volvió a Tus, donde llevó una vida retirada con un pequeño círculo de discípulos. En esos años escribió La revivificación de las ciencias religiosas."},
+      {titulo:"El regreso y la posteridad",
+       texto:"En 1106, a pedido del visir Fajr al-Mulk, hijo de Nizam al-Mulk, aceptó volver a enseñar en la Nizamiyya de Nishapur, convencido, según dice, de que al comienzo de un nuevo siglo de la hégira hacía falta alguien que renovara la religión. En esos años escribió el Munqidh. Poco después se retiró de nuevo a Tus, donde murió en diciembre de 1111.\n\nSu influencia en el islam suní fue enorme: la tradición lo llamó «Prueba del islam» y la Revivificación se lee hasta hoy. En la Europa latina, en cambio, se lo conoció primero como «Algazel», autor de un resumen de la filosofía de Avicena que se tomó por obra de un filósofo. Su Tahafut provocó la respuesta de Averroes, y su crítica de la causalidad se volvió a discutir en Occidente a partir de las comparaciones con Hume."},
+      {titulo:"Por qué piensa así",
+       texto:"Al-Ghazali se formó como jurista y teólogo asharí, una escuela que ya sostenía que Dios crea cada instante del mundo y que las cosas no tienen poderes propios: su ocasionalismo continúa esa tradición, aunque la defiende con una lógica aprendida de los filósofos. Su crítica a la falsafa responde a un medio en que la filosofía de Avicena tenía prestigio entre las élites y parecía ofrecer una religión de filósofos que dejaba la revelación para el pueblo.\n\nSu exigencia de certeza viene de un mundo atravesado por escuelas rivales, cada una segura de tener la verdad: suníes y chiíes, teólogos y filósofos, juristas e ismailíes. Y su giro al sufismo, que empezó con el tutor de su infancia y con su hermano, responde a una insatisfacción íntima con el saber de cátedra que lo había hecho famoso: buscaba un conocimiento que transformara la vida. El Munqidh, escrito cuando volvía a enseñar, es también una justificación de su propio camino."}
+    ],
+    hitos:[
+      {anio:"1058", texto:"Nace en Tus, en el Jorasán; huérfano de padre desde niño, lo cría un amigo sufí de la familia."},
+      {anio:"c. 1077–1085", texto:"Estudia en Nishapur con al-Juwayni, maestro de la teología asharí."},
+      {anio:"1091", texto:"Nizam al-Mulk lo nombra profesor de la Nizamiyya de Bagdad."},
+      {anio:"1095", texto:"Termina La incoherencia de los filósofos; en julio comienza su crisis y en noviembre deja Bagdad."},
+      {anio:"1095–1097", texto:"Retiro en Damasco y Jerusalén; peregrinación a La Meca en 1096."},
+      {anio:"c. 1097–1102", texto:"Escribe La revivificación de las ciencias religiosas."},
+      {anio:"1106", texto:"Vuelve a enseñar en la Nizamiyya de Nishapur; en esos años escribe el Munqidh."},
+      {anio:"1111", texto:"Muere en Tus en diciembre."},
+      {anio:"c. 1180", texto:"Averroes le responde con La incoherencia de la incoherencia."}
+    ]
+  },
   averroes: {
     lema:"Juez, médico y filósofo de la Córdoba almohade que defendió ante la Ley islámica el derecho a filosofar y dedicó su vida a recuperar al Aristóteles auténtico.",
     secciones:[
@@ -596,6 +829,32 @@ const VIDAS = {
       {anio:"c. 1195", texto:"Juzgado en Córdoba, es desterrado a Lucena; un edicto prohíbe la filosofía y ordena quemar libros de filosofía."},
       {anio:"1198", texto:"Rehabilitado, muere en Marrakech el 10 de diciembre; sus restos son llevados a Córdoba."},
       {anio:"1270–1277", texto:"En París, Tomás de Aquino escribe contra los averroístas y el obispo Tempier condena sus tesis."}
+    ]
+  },
+  ibnjaldun: {
+    lema:"Jurista, cortesano y viajero del Magreb que, retirado en una fortaleza del desierto, quiso explicar por qué los imperios nacen y caen, y terminó su vida como juez en El Cairo después de conversar con Tamerlán.",
+    secciones:[
+      {titulo:"Una familia andalusí en Túnez",
+       texto:"Abd al-Rahman ibn Jaldún nació en Túnez en 1332. Su familia, los Banu Jaldún, había sido una de las grandes familias de Sevilla, con cargos políticos y militares durante siglos, y emigró al norte de África a mediados del siglo XIII, poco antes de que Castilla conquistara la ciudad. En Túnez sus antepasados sirvieron a la dinastía hafsí.\n\nRecibió la educación de un sabio de su tiempo: el Corán, la tradición del Profeta, el derecho malikí, la lengua y la poesía árabes, y también lógica, matemáticas y filosofía con maestros como el matemático al-Abili. En 1348 y 1349 la peste negra arrasó Túnez y mató a sus padres y a muchos de sus maestros. Él mismo escribió después que la peste había hecho desaparecer poblaciones enteras, como si el mundo hubiera sido llamado a cambiar."},
+      {titulo:"El Magreb de las dinastías rivales",
+       texto:"El norte de África del siglo XIV estaba dividido entre varias dinastías que se disputaban el territorio: los hafsíes en Túnez, los meriníes en Fez, los abdalwadíes en Tremecén. Ninguna podía gobernar sin el apoyo de las tribus árabes y bereberes del interior, que cambiaban de alianza según su conveniencia. En la península, el reino nazarí de Granada era el último territorio musulmán, presionado por Castilla.\n\nEn ese mundo, un letrado con talento podía hacer carrera en cualquier corte, pero también caer en desgracia de un día para otro. Las dinastías se sucedían rápido, y las tribus del desierto eran a la vez el apoyo y la amenaza de los sultanes de las ciudades. Ese es el paisaje que la Muqaddima convierte en teoría."},
+      {titulo:"Una vida política agitada",
+       texto:"Desde los veinte años, Ibn Jaldún fue secretario y funcionario de varios sultanes. En Fez, al servicio del meriní Abu Inan, fue encarcelado cerca de dos años, hacia 1357, acusado de conspirar con un príncipe hafsí. Liberado, sirvió a otros sultanes, y en 1362 pasó a Granada, donde lo recibió el sultán Muhammad V y su visir, el poeta Ibn al-Jatib. En 1364 fue embajador ante Pedro I de Castilla en Sevilla, la ciudad de sus antepasados; según su autobiografía, el rey le ofreció devolverle las tierras de su familia si se quedaba, y él no aceptó.\n\nLuego fue chambelán en Bugía, negoció con tribus, recaudó impuestos y cambió de señor varias veces, lo que le valió fama de intrigante. Hacia 1375, cansado, se retiró con su familia a Qalʿat Ibn Salama, una fortaleza en tierra de tribus, en el actual oeste de Argelia. Allí, en 1377, escribió en unos cinco meses la primera versión de la Muqaddima."},
+      {titulo:"El Cairo y Tamerlán",
+       texto:"En 1382 dejó el Magreb, con el pretexto de peregrinar a La Meca, y se instaló en El Cairo, la gran capital del mundo islámico de su tiempo, gobernada por los sultanes mamelucos. Enseñó en madrasas y en 1384 fue nombrado gran cadí malikí, es decir, juez principal de su escuela de derecho. Su rigor y sus enemistades hicieron que lo destituyeran y lo repusieran varias veces. Ese mismo año, el barco que traía a su mujer y a sus hijos desde Túnez naufragó y todos murieron.\n\nEn 1400 acompañó al sultán al-Nasir Faraj a Damasco, amenazada por Tamerlán. A comienzos de 1401, con la ciudad sitiada y el sultán ya de regreso en Egipto, Ibn Jaldún se hizo bajar con cuerdas por la muralla y fue al campamento del conquistador. Conversó con él varias semanas, le escribió una descripción del Magreb y obtuvo salvoconductos para algunos. Damasco fue saqueada e incendiada. Volvió a El Cairo, siguió corrigiendo su obra y murió allí en 1406."},
+      {titulo:"Por qué piensa así",
+       texto:"La Muqaddima es la teoría de alguien que vio caer muchas dinastías desde adentro. Ibn Jaldún había servido a sultanes que dependían de tribus cambiantes, había visto cómo los grupos del interior derrocaban a los gobernantes de las ciudades y cómo los nietos de los conquistadores se debilitaban en el lujo. La ʿasabiyya y el ciclo de las generaciones no salen de los libros, sino de la experiencia de un político del Magreb.\n\nSu formación de jurista explica su desconfianza de los relatos que se aceptan por la autoridad de quien los cuenta: conocía bien el método de los transmisores y vio que no bastaba para los hechos. La peste de 1348, que despobló ciudades enteras, le enseñó que la civilización depende de la población y del trabajo. Y su experiencia como recaudador y funcionario le mostró de cerca cómo los impuestos excesivos y la arbitrariedad del poder arruinaban a los campesinos y comerciantes. Su retiro en una fortaleza, lejos de las cortes, le dio la distancia para convertir todo eso en ciencia."}
+    ],
+    hitos:[
+      {anio:"1332", texto:"Nace en Túnez, en una familia de origen sevillano al servicio de los hafsíes."},
+      {anio:"1348–1349", texto:"La peste negra mata a sus padres y a muchos de sus maestros."},
+      {anio:"c. 1357", texto:"Encarcelado en Fez cerca de dos años, acusado de conspiración."},
+      {anio:"1362–1365", texto:"En Granada, al servicio de Muhammad V; en 1364, embajador ante Pedro I de Castilla en Sevilla."},
+      {anio:"1377", texto:"Retirado en Qalʿat Ibn Salama, escribe la primera versión de la Muqaddima."},
+      {anio:"1382", texto:"Se instala en El Cairo, capital de los sultanes mamelucos."},
+      {anio:"1384", texto:"Es nombrado gran cadí malikí; su mujer y sus hijos mueren en un naufragio."},
+      {anio:"1401", texto:"Frente a Damasco sitiada, se encuentra con Tamerlán y conversa con él varias semanas."},
+      {anio:"1406", texto:"Muere en El Cairo, todavía corrigiendo su obra."}
     ]
   },
   confucio: {
@@ -647,6 +906,32 @@ const VIDAS = {
       {anio:"hacia 100 a.C.", texto:"Sima Qian escribe la primera biografía de Laozi, reconociendo sus propias dudas."},
       {anio:"siglo III d.C.", texto:"El comentario de Wang Bi fija la versión recibida de ochenta y un capítulos."},
       {anio:"1973 y 1993", texto:"La arqueología recupera los manuscritos de Mawangdui y Guodian, que cambian el estudio de la formación del libro."}
+    ]
+  },
+  mencioxunzi: {
+    lema:"Dos maestros confucianos de la época de los Reinos Combatientes, separados por casi un siglo, que recorrieron las cortes de una China en guerra discutiendo si el ser humano nace con el bien en germen o tiene que construirlo.",
+    secciones:[
+      {titulo:"Mencio: el hombre de Zou",
+       texto:"Mencio (Meng Ke, en latín Mencius) nació hacia 372 a.C., según la fecha tradicional, en el pequeño Estado de Zou, vecino de Lu, la patria de Confucio. Lo que se sabe de su vida sale casi todo del propio libro que lleva su nombre y de la breve biografía de Sima Qian, escrita unos dos siglos después, según la cual estudió con discípulos de Zisi, el nieto de Confucio.\n\nLa tradición agrega historias que los historiadores no pueden confirmar, como la de su madre, viuda, que se mudó tres veces —de junto a un cementerio, de junto a un mercado— hasta encontrar una casa cerca de una escuela, o que cortó la tela que estaba tejiendo para mostrarle al hijo lo que era abandonar los estudios. Esas historias, recogidas siglos después, dicen más sobre el ideal confuciano de la educación que sobre su infancia."},
+      {titulo:"Un mundo de Reinos Combatientes",
+       texto:"Los dos vivieron en el período de los Reinos Combatientes (475–221 a.C.), cuando los grandes Estados chinos guerreaban sin descanso y competían por atraer consejeros capaces. Proliferaban las escuelas: los moístas predicaban el amor universal, los seguidores de Yang Zhu el cuidado de uno mismo, los legistas el poder del Estado por medio de leyes y castigos, y los primeros taoístas la retirada. En el Estado de Qi, la academia de Jixia reunía a pensadores de todas las tendencias.\n\nMencio recorrió esas cortes. Visitó al rey Hui de Liang, que le preguntó qué provecho traería a su reino, y sirvió un tiempo en Qi bajo el rey Xuan, al que intentó convencer de gobernar con benevolencia. Cuando Qi invadió el Estado de Yan, en 314 a.C., Mencio advirtió que la ocupación solo se justificaba si la población la aceptaba; la ocupación terminó mal y él dejó Qi. Murió hacia 289 a.C., sin haber conseguido que ningún rey aplicara sus ideas."},
+      {titulo:"Xunzi: el maestro de Jixia y Lanling",
+       texto:"Xunzi (Xun Kuang, también llamado Xun Qing) nació hacia 310 a.C. en el Estado de Zhao; sus fechas son inciertas. Según Sima Qian, llegó a Qi a los cincuenta años —algunos leen quince— y fue tres veces el decano de los letrados de Jixia, el lugar donde se debatía con taoístas, moístas y dialécticos. Visitó el Estado de Qin, el más temido de todos, y dejó escrito que su orden era admirable pero que le faltaban los letrados confucianos.\n\nHacia 255 a.C. el señor Chunshen, primer ministro de Chu, lo nombró magistrado de Lanling. Cuando Chunshen fue asesinado, en 238 a.C., Xunzi perdió el cargo, se quedó en Lanling y murió allí poco después. Entre sus discípulos estuvieron, según Sima Qian, Han Fei, que sistematizó el legalismo, y Li Si, que llegaría a canciller del primer emperador de Qin."},
+      {titulo:"La obra y su recepción",
+       texto:"El Mencio, en siete libros, fue compilado probablemente por sus discípulos; el Xunzi, en treinta y dos capítulos, fue ordenado por Liu Xiang en el siglo I a.C., y a diferencia de las Analectas o el Mencio, sus capítulos son ensayos argumentados. Durante la dinastía Han, Xunzi fue tan leído como Mencio, y buena parte de la cultura ritual del confucianismo oficial le debe más a él.\n\nLa suerte se invirtió después. Han Yu, en el siglo IX, juzgó a Xunzi «en lo grande puro, con pequeños defectos», y la escuela de Zhu Xi lo excluyó: el Mencio entró en los Cuatro Libros, base del examen imperial hasta 1905, y Mencio pasó a ser el «Segundo Sabio». A Xunzi se le reprochaban la tesis de la naturaleza mala y sus discípulos legistas. Desde el siglo XVIII y sobre todo en el XX fue revalorizado como el pensador más riguroso de la antigüedad china."},
+      {titulo:"Por qué piensa así",
+       texto:"Los dos responden a la misma pregunta de su época: cómo terminar con la guerra entre Estados y quién merece gobernar. Mencio, que vio de cerca a reyes que preguntaban por el provecho, apostó a que había en ellos algo mejor que despertar: si un rey se apiada de un buey, puede apiadarse de su pueblo. Su teoría de la naturaleza buena es también una estrategia de persuasión y un argumento contra los moístas y los seguidores de Yang Zhu, que según él destruían los vínculos familiares.\n\nXunzi escribió casi un siglo después, cuando la guerra se había vuelto más brutal y Qin avanzaba sobre todos. En Jixia discutía con dialécticos y taoístas, y de ahí su gusto por las definiciones precisas, su teoría de los nombres y su Cielo sin intenciones. Ver de cerca el orden de Qin y el desorden de los demás lo convenció de que el bien no crece solo: hay que construirlo con ritos, maestros y leyes, como se construye un techo contra la lluvia."}
+    ],
+    hitos:[
+      {anio:"c. 372 a.C.", texto:"Según la fecha tradicional, nace Mencio en el Estado de Zou."},
+      {anio:"hacia 320 a.C.", texto:"Mencio visita al rey Hui de Liang, el diálogo con que se abre su libro."},
+      {anio:"c. 310 a.C.", texto:"Nace Xunzi en el Estado de Zhao (fecha incierta)."},
+      {anio:"314 a.C.", texto:"Qi invade el Estado de Yan; Mencio, consejero en Qi, discute si la ocupación es legítima."},
+      {anio:"c. 289 a.C.", texto:"Muere Mencio, según la fecha tradicional."},
+      {anio:"siglo III a.C.", texto:"Xunzi es tres veces decano de los letrados de la academia de Jixia, en Qi, y visita el Estado de Qin."},
+      {anio:"c. 255–238 a.C.", texto:"Xunzi es magistrado de Lanling, en Chu, hasta el asesinato de su protector, el señor Chunshen; muere poco después."},
+      {anio:"233 a.C.", texto:"Han Fei, discípulo de Xunzi, muere en una prisión de Qin; en 221 a.C. Qin unifica China, con Li Si como figura central."},
+      {anio:"1190", texto:"Zhu Xi incluye el Mencio en los Cuatro Libros; Xunzi queda al margen de la ortodoxia."}
     ]
   },
   zhuangzi: {
@@ -958,6 +1243,32 @@ const VIDAS = {
       {anio:"1952", texto:"Muere en Nueva York a los noventa y dos años."}
     ]
   },
+  marti: {
+    lema:"Poeta, periodista y organizador cubano que pasó casi toda su vida adulta en el exilio, pensó la independencia de nuestra América frente a la colonia y frente al norte, y murió en la guerra que había preparado.",
+    secciones:[
+      {titulo:"La Habana y el presidio",
+       texto:"José Julián Martí Pérez nació en La Habana el 28 de enero de 1853, hijo de Mariano Martí, un militar valenciano de modesta graduación, y de Leonor Pérez, nacida en Canarias. La familia era pobre y de origen español; Cuba seguía siendo colonia de España, con una economía azucarera que descansaba en el trabajo de cientos de miles de esclavos.\n\nEn la escuela tuvo como maestro a Rafael María de Mendive, poeta y patriota, que lo formó en la literatura y en la idea de una Cuba independiente. En 1868 estalló la primera guerra de independencia, la de los Diez Años. Martí, con quince años, publicó un periódico y un poema dramático patriótico, y en 1869 fue detenido por una carta, firmada con su amigo Fermín Valdés Domínguez, en la que reprochaban a un compañero haberse unido a los voluntarios españoles. Fue condenado a seis años de presidio y trabajó con grillete en las canteras de San Lázaro. Gracias a las gestiones de su padre, la pena se conmutó por el destierro: primero a Isla de Pinos y, en 1871, a España."},
+      {titulo:"Exilio: España, México y Guatemala",
+       texto:"En España publicó El presidio político en Cuba (1871), una denuncia de lo que había visto, y estudió Derecho y Filosofía y Letras en Madrid y Zaragoza. En 1875 se reunió con su familia en México, donde escribió en la prensa, estrenó teatro y conoció a Carmen Zayas-Bazán, con quien se casó en 1877. La llegada de Porfirio Díaz al poder lo llevó a Guatemala, donde enseñó literatura y filosofía.\n\nTras la paz del Zanjón, que en 1878 cerró la guerra sin independencia, volvió a Cuba; nació su hijo José Francisco, pero en 1879 fue deportado otra vez a España por conspirar. En 1880 llegó a Nueva York. En 1881 intentó instalarse en Caracas, donde fundó la Revista Venezolana, pero un choque con el gobierno de Guzmán Blanco lo hizo volver a Nueva York, donde viviría hasta 1895. Esos años de errancia le dieron algo que pocos intelectuales de su tiempo tenían: un conocimiento directo de varios países de nuestra América."},
+      {titulo:"Nueva York: «viví en el monstruo»",
+       texto:"En Nueva York vivió de su pluma y de trabajos modestos. Fue corresponsal de La Opinión Nacional de Caracas, La Nación de Buenos Aires y El Partido Liberal de México, y con sus crónicas explicó Estados Unidos a los lectores del sur. Fue también cónsul de Uruguay, Argentina y Paraguay. Publicó Ismaelillo (1882), dedicado a su hijo, escribió el prólogo al Poema del Niágara (1882), la novela Amistad funesta (1885) y, en 1889, los cuatro números de La Edad de Oro, una revista para niños.\n\nEntre 1889 y 1891 siguió la Conferencia Internacional Americana de Washington y participó, como delegado de Uruguay, en la Comisión Monetaria, donde se opuso a la moneda común propuesta por Estados Unidos. De esa experiencia salieron Nuestra América (1891) y Versos sencillos (1891). Su matrimonio no resistió el exilio y la entrega a la causa: Carmen volvió a Cuba con el hijo en 1891."},
+      {titulo:"El Partido y la guerra necesaria",
+       texto:"Desde fines de 1891 se dedicó por entero a organizar la independencia. En Tampa y Cayo Hueso habló a los tabaqueros emigrados, blancos y negros, y propuso una república con todos y para el bien de todos. En 1892 fundó el periódico Patria y el Partido Revolucionario Cubano, del que fue elegido delegado, y recorrió los Estados Unidos, el Caribe y Centroamérica reuniendo dinero, armas y voluntades, y convenciendo a los veteranos de la guerra anterior, como Máximo Gómez y Antonio Maceo.\n\nEn enero de 1895 las autoridades estadounidenses incautaron los barcos de la expedición de Fernandina, pero la guerra empezó igual el 24 de febrero. El 25 de marzo firmó con Gómez el Manifiesto de Montecristi, y el 11 de abril desembarcó en Playitas, en el oriente de Cuba. El 18 de mayo dejó inconclusa una carta a su amigo mexicano Manuel Mercado. Al día siguiente murió en Dos Ríos, en su primer combate. Sus restos están en el cementerio de Santa Ifigenia, en Santiago de Cuba."},
+      {titulo:"Por qué piensa así",
+       texto:"Su crítica del gobernante importador viene de haber vivido en México, Guatemala, Venezuela y Estados Unidos: vio repúblicas que copiaban constituciones y caían en tiranías, y comparó sin intermediarios cómo se gobernaban unos pueblos y otros. Su advertencia frente al norte viene de quince años de crónicas en Nueva York y de haber visto de cerca, en las conferencias de Washington, el proyecto de una América bajo dirección estadounidense.\n\nSu negación de las razas viene de Cuba: de una colonia esclavista donde España usaba el miedo a la guerra de razas para frenar la independencia, y de un movimiento que solo podía triunfar uniendo a blancos y negros. Su confianza en la educación viene de su propia historia, la de un niño pobre al que un maestro abrió el mundo. Y su manera de escribir, cargada de imágenes, viene de que nunca escribió para especialistas: escribía para emigrados, trabajadores, niños y lectores de periódico a los que necesitaba convencer y mover a actuar."}
+    ],
+    hitos:[
+      {anio:"1853", texto:"Nace en La Habana, hijo de un militar valenciano y de una canaria."},
+      {anio:"1869–1871", texto:"Preso a los dieciséis años, trabaja con grillete en las canteras de San Lázaro; deportado a España."},
+      {anio:"1875–1878", texto:"Vive en México y Guatemala; se casa con Carmen Zayas-Bazán."},
+      {anio:"1880", texto:"Tras una nueva deportación, se instala en Nueva York, donde vivirá quince años."},
+      {anio:"1882", texto:"Publica Ismaelillo y el prólogo al Poema del Niágara, textos iniciales del modernismo."},
+      {anio:"1889", texto:"Escribe los cuatro números de La Edad de Oro; empieza la Conferencia Internacional Americana de Washington."},
+      {anio:"1891", texto:"Publica Nuestra América y Versos sencillos; discursos de Tampa: «con todos y para el bien de todos»."},
+      {anio:"1892", texto:"Funda el Partido Revolucionario Cubano y el periódico Patria."},
+      {anio:"1895", texto:"Manifiesto de Montecristi; desembarca en Cuba y muere en Dos Ríos el 19 de mayo."}
+    ]
+  },
   vasconcelos: {
     lema:"Abogado, revolucionario y ministro mexicano que, tras la Revolución de 1910, quiso convertir el mestizaje latinoamericano en proyecto educativo y en filosofía de la historia.",
     secciones:[
@@ -982,6 +1293,32 @@ const VIDAS = {
       {anio:"1935", texto:"Publica Ulises criollo, primer tomo de su autobiografía, y la Estética."},
       {anio:"1940", texto:"Dirige la revista Timón, financiada por la legación alemana y con textos favorables al nazismo."},
       {anio:"1959", texto:"Muere en la Ciudad de México."}
+    ]
+  },
+  mariategui: {
+    lema:"Periodista y pensador peruano que, desde una silla de ruedas y en apenas siete años de obra madura, fundó un marxismo latinoamericano propio y replanteó el problema del indio como problema de la tierra.",
+    secciones:[
+      {titulo:"Una infancia de convalecencia",
+       texto:"José Carlos Mariátegui La Chira nació en 1894, según la mayoría de sus biógrafos en Moquegua, en el sur del Perú, aunque algunos documentos lo hacen nacer en Lima. Su padre, Francisco Javier Mariátegui, abandonó a la familia, y su madre, María Amalia La Chira, mestiza de origen humilde, crió a sus hijos con su trabajo de costurera, primero en Lima y después en Huacho.\n\nEn 1902, en la escuela, un golpe le lesionó la pierna izquierda. Pasó meses internado y quedó cojo para siempre. No terminó la escuela: durante la larga convalecencia se volvió un lector voraz y autodidacta, y nunca tuvo un título universitario, algo que sus adversarios le recordaron y que él convirtió en orgullo: se declaraba lejos del «espíritu universitario»."},
+      {titulo:"El periodista de la «edad de piedra»",
+       texto:"En 1909, con catorce años, entró a trabajar en el diario limeño La Prensa como ayudante de taller, y desde allí llegó a cronista. Firmaba como Juan Croniqueur crónicas de sociedad, de hipódromo y poemas decadentistas. Años después llamó a esa etapa su «edad de piedra».\n\nHacia 1918 su escritura se politizó. Fundó con César Falcón la revista Nuestra Época y en 1919 el diario La Razón, que apoyó la reforma universitaria y la lucha obrera por la jornada de ocho horas, conquistada en enero de ese año. Ese mismo 1919 Augusto Leguía llegó al poder por un golpe y comenzó un gobierno de once años, el Oncenio. La Razón fue cerrada, y el gobierno ofreció a Mariátegui y a Falcón una beca para viajar a Europa como agentes de propaganda periodística: una forma elegante de alejarlos."},
+      {titulo:"Europa: «una mujer y algunas ideas»",
+       texto:"Llegó a Europa a fines de 1919 y vivió sobre todo en Italia, hasta 1922, con estadías en Francia y viajes por Alemania, Austria y otros países. Fue el gran período de formación. En Italia vio las ocupaciones de fábricas de 1920, asistió en Livorno al congreso socialista de 1921 donde nació el Partido Comunista Italiano, cubrió la Conferencia de Génova de 1922 y vio el ascenso del fascismo. Leyó a Croce, a Sorel, a Gobetti, a Marx, y conoció la vanguardia artística. Se casó con la italiana Anna Chiappe, con quien tuvo cuatro hijos.\n\nResumió el viaje con una frase que suele citarse así: en Europa se casó con una mujer y con algunas ideas. Volvió al Perú en 1923 convencido de que el país solo podía entenderse dentro de la crisis mundial, y decidido a construir un socialismo peruano."},
+      {titulo:"Amauta, el partido y la muerte temprana",
+       texto:"De regreso dio conferencias sobre la crisis mundial en las universidades populares González Prada, fundadas por Haya de la Torre, y dirigió la revista Claridad cuando Haya fue deportado. En 1924 la enfermedad le obligó a amputar la pierna derecha, y desde entonces trabajó en silla de ruedas. En 1925 publicó La escena contemporánea; en 1926 fundó Amauta, y en 1928 publicó los Siete ensayos.\n\n1928 fue también el año de las rupturas y las fundaciones: rompió con Haya y el APRA, fundó el Partido Socialista del Perú y el periódico Labor, y en 1929 impulsó la Confederación General de Trabajadores. Sus tesis fueron criticadas en la Conferencia Comunista de Buenos Aires de 1929, y la policía de Leguía allanó su casa varias veces. Preparaba un viaje a Buenos Aires, en parte por su salud, cuando murió en Lima el 16 de abril de 1930, a los treinta y cinco años. Su obra fue reivindicada después por corrientes muy distintas de la izquierda latinoamericana, y en el Perú es un clásico disputado."},
+      {titulo:"Por qué piensa así",
+       texto:"La infancia pobre, la invalidez y la falta de títulos lo hicieron autodidacta y desconfiado de la cultura académica: aprendió en las redacciones, en los libros y en los viajes, y por eso su marxismo es más un método de lectura que un sistema escolar. Europa le mostró a la vez la revolución, el fascismo y la crisis de la fe liberal, y de allí viene su convicción de que la historia la mueven mitos y voluntades, no solo leyes económicas.\n\nPero lo decisivo fue volver a un país donde la mayoría era indígena y campesina, y donde el indigenismo de intelectuales del sur andino, como Luis E. Valcárcel, denunciaba el despojo de las comunidades. Mariátegui escribió que llegó a valorar lo indígena «por la vía del socialismo»: el marxismo europeo, aplicado al Perú, lo obligaba a mirar la tierra y la comunidad. Las polémicas con Haya y con la Komintern lo obligaron a precisar su idea central: que el socialismo latinoamericano tiene que ser creación propia y no calco."}
+    ],
+    hitos:[
+      {anio:"1894", texto:"Nace en el sur del Perú, probablemente en Moquegua."},
+      {anio:"1902", texto:"Un accidente escolar le lesiona la pierna izquierda; larga convalecencia y formación autodidacta."},
+      {anio:"1909", texto:"Entra a trabajar en el diario La Prensa de Lima; después firma como Juan Croniqueur."},
+      {anio:"1919", texto:"Funda el diario La Razón; el gobierno de Leguía lo envía a Europa."},
+      {anio:"1920–1922", texto:"Vive en Italia: congreso de Livorno, ascenso del fascismo, matrimonio con Anna Chiappe."},
+      {anio:"1923–1924", texto:"Vuelve al Perú, enseña en las universidades populares y pierde la pierna derecha."},
+      {anio:"1926", texto:"Funda la revista Amauta."},
+      {anio:"1928", texto:"Publica los Siete ensayos, rompe con Haya de la Torre y funda el Partido Socialista del Perú."},
+      {anio:"1929–1930", texto:"Sus tesis se discuten en la Conferencia Comunista de Buenos Aires; muere en Lima el 16 de abril de 1930."}
     ]
   },
   zea: {

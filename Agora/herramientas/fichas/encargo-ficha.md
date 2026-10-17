@@ -13,9 +13,7 @@ docente de filosofía en Ibagué (Colombia), con estudiantes de 16 a 20 años.
 3. Sus complementos, en el formato exacto que vas a entregar:
    `node herramientas/fichas/complementos.js arendt`
 4. Para no repetir y para conectar con fichas existentes: `node herramientas/fichas/ficha.js <ids>`
-   (fichas existentes: platon aristoteles descartes kant hegel nietzsche heidegger wittgenstein zambrano arendt beauvoir
-   confucio laozi zhuangzi nagarjuna shankara dogen nishida wangyangming sorjuana peirce james dewey vasconcelos zea
-   dussel zuleta rorty west falacias).
+   (la lista de fichas existentes sale de: `grep -o 'modulos/[a-z]*/[a-z]*' index.html`).
 
 ## Qué entregar
 A) El archivo de la ficha, en la ruta indicada abajo: `MODULES.push({...});` + `LECTURAS.<id> = {...};`, con
