@@ -134,6 +134,36 @@ const DIAGRAMAS = {
       {a:"Indivisible, sin lugar", b:"Infinitamente divisible", d:"La sustancia pensante no ocupa espacio ni tiene partes; la extensa puede dividirse sin término y ocupa lugar."},
       {a:"Más conocida que el cuerpo", b:"Sin fines ni interioridad", d:"La mente se conoce antes y mejor que cualquier cuerpo; la materia carece de cualidades sensibles y de finalidad, y por eso es enteramente geometrizable."}]}
   ],
+  hume: [
+    {tipo:"secuencia", titulo:"Cómo nace la idea de causa", intro:"Investigación sobre el entendimiento humano, secciones IV, V y VII: del primer choque de las bolas de billar a la idea de conexión necesaria.", nota:"Hume no presenta estos pasos como una lista numerada: es una reconstrucción de su análisis.",
+     nodos:[
+      {t:"Un hecho sigue a otro", d:"En un solo caso vemos contigüidad y sucesión: una bola toca a la otra y la segunda se mueve. No vemos ninguna fuerza que las una."},
+      {t:"Conjunción constante", d:"Observamos muchas veces que hechos semejantes siguen a hechos semejantes. La repetición no agrega nada a cada caso, pero cambia algo en nosotros."},
+      {t:"La costumbre crea un hábito", d:"La repetición produce una propensión: ante la causa, la mente pasa por sí sola a esperar el efecto, sin ningún razonamiento."},
+      {t:"Determinación sentida", d:"Esa transición de la mente es una impresión interna: nos sentimos determinados a esperar el efecto."},
+      {t:"Idea de conexión necesaria", d:"De esa impresión interna, y no de los objetos, se copia la idea de necesidad que atribuimos a la relación causal."}]},
+    {tipo:"polos", titulo:"La horquilla de Hume", intro:"Investigación, sección IV: los dos tipos de objetos de la razón humana.", polos:{"izq":"relaciones de ideas","der":"cuestiones de hecho"}, nota:"Kant intentará mostrar que hay un tercer tipo: los juicios sintéticos a priori.",
+     nodos:[
+      {a:"Se descubren solo pensando", b:"Se conocen por experiencia", d:"Las relaciones de ideas no dependen de lo que exista en el mundo; las cuestiones de hecho solo se conocen observando."},
+      {a:"Su contrario es contradictorio", b:"Su contrario es concebible", d:"Que tres por cinco no sea quince es contradictorio; que el sol no salga mañana se puede concebir sin contradicción."},
+      {a:"Geometría, álgebra, aritmética", b:"Causas, física, historia", d:"Las matemáticas son el ejemplo de las primeras; todo razonamiento sobre causas y efectos pertenece a las segundas."}]}
+  ],
+  rousseau: [
+    {tipo:"secuencia", titulo:"De la cabaña a la ley de los ricos", intro:"Discurso sobre la desigualdad (1755), segunda parte: la historia conjetural de cómo la desigualdad natural se volvió desigualdad política.", nota:"Rousseau presenta esta historia como conjetural, no como un relato documentado; el orden de las etapas es suyo, pero las fechas no existen.",
+     nodos:[
+      {t:"Estado de naturaleza", d:"Seres humanos dispersos, guiados por el amor de sí y la piedad; las diferencias naturales existen, pero nadie depende de nadie."},
+      {t:"Chozas y familias", d:"Una primera revolución: se construyen cabañas, nacen las familias y una primera forma de propiedad; aparecen la comparación y el deseo de estima."},
+      {t:"La juventud del mundo", d:"Una edad intermedia entre la indolencia primitiva y el amor propio desatado, que Rousseau considera la más feliz y duradera."},
+      {t:"Metalurgia y agricultura", d:"Desde que uno necesita el auxilio de otro desaparece la igualdad: el trabajo se vuelve indispensable y la tierra se reparte."},
+      {t:"Guerra entre ricos y pobres", d:"La propiedad desata la rivalidad, las usurpaciones de los ricos y los robos de los pobres, hasta un estado de guerra."},
+      {t:"El pacto de los ricos", d:"Los ricos proponen leyes y paz para todos; bajo apariencia de justicia, convierten la usurpación en derecho irrevocable."}]},
+    {tipo:"polos", titulo:"Amor de sí y amor propio", intro:"Discurso sobre la desigualdad y Emilio: las dos formas del amor a uno mismo que Rousseau distingue.", polos:{"izq":"amor de sí","der":"amor propio"}, nota:"Lecturas recientes sostienen que el amor propio no es solo vicio: puede tomar la forma del deseo de ser reconocido como igual.",
+     nodos:[
+      {a:"Natural", b:"Nace en sociedad", d:"El amor de sí existe antes de toda relación; el amor propio aparece cuando los seres humanos viven juntos y se miran unos a otros."},
+      {a:"Absoluto, no compara", b:"Relativo, se mide con otros", d:"El amor de sí busca el propio bien sin mirar a los demás; el amor propio se valora por comparación."},
+      {a:"Se satisface con lo necesario", b:"Insaciable", d:"Cubiertas las necesidades, el amor de sí descansa; el amor propio exige que los otros nos prefieran, lo cual nunca se cumple del todo."},
+      {a:"Ser", b:"Parecer", d:"Cuando lo que cuenta es la estima ajena, hay que mostrarse distinto de lo que uno es: de ahí la vanidad, la envidia y la hipocresía."}]}
+  ],
   kant: [
     {tipo:"cuadrantes", titulo:"La tabla de los juicios", intro:"Crítica de la razón pura, Introducción: Kant cruza dos distinciones y localiza el conocimiento importante en una casilla nueva.", ejes:{"x":["analítico","sintético"],"y":["a posteriori","a priori"]}, nota:"Frege discutió que la aritmética sea sintética y Quine atacó de raíz la distinción analítico-sintético.",
      nodos:[
@@ -162,6 +192,21 @@ const DIAGRAMAS = {
       {t:"Arte", d:"El espíritu absoluto en la intuición sensible; dejó de ser el modo más alto en que una época se comprende, sin que eso signifique que desaparezca."},
       {t:"Espíritu objetivo", d:"La libertad hecha mundo en el derecho, la moralidad y las instituciones de la eticidad: familia, sociedad civil y Estado."},
       {t:"Espíritu subjetivo", d:"El espíritu en el individuo: alma, conciencia y vida psicológica, todavía sin plasmarse en instituciones compartidas."}]}
+  ],
+  marx: [
+    {tipo:"niveles", titulo:"Base y superestructura", intro:"Prólogo a la Contribución a la crítica de la economía política (1859): el edificio de una sociedad, de las formas de conciencia a las fuerzas productivas.", eje:"condiciona en última instancia, de abajo hacia arriba", nota:"Engels advirtió en su carta a Joseph Bloch (1890) que la determinación económica es solo «en última instancia»: los niveles superiores también actúan sobre los inferiores. La división en cuatro niveles es una simplificación didáctica del texto de 1859.",
+     nodos:[
+      {t:"Formas de conciencia social", d:"La religión, la moral, el arte y la filosofía: las ideas con que una época se piensa a sí misma, que corresponden a la base sin ser su simple reflejo."},
+      {t:"Superestructura jurídica y política", d:"El derecho y el Estado, que regulan y garantizan las relaciones de propiedad existentes."},
+      {t:"Relaciones de producción", d:"Quién es dueño de los medios de producción y quién trabaja para quién: esclavo y amo, siervo y señor, obrero y capitalista. Forman la estructura económica, la base real."},
+      {t:"Fuerzas productivas", d:"Los seres humanos con sus capacidades, sus herramientas, sus técnicas y sus máquinas. Cuando crecen y chocan con las relaciones de propiedad, se abre una época de revolución social."}]},
+    {tipo:"ciclo", titulo:"El circuito del capital", intro:"El capital, tomo I: el dinero que se convierte en capital al pasar por la producción y volver aumentado (D–M–D′).", nota:"Marx resume el ciclo con la fórmula D–M–D′: dinero, mercancía, más dinero. El orden en cinco pasos es una presentación didáctica de los capítulos 4 a 7.",
+     nodos:[
+      {t:"Dinero inicial", d:"El capitalista empieza con una suma de dinero que no quiere gastar, sino aumentar."},
+      {t:"Compra de medios y fuerza de trabajo", d:"Compra máquinas y materias primas (capital constante) y fuerza de trabajo (capital variable), pagando por esta su valor: el salario."},
+      {t:"Producción y plusvalía", d:"Durante la jornada, los obreros producen más valor del que cuesta su salario. Ese trabajo excedente no pagado es la plusvalía."},
+      {t:"Venta de las mercancías", d:"Las mercancías producidas se venden en el mercado y el valor que contienen, incluida la plusvalía, se realiza en dinero."},
+      {t:"Dinero aumentado y reinversión", d:"El capitalista recupera más dinero del que adelantó, y la competencia lo obliga a reinvertir buena parte para volver a empezar a mayor escala: es la acumulación."}]}
   ],
   nietzsche: [
     {tipo:"secuencia", titulo:"Las tres transformaciones", intro:"Así habló Zaratustra: camello, león y niño ordenan el trabajo de transmutar los valores.", nota:"Relacionar las figuras con genealogía, crítica y creación es una lectura de conjunto, no una correspondencia que Nietzsche enuncie paso por paso.",
@@ -233,6 +278,18 @@ const DIAGRAMAS = {
       {a:"Actuar concertadamente", b:"Imponerse con instrumentos", d:"El poder es la capacidad humana de actuar en concierto; la violencia es instrumental: necesita herramientas para doblegar la voluntad ajena."},
       {a:"Pertenece a un grupo", b:"Pocos contra muchos", d:"El poder nunca es de un individuo, existe mientras el grupo se mantiene unido; la violencia, en cambio, puede ser ejercida por unos pocos contra muchos."},
       {a:"Se crea entre muchos", b:"Destruye, pero no crea", d:"La violencia puede destruir el poder, pero no puede crearlo. Un gobierno que necesita cada vez más violencia está perdiendo el poder."}]}
+  ],
+  sartre: [
+    {tipo:"polos", titulo:"El ser en-sí y el ser para-sí", intro:"El ser y la nada (1943): las dos regiones del ser que Sartre distingue.", polos:{"izq":"en-sí","der":"para-sí"}, nota:"El ser humano querría ser las dos cosas a la vez, libre y sólido como una cosa: es el ideal que la tradición llamó Dios. Por ser contradictorio, Sartre dice que el hombre es una pasión inútil.",
+     nodos:[
+      {a:"Es lo que es", b:"Es lo que no es", d:"La cosa coincide consigo misma, sin fisuras; la conciencia está siempre a distancia de sí, proyectada hacia lo que todavía no es."},
+      {a:"Macizo, sin posibilidades", b:"Proyecto, posibilidad", d:"Una piedra no se pregunta nada ni puede ser otra cosa; la conciencia existe eligiendo entre posibles."},
+      {a:"Pura positividad", b:"Introduce la nada", d:"En el mundo de las cosas no falta nada; la conciencia trae la ausencia, la pregunta y la negación, como cuando el café entero se organiza alrededor de que Pedro no está."}]},
+    {tipo:"partes", titulo:"Las tres palabras de la libertad", intro:"El existencialismo es un humanismo (1946): cómo se vive la libertad cuando no hay Dios ni naturaleza humana.", centro:"Libertad sin excusas", nota:"Sartre insiste en que ninguna de las tres lleva al quietismo: son la condición de la acción, no una invitación a no actuar.",
+     nodos:[
+      {t:"Angustia", d:"La conciencia de que, al elegir, elijo una imagen del ser humano: soy legislador para toda la humanidad, sin que nadie me garantice que elijo bien."},
+      {t:"Desamparo", d:"Si Dios no existe, no hay valores escritos en ningún cielo ni signos que decidan por mí; hasta el consejero lo elijo yo."},
+      {t:"Desesperación", d:"Solo cuento con lo que depende de mi voluntad: actúo sin esperar que otros o la historia aseguren el resultado."}]}
   ],
   beauvoir: [
     {tipo:"polos", titulo:"El Sujeto y lo Otro", intro:"El segundo sexo (1949): la oposición no recíproca con que, según Beauvoir, se construyó la relación entre los sexos.", polos:{"izq":"el hombre como Sujeto","der":"la mujer como lo Otro"}, nota:"No describe una naturaleza sino una situación construida históricamente; el horizonte de Beauvoir es la reciprocidad entre dos libertades.",
@@ -318,6 +375,19 @@ const DIAGRAMAS = {
       {t:"Trabaja con la mente", d:"Ahora trabaja con la mente y no con los ojos: se mueve por los intersticios naturales, sin tocar tendones ni huesos, y su cuchillo dura diecinueve años sin afilarse."},
       {t:"Se detiene ante el nudo", d:"Ante un nudo difícil, Ding se detiene, mira y va despacio. Esta pausa desmiente la lectura del fluir como espontaneidad sin esfuerzo ni atención."}]}
   ],
+  buda: [
+    {tipo:"secuencia", titulo:"Las cuatro nobles verdades", intro:"Primer sermón (Saṃyutta Nikāya 56.11): cada verdad viene con una tarea.", nota:"La comparación con el diagnóstico médico (enfermedad, causa, curación, remedio) la explicitan sobre todo textos posteriores; el primer sermón da la secuencia y las tareas.",
+     nodos:[
+      {t:"Dukkha: comprenderlo", d:"Nacer, envejecer, enfermar, morir, estar unido a lo que no se quiere, separado de lo que se quiere: en resumen, los cinco agregados del aferramiento. Hay que comprenderlo plenamente."},
+      {t:"Origen: abandonar la sed", d:"La sed (taṇhā) de placeres, de existir y de no existir, que lleva a nuevas existencias. Hay que abandonarla."},
+      {t:"Cese: realizar el nirvana", d:"El desvanecimiento sin resto de esa misma sed: el nirvana. Hay que realizarlo."},
+      {t:"Camino: cultivar el sendero", d:"El noble óctuple sendero, camino medio entre el placer sensual y la mortificación. Hay que cultivarlo."}]},
+    {tipo:"partes", titulo:"El óctuple sendero en tres grupos", intro:"Los ocho factores del camino, agrupados como lo hace la monja Dhammadinnā en el Majjhima Nikāya (44).", centro:"Óctuple sendero", nota:"Los factores no son etapas sucesivas sino aspectos que se cultivan juntos; el orden de los grupos varía según los textos.",
+     nodos:[
+      {t:"Sabiduría: visión e intención", d:"Visión correcta (comprender las cuatro nobles verdades) e intención correcta (de renuncia, de no malevolencia, de no dañar)."},
+      {t:"Ética: habla, acción y medio de vida", d:"Habla sin mentira, calumnia, aspereza ni charla vana; acción sin matar, robar ni conducta sexual dañina; un medio de vida que no dañe, sin comerciar armas, personas, carne, embriagantes ni venenos."},
+      {t:"Mente: esfuerzo, atención y concentración", d:"Esfuerzo por abandonar los estados dañinos y cultivar los sanos; atención plena al cuerpo, las sensaciones, la mente y los fenómenos; concentración en las absorciones meditativas."}]}
+  ],
   nagarjuna: [
     {tipo:"cuadrantes", titulo:"El tetralema (catuṣkoṭi)", intro:"Las cuatro alternativas que Nagarjuna examina y rechaza para cualquier tesis sobre la naturaleza propia de algo.",
      nodos:[
@@ -386,6 +456,22 @@ const DIAGRAMAS = {
       {t:"El movimiento de la intención", d:"El bien y el mal aparecen cuando se mueve la intención (yì). Para Wang la intención ya es acción incipiente: quien alberga una intención mezquina ya actuó."},
       {t:"El liángzhī discierne", d:"El conocimiento innato del bien distingue lo bueno de lo malo en esa intención, como un sol que nunca se apaga aunque las nubes del egoísmo lo tapen."},
       {t:"Rectificar los asuntos", d:"Géwù en la lectura de Wang: hacer el bien y remover el mal donde nacen, sin dejar pasar el primer movimiento torcido, porque después ya hay que combatir un hábito."}]}
+  ],
+  lascasas: [
+    {tipo:"secuencia", titulo:"Del encomendero al defensor", intro:"Las etapas de la vida de Las Casas que explican su pensamiento, de colono en las islas a polemista en la corte.", nota:"La selección de etapas es de Ágora; Las Casas mismo narró su vida como una conversión, y los historiadores discuten cuánto de ese relato es reconstrucción posterior.",
+     nodos:[
+      {t:"Colono y encomendero (1502)", d:"Llega a La Española, busca oro y recibe indios en encomienda como cualquier otro colono; en 1513 participa como capellán en la conquista de Cuba."},
+      {t:"Conversión en Cuba (1514)", d:"Un pasaje del Eclesiástico sobre la ofrenda hecha con bienes injustos le hace ver la injusticia de todo el sistema; renuncia a sus indios."},
+      {t:"Procurador de los indios (1516)", d:"Cisneros lo nombra protector de los indios; propone reformas y, entre ellas, la licencia para llevar esclavos africanos, de la que se arrepentirá."},
+      {t:"Fraile dominico (1522)", d:"Tras el fracaso de Cumaná entra en la Orden de Santo Domingo, estudia teología y derecho y empieza la Historia de las Indias."},
+      {t:"Leyes Nuevas y obispado (1542-1547)", d:"Sus denuncias pesan en las Leyes Nuevas; como obispo de Chiapas exige restitución y choca con los encomenderos."},
+      {t:"Polemista en Valladolid (1550)", d:"Refuta a Sepúlveda ante la junta de teólogos y juristas, imprime sus tratados y sigue escribiendo hasta su muerte en 1566."}]},
+    {tipo:"polos", titulo:"Sepúlveda frente a Las Casas", intro:"La Controversia de Valladolid (1550-1551): las tesis enfrentadas sobre la guerra contra los indios.", polos:{"izq":"Sepúlveda","der":"Las Casas"}, nota:"Los dos argumentaban dentro de la escolástica y del cristianismo; la disputa no era sobre si evangelizar, sino sobre si era lícito hacerlo después de una guerra.",
+     nodos:[
+      {a:"Siervos por naturaleza", b:"Todas las naciones son hombres", d:"Sepúlveda aplica a los indios la servidumbre natural de Aristóteles; Las Casas responde que la razón es una sola en todos los pueblos y que los indios lo prueban con sus instituciones."},
+      {a:"Bárbaros en sentido estricto", b:"Bárbaros solo por lengua y fe", d:"Para Sepúlveda los indios carecen de vida civil; para Las Casas son bárbaros solo porque no escriben como los europeos y porque no son cristianos, sentidos que no justifican nada."},
+      {a:"Guerra para salvar inocentes", b:"La guerra mata más inocentes", d:"Sepúlveda justifica la guerra por los sacrificios humanos; Las Casas responde que la guerra causa muchas más víctimas inocentes que las que pretende salvar."},
+      {a:"Someter para predicar", b:"Predicar sin armas", d:"Para Sepúlveda la conquista previa facilita la predicación; para Las Casas la fe es libre y solo puede proponerse por persuasión."}]}
   ],
   sorjuana: [
     {tipo:"partes", titulo:"Defensa del saber de las mujeres", intro:"Los argumentos con que Sor Juana defiende ese derecho en la Respuesta a sor Filotea (1691).", centro:"El derecho de las mujeres al saber",
@@ -471,6 +557,22 @@ const DIAGRAMAS = {
       {a:"Participar en Occidente", b:"Exterioridad y transmodernidad", d:"Para Zea, América Latina es parte de Occidente y debe participar en él con voz propia; Dussel propone un exterior que no se define desde el proyecto moderno."},
       {a:"Ser reconocida filosofía sin más", b:"Sospechar del reconocimiento", d:"Zea busca la incorporación en pie de igualdad; Dussel sospecha que el reconocimiento es la trampa, porque lo otorga el mismo centro que produjo la exclusión."}]}
   ],
+  freire: [
+    {tipo:"secuencia", titulo:"El método de las palabras generadoras", intro:"Los pasos del método de alfabetización de adultos, tal como Freire lo describe en La educación como práctica de la libertad.", nota:"Freire insistía en que no es una técnica aislable: si se aplican los pasos sin diálogo, el método se vuelve bancario.",
+     nodos:[
+      {t:"Investigar el universo vocabular", d:"El equipo escucha a la comunidad y registra las palabras que usa para hablar de su vida, su trabajo y sus conflictos."},
+      {t:"Elegir las palabras generadoras", d:"Se seleccionan unas dieciséis o diecisiete palabras por su peso existencial y su riqueza fonética, como tijolo, ladrillo."},
+      {t:"Codificar en imágenes", d:"Cada palabra se presenta en una imagen que representa una situación real de la vida de los participantes."},
+      {t:"Decodificar en el círculo de cultura", d:"Coordinador y participantes discuten la situación de la imagen: qué muestra, por qué pasa, qué se puede hacer."},
+      {t:"Separar en familias silábicas", d:"La palabra se divide en sílabas y cada una se despliega en su familia: ta, te, ti, to, tu."},
+      {t:"Crear palabras nuevas", d:"Los participantes combinan las sílabas para formar sus propias palabras, y descubren que pueden escribir su mundo."}]},
+    {tipo:"polos", titulo:"Dos concepciones de la educación", intro:"Pedagogía del oprimido, capítulo 2: la educación bancaria frente a la problematizadora.", polos:{"izq":"bancaria","der":"problematizadora"}, nota:"La oposición no es entre exponer y no exponer, sino entre dos relaciones con el saber y con los educandos.",
+     nodos:[
+      {a:"Depositar comunicados", b:"Plantear problemas", d:"La bancaria transfiere un saber terminado; la problematizadora presenta la realidad como algo que se puede investigar."},
+      {a:"El educador sabe, el educando no", b:"Ambos aprenden y enseñan", d:"La bancaria fija los papeles; la problematizadora supera la contradicción: el educador también es educado en el diálogo."},
+      {a:"Memorizar y repetir", b:"Conocer críticamente", d:"En la bancaria el educando archiva; en la problematizadora reconstruye el saber como sujeto."},
+      {a:"Adaptarse al mundo", b:"Transformar el mundo", d:"La bancaria forma personas que se ajustan a lo dado; la problematizadora, personas que lo leen como histórico y modificable."}]}
+  ],
   dussel: [
     {tipo:"capas", titulo:"Centro y periferia", intro:"La modernidad vista desde fuera de su centro.",
      nodos:[
@@ -483,6 +585,20 @@ const DIAGRAMAS = {
       {t:"El deber de desarrollar", d:"De esa superioridad no deduce un derecho sino una obligación moral de desarrollar a las culturas atrasadas: la expansión se vive sinceramente como servicio."},
       {t:"La resistencia como culpa", d:"Si el bárbaro se opone al proceso civilizatorio, su resistencia se interpreta como culpa o inmadurez, y eso autoriza la fuerza como pedagogía o castigo justo."},
       {t:"Víctimas como costo inevitable", d:"Las víctimas no se niegan: se contabilizan como precio necesario del progreso. Resultado: la víctima es declarada culpable de su propia victimación."}]}
+  ],
+  falsborda: [
+    {tipo:"ciclo", titulo:"El ciclo de la investigación-acción participativa", intro:"Investigar, devolver, actuar y reflexionar: la investigación participativa no termina en un informe, sino que vuelve a empezar.", nota:"El orden y los nombres de las fases son una esquematización didáctica: Fals Borda describió el proceso como un ritmo entre reflexión y acción, no como una receta de pasos fijos.",
+     nodos:[
+      {t:"Pregunta construida con la comunidad", d:"El problema no lo define solo el investigador: se discute con la comunidad, que conoce su realidad y sabe qué necesita entender."},
+      {t:"Investigación colectiva", d:"La información se recoge entre todos, combinando técnicas académicas con el saber popular, la memoria oral y la recuperación crítica de la historia."},
+      {t:"Devolución sistemática", d:"Lo aprendido vuelve a la comunidad en formas que pueda comprender y discutir: cartillas, relatos, radio, teatro, reuniones."},
+      {t:"Acción transformadora", d:"La comunidad usa ese conocimiento para actuar sobre su situación: organizarse, reclamar, negociar, cambiar prácticas."},
+      {t:"Reflexión sobre lo hecho", d:"Se evalúa qué pasó con la acción, qué se aprendió y qué falta saber, y de ahí salen nuevas preguntas para otro ciclo."}]},
+    {tipo:"polos", titulo:"Los dos canales de la Historia doble de la Costa", intro:"Historia doble de la Costa (1979–1986): cada página doble cuenta la misma historia en dos registros.", polos:{"izq":"canal A","der":"canal B"}, nota:"Los dos canales no se oponen: se complementan. La forma del libro muestra que ningún registro es completo sin el otro.",
+     nodos:[
+      {a:"Página izquierda: relato", b:"Página derecha: interpretación", d:"El canal A narra los hechos con personajes y episodios; el canal B desarrolla la teoría, el método y la discusión con otros autores."},
+      {a:"Para la gente de la región", b:"Para los lectores académicos", d:"El canal A está pensado para que lo lean los campesinos y pescadores de los que habla; el canal B, para la comunidad científica."},
+      {a:"Memoria oral y baúles familiares", b:"Fuentes, archivos y conceptos", d:"El relato se apoya en lo que contaron los mayores y en los papeles guardados por las familias; la interpretación explicita fuentes y construye conceptos como la cultura anfibia."}]}
   ],
   zuleta: [
     {tipo:"polos", titulo:"Facilidad o dificultad", intro:"Los ideales de felicidad que Zuleta critica en Elogio de la dificultad (1980) y lo que propone en su lugar.", polos:{"izq":"Deseo de facilidad","der":"Elogio de la dificultad"}, nota:"El elogio de la dificultad no es una apología del sufrimiento: la dificultad bien vivida es condición de la libertad y del reconocimiento mutuo.",

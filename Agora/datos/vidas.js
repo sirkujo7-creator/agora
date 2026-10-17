@@ -236,6 +236,58 @@ const VIDAS = {
       {anio:"1650", texto:"Muere en Estocolmo, invitado por la reina Cristina de Suecia."}
     ]
   },
+  hume: {
+    lema:"Escocés de la Ilustración que quiso aplicar a la mente el método experimental de Newton y terminó mostrando los límites de la razón: costumbre, sentimiento y un escepticismo vivido con buen humor.",
+    secciones:[
+      {titulo:"Ninewells y Edimburgo",
+       texto:"David Hume nació en Edimburgo en 1711, en una familia de pequeña nobleza rural cuya casa, Ninewells, estaba cerca de la frontera con Inglaterra. Su padre murió cuando él tenía dos años, y lo crió su madre, que según una anécdota familiar decía que su hijo era muy bondadoso pero poco despierto. Entró a la Universidad de Edimburgo hacia los diez u once años, como era común entonces, y la dejó sin título.\n\nLa familia quería que fuera abogado, pero él descubrió que no soportaba otra cosa que la filosofía y la literatura. Hacia los dieciocho años, entusiasmado por lo que llamó una nueva escena de pensamiento, se puso a estudiar con tanta intensidad que cayó en una crisis nerviosa que le duró varios años. Más tarde cambió la grafía de su apellido, Home, por Hume, que reflejaba mejor cómo se pronunciaba."},
+      {titulo:"La Escocia de la Ilustración",
+       texto:"Escocia se había unido a Inglaterra en 1707, cuatro años antes de que Hume naciera, y en las décadas siguientes vivió un florecimiento intelectual extraordinario: la Ilustración escocesa. Edimburgo y Glasgow reunieron a filósofos, economistas, historiadores y científicos —Francis Hutcheson, Adam Smith, Adam Ferguson, Thomas Reid, el químico Joseph Black— que se encontraban en clubes como la Select Society.\n\nEl modelo de todos era Newton, que había explicado el universo con pocas leyes a partir de la observación. Al mismo tiempo, la Iglesia presbiteriana seguía siendo muy poderosa, y la acusación de ateísmo podía cerrar puertas. Escocia vivió además el último levantamiento jacobita en 1745, y el comercio con las colonias, incluido el de productos de las plantaciones esclavistas, enriquecía a Glasgow."},
+      {titulo:"Del Tratado fracasado a la fama",
+       texto:"En 1734 trabajó unos meses como empleado de un comerciante en Bristol y luego se fue a Francia, donde vivió con poco dinero. En La Flèche, junto al colegio jesuita donde había estudiado Descartes, escribió el Tratado de la naturaleza humana, que publicó sin firma en 1739 y 1740. El libro, dijo, nació muerto de la imprenta.\n\nLa fama de escéptico le costó dos cátedras: la de ética en Edimburgo, en 1745, y la de lógica en Glasgow, en 1751-1752. Trabajó como tutor de un joven noble con problemas mentales, como secretario de un general en una expedición militar a Bretaña y en misiones diplomáticas en Viena y Turín. Reescribió su filosofía en las dos Investigaciones y, como bibliotecario de la Facultad de Abogados de Edimburgo, escribió la Historia de Inglaterra, que lo hizo rico y famoso."},
+      {titulo:"París, Rousseau y una muerte tranquila",
+       texto:"Entre 1763 y 1765 fue secretario de la embajada británica en París, donde los salones lo celebraron como «le bon David». En 1766 llevó a Inglaterra a Rousseau, perseguido en el continente; la relación terminó en una ruptura pública, porque Rousseau llegó a convencerse de que Hume conspiraba contra él. Fue después subsecretario de Estado y en 1769 volvió a Edimburgo.\n\nEn 1776, enfermo de lo que probablemente era un cáncer intestinal, escribió una breve autobiografía. James Boswell lo visitó y quedó perturbado al encontrarlo sereno ante la idea de dejar de existir. Murió el 25 de agosto de ese año. Adam Smith escribió que se había acercado a la idea de un hombre perfectamente sabio y virtuoso tanto como lo permite la fragilidad humana. Los Diálogos sobre la religión natural se publicaron en 1779. A su prestigio se suma hoy la discusión sobre la nota racista de su ensayo sobre los caracteres nacionales."},
+      {titulo:"Por qué piensa así",
+       texto:"Hume quiso ser el Newton de la mente: en lugar de deducir la naturaleza humana de principios metafísicos, observarla y encontrar sus leyes, como la asociación de ideas y la costumbre. Ese programa experimental, típico de la Ilustración escocesa, lo llevó a resultados escépticos: si todo viene de la experiencia, la experiencia no muestra la conexión necesaria, ni un yo permanente, ni un fundamento racional para la moral.\n\nSu desconfianza hacia la religión organizada tiene que ver con una Escocia donde el poder eclesiástico era fuerte y donde él mismo perdió cátedras por sospechoso; por eso escribió con prudencia y dejó sus Diálogos para después de su muerte. Su vida en clubes, salones y conversaciones explica su ideal del filósofo sociable, que no se encierra en la duda, y su moral fundada en la simpatía entre las personas. Y su experiencia como historiador le enseñó a mirar las instituciones como productos de la costumbre y la utilidad, no de un contrato racional."}
+    ],
+    hitos:[
+      {anio:"1711", texto:"Nace en Edimburgo; crece en Ninewells, la finca familiar cerca de la frontera con Inglaterra."},
+      {anio:"1729–1734", texto:"Abandona el derecho por la filosofía y atraviesa una crisis nerviosa de varios años."},
+      {anio:"1734–1737", texto:"Vive en Francia y escribe en La Flèche el Tratado de la naturaleza humana."},
+      {anio:"1739–1740", texto:"Publica sin firma el Tratado, que pasa casi inadvertido."},
+      {anio:"1745", texto:"La acusación de escepticismo y ateísmo le cierra la cátedra de ética de Edimburgo."},
+      {anio:"1748–1751", texto:"Publica la Investigación sobre el entendimiento humano y la Investigación sobre los principios de la moral."},
+      {anio:"1754–1762", texto:"Publica la Historia de Inglaterra en seis volúmenes, que le da fama europea."},
+      {anio:"1763–1766", texto:"Secretario de la embajada en París; lleva a Rousseau a Inglaterra y rompe con él."},
+      {anio:"1776", texto:"Muere en Edimburgo; los Diálogos sobre la religión natural se publican en 1779."}
+    ]
+  },
+  rousseau: {
+    lema:"Ginebrino errante y autodidacta que, desde dentro de la Ilustración, denunció que el progreso nos había vuelto desiguales y dependientes, y pensó cómo rehacer una comunidad de ciudadanos libres.",
+    secciones:[
+      {titulo:"Un huérfano de Ginebra",
+       texto:"Jean-Jacques Rousseau nació en Ginebra en 1712, en una familia de relojeros protestantes. Su madre murió a los pocos días del parto, y él escribió después que su nacimiento fue la primera de sus desgracias. Su padre lo crió leyendo con él novelas y las Vidas de Plutarco, hasta que en 1722, después de una pelea, tuvo que huir de la ciudad y dejó al niño al cuidado de parientes.\n\nFue aprendiz de un grabador que lo maltrataba. En 1728, con quince años, encontró cerradas las puertas de la ciudad al volver de un paseo y decidió no regresar. Pocos días después conoció en Annecy a Madame de Warens, una mujer que lo protegió, lo envió a Turín, donde se convirtió al catolicismo, y con quien vivió años después en Les Charmettes. Allí, sin maestros, se formó leyendo filosofía, ciencia e historia."},
+      {titulo:"La Ilustración desde adentro",
+       texto:"Rousseau creció entre dos mundos: la pequeña república calvinista de Ginebra, de la que se sentía ciudadano orgulloso, y la monarquía absoluta francesa, con su corte, sus salones y su lujo. En 1742 llegó a París con un sistema de notación musical y la esperanza de hacerse un nombre. Se hizo amigo de Diderot y entró en el círculo de los enciclopedistas, para quienes escribió artículos sobre música y sobre economía política.\n\nEs el siglo de la Ilustración: la confianza en que la razón, la ciencia y las artes harían más libres y felices a los seres humanos. En 1745 conoció a Thérèse Levasseur, una costurera con la que vivió el resto de su vida. Entre 1746 y 1752, aproximadamente, tuvieron cinco hijos, y los cinco fueron dejados en el hospicio de expósitos de París, donde la mortalidad era muy alta. No se sabe qué fue de ellos."},
+      {titulo:"La iluminación de Vincennes y los años de gloria",
+       texto:"En 1749, camino a visitar a Diderot, preso en Vincennes, leyó la pregunta de la Academia de Dijon sobre si las ciencias y las artes habían mejorado las costumbres. Según contó después, en ese momento vio todo su sistema. Su respuesta negativa ganó el premio en 1750 y lo volvió célebre. Siguieron el Discurso sobre la desigualdad (1755), la ruptura con Diderot y los enciclopedistas, la novela Julia o la nueva Eloísa (1761), un éxito enorme, y en 1762 El contrato social y el Emilio.\n\nEse mismo año el Parlamento de París condenó el Emilio y ordenó detenerlo, y Ginebra quemó los dos libros. Comenzó una vida de huida: Neuchâtel, donde en 1765 apedrearon su casa; la isla de Saint-Pierre; Inglaterra, invitado por Hume, con quien terminó peleado. En 1764 Voltaire publicó anónimamente un panfleto que revelaba el abandono de sus hijos."},
+      {titulo:"Los últimos años y la posteridad",
+       texto:"De vuelta en Francia, Rousseau escribió Las confesiones y otros textos autobiográficos, convencido de ser víctima de una conspiración. Vivió en París copiando partituras y herborizando, y redactó proyectos de constitución para Córcega y Polonia. Murió en Ermenonville en 1778.\n\nSu influencia fue inmensa. Kant lo leyó con pasión. Los revolucionarios franceses lo convirtieron en un símbolo: la Declaración de 1789 define la ley como expresión de la voluntad general, Robespierre lo veneraba y en 1794 sus restos fueron llevados al Panteón. Después, los liberales como Benjamin Constant lo acusaron de haber dado argumentos al Terror, y en el siglo XX hubo quienes lo vieron como precursor de la democracia totalitaria y quienes lo leyeron como el gran teórico de la democracia participativa."},
+      {titulo:"Por qué piensa así",
+       texto:"Su crítica del lujo, de la sociedad de las apariencias y de la dependencia viene de haber llegado a los salones de París como un plebeyo de provincia, sin fortuna ni títulos, obligado a agradar a protectores ricos. Su idea de la soberanía del pueblo reunido viene de la imagen idealizada de Ginebra, una pequeña república de ciudadanos, y de las repúblicas antiguas de Plutarco que leyó de niño.\n\nSu desconfianza hacia la razón ilustrada y su elogio de la piedad vienen de una vida guiada por los sentimientos, sin formación escolar, y de su ruptura con amigos que confiaban en el progreso. Su pedagogía de la infancia libre convive con el abandono de sus propios hijos, una contradicción que él mismo contó. Y la persecución que sufrió por sus libros explica en parte su tono de denuncia, aunque no impidió que en el Contrato social propusiera desterrar a quienes no aceptaran la religión civil."}
+    ],
+    hitos:[
+      {anio:"1712", texto:"Nace en Ginebra; su madre muere a los pocos días."},
+      {anio:"1728", texto:"Deja Ginebra, conoce a Madame de Warens y se convierte al catolicismo en Turín."},
+      {anio:"1742", texto:"Llega a París; se hace amigo de Diderot y entra en el círculo de la Enciclopedia."},
+      {anio:"1746–1752", texto:"Con Thérèse Levasseur deja a sus cinco hijos en el hospicio de expósitos de París."},
+      {anio:"1750", texto:"Gana el premio de Dijon con el Discurso sobre las ciencias y las artes."},
+      {anio:"1755", texto:"Publica el Discurso sobre el origen de la desigualdad."},
+      {anio:"1762", texto:"Publica El contrato social y el Emilio; ambos son condenados y quemados, y huye."},
+      {anio:"1766", texto:"Viaja a Inglaterra invitado por Hume y termina peleado con él."},
+      {anio:"1778", texto:"Muere en Ermenonville; en 1794 la Convención lleva sus restos al Panteón."}
+    ]
+  },
   kant: {
     lema:"Profesor de Königsberg que, en plena Ilustración, quiso fijar qué puede conocer la razón tras la ciencia de Newton y la crítica escéptica de Hume.",
     secciones:[
@@ -286,6 +338,32 @@ const VIDAS = {
       {anio:"1818", texto:"Obtiene la cátedra de Berlín, tras su paso por Heidelberg."},
       {anio:"1821", texto:"Publica la Filosofía del derecho."},
       {anio:"1831", texto:"Muere en Berlín durante una epidemia de cólera."}
+    ]
+  },
+  marx: {
+    lema:"Un filósofo renano y el hijo de un fabricante textil que, desde el exilio en Londres, escribieron la crítica del capitalismo más influyente de la historia, y cuyas ideas fueron invocadas por movimientos obreros, revoluciones y Estados de partido único.",
+    secciones:[
+      {titulo:"Tréveris, Berlín y los jóvenes hegelianos",
+       texto:"Karl Marx nació en 1818 en Tréveris, en la Renania entonces prusiana, en una familia de origen judío: su padre, abogado, se había convertido al protestantismo para poder seguir ejerciendo. Estudió derecho en Bonn y en Berlín, donde Hegel había muerto pocos años antes, y se sumó a los jóvenes hegelianos, que usaban la dialéctica de su maestro contra la religión y contra el Estado prusiano. Se doctoró en 1841 con una tesis sobre Demócrito y Epicuro.\n\nComo la carrera universitaria estaba cerrada para los críticos del régimen, se hizo periodista: en 1842 dirigió la Gaceta Renana, donde escribió sobre la censura y sobre los campesinos pobres castigados por recoger leña en los bosques. El gobierno cerró el periódico en 1843. Ese año se casó con Jenny von Westphalen, hija de un alto funcionario, y se fue a París."},
+      {titulo:"Engels, el hijo del fabricante",
+       texto:"Friedrich Engels nació en 1820 en Barmen, en una familia de industriales textiles piadosos. Su padre lo sacó del liceo para formarlo en el comercio, y en 1842 lo envió a Manchester, a la hilandería de la que la familia era socia. Allí, recorriendo los barrios obreros junto a Mary Burns, una obrera irlandesa que fue su compañera, escribió La situación de la clase obrera en Inglaterra (1845).\n\nMarx y Engels se habían cruzado fríamente en Colonia, pero en 1844, en París, empezaron una amistad y una colaboración que duraría cuarenta años. Escribieron juntos La sagrada familia y La ideología alemana, y en 1848, el Manifiesto. Engels volvió a Manchester en 1850 y trabajó durante veinte años en la empresa familiar, un trabajo que detestaba, en buena medida para poder mantener a Marx y su familia."},
+      {titulo:"Revoluciones, exilio y miseria en Londres",
+       texto:"Expulsado de París en 1845, Marx vivió en Bruselas, participó en las revoluciones de 1848 en Alemania y, tras su derrota, se instaló en 1849 en Londres, donde pasó el resto de su vida como apátrida. Los primeros años fueron de miseria: deudas, desalojos, enfermedades, y la muerte de tres de sus hijos pequeños. Vivía de artículos para el New York Daily Tribune y, sobre todo, del dinero que le enviaba Engels.\n\nPasaba los días en la sala de lectura del Museo Británico, estudiando a los economistas y los informes oficiales sobre las fábricas. En 1864 fue una de las figuras principales de la Asociación Internacional de los Trabajadores, la Primera Internacional, donde chocó con los anarquistas de Bakunin, que le reprochaban su autoritarismo. Defendió la Comuna de París de 1871 en La guerra civil en Francia."},
+      {titulo:"La obra y su recepción",
+       texto:"El primer tomo de El capital apareció en 1867. Marx no logró terminar los siguientes: murió en Londres en 1883, poco después que su esposa y que su hija mayor. Engels dedicó sus últimos doce años a editar los tomos II y III y a difundir y sistematizar la doctrina, que llamó socialismo científico; murió en 1895.\n\nLos partidos socialdemócratas de fines del siglo XIX, sobre todo el alemán, se declararon marxistas. En 1917 los bolcheviques de Lenin tomaron el poder en Rusia en su nombre, y a lo largo del siglo XX gobernaron en nombre del marxismo-leninismo la Unión Soviética, China, Europa del Este, Cuba, Vietnam y Camboya, entre otros, con Estados de partido único, represión de la disidencia y millones de víctimas en campos de trabajo, purgas y hambrunas. Al mismo tiempo, Marx fue leído fuera de esos Estados por sindicatos, por el marxismo occidental de Lukács, Gramsci y la Escuela de Fráncfort, por Mariátegui en el Perú, por la teología de la liberación y por historiadores, sociólogos y economistas que no eran comunistas."},
+      {titulo:"Por qué piensa así",
+       texto:"Marx se formó en la filosofía de Hegel, que enseñaba a ver la historia como un proceso con sentido movido por contradicciones; su gesto fue buscar esas contradicciones no en el espíritu, sino en la producción y en la propiedad. La censura de la Gaceta Renana y el caso de los campesinos que recogían leña le mostraron que el Estado, que Hegel veía como realización de la razón, defendía intereses particulares.\n\nEngels le dio lo que la filosofía alemana no tenía: la experiencia directa de Manchester, la primera ciudad industrial del mundo, y el conocimiento de la economía inglesa. La derrota de 1848 y décadas de exilio los llevaron a buscar en el estudio del capital, y no en la conspiración, las razones por las que la revolución no llegaba. Y vivir en Londres, el centro del primer capitalismo industrial y del mayor imperio colonial, explica tanto la amplitud de su análisis como su tendencia a tomar la historia europea como modelo de la historia universal."}
+    ],
+    hitos:[
+      {anio:"1818", texto:"Karl Marx nace en Tréveris, en la Renania prusiana; Engels nace en Barmen en 1820."},
+      {anio:"1842–1843", texto:"Marx dirige la Gaceta Renana hasta que la censura la cierra; Engels llega a Manchester."},
+      {anio:"1844", texto:"Comienza en París la colaboración entre Marx y Engels; Marx escribe los Manuscritos económico-filosóficos."},
+      {anio:"1845", texto:"Engels publica La situación de la clase obrera en Inglaterra; Marx escribe las Tesis sobre Feuerbach."},
+      {anio:"1848", texto:"Publican el Manifiesto del Partido Comunista; revoluciones en Europa."},
+      {anio:"1849", texto:"Marx se instala en Londres, donde vivirá en el exilio hasta su muerte."},
+      {anio:"1864", texto:"Fundación de la Asociación Internacional de los Trabajadores."},
+      {anio:"1867", texto:"Aparece el primer tomo de El capital."},
+      {anio:"1883–1895", texto:"Muere Marx (1883); Engels publica El origen de la familia (1884) y los tomos II y III de El capital, y muere en 1895."}
     ]
   },
   nietzsche: {
@@ -415,6 +493,32 @@ const VIDAS = {
       {anio:"1958", texto:"Publica La condición humana; al año siguiente aparece su polémico ensayo sobre Little Rock."},
       {anio:"1961–1963", texto:"Asiste al juicio a Eichmann en Jerusalén; su libro sobre la banalidad del mal desata una gran controversia."},
       {anio:"1975", texto:"Muere en Nueva York; La vida del espíritu se publica inconclusa en 1978."}
+    ]
+  },
+  sartre: {
+    lema:"Filósofo, novelista y dramaturgo francés que hizo de la libertad sin excusas el centro de su pensamiento y la llevó, con aciertos y errores, al compromiso político de su siglo.",
+    secciones:[
+      {titulo:"Un niño entre libros",
+       texto:"Jean-Paul Sartre nació en París en 1905. Su padre, oficial de marina, murió cuando él tenía poco más de un año, y el niño creció con su madre en la casa de su abuelo materno, Charles Schweitzer, profesor de alemán, rodeado de libros y de adultos que lo admiraban. En Las palabras (1964) contaría esa infancia con ironía: un niño que se sentía de más, sin lugar propio, y que se inventó la identidad de escritor como quien recibe una misión.\n\nEn 1917 su madre se casó de nuevo y la familia se mudó a La Rochelle, donde Sartre, bajo y estrábico, vivió años de soledad y de peleas con sus compañeros. De regreso en París, entró en 1924 a la Escuela Normal Superior, la institución de élite de la universidad francesa."},
+      {titulo:"De la Escuela Normal a la guerra",
+       texto:"En 1929 aprobó en primer lugar la agregación de filosofía, el examen que habilita a enseñar en los liceos; Simone de Beauvoir quedó segunda. Ese año empezó con ella una relación que duró hasta la muerte de Sartre: no se casaron, no vivieron juntos y acordaron una relación abierta, que tuvo también zonas oscuras, como la que denunció años después Bianca Lamblin, alumna de Beauvoir.\n\nFue profesor de liceo en Le Havre y, en 1933 y 1934, estudió en Berlín la fenomenología de Husserl, que le dio un método para describir la conciencia. En 1938 publicó La náusea. Movilizado en 1939, fue hecho prisionero por los alemanes en 1940 y liberado en 1941. De vuelta en París, fundó un pequeño grupo de resistencia intelectual que se disolvió pronto, y en 1943, bajo la ocupación, publicó El ser y la nada y estrenó Las moscas."},
+      {titulo:"La celebridad de la posguerra",
+       texto:"Después de la Liberación, Sartre se convirtió en la figura intelectual más visible de Francia. En 1945 fundó la revista Les Temps modernes y dio la conferencia El existencialismo es un humanismo, que convirtió al existencialismo en una moda que llegó a los cafés de Saint-Germain-des-Prés y a la prensa de todo el mundo. Dejó la enseñanza y vivió de lo que escribía: novelas, como la serie Los caminos de la libertad, obras de teatro, ensayos literarios y políticos.\n\nEn esos años escribió también Reflexiones sobre la cuestión judía (1946), una de las primeras denuncias del antisemitismo francés después de la guerra, y ¿Qué es la literatura?, donde defendió la literatura comprometida."},
+      {titulo:"Política, rupturas y rechazos",
+       texto:"Entre 1952 y 1956 fue compañero de ruta del Partido Comunista francés. Esa cercanía lo llevó a romper con Albert Camus, que había criticado los campos soviéticos, y en 1954, tras un viaje a la URSS, hizo declaraciones elogiosas sobre la libertad en ese país que no correspondían a la realidad. Rompió con el Partido después de la invasión soviética de Hungría en 1956. Se opuso a la guerra de Argelia y a la tortura practicada por el ejército francés; la OAS, organización armada de extrema derecha, atacó su apartamento con bombas en 1961 y 1962. Prologó Los condenados de la tierra de Frantz Fanon, con una defensa de la violencia anticolonial que todavía se discute. Viajó a Cuba en 1960 y apoyó la revolución, hasta que en 1971 rompió con Fidel Castro por el encarcelamiento del poeta Heberto Padilla.\n\nEn 1960 publicó la Crítica de la razón dialéctica. En 1964 rechazó el premio Nobel de Literatura, diciendo que un escritor no debe dejarse transformar en una institución. En sus últimos años apoyó a grupos maoístas, se quedó casi ciego y no pudo terminar su gran estudio sobre Flaubert, El idiota de la familia. Murió en París en 1980, y decenas de miles de personas acompañaron su entierro."},
+      {titulo:"Por qué piensa así",
+       texto:"Su infancia de niño sin padre, que se sentía de más en un mundo de adultos, aparece en la experiencia de la contingencia de La náusea: la existencia está ahí, sin justificación. La fenomenología que estudió en Berlín le dio el método para describir la conciencia como pura relación con lo que no es ella, y de ahí sale la distinción entre en-sí y para-sí.\n\nLa guerra, el cautiverio y la ocupación fueron decisivos: en una Francia donde cada uno tenía que decidir si colaboraba, resistía o se acomodaba, la libertad sin excusas no era una abstracción, y la mala fe tenía rostros conocidos. La posguerra, la guerra fría y las guerras coloniales lo empujaron del individuo a la historia, y de El ser y la nada a la Crítica de la razón dialéctica: había que pensar por qué la libertad, actuando, produce estructuras que la niegan. Y su relación con Beauvoir, que le discutía la libertad absoluta desde la situación concreta, lo llevó a reconocer cada vez más el peso de las condiciones."}
+    ],
+    hitos:[
+      {anio:"1905", texto:"Nace en París; su padre muere al año siguiente y crece en la casa de su abuelo Charles Schweitzer."},
+      {anio:"1929", texto:"Primer puesto en la agregación de filosofía; comienza su relación con Simone de Beauvoir."},
+      {anio:"1933–1934", texto:"Estudia en Berlín la fenomenología de Husserl."},
+      {anio:"1938", texto:"Publica La náusea."},
+      {anio:"1940–1941", texto:"Prisionero de guerra de los alemanes; liberado, vuelve a París."},
+      {anio:"1943", texto:"Publica El ser y la nada y estrena Las moscas en el París ocupado."},
+      {anio:"1945", texto:"Funda Les Temps modernes y da la conferencia El existencialismo es un humanismo."},
+      {anio:"1956–1960", texto:"Rompe con el Partido Comunista tras la invasión de Hungría; se opone a la guerra de Argelia y publica la Crítica de la razón dialéctica."},
+      {anio:"1964", texto:"Publica Las palabras y rechaza el premio Nobel de Literatura."}
     ]
   },
   beauvoir: {
@@ -571,6 +675,32 @@ const VIDAS = {
       {anio:"742", texto:"El emperador Xuanzong de Tang honra el libro como Verdadero Clásico de Nanhua."}
     ]
   },
+  buda: {
+    lema:"Asceta del valle del Ganges, probablemente del siglo V a.C., que propuso un camino de liberación sin yo permanente, sin dios creador y sin sacrificios, y cuyas enseñanzas se transmitieron de memoria durante siglos.",
+    secciones:[
+      {titulo:"Entre la leyenda y la historia",
+       texto:"La tradición cuenta que Siddhartha Gautama nació en el bosque de Lumbini, hijo del rey Śuddhodana de los sakyas y de la reina Māyā, que murió a los pocos días del parto; que un sabio predijo que sería un gran rey o un gran renunciante; que su padre lo crió entre lujos para apartarlo del dolor; y que a los veintinueve años, después de ver por primera vez a un anciano, a un enfermo, a un muerto y a un asceta, abandonó el palacio, a su esposa y a su hijo recién nacido.\n\nLos historiadores aceptan bastante menos. Que existió es muy probable, y que fue un sakya del pie del Himalaya, en la frontera actual entre India y Nepal, también: un pilar del emperador Aśoka, del siglo III a.C., marca Lumbini como su lugar de nacimiento. Pero los sakyas parecen haber sido una república de clanes gobernada por una asamblea, no un reino, así que el padre fue quizá un jefe aristocrático más que un rey. El relato de los cuatro encuentros se cuenta en el canon antiguo de un Buda de un pasado remoto, Vipassī, y solo en textos posteriores se aplicó a Gautama. Sus fechas son inciertas: la cronología tradicional lo sitúa entre 563 y 483 a.C., y muchos especialistas actuales prefieren una más tardía, alrededor de 480–400 a.C."},
+      {titulo:"El valle del Ganges en el siglo V a.C.",
+       texto:"El Buda vivió en un mundo que cambiaba rápido. En la llanura del Ganges crecían ciudades, circulaba la moneda, se formaban reinos poderosos como Magadha y Kosala, que absorbían a las repúblicas de clanes, y una clase de comerciantes ganaba peso. La religión dominante era la de los brahmanes: sacrificios rituales según los Vedas, una sociedad dividida en estamentos por nacimiento y, en las Upanishads más antiguas, la búsqueda del ātman, el yo verdadero, idéntico a Brahman.\n\nAl mismo tiempo, muchos hombres, y algunas mujeres, dejaban su casa para vivir como śramaṇas, ascetas errantes que rechazaban la autoridad de los Vedas y buscaban liberarse del ciclo de renacimientos. Entre ellos había jainas, como su contemporáneo Mahāvīra, que practicaban un ascetismo extremo; ājīvikas, que creían en un destino fijo; materialistas, que negaban el renacimiento; y escépticos, que no se comprometían con ninguna respuesta. El budismo nació como una voz más en ese debate, y sus textos están llenos de discusiones con todas esas escuelas."},
+      {titulo:"Del ascetismo al despertar",
+       texto:"Según los discursos, Gautama estudió meditación con dos maestros, Āḷāra Kālāma y Uddaka Rāmaputta, y alcanzó con ellos estados de absorción muy profundos, pero los abandonó porque no lo liberaban. Después practicó durante años un ascetismo extremo, con ayunos que lo dejaron, según un texto, con la columna visible desde el vientre. Concluyó que ese camino tampoco servía, volvió a comer, y sus cinco compañeros lo dejaron.\n\nLa tradición sitúa su despertar bajo un árbol en Bodh Gaya, hacia los treinta y cinco años, y su primer sermón en Sarnath, cerca de Benarés. Durante unos cuarenta y cinco años enseñó caminando por Magadha y Kosala, sostenido por reyes, comerciantes y campesinos, y fundó una comunidad de monjes y, más tarde, de monjas. La admisión de las monjas, a pedido de su tía y madre adoptiva Mahāpajāpatī, aparece en los textos acompañada de reglas que las subordinan a los monjes, que muchos estudiosos consideran añadidos posteriores y que siguen discutiéndose en el budismo actual. Murió hacia los ochenta años en Kusinārā, después de una comida, y sus últimas palabras, según el Mahāparinibbāna Sutta, fueron que todo lo compuesto está sujeto a desaparecer y que había que esforzarse con diligencia."},
+      {titulo:"Transmisión y recepción",
+       texto:"Sus discípulos memorizaron sus enseñanzas y las recitaron en comunidad durante siglos. La comunidad se dividió en escuelas, y en el siglo III a.C. el emperador Aśoka, convertido al budismo, difundió su ética en inscripciones por todo su imperio y envió misiones a otras regiones, entre ellas Sri Lanka, donde el canon en pali se puso por escrito en el siglo I a.C. Más tarde surgió el budismo mahāyāna, que llegó a China, Corea, Japón y el Tíbet, mientras el theravāda se consolidó en Sri Lanka y el sudeste asiático. En la India, el budismo casi desapareció hacia el siglo XIII.\n\nEuropa lo conoció en serio en el siglo XIX, a través de traductores como Max Müller y T. W. Rhys Davids, y lo leyó muchas veces con sus propios prejuicios, como pesimismo o como religión racional sin dios. En 1956, el jurista B. R. Ambedkar, autor de la Constitución india y nacido en una casta considerada intocable, se convirtió al budismo con cientos de miles de dalits, en rechazo del sistema de castas. Hoy el budismo es también una práctica de meditación difundida en todo el mundo, a veces separada de su contexto ético y religioso."},
+      {titulo:"Por qué piensa así",
+       texto:"Casi todo lo que el Buda enseña se entiende como respuesta a su contexto. Su no-yo es una respuesta a la búsqueda del ātman en las Upanishads: examina los mismos contenidos de la experiencia y no encuentra ningún yo permanente. Su camino medio responde a dos opciones que conoció en carne propia, el placer de la vida acomodada que la tradición le atribuye y el ascetismo extremo de los śramaṇas, sobre todo de los jainas. Su concepción del karma como intención corrige tanto el ritualismo brahmánico, que ponía la eficacia en el sacrificio, como el karma casi material de los jainas.\n\nSu silencio ante las preguntas metafísicas se entiende en un mundo lleno de escuelas que discutían si el mundo era eterno o si el alma sobrevivía: el Buda se niega a entrar en una disputa que considera estéril. Su crítica de la superioridad de los brahmanes por nacimiento, sin un programa para abolir el orden social, refleja una comunidad monástica abierta a todos los estamentos dentro de una sociedad que no cambió. Y la forma de sus enseñanzas —listas, fórmulas, repeticiones, parábolas de médicos, comerciantes y campesinos— es la de una tradición oral que tenía que memorizarse y hablarle a la gente de las nuevas ciudades."}
+    ],
+    hitos:[
+      {anio:"c. 480 a.C.", texto:"Nace en Lumbini, entre los sakyas, según la cronología corta; la tradicional dice 563 a.C."},
+      {anio:"c. 451 a.C.", texto:"A los veintinueve años, según la tradición, deja su casa para vivir como asceta errante."},
+      {anio:"c. 445 a.C.", texto:"Despierta bajo el árbol de Bodh Gaya y da su primer sermón en Sarnath, cerca de Benarés."},
+      {anio:"c. 445–400 a.C.", texto:"Enseña durante unos cuarenta y cinco años en Magadha y Kosala y funda la comunidad de monjes y de monjas."},
+      {anio:"c. 400 a.C.", texto:"Muere en Kusinārā hacia los ochenta años; según la tradición, un concilio en Rājagaha recita sus enseñanzas."},
+      {anio:"c. 250 a.C.", texto:"El emperador Aśoka difunde la ética budista y levanta un pilar en Lumbini."},
+      {anio:"siglo I a.C.", texto:"El Canon Pali se pone por escrito en Sri Lanka, después de siglos de transmisión oral."},
+      {anio:"1881", texto:"Max Müller publica su traducción del Dhammapada en la colección Sacred Books of the East."},
+      {anio:"1956", texto:"B. R. Ambedkar se convierte al budismo con cientos de miles de dalits, contra el sistema de castas."}
+    ]
+  },
   nagarjuna: {
     lema:"Monje budista del sur de la India, probablemente del siglo II, que respondió a la escolástica que cosificaba los elementos de la realidad con la doctrina de la vacuidad.",
     secciones:[
@@ -696,6 +826,32 @@ const VIDAS = {
       {anio:"1518", texto:"Sus discípulos publican la primera parte del Chuanxilu."},
       {anio:"1519", texto:"Sofoca en pocas semanas la rebelión del príncipe de Ning."},
       {anio:"1527–1529", texto:"Dicta las Preguntas sobre el Gran Saber, dirige una campaña en Guangxi y muere al regresar."}
+    ]
+  },
+  lascasas: {
+    lema:"Colono y encomendero en las Antillas que, convertido en 1514, dedicó cincuenta años a denunciar la conquista y a defender la humanidad y los derechos de los pueblos de las Indias.",
+    secciones:[
+      {titulo:"Sevilla y las islas",
+       texto:"Bartolomé de las Casas nació en Sevilla, en una familia de comerciantes. Durante mucho tiempo se dio como fecha 1474; hoy la mayoría de los historiadores acepta 1484, a partir de documentos de su juventud. Su padre, Pedro de las Casas, viajó con Colón en el segundo viaje de 1493, y el niño vio en Sevilla, en 1493, el regreso del almirante con algunos indígenas.\n\nEn 1502 viajó a La Española en la gran flota del gobernador Nicolás de Ovando. Como los demás colonos, buscó oro y recibió indios en encomienda. Fue ordenado sacerdote, probablemente en Roma hacia 1507, y celebró su primera misa en la isla. En 1513 acompañó como capellán la conquista de Cuba, donde presenció la matanza de Caonao y recibió un nuevo repartimiento de indios."},
+      {titulo:"Un mundo que se despoblaba",
+       texto:"Las Casas vivió en las Antillas el primer gran derrumbe de la conquista. La población taína de La Española, que había recibido a Colón, se hundía en pocas décadas por la guerra, el trabajo forzado en las minas, el hambre, la separación de las familias y las epidemias. Los colonos, que necesitaban mano de obra, organizaban expediciones para capturar indígenas en otras islas.\n\nEn 1510 llegaron los primeros dominicos. En diciembre de 1511, con el sermón de Antonio de Montesinos, pusieron por primera vez en público la pregunta por la justicia de todo el sistema. La Corona respondió con las Leyes de Burgos de 1512, que regulaban la encomienda sin abolirla. En ese mismo período, en Europa, la Reforma protestante, el humanismo de Erasmo y la renovación de la escolástica en Salamanca cambiaban la manera de pensar la conciencia, el derecho y la autoridad."},
+      {titulo:"Conversión y lucha",
+       texto:"En 1514, en Cuba, preparando un sermón, leyó en el Eclesiástico que la ofrenda hecha con bienes injustos es una ofrenda manchada. Renunció a sus indios y partió a España. El cardenal Cisneros lo nombró en 1516 procurador o protector de los indios. En 1520 intentó una colonización pacífica con labradores castellanos en la costa de Cumaná, en la actual Venezuela, que terminó en desastre.\n\nHundido por ese fracaso, en 1522 entró en la Orden de Santo Domingo y pasó años de estudio y retiro, durante los cuales empezó la Historia de las Indias. En la década de 1530 escribió Del único modo y participó en la evangelización pacífica de Tezulutlán, en Guatemala. De vuelta en España, sus denuncias contribuyeron a las Leyes Nuevas de 1542. Fue consagrado obispo de Chiapas en 1544; su Confesionario, que negaba la absolución a los encomenderos que no restituyeran, provocó tal resistencia que en 1547 dejó la diócesis para siempre."},
+      {titulo:"Valladolid y los últimos años",
+       texto:"En 1550 y 1551 se enfrentó con Juan Ginés de Sepúlveda ante la junta de Valladolid. En 1552 imprimió en Sevilla una serie de tratados, entre ellos la Brevísima relación, la Controversia y el Confesionario, que le valieron acusaciones de deslealtad e incluso de herejía, nunca prosperadas. Desde la corte siguió litigando por los indios del Perú, de México y de Guatemala, y escribió la Apologética historia y sus últimos tratados sobre los tesoros del Perú y la restitución a los incas.\n\nMurió en Madrid, en el convento de Atocha, en julio de 1566. Su Historia de las Indias se publicó recién en 1875. Su figura fue usada después por todos: por los enemigos de España, por los independentistas americanos como Simón Bolívar, que lo llamó amigo de la humanidad en la Carta de Jamaica, por historiadores que lo acusaron de exagerado y por la teología y la filosofía de la liberación."},
+      {titulo:"Por qué piensa así",
+       texto:"Su exigencia de restitución viene de su propia vida: fue encomendero, se benefició del trabajo forzado y entendió su conversión como la obligación de devolver. Por eso no le alcanzaba con pedir buen trato, y por eso desconfió siempre de las reformas que mantenían la encomienda.\n\nSu defensa de la racionalidad de los indios viene de haberlos conocido durante décadas, de su formación escolástica, que enseñaba que la razón es común a todos los hombres, y del tomismo dominico, que afirmaba que los infieles conservan sus dominios y gobiernos. Su estilo, hiperbólico y combativo, viene de su oficio de litigante ante la corte: escribía para conmover a quienes podían cambiar las leyes. Y su punto ciego sobre los africanos viene de lo mismo que su lucidez sobre los indios: veía con claridad lo que había presenciado, y aceptó sin examen, durante años, lo que no había visto."}
+    ],
+    hitos:[
+      {anio:"1484", texto:"Nace en Sevilla (la fecha tradicional, 1474, hoy se considera errónea)."},
+      {anio:"1502", texto:"Llega a La Española con la flota de Nicolás de Ovando; recibe indios en encomienda."},
+      {anio:"1511", texto:"Sermón de Antonio de Montesinos en Santo Domingo contra el trato a los indios."},
+      {anio:"1514", texto:"Tras participar en la conquista de Cuba, se convierte, renuncia a sus indios y viaja a España."},
+      {anio:"1516–1518", texto:"Procurador de los indios; en sus memoriales propone llevar esclavos africanos, de lo que se arrepentirá."},
+      {anio:"1522", texto:"Tras el fracaso de Cumaná, entra en la Orden de Santo Domingo."},
+      {anio:"1542", texto:"Escribe la Brevísima relación; Carlos V firma las Leyes Nuevas."},
+      {anio:"1544–1547", texto:"Obispo de Chiapas; su Confesionario enfrenta a los encomenderos y deja la diócesis."},
+      {anio:"1550–1551", texto:"Controversia de Valladolid con Juan Ginés de Sepúlveda; en 1552 imprime sus tratados."}
     ]
   },
   sorjuana: {
@@ -854,6 +1010,32 @@ const VIDAS = {
       {anio:"2004", texto:"Muere en la Ciudad de México."}
     ]
   },
+  freire: {
+    lema:"Educador brasileño que, desde la alfabetización de campesinos y obreros del nordeste, pensó la educación como lectura crítica del mundo y práctica de la libertad.",
+    secciones:[
+      {titulo:"Recife y el hambre",
+       texto:"Paulo Reglus Neves Freire nació en 1921 en Recife, en el nordeste de Brasil, en una familia de clase media. La crisis de 1929 los empobreció, se mudaron a Jaboatão y el niño conoció el hambre; su padre murió en 1934. Freire contaba que el hambre le había enseñado algo que ningún libro le enseñó: que no se aprende bien con el estómago vacío, y que la pobreza no es un destino natural.\n\nAprendió a leer con sus padres, a la sombra de los árboles del patio, escribiendo palabras de su mundo en el suelo con ramitas, una escena que después ligó con su método. Estudió derecho en Recife, pero abandonó la abogacía casi enseguida. En 1944 se casó con Elza Maia Costa de Oliveira, maestra, que fue decisiva en su giro hacia la educación."},
+      {titulo:"Un país de analfabetos",
+       texto:"El Brasil de su juventud tenía una mayoría rural, un latifundio heredado de la colonia y la esclavitud, y millones de adultos analfabetos, que además no podían votar: la Constitución excluía a los analfabetos del voto. En el nordeste, la región más pobre, las Ligas Campesinas reclamaban reforma agraria, y la Iglesia católica, en parte renovada por el movimiento de laicos y por obispos como Hélder Câmara, se involucraba en la educación popular.\n\nFreire trabajó desde 1947 en el departamento de educación del SESI de Pernambuco, en contacto con obreros y sus familias. Allí aprendió, según contó después, que hablaba a los trabajadores con un lenguaje que no era el de ellos. En 1959 defendió en la Universidad de Recife la tesis Educación y actualidad brasileña, y participó en el Movimiento de Cultura Popular de Recife, donde nacieron los círculos de cultura."},
+      {titulo:"Angicos, el golpe y el exilio",
+       texto:"En 1963, en Angicos, un pueblo del interior de Rio Grande do Norte, unos trescientos trabajadores aprendieron a leer y escribir con su método, en un tiempo que los organizadores calcularon en unas cuarenta horas. El presidente João Goulart asistió a la clausura, y en 1964 el gobierno lanzó un Programa Nacional de Alfabetización que preveía miles de círculos de cultura en todo el país.\n\nEl golpe militar del 1 de abril de 1964 lo canceló. Freire fue encarcelado durante unos setenta días, acusado de subversivo, y salió al exilio: primero Bolivia y luego Chile, donde trabajó entre 1964 y 1969 en programas de educación de adultos y de reforma agraria del gobierno de Eduardo Frei. Allí escribió La educación como práctica de la libertad y Pedagogía del oprimido. Siguieron Harvard, en 1969, y casi diez años en Ginebra, en el Consejo Mundial de Iglesias, desde donde asesoró campañas de alfabetización en países africanos recién independizados, como Guinea-Bisáu."},
+      {titulo:"El regreso y la obra tardía",
+       texto:"Con la amnistía de 1979 volvió a Brasil en 1980. Enseñó en la Pontificia Universidad Católica de São Paulo y en la Universidad de Campinas, y fue fundador del Partido de los Trabajadores. Entre 1989 y 1991 fue secretario de Educación de la ciudad de São Paulo, donde tuvo que llevar sus ideas a una red de cientos de escuelas. Elza murió en 1986; en 1988 se casó con Ana Maria Araújo, Nita, que fue después editora de su obra.\n\nEn sus últimos años publicó Pedagogía de la esperanza (1992) y Pedagogía de la autonomía (1996). Murió en São Paulo en 1997. Su influencia en la educación popular de América Latina y África es enorme, y Pedagogía del oprimido es uno de los libros más citados de las ciencias sociales. En Brasil fue declarado patrono de la educación en 2012 y, en la década siguiente, se convirtió en blanco de campañas que lo acusaban de adoctrinamiento: un símbolo disputado."},
+      {titulo:"Por qué piensa así",
+       texto:"La experiencia del hambre en la infancia le mostró que la pobreza no es natural, y la escena de aprender a leer con palabras de su propio patio está detrás de la idea de leer el mundo antes que la palabra. El trabajo con obreros y campesinos que no podían votar porque no sabían leer le hizo ver que el analfabetismo era una forma de exclusión política, y de ahí que alfabetizar fuera, para él, devolver la palabra.\n\nSu formación católica le dio el lenguaje del amor, la esperanza y la humanización; su lectura de Marx, de la fenomenología y de Hegel, el del conflicto y la praxis. El golpe de 1964, la cárcel y el exilio radicalizaron a un reformista que confiaba en la democratización. Y los viajes, las críticas y la gestión pública de São Paulo lo llevaron, en su obra tardía, a corregirse: el lenguaje machista, la confusión entre diálogo y espontaneísmo, la importancia de la autoridad y del rigor."}
+    ],
+    hitos:[
+      {anio:"1921", texto:"Nace en Recife, en el nordeste de Brasil."},
+      {anio:"1947–1957", texto:"Trabaja en educación de obreros en el SESI de Pernambuco."},
+      {anio:"1959", texto:"Defiende en Recife su tesis Educación y actualidad brasileña."},
+      {anio:"1963", texto:"Experiencia de alfabetización de Angicos, con unos trescientos trabajadores."},
+      {anio:"1964", texto:"El golpe militar cancela el programa nacional de alfabetización; prisión y exilio en Bolivia y Chile."},
+      {anio:"1968–1970", texto:"Termina en Chile Pedagogía del oprimido, publicada en inglés y en español en 1970."},
+      {anio:"1970–1979", texto:"Trabaja en Ginebra para el Consejo Mundial de Iglesias y asesora campañas en África."},
+      {anio:"1980–1991", texto:"Regresa a Brasil; secretario de Educación de São Paulo entre 1989 y 1991."},
+      {anio:"1996–1997", texto:"Publica Pedagogía de la autonomía; muere en São Paulo en 1997."}
+    ]
+  },
   dussel: {
     lema:"Filósofo argentino exiliado en México que, desde la Guerra Fría, las dictaduras y la teología de la liberación, releyó la modernidad desde sus víctimas.",
     secciones:[
@@ -878,6 +1060,32 @@ const VIDAS = {
       {anio:"1992", texto:"Publica 1492: el encubrimiento del Otro, en el quinto centenario de la conquista."},
       {anio:"1998", texto:"Publica Ética de la liberación en la edad de la globalización y la exclusión."},
       {anio:"2023", texto:"Muere en la Ciudad de México."}
+    ]
+  },
+  falsborda: {
+    lema:"Sociólogo barranquillero que pasó de la sociología académica a investigar con campesinos y pescadores, y que hizo del conocimiento una herramienta de transformación: la investigación-acción participativa.",
+    secciones:[
+      {titulo:"Barranquilla, Iowa, Saucío",
+       texto:"Orlando Fals Borda nació en Barranquilla en 1925, en una familia de tradición presbiteriana, algo poco común en la Colombia católica de entonces. Esa minoría religiosa le abrió el camino para estudiar en Estados Unidos: se graduó en la Universidad de Dubuque, en Iowa, hizo una maestría en sociología en la Universidad de Minnesota y se doctoró en la Universidad de Florida.\n\nSu tesis doctoral estudió Saucío, una vereda campesina de Cundinamarca donde vivió y trabajó durante años. Se publicó como Campesinos de los Andes. Era sociología empírica de escuela norteamericana, rigurosa y descriptiva, pero hecha desde dentro de la comunidad."},
+      {titulo:"Una universidad en medio de la Violencia",
+       texto:"Fals Borda se formó mientras Colombia vivía la Violencia, la guerra entre liberales y conservadores que dejó cientos de miles de muertos en el campo, con regiones como el Tolima entre las más golpeadas. En 1959, ya en el Frente Nacional, fundó con el sacerdote Camilo Torres Restrepo la Facultad de Sociología de la Universidad Nacional, una de las primeras de América Latina, y fue su primer decano.\n\nEn 1962 publicó, con monseñor Germán Guzmán Campos y Eduardo Umaña Luna, La violencia en Colombia, basado en buena parte en el material de la comisión investigadora creada en 1958. El libro fue atacado con dureza en el Congreso y en la prensa. En 1966, Camilo Torres murió como guerrillero del ELN, poco después de unirse a esa organización."},
+      {titulo:"De la academia a la Costa",
+       texto:"A fines de los años sesenta, Fals Borda se fue alejando de la sociología académica que había ayudado a fundar. En La subversión en Colombia (1967) pensó el cambio social desde la historia colombiana, y en Ciencia propia y colonialismo intelectual (1970) criticó la dependencia de las ciencias sociales respecto del norte. Con otros investigadores fundó en 1970 La Rosca de Investigación y Acción Social, y trabajó con organizaciones campesinas de la Costa Caribe, en particular en Córdoba y Sucre, en medio de las luchas por la tierra.\n\nDe esa experiencia salió la investigación-acción participativa, que presentó en el simposio mundial de Cartagena de 1977. En 1979, bajo el Estatuto de Seguridad del gobierno de Turbay Ayala, fue detenido junto con su esposa, la socióloga María Cristina Salazar; ambos quedaron libres sin condena."},
+      {titulo:"La Historia doble, la Constituyente y después",
+       texto:"Entre 1979 y 1986 publicó los cuatro tomos de la Historia doble de la Costa, su obra mayor, escrita en dos canales, uno narrativo y otro teórico. La investigación-acción participativa se difundió por América Latina, África, Asia y Europa, y en 1997 volvió a reunirse en Cartagena un congreso mundial sobre ella.\n\nEn 1990 fue elegido a la Asamblea Nacional Constituyente por la Alianza Democrática M-19, el movimiento surgido de la desmovilización de esa guerrilla, y participó en la redacción de la Constitución de 1991, sobre todo en los temas de ordenamiento territorial y autonomía regional, que lo ocuparon el resto de su vida. Fue después una de las figuras de la izquierda democrática en el Polo Democrático Alternativo. Murió en Bogotá en 2008."},
+      {titulo:"Por qué piensa así",
+       texto:"Su crítica de la neutralidad científica viene de una experiencia concreta: haber visto cómo un estudio sobre la Violencia desataba la furia de quienes preferían que no se supiera lo que pasó. Su idea de ciencia propia viene de haberse formado en Estados Unidos y haber descubierto, al volver, que muchas de esas categorías no servían para ver el campo colombiano.\n\nLa investigación participativa nace del trabajo con campesinos que luchaban por la tierra y que sabían cosas que ningún libro le había enseñado; la palabra sentipensante, de los pescadores de la depresión momposina. Y su paso por la Constituyente cierra un recorrido: el de alguien que, en un país donde muchos de su generación eligieron las armas, apostó por el conocimiento compartido y por las reglas comunes como formas de tramitar el conflicto."}
+    ],
+    hitos:[
+      {anio:"1925", texto:"Nace en Barranquilla, en una familia presbiteriana."},
+      {anio:"1955", texto:"Se doctora en la Universidad de Florida con su estudio de Saucío, publicado como Campesinos de los Andes."},
+      {anio:"1959", texto:"Funda con Camilo Torres la Facultad de Sociología de la Universidad Nacional."},
+      {anio:"1962", texto:"Publica La violencia en Colombia con Germán Guzmán Campos y Eduardo Umaña Luna."},
+      {anio:"1970", texto:"Publica Ciencia propia y colonialismo intelectual y funda La Rosca de Investigación y Acción Social."},
+      {anio:"1977", texto:"Simposio mundial de Cartagena: la investigación-acción participativa se presenta como corriente."},
+      {anio:"1979", texto:"Es detenido con su esposa bajo el Estatuto de Seguridad; aparece el primer tomo de la Historia doble de la Costa."},
+      {anio:"1991", texto:"Como constituyente de la Alianza Democrática M-19, participa en la Constitución de 1991."},
+      {anio:"2008", texto:"Muere en Bogotá."}
     ]
   },
   zuleta: {
