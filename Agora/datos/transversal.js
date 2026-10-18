@@ -49,7 +49,11 @@ const EPOCA = {
   hildegarda:1151,
   maquiavelo:1513,
   maimonides:1190,
-  mozi:-430
+  mozi:-430,
+  levinas:1961,
+  foucault:1975,
+  fanon:1961,
+  gandhi:1909
 };
 
 /* ============ CONSTELACIONES: un mismo problema, varias fichas ============

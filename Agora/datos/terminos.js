@@ -356,6 +356,28 @@ const TERMINOS = {
     {k:"eterno femenino", tapar:[]},
     {k:"reciprocidad", tapar:["recíproca"]}
   ],
+  levinas: [
+    {q:"¿Qué llama Levinas lo Mismo y lo Otro, y por qué opone la figura de Ulises a la de Abraham?"},
+    {q:"¿Qué distingue la totalidad de lo infinito en Levinas, y qué toma de la idea cartesiana de lo infinito?"},
+    {k:"rostro", tapar:["rostros"]},
+    {q:"¿Qué significa que la ética sea filosofía primera, y qué orden tradicional invierte Levinas?"},
+    {k:"asimetría", tapar:["asimétrica","asimétrico"]},
+    {k:"tercero", tapar:["terceros"]},
+    {q:"¿Qué describe Levinas con el hay (il y a), y en qué experiencias se lo encuentra?"},
+    {q:"¿Por qué Levinas llama a la ontología de Heidegger una filosofía del poder, y qué le opone?"},
+    {q:"¿Qué distingue el Decir de lo Dicho, y qué objeción responde Levinas con esa distinción?"}
+  ],
+  foucault: [
+    {k:"saber-poder", tapar:[]},
+    {k:"poder disciplinario", tapar:["disciplina"]},
+    {k:"panóptico", tapar:["panoptismo"]},
+    {q:"¿Qué diferencia hay entre el método arqueológico y el método genealógico de Foucault, y qué toma la genealogía de Nietzsche?"},
+    {k:"episteme", tapar:[]},
+    {k:"muerte del hombre", tapar:[]},
+    {k:"biopolítica", tapar:["biopoder"]},
+    {q:"¿Qué entiende el último Foucault por prácticas o técnicas de sí, y por qué no son un regreso al sujeto soberano de la filosofía moderna?"},
+    {k:"parresía", tapar:["parresiasta"]}
+  ],
   avicena: [
     {k:"hombre volante", tapar:[]},
     {q:"¿Cómo define Avicena el alma, cuáles son los sentidos internos y qué ejemplo da de la facultad estimativa?"},
@@ -513,6 +535,16 @@ const TERMINOS = {
     {q:"¿Por qué critica Dōgen la práctica que espera el despertar como un premio futuro?"},
     {q:"¿Qué jerarquía religiosa borra Dōgen con el cargo del tenzo, y cómo?"}
   ],
+  gandhi: [
+    {k:"satyagraha", tapar:["firmeza en la verdad"]},
+    {k:"ahimsa", tapar:[]},
+    {k:"swaraj", tapar:["autogobierno"]},
+    {q:"¿Cómo define Gandhi la civilización moderna en Hind Swaraj y qué le opone?"},
+    {q:"¿Qué relación hay, según Gandhi, entre los medios y el fin, y qué muestra el ejemplo del reloj?"},
+    {k:"desobediencia civil", tapar:["no cooperación"]},
+    {k:"marcha de la sal", tapar:[]},
+    {q:"¿En qué se opusieron Gandhi y Ambedkar sobre las castas y qué pasó en 1932?"}
+  ],
   nishida: [
     {k:"experiencia pura", tapar:["junsui keiken"]},
     {k:"basho (lugar)", tapar:["basho","lugar"]},
@@ -634,6 +666,18 @@ const TERMINOS = {
     {q:"¿En qué coinciden y en qué difieren Zea y la Filosofía de la Liberación de Dussel?"},
     {q:"¿Qué toma y qué rechaza Zea del marxismo, de la Escuela de Frankfurt y del indigenismo?"},
     {q:"¿Qué hizo Zea institucionalmente para que la historia de las ideas latinoamericanas fuera una disciplina?"}
+  ],
+  fanon: [
+    {q:"¿Qué descubre Fanon en «La experiencia vivida del negro» cuando la mirada de un niño lo señala?"},
+    {k:"epidermización", tapar:["sociogenia"]},
+    {q:"¿Por qué, según Fanon, dominar a la perfección el francés no libera al antillano colonizado?"},
+    {q:"¿Qué significa la imagen de las «máscaras blancas», y qué dos salidas falsas rechaza Fanon?"},
+    {q:"¿Por qué, según Fanon, la dialéctica hegeliana del amo y el esclavo no se cumple en la situación colonial?"},
+    {k:"negritud", tapar:[]},
+    {q:"¿Qué aprendió Fanon como psiquiatra en Blida, y por qué renunció en 1956?"},
+    {q:"¿Cómo describe Fanon el mundo colonial en «Sobre la violencia», y qué dice y qué no dice sobre la violencia?"},
+    {k:"burguesía nacional", tapar:["burguesía"]},
+    {k:"nuevo humanismo", tapar:["humanismo","hombre nuevo"]}
   ],
   freire: [
     {k:"educación bancaria", tapar:["bancaria"]},
