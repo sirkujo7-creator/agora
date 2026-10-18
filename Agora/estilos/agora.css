@@ -797,3 +797,5 @@ footer{font-family:var(--font-ui);}
 @media (prefers-reduced-motion:reduce){ .rio .rfranja,.rio .rviva,.corrtesis li{animation:none;} }
 .corrhero h3:focus{outline:none;}
 .corrnota{margin:4px 0 0;font-size:.9rem;max-width:72ch;}
+.dnodo.hueco .dpistap{display:block;margin-top:6px;font-family:var(--font-body);font-weight:400;font-size:.78rem;line-height:1.35;color:var(--ink-soft);text-align:left;}
+.dnodo.hueco .dpistap .hueco{font-size:.7rem;padding:0 6px;}

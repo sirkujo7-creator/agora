@@ -62,7 +62,11 @@ function pieza(g, k, texto, clase){
   }
   const puesto = diagComp.puestos[k];
   const marca = diagComp.visto ? (puesto && diagEtiquetas(g).find(e=>e.k===puesto).t===texto ? ' ok' : ' no') : '';
-  const contenido = puesto ? escapeHtml(diagEtiquetas(g).find(e=>e.k===puesto).t) : '<span class="dhueco">?</span>';
+  /* En «partes» las piezas no tienen orden: el hueco no se distingue por su lugar sino por una pista,
+     la explicación de la pieza con su nombre tapado. Sin pista, completar sería adivinar. */
+  const nd = g.tipo==="partes" ? g.nodos[parseInt(k)] : null;
+  const pistaP = nd ? `<span class="dpistap">${juntarHuecos(cortarPista(enmascarar(nd.d, nd.t.replace(/[()]/g," "))))}</span>` : '';
+  const contenido = puesto ? escapeHtml(diagEtiquetas(g).find(e=>e.k===puesto).t) + pistaP : '<span class="dhueco">?</span>' + pistaP;
   return `<button class="dnodo hueco ${clase||''}${puesto?' lleno':''}${marca}" style="--i:${parseInt(k)||0}" onclick="tocarHueco('${k}')" aria-label="${puesto?'Quitar '+escapeHtml(diagEtiquetas(g).find(e=>e.k===puesto).t):'Hueco vacío'}">${contenido}</button>`;
 }
 
@@ -89,7 +93,15 @@ function lienzoRadial(g, conCentro){
 }
 
 /* En pantallas angostas, cinco o más piezas en círculo se pisan: se usa una disposición vertical. */
-function compacto(g){ return window.innerWidth < 620 && g.nodos.length > 4; }
+// En Completá, «partes» va siempre en vertical: cada hueco lleva su pista y en el lienzo radial no entra.
+function compacto(g){ return (g.tipo==="partes" && diagModo==="completar") || (window.innerWidth < 620 && g.nodos.length > 4); }
+/* La pista de un hueco: la explicación hasta ~140 caracteres, cortada en una palabra. */
+function cortarPista(html){
+  const plano = html.replace(/<span class="hueco"[^>]*>\?<\/span>/g, "\u0001");
+  if(plano.length <= 150) return html;
+  const corte = plano.slice(0, 140).replace(/\s+\S*$/, "") + "…";
+  return corte.replace(/\u0001/g, HUECO);
+}
 function lienzo(g){
   switch(g.tipo){
     case "ciclo":  return compacto(g) ? `<div class="dsecuencia dciclov">${g.nodos.map((nd,i)=>`${i?'<span class="dflechita" aria-hidden="true">→</span>':''}${pieza(g, String(i), nd.t)}`).join("")}<span class="dvuelve">↺ y vuelve a empezar</span></div>` : lienzoRadial(g, false);
@@ -136,7 +148,7 @@ function panelCompletar(g, etiq){
   const total = diagEtiquetas(g).length;
   const bien = diagComp.visto ? diagEtiquetas(g).filter(e=>{ const p = diagComp.puestos[e.k]; return p && etiq[p]===e.t; }).length : 0;
   return `<div class="diagcomp">
-    <p class="muted" style="margin:0 0 8px;font-size:.88rem;">${diagComp.visto ? '' : 'Elegí una etiqueta y después tocá el hueco donde va. Tocá un hueco lleno para vaciarlo.'}</p>
+    <p class="muted" style="margin:0 0 8px;font-size:.88rem;">${diagComp.visto ? '' : (g.tipo==='partes' ? 'Cada hueco trae una pista: la explicación de la pieza, con su nombre tapado. Elegí una etiqueta y tocá el hueco que le corresponde.' : 'Elegí una etiqueta y después tocá el hueco donde va.') + ' Tocá un hueco lleno para vaciarlo.'}</p>
     <div class="dpool">${libres.map(k=>`<button class="dchip${diagComp.elegido===k?' sel':''}" onclick="elegirEtiqueta('${k}')">${escapeHtml(etiq[k])}</button>`).join("") || (diagComp.visto?'':'<span class="muted" style="font-size:.85rem;">Ya ubicaste todas.</span>')}</div>
     <div class="row" style="gap:8px;margin-top:10px;">
       ${diagComp.visto
