@@ -38,8 +38,8 @@ for (const trad of fs.readdirSync(dirMod)) for (const f of fs.readdirSync(path.j
 if (errores.length) fin();
 
 const ctx = {}; vm.createContext(ctx);
-vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, DIAGRAMAS: typeof DIAGRAMAS==='undefined' ? null : DIAGRAMAS, TEXTOS: typeof TEXTOS==='undefined' ? null : TEXTOS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS};", ctx);
-const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, VIDAS, DIAGRAMAS, TEXTOS, EXAMEN_FINAL, CLAVES, TERMINOS } = ctx.__d;
+vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, DIAGRAMAS: typeof DIAGRAMAS==='undefined' ? null : DIAGRAMAS, TEXTOS: typeof TEXTOS==='undefined' ? null : TEXTOS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS, CORRIENTES: typeof CORRIENTES==='undefined' ? null : CORRIENTES};", ctx);
+const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, VIDAS, DIAGRAMAS, TEXTOS, EXAMEN_FINAL, CLAVES, TERMINOS, CORRIENTES } = ctx.__d;
 
 const ids = new Set();
 for (const m of MODULES) {
@@ -235,10 +235,37 @@ else {
 }
 Object.keys(LECTURAS).forEach(k => { if (!ids.has(k)) aviso(`LECTURAS.${k} no corresponde a ninguna ficha`); });
 
+// Corrientes (datos/corrientes.js): ids, fichas y relaciones válidas; tesis para el juego.
+if (CORRIENTES) {
+  const cids = new Set();
+  const CAMPOS = ["id","nombre","periodo","trad","pregunta","lema","resumen","noConfundir","hoy"];
+  CORRIENTES.forEach((c, i) => {
+    const donde = `CORRIENTES[${i}] (${c.id})`;
+    if (cids.has(c.id)) err(`${donde}: id repetido`); cids.add(c.id);
+    CAMPOS.forEach(k => { if (typeof c[k] !== "string" || !c[k].trim()) err(`${donde}: falta «${k}»`); });
+    if (!LEVELS[c.trad] && c.trad !== "varias") err(`${donde}: trad «${c.trad}» no existe`);
+    if (typeof c.desde !== "number" || (c.hasta !== null && typeof c.hasta !== "number") || (c.hasta !== null && c.hasta < c.desde)) err(`${donde}: desde/hasta inválidos`);
+    if (!Array.isArray(c.tesis) || c.tesis.length < 4) err(`${donde}: tiene que tener al menos 4 tesis`);
+    if (!Array.isArray(c.autores) || !c.autores.length) err(`${donde}: necesita al menos una ficha en autores`);
+    (c.autores || []).forEach(a => { if (!ids.has(a.mod)) err(`${donde}: la ficha «${a.mod}» no existe`); if (!a.rol) err(`${donde}: «${a.mod}» sin rol`); });
+    // Las tesis no pueden delatar la corriente: ni su nombre completo ni, si es una palabra, su raíz («estoic…»).
+    const clave = c.nombre.toLowerCase().split(/ y | \(/)[0].trim();
+    const delata = clave.includes(" ") ? clave : clave.slice(0, 6);
+    (c.tesis || []).forEach(t => { if (t.toLowerCase().includes(delata)) err(`${donde}: una tesis nombra la corriente («${t.slice(0,50)}…»)`); });
+    [c.resumen, c.lema, c.noConfundir, c.hoy, ...(c.tesis||[])].forEach(t => { if (/"/.test(t || "")) err(`${donde}: comillas ASCII en el texto (usar «»)`); });
+  });
+  CORRIENTES.forEach(c => ["de","vecinas","rivales"].forEach(k => (c[k] || []).forEach(x => { if (!cids.has(x)) err(`CORRIENTES ${c.id}.${k}: «${x}» no es una corriente`); })));
+  // El juego necesita al menos tres corrientes no vecinas de cada una.
+  CORRIENTES.forEach(c => { const n = CORRIENTES.filter(x => x.id !== c.id && !(c.vecinas||[]).includes(x.id) && !(x.vecinas||[]).includes(c.id)).length; if (n < 3) err(`CORRIENTES ${c.id}: tiene demasiadas vecinas para el juego`); });
+  const sinCorr = MODULES.filter(m => m.trad !== "metodo" && !CORRIENTES.some(c => c.autores.some(a => a.mod === m.id))).map(m => m.id);
+  if (sinCorr.length) aviso(`fichas que no están en ninguna corriente: ${sinCorr.join(", ")}`);
+}
+
 const conEj = MODULES.filter(m => m.cadena && (m.reconstruccion || []).length && (m.dilemas || []).length).map(m => m.id);
 console.log(`Fichas: ${MODULES.length} · con los 3 ejercicios avanzados: ${conEj.length}`);
 console.log(`Pendientes de ejercicios avanzados: ${MODULES.filter(m => !conEj.includes(m.id)).map(m => m.id).join(", ") || "ninguna"}`);
 console.log(`Constelaciones: ${CONSTELACIONES.length} · casos: ${CONSTELACIONES.reduce((n, c) => n + (c.preguntas || [c.pregunta]).length, 0)} · con eje: ${CONSTELACIONES.filter(c => c.eje).length}`);
+if (CORRIENTES) console.log(`Corrientes: ${CORRIENTES.length} · con ficha: ${new Set(CORRIENTES.flatMap(c => c.autores.map(a => a.mod))).size} fichas enlazadas`);
 if (EXAMEN_FINAL) console.log(`Examen final: ${EXAMEN_FINAL.seleccion.length} de selección · ${EXAMEN_FINAL.vf.length} de verdadero o falso · ${EXAMEN_FINAL.emparejar.length} ideas para emparejar`);
 fin();
 

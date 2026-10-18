@@ -127,6 +127,7 @@ function renderStreak(){ $("#streakNum").textContent = progress.streak.count || 
 const TABS = [
   {id:"inicio", label:"Inicio"},
   {id:"modulos", label:"Fichas"},
+  {id:"corrientes", label:"Corrientes"},
   {id:"constelaciones", label:"Constelaciones"},
   {id:"examenes", label:"Exámenes"},
   {id:"consejos", label:"Tips"},
@@ -150,6 +151,7 @@ function showView(id){
   /* El examen final no tiene cronómetro, pero si se sale a mitad se descarta, igual que el otro. */
   if(id !== "examenes" && finalState) cerrarExamenFinal();
   if(id === "constelaciones"){ constelActual = null; renderConstelaciones(); }
+  if(id === "corrientes" && typeof renderCorrientes === "function"){ corrActual = null; corrJuego = null; renderCorrientes(); }
   $all(".view").forEach(v=>v.classList.remove("active"));
   const v = document.getElementById("view-"+id);
   if(v) v.classList.add("active");
@@ -336,6 +338,7 @@ function renderPanorama(){
         <div class="kicker">Tesis central</div>
         <p class="tesis capital">${d.tesis}</p>
         <div class="paraconf"><div class="kicker">Para no confundir</div><div>${d.conexion}</div></div>
+        ${typeof corrientesDeFicha==="function" && corrientesDeFicha(d.id).length ? `<div class="fichacorr"><span class="kicker">Corrientes</span><div>${corrientesDeFicha(d.id).map(c=>`<button class="corrchip" style="${corrVars(c)}" onclick="irACorriente('${c.id}')">${escapeHtml(c.nombre)}</button>`).join("")}</div></div>` : ""}
       </div>
       <aside class="margen">
         <div class="kicker">Tu ruta en esta ficha</div>
@@ -2139,9 +2142,10 @@ function construirIndice(){
   });
   (typeof POLYSEMOUS_TERMS!=="undefined"?POLYSEMOUS_TERMS:[]).forEach(([t,d])=>add({ tipo:"Glosario", mod:null, titulo:t, texto:d, ir:()=>showView("consejos") }));
   (typeof CONSTELACIONES!=="undefined"?CONSTELACIONES:[]).forEach(c=>add({ tipo:"Constelación", mod:null, titulo:c.tema, texto:`${c.nucleo} ${c.entradas.map(e=>e.postura).join(" ")}`, ir:()=>{ showView("constelaciones"); abrirConstelacion(c.id); } }));
+  (typeof CORRIENTES!=="undefined"?CORRIENTES:[]).forEach(c=>add({ tipo:"Corriente", mod:null, titulo:c.nombre, texto:`${c.lema} ${c.pregunta} ${c.resumen} ${c.tesis.join(" ")} ${(c.conceptos||[]).join(" ")} ${(c.otros||[]).join(" ")}`, ir:()=>irACorriente(c.id) }));
   BUSQ_INDICE = ix;
 }
-const BUSQ_PESO = { "Ficha":6, "Concepto":4, "Obra":4, "Constelación":3, "Glosario":3, "Lectura":2, "Pregunta":1 };
+const BUSQ_PESO = { "Ficha":6, "Corriente":5, "Concepto":4, "Obra":4, "Constelación":3, "Glosario":3, "Vida":2, "Texto":2, "Lectura":2, "Pregunta":1 };
 function buscar(q){
   const terms = normBusq(q).split(/\s+/).filter(t=>t.length>=2);
   if(!terms.length) return [];

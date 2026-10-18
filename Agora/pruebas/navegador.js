@@ -189,6 +189,32 @@ function servidor(){
   comprobar(puntos === nFichas - 1 && resaltados >= 2, `el mapa muestra ${puntos} fichas y resalta una constelación (${resaltados} puntos)`);
   comprobar(casosOk === casos && ejesOk === ejes, `${consts.length} constelaciones: ${casosOk}/${casos} casos aceptan su respuesta y ${ejesOk}/${ejes} ejes se resuelven`);
 
+  // 6b. Corrientes: el río, cada corriente abre con sus fichas, el ejercicio de la intrusa y el juego
+  const corrs = await p.evaluate(() => CORRIENTES.map(c => ({ id: c.id, n: c.autores.length })));
+  await p.click('#mainTabs button[data-tab="corrientes"]');
+  const franjas = await p.locator("#rioBox .rfranja").count();
+  let corrOk = 0, intrusaOk = 0;
+  for (const c of corrs) {
+    await p.evaluate(id => abrirCorriente(id), c.id);
+    const fichas = await p.locator("#corrBody .constpost").count();
+    if (fichas === c.n && await p.locator("#rioMini .rfranja.sel").count() === 1) corrOk++;
+    const ix = await p.evaluate(() => corrIntrusa.items.findIndex(it => it.de !== corrIntrusa.id));
+    await p.click(`#corrIntrusa .optbtn[data-ix="${ix}"]`);
+    if ((await p.textContent("#corrIntrusaFb")).startsWith("✅")) intrusaOk++;
+  }
+  comprobar(franjas === corrs.length && corrOk === corrs.length && intrusaOk === corrs.length, `${corrs.length} corrientes: el río las muestra, cada una abre con sus fichas (${corrOk}) y la intrusa se encuentra (${intrusaOk})`);
+  await p.evaluate(() => { corrActual = null; renderCorrientes(); });
+  await p.click('#corrBody button:has-text("Jugar")');
+  for (let r = 0; r < 8; r++) {
+    const k = await p.evaluate(() => { const ro = corrJuego.rondas[corrJuego.i]; return ro.opciones.findIndex(o => o.id === ro.c.id); });
+    await p.click(`#corrJuego .optbtn[data-ix="${k}"]`);
+    await p.click("#corrJuegoFb .btn");
+  }
+  comprobar((await p.textContent("#corrJuego")).includes("8 de 8"), "el juego «¿Qué corriente habla?» da 8 de 8 respondiendo bien");
+  const corrSart = await p.evaluate(() => { openModule("sartre"); return document.querySelectorAll("#detBody .fichacorr .corrchip").length; });
+  await p.click("#detBody .fichacorr .corrchip");
+  comprobar(corrSart >= 1 && await p.locator("#corrFocus").count() === 1, "la ficha de Sartre enlaza con sus corrientes");
+
   // 7. Copia, reinicio y recuperación del progreso
   await p.evaluate(() => { progress.moduleQuiz.platon = 80; progress.respuestas["platon:preguntas:0"] = { texto: "prueba" }; saveProgress(); showView("progreso"); });
   const [dl] = await Promise.all([p.waitForEvent("download"), p.click("text=Guardar copia")]);

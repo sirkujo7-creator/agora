@@ -66,6 +66,12 @@
   </section>
 
   <!-- CONSTELACIONES -->
+  <section class="view" id="view-corrientes">
+    <h2>Corrientes</h2>
+    <p class="muted" style="max-width:68ch;">Las grandes corrientes de la filosofía, de los presocráticos a la filosofía de la liberación: qué pregunta las mueve, qué sostienen, de dónde vienen y qué fichas las representan.</p>
+    <div id="corrBody"></div>
+  </section>
+
   <section class="view" id="view-constelaciones">
     <h2>Constelaciones</h2>
     <p class="muted" style="max-width:68ch;">Un mismo problema visto desde varias fichas. Elegí un tema, compará las posturas lado a lado y respondé la pregunta de comparación.</p>
@@ -195,8 +201,10 @@
 <script src="datos/vidas.js"></script>
 <script src="datos/diagramas.js"></script>
 <script src="datos/textos.js"></script>
+<script src="datos/corrientes.js"></script>
 <script src="app/agora.js"></script>
 <script src="app/diagramas.js"></script>
+<script src="app/corrientes.js"></script>
 <script>
 /* App instalable y sin internet: solo cuando se sirve por http(s). Desde file:// no hace nada. */
 if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) addEventListener("load", ()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
