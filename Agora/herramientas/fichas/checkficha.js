@@ -1,7 +1,9 @@
 // Uso (desde Agora/): node checkficha.js <id> <ruta-del-modulo> <ruta-json-complementos>
 // Revisa una ficha nueva y sus complementos antes de integrarlos. Imprime errores o "OK".
+// Con un cuarto argumento «breve», acepta una ficha breve (autores de menor peso: menos conceptos, sin ejercicios avanzados obligatorios).
 const fs=require("fs"),vm=require("vm");
-const [id, modPath, extraPath] = process.argv.slice(2);
+const [id, modPath, extraPath, modo] = process.argv.slice(2);
+const BREVE = modo === "breve";
 const errs=[], e=m=>errs.push(m);
 const x={};vm.createContext(x);
 try{ vm.runInContext(fs.readFileSync("datos/base.js","utf8")+"\nLEVELS.islamica=LEVELS.islamica||{label:'Islámica',clr:'isl'};\n"+fs.readFileSync(modPath,"utf8")+";globalThis.M=MODULES;globalThis.L=LECTURAS",x); }
@@ -13,10 +15,11 @@ if(!x.L[id]) e("falta LECTURAS."+id); else {
   (x.L[id].preguntasLectura||[]).forEach((p,i)=>{ if(!p.opciones||!p.opciones.includes(p.r)) e(`preguntasLectura[${i}]: r no está en opciones`); });
 }
 const cnt=(k,a,b)=>{const n=(m[k]||[]).length; if(n<a||n>b) e(`${k}: ${n} (se esperan ${a}-${b})`);};
-cnt("conceptos",8,10); cnt("obras",4,6); cnt("actividades",3,3); cnt("cuestionario",5,5); cnt("reconstruccion",2,2); cnt("dilemas",1,1);
+if(BREVE){ cnt("conceptos",5,8); cnt("obras",2,4); cnt("actividades",2,3); cnt("cuestionario",3,5); cnt("reconstruccion",0,2); cnt("dilemas",0,1); }
+else { cnt("conceptos",8,10); cnt("obras",4,6); cnt("actividades",3,3); cnt("cuestionario",5,5); cnt("reconstruccion",2,2); cnt("dilemas",1,1); }
 (m.conceptos||[]).concat(m.obras||[]).forEach((c,i)=>{ if(!c.t||!c.d) e("concepto/obra sin t o d: "+i); });
 if(!m.dialogo||!(m.dialogo.lineas||[]).length) e("falta diálogo");
-if(!m.cadena) e("falta cadena"); else { const c=m.cadena,n=c.nodos||{}; if(!n[c.inicio]) e("cadena.inicio no existe");
+if(!m.cadena){ if(!BREVE) e("falta cadena"); } else { const c=m.cadena,n=c.nodos||{}; if(!n[c.inicio]) e("cadena.inicio no existe");
   const v=new Set(),p=[c.inicio]; while(p.length){const k=p.pop(); if(v.has(k)||!n[k]) continue; v.add(k); (n[k].opciones||[]).forEach((o,i)=>{ if(o.final) return; if(!n[o.va]) e(`cadena.${k}.opciones[${i}] → ${o.va} no existe`); else p.push(o.va); }); }
   Object.keys(n).forEach(k=>{ if(!v.has(k)) e("cadena."+k+" no se alcanza"); }); }
 (m.reconstruccion||[]).forEach((r,i)=>{ const P=new Map((r.piezas||[]).map(p=>[p.id,p])); const nd=(r.piezas||[]).filter(p=>p.tipo==="distractor").length; if(nd!==1) e(`reconstruccion[${i}]: ${nd} distractores`);
@@ -32,7 +35,7 @@ if(extraPath){ let X; try{X=JSON.parse(fs.readFileSync(extraPath,"utf8"));}catch
   else X.claves.forEach((l,i)=>{ if(!Array.isArray(l)||l.length<3||l.length>4) e(`claves[${i}]: 3-4`); });
   const v=X.vida; if(!v||!v.lema||!Array.isArray(v.secciones)||v.secciones.length<4||v.secciones.at(-1).titulo!=="Por qué piensa así"||!Array.isArray(v.hitos)||v.hitos.length<6) e("vida: lema, 4-5 secciones (última «Por qué piensa así»), 6-9 hitos");
   const TIP={ciclo:[3,6],partes:[3,6],niveles:[3,6],secuencia:[3,6],polos:[2,5],cuadrantes:[4,4],capas:[2,4]};
-  if(!Array.isArray(X.diagramas)||X.diagramas.length!==2) e("diagramas: 2"); else X.diagramas.forEach((g,i)=>{ const r=TIP[g.tipo]; if(!r){e(`diagrama ${i}: tipo ${g.tipo}`);return;} const n=(g.nodos||[]).length; if(n<r[0]||n>r[1]) e(`diagrama ${i}: ${n} piezas`);
+  if(!Array.isArray(X.diagramas)||X.diagramas.length<(BREVE?1:2)||X.diagramas.length>2) e(BREVE?"diagramas: 1 o 2":"diagramas: 2"); else X.diagramas.forEach((g,i)=>{ const r=TIP[g.tipo]; if(!r){e(`diagrama ${i}: tipo ${g.tipo}`);return;} const n=(g.nodos||[]).length; if(n<r[0]||n>r[1]) e(`diagrama ${i}: ${n} piezas`);
     if(g.tipo==="partes"&&!g.centro) e(`diagrama ${i}: centro`); if(g.tipo==="polos"&&!(g.polos&&g.polos.izq&&g.polos.der)) e(`diagrama ${i}: polos`);
     const et=g.tipo==="polos"?g.nodos.flatMap(n=>[n.a,n.b]):g.nodos.map(n=>n.t); if(et.some(t=>!t||t.length>44)||new Set(et).size!==et.length||g.nodos.some(n=>!n.d)) e(`diagrama ${i}: etiquetas (distintas, ≤44) y d`); });
   (X.textos||[]).forEach((t,i)=>{ if(!t.titulo||!t.obra||!t.texto||!t.traduccion) e(`texto ${i}: campos`); if(!["dominio público","cita breve"].includes(t.estado)) e(`texto ${i}: estado`);
