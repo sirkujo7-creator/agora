@@ -14,7 +14,8 @@ for(const [id,trad,antes] of specs){
   const tag=`<script src="datos/modulos/${trad}/${id}.js"></script>`;
   if(!html.includes(tag)){
     if(antes.startsWith("fin")){ const t=antes.split("/")[1]||trad; const ult=[...html.matchAll(new RegExp(`<script src="datos/modulos/${t}/[a-z]+\\.js"></script>`,"g"))].pop();
-      html=html.slice(0,ult.index+ult[0].length)+"\n"+tag+html.slice(ult.index+ult[0].length); }
+      if(ult) html=html.slice(0,ult.index+ult[0].length)+"\n"+tag+html.slice(ult.index+ult[0].length);
+      else { const met=html.match(/<script src="datos\/modulos\/metodo\/[a-z]+\.js"><\/script>/); html=html.replace(met[0],tag+"\n"+met[0]); } }   // tradición nueva: antes de las fichas de método
     else { const ref=html.match(new RegExp(`<script src="datos/modulos/[a-z]+/${antes}\\.js"></script>`)); if(!ref) throw "no encuentro "+antes; html=html.replace(ref[0],tag+"\n"+ref[0]); }
   }
   D.TERMINOS[id]=X.terminos; D.CLAVES[id]=X.claves; D.VIDAS[id]=X.vida; D.DIAGRAMAS[id]=X.diagramas; if((X.textos||[]).length) D.TEXTOS[id]=X.textos;
@@ -50,4 +51,21 @@ fs.writeFileSync("datos/textos.js",cab("datos/textos.js","TEXTOS")+"const TEXTOS
      preguntas:[\n${(t.preguntas||[]).map(p=>`       {q:${J(p.q)}, opciones:${J(p.opciones)}, r:${J(p.r)}, why:${J(p.why||"")}}`).join(",\n")}]}`).join(",\n")+"\n  ],\n").join("")+"};\n");
 const E=D.EXAMEN_FINAL;
 fs.writeFileSync("datos/examen.js",cab("datos/examen.js","EXAMEN_FINAL")+"const EXAMEN_FINAL = {\n seleccion:[\n"+E.seleccion.map(q=>"  "+J(q)).join(",\n")+"\n ],\n vf:[\n"+E.vf.map(q=>"  "+J(q)).join(",\n")+"\n ],\n emparejar:[\n"+E.emparejar.map(q=>"  "+J(q)).join(",\n")+"\n ]\n};\n");
+// Corrientes: cada ficha entra en las corrientes de X.corrientes ({id, rol}); si figuraba en «otros» con su nombre, se la saca de ahí.
+let cr=fs.readFileSync("datos/corrientes.js","utf8");
+for(const [id] of specs){
+  const X=JSON.parse(fs.readFileSync(`${S}/nueva-${id}.json`,"utf8"));
+  const nombre=(fs.readFileSync(`datos/modulos/${specs.find(s=>s[0]===id)[1]}/${id}.js`,"utf8").match(/nombre:\s*["'`]([^"'`]+)/)||[])[1]||"";
+  for(const {id:cid,rol} of (X.corrientes||[])){
+    const ini=cr.indexOf(`{ id:"${cid}"`); if(ini<0){ console.log(`⚠ corriente ${cid} no existe (${id})`); continue; }
+    const fin=cr.indexOf(`\n  { id:"`, ini+5)<0 ? cr.length : cr.indexOf(`\n  { id:"`, ini+5);
+    let obj=cr.slice(ini,fin);
+    if(obj.includes(`mod:"${id}"`)) continue;
+    obj=obj.replace(/autores:\s*\[/, m=>`${m}\n      {mod:${J(id)}, rol:${J(rol)}},`);
+    const corto=nombre.replace(/\s*\(.*\)/,"").trim();
+    obj=obj.replace(/otros:\s*\[([^\]]*)\]/, (m,l)=>`otros:[${l.split(/,\s*/).filter(n=>n.trim() && n.replace(/"/g,"").trim()!==corto).join(", ")}]`);
+    cr=cr.slice(0,ini)+obj+cr.slice(fin);
+  }
+}
+fs.writeFileSync("datos/corrientes.js",cr);
 console.log("integradas:",specs.map(s=>s[0]).join(", "));

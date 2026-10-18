@@ -10,7 +10,7 @@
   --accent:#B4532E; --accent-strong:#8F3F20; --accent-ink:#FFF8F2; --accent-soft:#F5E2D7;
   --good:#2F7A57; --good-soft:#DEEFE5; --bad:#B23A2C; --bad-soft:#F6DCD6; --info:#3E5C9A; --info-soft:#E4EAF5;
   --good-ink:#23593F; --bad-ink:#8E2A1E;
-  --eu:#3E5C9A; --eu-soft:#E4EAF5; --asia:#2F8467; --asia-soft:#E0F0E9; --am:#BF5A33; --am-soft:#F7E5DB; --me:#7A4E96; --me-soft:#EEE5F4; --isl:#9A6B16; --isl-soft:#F5EAD2;
+  --eu:#3E5C9A; --eu-soft:#E4EAF5; --asia:#2F8467; --asia-soft:#E0F0E9; --am:#BF5A33; --am-soft:#F7E5DB; --me:#7A4E96; --me-soft:#EEE5F4; --isl:#9A6B16; --isl-soft:#F5EAD2; --afr:#A23E48; --afr-soft:#F6E1E3;
   --pat-alpha:.13;
   --shadow:0 1px 2px rgba(40,30,15,.05), 0 10px 30px -14px rgba(40,30,15,.25);
   --radius:16px;
@@ -27,7 +27,7 @@
     --accent:#E28A62; --accent-strong:#F0A47F; --accent-ink:#1A0F08; --accent-soft:#3A2519;
     --good:#6BBF8F; --good-soft:#18291F; --bad:#E2826F; --bad-soft:#36201B; --info:#93A9DA; --info-soft:#1E2534;
     --good-ink:#8AD3A8; --bad-ink:#EE9C8B;
-    --eu:#93A9DA; --eu-soft:#1E2534; --asia:#7CC2A4; --asia-soft:#17291F; --am:#E28A62; --am-soft:#33221A; --me:#B897D0; --me-soft:#282033; --isl:#D9AE5F; --isl-soft:#2E2616;
+    --eu:#93A9DA; --eu-soft:#1E2534; --asia:#7CC2A4; --asia-soft:#17291F; --am:#E28A62; --am-soft:#33221A; --me:#B897D0; --me-soft:#282033; --isl:#D9AE5F; --isl-soft:#2E2616; --afr:#E3939B; --afr-soft:#33191C;
     --pat-alpha:.10;
     --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 28px -12px rgba(0,0,0,.6);
   }
@@ -39,7 +39,7 @@
   --accent:#E28A62; --accent-strong:#F0A47F; --accent-ink:#1A0F08; --accent-soft:#3A2519;
   --good:#6BBF8F; --good-soft:#18291F; --bad:#E2826F; --bad-soft:#36201B; --info:#93A9DA; --info-soft:#1E2534;
   --good-ink:#8AD3A8; --bad-ink:#EE9C8B;
-  --eu:#93A9DA; --eu-soft:#1E2534; --asia:#7CC2A4; --asia-soft:#17291F; --am:#E28A62; --am-soft:#33221A; --me:#B897D0; --me-soft:#282033; --isl:#D9AE5F; --isl-soft:#2E2616;
+  --eu:#93A9DA; --eu-soft:#1E2534; --asia:#7CC2A4; --asia-soft:#17291F; --am:#E28A62; --am-soft:#33221A; --me:#B897D0; --me-soft:#282033; --isl:#D9AE5F; --isl-soft:#2E2616; --afr:#E3939B; --afr-soft:#33191C;
   --pat-alpha:.10;
   --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 28px -12px rgba(0,0,0,.6);
 }
@@ -405,6 +405,7 @@ textarea.escritura:focus{outline:2px solid var(--accent);outline-offset:1px;}
 .pat-asia{background:radial-gradient(circle at 18% 72%,color-mix(in srgb,var(--asia) calc(var(--pat-alpha)*120%),transparent) 0 14px,transparent 15px),radial-gradient(circle at 64% 28%,color-mix(in srgb,var(--asia) calc(var(--pat-alpha)*90%),transparent) 0 22px,transparent 23px),radial-gradient(circle at 92% 82%,color-mix(in srgb,var(--asia) calc(var(--pat-alpha)*110%),transparent) 0 10px,transparent 11px),var(--asia-soft);}
 .pat-isl{background:repeating-conic-gradient(from 45deg at 50% 50%,color-mix(in srgb,var(--isl) calc(var(--pat-alpha)*110%),transparent) 0 25%,transparent 0 50%) 0 0/18px 18px,repeating-conic-gradient(color-mix(in srgb,var(--isl) calc(var(--pat-alpha)*60%),transparent) 0 25%,transparent 0 50%) 9px 9px/18px 18px,var(--isl-soft);}
 .pat-am{background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--am) calc(var(--pat-alpha)*110%),transparent) 0 6px,transparent 6px 14px),repeating-linear-gradient(-45deg,color-mix(in srgb,var(--am) calc(var(--pat-alpha)*60%),transparent) 0 6px,transparent 6px 14px),var(--am-soft);}
+.pat-afr{background:linear-gradient(135deg,color-mix(in srgb,var(--afr) calc(var(--pat-alpha)*110%),transparent) 25%,transparent 25%) -8px 0/16px 16px,linear-gradient(225deg,color-mix(in srgb,var(--afr) calc(var(--pat-alpha)*110%),transparent) 25%,transparent 25%) -8px 0/16px 16px,linear-gradient(315deg,color-mix(in srgb,var(--afr) calc(var(--pat-alpha)*70%),transparent) 25%,transparent 25%) 0 0/16px 16px,linear-gradient(45deg,color-mix(in srgb,var(--afr) calc(var(--pat-alpha)*70%),transparent) 25%,transparent 25%) 0 0/16px 16px,var(--afr-soft);}
 .pat-me{background:repeating-radial-gradient(circle at 50% 130%,color-mix(in srgb,var(--me) calc(var(--pat-alpha)*110%),transparent) 0 3px,transparent 3px 12px),var(--me-soft);}
 
 /* Monograma de la ficha */
@@ -796,3 +797,5 @@ footer{font-family:var(--font-ui);}
 @media (prefers-reduced-motion:reduce){ .rio .rfranja,.rio .rviva,.corrtesis li{animation:none;} }
 .corrhero h3:focus{outline:none;}
 .corrnota{margin:4px 0 0;font-size:.9rem;max-width:72ch;}
+.dnodo.hueco .dpistap{display:block;margin-top:6px;font-family:var(--font-body);font-weight:400;font-size:.78rem;line-height:1.35;color:var(--ink-soft);text-align:left;}
+.dnodo.hueco .dpistap .hueco{font-size:.7rem;padding:0 6px;}

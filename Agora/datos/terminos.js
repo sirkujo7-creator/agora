@@ -120,6 +120,16 @@ const TERMINOS = {
     {q:"¿Cómo define Anselmo la libertad del albedrío y por qué el poder de pecar no forma parte de ella?"},
     {q:"¿Qué objetan Tomás de Aquino y Kant al argumento de Anselmo, y en qué se diferencian sus críticas?"}
   ],
+  hildegarda: [
+    {k:"sombra de la luz viviente", tapar:["umbra viventis luminis","luz viviente"]},
+    {q:"¿Cómo describe Hildegarda la manera en que recibe sus visiones y por qué insiste en que no son sueños ni éxtasis?"},
+    {k:"viriditas", tapar:["verdor"]},
+    {q:"¿Qué forma tiene el cosmos en las visiones de Hildegarda y cómo cambió esa imagen entre el Scivias y el Libro de las obras divinas?"},
+    {k:"microcosmos", tapar:["mundo pequeño"]},
+    {q:"¿Por qué la música es, para Hildegarda, memoria del paraíso, y por qué el Diablo no canta en el Ordo virtutum?"},
+    {q:"¿Cómo justifica Hildegarda que una mujer sin estudios hable con autoridad a la Iglesia, y qué límites tiene esa autoridad?"},
+    {q:"¿En qué sentido se puede llamar filósofa a Hildegarda y qué discute la historiografía sobre esa etiqueta?"}
+  ],
   tomas: [
     {q:"¿Cómo articula Tomás la fe y la razón, y qué verdades sobre Dios corresponden a cada una?"},
     {q:"¿Cuáles son las cinco vías de Tomás y qué tienen en común como pruebas?"},
@@ -142,6 +152,17 @@ const TERMINOS = {
     {q:"¿Depende el bien moral solo de la voluntad de Dios para Ockham, o tiene un papel la recta razón?"},
     {q:"¿Por qué la razón no puede demostrar, según Ockham, que hay un solo Dios infinito y omnipotente, y qué consecuencia tiene eso para la teología?"},
     {k:"uso de hecho", tapar:["usus facti"]}
+  ],
+  maquiavelo: [
+    {k:"verdad efectiva", tapar:["verità effettuale"]},
+    {k:"virtù", tapar:["virtud"]},
+    {k:"fortuna", tapar:["Fortuna"]},
+    {q:"¿Por qué el principado nuevo es el caso más difícil para Maquiavelo y qué papel cumplen en él las armas propias?"},
+    {k:"crueldades bien usadas", tapar:["crueldad bien usada"]},
+    {q:"¿Qué enseña Maquiavelo con la imagen del zorro y el león, y qué tiene que ver con la apariencia?"},
+    {q:"¿Por qué Maquiavelo considera más seguro ser temido que amado, y qué límite le pone a esa tesis?"},
+    {k:"humores", tapar:["humor"]},
+    {q:"¿De dónde viene la etiqueta «maquiavélico» y qué hay de cierto en atribuirle a Maquiavelo la frase «el fin justifica los medios»?"}
   ],
   descartes: [
     {k:"duda metódica", tapar:[]},
@@ -368,6 +389,18 @@ const TERMINOS = {
     {q:"¿Por qué en la Europa latina se llamó a Averroes «el Comentador» y qué buscaba con sus comentarios?"},
     {k:"doble verdad", tapar:["dos verdades"]}
   ],
+  maimonides: [
+    {q:"¿A qué lector se dirige la Guía de perplejos y en qué consiste su perplejidad?"},
+    {k:"la Torá habla en el lenguaje de los hombres", tapar:["lenguaje de los hombres"]},
+    {k:"atributos negativos", tapar:["atributo negativo","teología negativa","vía negativa"]},
+    {q:"¿Qué les reprocha Maimónides a los teólogos del kalam y cómo evita depender de su física para probar la existencia de Dios?"},
+    {q:"¿Por qué sostiene Maimónides que ni la eternidad ni la creación del mundo se demuestran, y por qué prefiere la creación?"},
+    {q:"¿Qué tres opiniones sobre la profecía distingue Maimónides y cómo explica qué es un profeta?"},
+    {q:"¿Tienen razón todos los mandamientos según Maimónides, y cómo explica los sacrificios?"},
+    {k:"camino medio", tapar:["en el medio"]},
+    {k:"trece fundamentos", tapar:["trece principios"]},
+    {q:"¿Qué es la séptima causa de contradicción que Maimónides anuncia en la introducción de la Guía, y por qué inquieta a sus lectores?"}
+  ],
   ibnjaldun: [
     {k:"ʿilm al-ʿumrān", tapar:["ʿumrān","ʿilm al-ʿumrān"]},
     {q:"¿Qué regla propone Ibn Jaldún para juzgar los relatos históricos, y qué ejemplo usa para mostrar que hasta los historiadores famosos se equivocan?"},
@@ -389,6 +422,16 @@ const TERMINOS = {
     {k:"yì (rectitud)", tapar:["yì","rectitud"]},
     {k:"zhì (sabiduría práctica)", tapar:["zhì","sabiduría"]},
     {k:"shù (reciprocidad)", tapar:["shù","reciprocidad"]}
+  ],
+  mozi: [
+    {k:"jiān ài", tapar:["jiān ài","jian ai","cuidado imparcial","amor universal","jiān","bié"]},
+    {q:"¿Qué entiende Mozi por beneficio (lì), cómo invierte la relación confuciana entre rectitud y provecho, y en qué se distingue del utilitarismo europeo?"},
+    {k:"tres pruebas", tapar:["sān biǎo","tres pruebas","biǎo"]},
+    {q:"¿Qué objetó Mencio al cuidado imparcial de Mozi, y cómo respondió Mozi a la acusación de destruir la piedad filial?"},
+    {q:"¿Cómo argumenta Mozi contra la guerra ofensiva, y qué guerras sí acepta?"},
+    {q:"¿Por qué condena Mozi los funerales costosos y la música de las cortes, y qué le objetaron Xunzi y el Zhuangzi?"},
+    {q:"¿Qué es para Mozi la voluntad del Cielo, cómo sirve de medida de lo correcto y qué dice de los espíritus y del destino?"},
+    {q:"¿Cómo se organizaba la escuela moísta, qué estudiaron los moístas tardíos y por qué desapareció la escuela?"}
   ],
   laozi: [
     {k:"Dao", tapar:["Tao","camino"]},

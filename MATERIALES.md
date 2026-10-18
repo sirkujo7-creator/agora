@@ -67,12 +67,12 @@ Casi todo lo de esta lista es de dominio público y está en internet. Si habili
 
 | Autor | Textos | Imagen |
 |---|---|---|
-| [ ] Hildegarda de Bingen | *Scivias* (visión inicial) | Miniatura del *Scivias* |
-| [ ] Maimónides | *Guía de perplejos*, introducción | Retrato tradicional o estatua de Córdoba |
-| [ ] Nicolás Maquiavelo | *El príncipe* XV, XVIII y XXV | Retrato de Santi di Tito |
+| [x] Hildegarda de Bingen | *Scivias* (visión inicial) | Miniatura del *Scivias* |
+| [x] Maimónides | *Guía de perplejos*, introducción | Retrato tradicional o estatua de Córdoba |
+| [x] Nicolás Maquiavelo | *El príncipe* XV, XVIII y XXV | Retrato de Santi di Tito |
 | [ ] Michel Foucault © | *Vigilar y castigar*, «El panoptismo», 2 páginas | Plano del panóptico de Bentham (Commons) |
 | [ ] Emmanuel Levinas © | *Totalidad e infinito*, sobre el rostro, 1–2 páginas | Fotografía con licencia libre |
-| [ ] Mozi | «Amor universal» (*Mozi* 16) | Grabado (Commons) |
+| [x] Mozi | «Amor universal» (*Mozi* 16) | Grabado (Commons) |
 | [ ] Mahatma Gandhi | *Hind Swaraj*, cap. XVII (la no violencia) | Fotografía de Gandhi (dominio público) |
 | [ ] Frantz Fanon © | *Los condenados de la tierra*, «Sobre la violencia», 2 páginas | Fotografía con licencia libre |
 | [ ] Kwasi Wiredu / ubuntu © | Wiredu, «Democracy and Consensus»; Mogobe Ramose sobre el ubuntu | Fotografía con licencia libre |

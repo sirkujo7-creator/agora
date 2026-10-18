@@ -74,6 +74,13 @@ const CLAVES = {
     ["El vocabulario de honor y deuda tiene ecos feudales", "La satisfacción es la alternativa al castigo, no un castigo sustituto", "El honor de Dios es el orden del universo, no su orgullo", "Abelardo y otros: salva el amor, no un pago"],
     ["Algo es verdadero cuando es o hace lo que debe", "La verdad es la rectitud perceptible solo por la mente", "Une conocer y obrar: verdad, justicia y libertad como rectitud", "Objeción: mezcla correspondencia con corrección moral"]
   ],
+  hildegarda: [
+    ["No argumenta por silogismos ni con la sola razón, como Anselmo o Tomás", "En el sentido de buscar una sabiduría sobre el todo, sí: cosmología, antropología, conocimiento, ética", "Dronke, Newman y Leclercq la recuperaron como pensamiento sistemático o teología monástica", "La etiqueta es nuestra: ella se veía como profetisa"],
+    ["El origen de una idea no decide su verdad: falacia genética", "La explicación médica socava el argumento de autoridad basado en la visión", "Quedan sus ideas, que hay que juzgar por sí mismas", "El diagnóstico es retrospectivo y no responde la pregunta religiosa"],
+    ["Lo desafió en los hechos: escribió, predicó y amonestó a papas y emperadores", "Lo confirmó en los principios: aceptaba la debilidad y subordinación femenina", "Su voz es una excepción justificada por el «tiempo afeminado»", "Defendió la jerarquía social, como en la respuesta a Tengswich"],
+    ["El contenido es falso: los humores no explican la salud", "Sus libros médicos son historia de la ciencia, no guías para tratarse", "La intuición de que salud y entorno están unidos merece discusión", "Sacada de su sistema, la intuición se vuelve vaga"],
+    ["Una misma fuerza vital recorre plantas, cuerpos y almas", "La viriditas es un don de Dios, no un valor propio de la naturaleza", "Su cosmos es jerárquico y antropocéntrico, y el desorden viene del pecado", "Puede inspirar una reflexión ecológica si se reconoce como relectura"]
+  ],
   tomas: [
     ["Las vías prueban un primer principio, no la Trinidad ni la Encarnación", "Objeción a las premisas: la inercia y el salto de la tercera vía", "Objeción de Hume y Kant: unicidad y dependencia del argumento ontológico", "Respuesta tomista: dependencia presente, no serie en el tiempo"],
     ["Si una conclusión contradice la fe, el argumento tiene un error", "Costo: la fe queda como juez último de la razón", "Límite reconocido: no se puede demostrar que el mundo empezó", "La doble verdad se atribuyó a los averroístas en la condena de 1277"],
@@ -87,6 +94,13 @@ const CLAVES = {
     ["La potencia absoluta es lo que Dios podría hacer sin contradicción, no otra manera de actuar", "En el orden establecido, la experiencia es confiable", "La contingencia empuja a conocer el mundo por experiencia", "Objeción: el caso de la estrella inexistente abre una puerta al escepticismo"],
     ["Nicolás III había aprobado el uso de hecho sin propiedad", "Juan XXII declaró herético que Cristo no tuviera nada", "Un papa que contradice la fe definida pierde su autoridad", "El poder papal es ministerial, no una plenitud ilimitada"],
     ["Lectura negativa: disolvió la síntesis de Tomás", "Lectura positiva: originó la vía moderna, atenta a lógica y experiencia", "Influyó en Buridán, Ailly, Biel y en la formación de Lutero", "No destruyó la escolástica, cambió sus preguntas"]
+  ],
+  maquiavelo: [
+    ["Strauss: la vieja acusación de maestro del mal es la más cercana a la verdad", "No llama virtù a los crímenes de Agatocles: poder sin gloria", "Berlin: choque entre la moral cristiana y la moral cívica pagana", "La lectura republicana se apoya en los Discursos"],
+    ["La frase no aparece así en su obra", "El príncipe XVIII: el vulgo juzga por el resultado y la reputación", "Discursos I, 9: el efecto excusa a Rómulo si es el bien común", "Condiciones: fundar un orden libre y entregar el poder a muchos"],
+    ["Spinoza y Rousseau: El príncipe enseña a los pueblos", "Cambio de circunstancias: el funcionario desterrado busca a los Médici", "Pregunta común: fundar y conservar un orden frente a la fortuna", "Para durar, la república se adapta mejor que un príncipe"],
+    ["Elogia el conflicto canalizado por leyes, no la violencia privada", "Roma frente a Florencia: tribunos contra destierros y facciones", "En Colombia el problema fue tramitar el conflicto con armas", "Crítica: idealiza una Roma esclavista e imperial"],
+    ["La fortuna gobierna la mitad; la otra mitad es nuestra", "El río: prepararse con diques en tiempos de calma", "El mayor obstáculo es no poder cambiar la propia naturaleza", "La imagen de la mujer golpeada es misógina: Pitkin"]
   ],
   descartes: [
     ["El cogito solo garantiza que hay pensamiento ahora", "La sustancia persistente proviene de la teoría de la sustancia, no del cogito", "Hume solo encuentra percepciones sueltas al buscar el yo", "Lichtenberg: lo legítimo sería decir «se piensa»"],
@@ -228,6 +242,13 @@ const CLAVES = {
     ["El intelecto material es separado, eterno y uno para todos", "Problema: explicar que este hombre concreto piensa", "Tomás lo combatió en 1270 y la tesis fue condenada en París", "Amenaza la inmortalidad individual y la responsabilidad personal"],
     ["Evitar la tesis simplista de que el islam rechazó la razón", "Caída almohade y desgracia de 1195", "En Oriente la filosofía siguió por la vía de Avicena", "Traducciones tempranas al hebreo y al latín, y reivindicación árabe moderna"]
   ],
+  maimonides: [
+    ["Escribe para un creyente formado en filosofía, perplejo ante la letra", "La salida es aprender a leer: términos homónimos y figuras no señaladas", "La dispersión: dar solo los títulos y que la verdad aparezca y se oculte", "Objeción de elitismo o engaño, y la respuesta del estudio con método"],
+    ["De Dios sabemos que existe, no qué es", "Los atributos positivos introducen composición y lo miden con nuestras perfecciones", "Cada negación demostrada excluye algo y acerca a Dios; al final, el silencio", "Tomás: no habría razón para preferir unos nombres, y propone la analogía"],
+    ["Aristóteles razona desde el mundo ya constituido", "El ejemplo del niño de la isla: lo completo no revela su origen", "Las pruebas del kalam tampoco demuestran", "Elige la creación por probabilidad y porque deja en pie la voluntad, los milagros y la Ley"],
+    ["Todos los mandamientos tienen razón; solo algunos detalles pueden no tenerla", "Dos fines: el bien del cuerpo (sociedad ordenada) y el bien del alma (opiniones verdaderas)", "Los sacrificios como concesión a las costumbres de una época y educación gradual", "Pregunta abierta: qué pasa con las normas cuando cambian las circunstancias"],
+    ["Maimónides interpreta la Escritura cuando contradice lo demostrado", "Spinoza: así el sentido depende de la filosofía y la gente común no podría entenderla", "Spinoza propone leer la Escritura por la Escritura y separar teología y filosofía", "Spinoza aprendió de Maimónides y separa lo que él quería unir"]
+  ],
   ibnjaldun: [
     ["Los historiadores aceptaban relatos por la autoridad de los transmisores", "Primero hay que preguntar si el hecho es posible según la naturaleza de la sociedad", "Ejemplo: el ejército de seiscientos mil israelitas de al-Masʿudi", "El método de los transmisores sirve para la Ley, no basta para los hechos"],
     ["La ʿasabiyya es cohesión de grupo, no solo parentesco de sangre", "Es más fuerte en la vida beduina", "El grupo más cohesionado conquista el poder", "El lujo y la concentración del poder disuelven la cohesión"],
@@ -241,6 +262,13 @@ const CLAVES = {
     ["Argumento del síntoma: predicar la benevolencia prueba que ya falta", "Cascada de degradación del Daodejing: del Tao perdido hasta el rito", "Respuesta confuciana: el rito surge de una pérdida, pero es el camino de vuelta", "También la espontaneidad es aprendida; no hay naturaleza pura frente a cultura"],
     ["Caso del súbdito que denunció a su padre por robar una oveja", "Sin lealtades particulares no se forma la capacidad moral", "Riesgo de nepotismo y corrupción, eje del debate Liu Qingping y Guo Qiyong", "Lo decisivo es qué debe ceder cuando vínculo y justicia se excluyen"],
     ["No es posible separarlos del todo", "Distorsión textual: Analectas compiladas en estratos y en versiones distintas", "Distorsión política: ortodoxia Han de Dong Zhongshu y examen imperial", "Leer con las capas a la vista, sin idealizar ni juzgar por los usos"]
+  ],
+  mozi: [
+    ["Los males (guerras, robos, hijos sin piedad) tienen la misma estructura: cuidar lo propio y dañar lo ajeno", "El remedio es considerar el Estado, la casa y la persona de los demás como propios", "Supone una sola causa para males distintos (miedo, escasez, instituciones)", "No toda parcialidad daña: preferir a los propios no es lo mismo que dañar a los ajenos"],
+    ["Juzga doctrinas y costumbres por su efecto en el beneficio (lì) de todos, contado imparcialmente", "«Consecuencialista» es una etiqueta moderna que Mozi no usó", "Su bien son bienes objetivos (riqueza, población, orden), no el placer como en Mill", "Mozi apoya el criterio en la voluntad del Cielo y no defiende la libertad individual; no hay influencia entre ellos"],
+    ["Mencio: cuidar a todos por igual es «no reconocer al padre»", "Mozi: quien quiere que cuiden a sus padres debe cuidar a los padres ajenos (durazno y ciruela)", "La reciprocidad no está garantizada", "El desacuerdo de fondo: si los vínculos especiales valen por sí mismos o por sus efectos"],
+    ["Escalera de casos: cuanto más se perjudica a otro, mayor es la falta", "Los señores elogian el ataque a otro Estado: llaman blanco al mucho negro", "Argumento de costos: se pierde gente, que falta, para ganar tierra, que sobra", "Objeción: la autoridad pública o la defensa; Mozi distingue el castigo del tirano y acepta la defensa"],
+    ["Han Feizi y Mencio atestiguan que el moísmo fue una de las escuelas más influyentes", "Hacia 100 a.C. ya casi no queda rastro; el libro sobrevivió en el canon taoísta", "Hipótesis: ortodoxia confuciana de los Han y fin de las guerras entre Estados", "Hipótesis: disciplina demasiado áspera y absorción de algunas de sus ideas por el confucianismo"]
   ],
   laozi: [
     ["Pasajes que piden mantener al pueblo simple alimentan la objeción", "Huang-Lao y Han Fei: dos usos políticos opuestos del wú wéi", "Wú wéi significa acción no forzada, no inacción", "La doctrina habla al que manda, no enseña al oprimido qué hacer"],

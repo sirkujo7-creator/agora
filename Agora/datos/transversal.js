@@ -45,7 +45,11 @@ const EPOCA = {
   ibnjaldun:1377,
   mencioxunzi:-300,
   marti:1891,
-  mariategui:1928
+  mariategui:1928,
+  hildegarda:1151,
+  maquiavelo:1513,
+  maimonides:1190,
+  mozi:-430
 };
 
 /* ============ CONSTELACIONES: un mismo problema, varias fichas ============
