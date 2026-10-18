@@ -254,7 +254,7 @@ function renderStatCards(){
 let modFilter = "ALL";
 function setModFilter(t){ modFilter = t; renderModFilterChips(); renderModuleCards(); }
 function renderModFilterChips(){
-  const opts = [["ALL","Todas"],["europea","Europea"],["islamica","Islámica"],["asiatica","Asiática"],["americana","Americana"],["metodo","Método"]];
+  const opts = [["ALL","Todas"],["europea","Europea"],["islamica","Mundo islámico"],["asiatica","Asiática"],["americana","Americana"],["africana","Africana"],["metodo","Método"]];
   $("#modLevelFilter").innerHTML = opts.map(([k,label])=>
     `<span class="chip ${modFilter===k?'active':''}" onclick="setModFilter('${k}')">${label}</span>`).join("");
 }
@@ -1625,8 +1625,8 @@ let mapaSel = "";
 function preguntasDe(c){ return c.preguntas || (c.pregunta ? [c.pregunta] : []); }
 
 /* --- Mapa por época y tradición (SVG) --- */
-const MAPA_CARRILES = { europea:95, islamica:225, asiatica:355, americana:495 };
-const MAPA_ANCHO = 1200, MAPA_ALTO = 590;
+const MAPA_CARRILES = { europea:95, islamica:225, asiatica:355, americana:495, africana:620 };
+const MAPA_ANCHO = 1200, MAPA_ALTO = 710;
 /* Escala de tiempo por tramos: la Antigüedad se comprime y el siglo XX se estira. */
 const MAPA_TRAMOS = [[-650,95],[-300,330],[0,390],[1500,600],[1850,790],[1900,885],[2000,1185]];
 function mapaX(anio){

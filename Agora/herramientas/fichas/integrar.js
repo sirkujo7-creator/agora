@@ -14,7 +14,8 @@ for(const [id,trad,antes] of specs){
   const tag=`<script src="datos/modulos/${trad}/${id}.js"></script>`;
   if(!html.includes(tag)){
     if(antes.startsWith("fin")){ const t=antes.split("/")[1]||trad; const ult=[...html.matchAll(new RegExp(`<script src="datos/modulos/${t}/[a-z]+\\.js"></script>`,"g"))].pop();
-      html=html.slice(0,ult.index+ult[0].length)+"\n"+tag+html.slice(ult.index+ult[0].length); }
+      if(ult) html=html.slice(0,ult.index+ult[0].length)+"\n"+tag+html.slice(ult.index+ult[0].length);
+      else { const met=html.match(/<script src="datos\/modulos\/metodo\/[a-z]+\.js"><\/script>/); html=html.replace(met[0],tag+"\n"+met[0]); } }   // tradición nueva: antes de las fichas de método
     else { const ref=html.match(new RegExp(`<script src="datos/modulos/[a-z]+/${antes}\\.js"></script>`)); if(!ref) throw "no encuentro "+antes; html=html.replace(ref[0],tag+"\n"+ref[0]); }
   }
   D.TERMINOS[id]=X.terminos; D.CLAVES[id]=X.claves; D.VIDAS[id]=X.vida; D.DIAGRAMAS[id]=X.diagramas; if((X.textos||[]).length) D.TEXTOS[id]=X.textos;
