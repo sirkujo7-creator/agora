@@ -373,12 +373,12 @@ No es una escuela con maestro y discípulos, sino un aire de familia entre siste
 
   { id:"empirismo", nombre:"Empirismo", periodo:"s. XVII – s. XVIII", desde:1690, hasta:1776, trad:"europea",
     pregunta:"¿De dónde vienen nuestras ideas, y hasta dónde llega lo que podemos saber?",
-    lema:"Nada hay en el entendimiento que no haya pasado antes por los sentidos.",
-    resumen:`Su texto fundacional es el Ensayo sobre el entendimiento humano de Locke (1690), aunque Francis Bacon ya había pedido, a comienzos del siglo XVII, una ciencia que observara la naturaleza en vez de repetir a las autoridades. La idea central es sencilla y tuvo consecuencias enormes: la mente no trae nada consigo al nacer; todo lo que piensa lo ha recibido, directa o indirectamente, de la experiencia.
+    lema:"Todo lo que la mente piensa le llegó antes por la experiencia.",
+    resumen:`Su texto fundacional es el Ensayo sobre el entendimiento humano de Locke (1690), aunque Francis Bacon ya había pedido, a comienzos del siglo XVII, una ciencia que observara la naturaleza en vez de repetir a las autoridades. La idea central es sencilla y tuvo consecuencias enormes: la mente no trae ideas innatas al nacer, solo facultades; todo lo que piensa lo ha recibido, directa o indirectamente, de la experiencia.
 
 El programa es examinar el entendimiento antes de usarlo: si todas las ideas vienen de los sentidos, se puede rastrear el origen de cada una y descubrir cuáles tienen contenido y cuáles son palabras vacías. Locke lo aplicó con prudencia; Berkeley lo llevó a negar que exista una materia independiente de toda percepción; Hume lo llevó hasta el final y encontró que ni la conexión necesaria entre causa y efecto, ni la inducción, ni un yo permanente se dejan justificar por la experiencia. Lo que sostiene esas creencias es la costumbre.
 
-Es una corriente sobre todo británica y unida a la nueva ciencia experimental de Newton y Boyle. Que la historia de la filosofía la presente como el bando opuesto al racionalismo es en parte una simplificación posterior, pero el debate fue real: Leibniz respondió a Locke, punto por punto, en sus Nuevos ensayos.`,
+Es una corriente sobre todo británica y unida a la nueva ciencia experimental de Newton y Boyle. Ninguno de ellos se llamó a sí mismo «empirista»: la oposición entre empiristas y racionalistas la fijaron Kant y los manuales del s. XIX, y es en parte una simplificación. Pero el debate fue real: Leibniz respondió a Locke, punto por punto, en sus Nuevos ensayos.`,
     tesis:[
       "Nadie nace sabiendo nada: no hay ideas que la mente traiga consigo antes de toda experiencia.",
       "Toda idea, por abstracta que parezca, se puede rastrear hasta alguna sensación; la que no se deja rastrear no significa nada.",
@@ -387,9 +387,9 @@ Es una corriente sobre todo británica y unida a la nueva ciencia experimental d
       "Antes de discutir sobre Dios, el alma o el infinito, hay que averiguar de dónde le vienen sus ideas al entendimiento y hasta dónde llega."],
     autores:[
       {mod:"hobbeslocke", rol:"Locke: la mente como papel en blanco y el origen de las ideas en la experiencia."},
-      {mod:"hume", rol:"Lleva el principio hasta el final: causalidad, inducción y yo quedan en costumbre."},
+      {mod:"hume", rol:"Lleva el principio hasta el final: la conexión causal, la inducción y el yo no se justifican por la experiencia, sino por la costumbre y la imaginación. No usó la etiqueta de «empirista»."},
       {mod:"mill", rol:"Heredero en el s. XIX: hasta las verdades matemáticas serían generalizaciones de la experiencia."}],
-    otros:["Francis Bacon","George Berkeley","Pierre Gassendi","Étienne Bonnot de Condillac","Thomas Reid"],
+    otros:["Francis Bacon","George Berkeley","Pierre Gassendi","Étienne Bonnot de Condillac"],
     conceptos:["experiencia","tabula rasa","ideas simples y complejas","cualidades primarias y secundarias","impresiones e ideas","inducción","causalidad y costumbre"],
     noConfundir:"No es lo mismo que «empírico» en el sentido de hacer las cosas a ojo, sin método: es una teoría sobre el origen y los límites del conocimiento. Y no es escepticismo sin más, aunque en Hume termine en un escepticismo moderado.",
     hoy:"El empirismo lógico del Círculo de Viena lo renovó en el s. XX y Quine lo sometió a crítica en «Dos dogmas del empirismo» (1951). La ciencia cognitiva sigue discutiendo cuánto de la mente es aprendido y cuánto innato.",
@@ -398,7 +398,7 @@ Es una corriente sobre todo británica y unida a la nueva ciencia experimental d
   { id:"contractualismo", nombre:"Contractualismo", periodo:"s. XVII – hoy", desde:1651, hasta:null, trad:"europea",
     pregunta:"¿Por qué debería obedecer a un poder que no elegí?",
     lema:"El poder legítimo nace del acuerdo de quienes le obedecen.",
-    resumen:`La pregunta de fondo es qué hace legítimo a un poder. Durante siglos se respondió con la voluntad de Dios, la tradición o la naturaleza; desde Hobbes, cuyo Leviatán aparece en 1651 en plena posguerra civil inglesa, la respuesta moderna es otra: un poder es legítimo si puede entenderse como resultado de un acuerdo entre personas libres e iguales.
+    resumen:`La pregunta de fondo es qué hace legítimo a un poder. Durante siglos se respondió con la voluntad de Dios, la tradición o la naturaleza; desde Hobbes, cuyo Leviatán aparece en 1651, al final de las guerras civiles inglesas, la respuesta moderna es otra: un poder es legítimo si puede entenderse como resultado de un acuerdo entre personas libres e iguales.
 
 El recurso típico es un experimento mental. Se imagina un estado de naturaleza sin gobierno y se pregunta qué pactarían seres razonables para salir de él. Las respuestas difieren mucho: para Hobbes, un soberano absoluto que garantice la paz; para Locke, un gobierno limitado que proteja la vida, la libertad y la propiedad, y al que se puede resistir si traiciona su encargo; para Rousseau, una comunidad en la que cada uno, obedeciendo la ley que todos se dan, solo se obedece a sí mismo. Kant aclara que ese contrato no es un hecho histórico sino una idea de la razón que sirve para juzgar las leyes.
 
@@ -420,7 +420,7 @@ En 1971 John Rawls lo revivió con su Teoría de la justicia: los principios jus
     de:["iusnaturalismo"], vecinas:["iusnaturalismo","ilustracion"], rivales:["utilitarismo"] },
 
   { id:"ilustracion", nombre:"Ilustración", periodo:"fines del s. XVII – fines del s. XVIII", desde:1688, hasta:1800, trad:"europea",
-    pregunta:"¿Qué pasaría si sometiéramos todo, sin excepción, al examen de la razón?",
+    pregunta:"¿Hay alguna autoridad —la tradición, la Iglesia, el rey— que pueda quedar exenta del examen público de la razón?",
     lema:"¡Atrévete a servirte de tu propio entendimiento!",
     resumen:`Más que una doctrina es un movimiento: el de los filósofos, científicos y escritores que, entre fines del siglo XVII y la Revolución francesa, quisieron extender la razón a todos los ámbitos de la vida —la religión, la política, el derecho penal, la educación, la economía— y ponerla al alcance de todos. Kant la definió en 1784 como la salida del ser humano de su minoría de edad, de la que él mismo es culpable: no la falta de inteligencia, sino de valor para pensar sin la guía de otro.
 
@@ -442,7 +442,7 @@ Tuvo críticos desde dentro, como Rousseau, que dudó de que el progreso de las 
     otros:["Voltaire","Montesquieu","Denis Diderot","Cesare Beccaria","Mary Wollstonecraft","Condorcet","José Celestino Mutis","Antonio Nariño"],
     conceptos:["mayoría de edad","sapere aude","uso público de la razón","tolerancia","progreso","separación de poderes","derechos del hombre"],
     noConfundir:"No es una fe ingenua en que la razón lo resuelve todo: Hume puso límites severos a la razón y Rousseau dudó del progreso. Y no es solo francesa: hubo Ilustración escocesa, alemana, italiana, española e hispanoamericana.",
-    hoy:"Sigue en disputa: Habermas la llamó un proyecto inacabado que hay que corregir, no abandonar; la crítica decolonial y feminista pregunta a quiénes dejó fuera su universalismo. Los derechos humanos y el Estado de derecho son en buena parte su herencia.",
+    hoy:"Sigue en disputa: Habermas llamó a la modernidad que ella inauguró un proyecto inacabado que hay que corregir, no abandonar; la crítica decolonial y feminista pregunta a quiénes dejó fuera su universalismo. Los derechos humanos y el Estado de derecho son en buena parte su herencia.",
     de:["racionalismo","empirismo"], vecinas:["contractualismo","positivismo"], rivales:["escolastica"] },
 
   { id:"idealismo", nombre:"Idealismo alemán", periodo:"1781 – mediados del s. XIX", desde:1781, hasta:1854, trad:"europea",
@@ -460,7 +460,7 @@ Sus herederos y críticos inmediatos —Marx, Kierkegaard, Schopenhauer— defin
       "Lo verdadero no es una tesis suelta sino el todo, al que solo se llega al final de un recorrido en que cada figura se contradice y se supera conservándose.",
       "La historia universal es el progreso en la conciencia de la libertad."],
     autores:[
-      {mod:"kant", rol:"El punto de partida: la revolución copernicana y el idealismo trascendental."},
+      {mod:"kant", rol:"El punto de partida: el giro que él comparó con el de Copérnico y el idealismo trascendental. En sentido estricto, el «idealismo alemán» son sus sucesores, que quisieron ir más allá de él."},
       {mod:"hegel", rol:"La culminación: el sistema del espíritu que se conoce a sí mismo en la historia."},
       {mod:"marx", rol:"Crítico y heredero: conserva la dialéctica hegeliana y la pone sobre bases materiales."},
       {mod:"kierkegaard", rol:"Crítico decisivo: el individuo que existe no cabe en el sistema."}],
@@ -471,7 +471,7 @@ Sus herederos y críticos inmediatos —Marx, Kierkegaard, Schopenhauer— defin
     de:["racionalismo","empirismo","ilustracion"], vecinas:["marxismo"], rivales:["existencialismo","positivismo"] },
 
   { id:"utilitarismo", nombre:"Utilitarismo", periodo:"fines del s. XVIII – hoy", desde:1789, hasta:null, trad:"europea",
-    pregunta:"¿Qué debo hacer, si lo que importa es el sufrimiento y la felicidad de todos?",
+    pregunta:"¿Qué hace correcta a una acción o a una ley: la regla que cumple o el bienestar y el sufrimiento que produce en todos los afectados?",
     lema:"La mayor felicidad para el mayor número.",
     resumen:`Su formulación sistemática está en la Introducción a los principios de la moral y la legislación de Jeremy Bentham (1789), aunque la fórmula de la mayor felicidad para el mayor número ya aparece en Hutcheson y en Beccaria. La idea es que la naturaleza puso a los seres humanos bajo dos amos, el placer y el dolor, y que la única medida razonable de lo correcto es la suma de bienestar que produce una acción, una ley o una institución.
 
@@ -511,16 +511,16 @@ En América Latina fue ideología de Estado. El lema de la bandera de Brasil, «
       {mod:"mill", rol:"Difunde el método positivo en Inglaterra, pero rechaza la religión de la Humanidad."},
       {mod:"vasconcelos", rol:"Crítico desde el Ateneo de la Juventud: contra el positivismo porfiriano, la estética y el espíritu."},
       {mod:"zea", rol:"Su gran historiador: El positivismo en México (1943) y lo que la idea hizo en América."}],
-    otros:["Auguste Comte","Herbert Spencer","Émile Littré","Gabino Barreda","Justo Sierra","José Ingenieros","Antonio Caso"],
+    otros:["Auguste Comte","Herbert Spencer","Émile Littré","Gabino Barreda","Justo Sierra","José Ingenieros"],
     conceptos:["ley de los tres estados","ciencia positiva","física social","sociología","orden y progreso","religión de la Humanidad","los científicos"],
     noConfundir:"No es el positivismo lógico del Círculo de Viena, un movimiento del s. XX que pertenece a la filosofía analítica, aunque comparte la desconfianza ante la metafísica. Tampoco es el positivismo jurídico de Kelsen y Hart, ni tiene que ver con ser «positivo» en el sentido de optimista.",
     hoy:"La bandera de Brasil conserva el lema y en Brasil todavía se conservan templos de la religión positivista. El ideal de gobernar con técnicos en lugar de con política sigue vivo en los debates sobre la tecnocracia.",
     de:["empirismo","ilustracion"], vecinas:["empirismo","analitica"], rivales:["idealismo","liberacion"] },
 
   { id:"marxismo", nombre:"Marxismo", periodo:"s. XIX – hoy", desde:1844, hasta:null, trad:"varias",
-    pregunta:"¿Quién produce la riqueza, quién se la queda, y cómo se cambia eso?",
-    lema:"Los filósofos se han limitado a interpretar el mundo; de lo que se trata es de transformarlo.",
-    resumen:`Nace con Karl Marx y Friedrich Engels a mediados del siglo XIX, entre los Manuscritos de 1844, el Manifiesto comunista (1848) y El capital (1867). Toma de Hegel la dialéctica, pero le da la vuelta: no son las ideas las que mueven la historia, sino la manera en que una sociedad produce sus medios de vida y las relaciones de clase que de ahí resultan.
+    pregunta:"¿Cuánto de la historia y de las ideas de una sociedad se explica por cómo produce su vida material y quién se apropia de lo producido, y cómo puede transformarse eso?",
+    lema:"Los filósofos no han hecho más que interpretar de diversos modos el mundo; de lo que se trata es de transformarlo.",
+    resumen:`Nace con Karl Marx y Friedrich Engels a mediados del siglo XIX, entre los Manuscritos de 1844, el Manifiesto comunista (1848) y El capital (1867). Toma de Hegel la dialéctica, pero le da la vuelta: no son las ideas las que mueven la historia, sino la manera en que una sociedad produce sus medios de vida y las relaciones de clase que de ahí resultan. El nombre «marxismo» no es de Marx: lo pusieron seguidores y adversarios, y según Engels, ante ciertos «marxistas» franceses, Marx llegó a decir que él no lo era.
 
 En el capitalismo el trabajo se vuelve mercancía: el obrero produce más valor del que recibe como salario (la plusvalía) y queda enajenado de lo que hace. El derecho, la religión y la moral dominantes tienden a presentar ese orden como natural; a eso se le llama ideología. Por eso la filosofía no puede quedarse en interpretar: tiene que volverse praxis.
 
@@ -544,14 +544,16 @@ En el siglo XX se ramifica: Lenin y la revolución rusa, Gramsci y la hegemonía
     hoy:"Sigue vivo en la sociología, la historia económica y los estudios sobre desigualdad y trabajo, y en debates sobre ecología y capitalismo. En América Latina alimentó la filosofía de la liberación y la educación popular.",
     de:["idealismo","ilustracion"], vecinas:["liberacion"], rivales:["idealismo","contractualismo"] },
 
-  { id:"existencialismo", nombre:"Existencialismo", periodo:"s. XIX – s. XX", desde:1843, hasta:1980, trad:"europea",
-    pregunta:"Si nada me dice de antemano quién soy, ¿qué hago con mi libertad?",
+  { id:"existencialismo", nombre:"Existencialismo", periodo:"décadas de 1940 a 1970 (precursores en el s. XIX)", desde:1943, hasta:1980, trad:"europea",
+    pregunta:"¿Hay algo que defina quién soy antes de que elija, o me hago con lo que hago con mi libertad?",
     lema:"La existencia precede a la esencia.",
-    resumen:`El nombre se populariza en la Francia de la posguerra, en torno a Sartre y Beauvoir, pero sus raíces están un siglo antes en Kierkegaard: la verdad que importa no es la del sistema, sino la del individuo que tiene que elegir y hacerse cargo de su elección.
+    resumen:`La palabra es del siglo XX. «Existencialismo» empieza a circular en París a mediados de los años cuarenta (se suele atribuir a Gabriel Marcel), para nombrar la filosofía de Sartre, que primero desconfió del rótulo y en 1945 lo asumió en su conferencia «El existencialismo es un humanismo»; Beauvoir también lo aceptó. Antes, en Alemania, Karl Jaspers había hablado de «filosofía de la existencia».
 
-La idea central es que el ser humano no tiene una naturaleza fija que lo defina antes de vivir: primero existe y después se hace con lo que elige. De ahí la angustia (no hay excusa ni guion), la responsabilidad (al elegir, se elige también una imagen de lo humano) y la «mala fe», el intento de esconderse de la propia libertad detrás de un rol o una supuesta naturaleza.
+Kierkegaard y Nietzsche nunca usaron el término, que no existía: los convirtió en precursores la historiografía posterior (Jaspers los presentó juntos en 1935; Walter Kaufmann los incluyó en su antología de 1956, que empieza con Dostoievski). Lo que se toma de Kierkegaard es la idea de que la verdad que importa no es la del sistema, sino la del individuo que tiene que elegir y hacerse cargo de su elección; de Nietzsche, la muerte de Dios y la tarea de crear valores. Pero Kierkegaard escribe desde la fe cristiana, y Nietzsche desconfía de la idea misma de un sujeto libre que elige: ninguno de los dos suscribiría sin más las tesis de Sartre.
 
-No es una escuela homogénea: hay existencialismos cristianos (Kierkegaard, Gabriel Marcel) y ateos (Sartre, Beauvoir, Camus, aunque Camus rechazaba la etiqueta). Heidegger, de quien todos toman vocabulario, también la rechazó.`,
+La idea central, en la versión de Sartre, es que el ser humano no tiene una naturaleza fija que lo defina antes de vivir: primero existe y después se hace con lo que elige. De ahí la angustia (no hay excusa ni guion), la responsabilidad (al elegir, se elige también una imagen de lo humano) y la «mala fe», el intento de esconderse de la propia libertad detrás de un rol o una supuesta naturaleza.
+
+No es una escuela homogénea, y varios de los que suelen incluirse rechazaron la etiqueta. Camus dijo expresamente que no era existencialista; Marcel, que representaba la vertiente cristiana, también terminó por rechazarla; y Heidegger, de quien todos toman vocabulario, se separó de Sartre en la Carta sobre el humanismo (1946): su pregunta era por el ser, no por el ser humano.`,
     tesis:[
       "No hay una naturaleza humana dada de antemano: cada persona se hace con lo que elige.",
       "La angustia no es una enfermedad sino la conciencia de que somos libres y no tenemos excusas.",
@@ -559,48 +561,48 @@ No es una escuela homogénea: hay existencialismos cristianos (Kierkegaard, Gabr
       "La verdad que importa es la que se vive en primera persona, no la que encaja en un sistema.",
       "Al elegir para mí, propongo también una imagen de lo que debe ser un ser humano."],
     autores:[
-      {mod:"kierkegaard", rol:"Precursor: el individuo, la angustia y la elección frente al sistema hegeliano."},
-      {mod:"nietzsche", rol:"Precursor: la muerte de Dios deja al ser humano sin valores dados."},
-      {mod:"heidegger", rol:"Le da el vocabulario (existencia, angustia, autenticidad), aunque rechazó la etiqueta."},
-      {mod:"sartre", rol:"La formulación clásica: existencia, libertad, mala fe y compromiso."},
-      {mod:"beauvoir", rol:"La moral de la ambigüedad y la libertad situada: «no se nace mujer»."}],
+      {mod:"kierkegaard", rol:"Precursor según la historiografía posterior; no usó el término, que es del s. XX. Pensó el individuo que existe, la angustia y la elección frente al sistema hegeliano, desde la fe cristiana."},
+      {mod:"nietzsche", rol:"Precursor según la historiografía posterior (Jaspers, Kaufmann); no usó el término. Se lo vincula por la muerte de Dios y la creación de valores, aunque su crítica del sujeto libre lo aleja de Sartre."},
+      {mod:"heidegger", rol:"Su análisis de la existencia en Ser y tiempo (1927) da el vocabulario (angustia, autenticidad, ser-para-la-muerte), pero rechazó la etiqueta y se separó de Sartre en la Carta sobre el humanismo."},
+      {mod:"sartre", rol:"La formulación clásica, y el que asumió el nombre: existencia, libertad, mala fe y compromiso."},
+      {mod:"beauvoir", rol:"Aceptó el nombre: la moral de la ambigüedad y la libertad situada, que llevará a El segundo sexo."}],
     otros:["Albert Camus","Gabriel Marcel","Karl Jaspers","Miguel de Unamuno","Frantz Fanon"],
     conceptos:["existencia","angustia","libertad","mala fe","proyecto","situación","absurdo","compromiso"],
-    noConfundir:"No es pesimismo ni gusto por la desesperación: Sartre lo presentó como «un humanismo». Y no es lo mismo que el nihilismo: parte de que no hay valores dados, pero sostiene que somos responsables de crearlos.",
+    noConfundir:"No es una escuela del s. XIX: Kierkegaard y Nietzsche son precursores puestos ahí después, y Heidegger y Camus rechazaron el rótulo. No es pesimismo ni gusto por la desesperación: Sartre lo presentó como «un humanismo». Y no es lo mismo que el nihilismo: en su versión atea parte de que no hay valores dados, pero sostiene que somos responsables de crearlos.",
     hoy:"Vive en la ética de la autenticidad, en la psicoterapia existencial (Viktor Frankl, Irvin Yalom) y en el feminismo y el pensamiento anticolonial que heredaron la idea de libertad situada.",
     de:["fenomenologia"], vecinas:["fenomenologia","nihilismo"], rivales:["marxismo"] },
 
   { id:"nihilismo", nombre:"Nihilismo", periodo:"s. XIX – hoy", desde:1862, hasta:null, trad:"varias",
     pregunta:"¿Qué pasa cuando los valores por los que se vivía dejan de valer?",
     lema:"Los valores supremos se desvalorizan.",
-    resumen:`Casi nadie se declara nihilista: el nihilismo es sobre todo un diagnóstico, una palabra para nombrar una crisis. Se populariza con la novela Padres e hijos (1862) de Turguéniev, cuyo personaje Bazárov no acepta ningún principio que no pase por la crítica. Ese nihilismo ruso era una actitud de jóvenes radicales que querían barrer la autoridad, la religión y la tradición en nombre de la ciencia.
+    resumen:`Más que una doctrina, el nihilismo es sobre todo un diagnóstico, una palabra para nombrar una crisis, y casi siempre la usan quienes quieren superarlo. En filosofía la usó Jacobi en 1799 para acusar al idealismo de Fichte de disolver toda realidad en el yo. Se populariza con la novela Padres e hijos (1862) de Turguéniev, cuyo personaje Bazárov se declara nihilista: no se inclina ante ningún principio, por venerado que sea. Algunos jóvenes radicales rusos de esos años, como Písarev, asumieron el nombre: querían barrer la autoridad, la religión, el arte y la tradición en nombre de las ciencias naturales.
 
-Nietzsche le da su sentido filosófico: con la «muerte de Dios», los valores supremos de Occidente se desvalorizan y nada ocupa su lugar. Distingue un nihilismo pasivo, el cansancio de quien ya no quiere nada, y uno activo, que destruye lo caduco para abrir espacio a nuevos valores. Para él, el nihilismo no empieza con el ateísmo: ya estaba en la moral que despreciaba esta vida en nombre de otra.
+Nietzsche le da su sentido filosófico más influyente, sobre todo en apuntes de la década de 1880 que no publicó: con la «muerte de Dios», los valores supremos de Occidente se desvalorizan y nada ocupa su lugar. Distingue un nihilismo pasivo, el cansancio de quien ya no quiere nada, y uno activo, que destruye lo caduco para abrir espacio a nuevos valores. Para él, el nihilismo no empieza con el ateísmo: ya estaba en la moral que despreciaba esta vida en nombre de otra. No lo celebra ni se limita a describirlo desde afuera: en uno de esos apuntes se presenta como alguien que lo vivió hasta el final para dejarlo atrás.
 
-Heidegger lo radicaliza: el nihilismo culmina en la técnica moderna, que convierte todo, incluso al ser humano, en recurso disponible. Desde Japón, la Escuela de Kioto (Nishida, Nishitani) responde con otra idea de la nada, tomada del budismo: no la falta de sentido, sino el lugar desde donde las cosas aparecen. Atravesarla, dice Nishitani, es superar el nihilismo. La escuela carga con su propia controversia por su cercanía al nacionalismo japonés durante la guerra.`,
+Heidegger lee incluso la respuesta de Nietzsche como la culminación del nihilismo: la metafísica occidental olvidó el ser, y ese olvido termina en la técnica moderna, que convierte todo, incluso al ser humano, en recurso disponible. Desde Japón, la Escuela de Kioto responde con otra idea de la nada, inspirada en el budismo: no la falta de sentido, sino el lugar desde donde las cosas aparecen. Nishitani Keiji, discípulo de Nishida que también estudió con Heidegger, sostiene que atravesar el nihilismo hasta esa nada es superarlo. La escuela carga con su propia controversia por su cercanía al nacionalismo japonés durante la guerra.`,
     tesis:[
       "Los valores más altos pierden su fuerza y nada ocupa su lugar: ese es el acontecimiento central de la época.",
-      "No hay que aceptar ninguna autoridad, costumbre ni principio que no resista la crítica de la razón y la ciencia.",
+      "Ningún principio merece respeto por ser venerado: el arte, la religión y las costumbres heredadas hay que negarlos y barrerlos, y lo que se construya después no es asunto nuestro.",
       "Hay un vacío que se padece con cansancio y otro que se empuja con fuerza para destruir lo caduco y crear valores nuevos.",
       "La época que trata todo, incluso a las personas, como un recurso disponible para ser explotado es la culminación de un largo olvido.",
       "La nada no es la falta de sentido sino el lugar donde las cosas aparecen; atravesarla hasta el fondo es la salida."],
     autores:[
-      {mod:"nietzsche", rol:"El diagnóstico clásico: la muerte de Dios, el nihilismo pasivo y el activo."},
-      {mod:"heidegger", rol:"Lee el nihilismo como destino de Occidente que culmina en la técnica."},
-      {mod:"nishida", rol:"La nada absoluta de la Escuela de Kioto, base de la respuesta oriental al nihilismo."},
+      {mod:"nietzsche", rol:"El diagnóstico clásico, sobre todo en apuntes póstumos: la muerte de Dios, el nihilismo pasivo y el activo, y la tarea de superarlo."},
+      {mod:"heidegger", rol:"Lee el nihilismo como destino de la metafísica occidental, que culmina en la técnica; incluye a Nietzsche en él."},
+      {mod:"nishida", rol:"Su nada absoluta es la base sobre la que su discípulo Nishitani piensa la superación del nihilismo."},
       {mod:"west", rol:"Crítico: el nihilismo como amenaza vivida en las comunidades negras de EE. UU."}],
     otros:["Iván Turguéniev","Dmitri Písarev","Fiódor Dostoievski","Friedrich Heinrich Jacobi","Nishitani Keiji","Ernst Jünger"],
     conceptos:["muerte de Dios","nihilismo pasivo","nihilismo activo","transmutación de los valores","Gestell","nada absoluta","vacuidad"],
-    noConfundir:"No es una doctrina que alguien defienda, sino un diagnóstico, casi siempre para superarlo. Tampoco es lo mismo que el existencialismo ni que el pesimismo: Nietzsche lo describe como un tránsito, y la nada de Kioto no es negativa.",
+    noConfundir:"No es tanto una doctrina como un diagnóstico, casi siempre para superarlo; los pocos que se llamaron nihilistas, como los radicales rusos de 1860, usaban la palabra para una crítica sin concesiones, no para decir que nada importa. Tampoco es lo mismo que el existencialismo ni que el pesimismo: Nietzsche lo describe como un tránsito, y la nada de Kioto no es negativa.",
     hoy:"La palabra circula para nombrar la apatía, el cinismo o la sensación de que nada importa, a veces sin el rigor del diagnóstico original. El debate sobre la técnica de Heidegger sigue en la filosofía de la tecnología.",
     de:["idealismo","positivismo"], vecinas:["existencialismo","fenomenologia","budismo"], rivales:["socratismo"] },
 
   { id:"fenomenologia", nombre:"Fenomenología y hermenéutica", periodo:"s. XX – hoy", desde:1900, hasta:null, trad:"europea",
     pregunta:"¿Cómo se nos da el mundo antes de que lo expliquemos, y cómo comprendemos lo que nos llega?",
     lema:"¡A las cosas mismas!",
-    resumen:`La fenomenología empieza con las Investigaciones lógicas de Edmund Husserl (1900-1901). Su consigna es volver «a las cosas mismas»: antes de explicar el mundo con teorías, describir con rigor cómo aparece en la experiencia. Para eso propone suspender la creencia ingenua en el mundo y atender a la conciencia, que siempre es conciencia de algo.
+    resumen:`La fenomenología empieza con las Investigaciones lógicas de Edmund Husserl (1900-1901). Su consigna es volver «a las cosas mismas»: antes de explicar el mundo con teorías, describir con rigor cómo aparece en la experiencia. Más tarde (Ideas, 1913) propone para eso suspender la creencia ingenua en el mundo y atender a la conciencia, que siempre es conciencia de algo.
 
-Su alumno Heidegger desplaza la pregunta: no partimos de una conciencia que mira objetos, sino de un existente que ya está en el mundo, ocupado con cosas que le importan, y que siempre comprende desde una situación. De ahí salen el existencialismo de Sartre y Beauvoir, la teoría política de Arendt y la hermenéutica, el arte de interpretar. Gadamer (Verdad y método, 1960) sostiene que comprender es un diálogo en el que ponemos en juego nuestros prejuicios, y Ricoeur une la interpretación de textos con la pregunta por la identidad y el relato. María Zambrano, formada con Ortega, dialoga con esta tradición desde su razón poética.
+Heidegger, su asistente y luego su sucesor en Friburgo, desplaza la pregunta: no partimos de una conciencia que mira objetos, sino de un existente que ya está en el mundo, ocupado con cosas que le importan, y que siempre comprende desde una situación. De esta tradición beben el existencialismo de Sartre y Beauvoir, la teoría política de Arendt y la hermenéutica, el arte de interpretar. Gadamer (Verdad y método, 1960) sostiene que comprender es un diálogo en el que ponemos en juego nuestros prejuicios, y Ricoeur une la interpretación de textos con la pregunta por la identidad y el relato. María Zambrano, formada con Ortega, dialoga con esta tradición desde su razón poética.
 
 La corriente tiene una sombra que no se puede omitir: Heidegger se afilió al partido nazi en 1933 como rector de Friburgo, y sus Cuadernos negros, publicados desde 2014, muestran pasajes antisemitas. Cómo pesa eso en su obra sigue en discusión.`,
     tesis:[
@@ -636,19 +638,19 @@ Con el tiempo dejó de ser una doctrina para volverse un estilo: claridad, argum
       "El significado de una palabra no es una cosa a la que nombra, sino el uso que tiene en una forma de vida.",
       "La filosofía no es una doctrina sino una actividad de aclaración, que avanza con definiciones precisas y argumentos explícitos."],
     autores:[
-      {mod:"wittgenstein", rol:"Las dos etapas: el Tractatus y los juegos de lenguaje."},
+      {mod:"wittgenstein", rol:"Las dos etapas: el Tractatus y los juegos de lenguaje. El Círculo de Viena se inspiró en el Tractatus, pero él tomó distancia de esa lectura."},
       {mod:"rorty", rol:"Crítico desde dentro: formado en ella, denunció su ilusión de fundamentos."},
       {mod:"falacias", rol:"Ficha de método: el análisis de argumentos que esta corriente volvió hábito."}],
     otros:["Gottlob Frege","Bertrand Russell","G. E. Moore","Moritz Schlick","Rudolf Carnap","Otto Neurath","W. V. O. Quine","J. L. Austin"],
     conceptos:["análisis lógico","sentido y referencia","forma lógica","verificacionismo","juegos de lenguaje","significado como uso","giro lingüístico"],
     noConfundir:"No es lo mismo que el positivismo de Comte, aunque el Círculo de Viena se llamó «positivismo lógico». Y la oposición con la filosofía «continental» es más geográfica e institucional que de fondo: hay muchos puentes.",
-    hoy:"Es el estilo dominante en las universidades de habla inglesa y fuerte en América Latina (filosofía de la mente, del lenguaje, lógica, ética aplicada). Sus métodos están en la base de la informática y la lingüística formal.",
+    hoy:"Es el estilo dominante en las universidades de habla inglesa y fuerte en América Latina (filosofía de la mente, del lenguaje, lógica, ética aplicada). La lógica que impulsó está en la base de la informática teórica y de la semántica formal.",
     de:["empirismo","positivismo"], vecinas:["positivismo","pragmatismo"], rivales:["idealismo","fenomenologia"] },
 
   { id:"pragmatismo", nombre:"Pragmatismo", periodo:"fines del s. XIX – hoy", desde:1878, hasta:null, trad:"americana",
-    pregunta:"¿Qué diferencia práctica hace que una idea sea verdadera?",
+    pregunta:"Si una idea es verdadera, ¿qué diferencia concreta hace eso en la experiencia de alguien, y qué significa una idea que no hace ninguna?",
     lema:"Por sus frutos los conoceréis, no por sus raíces.",
-    resumen:`Es la gran contribución de Estados Unidos a la filosofía. Nace en las discusiones del Club Metafísico de Cambridge (Massachusetts) en la década de 1870, y Charles S. Peirce le da su regla en 1878: para aclarar una idea hay que preguntarse qué efectos prácticos concebibles tendría. William James la populariza desde 1898 y la convierte en una teoría de la verdad: una idea es verdadera si funciona, si nos guía bien en la experiencia. Peirce, molesto con esa versión, rebautizó la suya «pragmaticismo».
+    resumen:`Se la suele considerar el aporte más original de Estados Unidos a la filosofía. Nace en las discusiones del Club Metafísico de Cambridge (Massachusetts) en la década de 1870, y Charles S. Peirce le da su regla en 1878: para aclarar una idea hay que preguntarse qué efectos prácticos concebibles tendría. William James la populariza desde 1898 y la convierte en una teoría de la verdad: una idea es verdadera si funciona, si nos guía bien en la experiencia. Peirce, molesto con esa versión, rebautizó la suya «pragmaticismo».
 
 John Dewey la lleva a la educación y a la política. Pensar es resolver problemas: la indagación empieza cuando una situación nos desconcierta y termina cuando la acción vuelve a fluir. Contra la «teoría del espectador», el conocimiento no copia el mundo sino que lo transforma. La democracia es una forma de vida, y la escuela, el lugar donde se aprende haciendo.
 
@@ -672,7 +674,7 @@ Tras un eclipse frente a la filosofía analítica, Richard Rorty la revive en lo
     de:["empirismo","idealismo"], vecinas:["analitica","utilitarismo"], rivales:["racionalismo"] },
 
   { id:"liberacion", nombre:"Pensamiento latinoamericano y filosofía de la liberación", periodo:"s. XIX – hoy (antecedentes en el s. XVI)", desde:1891, hasta:null, trad:"americana",
-    pregunta:"¿Se puede pensar desde aquí, y desde los de abajo, sin copiar a otros?",
+    pregunta:"¿Hay una filosofía propia de nuestra América, y qué cambia en el pensamiento cuando se lo hace desde los excluidos y no desde el centro?",
     lema:"Injértese en nuestras repúblicas el mundo; pero el tronco ha de ser el de nuestras repúblicas.",
     resumen:`Tiene un antecedente en el siglo XVI: Bartolomé de las Casas, que denunció la conquista y defendió que los pueblos indígenas eran plenamente humanos. En 1891 José Martí escribe «Nuestra América»: hay que gobernar conociendo los elementos del propio país, y no con libros importados. En el siglo XX, José Vasconcelos exalta el mestizaje en La raza cósmica (1925), con un lenguaje eugenésico que hoy se critica; Mariátegui piensa un socialismo desde el problema indígena, y Leopoldo Zea pregunta si existe una filosofía americana y responde que sí, si parte de nuestra circunstancia.
 
@@ -702,13 +704,13 @@ La corriente tiene parientes cercanos en la pedagogía y las ciencias sociales: 
     de:["iusnaturalismo","marxismo","fenomenologia"], vecinas:["marxismo","feminismo"], rivales:["positivismo"] },
 
   { id:"feminismo", nombre:"Feminismo", periodo:"fines del s. XVIII – hoy (precursoras antes)", desde:1792, hasta:null, trad:"varias",
-    pregunta:"¿Por qué ser mujer ha significado tener menos derechos, y qué hay que cambiar para que no sea así?",
+    pregunta:"¿Por qué la diferencia entre los sexos se convirtió en subordinación, y cuánto de lo que se llama «femenino» es naturaleza y cuánto construcción social?",
     lema:"No se nace mujer: se llega a serlo.",
-    resumen:`Tiene precursoras: Sor Juana Inés de la Cruz defendió en 1691 el derecho de las mujeres a estudiar. Como movimiento filosófico nace con la Ilustración: Mary Wollstonecraft, en Vindicación de los derechos de la mujer (1792), sostiene que la supuesta inferioridad femenina es producto de la educación. John Stuart Mill y Harriet Taylor, con quien pensó y escribió, extienden el principio liberal de igualdad: La sujeción de las mujeres (1869) denuncia el matrimonio como una forma legal de servidumbre.
+    resumen:`Tiene precursoras: Sor Juana Inés de la Cruz defendió en 1691 el derecho de las mujeres a estudiar. Como movimiento filosófico nace con la Ilustración: Mary Wollstonecraft, en Vindicación de los derechos de la mujer (1792), sostiene que la supuesta inferioridad femenina es producto de la educación. John Stuart Mill y Harriet Taylor, con quien pensó y escribió, extienden el principio liberal de igualdad: La sujeción de las mujeres (1869), que Mill publicó después de la muerte de Taylor y atribuyó en buena parte a sus ideas, denuncia el matrimonio como una forma legal de servidumbre. Ni Sor Juana, ni Wollstonecraft, ni Mill usaron la palabra «feminismo», que se difunde recién a fines del s. XIX.
 
 Simone de Beauvoir, en El segundo sexo (1949), muestra que la mujer ha sido definida como lo Otro del varón, que se toma como medida de lo humano: lo femenino no es un destino natural sino una situación. Se suele hablar de «olas»: el sufragio (primera), «lo personal es político» (segunda, desde los sesenta), la diversidad (tercera) y la movilización masiva y en redes (cuarta, con Ni Una Menos desde 2015). La metáfora misma se discute por centrarse en el mundo anglosajón.
 
-Los debates internos son fuertes. Las feministas negras (Combahee River Collective, bell hooks, Angela Davis) acusaron al feminismo blanco de ignorar la raza y la clase; de ahí la interseccionalidad. En América Latina hubo feminismos populares, comunitarios y decoloniales que cuestionan al feminismo del Norte. Hay desacuerdos sin resolver sobre igualdad y diferencia, prostitución, y sobre la categoría de sexo y la inclusión de las mujeres trans.`,
+Los debates internos son fuertes. Las feministas negras (Combahee River Collective, bell hooks, Angela Davis) acusaron al feminismo blanco de ignorar la raza y la clase; de ahí la interseccionalidad, término que Kimberlé Crenshaw propuso en 1989. En América Latina hubo feminismos populares, comunitarios y decoloniales que cuestionan al feminismo del Norte. Hay desacuerdos sin resolver sobre igualdad y diferencia, prostitución, y sobre la categoría de sexo y la inclusión de las mujeres trans.`,
     tesis:[
       "Las diferencias de carácter entre hombres y mujeres son, en gran parte, producto de la educación y no de la naturaleza.",
       "La humanidad se ha pensado tomando al varón como medida, y a la mujer como lo otro, lo que se define por relación a él.",
@@ -718,7 +720,7 @@ Los debates internos son fuertes. Las feministas negras (Combahee River Collecti
     autores:[
       {mod:"sorjuana", rol:"Precursora: el derecho de las mujeres al saber, en la Nueva España del siglo XVII."},
       {mod:"mill", rol:"La sujeción de las mujeres, pensada junto con Harriet Taylor."},
-      {mod:"beauvoir", rol:"El segundo sexo: la mujer como lo Otro y lo femenino como situación."}],
+      {mod:"beauvoir", rol:"El segundo sexo (1949): la mujer como lo Otro y lo femenino como situación. Ella misma recién se declaró feminista en los años setenta."}],
     otros:["Mary Wollstonecraft","Harriet Taylor Mill","Olympe de Gouges","bell hooks","Angela Davis","Audre Lorde","Julieta Kirkwood","María Lugones"],
     conceptos:["patriarcado","género","lo Otro","lo personal es político","interseccionalidad","olas del feminismo","igualdad y diferencia","sororidad"],
     noConfundir:"No es la idea de que las mujeres son superiores ni un simple espejo del machismo: su reclamo de partida es la igualdad. Y no es uno solo: liberal, radical, marxista, negro, comunitario y decolonial discrepan en diagnósticos y soluciones.",
