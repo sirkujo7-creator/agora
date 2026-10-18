@@ -142,7 +142,8 @@ function renderCorriente(){
         ${rel("Nace de", c.de)}${rel("Da origen a", hijas)}${rel("Vecinas", c.vecinas)}${rel("Rivales", c.rivales)}
       </aside>
     </div>
-    <div class="sechead">Autores con ficha</div>
+    <div class="sechead">Autores con ficha y su relación con la corriente</div>
+    <p class="muted corrnota">Algunos son precursores o críticos: los nombres de las corrientes suelen ser posteriores, puestos por la historiografía, y no siempre los usaron sus propios autores.</p>
     <div class="constgrid">${autores.map(({a,m})=>`
       <article class="constpost" style="${varsTrad(m)}">
         <header>${monograma(m)}<div><h4>${m.nombre}</h4><span class="lvltag mono">${LEVELS[m.trad].label} · ${m.fechas.split("·")[0].trim()}</span></div></header>

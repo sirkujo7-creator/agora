@@ -795,3 +795,4 @@ footer{font-family:var(--font-ui);}
 @media (max-width:560px){ .corrhero{padding:18px;} .corrhero h3{font-size:1.9rem;} }
 @media (prefers-reduced-motion:reduce){ .rio .rfranja,.rio .rviva,.corrtesis li{animation:none;} }
 .corrhero h3:focus{outline:none;}
+.corrnota{margin:4px 0 0;font-size:.9rem;max-width:72ch;}
