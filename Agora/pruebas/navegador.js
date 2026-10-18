@@ -208,7 +208,7 @@ function servidor(){
   for (let r = 0; r < 8; r++) {
     const k = await p.evaluate(() => { const ro = corrJuego.rondas[corrJuego.i]; return ro.opciones.findIndex(o => o.id === ro.c.id); });
     await p.click(`#corrJuego .optbtn[data-ix="${k}"]`);
-    await p.click("#corrJuegoFb button");
+    await p.click("#corrJuegoFb .btn");
   }
   comprobar((await p.textContent("#corrJuego")).includes("8 de 8"), "el juego «¿Qué corriente habla?» da 8 de 8 respondiendo bien");
   const corrSart = await p.evaluate(() => { openModule("sartre"); return document.querySelectorAll("#detBody .fichacorr .corrchip").length; });

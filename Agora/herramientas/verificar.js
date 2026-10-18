@@ -248,8 +248,10 @@ if (CORRIENTES) {
     if (!Array.isArray(c.tesis) || c.tesis.length < 4) err(`${donde}: tiene que tener al menos 4 tesis`);
     if (!Array.isArray(c.autores) || !c.autores.length) err(`${donde}: necesita al menos una ficha en autores`);
     (c.autores || []).forEach(a => { if (!ids.has(a.mod)) err(`${donde}: la ficha «${a.mod}» no existe`); if (!a.rol) err(`${donde}: «${a.mod}» sin rol`); });
-    const nombreNorm = c.nombre.toLowerCase().split(/[ ,]+/).filter(w => w.length > 4);
-    (c.tesis || []).forEach(t => { if (nombreNorm.some(w => t.toLowerCase().includes(w))) err(`${donde}: una tesis nombra la corriente («${t.slice(0,50)}…»)`); });
+    // Las tesis no pueden delatar la corriente: ni su nombre completo ni, si es una palabra, su raíz («estoic…»).
+    const clave = c.nombre.toLowerCase().split(/ y | \(/)[0].trim();
+    const delata = clave.includes(" ") ? clave : clave.slice(0, 6);
+    (c.tesis || []).forEach(t => { if (t.toLowerCase().includes(delata)) err(`${donde}: una tesis nombra la corriente («${t.slice(0,50)}…»)`); });
     [c.resumen, c.lema, c.noConfundir, c.hoy, ...(c.tesis||[])].forEach(t => { if (/"/.test(t || "")) err(`${donde}: comillas ASCII en el texto (usar «»)`); });
   });
   CORRIENTES.forEach(c => ["de","vecinas","rivales"].forEach(k => (c[k] || []).forEach(x => { if (!cids.has(x)) err(`CORRIENTES ${c.id}.${k}: «${x}» no es una corriente`); })));

@@ -30,11 +30,13 @@ function rioFilas(){
   const fin = [], pos = {};
   lista.forEach(c=>{
     const x0 = mapaX(c.desde), x1 = Math.max(mapaX(c.hasta==null ? 2026 : c.hasta), x0 + 14);
-    const ocupa = Math.max(x1, x0 + c.nombre.length*7.4 + 16);   // el nombre puede salir de la franja
+    // el nombre puede salir de la franja; si no cabe antes del borde, va la primera parte («Fenomenología»)
+    const etiqueta = x0 + c.nombre.length*7.4 + 16 > MAPA_ANCHO - 8 ? c.nombre.split(" y ")[0] : c.nombre;
+    const ocupa = Math.max(x1, x0 + etiqueta.length*7.4 + 16);
     let f = fin.findIndex(e=>x0 > e + 8);
     if(f < 0){ f = fin.length; fin.push(0); }
     fin[f] = ocupa;
-    pos[c.id] = { c, x0, x1, y: RIO_TOPE + f*RIO_FILA };
+    pos[c.id] = { c, x0, x1, etiqueta, y: RIO_TOPE + f*RIO_FILA };
   });
   return { pos, filas: fin.length };
 }
@@ -61,7 +63,7 @@ function rioSVG(sel){
       return `<g class="rfranja${off?' off':''}${es?' sel':''}" style="--d:${(n++)*35}ms" tabindex="0" role="link" aria-label="${escapeHtml(c.nombre)}, ${escapeHtml(c.periodo)}" onclick="abrirCorriente('${c.id}')" onkeydown="if(event.key==='Enter')abrirCorriente('${c.id}')">
         <rect x="${p.x0.toFixed(1)}" y="${p.y}" width="${(p.x1-p.x0).toFixed(1)}" height="20" rx="10" style="fill:var(--${k}-soft);stroke:var(--${k})"/>
         ${c.hasta==null?`<circle cx="${(p.x1-7).toFixed(1)}" cy="${p.y+10}" r="3.5" class="rviva" style="fill:var(--${k})"/>`:""}
-        <text x="${(p.x0+10).toFixed(1)}" y="${p.y+14.5}" class="rnombre" style="fill:var(--${k})">${escapeHtml(c.nombre)}</text></g>`;
+        <text x="${(p.x0+10).toFixed(1)}" y="${p.y+14.5}" class="rnombre" style="fill:var(--${k})">${escapeHtml(p.etiqueta)}</text></g>`;
     }).join("")}
   </svg>`;
 }
