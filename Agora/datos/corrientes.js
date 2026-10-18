@@ -14,7 +14,7 @@ const CORRIENTES = [
     lema:"Buscar el principio de las cosas en la naturaleza misma.",
     resumen:`Empieza en Mileto, un puerto griego de la costa de Asia Menor, en el siglo VI a.C.: Tales, Anaximandro y Anaxímenes se preguntan de qué está hecho todo y de dónde viene lo que nace y muere, y responden con el agua, lo ilimitado (ápeiron) y el aire. No abandonan de golpe a los dioses, pero buscan la explicación en la naturaleza (physis) y discuten entre sí con argumentos.
 
-El nombre es moderno y algo engañoso: lo fijó la edición de fragmentos de Hermann Diels (1903), y varios «presocráticos», como Demócrito, fueron contemporáneos de Sócrates. No es una escuela sino un siglo y medio de respuestas rivales: Pitágoras ve en el número la clave del orden; Heráclito, un fuego que cambia según medida; Parménides sostiene que lo que es no puede nacer ni cambiar, y obliga a todos los que vienen después a explicar el cambio sin contradecirlo.
+El nombre es moderno y algo engañoso: lo consagró la edición de fragmentos de Hermann Diels (1903), y varios «presocráticos», como Demócrito, fueron contemporáneos de Sócrates. No es una escuela sino un siglo y medio de respuestas rivales: Pitágoras ve en el número la clave del orden; Heráclito, un fuego que cambia según medida; Parménides sostiene que lo que es no puede nacer ni cambiar, y obliga a todos los que vienen después a explicar el cambio sin contradecirlo.
 
 Las respuestas a Parménides son los cuatro elementos de Empédocles, las semillas de Anaxágoras y los átomos de Leucipo y Demócrito. De casi todos solo quedan fragmentos citados por autores posteriores, a veces siglos después, y testimonios que hay que leer con cautela.`,
     tesis:[
@@ -29,12 +29,12 @@ Las respuestas a Parménides son los cuatro elementos de Empédocles, las semill
       {mod:"parmenides", rol:"Los dos caminos del «es» y el «no es»: lo que es no puede nacer ni cambiar."}],
     otros:["Pitágoras","Jenófanes de Colofón","Zenón de Elea","Empédocles","Anaxágoras","Leucipo","Demócrito"],
     conceptos:["arché","physis","ápeiron","logos","ser y no ser","cuatro elementos","átomos y vacío","fragmentos y doxografía"],
-    noConfundir:"No son «científicos primitivos» ni pensadores ya libres del mito: Tales dijo que «todo está lleno de dioses». Y «presocrático» es una etiqueta cronológica de los editores modernos, no una escuela con doctrina común.",
+    noConfundir:"No son «científicos primitivos» ni pensadores ya libres del mito: según Aristóteles, Tales pensaba que «todo está lleno de dioses». Y «presocrático» es una etiqueta cronológica de los editores modernos, no una escuela con doctrina común.",
     hoy:"La pregunta por la materia última y la discusión sobre el cambio y la permanencia siguen abiertas en la física y la metafísica; Heidegger y Nietzsche volvieron a ellos buscando un pensamiento anterior a Platón.",
     de:[], vecinas:["estoicismo"], rivales:[] },
 
   { id:"socratismo", nombre:"Socratismo y platonismo", periodo:"s. V a.C. – s. III d.C.", desde:-430, hasta:250, trad:"europea",
-    pregunta:"¿Qué es lo bueno, y cómo puede saberlo quien cree que ya lo sabe?",
+    pregunta:"¿Qué es lo bueno, y qué hace falta para saberlo de verdad y no solo creer que se lo sabe?",
     lema:"Una vida sin examen no merece ser vivida.",
     resumen:`Sócrates no escribió nada. Recorría Atenas preguntando qué es la justicia, la valentía o la piedad a quienes pasaban por sabios, y mostraba que no lo sabían. En el 399 a.C. la ciudad lo condenó a muerte por impiedad y por corromper a los jóvenes. Lo conocemos sobre todo por los diálogos de Platón y por Jenofonte, y separar al Sócrates histórico del personaje es un problema sin solución definitiva.
 
@@ -50,7 +50,7 @@ La Academia no conservó una doctrina fija: desde Arcesilao, en el siglo III a.C
     autores:[
       {mod:"socrates", rol:"El fundador sin libros: la pregunta, la ironía, el cuidado del alma y una muerte por fidelidad a su misión."},
       {mod:"platon", rol:"Las Formas, la anámnesis, el alma tripartita y la ciudad justa; funda la Academia."},
-      {mod:"aristoteles", rol:"Crítico interno: veinte años en la Academia antes de rechazar las Formas separadas."}],
+      {mod:"aristoteles", rol:"Crítico interno: pasa veinte años en la Academia y termina rechazando las Formas separadas."}],
     otros:["Jenofonte","Antístenes","Aristipo de Cirene","Espeusipo","Jenócrates","Plutarco de Queronea"],
     conceptos:["élenchos","ironía","mayéutica","intelectualismo moral","cuidado del alma","Formas o Ideas","anámnesis","filósofo-rey"],
     noConfundir:"«Platónico» no significa solo «amor sin sexo»: la escalera de Diotima en el Banquete parte del amor a los cuerpos. Y el Sócrates de los diálogos no es un registro taquigráfico: es en buena parte un personaje de Platón.",
@@ -87,20 +87,20 @@ Sus textos sobrevivieron por una cadena de comentaristas: griegos como Alejandro
     lema:"La muerte no es nada para nosotros.",
     resumen:`Hacia el 306 a.C. Epicuro compra una casa con huerto en las afueras de Atenas y funda allí una comunidad, el Jardín, que admitía mujeres y esclavos. La filosofía es para él una medicina del alma: sirve si cura el miedo y el sufrimiento, y no sirve si no los cura.
 
-La felicidad es placer, pero no el del banquete ni el de la acumulación: el placer más alto es no sufrir en el cuerpo y no estar turbado en el alma. Para lograrlo hay que distinguir los deseos naturales y necesarios de los vacíos, que no tienen límite, y curar los grandes miedos con el «cuádruple remedio»: no hay que temer a los dioses ni a la muerte, el bien es fácil de conseguir y el dolor, fácil de soportar. La amistad es el mayor de los bienes.
+La felicidad es placer, pero no el del banquete ni el de la acumulación: el placer más alto es no sufrir en el cuerpo y no estar turbado en el alma. Para lograrlo hay que distinguir los deseos naturales y necesarios de los vacíos, que no tienen límite, y curar los grandes miedos con lo que la escuela resumió como «cuádruple remedio» (la fórmula nos llega por Filodemo): no hay que temer a los dioses ni a la muerte, el bien es fácil de conseguir y el dolor, fácil de soportar. La amistad es el mayor de los bienes.
 
-La base es una física heredada de Demócrito: todo es átomos y vacío, el alma también, y con la muerte se disuelve. Epicuro añade un desvío mínimo de los átomos (clinamen) para dejar lugar a la libertad. En Roma, Lucrecio lo expuso en el poema De la naturaleza de las cosas, cuyo redescubrimiento en 1417 lo devolvió a la cultura europea.`,
+La base es una física heredada de Demócrito: todo es átomos y vacío, el alma también, y con la muerte se disuelve. Los epicúreos añaden un desvío mínimo de los átomos, que Lucrecio llamará clinamen, para dejar lugar a la libertad; la palabra no aparece en los textos de Epicuro que conservamos. En Roma, Lucrecio lo expuso en el poema De la naturaleza de las cosas, cuyo redescubrimiento en 1417 lo devolvió a la cultura europea.`,
     tesis:[
       "El placer más alto no es el del banquete, sino no sufrir en el cuerpo y no estar turbado en el alma.",
       "Mientras existimos, la muerte no está; cuando ella llega, ya no existimos: por eso no hay nada que temer en ella.",
       "Unos deseos son naturales y necesarios, otros naturales pero no necesarios, y otros vacíos y sin límite; ser feliz exige saber distinguirlos.",
-      "Los dioses, si existen, son felices y no se ocupan de los asuntos humanos: no hay que temer su castigo.",
+      "Los dioses existen, pero son felices e incorruptibles y no se ocupan de los asuntos humanos: no hay que temer su castigo.",
       "De todo lo que la sabiduría procura para la felicidad, lo más grande es la amistad."],
     autores:[
-      {mod:"epicuro", rol:"El fundador: la clasificación de los deseos, el cuádruple remedio, la amistad y los átomos que se desvían."}],
+      {mod:"epicuro", rol:"El fundador: la clasificación de los deseos, los remedios contra el miedo a los dioses y a la muerte, la amistad y la física de los átomos."}],
     otros:["Metrodoro de Lámpsaco","Hermarco","Filodemo de Gádara","Lucrecio","Diógenes de Enoanda","Pierre Gassendi"],
     conceptos:["placer en reposo","aponía","clasificación de los deseos","tetrafármaco","átomos y vacío","clinamen","el Jardín","justicia como pacto"],
-    noConfundir:"No es hedonismo desenfrenado: Epicuro vivía de pan y agua y pedía «un poco de queso» para darse un festín. El sentido de «epicúreo» como gourmet viene de la caricatura que hicieron sus adversarios.",
+    noConfundir:"No es hedonismo desenfrenado: según Diógenes Laercio, Epicuro se contentaba con pan y agua y pedía un poco de queso para darse un festín. El sentido de «epicúreo» como gourmet viene de la caricatura que hicieron sus adversarios.",
     hoy:"Su manera de tratar la muerte sigue en la discusión filosófica sobre si morir es un daño. Su física fue retomada por Gassendi en el siglo XVII, y su idea de la justicia como pacto anticipa el contractualismo.",
     de:["presocraticos"], vecinas:["estoicismo","utilitarismo"], rivales:["estoicismo","socratismo"] },
 
@@ -120,7 +120,7 @@ En Roma se vuelve un arte de vivir practicado por gente muy distinta: un senador
       "Hay que distinguir con cuidado lo que depende de nosotros de lo que no, y poner el esfuerzo solo en lo primero."],
     autores:[
       {mod:"estoicos", rol:"Séneca, Epicteto y Marco Aurelio: el estoicismo romano como arte de vivir."},
-      {mod:"spinoza", rol:"Hereda la idea de que entender la necesidad libera de las pasiones tristes."}],
+      {mod:"spinoza", rol:"Afín moderno, no estoico: entender la necesidad libera de las pasiones, aunque critica a los estoicos por creer que la voluntad puede dominar por completo los afectos."}],
     otros:["Zenón de Citio","Cleantes","Crisipo","Panecio","Posidonio","Musonio Rufo"],
     conceptos:["logos","virtud","indiferentes","apatheia","dicotomía del control","cosmopolitismo","examen de conciencia"],
     noConfundir:"El estoico no es alguien frío que reprime lo que siente: busca no ser arrastrado por juicios falsos. Y no es resignación pasiva: Marco Aurelio gobernó un imperio y Séneca escribió contra la ira.",
@@ -144,7 +144,7 @@ Los textos de Sexto se tradujeron al latín en el siglo XVI y desataron una cris
     autores:[
       {mod:"hume", rol:"Heredero moderno: defiende un escepticismo «mitigado» y rechaza el pirrónico por invivible."},
       {mod:"descartes", rol:"Crítico: lleva la duda al extremo para encontrar algo que resista a ella."},
-      {mod:"agustin", rol:"Crítico: escribe Contra los académicos y responde a la duda con «si me engaño, existo»."},
+      {mod:"agustin", rol:"Crítico: escribe Contra los académicos y, en La ciudad de Dios, responde a la duda con «si me engaño, existo»."},
       {mod:"ghazali", rol:"Afín: atraviesa una crisis escéptica, pero no es escéptico: dice salir de ella por una luz divina."},
       {mod:"zhuangzi", rol:"Afín sin contacto con los griegos: no hay un lugar neutral desde el cual arbitrar entre perspectivas."}],
     otros:["Pirrón de Elis","Timón de Fliunte","Arcesilao","Carnéades","Enesidemo","Sexto Empírico","Michel de Montaigne","Pierre Bayle"],
@@ -160,7 +160,7 @@ Los textos de Sexto se tradujeron al latín en el siglo XVI y desataron una cris
 
 En el origen está lo Uno, absolutamente simple, más allá del ser y del pensamiento. De él procede, sin que él disminuya, como la luz del sol, una Inteligencia que contiene las Formas; de ella, el Alma, que anima el mundo; y en el último escalón, la materia, donde la luz se agota. Por eso el mal no es una sustancia sino carencia. El alma puede hacer el camino inverso: purificarse, volverse hacia adentro y unirse con lo Uno.
 
-Porfirio, Jámblico y Proclo continúan la escuela, hasta que Justiniano cierra la de Atenas en el 529. Su herencia es enorme y atraviesa religiones: Agustín leyó «libros de los platónicos» antes de su conversión, el pensamiento árabe recibió una paráfrasis de Plotino atribuida a Aristóteles, y la mística cristiana se nutrió del Pseudo Dionisio.`,
+Porfirio, Jámblico y Proclo continúan la escuela, hasta que en el 529 una ley de Justiniano prohíbe enseñar a los paganos y la de Atenas se extingue (cómo y cuándo cerró exactamente se discute). Su herencia es enorme y atraviesa religiones: Agustín leyó «libros de los platónicos» antes de su conversión, el pensamiento árabe recibió una paráfrasis de Plotino atribuida a Aristóteles, y la mística cristiana se nutrió del Pseudo Dionisio.`,
     tesis:[
       "Todo procede de un principio único que se desborda como la luz del sol sin disminuir: primero una inteligencia, luego un alma y, al final, la materia.",
       "El mal no es una sustancia, sino carencia: es el último escalón, donde la luz del principio se agota.",
@@ -173,7 +173,7 @@ Porfirio, Jámblico y Proclo continúan la escuela, hasta que Justiniano cierra 
       {mod:"avicena", rol:"Heredero en la falsafa: la cadena de intelectos que emanan del Necesario, dentro de un marco aristotélico."}],
     otros:["Plotino","Porfirio","Jámblico","Proclo","Hipatia de Alejandría","Pseudo Dionisio Areopagita","Maestro Eckhart","Marsilio Ficino"],
     conceptos:["lo Uno","Inteligencia (nous)","Alma del mundo","emanación","conversión o retorno","mal como privación","unión mística","teología negativa"],
-    noConfundir:"La emanación no es una creación libre en el tiempo: lo Uno produce por sobreabundancia, sin decidirlo. Por eso los pensadores cristianos y musulmanes que lo heredaron tuvieron que corregirlo, y Agustín toma de él mucho pero no la idea de que el mundo brota necesariamente.",
+    noConfundir:"La emanación no es una creación libre en el tiempo: lo Uno produce por sobreabundancia, sin decidirlo. Por eso los teólogos cristianos y musulmanes que lo heredaron tuvieron que corregirlo: Agustín toma de él mucho pero no la idea de que el mundo brota necesariamente, y Al-Ghazali atacó a los filósofos, como Avicena, que conservaron una emanación necesaria y eterna.",
     hoy:"Vive en la teología negativa y en el estudio de la mística comparada. Historiadores como Pierre Hadot lo leyeron como un ejercicio espiritual, no solo como un sistema.",
     de:["socratismo","aristotelismo"], vecinas:["socratismo","falsafa"], rivales:["estoicismo","epicureismo"] },
 
@@ -182,7 +182,7 @@ Porfirio, Jámblico y Proclo continúan la escuela, hasta que Justiniano cierra 
     lema:"Una ley injusta no es ley, sino corrupción de la ley.",
     resumen:`La idea de que hay una justicia anterior a las leyes escritas es antigua: Antígona entierra a su hermano invocando leyes no escritas frente al decreto de Creonte, y los estoicos hablan de una ley de la razón común a todos los seres racionales, que Cicerón describe como la recta razón conforme a la naturaleza. Tomás de Aquino le da forma sistemática: la ley natural es la participación de la criatura racional en la ley eterna, y una ley humana que la contradice ya no es ley, sino corrupción de la ley.
 
-En el siglo XVI la conquista de América la pone a prueba. En Salamanca, Francisco de Vitoria sostiene que los pueblos indios eran verdaderos dueños de sus tierras y sus gobiernos, y que ni la infidelidad ni el pecado les quitaban ese dominio; Las Casas lleva el argumento a los tribunales y discute en Valladolid contra Sepúlveda, que defendía la servidumbre natural de los indios. Grocio desliga después el derecho natural de la teología, y Locke lo convierte en derechos de cada individuo —vida, libertad, bienes— que el gobierno existe para proteger.
+En el siglo XVI la conquista de América la pone a prueba. En Salamanca, Francisco de Vitoria sostiene que los pueblos indios eran verdaderos dueños de sus tierras y sus gobiernos, y que ni la infidelidad ni el pecado les quitaban ese dominio, aunque admitió otros títulos que, según él, podían justificar la intervención española. Las Casas lleva el argumento ante la Corona y en la Junta de Valladolid (1550–1551) discute contra Sepúlveda, que invocaba la servidumbre natural de Aristóteles para justificar la guerra contra los indios. Grocio sostiene después que el derecho natural valdría aunque, por imposible, Dios no existiera, y Locke lo convierte en derechos de cada individuo —vida, libertad, bienes— que el gobierno existe para proteger.
 
 Desde el siglo XVIII recibe críticas duras: Hume advierte que de cómo son las cosas no se deduce cómo deben ser, Bentham llama a los derechos naturales disparates en zancos y el positivismo jurídico separa el derecho válido del derecho justo. Después del nazismo vuelve con fuerza: Radbruch sostiene que la ley extremadamente injusta no es derecho, y la Declaración Universal de 1948 presenta los derechos humanos como algo que se reconoce, no que se concede.`,
     tesis:[
@@ -216,7 +216,7 @@ En el siglo XIV, Duns Escoto y sobre todo Ockham ponen el acento en la libertad 
       "La gracia no destruye la naturaleza, sino que la perfecciona.",
       "La teología puede organizarse como una ciencia que deduce conclusiones a partir de los artículos de la fe, como de sus principios.",
       "La razón puede demostrar que Dios existe partiendo del movimiento, las causas o el orden del mundo, aunque no pueda demostrar la Trinidad.",
-      "Hay que decidir si los géneros y las especies existen fuera de la mente o son solo signos que se predican de muchos individuos."],
+      "Los géneros y las especies no existen separados de los individuos, pero tampoco son meras palabras: el entendimiento los abstrae de lo que los individuos tienen en común."],
     autores:[
       {mod:"agustin", rol:"Precursor: la autoridad teológica de la que parte toda la Edad Media latina."},
       {mod:"anselmo", rol:"Considerado padre de la escolástica: la fe que busca entender y el argumento ontológico."},
@@ -326,12 +326,12 @@ En el siglo XX, Nishida Kitarō y la Escuela de Kioto ponen esa herencia en diá
     hoy:"Es una de las grandes religiones del mundo y una filosofía muy viva; en 1956 Ambedkar se convirtió con cientos de miles de dalits como protesta contra las castas. La meditación de atención plena (mindfulness) es su versión secularizada, a veces separada por completo de su ética.",
     de:[], vecinas:["vedanta","taoismo"], rivales:["vedanta"] },
 
-  { id:"vedanta", nombre:"Vedanta", periodo:"s. VIII a.C. – hoy", desde:-700, hasta:null, trad:"asiatica",
+  { id:"vedanta", nombre:"Vedanta", periodo:"s. VIII a.C. (Upanishads) – hoy", desde:-700, hasta:null, trad:"asiatica",
     pregunta:"¿Qué soy yo en el fondo, y qué relación tengo con el fondo de todo lo real?",
     lema:"Eso eres tú.",
-    resumen:`Vedanta significa «fin del Veda»: el nombre se refiere a las Upanishads, los textos que cierran la literatura védica y que preguntan por el principio de todo (Brahman) y por el sí mismo más íntimo (atman). Con la Bhagavad Gita y los Brahma Sutras forman la base de una de las seis escuelas ortodoxas de la filosofía india, que se definen por aceptar la autoridad del Veda.
+    resumen:`Vedanta significa «fin del Veda»: el nombre se refiere a las Upanishads, los textos que cierran la literatura védica y que preguntan por el principio de todo (Brahman) y por el sí mismo más íntimo (atman). Con la Bhagavad Gita y los Brahma Sutras, compuestos siglos después, forman la base de una de las seis escuelas ortodoxas de la filosofía india, que se definen por aceptar la autoridad del Veda.
 
-Su intérprete más influyente es Shankara, en el siglo VIII d.C., fundador del advaita, la no dualidad: el atman y el Brahman son idénticos, y la multiplicidad del mundo es apariencia (maya), producida por la ignorancia, que superpone a lo real lo que no es, como cuando en la penumbra se toma una cuerda por una serpiente. Shankara distingue dos niveles de verdad: en el convencional, el mundo, los dioses y los ritos funcionan; en el último, solo hay una conciencia sin segundo. La liberación no se alcanza con obras sino con el conocimiento que disuelve la ignorancia, y es posible en esta vida. Sus rivales lo acusaron de ser un budista encubierto.
+Su intérprete más influyente es Shankara, en el siglo VIII d.C., que sistematiza el advaita, la no dualidad, ya esbozado por Gaudapada: el atman y el Brahman son idénticos, y la multiplicidad del mundo es apariencia (maya), producida por la ignorancia, que superpone a lo real lo que no es, como cuando en la penumbra se toma una cuerda por una serpiente. Shankara distingue dos niveles de verdad: en el convencional, el mundo, los dioses y los ritos funcionan; en el último, solo hay una conciencia sin segundo. La liberación no se alcanza con obras sino con el conocimiento que disuelve la ignorancia, y es posible en esta vida. Sus rivales lo acusaron de ser un budista encubierto.
 
 Pero el vedanta no es solo advaita. Ramanuja, en los siglos XI y XII, defiende una no dualidad matizada en la que las almas y el mundo son reales como cuerpo de un Dios personal, y Madhva, en el XIII, una dualidad estricta entre Dios y las almas. En el siglo XIX, Vivekananda presentó el advaita en el Parlamento de las Religiones de Chicago (1893) como la esencia del hinduismo, y así llegó a Occidente.`,
     tesis:[
@@ -363,8 +363,8 @@ No es una escuela con maestro y discípulos, sino un aire de familia entre siste
       "Nada sucede sin una razón suficiente por la que sea así y no de otro modo.",
       "Lo que es la materia no lo dicen los colores ni los sabores, sino lo que de ella se puede pensar con exactitud matemática."],
     autores:[
-      {mod:"descartes", rol:"El fundador: la duda metódica, el cogito y las dos sustancias."},
-      {mod:"spinoza", rol:"La ética demostrada al modo geométrico: una sola sustancia, Dios o la Naturaleza."}],
+      {mod:"descartes", rol:"Punto de partida según la historiografía posterior (no usó la etiqueta): la duda metódica, el cogito y las dos sustancias."},
+      {mod:"spinoza", rol:"Ubicado aquí por la historiografía posterior: la ética demostrada al modo geométrico y una sola sustancia, Dios o la Naturaleza."}],
     otros:["Gottfried Wilhelm Leibniz","Nicolas Malebranche","Antoine Arnauld","Isabel de Bohemia","Christian Wolff"],
     conceptos:["duda metódica","cogito","ideas innatas","sustancia","método geométrico","principio de razón suficiente","mónada","armonía preestablecida"],
     noConfundir:"No es lo mismo que «ser racional» o confiar en la ciencia: los empiristas también eran racionales. La diferencia está en de dónde sale el conocimiento más firme: de la razón sola o de la experiencia.",
