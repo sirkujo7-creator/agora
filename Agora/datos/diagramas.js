@@ -153,6 +153,19 @@ const DIAGRAMAS = {
       {t:"Acción", d:"Es verdadera cuando hace lo que debe: obrar bien es, en este sentido, hacer la verdad."},
       {t:"Esencia de las cosas", d:"Las cosas son verdaderas cuando son lo que deben ser según la verdad suprema de la que reciben el ser."}]}
   ],
+  hildegarda: [
+    {tipo:"capas", titulo:"El cosmos como un huevo (Scivias I, 3)", intro:"La tercera visión del primer libro del Scivias: el universo en capas, de afuera hacia el centro.", nota:"Simplificado: Hildegarda distingue más capas (el aire acuoso, el aire fuerte y blanco y el aire tenue con las nubes van aquí juntos). En el Libro de las obras divinas cambió el huevo por una rueda.",
+     nodos:[
+      {t:"Fuego luminoso y fuego oscuro", d:"Afuera, un fuego brillante; debajo, una piel sombría con un fuego oscuro. Allí están el sol y algunos astros, y desde allí soplan vientos."},
+      {t:"Éter puro", d:"Una capa clara, debajo de los fuegos, donde Hildegarda ubica la luna y otros astros."},
+      {t:"Aires: acuoso, fuerte y blanco, tenue", d:"Varias capas de aire: una cargada de humedad, otra fuerte y luminosa, y la más baja, tenue, donde se forman las nubes."},
+      {t:"La tierra, esfera en el centro", d:"En el medio, una esfera de arena: la tierra, rodeada por todas las capas y alcanzada por sus vientos y sus influencias."}]},
+    {tipo:"polos", titulo:"Verdor y aridez", intro:"La viriditas y su contrario: la misma oposición recorre la naturaleza, el cuerpo y el alma.", polos:{"izq":"viriditas","der":"aridez"}, nota:"La agrupación en tres ámbitos es una manera de ordenar los usos del término, no una lista de Hildegarda.",
+     nodos:[
+      {a:"Tierra que brota y da fruto", b:"Tierra estéril y seca", d:"En la naturaleza, la viriditas es la fuerza que hace brotar las plantas y fructificar la tierra; su ausencia es la esterilidad."},
+      {a:"Cuerpo sano, humores en equilibrio", b:"Enfermedad y melancolía", d:"En el cuerpo, el verdor es la salud; la sequedad acompaña la enfermedad y la tristeza que, para Hildegarda, entraron con la caída."},
+      {a:"Alma fecunda en virtudes", b:"Alma marchita por el pecado", d:"En el alma, la viriditas es la fecundidad que da fruto en obras buenas; el pecado la seca, y el Espíritu Santo la hace reverdecer."}]}
+  ],
   tomas: [
     {tipo:"partes", titulo:"Las cinco vías", intro:"Suma teológica I, q.2, a.3: cinco caminos que van de algo observado en el mundo a su causa primera.", centro:"Existencia de Dios", nota:"Todas son pruebas a posteriori, desde los efectos. Lo que concluyen es un primer principio; que sea el Dios de la fe se discute en las cuestiones siguientes.",
      nodos:[
@@ -180,6 +193,22 @@ const DIAGRAMAS = {
       {a:"Hay una naturaleza común en las cosas", b:"Fuera de la mente todo es singular", d:"El realista pone en Sócrates y Platón algo común, la humanidad; Ockham sostiene que cada uno tiene solo su ser singular."},
       {a:"El universal se funda en una realidad", b:"El universal es un signo de muchos", d:"Para Ockham, lo universal es el concepto, que está en lugar de muchos individuos parecidos; no hace falta otra entidad que lo fundamente."},
       {a:"Distinción formal en la cosa", b:"Solo distinción real o de razón", d:"Escoto distinguía en la cosa la naturaleza y lo que la individúa; Ockham considera esa distinción ininteligible fuera de la Trinidad y la corta con la navaja."}]}
+  ],
+  maquiavelo: [
+    {tipo:"ciclo", titulo:"El ciclo de los gobiernos", intro:"Discursos, I, 2: las formas de gobierno se degeneran y se suceden en un ciclo que Maquiavelo toma del historiador griego Polibio.", nota:"El ciclo es de Polibio (Historias, libro VI) y Maquiavelo lo adopta; agrega que casi ninguna ciudad lo recorre entero, porque antes la conquista un vecino mejor ordenado. Su salida es el gobierno mixto, que combina los tres buenos, como en Esparta y en Roma.",
+     nodos:[
+      {t:"Principado", d:"Para defenderse, los primeros hombres eligen como jefe al más fuerte y valeroso, y después al más prudente y justo."},
+      {t:"Tiranía", d:"Los herederos del principado se entregan a los excesos y se hacen odiar: el principado se vuelve tiranía."},
+      {t:"Aristocracia", d:"Los más poderosos y nobles encabezan la conspiración contra el tirano y gobiernan con miras al bien común."},
+      {t:"Oligarquía", d:"Sus hijos, que no conocieron la tiranía, gobiernan con avaricia y ambición, y el gobierno de los mejores se vuelve el de unos pocos."},
+      {t:"Gobierno popular", d:"El pueblo derroca a los pocos y, para no volver ni a príncipe ni a oligarcas, gobierna por sí mismo."},
+      {t:"Licencia", d:"Con el tiempo cada uno hace lo que quiere y se ofende a todos: la anarquía obliga a buscar otra vez un príncipe, y el ciclo recomienza."}]},
+    {tipo:"polos", titulo:"El zorro y el león", intro:"El príncipe, capítulo XVIII: de las bestias, el príncipe debe imitar al zorro y al león, y saber usar las dos naturalezas.", polos:{"izq":"zorro","der":"león"}, nota:"Maquiavelo no elige uno: el que se apoya solo en el león no entiende lo que hace. Y las dos bestias vienen después de la manera propia de los hombres, que es combatir con las leyes.",
+     nodos:[
+      {a:"Descubre las trampas", b:"Espanta a los lobos", d:"Hay que ser zorro para conocer las trampas y león para espantar a los lobos: cada uno sirve contra un peligro distinto."},
+      {a:"No puede con los lobos", b:"Cae en las trampas", d:"Cada bestia sola tiene una debilidad: el zorro no se defiende de los lobos y el león no se defiende de las trampas."},
+      {a:"Simular y disimular", b:"Armas y castigo", d:"La astucia del zorro es saber parecer fiel, piadoso y humano; la fuerza del león, las armas propias y el temor al castigo."},
+      {a:"Fraude según Cicerón", b:"Violencia según Cicerón", d:"Cicerón, en Sobre los deberes, condenaba el fraude del zorro y la fuerza del león como indignos del ser humano; Maquiavelo invierte la imagen."}]}
   ],
   descartes: [
     {tipo:"secuencia", titulo:"El camino de la duda", intro:"Meditaciones I y II: de la duda a la primera certeza.",
@@ -465,6 +494,21 @@ const DIAGRAMAS = {
       {a:"Dios crea cada efecto", b:"Sin acciones propias no hay esencias", d:"Para Al-Ghazali, lo que quema al algodón es Dios. Para Averroes, si el fuego no quemara no tendría definición: no se distinguiría del agua."},
       {a:"El milagro: Dios rompe la costumbre", b:"Negar las causas es negar el intelecto", d:"Al-Ghazali quiere salvar la posibilidad de los milagros. Averroes responde que sin causas no hay ciencia, y lo que queda es sofística."}]}
   ],
+  maimonides: [
+    {tipo:"secuencia", titulo:"Del atributo al silencio", intro:"Guía de perplejos I, 58-59: cómo se avanza en el conocimiento de Dios negando, desde la imagen corporal hasta la alabanza silenciosa.", nota:"Maimónides no presenta estos pasos como etapas numeradas; el orden es una reconstrucción a partir de los capítulos sobre los atributos (I, 50-60).",
+     nodos:[
+      {t:"Imaginar a Dios con cuerpo", d:"Tomar al pie de la letra los términos bíblicos que hablan de manos, ojos o un trono. Para Maimónides es el error más grave, y hay que enseñar a todos que Dios no es cuerpo."},
+      {t:"Afirmar atributos positivos", d:"Decir que Dios es sabio, poderoso o viviente como cualidades distintas. Introduce pluralidad en su unidad y lo mide con perfecciones humanas."},
+      {t:"Negar con prueba", d:"Entender que «viviente» significa que no es como lo inerte, y «uno», que no hay otro como Él. Cada negación demostrada acerca más, como saber que lo que hay en la casa no es planta ni mineral."},
+      {t:"Saber que no lo comprendemos", d:"El punto más alto del conocimiento humano de Dios: saber que existe y que su esencia nos supera, como el sol que los ojos débiles no pueden mirar."},
+      {t:"El silencio es alabanza", d:"Como toda alabanza contiene algo que lo rebaja, lo más adecuado es callar y contemplar. Las pocas fórmulas de la oración se dicen solo porque están en la Torá y las fijaron los profetas."}]},
+    {tipo:"partes", titulo:"Tres opiniones sobre el origen del mundo", intro:"Guía de perplejos II, 13-25: las posiciones que Maimónides distingue y la suya frente a ellas.", centro:"¿Cómo empezó el mundo?", nota:"La atribución a Platón es la de Maimónides, a partir de lecturas del Timeo; los intérpretes discuten si en algún pasaje Maimónides se acerca más a la opinión platónica de lo que declara.",
+     nodos:[
+      {t:"La Ley de Moisés: creación de la nada", d:"Dios creó el mundo, y con él el tiempo, después de la nada absoluta, por su voluntad. Es la opinión que Maimónides defiende como la más probable, aunque no demostrada."},
+      {t:"Platón: forma dada a una materia eterna", d:"Dios forma el mundo a partir de una materia que existe desde siempre. Para Maimónides no es incompatible con la Ley en principio, pero no está demostrada y no la adopta."},
+      {t:"Aristóteles: un mundo eterno y necesario", d:"El mundo existe desde siempre y procede de Dios por necesidad, sin voluntad que elija. Maimónides sostiene que Aristóteles no lo demostró y que esta tesis destruiría la Ley."},
+      {t:"El kalam: pruebas con átomos", d:"Los teólogos defienden la creación, pero con una física de átomos y accidentes construida a medida. Maimónides comparte su conclusión y rechaza sus pruebas."}]}
+  ],
   ibnjaldun: [
     {tipo:"ciclo", titulo:"Las cinco etapas de una dinastía", intro:"Muqaddima, sobre las dinastías: el recorrido de un poder desde la conquista hasta el derroche, que deja el lugar a un grupo nuevo.", nota:"Las cinco etapas son de Ibn Jaldún; que la última cierre el círculo con la llegada de otro grupo es la lectura de su teoría del ciclo, no una etapa que él numere.",
      nodos:[
@@ -494,6 +538,22 @@ const DIAGRAMAS = {
       {t:"Ritos y música marchitos", d:"Si los asuntos no llegan a término, los ritos y la música no florecen: se pierden las formas con que la comunidad cultiva el respeto y la armonía."},
       {t:"Castigos sin blanco", d:"Si ritos y música no florecen, los castigos no dan en el blanco: la justicia penal pierde su criterio y castiga sin proporción ni acierto."},
       {t:"Pueblo sin dónde pisar", d:"Al final de la cadena, el pueblo no sabe dónde poner los pies ni las manos: el desorden que empezó siendo semántico termina siendo judicial y social."}]}
+  ],
+  mozi: [
+    {tipo:"secuencia", titulo:"La escalera del capítulo 17", intro:"Mozi 17: cada peldaño perjudica más a otro y, por eso, es más injusto. En el último, el juicio de los señores se invierte.", nota:"El orden de los peldaños es el del texto. La inversión final es lo que el argumento denuncia: el mismo criterio dejaría de aplicarse cuando el daño es mayor.",
+     nodos:[
+      {t:"Robar duraznos y ciruelas del huerto", d:"Todos lo condenan y quien gobierna lo castiga: perjudica a otro para beneficiarse a sí mismo."},
+      {t:"Robar perros, cerdos y gallinas", d:"Más injusto que robar fruta, porque el perjuicio a otro es mayor."},
+      {t:"Llevarse caballos y bueyes del establo", d:"Todavía más injusto: cuanto más se perjudica, mayor es la falta y más grave el crimen."},
+      {t:"Matar a un inocente para quitarle la ropa", d:"El peor de los casos individuales: merece una pena de muerte."},
+      {t:"Atacar a otro Estado", d:"Mata a miles y despoja de todo, pero los señores lo elogian y lo llaman justo: como quien ve mucho negro y dice blanco."}]},
+    {tipo:"polos", titulo:"Mozi y los confucianos", intro:"Los puntos de la disputa, pieza por pieza.", polos:{"izq":"Mozi","der":"Confucianos"}, nota:"El contraste simplifica: los dos condenaban la guerra de conquista y querían el bien del pueblo. Del lado confuciano se reúnen tesis de Confucio, Mencio y Xunzi.",
+     nodos:[
+      {a:"Cuidado imparcial (jiān ài)", b:"Amor graduado desde la familia", d:"Mozi pide considerar a los demás como propios; los confucianos ven en la piedad filial la raíz de la humanidad, que se extiende con la distancia."},
+      {a:"Lo recto es lo que beneficia a todos", b:"La rectitud vale más que el provecho", d:"Mozi mide lo correcto por el beneficio (lì); Confucio y Mencio oponen la rectitud (yì) al provecho."},
+      {a:"Funerales sobrios, volver al trabajo", b:"Funerales debidos y luto de tres años", d:"Para Mozi el luto largo empobrece y desordena; para Xunzi el rito da forma al dolor."},
+      {a:"La música de corte, un derroche", b:"La música forma y une a la comunidad", d:"Mozi no niega que la música sea agradable, sino que beneficie; Xunzi dice que Mozi no conoce la forma (wén)."},
+      {a:"Un Cielo con voluntad que premia", b:"Reserva sobre los espíritus y el destino", d:"Mozi acusa a los confucianos de no creer en los espíritus y de creer en el destino."}]}
   ],
   laozi: [
     {tipo:"polos", titulo:"Los opuestos que se generan", intro:"Capítulo 2: cada término nace junto con su contrario.", polos:{"izq":"yin","der":"yang"},

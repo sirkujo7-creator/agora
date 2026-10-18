@@ -164,7 +164,7 @@ function showView(id){
 const MONOGRAMA = { platon:"Pl", aristoteles:"Ar", descartes:"De", kant:"Ka", hegel:"He", nietzsche:"Nz", heidegger:"Hd",
   wittgenstein:"Wi", confucio:"Co", laozi:"La", zhuangzi:"Zh", nagarjuna:"Na", shankara:"Sh", dogen:"Dō", nishida:"Ni",
   wangyangming:"Wy", peirce:"Pe", james:"Ja", dewey:"Dw", vasconcelos:"Va", zea:"Ze", dussel:"Du", rorty:"Ro", west:"We", falacias:"∴",
-  arendt:"Ha", beauvoir:"Be", zambrano:"Za", sorjuana:"SJ", zuleta:"Zu", tales:"Ta", heraclito:"Hr", parmenides:"Pa", socrates:"So", agustin:"Ag", tomas:"Aq", avicena:"Av", averroes:"IR", hume:"Hu", rousseau:"Rs", marx:"Mx", sartre:"Sa", buda:"Bu", lascasas:"LC", freire:"Fr", falsborda:"FB", epicuro:"Ep", estoicos:"St", anselmo:"An", ockham:"Oc", hobbeslocke:"HL", spinoza:"Sp", kierkegaard:"Ki", mill:"Mi", ghazali:"Gz", ibnjaldun:"IJ", mencioxunzi:"Me", marti:"Mt", mariategui:"Mg" };
+  arendt:"Ha", beauvoir:"Be", zambrano:"Za", sorjuana:"SJ", zuleta:"Zu", tales:"Ta", heraclito:"Hr", parmenides:"Pa", socrates:"So", agustin:"Ag", tomas:"Aq", avicena:"Av", averroes:"IR", hume:"Hu", rousseau:"Rs", marx:"Mx", sartre:"Sa", buda:"Bu", lascasas:"LC", freire:"Fr", falsborda:"FB", epicuro:"Ep", estoicos:"St", anselmo:"An", ockham:"Oc", hobbeslocke:"HL", spinoza:"Sp", kierkegaard:"Ki", mill:"Mi", ghazali:"Gz", ibnjaldun:"IJ", mencioxunzi:"Me", marti:"Mt", mariategui:"Mg", hildegarda:"Hi", maquiavelo:"Mq", maimonides:"Mm", mozi:"Mo" };
 function clrDe(m){ return LEVELS[m.trad].clr; }
 function varsTrad(m){ const c = clrDe(m); return `--tclr:var(--${c});--tsoft:var(--${c}-soft);`; }
 function monograma(m, extra){ return `<span class="monog ${extra||''}" style="${varsTrad(m)}" aria-hidden="true">${MONOGRAMA[m.id] || m.nombre.slice(0,2)}</span>`; }
@@ -1642,7 +1642,7 @@ function mapaNombre(m){
   const corto = { sorjuana:"Sor Juana", wangyangming:"Wang Yangming", confucio:"Confucio", nishida:"Nishida", beauvoir:"Beauvoir", shankara:"Shankara",
     tales:"Tales", heraclito:"Heráclito", parmenides:"Parménides", agustin:"Agustín", tomas:"Tomás de Aquino", avicena:"Avicena", averroes:"Averroes",
     marx:"Marx y Engels", buda:"Buda", lascasas:"Las Casas", falsborda:"Fals Borda",
-    estoicos:"Estoicos", anselmo:"Anselmo", hobbeslocke:"Hobbes y Locke", ghazali:"Al-Ghazali", ibnjaldun:"Ibn Jaldún", mencioxunzi:"Mencio y Xunzi" };
+    estoicos:"Estoicos", anselmo:"Anselmo", hobbeslocke:"Hobbes y Locke", ghazali:"Al-Ghazali", ibnjaldun:"Ibn Jaldún", mencioxunzi:"Mencio y Xunzi", hildegarda:"Hildegarda" };
   return corto[m.id] || m.nombre.replace(/\s*\(.*\)/,"").split(" ").slice(-1)[0];
 }
 /* Posición de cada ficha en su carril. Hay cuatro filas por carril (cerca y lejos de la línea,
@@ -1653,8 +1653,8 @@ function mapaPuntos(){
   Object.keys(MAPA_CARRILES).forEach(trad=>{
     const mods = MODULES.filter(m=>m.trad===trad && typeof EPOCA!=="undefined" && EPOCA[m.id]!=null)
       .sort((a,b)=>EPOCA[a.id]-EPOCA[b.id]);
-    // la europea es la más poblada: tiene una fila más, arriba de todo
-    const filas = trad==="europea" ? [...MAPA_FILAS, -68] : MAPA_FILAS;
+    // la europea y la islámica, las más apretadas, tienen una fila más (arriba de todo y abajo de todo)
+    const filas = trad==="europea" ? [...MAPA_FILAS, -68] : trad==="islamica" ? [...MAPA_FILAS, 68] : MAPA_FILAS;
     const finFila = filas.map(()=>-Infinity);
     mods.forEach(m=>{
       const x = mapaX(EPOCA[m.id]), medio = mapaNombre(m).length*3.9 + 4;
