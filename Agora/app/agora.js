@@ -284,7 +284,7 @@ const DET_GRUPOS = [
   { id:"pensar",    label:"3 · Pensar",    tabs:[["preguntas","Preguntas"],["razonamiento","Razonamiento"],["argumentos","Argumentos"],["dilema","Dilema"],["actividades","Escribir"]] }
 ];
 const DET_RENDER = {
-  panorama:()=>renderPanorama(), vida:()=>renderVida(), diagramas:()=>{ diagIdx = 0; renderDiagramas(); }, conceptos:()=>renderFlashcards("conceptos"), obras:()=>renderFlashcards("obras"),
+  panorama:()=>renderPanorama(), vida:()=>renderVida(), diagramas:()=>{ diagIdx = 0; renderDiagramas(); }, conceptos:()=>renderFlashcards("conceptos"), obras:()=>renderObras(),
   lecturas:()=>renderLecturas(), dialogo:()=>renderDialogue(),
   repaso:()=>renderRepasoMixto(), emparejar:()=>renderMatching(), cuestionario:()=>renderModuleQuiz(),
   preguntas:()=>renderPreguntas(), razonamiento:()=>renderCadena(), argumentos:()=>renderReconstruccion(),
@@ -326,7 +326,7 @@ function renderPanorama(){
   const nPreg = getQuiz(d).length;
   const resp = getQuiz(d).filter((_,i)=>palabras((progress.respuestas[d.id+":preguntas:"+i]||{}).texto)>0).length;
   const quiz = progress.moduleQuiz[d.id];
-  const hoy = mazoFicha(d, "conceptos").concat(mazoFicha(d, "obras")).filter(c=>srsVence(c)).length;
+  const hoy = mazoFicha(d, "conceptos").filter(c=>srsVence(c)).length;
   const avanzados = ["cadena","reconstruccion","dilemas"].filter(k=>d[k] && (!Array.isArray(d[k]) || d[k].length)).length;
   let nPaso = 0; const sig = ()=>++nPaso;   // los pasos se numeran solos (Vida y contexto puede faltar)
   const paso = (n, titulo, detalle, tab, hecho)=>`
@@ -345,7 +345,7 @@ function renderPanorama(){
         <ol class="ruta">
           ${vidaDe(d)?paso(sig(),"Vida y contexto","Quién fue, en qué mundo pensó y por qué piensa así.","vida", false):''}
           ${paso(sig(),"Lecturas","Fuente o comentario, con su nota de lectura.","lecturas", false)}
-          ${paso(sig(),"Conceptos y obras",`${domC}/${d.conceptos.length} conceptos · ${domO}/${d.obras.length} obras${hoy?` · <b>${hoy} para hoy</b>`:''}`,"conceptos", domC===d.conceptos.length && domO===d.obras.length && !hoy)}
+          ${paso(sig(),"Conceptos y obras",`${domC}/${d.conceptos.length} conceptos · ${domO}/${d.obras.length} obras leídas${hoy?` · <b>${hoy} para hoy</b>`:''}`,"conceptos", domC===d.conceptos.length && domO===d.obras.length && !hoy)}
           ${paso(sig(),"Diálogo","Las objeciones fuertes y las respuestas.","dialogo", false)}
           ${paso(sig(),"Practicar",quiz!=null?`Último cuestionario: ${quiz} %`:"Repaso mixto, emparejar y cuestionario.","repaso", quiz!=null && quiz>=70)}
           ${paso(sig(),"Preguntas",`${resp}/${nPreg} respondidas por escrito`,"preguntas", nPreg>0 && resp===nPreg)}
@@ -408,7 +408,8 @@ function srsEstado(c){
 }
 function srsVence(c){ const r = srsEstado(c); return !!r && r.prox <= todayStr(); }
 function mazoFicha(mod, kind){ return (mod[kind]||[]).map((_,idx)=>({mod, kind, idx})); }
-function tarjetasParaHoy(){ return MODULES.flatMap(m=>[...mazoFicha(m,"conceptos"), ...mazoFicha(m,"obras")]).filter(srsVence); }
+/* Las obras no entran al repaso espaciado: se leen como fichas descriptivas (renderObras). */
+function tarjetasParaHoy(){ return MODULES.flatMap(m=>mazoFicha(m,"conceptos")).filter(srsVence); }
 function diasEntre(a, b){ return Math.round((new Date(b+"T12:00") - new Date(a+"T12:00"))/86400000); }
 function srsEtiqueta(c){
   const r = srsEstado(c);
@@ -426,6 +427,31 @@ function renderFlashcards(kind){
   flashDeck = [...shuffle(vencen), ...shuffle(nuevas), ...shuffle(resto)];
   flashIndex = 0;
   drawFlash();
+}
+/* Obras: no son conceptos para adivinar. Cada una se muestra completa (título y descripción),
+   y se puede marcar como leída (progress.obraDone, mismos índices que antes). */
+function renderObras(){
+  const d = currentModule, key = d.id+":obras";
+  const leidas = new Set(progress.obraDone[key] || []);
+  $("#detBody").innerHTML = `
+    <div class="obrascab muted">${leidas.size} de ${d.obras.length} leídas · marcá cada obra cuando la hayas leído con atención</div>
+    <div class="obraslista">${d.obras.map((o,i)=>`
+      <article class="obracard${leidas.has(i)?' leida':''}" id="obra-${i}" style="--i:${i}">
+        <div class="obranum">${i+1}</div>
+        <div class="obracuerpo">
+          <h3>${o.t}</h3>
+          <div class="obradesc">${parrafos(o.d)}</div>
+          <button class="chip ${leidas.has(i)?'active':''}" aria-pressed="${leidas.has(i)}" onclick="marcarObra(${i})">${leidas.has(i)?'✓ Leída':'Marcar como leída'}</button>
+        </div>
+      </article>`).join("")}</div>`;
+}
+function marcarObra(i){
+  const key = currentModule.id+":obras";
+  const set = new Set(progress.obraDone[key] || []);
+  if(set.has(i)) set.delete(i); else set.add(i);
+  progress.obraDone[key] = Array.from(set);
+  saveProgress();
+  const y = window.scrollY; renderObras(); window.scrollTo({top:y, behavior:"instant"});
 }
 /* Repaso de hoy: todas las tarjetas vencidas de todas las fichas, en una sola sesión. */
 function renderRepasoHoy(){
@@ -2222,6 +2248,7 @@ function busqKeydown(ev){
 /* Abre una ficha en Conceptos u Obras, directamente en la tarjeta buscada. */
 function abrirTarjeta(id, kind, idx){
   openModule(id, kind);
+  if(kind==="obras"){ const el = document.getElementById("obra-"+idx); if(el){ el.scrollIntoView({block:"center"}); el.classList.add("destacada"); } return; }
   const k = flashDeck.findIndex(c=>c.idx===idx);
   if(k>=0){ flashIndex = k; drawFlash(); }
 }
