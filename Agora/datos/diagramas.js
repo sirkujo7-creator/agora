@@ -210,6 +210,36 @@ const DIAGRAMAS = {
       {a:"Simular y disimular", b:"Armas y castigo", d:"La astucia del zorro es saber parecer fiel, piadoso y humano; la fuerza del león, las armas propias y el temor al castigo."},
       {a:"Fraude según Cicerón", b:"Violencia según Cicerón", d:"Cicerón, en Sobre los deberes, condenaba el fraude del zorro y la fuerza del león como indignos del ser humano; Maquiavelo invierte la imagen."}]}
   ],
+  pascalmontaigne: [
+    {tipo:"polos", titulo:"Montaigne y Pascal frente a frente", intro:"Ensayos (1580-1595) y Pensamientos (1670): los mismos materiales, actitudes opuestas.", polos:{"izq":"Montaigne","der":"Pascal"}, nota:"La oposición la construyó en buena parte Pascal mismo, en la Conversación con el señor de Sacy; Montaigne era católico practicante y no se presenta como enemigo de la fe.",
+     nodos:[
+      {a:"«¿Qué sé yo?»: vivir en la duda", b:"La duda obliga a decidir", d:"Montaigne suspende el juicio y vive en paz siguiendo la costumbre; para Pascal, sobre la pregunta por Dios no hay neutralidad posible: estamos embarcados."},
+      {a:"El yo como materia del libro", b:"«El yo es odioso»", d:"Montaigne se pinta para conocer la condición humana; Pascal le reprocha ese proyecto y sostiene que el yo se hace centro de todo (B 455, L 597)."},
+      {a:"La costumbre como segunda naturaleza", b:"La costumbre como signo de caída", d:"Los dos muestran que la costumbre decide lo que llamamos justo; Montaigne aconseja seguirla con prudencia, Pascal ve en ella la prueba de una naturaleza corrompida."},
+      {a:"Aceptar la condición mortal", b:"Huir de ella en la diversión", d:"Montaigne quiere familiarizarse con la muerte para vivir mejor; Pascal muestra que la mayoría se divierte para no pensar en ella."},
+      {a:"Naturaleza y razón como medida", b:"Corazón y gracia como salida", d:"Montaigne juzga desde la naturaleza; Pascal cree que solo el conocimiento del corazón y la gracia sacan al hombre de su contradicción."}]},
+    {tipo:"cuadrantes", titulo:"La tabla de la apuesta", intro:"Pensamientos, fragmento «Infinito, nada» (B 233, L 418): las cuatro combinaciones entre lo que se apuesta y lo que es el caso.", ejes:{"x":["Apostar a que no existe","Apostar a que existe"],"y":["Dios no existe","Dios existe"]}, nota:"Pascal no presenta una tabla: la reconstruyen sus lectores. Él mismo dice que quien apuesta por Dios, si pierde, no pierde nada, aunque reconoce que renuncia a algunos placeres.",
+     nodos:[
+      {t:"Se pierde un bien infinito", d:"Quien vivió como si Dios no existiera, si Dios existe, pierde la vida infinitamente feliz que estaba en juego."},
+      {t:"Se gana un bien infinito", d:"Quien apostó por Dios, si existe, gana todo: una infinidad de vida infinitamente feliz."},
+      {t:"Se gana algo finito", d:"Si Dios no existe, el que no apostó por él solo conserva los placeres y la libertad de esta vida, que son finitos."},
+      {t:"Se pierde algo finito o nada", d:"Si Dios no existe, el que apostó por él pierde a lo sumo algunos placeres; Pascal agrega que gana virtudes como la fidelidad y la gratitud."}]}
+  ],
+  bacon: [
+    {tipo:"partes", titulo:"Los cuatro ídolos", intro:"Novum Organum, libro I, aforismos 38-44: las cuatro clases de nociones falsas que ocupan el entendimiento.", centro:"Ídolos de la mente", nota:"El orden va de lo más natural a lo más adquirido. Bacon dice que los dos primeros se pueden vigilar pero no eliminar del todo, y que los del foro son los más molestos.",
+     nodos:[
+      {t:"Tribu: la especie humana", d:"Vienen de la naturaleza humana común: la mente es como un espejo desigual que mezcla su naturaleza con la de las cosas y supone más orden del que hay."},
+      {t:"Caverna: el individuo", d:"Vienen del temperamento, la educación, las lecturas y los autores que cada uno admira: cada persona tiene una cueva propia que desvía la luz de la naturaleza."},
+      {t:"Foro: el lenguaje", d:"Vienen del trato entre las personas: las palabras se forman según el entendimiento común y nombran cosas que no existen o mezclan cosas distintas."},
+      {t:"Teatro: los sistemas", d:"Vienen de las filosofías recibidas y de las malas reglas de demostración: cada sistema es como una obra que pone en escena un mundo ficticio."}]},
+    {tipo:"secuencia", titulo:"La investigación del calor", intro:"Novum Organum, libro II, aforismos 11-20: cómo se busca la forma de una naturaleza con tablas y exclusión.", nota:"Después de la primera vendimia, Bacon prevé más pasos (instancias prerrogativas, rectificaciones de la inducción) que el libro deja incompletos.",
+     nodos:[
+      {t:"Tabla de presencia", d:"Casos muy distintos donde hay calor: los rayos del sol, el fuego, los cuerpos de los animales, la fermentación."},
+      {t:"Tabla de ausencia en lo próximo", d:"Casos parecidos a los anteriores donde falta el calor: por ejemplo, los rayos de la luna, que no calientan."},
+      {t:"Tabla de grados", d:"Casos donde el calor aumenta o disminuye, para ver qué cualidad varía junto con él."},
+      {t:"Exclusión", d:"Se descarta toda cualidad que falte donde hay calor, aparezca donde no lo hay o no varíe con él; un caso negativo pesa más que muchos positivos."},
+      {t:"Primera vendimia", d:"Una hipótesis provisoria con lo que quedó: el calor sería un movimiento expansivo, contenido y que se ejerce en las partes pequeñas de los cuerpos."}]}
+  ],
   descartes: [
     {tipo:"secuencia", titulo:"El camino de la duda", intro:"Meditaciones I y II: de la duda a la primera certeza.",
      nodos:[
@@ -442,6 +472,21 @@ const DIAGRAMAS = {
       {t:"Solo me parece la misma", d:"No hay ningún criterio disponible aparte de que a uno le parezca la misma: creer que se sigue la regla y seguirla coinciden."},
       {t:"Correcto pierde sentido", d:"Si lo único que distingue lo correcto es que me parezca correcto, la palabra correcto ya no hace ningún trabajo."},
       {t:"Injerto en conducta pública", d:"El lenguaje de las sensaciones se aprende injertándose en reacciones públicas como el quejido, el gesto y el consuelo, y por eso funciona."}]}
+  ],
+  ortega: [
+    {tipo:"polos", titulo:"Ideas y creencias", intro:"Ideas y creencias (1940): dos maneras de tener algo por verdadero.", polos:{"izq":"Ideas","der":"Creencias"},
+     nodos:[
+      {a:"Se tienen", b:"En ellas se está", d:"Las ideas las sostenemos nosotros; las creencias nos sostienen a nosotros, como el suelo que pisamos."},
+      {a:"Se nos ocurren y se formulan", b:"Están antes de todo pensar", d:"Una idea aparece en un momento y la expresamos; las creencias no las descubrimos razonando: razonamos desde ellas."},
+      {a:"Se discuten y se abandonan", b:"Solo se notan cuando fallan", d:"Podemos cambiar de idea en una discusión; una creencia se hace visible cuando se resquebraja."},
+      {a:"Se fabrican en la crisis", b:"Se hunden en la crisis", d:"Cuando las creencias de una época fallan, la gente queda sin suelo y tiene que fabricarse ideas a toda prisa."}]},
+    {tipo:"partes", titulo:"La vida como realidad radical", intro:"Lo que Ortega encuentra cuando busca, como Descartes, una realidad que no se pueda poner en duda.", centro:"Mi vida", nota:"Reunir así estos rasgos es una síntesis de Ágora: Ortega los desarrolla en textos distintos, de Meditaciones del Quijote (1914) a Historia como sistema (1941).",
+     nodos:[
+      {t:"Yo", d:"No una conciencia aislada, sino alguien que se encuentra ocupado en un mundo."},
+      {t:"Circunstancia", d:"Lo que está alrededor sin haberlo elegido: paisaje, lengua, época, cuerpo y personas. El yo no puede separarse de ella."},
+      {t:"Quehacer", d:"La vida no nos es dada hecha: hay que hacerla, eligiendo entre posibilidades en cada momento."},
+      {t:"Perspectiva", d:"Cada vida es un punto de vista insustituible sobre el universo, parcial pero real."},
+      {t:"Historia", d:"Lo humano no tiene naturaleza fija: es lo que ha llegado a ser, y se entiende contándolo."}]}
   ],
   zambrano: [
     {tipo:"polos", titulo:"La separación entre filosofía y poesía", intro:"Filosofía y poesía (1939): los rasgos que, desde Platón, separaron al filósofo del poeta.", polos:{"izq":"filosofía","der":"poesía"}, nota:"La razón poética no elige el polo de la poesía: es una razón que sigue pensando, pero sin la violencia del concepto que quiere dominar.",
@@ -949,6 +994,20 @@ const DIAGRAMAS = {
       {a:"El educador sabe, el educando no", b:"Ambos aprenden y enseñan", d:"La bancaria fija los papeles; la problematizadora supera la contradicción: el educador también es educado en el diálogo."},
       {a:"Memorizar y repetir", b:"Conocer críticamente", d:"En la bancaria el educando archiva; en la problematizadora reconstruye el saber como sujeto."},
       {a:"Adaptarse al mundo", b:"Transformar el mundo", d:"La bancaria forma personas que se ajustan a lo dado; la problematizadora, personas que lo leen como histórico y modificable."}]}
+  ],
+  rawls: [
+    {tipo:"secuencia", titulo:"La secuencia de cuatro etapas", intro:"Teoría de la justicia, § 31: cómo se aplican los principios elegidos en la posición original, levantando el velo poco a poco.", nota:"Rawls presenta la secuencia como un recurso para ordenar el razonamiento, no como una descripción de cómo se hacen de hecho las constituciones y las leyes.",
+     nodos:[
+      {t:"Posición original", d:"Con el velo completo, las partes eligen los dos principios de la justicia sin saber nada de sí mismas ni de su sociedad particular."},
+      {t:"Convención constituyente", d:"El velo se levanta en parte: se conocen los hechos generales de la propia sociedad, y se diseña una constitución que asegure las libertades básicas iguales."},
+      {t:"Etapa legislativa", d:"Se hacen las leyes y las políticas económicas y sociales, guiadas por la igualdad equitativa de oportunidades y el principio de diferencia."},
+      {t:"Aplicación por jueces y funcionarios", d:"El velo desaparece: se conocen todos los hechos, y las reglas se aplican a casos particulares."}]},
+    {tipo:"polos", titulo:"Utilitarismo y justicia como equidad", intro:"Las diferencias que Rawls subraya entre su teoría y la del adversario que eligió en 1971.", polos:{"izq":"utilitarismo","der":"justicia como equidad"}, nota:"Es la presentación de Rawls; muchos utilitaristas, como Mill, defendieron las libertades con sus propios argumentos.",
+     nodos:[
+      {a:"Maximizar la suma de bienestar", b:"Proteger al menos aventajado", d:"El utilitarismo juzga las instituciones por el bienestar total o promedio; el principio de diferencia, por cómo quedan los que peor están."},
+      {a:"La sociedad como una sola persona", b:"La distinción entre personas", d:"Sumar satisfacciones de todos trata a la sociedad como un individuo que compensa pérdidas con ganancias; Rawls responde que cada uno tiene una sola vida."},
+      {a:"Libertades según el cálculo", b:"Libertades con prioridad", d:"Para el utilitarista, las libertades valen mientras produzcan más bienestar; para Rawls, no se negocian a cambio de ventajas económicas."},
+      {a:"Primero el bien, luego lo correcto", b:"Lo justo antes que lo bueno", d:"El utilitarismo define el bien y manda maximizarlo; Rawls pone límites a las concepciones del bien que se pueden perseguir."}]}
   ],
   dussel: [
     {tipo:"capas", titulo:"Centro y periferia", intro:"La modernidad vista desde fuera de su centro.",

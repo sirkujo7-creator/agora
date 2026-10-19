@@ -102,6 +102,18 @@ const CLAVES = {
     ["Elogia el conflicto canalizado por leyes, no la violencia privada", "Roma frente a Florencia: tribunos contra destierros y facciones", "En Colombia el problema fue tramitar el conflicto con armas", "Crítica: idealiza una Roma esclavista e imperial"],
     ["La fortuna gobierna la mitad; la otra mitad es nuestra", "El río: prepararse con diques en tiempos de calma", "El mayor obstáculo es no poder cambiar la propia naturaleza", "La imagen de la mujer golpeada es misógina: Pitkin"]
   ],
+  pascalmontaigne: [
+    ["Se pinta a sí mismo porque cada hombre lleva la forma entera de la condición humana", "El ensayo es una prueba del juicio, no un sistema: muestra dudas, cambios y contradicciones", "«No pinto el ser, pinto el paso»: el yo aparece en movimiento", "Pascal lo leyó como vanidad («el necio proyecto de pintarse»)"],
+    ["A favor: cada uno llama barbarie a lo que no es de su costumbre; crítica del etnocentrismo", "En contra: conserva un criterio, la razón y la naturaleza, y juzga horrible la antropofagia", "Los europeos son más bárbaros por la tortura y la crueldad religiosa", "«Relativismo cultural» es una etiqueta del siglo XX; además idealiza a pueblos que conoce de segunda mano"],
+    ["El hombre es lo más débil de la naturaleza, pero piensa y sabe que muere", "La dignidad está en el pensamiento, no en el espacio ni la duración", "La grandeza consiste en saberse miserable: miserias de rey destronado", "Pascal explica la contradicción por una naturaleza creada y caída; se puede aceptar la descripción sin esa explicación"],
+    ["La razón no decide, pero hay que apostar: no apostar es vivir como si Dios no existiera", "Ganancia infinita con probabilidad no nula frente a una pérdida finita", "El argumento no da la fe: Pascal aconseja actuar como los creyentes", "Objeciones: los muchos dioses y la fe adoptada por cálculo"]
+  ],
+  bacon: [
+    ["Los ídolos son tendencias estables de la mente, no errores sueltos", "Cuatro clases según su origen: especie, individuo, lenguaje y sistemas filosóficos", "Señalarlos sirve como la refutación de sofismas sirve a la lógica", "El remedio de fondo es un método: la inducción verdadera"],
+    ["La enumeración simple es pueril: un caso contrario la derriba", "Tres tablas: presencia, ausencia en lo próximo y grados", "La exclusión descarta cualidades antes de afirmar una causa", "Límite: la exclusión supone conocer de antemano las cualidades candidatas"],
+    ["La frase «saber es poder» no está tal cual en el Novum Organum", "El aforismo 3: ciencia y poder coinciden porque sin conocer la causa no se produce el efecto", "A la naturaleza solo se la vence obedeciéndola", "Leer completo no cierra la crítica de Frankfurt y del ecologismo, pero la hace más justa"],
+    ["A favor: partir de la observación y desconfiar de principios no ganados desde los casos", "«Empirista» es una clasificación posterior, de Kant y los manuales", "Critica a los empíricos-hormigas tanto como a los dogmáticos-arañas", "Su proyecto es un método para la ciencia natural más que una teoría del origen de las ideas"]
+  ],
   descartes: [
     ["El cogito solo garantiza que hay pensamiento ahora", "La sustancia persistente proviene de la teoría de la sustancia, no del cogito", "Hume solo encuentra percepciones sueltas al buscar el yo", "Lichtenberg: lo legítimo sería decir «se piensa»"],
     ["Sin descartar al genio maligno, la evidencia podría ser el engaño", "El criterio sería psicológicamente irresistible pero metafísicamente vacío", "La prueba de Dios usa el mismo criterio: el círculo de Arnauld", "Respuesta cartesiana: distinguir intuición actual de recuerdo de la demostración"],
@@ -213,6 +225,12 @@ const CLAVES = {
     ["La demostración instituye una regla nueva, no descubre una verdad", "El matemático es inventor, no descubridor", "Objeción: no explicaría la eficacia de la matemática en la física", "Defensa: forma de vida y regularidad natural restringen las prácticas"],
     ["Wittgenstein reconoció graves errores en su primer libro", "Abandona la teoría figurativa y el atomismo lógico", "Continuidad: la filosofía es actividad que clarifica, no doctrina", "Lectores resolutos como Diamond y Conant ven un Tractatus terapéutico"],
     ["Acusación de quietismo de Marcuse y Gellner", "Comparar con juegos de lenguaje imaginarios muestra lo contingente", "Su método desarmó el dualismo cartesiano y el mentalismo", "No ofrece criterio para saber si un cambio conceptual mejora"]
+  ],
+  ortega: [
+    ["El yo incluye su circunstancia: no es una conciencia aislada del mundo", "Salvar la circunstancia es buscarle sentido y hacerla habitable", "No es determinista: la circunstancia es material y límite de un quehacer, no una excusa", "Era también un programa para comprender España en vez de despreciarla o idealizarla"],
+    ["La perspectiva no deforma la realidad: es uno de sus componentes", "Contra el racionalismo: no hay verdad vista desde ningún lugar", "Contra el relativismo: ninguna perspectiva es falsa por ser parcial; la falsa es la que se pretende única", "Objeción: no explica bien cómo se integran las perspectivas ni cómo distinguirlas del prejuicio"],
+    ["No condena el hecho de las masas, que en parte es una conquista de la técnica y la democracia liberal", "Critica un tipo humano: no se exige nada, recibe la civilización como natural e impone su opinión sin razones", "No es una clase social: el especialista es su ejemplo típico; ve en fascismo y bolchevismo dos formas de esa rebelión", "Objeción: el criterio de minoría selecta es vago y puede servir al desprecio"],
+    ["Las ideas se tienen: se formulan, se discuten y se abandonan", "En las creencias se está: nos sostienen sin que las pensemos y solo las notamos cuando fallan", "Una crisis histórica ocurre cuando las creencias de una época se resquebrajan", "Explica por qué ciertas discusiones con argumentos no cambian nada"]
   ],
   zambrano: [
     ["La razón poética amplía la razón, no la abandona", "La razón discursiva se volvió excluyente", "Escucha lo que todavía no tiene concepto", "La confesión como método, una palabra expuesta que puede contradecirse"],
@@ -457,6 +475,13 @@ const CLAVES = {
     ["La opresión se incorpora: autodesvalorización, fatalismo, miedo a la libertad", "Liberarse no es invertir los lugares", "Solo los oprimidos pueden liberarse, con educadores que trabajan con ellos", "Crítica feminista al binarismo y al lenguaje masculino"],
     ["Investigación del universo vocabular y palabras generadoras", "Codificación en imágenes y discusión en círculos de cultura", "Angicos, 1963: unos trescientos trabajadores y un programa nacional cortado por el golpe", "Pocas evaluaciones independientes de los resultados"],
     ["Ambos critican la transmisión de saber terminado y valoran la experiencia reflexionada", "Freire leyó a Dewey a través de Anísio Teixeira", "Dewey parte de la cooperación y el crecimiento; Freire, de la opresión y el conflicto", "Para Freire la educación nunca es neutral"]
+  ],
+  rawls: [
+    ["El ejemplo de Wilt Chamberlain: mantener un patrón exige intervenir en intercambios libres", "Los principios rigen la estructura básica, no cada transacción", "La propiedad y el mercado son instituciones que hay que justificar, no derechos previos", "Tener talentos no implica merecer todo lo que el mercado paga por ellos"],
+    ["Sandel: el velo supone un yo desvinculado, anterior a sus fines y comunidades", "MacIntyre: la justicia solo tiene sentido dentro de una comunidad con una idea del bien", "Rawls: la posición original es un recurso de representación, no una teoría de la persona", "La concepción de la persona es política, ligada a una cultura democrática"],
+    ["Sen: los bienes primarios miden medios, no libertades reales", "Con los mismos recursos, una persona con discapacidad puede hacer mucho menos", "Nussbaum: el contrato deja fuera a discapacitados graves, extranjeros y animales", "Rawls: los bienes primarios son públicos y no obligan a juzgar qué vida es buena"],
+    ["Okin: las partes como jefes de familia y la división sexual del trabajo sin examinar", "Mills: el contrato real fue racial y la teoría ideal no ve esa dominación", "La crítica usa los propios principios de Rawls, por eso es en parte interna", "Rawls aceptó en 1997 que la familia es parte de la estructura básica"],
+    ["La razón pública rige cuestiones constitucionales y obliga sobre todo a quienes ejercen el poder", "Es un deber moral de civilidad, no una prohibición legal", "Se admiten razones religiosas si a su tiempo se dan también razones públicas", "Objeción: la exigencia pesaría más sobre los creyentes"]
   ],
   dussel: [
     ["La vida humana digna no es mera supervivencia biológica", "El principio formal deja el contenido a la comunidad de afectados", "Si lo formal decide todo, depende más de Apel y Habermas de lo admitido", "La negatividad se constata: hambre y muerte prematura son hechos verificables"],
