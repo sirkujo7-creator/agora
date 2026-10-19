@@ -61,7 +61,10 @@ const EPOCA = {
   rawls:1971,
   ortega:1930,
   pascalmontaigne:1580,
-  bacon:1620
+  bacon:1620,
+  wiredu:1980,
+  kusch:1962,
+  salazarbondy:1968
 };
 
 /* ============ CONSTELACIONES: un mismo problema, varias fichas ============

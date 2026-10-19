@@ -979,6 +979,36 @@ const DIAGRAMAS = {
       {a:"El siervo se vuelca hacia el objeto", b:"El esclavo se vuelve hacia el amo", d:"El siervo hegeliano se forma trabajando la cosa; según Fanon, el esclavo antillano abandona el objeto y quiere ser como el amo."},
       {a:"Libertad conquistada en la lucha", b:"Libertad otorgada por decreto", d:"En las Antillas la abolición llegó desde París en 1848: según Fanon, el negro fue actuado y esa libertad le resultó ajena."}]}
   ],
+  kusch: [
+    {tipo:"polos", titulo:"El ser y el estar", intro:"Las dos actitudes ante la vida que Kusch contrapone en América profunda.", polos:{"izq":"Ser","der":"Estar"}, nota:"Kusch no los presenta como bandos: su fórmula final, el estar siendo, los une. Ordenarlos en pares es una síntesis de Ágora.",
+     nodos:[
+      {a:"Ser alguien", b:"Estar aquí, nomás", d:"El ciudadano necesita afirmarse y llegar a ser alguien; el estar se sabe situado en un lugar, sin esa urgencia."},
+      {a:"Pulcritud", b:"Hedor", d:"La limpieza de objetos e ideas protege al ciudadano; lo que queda fuera de ella lo percibe como hedor."},
+      {a:"Dominar objetos", b:"Buscar amparo", d:"El ser se defiende de lo imprevisible dominándolo; el estar busca un equilibrio con fuerzas que no domina."},
+      {a:"Pensar causal", b:"Pensar seminal", d:"Uno busca causas para intervenir; el otro se pregunta cómo hacer que la vida germine y dé fruto."},
+      {a:"La ciudad", b:"El altiplano y el pueblo", d:"Los lugares donde Kusch encuentra cada actitud, aunque sostiene que las dos están en toda vida humana."}]},
+    {tipo:"secuencia", titulo:"El recorrido de América profunda", intro:"De la incomodidad del viajero a la tesis sobre el sentido de América.", nota:"El orden reconstruye la marcha del argumento del libro; es una lectura de Ágora, no una división del autor.",
+     nodos:[
+      {t:"El viajero siente hedor", d:"El porteño llega al altiplano y percibe ese mundo como sucio y amenazante."},
+      {t:"El hedor delata un miedo", d:"La reacción habla del ciudadano: teme quedar a la intemperie, reducido al mero estar."},
+      {t:"Dos respuestas al miedo", d:"El ciudadano lo tapa con pulcritud y objetos; el mundo andino lo enfrenta con el rito y el equilibrio."},
+      {t:"Ser y estar", d:"De ese contraste salen las dos actitudes ante la vida que organizan el libro."},
+      {t:"La fagocitación", d:"Por debajo del progreso, el estar absorbe al ser importado y lo vive a su manera."}]}
+  ],
+  salazarbondy: [
+    {tipo:"secuencia", titulo:"De la dominación a la autenticidad posible", intro:"El razonamiento de ¿Existe una filosofía de nuestra América? (1968), del hecho histórico a la salida que propone.", nota:"La división en pasos es una reconstrucción de Ágora. El paso más discutido es el que va de la dominación social a la conciencia engañada.",
+     nodos:[
+      {t:"Una filosofía de importación", d:"Cada corriente llega de Europa, se adopta con retraso, se comenta y se abandona cuando llega la siguiente, sin formar tradición propia."},
+      {t:"Una sociedad dependiente", d:"La economía, la política y la cultura de la región se organizan en función de centros de poder externos."},
+      {t:"Una conciencia engañada", d:"Una cultura de la dominación piensa con las categorías del dominador y mira lo propio como atraso: la imitación es un síntoma, no un vicio individual."},
+      {t:"Pensar la propia dominación", d:"La filosofía puede ser auténtica ya si toma la dominación como su problema y desmonta las ideas que la presentan como natural."},
+      {t:"Contribuir a superarla", d:"La autenticidad plena va junto con un cambio histórico: por eso el diagnóstico desemboca en un programa de liberación."}]},
+    {tipo:"polos", titulo:"La polémica de 1968-1969", intro:"Dónde se separan Salazar Bondy y Zea, que comparten el diagnóstico de la dependencia del pensamiento latinoamericano.", polos:{"izq":"Salazar Bondy","der":"Zea"},
+     nodos:[
+      {a:"Todavía no hay filosofía auténtica", b:"La pregunta está mal planteada", d:"Salazar Bondy responde que no a la pregunta por una filosofía propia; Zea sostiene que la pregunta misma presupone un tribunal que no hay que aceptar."},
+      {a:"Las condiciones deforman la conciencia", b:"Toda filosofía parte de una circunstancia", d:"Para Salazar Bondy, pensar desde una circunstancia dominada no garantiza nada; para Zea, pensar con rigor la propia circunstancia es lo que hizo cualquier filosofía."},
+      {a:"Autenticidad junto con la liberación", b:"Autenticidad por el trabajo riguroso", d:"Salazar Bondy liga la autenticidad a superar la dependencia; Zea la pone en algo que se puede hacer ahora: filosofar sin pedir permiso."}]}
+  ],
   freire: [
     {tipo:"secuencia", titulo:"El método de las palabras generadoras", intro:"Los pasos del método de alfabetización de adultos, tal como Freire lo describe en La educación como práctica de la libertad.", nota:"Freire insistía en que no es una técnica aislable: si se aplican los pasos sin diálogo, el método se vuelve bancario.",
      nodos:[
@@ -1076,6 +1106,21 @@ const DIAGRAMAS = {
       {t:"La lógica del mercado", d:"Un mercado que convierte todo, incluida la propia identidad, en mercancía que se compra y se descarta agrava el daño."},
       {t:"Nihilismo vivido", d:"No la doctrina filosófica sino la experiencia de una vida sin sentido, sin esperanza y, sobre todo, sin amor: un daño anímico que es consecuencia, no causa."},
       {t:"Política de la conversión", d:"Como no desaparece solo aunque mejoren las condiciones, exige una afirmación colectiva apoyada en instituciones comunitarias reales que restaure el sentido del propio valor."}]}
+  ],
+  wiredu: [
+    {tipo:"polos", titulo:"Mayoría y consenso", intro:"Dos maneras de decidir en democracia, según «Democracy and Consensus» de Wiredu.", polos:{"izq":"Democracia mayoritaria","der":"Democracia por consenso"},
+     nodos:[
+      {a:"La mayoría decide por todos", b:"Se delibera hasta acordar qué hacer", d:"En un sistema se cuenta quién es más; en el otro se discute hasta encontrar una decisión que todos puedan aceptar."},
+      {a:"La minoría espera la próxima elección", b:"La minoría es escuchada e influye", d:"Wiredu distingue estar representado formalmente de estar representado en las decisiones."},
+      {a:"Partidos que compiten por el poder", b:"Representantes elegidos, sin partidos", d:"La propuesta de Wiredu no es un partido único: suprime la competencia de partidos para que todos participen, no para que decida uno."},
+      {a:"El ganador se lleva todo", b:"Suspensión voluntaria del desacuerdo", d:"La minoría acepta lo que se hará sin tener que admitir que estaba equivocada."}]},
+    {tipo:"partes", titulo:"La persona en el pensamiento akan", intro:"Los componentes con que la tradición akan describe a la persona (onipa).", centro:"Onipa (la persona)", nota:"La interpretación es discutida: Wiredu leyó el okra y el sunsum como no inmateriales en sentido cartesiano; Kwame Gyekye, como espirituales. Las traducciones al español son aproximadas.",
+     nodos:[
+      {t:"Okra", d:"Principio de vida que viene de Dios (Onyame); lleva el destino de cada uno y se va con la muerte."},
+      {t:"Sunsum", d:"Se asocia con la personalidad y el carácter de cada uno."},
+      {t:"Honam (el cuerpo)", d:"El cuerpo, que en la descripción akan no se opone a una mente pura como en Descartes."},
+      {t:"Mogya (sangre de la madre)", d:"Ubica a la persona en su linaje matrilineal (abusua), del que dependen la herencia y la pertenencia."},
+      {t:"Ntoro (lo que viene del padre)", d:"Elemento transmitido por el padre, asociado con el carácter."}]}
   ],
   falacias: [
     {tipo:"partes", titulo:"Dónde falla una falacia", intro:"Una clasificación de estudio para ordenar las falacias del taller según el punto en que el argumento falla.", centro:"¿Por qué el argumento no sostiene?", nota:"Es una simplificación didáctica: Aristóteles divide solo entre falacias del lenguaje y fuera del lenguaje, y varias falacias caben en más de un grupo.",

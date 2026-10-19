@@ -149,11 +149,11 @@ Los textos de Sexto se tradujeron al latín en el siglo XVI y desataron una cris
       {mod:"agustin", rol:"Crítico: escribe Contra los académicos y, en La ciudad de Dios, responde a la duda con «si me engaño, existo»."},
       {mod:"ghazali", rol:"Afín: atraviesa una crisis escéptica, pero no es escéptico: dice salir de ella por una luz divina."},
       {mod:"zhuangzi", rol:"Afín sin contacto con los griegos: no hay un lugar neutral desde el cual arbitrar entre perspectivas."}],
-    otros:["Pirrón de Elis", "Timón de Fliunte", "Arcesilao", "Carnéades", "Enesidemo", "Sexto Empírico", "Michel de Montaigne", "Pierre Bayle"],
+    otros:["Pirrón de Elis", "Timón de Fliunte", "Arcesilao", "Carnéades", "Enesidemo", "Sexto Empírico", "Pierre Bayle"],
     conceptos:["suspensión del juicio","equipolencia","tropos","fenómeno","criterio de verdad","regresión al infinito","escepticismo académico y pirrónico","escepticismo mitigado"],
     noConfundir:"El escéptico antiguo no afirma que «nada puede conocerse»: eso sería una afirmación más, y Sexto se la reprocha a los académicos. Tampoco es lo mismo que el relativismo, que sí afirma que cada opinión es verdadera para quien la sostiene.",
     hoy:"El desafío escéptico (¿cómo sé que no sueño o que no soy un cerebro en una cubeta?) sigue siendo un problema central de la epistemología, y el escepticismo metódico inspira la actitud crítica de la ciencia.",
-    de:["socratismo","presocraticos"], vecinas:["empirismo"], rivales:["estoicismo","racionalismo"] },
+    de:["socratismo","presocraticos"], vecinas:["empirismo", "humanismo"], rivales:["estoicismo","racionalismo"] },
 
   { id:"neoplatonismo", nombre:"Neoplatonismo", periodo:"s. III – s. VI (con larga herencia)", desde:244, hasta:529, trad:"varias",
     pregunta:"¿De dónde procede todo, y cómo vuelve el alma a su origen?",
@@ -177,7 +177,7 @@ Porfirio, Jámblico y Proclo continúan la escuela, hasta que en el 529 una ley 
     conceptos:["lo Uno","Inteligencia (nous)","Alma del mundo","emanación","conversión o retorno","mal como privación","unión mística","teología negativa"],
     noConfundir:"La emanación no es una creación libre en el tiempo: lo Uno produce por sobreabundancia, sin decidirlo. Por eso los teólogos cristianos y musulmanes que lo heredaron tuvieron que corregirlo: Agustín toma de él mucho pero no la idea de que el mundo brota necesariamente, y Al-Ghazali atacó a los filósofos, como Avicena, que conservaron una emanación necesaria y eterna.",
     hoy:"Vive en la teología negativa y en el estudio de la mística comparada. Historiadores como Pierre Hadot lo leyeron como un ejercicio espiritual, no solo como un sistema.",
-    de:["socratismo","aristotelismo"], vecinas:["socratismo","falsafa", "mistica"], rivales:["estoicismo","epicureismo"] },
+    de:["socratismo","aristotelismo"], vecinas:["socratismo","falsafa", "mistica", "humanismo"], rivales:["estoicismo","epicureismo"] },
 
   { id:"iusnaturalismo", nombre:"Derecho natural", periodo:"s. III a.C. – hoy", desde:-300, hasta:null, trad:"europea",
     pregunta:"¿Hay algo justo antes de que lo diga una ley, y vale contra la ley?",
@@ -203,7 +203,7 @@ Desde el siglo XVIII recibe críticas duras: Hume advierte que de cómo son las 
     conceptos:["ley natural","ley eterna","recta razón","derechos naturales","dominio","derecho de gentes","derecho de resistencia","dignidad humana"],
     noConfundir:"«Natural» no significa lo que de hecho pasa en la naturaleza ni lo que hacen los animales, sino lo que la razón descubre como debido entre seres humanos. Y no es lo mismo que el contractualismo: para el derecho natural los derechos existen antes de cualquier pacto, que solo puede protegerlos.",
     hoy:"Vive en el lenguaje de los derechos humanos y en la «nueva teoría de la ley natural» de John Finnis. Sigue abierta la discusión sobre si los derechos humanos necesitan un fundamento natural o basta con un acuerdo entre los Estados.",
-    de:["estoicismo","aristotelismo"], vecinas:["escolastica","contractualismo","estoicismo"], rivales:["utilitarismo"] },
+    de:["estoicismo","aristotelismo"], vecinas:["escolastica","contractualismo","estoicismo", "liberalismo"], rivales:["utilitarismo"] },
 
   { id:"republicanismo", nombre:"Republicanismo", periodo:"de la Roma republicana a hoy (renovado desde los años setenta del s. XX)", desde:-150, hasta:null, trad:"europea",
     pregunta:"¿Basta con que nadie me impida actuar para ser libre, o solo soy libre si nadie tiene el poder de interferir en mi vida a su arbitrio?",
@@ -228,7 +228,7 @@ Hay dos acentos. Para una línea que se remonta a Aristóteles y pasa por Arendt
     conceptos:["res publica (cosa del pueblo)","libertad como no dominación","vivir libre","gobierno mixto","virtud cívica","corrupción","imperio de la ley","conflicto civil"],
     noConfundir:"No tiene que ver con los partidos que hoy se llaman republicanos, ni consiste solo en oponerse a los reyes: lo decisivo es que nadie gobierne de modo arbitrario, y Montesquieu llegó a describir a Inglaterra como una república escondida bajo la forma de una monarquía. Tampoco es democracia directa: Madison defendía la república representativa justamente frente a ella.",
     hoy:"Pettit evaluó en 2007, a pedido del propio presidente, el gobierno de José Luis Rodríguez Zapatero, que lo había invocado como inspiración (Examen a Zapatero, 2008). Desde esta idea de libertad se discute la dominación en el trabajo y en la familia (Elizabeth Anderson, Gobierno privado, 2017) y la renta básica.",
-    de:["aristotelismo"], vecinas:["contractualismo","ilustracion"], rivales:["utilitarismo"] },
+    de:["aristotelismo"], vecinas:["contractualismo","ilustracion", "humanismo"], rivales:["utilitarismo", "liberalismo"] },
   { id:"escolastica", nombre:"Escolástica", periodo:"s. XI – s. XVII", desde:1070, hasta:1620, trad:"europea",
     pregunta:"¿Cómo se entiende con la razón lo que se cree por fe?",
     lema:"La fe que busca entender.",
@@ -253,7 +253,7 @@ En el siglo XIV, Duns Escoto y sobre todo Ockham ponen el acento en la libertad 
     conceptos:["cuestión disputada","autoridad","fe y razón","querella de los universales","nominalismo","esencia y existencia","analogía del ser","potencia absoluta y ordenada"],
     noConfundir:"No es una discusión estéril sobre cuántos ángeles caben en la cabeza de un alfiler: esa imagen es una caricatura posterior que no aparece en los textos medievales. Y no es lo mismo que el tomismo: Tomás es una voz entre muchas, y Escoto y Ockham lo discutieron a fondo.",
     hoy:"Sigue viva en el neotomismo, impulsado por la encíclica Aeterni Patris (1879), y en la filosofía analítica, que redescubrió la lógica y la semántica medievales.",
-    de:["aristotelismo","neoplatonismo","falsafa"], vecinas:["falsafa","iusnaturalismo","aristotelismo", "mistica"], rivales:["racionalismo","empirismo"] },
+    de:["aristotelismo","neoplatonismo","falsafa"], vecinas:["falsafa","iusnaturalismo","aristotelismo", "mistica"], rivales:["racionalismo","empirismo", "humanismo"] },
 
   { id:"mistica", nombre:"Mística cristiana medieval", periodo:"c. 500 – s. XVI", desde:500, hasta:1591, trad:"europea",
     pregunta:"¿Puede conocerse a Dios si está más allá de todo concepto, y qué clase de conocimiento sería ese?",
@@ -277,6 +277,30 @@ La palabra es un problema. En la Edad Media «místico» era un adjetivo (teolog
     noConfundir:"Mística no es sinónimo de visiones extraordinarias ni de irracionalismo: Eckhart fue maestro de teología en París, y Juan de la Cruz pedía no apoyarse en visiones ni revelaciones, sino en la fe desnuda. Tampoco fue una espiritualidad sin conflictos con la Iglesia: Porete murió en la hoguera y Eckhart fue condenado.",
     hoy:"William James le dedicó dos lecciones de Las variedades de la experiencia religiosa (1902), y la filosofía de la religión sigue discutiendo si hay una experiencia común a todas las tradiciones. Heidegger tomó de Eckhart la palabra Gelassenheit, y la Escuela de Kioto lo comparó con el budismo zen.",
     de:["neoplatonismo"], vecinas:["neoplatonismo","escolastica"], rivales:[] },
+
+  { id:"humanismo", nombre:"Humanismo renacentista", periodo:"s. XIV – fines del s. XVI", desde:1340, hasta:1600, trad:"europea",
+    pregunta:"¿Qué formación hace a una persona plenamente humana, y qué lugar le toca en el orden del mundo y en la vida de su ciudad?",
+    lema:"Volver a las fuentes.",
+    resumen:`Empieza en Italia en el siglo XIV con Petrarca, que buscaba manuscritos de Cicerón y despreciaba la filosofía de las universidades por perderse en sutilezas lógicas que no hacían mejor a nadie. Los humanistas no fueron una escuela: eran maestros, secretarios de cancillerías y eruditos que enseñaban los studia humanitatis —gramática, retórica, poesía, historia y filosofía moral— con los autores griegos y latinos como modelo. En el s. XV, «humanista» era el profesor de esas materias; la palabra «humanismo» la acuñó el pedagogo alemán Friedrich Niethammer en 1808.
+
+Su método fue volver a las fuentes. Lorenzo Valla demostró con la filología que la Donación de Constantino era falsa; Marsilio Ficino tradujo a Platón entero al latín; Pico della Mirandola escribió en 1486 el discurso que la posteridad tituló Sobre la dignidad del hombre; Erasmo editó el Nuevo Testamento griego (1516) y se burló de teólogos y papas guerreros en el Elogio de la locura. Tomás Moro imaginó en Utopía (1516) una isla sin propiedad privada, y el valenciano Juan Luis Vives propuso en 1526 que Brujas organizara la ayuda a sus pobres. Maquiavelo lleva la lectura de los antiguos a la política, y Montaigne, al final del ciclo, la convierte en ensayo sobre sí mismo.
+
+Humanismo no es humanitarismo. Juan Ginés de Sepúlveda, humanista y traductor de Aristóteles, defendió en la junta de Valladolid (1550-1551) la guerra contra los indios; le respondió Bartolomé de las Casas, un fraile dominico, desde la escolástica y el derecho natural. Y casi todos fueron cristianos devotos: Moro murió decapitado en 1535 por negarse a reconocer al rey como cabeza de la Iglesia.`,
+    tesis:[
+      "Una persona libre no se forma con las sutilezas de la lógica de las escuelas, sino con la gramática, la retórica, la poesía, la historia y la filosofía moral de los grandes autores griegos y latinos.",
+      "Hay que leer los textos antiguos, incluida la Biblia, en sus lenguas originales, y limpiarlos de los errores que les agregaron siglos de copias y comentarios.",
+      "El ser humano no tiene un lugar fijo en la escala de los seres: puede degradarse hasta las bestias o elevarse hasta lo divino, según lo que elija ser.",
+      "Una isla imaginada, sin propiedad privada ni dinero, sirve de espejo para mostrar la injusticia de los reinos cristianos que ahorcan a los ladrones que ellos mismos fabrican.",
+      "Socorrer a los pobres no puede quedar librado a la limosna ocasional: la ciudad debe saber quiénes son, darles trabajo y educar a sus hijos."],
+    autores:[
+      {mod:"pascalmontaigne", rol:"Montaigne, humanista tardío: lector incansable de los antiguos, inventa el ensayo y se toma a sí mismo por materia. Pascal queda fuera: lo lee para combatirlo desde la fe."},
+      {mod:"maquiavelo", rol:"Formado en la cultura humanista y secretario de la cancillería florentina, lee a Tito Livio para pensar la república. Hans Baron y Pocock lo vinculan al «humanismo cívico», rótulo del s. XX; pero rompe con los espejos de príncipes de sus contemporáneos al buscar la verdad efectiva y no el gobernante ideal."},
+      {mod:"lascasas", rol:"Discusión aparte: no fue humanista sino fraile formado en la escolástica, pero su polémica con el humanista Sepúlveda en Valladolid (1550-1551) muestra que la erudición clásica servía también para justificar la conquista."}],
+    otros:["Francesco Petrarca","Leonardo Bruni","Lorenzo Valla","Marsilio Ficino","Giovanni Pico della Mirandola","Erasmo de Róterdam","Tomás Moro","Juan Luis Vives"],
+    conceptos:["studia humanitatis","volver a las fuentes (ad fontes)","filología","dignidad del hombre","elocuencia","humanismo cívico","utopía","ensayo"],
+    noConfundir:"No es el «humanismo» laico de hoy ni una rebelión contra la fe: Erasmo quería renovar la piedad cristiana, no abandonarla. Tampoco es sinónimo de Renacimiento, sino su programa de estudios, y no reemplazó de golpe a la escolástica, que siguió enseñándose en las universidades.",
+    hoy:"Las «humanidades» de colegios y universidades vienen de los studia humanitatis, y la crítica de textos que practicaron sigue siendo el método de la filología. El programa europeo de intercambio universitario lleva el nombre de Erasmo, y «utopía», la palabra que inventó Moro, nombra todo un género del pensamiento político.",
+    de:["socratismo","estoicismo","neoplatonismo"], vecinas:["republicanismo","escepticismo","neoplatonismo"], rivales:["escolastica"] },
   { id:"falsafa", nombre:"Filosofía islámica clásica", periodo:"s. IX – s. XII", desde:830, hasta:1200, trad:"islamica",
     pregunta:"¿Puede la filosofía de los griegos convivir con la verdad revelada?",
     lema:"La verdad no contradice a la verdad.",
@@ -492,8 +516,33 @@ En 1971 John Rawls lo revivió con su Teoría de la justicia: los principios jus
     conceptos:["estado de naturaleza","pacto social","consentimiento","soberanía","voluntad general","legitimidad","posición original","velo de ignorancia"],
     noConfundir:"El contrato casi nunca se presenta como un hecho que ocurrió, sino como una prueba de legitimidad; Hume ya objetó que nadie firmó nada. Y no implica una sola política: de él salieron el absolutismo de Hobbes, el liberalismo de Locke y la democracia radical de Rousseau.",
     hoy:"Rawls y Scanlon lo convirtieron en una de las grandes teorías de la justicia y de la moral del s. XX, en polémica abierta con el utilitarismo. Las críticas del «contrato sexual» (Pateman) y del «contrato racial» (Mills) siguen siendo lectura obligada.",
-    de:["iusnaturalismo"], vecinas:["iusnaturalismo","ilustracion", "republicanismo"], rivales:["utilitarismo"] },
+    de:["iusnaturalismo"], vecinas:["iusnaturalismo","ilustracion", "republicanismo", "liberalismo"], rivales:["utilitarismo"] },
 
+  { id:"liberalismo", nombre:"Liberalismo", periodo:"fines del s. XVII – hoy (el nombre, desde 1810)", desde:1689, hasta:null, trad:"europea",
+    pregunta:"¿Hasta dónde puede el poder, sea el del Estado o el de la mayoría, meterse en la vida de una persona, y qué justifica ese límite?",
+    lema:"Sobre sí mismo, sobre su propio cuerpo y su propia mente, el individuo es soberano.",
+    resumen:`La palabra es más tardía que las ideas: «liberales» se llamó a los diputados que en las Cortes de Cádiz (1810-1812) defendieron una constitución frente al absolutismo. Locke, a quien se suele considerar el fundador, nunca lo usó: la tradición se reconstruyó hacia atrás. Pero en sus Dos tratados sobre el gobierno civil y en su Carta sobre la tolerancia (1689) ya están las piezas: derechos que las personas tienen antes del Estado, un gobierno limitado que existe para protegerlos y una fe que no puede imponerse por la fuerza.
+
+Montesquieu agrega la división de poderes. Benjamin Constant distingue en 1819 la libertad de los antiguos, participar del poder colectivo, de la de los modernos, disfrutar en paz de una vida privada protegida. Tocqueville y Mill advierten que también la mayoría y la opinión pueden tiranizar, y Mill formula en Sobre la libertad (1859) el principio de daño. Adam Smith había defendido la libertad de comercio frente a los privilegios, y en el s. XX la tradición se divide: para Hayek y Nozick la libertad exige un Estado muy limitado; para el liberalismo igualitario de Rawls, instituciones que corrijan la desigualdad.
+
+Las críticas vienen de varios lados. Marx sostuvo en 1844 que los derechos del hombre de las revoluciones burguesas eran los del individuo separado de la comunidad; desde los años ochenta, Michael Sandel, Alasdair MacIntyre y Charles Taylor le objetaron a Rawls un yo sin raíces, anterior a sus fines, y recibieron el nombre de «comunitaristas», que varios rechazaron. Y la historia liberal convivió con la esclavitud y el colonialismo: Locke invirtió en la trata, y Mill justificó el despotismo sobre los pueblos que llamaba «atrasados».`,
+    tesis:[
+      "El único motivo legítimo para usar el poder contra la voluntad de alguien es impedir que dañe a otros; su propio bien, físico o moral, no basta.",
+      "La libertad de los antiguos era participar en el poder colectivo de la ciudad; la de los modernos es disfrutar con seguridad de una vida privada que ese poder no puede invadir.",
+      "El Estado no debe favorecer ninguna religión ni ninguna idea de la vida buena: su tarea es asegurar a todos las mismas libertades para que cada uno busque la suya.",
+      "Solo un Estado mínimo, limitado a proteger contra la fuerza, el robo y el fraude y a hacer cumplir los contratos, puede justificarse sin violar los derechos de nadie.",
+      "Ningún planificador puede reunir el conocimiento disperso que millones de personas usan cada día al decidir; por eso un orden de reglas generales y libre intercambio coordina mejor que un plan central."],
+    autores:[
+      {mod:"hobbeslocke", rol:"Locke, a quien la tradición posterior llama padre del liberalismo, aunque la palabra no existía: derechos anteriores al Estado, gobierno limitado y tolerancia. Hobbes no es liberal —defiende un soberano absoluto—, pero comparte con él el punto de partida en individuos iguales que buscan seguridad."},
+      {mod:"kant", rol:"Precursor según la tradición liberal posterior, sin usar la palabra: la autonomía de la persona, un derecho que hace compatible la libertad de cada uno con la de todos y el rechazo del gobierno paternalista."},
+      {mod:"mill", rol:"La versión clásica: el principio de daño, la libertad de expresión, la tiranía de la mayoría y la igualdad de las mujeres; también el despotismo que aceptó para los pueblos que llamaba «atrasados»."},
+      {mod:"rawls", rol:"El liberalismo igualitario: libertades básicas prioritarias, desigualdades solo si benefician a los menos aventajados y, en Liberalismo político (1993), una justicia que puedan compartir personas con doctrinas distintas."},
+      {mod:"marx", rol:"Crítico: en «Sobre la cuestión judía» (1844) sostiene que los derechos del hombre proclamados por las revoluciones burguesas son los del individuo egoísta separado de la comunidad, y que la emancipación política no es todavía la humana."}],
+    otros:["Montesquieu","Adam Smith","Benjamin Constant","Alexis de Tocqueville","Isaiah Berlin","Friedrich Hayek","Robert Nozick","Michael Sandel"],
+    conceptos:["derechos individuales","gobierno limitado","tolerancia","división de poderes","libertad negativa","principio de daño","tiranía de la mayoría","neutralidad del Estado"],
+    noConfundir:"La palabra cambia de sentido según el lugar: en EE. UU. «liberal» designa a la centroizquierda que defiende un Estado social, y en América Latina suele asociarse al libre mercado; Rawls y Hayek se llaman liberales y discrepan en casi todo lo económico. «Neoliberalismo» es sobre todo un rótulo de sus críticos. Y el Partido Liberal colombiano, de mediados del s. XIX, es un partido, no una corriente filosófica.",
+    hoy:"El debate entre Rawls, Nozick y los comunitaristas sigue ordenando la filosofía política académica. En Colombia, la Corte Constitucional despenalizó en 1994 la dosis personal (sentencia C-221, ponencia de Carlos Gaviria) con un argumento de corte liberal: el libre desarrollo de la personalidad impide castigar a alguien por lo que solo lo afecta a él.",
+    de:["iusnaturalismo","contractualismo"], vecinas:["contractualismo","ilustracion","utilitarismo"], rivales:["marxismo","republicanismo"] },
   { id:"ilustracion", nombre:"Ilustración", periodo:"fines del s. XVII – fines del s. XVIII", desde:1688, hasta:1800, trad:"europea",
     pregunta:"¿Hay alguna autoridad —la tradición, la Iglesia, el rey— que pueda quedar exenta del examen público de la razón?",
     lema:"¡Atrévete a servirte de tu propio entendimiento!",
@@ -519,7 +568,7 @@ Tuvo críticos desde dentro, como Rousseau, que dudó de que el progreso de las 
     conceptos:["mayoría de edad","sapere aude","uso público de la razón","tolerancia","progreso","separación de poderes","derechos del hombre"],
     noConfundir:"No es una fe ingenua en que la razón lo resuelve todo: Hume puso límites severos a la razón y Rousseau dudó del progreso. Y no es solo francesa: hubo Ilustración escocesa, alemana, italiana, española e hispanoamericana.",
     hoy:"Sigue en disputa: Habermas llamó a la modernidad que ella inauguró un proyecto inacabado que hay que corregir, no abandonar; la crítica decolonial y feminista pregunta a quiénes dejó fuera su universalismo. Los derechos humanos y el Estado de derecho son en buena parte su herencia.",
-    de:["racionalismo","empirismo"], vecinas:["contractualismo","positivismo", "republicanismo"], rivales:["escolastica"] },
+    de:["racionalismo","empirismo"], vecinas:["contractualismo","positivismo", "republicanismo", "liberalismo"], rivales:["escolastica"] },
 
   { id:"idealismo", nombre:"Idealismo alemán", periodo:"1781 – mediados del s. XIX", desde:1781, hasta:1854, trad:"europea",
     pregunta:"Si el mundo que conocemos lleva la marca de la mente, ¿qué es, en el fondo, lo real?",
@@ -569,7 +618,7 @@ Sus críticos la acusan de permitir sacrificar a unos pocos por el bien de la ma
     conceptos:["principio de utilidad","consecuencialismo","placer y dolor","cálculo felicífico","imparcialidad","calidad de los placeres","utilitarismo de actos y de reglas","panóptico"],
     noConfundir:"No es «utilitario» en el sentido de egoísta o interesado: exige contar el bienestar de todos por igual, y suele ser muy exigente. Tampoco es el hedonismo epicúreo, que busca la tranquilidad propia y no la suma de la felicidad general.",
     hoy:"Está detrás del análisis costo-beneficio en políticas públicas, de debates de bioética sobre cómo repartir recursos escasos, de la ética animal de Peter Singer y del llamado altruismo eficaz, también muy discutido.",
-    de:["empirismo","ilustracion"], vecinas:["epicureismo", "moismo"], rivales:["contractualismo","iusnaturalismo", "republicanismo"] },
+    de:["empirismo","ilustracion"], vecinas:["epicureismo", "moismo", "liberalismo"], rivales:["contractualismo","iusnaturalismo", "republicanismo"] },
 
   { id:"positivismo", nombre:"Positivismo", periodo:"1830 – c. 1920", desde:1830, hasta:1920, trad:"varias",
     pregunta:"¿Puede la ciencia, y solo ella, decirnos cómo es el mundo y cómo organizar la sociedad?",
@@ -594,7 +643,7 @@ En América Latina fue ideología de Estado. El lema de la bandera de Brasil, «
     conceptos:["ley de los tres estados","ciencia positiva","física social","sociología","orden y progreso","religión de la Humanidad","los científicos"],
     noConfundir:"No es el positivismo lógico del Círculo de Viena, un movimiento del s. XX que pertenece a la filosofía analítica, aunque comparte la desconfianza ante la metafísica. Tampoco es el positivismo jurídico de Kelsen y Hart, ni tiene que ver con ser «positivo» en el sentido de optimista.",
     hoy:"La bandera de Brasil conserva el lema y en Brasil todavía se conservan templos de la religión positivista. El ideal de gobernar con técnicos en lugar de con política sigue vivo en los debates sobre la tecnocracia.",
-    de:["empirismo","ilustracion"], vecinas:["empirismo","analitica"], rivales:["idealismo","liberacion"] },
+    de:["empirismo","ilustracion"], vecinas:["empirismo","analitica"], rivales:["idealismo","liberacion", "vitalismo"] },
 
   { id:"marxismo", nombre:"Marxismo", periodo:"s. XIX – hoy", desde:1844, hasta:null, trad:"varias",
     pregunta:"¿Cuánto de la historia y de las ideas de una sociedad se explica por cómo produce su vida material y quién se apropia de lo producido, y cómo puede transformarse eso?",
@@ -620,11 +669,11 @@ En el siglo XX se ramifica: Lenin y la revolución rusa, Gramsci y la hegemonía
       {mod:"falsborda", rol:"Sociología comprometida e investigación-acción, con fuerte influencia marxista."},
       {mod:"zuleta", rol:"Lector heterodoxo de Marx, que lo cruzó con Freud y Nietzsche."},
       {mod:"freire", rol:"En diálogo: toma la praxis y la opresión, pero desde una pedagogía también cristiana."}],
-    otros:["Friedrich Engels", "Rosa Luxemburgo", "Antonio Gramsci", "Georg Lukács", "Theodor W. Adorno", "Louis Althusser", "Lenin"],
+    otros:["Friedrich Engels", "Rosa Luxemburgo", "Antonio Gramsci", "Georg Lukács", "Louis Althusser", "Lenin"],
     conceptos:["materialismo histórico","lucha de clases","plusvalía","enajenación","ideología","praxis","base y superestructura","hegemonía"],
     noConfundir:"Marxismo no es lo mismo que los regímenes que usaron su nombre: es sobre todo un método de análisis de la sociedad, y muchos de sus críticos más duros del estalinismo fueron marxistas. Tampoco es un determinismo económico simple: el propio Engels advirtió contra esa lectura.",
     hoy:"Sigue vivo en la sociología, la historia económica y los estudios sobre desigualdad y trabajo, y en debates sobre ecología y capitalismo. En América Latina alimentó la filosofía de la liberación y la educación popular.",
-    de:["idealismo","ilustracion"], vecinas:["liberacion", "anticolonialismo", "estructuralismo"], rivales:["idealismo","contractualismo"] },
+    de:["idealismo","ilustracion"], vecinas:["liberacion", "anticolonialismo", "estructuralismo"], rivales:["idealismo","contractualismo", "liberalismo"] },
 
   { id:"existencialismo", nombre:"Existencialismo", periodo:"décadas de 1940 a 1970 (precursores en el s. XIX)", desde:1943, hasta:1980, trad:"europea",
     pregunta:"¿Hay algo que defina quién soy antes de que elija, o me hago con lo que hago con mi libertad?",
@@ -654,8 +703,32 @@ No es una escuela homogénea, y varios de los que suelen incluirse rechazaron la
     conceptos:["existencia","angustia","libertad","mala fe","proyecto","situación","absurdo","compromiso"],
     noConfundir:"No es una escuela del s. XIX: Kierkegaard y Nietzsche son precursores puestos ahí después, y Heidegger y Camus rechazaron el rótulo. No es pesimismo ni gusto por la desesperación: Sartre lo presentó como «un humanismo». Y no es lo mismo que el nihilismo: en su versión atea parte de que no hay valores dados, pero sostiene que somos responsables de crearlos.",
     hoy:"Vive en la ética de la autenticidad, en la psicoterapia existencial (Viktor Frankl, Irvin Yalom) y en el feminismo y el pensamiento anticolonial que heredaron la idea de libertad situada.",
-    de:["fenomenologia"], vecinas:["fenomenologia","nihilismo"], rivales:["marxismo", "estructuralismo"] },
+    de:["fenomenologia"], vecinas:["fenomenologia","nihilismo", "vitalismo"], rivales:["marxismo", "estructuralismo"] },
 
+  { id:"vitalismo", nombre:"Filosofía de la vida", periodo:"fines del s. XIX – mediados del s. XX (antecedente: Schopenhauer)", desde:1874, hasta:1955, trad:"europea",
+    pregunta:"¿Puede la razón entender la vida desde afuera, como un objeto más, si ella misma es una de las formas en que la vida se expresa?",
+    lema:"Pensar desde la vida y para la vida, no desde fuera de ella.",
+    resumen:`«Filosofía de la vida» (Lebensphilosophie) es un rótulo que se generalizó en Alemania a comienzos del siglo XX; Heinrich Rickert la describió y la combatió en 1920 como una moda de la época. Agrupa a pensadores muy distintos con un rechazo común: la razón abstracta de los sistemas y de las ciencias naturales no alcanza para entender la vida, porque ella misma es una de sus expresiones. Schopenhauer es el antecedente: detrás del mundo que conocemos hay una voluntad ciega de vivir. Pero él concluía que había que negarla, y Nietzsche le dio la vuelta: la vida es la medida de los valores y del saber, y la historia vale si sirve para vivir, no si paraliza (1874).
+
+Wilhelm Dilthey separa las ciencias que explican la naturaleza desde afuera de las que comprenden lo humano desde adentro, a partir de la vivencia y sus expresiones. Georg Simmel ve una tragedia en que la vida cree formas —leyes, instituciones, obras— que se independizan y terminan oprimiéndola. En Francia, Henri Bergson opone a la inteligencia, que recorta lo real en cosas fijas, una intuición capaz de captar la duración vivida y el impulso vital de La evolución creadora (1907).
+
+En español, Unamuno escribe sobre el choque entre razón y vida en Del sentimiento trágico de la vida (1913), y Ortega propone una razón vital e histórica, aunque en 1924 tituló un ensayo «Ni vitalismo ni racionalismo»: no quería renunciar a la razón, sino ponerla en la vida. Lukács, en El asalto a la razón (1954), acusó a esta tradición de abonar el irracionalismo que desembocó en el nazismo. El juicio es discutido, pero algunos de sus representantes, como Ludwig Klages, sí cultivaron un antisemitismo explícito.`,
+    tesis:[
+      "La razón no es un tribunal situado fuera de la vida: es una de sus funciones, nace de ella y tiene que pensar a su servicio.",
+      "La naturaleza se explica desde afuera, por causas; lo humano se comprende desde adentro, reviviendo las experiencias que se expresan en obras, instituciones y textos.",
+      "La inteligencia recorta lo real en cosas fijas para poder manejarlo; el tiempo vivido, que fluye sin cortes, solo se capta con una intuición que se instala en su movimiento.",
+      "El saber del pasado vale en la medida en que sirve para vivir y obrar; acumulado sin medida, debilita y paraliza a quien lo carga.",
+      "Lo vivo crea leyes, instituciones y obras que luego se independizan, se vuelven rígidas y terminan oprimiéndolo, hasta que las rompe para crear otras."],
+    autores:[
+      {mod:"schopenhauer", rol:"Antecedente: el mundo como voluntad ciega de vivir, a la que el intelecto sirve y no gobierna. Pero su conclusión, negar esa voluntad, es justo lo que los filósofos de la vida rechazan."},
+      {mod:"nietzsche", rol:"La historiografía posterior lo pone en el origen de la corriente, aunque él no se presentó con ese rótulo: la vida que se afirma es el criterio para juzgar valores, verdades y saber histórico."},
+      {mod:"ortega", rol:"La razón vital e histórica: la vida de cada uno como realidad radical. Crítico interno: rechazó el «vitalismo» que subordina la razón a lo biológico («Ni vitalismo ni racionalismo», 1924)."},
+      {mod:"zambrano", rol:"En diálogo: discípula de Ortega, lleva la razón vital hacia una razón poética que escucha lo que la razón discursiva dejó afuera."}],
+    otros:["Wilhelm Dilthey","Georg Simmel","Henri Bergson","Miguel de Unamuno","Ludwig Klages","Heinrich Rickert"],
+    conceptos:["vida","vivencia","comprender y explicar","duración","impulso vital","tragedia de la cultura","razón vital","perspectivismo"],
+    noConfundir:"No es el vitalismo de la biología de los siglos XVIII y XIX, que postulaba una fuerza vital distinta de las leyes físicas y químicas, aunque algunos, como Bergson, tocaron los dos temas. Tampoco es un simple irracionalismo: Dilthey quiso fundar con rigor las ciencias humanas, y Ortega buscó otra razón, no menos razón.",
+    hoy:"Bergson volvió con Deleuze (El bergsonismo, 1966) y en la filosofía del tiempo; la distinción de Dilthey entre explicar y comprender sigue en la discusión sobre el método de las ciencias sociales, y Simmel es un clásico de la sociología. Ortega y Zambrano son referencias centrales del pensamiento en español.",
+    de:["idealismo"], vecinas:["existencialismo","nihilismo","fenomenologia","pragmatismo"], rivales:["positivismo","racionalismo"] },
   { id:"nihilismo", nombre:"Nihilismo", periodo:"s. XIX – hoy", desde:1862, hasta:null, trad:"varias",
     pregunta:"¿Qué pasa cuando los valores por los que se vivía dejan de valer?",
     lema:"Los valores supremos se desvalorizan.",
@@ -680,7 +753,7 @@ Heidegger lee incluso la respuesta de Nietzsche como la culminación del nihilis
     conceptos:["muerte de Dios","nihilismo pasivo","nihilismo activo","transmutación de los valores","Gestell","nada absoluta","vacuidad"],
     noConfundir:"No es tanto una doctrina como un diagnóstico, casi siempre para superarlo; los pocos que se llamaron nihilistas, como los radicales rusos de 1860, usaban la palabra para una crítica sin concesiones, no para decir que nada importa. Tampoco es lo mismo que el existencialismo ni que el pesimismo: Nietzsche lo describe como un tránsito, y la nada de Kioto no es negativa.",
     hoy:"La palabra circula para nombrar la apatía, el cinismo o la sensación de que nada importa, a veces sin el rigor del diagnóstico original. El debate sobre la técnica de Heidegger sigue en la filosofía de la tecnología.",
-    de:["idealismo","positivismo"], vecinas:["existencialismo","fenomenologia","budismo", "estructuralismo"], rivales:["socratismo"] },
+    de:["idealismo","positivismo"], vecinas:["existencialismo","fenomenologia","budismo", "estructuralismo", "vitalismo"], rivales:["socratismo"] },
 
   { id:"fenomenologia", nombre:"Fenomenología y hermenéutica", periodo:"s. XX – hoy", desde:1900, hasta:null, trad:"europea",
     pregunta:"¿Cómo se nos da el mundo antes de que lo expliquemos, y cómo comprendemos lo que nos llega?",
@@ -697,6 +770,7 @@ La corriente tiene una sombra que no se puede omitir: Heidegger se afilió al pa
       "Comprender siempre parte de prejuicios heredados; no se trata de eliminarlos, sino de ponerlos a prueba en el diálogo con lo que se interpreta.",
       "Un texto, una vez escrito, se separa de la intención de su autor y abre un mundo que el lector puede habitar."],
     autores:[
+      {mod:"kusch", rol:"En diálogo crítico: toma de Heidegger la existencia situada y la desplaza al castellano y al altiplano con la distinción entre ser y estar."},
       {mod:"ortega", rol:"En diálogo crítico: la difundió en español y promovió la traducción de Husserl, pero rechazó partir de la conciencia y puso en su lugar la vida como realidad radical."},
       {mod:"husserl", rol:"El fundador: la intencionalidad, la vuelta «a las cosas mismas», la epojé y, en sus últimos años, el mundo de la vida."},
       {mod:"fanon", rol:"Describe en primera persona la experiencia vivida del cuerpo racializado, con el esquema corporal de Merleau-Ponty."},
@@ -711,7 +785,7 @@ La corriente tiene una sombra que no se puede omitir: Heidegger se afilió al pa
     conceptos:["intencionalidad","epojé","fenómeno","ser-en-el-mundo","mundo de la vida","círculo hermenéutico","fusión de horizontes","prejuicio"],
     noConfundir:"La fenomenología no estudia fenómenos en el sentido de cosas raras, sino el modo en que cualquier cosa aparece. Y la hermenéutica no es un método para encontrar la única interpretación correcta, ni tampoco la idea de que cualquier interpretación vale.",
     hoy:"Vive en la psicología y la psiquiatría fenomenológicas, en las ciencias cognitivas de la cognición corporizada y en la teoría de la interpretación en derecho, historia y teología.",
-    de:["racionalismo","idealismo"], vecinas:["existencialismo","nihilismo"], rivales:["positivismo","analitica", "estructuralismo"] },
+    de:["racionalismo","idealismo"], vecinas:["existencialismo","nihilismo", "vitalismo"], rivales:["positivismo","analitica", "estructuralismo"] },
 
   { id:"estructuralismo", nombre:"Estructuralismo y posestructuralismo", periodo:"1916 – fines del s. XX (auge en Francia, 1955–1980)", desde:1916, hasta:2000, trad:"europea",
     pregunta:"¿Somos nosotros quienes damos sentido al lenguaje y a la cultura, o son sistemas que nadie eligió los que nos dan forma y hablan a través de nosotros?",
@@ -751,6 +825,8 @@ Con el tiempo dejó de ser una doctrina para volverse un estilo: claridad, argum
       "El significado de una palabra no es una cosa a la que nombra, sino el uso que tiene en una forma de vida.",
       "La filosofía no es una doctrina sino una actividad de aclaración, que avanza con definiciones precisas y argumentos explícitos."],
     autores:[
+      {mod:"salazarbondy", rol:"En diálogo: valoró su exigencia de claridad y la usó en su teoría del valor, sin aceptar que la filosofía sea indiferente a la situación de quien la hace."},
+      {mod:"wiredu", rol:"Formado en Oxford en la filosofía del lenguaje ordinario, aplica el análisis conceptual a las lenguas africanas, en especial el akan."},
       {mod:"rawls", rol:"Devolvió a la filosofía analítica la ambición de una teoría normativa de la justicia, con el equilibrio reflexivo como método."},
       {mod:"leibniz", rol:"Precursor lejano: la característica universal y el cálculo racional anticipan la lógica formal que Frege y Russell retomaron."},
       {mod:"wittgenstein", rol:"Las dos etapas: el Tractatus y los juegos de lenguaje. El Círculo de Viena se inspiró en el Tractatus, pero él tomó distancia de esa lectura."},
@@ -786,7 +862,7 @@ Tras un eclipse frente a la filosofía analítica, Richard Rorty la revive en lo
     conceptos:["máxima pragmática","falibilismo","indagación","instrumentalismo","comunidad de investigadores","experiencia","crecimiento","antifundacionalismo"],
     noConfundir:"No es ser «práctico» en el sentido de oportunista o de buscar solo lo útil para uno: es una teoría sobre el significado y la verdad. Y no es una escuela unánime: Peirce, James y Dewey discrepaban en cosas importantes.",
     hoy:"Inspira la pedagogía activa y por proyectos, la teoría democrática deliberativa y parte de la filosofía de la ciencia. Hay un neopragmatismo analítico (Putnam, Brandom) y un pragmatismo crítico ligado a la raza y la democracia.",
-    de:["empirismo","idealismo"], vecinas:["analitica","utilitarismo"], rivales:["racionalismo"] },
+    de:["empirismo","idealismo"], vecinas:["analitica","utilitarismo", "vitalismo"], rivales:["racionalismo"] },
 
   { id:"liberacion", nombre:"Pensamiento latinoamericano y filosofía de la liberación", periodo:"s. XIX – hoy (antecedentes en el s. XVI)", desde:1891, hasta:null, trad:"americana",
     pregunta:"¿Hay una filosofía propia de nuestra América, y qué cambia en el pensamiento cuando se lo hace desde los excluidos y no desde el centro?",
@@ -803,6 +879,8 @@ La corriente tiene parientes cercanos en la pedagogía y las ciencias sociales: 
       "Nadie educa a nadie y nadie se educa solo: las personas se educan entre sí, con el mundo como mediador.",
       "Quien investiga no estudia a una comunidad como objeto: investiga con ella y le devuelve lo que se sabe para que transforme su realidad."],
     autores:[
+      {mod:"salazarbondy", rol:"Precursor: la filosofía latinoamericana ha sido inauténtica por ser producto de una cultura de la dominación, y solo será auténtica pensando y superando esa dominación."},
+      {mod:"kusch", rol:"Uno de sus iniciadores en la Argentina de los setenta: busca el pensamiento propio en la palabra indígena y popular, el estar frente al ser."},
       {mod:"ortega", rol:"Influencia de fondo: su idea de la circunstancia, transmitida por José Gaos, sostiene el historicismo de Zea y la pregunta por un pensamiento desde lo propio."},
       {mod:"fanon", rol:"Pariente cercano y fuente: no es latinoamericano, pero Freire, Dussel y el pensamiento decolonial lo leyeron como punto de partida para pensar desde la herida colonial."},
       {mod:"levinas", rol:"Precursor decisivo: Dussel toma de él la exterioridad y el rostro que interpela, y les da domicilio histórico."},
@@ -815,11 +893,11 @@ La corriente tiene parientes cercanos en la pedagogía y las ciencias sociales: 
       {mod:"dussel", rol:"La filosofía de la liberación en sentido estricto: exterioridad, víctima, transmodernidad."},
       {mod:"falsborda", rol:"La investigación-acción participativa y la ciencia propia."},
       {mod:"zuleta", rol:"En diálogo: el elogio de la dificultad y la crítica del sectarismo en Colombia."}],
-    otros:["Andrés Bello", "Francisco Miró Quesada", "Augusto Salazar Bondy", "Arturo Andrés Roig", "Rodolfo Kusch", "Gustavo Gutiérrez", "Aníbal Quijano"],
+    otros:["Andrés Bello", "Francisco Miró Quesada", "Arturo Andrés Roig", "Gustavo Gutiérrez", "Aníbal Quijano"],
     conceptos:["Nuestra América","mestizaje","colonialismo mental","exterioridad","víctima","concientización","investigación-acción participativa","transmodernidad"],
     noConfundir:"No es rechazar la filosofía europea: sus autores la leen a fondo y discuten con ella. Y no es lo mismo que la teología de la liberación, aunque nacen en la misma época y comparten la opción por los pobres.",
     hoy:"Sigue en el pensamiento decolonial (Quijano, Mignolo), en la educación popular y en la investigación participativa que se practica en universidades y organizaciones sociales colombianas.",
-    de:["iusnaturalismo","marxismo","fenomenologia"], vecinas:["marxismo","feminismo", "anticolonialismo"], rivales:["positivismo"] },
+    de:["iusnaturalismo","marxismo","fenomenologia"], vecinas:["marxismo","feminismo", "anticolonialismo", "africana"], rivales:["positivismo"] },
 
   { id:"anticolonialismo", nombre:"Pensamiento anticolonial y poscolonial", periodo:"desde comienzos del s. XX (teoría poscolonial desde 1978)", desde:1909, hasta:null, trad:"varias",
     pregunta:"¿Qué le hace la dominación de un pueblo sobre otro a la manera en que el dominado se piensa a sí mismo, y cómo se recupera una voz propia?",
@@ -836,14 +914,38 @@ No es una escuela ni una doctrina. Gandhi defendía la no violencia y Fanon pens
       "Lo que escandalizó a Europa del nazismo no fue tanto el crimen contra el ser humano como que aplicara en Europa los métodos que hasta entonces reservaba para los pueblos de África y Asia.",
       "Cuando los poderosos hablan en nombre de los más oprimidos de un país sometido, aunque sea para salvarlos, estos pueden seguir sin ser escuchados."],
     autores:[
+      {mod:"wiredu", rol:"Lleva la descolonización al terreno de los conceptos y las lenguas: examinar lo heredado de la colonia sin rechazar lo universal; el ubuntu, lenguaje de la transición sudafricana tras el apartheid."},
       {mod:"marti", rol:"Precursor desde Cuba: «Nuestra América» (1891) pide gobernar desde lo propio y advierte contra el imperialismo de EE. UU.; murió en la guerra de independencia contra España (1895)."},
       {mod:"gandhi", rol:"La independencia como autogobierno (swaraj) y la lucha sin violencia (satyagraha); también sus límites: defendió durante décadas el varna frente a Ambedkar."},
       {mod:"fanon", rol:"La alienación racial vivida en primera persona, la descolonización como ruptura y la crítica de la burguesía nacional que solo quiere ocupar el lugar del colono."}],
-    otros:["Aimé Césaire","B. R. Ambedkar","Amílcar Cabral","Edward Said","Gayatri Chakravorty Spivak","Homi K. Bhabha","Ranajit Guha","Ngũgĩ wa Thiong'o"],
+    otros:["Aimé Césaire", "B. R. Ambedkar", "Amílcar Cabral", "Edward Said", "Gayatri Chakravorty Spivak", "Homi K. Bhabha", "Ranajit Guha", "Ngũgĩ wa Thiong'o"],
     conceptos:["satyagraha","swaraj","negritud","cosificación","descolonización","orientalismo","subalterno","hibridez"],
     noConfundir:"Anticolonial, poscolonial y decolonial no son sinónimos: el primero nombra las luchas y los textos de las independencias; el segundo, una teoría académica de los años ochenta, escrita sobre todo en inglés; el tercero, una corriente latinoamericana (Aníbal Quijano, Walter Mignolo) que habla de «colonialidad del poder» y se distingue de la poscolonial. Y no es un rechazo de todo lo europeo: Fanon cierra Los condenados de la tierra llamando a crear un hombre nuevo, no a imitar ni a destruir a Europa.",
     hoy:"Inspira los debates sobre la restitución de objetos de los museos europeos, sobre programas de estudio que solo enseñan autores europeos y sobre las estatuas de conquistadores y esclavistas, como la campaña Rhodes Must Fall (Ciudad del Cabo, 2015). Tiene críticos también en la izquierda: Vivek Chibber le reprocha haber cambiado el análisis del capitalismo por el de la cultura.",
-    de:["marxismo","existencialismo","estructuralismo"], vecinas:["liberacion","marxismo"], rivales:[] },
+    de:["marxismo","existencialismo","estructuralismo"], vecinas:["liberacion","marxismo", "africana"], rivales:[] },
+
+  { id:"africana", nombre:"Filosofía africana contemporánea", periodo:"desde 1945 – hoy", desde:1945, hasta:null, trad:"africana",
+    pregunta:"¿Qué hace falta para que haya filosofía en una cultura: una visión del mundo compartida por todo un pueblo, o personas que la examinen críticamente y discutan entre sí?",
+    lema:"Una persona es persona a través de otras personas.",
+    resumen:`En 1945 el misionero belga Placide Tempels publicó La filosofía bantú: los pueblos bantúes del Congo, sostenía, tenían una ontología coherente, centrada en la fuerza vital, aunque no la formularan ellos mismos. El libro fue a la vez un reconocimiento y un problema. Siguieron obras como la de Alexis Kagame sobre el ser en Ruanda (1956) y la de John Mbiti sobre las religiones y la filosofía africanas (1969), con su fórmula «soy porque somos; y puesto que somos, entonces soy». Antes, desde los años treinta, Léopold Sédar Senghor había defendido con Aimé Césaire la negritud, la afirmación de los valores culturales negros, con fórmulas tan discutidas como «la emoción es negra, como la razón es helena».
+
+En 1976 el beninés Paulin Hountondji llamó a esos trabajos etnofilosofía: describir una visión del mundo colectiva y unánime no es filosofía, que es un discurso crítico que alguien firma y otros discuten. El ghanés Kwasi Wiredu propuso descolonizar los conceptos: examinar en lenguas como el akan los problemas heredados de Europa, para ver si sobreviven a la traducción. El keniano Henry Odera Oruka entrevistó a sabios rurales capaces de criticar su tradición, y Kwame Gyekye discutió con Ifeanyi Menkiti cuánto le debe la persona a la comunidad.
+
+Kwame Nkrumah, primer presidente de Ghana, propuso en Consciencismo (1964) una síntesis entre la tradición africana, el islam y el cristianismo sobre una base materialista y socialista, y terminó gobernando con partido único hasta su derrocamiento en 1966. Wiredu defendió, en cambio, una democracia por consenso sin partidos. En Sudáfrica, Mogobe Ramose hizo del ubuntu el centro de una filosofía.`,
+    tesis:[
+      "Reconstruir la visión del mundo que supuestamente comparte todo un pueblo no es hacer filosofía: la filosofía empieza cuando alguien argumenta con su propio nombre y otros pueden refutarlo.",
+      "Antes de dar por universal un problema filosófico heredado, hay que intentar formularlo en la propia lengua: si allí ni siquiera puede plantearse, quizá era un efecto del idioma en que se lo aprendió.",
+      "Para hallar pensamiento crítico en una cultura de tradición oral hay que conversar con sus sabios y distinguir al que repite lo que todos creen del que lo examina y, a veces, lo rechaza.",
+      "Nadie nace persona del todo: se llega a serlo con el tiempo, a través de los demás y cumpliendo los deberes que se tienen con la comunidad.",
+      "Un gobierno puede decidir sin partidos que compitan por el poder: deliberando hasta alcanzar un consenso, de modo que ninguna minoría quede simplemente derrotada."],
+    autores:[
+      {mod:"wiredu", rol:"La descolonización conceptual, la crítica de la etnofilosofía desde la filosofía analítica en que se formó y la democracia por consenso sin partidos."},
+      {mod:"fanon", rol:"En diálogo: no participa del debate sobre la etnofilosofía, pero su crítica de la negritud y sus páginas sobre la cultura nacional en Los condenados de la tierra (1961) son referencia constante de la filosofía política africana."}],
+    otros:["Placide Tempels","Paulin Hountondji","Henry Odera Oruka","Kwame Gyekye","John S. Mbiti","Mogobe Ramose","Kwame Nkrumah","Léopold Sédar Senghor"],
+    conceptos:["etnofilosofía","filosofía de la sagacidad","descolonización conceptual","persona y comunidad","ubuntu","consciencismo","negritud","democracia por consenso"],
+    noConfundir:"No es «la filosofía que tienen todos los africanos»: esa idea es justamente lo que Hountondji criticó, y la corriente es un debate entre posiciones enfrentadas. Tampoco coincide con el pensamiento anticolonial, aunque se cruzan: buena parte de la discusión es sobre lógica, verdad, persona o democracia. Y el ubuntu no es un eslogan de buena voluntad: Ramose lo piensa como una ontología y una ética exigentes.",
+    hoy:"La Constitución provisional de Sudáfrica (1993) invocó el ubuntu frente a la venganza, y la Corte Constitucional lo citó en 1995 al abolir la pena de muerte (caso Makwanyane). Thaddeus Metz y otros discuten una ética del ubuntu, y la pregunta de Wiredu sobre qué conceptos sobreviven a la traducción sigue viva en los debates sobre descolonizar los programas de estudio.",
+    de:["anticolonialismo","analitica"], vecinas:["anticolonialismo","liberacion"], rivales:[] },
   { id:"feminismo", nombre:"Feminismo", periodo:"fines del s. XVIII – hoy (precursoras antes)", desde:1792, hasta:null, trad:"varias",
     pregunta:"¿Por qué la diferencia entre los sexos se convirtió en subordinación, y cuánto de lo que se llama «femenino» es naturaleza y cuánto construcción social?",
     lema:"No se nace mujer: se llega a serlo.",
@@ -867,5 +969,5 @@ Los debates internos son fuertes. Las feministas negras (Combahee River Collecti
     conceptos:["patriarcado","género","lo Otro","lo personal es político","interseccionalidad","olas del feminismo","igualdad y diferencia","sororidad"],
     noConfundir:"No es la idea de que las mujeres son superiores ni un simple espejo del machismo: su reclamo de partida es la igualdad. Y no es uno solo: liberal, radical, marxista, negro, comunitario y decolonial discrepan en diagnósticos y soluciones.",
     hoy:"Está en el derecho (violencia de género, paridad, aborto), en la economía del cuidado y en la crítica de los sesgos de la ciencia. En América Latina, la marea verde y Ni Una Menos son movilizaciones masivas.",
-    de:["ilustracion"], vecinas:["existencialismo","liberacion","marxismo"], rivales:["aristotelismo","contractualismo"] }
+    de:["ilustracion"], vecinas:["existencialismo","liberacion","marxismo", "liberalismo"], rivales:["aristotelismo","contractualismo"] }
 ];

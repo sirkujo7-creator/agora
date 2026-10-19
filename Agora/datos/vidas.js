@@ -1736,6 +1736,58 @@ const VIDAS = {
       {anio:"1961", texto:"Escribe Los condenados de la tierra y muere en Bethesda el 6 de diciembre."}
     ]
   },
+  kusch: {
+    lema:"Filósofo porteño, hijo de inmigrantes alemanes, que salió de la ciudad a buscar en el altiplano y en el pensamiento popular lo que la filosofía académica no escuchaba, y que terminó su vida en la Quebrada de Humahuaca durante la dictadura.",
+    secciones:[
+      {titulo:"Un porteño hijo de alemanes",
+       texto:"Günther Rodolfo Kusch nació en Buenos Aires en 1922, hijo de inmigrantes alemanes, y creció en la ciudad que después iba a describir como el reino de la pulcritud y del miedo. Estudió filosofía en la Facultad de Filosofía y Letras de la Universidad de Buenos Aires, donde se recibió de profesor en 1948. Leyó a los clásicos europeos, y en su propia lengua materna a los alemanes, entre ellos a Heidegger, cuya influencia en la Argentina de esos años era grande.\n\nMuy pronto le interesó otra cosa: por qué el pensamiento de los libros europeos no parecía tocar la vida del país real. Su primer libro, La seducción de la barbarie (1953), retoma la vieja oposición de Sarmiento entre civilización y barbarie y la invierte: la barbarie, lo americano que la ciudad quiso suprimir, sigue actuando por debajo y seduce. Escribió también obras de teatro, un género que cultivó durante años."},
+      {titulo:"Argentina entre el peronismo y la proscripción",
+       texto:"Kusch pensó en una Argentina partida. Desde 1945 el peronismo había llevado al centro de la vida política a los trabajadores y a los migrantes del interior, a quienes una parte de la clase media porteña miraba con desprecio. Después del golpe de 1955, el peronismo quedó proscrito durante casi dieciocho años, y la pregunta por qué era el pueblo, y por qué la ciudad ilustrada no lo entendía, ocupó a buena parte de los intelectuales.\n\nEn ese clima, Kusch se interesó por el interior y por los Andes, y empezó a viajar al altiplano de Bolivia y Perú y al noroeste argentino. Esa experiencia está en el centro de América profunda (1962), su libro más leído."},
+      {titulo:"El trabajo de campo y la filosofía de la liberación",
+       texto:"Durante los años sesenta y setenta Kusch volvió una y otra vez al altiplano, conversó con campesinos, comerciantes y especialistas rituales aymaras y quechuas, y asistió a sus ceremonias. De ahí salieron Indios, porteños y dioses (1966) y El pensamiento indígena y popular en América (1970). A comienzos de los setenta participó en los encuentros donde nació la filosofía de la liberación argentina, junto a Enrique Dussel, Juan Carlos Scannone y otros, aunque siempre ocupó un lugar propio dentro del grupo.\n\nEn 1975 publicó La negación en el pensamiento popular. Después del golpe militar de 1976 se instaló con su familia en Maimará, en la Quebrada de Humahuaca (Jujuy), lejos de Buenos Aires. Allí publicó Geocultura del hombre americano (1976) y Esbozo de una antropología filosófica americana (1978). Murió en Buenos Aires en 1979, a los cincuenta y siete años."},
+      {titulo:"Obra y recepción",
+       texto:"Durante años Kusch fue un autor marginal en la universidad argentina: su estilo de ensayo, su método de campo y su desconfianza ante la academia lo dejaban fuera de los circuitos profesionales. Desde los años noventa su obra se reeditó en conjunto y se lee mucho más, en la filosofía intercultural, en el pensamiento decolonial, en la educación y en la antropología.\n\nLa recepción es dividida. Para unos es quien se atrevió a escuchar como pensadores a quienes la filosofía ignoraba; para otros, un pensador que, con buenas intenciones, fijó a los indígenas en una esencia inmóvil y habló por ellos. Dentro de la filosofía de la liberación, Horacio Cerutti Guldberg lo ubicó en una vertiente que llamó populista y la criticó."},
+      {titulo:"Por qué piensa así",
+       texto:"Kusch era un hombre de la ciudad que conocía desde adentro lo que describía como pulcritud y miedo: la clase media porteña que se sentía europea y despreciaba al interior. Su filosofía nace de salir de ese mundo y de sentir en el propio cuerpo la incomodidad del altiplano, y en vez de corregir esa incomodidad, decidió interrogarla. Por eso su obra empieza con el hedor: es la reacción de alguien como él.\n\nDe su formación tomó a Heidegger y la pregunta por la existencia situada, y de su lengua tomó la diferencia entre ser y estar para decir algo que el alemán no podía decir. La Argentina de la proscripción del peronismo le dio la pregunta por el pueblo, y los viajes, una respuesta: el pensamiento propio ya existe, pero no está en la universidad. Esa misma historia explica sus límites: su indígena y su pueblo son también una respuesta a la ciudad que quería dejar atrás."}
+    ],
+    hitos:[
+      {anio:"1922", texto:"Nace en Buenos Aires, hijo de inmigrantes alemanes."},
+      {anio:"1948", texto:"Se recibe de profesor de filosofía en la Universidad de Buenos Aires."},
+      {anio:"1953", texto:"Publica La seducción de la barbarie."},
+      {anio:"1962", texto:"Publica América profunda, después de sus primeros viajes al altiplano."},
+      {anio:"1970", texto:"Publica El pensamiento indígena y popular en América, fruto de su trabajo de campo."},
+      {anio:"1975", texto:"Publica La negación en el pensamiento popular."},
+      {anio:"1976", texto:"Tras el golpe militar se instala en Maimará (Jujuy); publica Geocultura del hombre americano."},
+      {anio:"1978", texto:"Publica Esbozo de una antropología filosófica americana."},
+      {anio:"1979", texto:"Muere en Buenos Aires, a los cincuenta y siete años."}
+    ]
+  },
+  salazarbondy: {
+    lema:"Filósofo peruano que respondió «todavía no» a la pregunta por una filosofía latinoamericana auténtica, y que intentó cambiar las condiciones de esa respuesta desde la reforma de la educación.",
+    secciones:[
+      {titulo:"Origen y formación",
+       texto:"Augusto Salazar Bondy nació en Lima en 1925, en una familia de clase media; su hermano Sebastián Salazar Bondy fue un escritor y crítico importante, autor de Lima la horrible (1964). Estudió en la Universidad Nacional Mayor de San Marcos, donde después enseñó durante buena parte de su vida.\n\nEn los años cuarenta estudió en México, donde fue alumno de José Gaos, el filósofo español exiliado que también formó a Leopoldo Zea, y después amplió estudios en Europa. De Gaos recibió el interés por la historia de las ideas en lengua española, que sería la base de su obra."},
+      {titulo:"El Perú de su tiempo",
+       texto:"Creció en un Perú dominado por una oligarquía agraria y exportadora, con una enorme población indígena excluida de la vida política y de la escuela. En 1956 participó, con su hermano, en la fundación del Movimiento Social Progresista, un pequeño partido de intelectuales que buscaba un socialismo democrático y que se disolvió pocos años después.\n\nEn los años sesenta la pregunta por el subdesarrollo y la dependencia ocupaba a las ciencias sociales de toda la región, y la Revolución cubana había vuelto urgente la discusión sobre el cambio social. En 1968 el general Juan Velasco Alvarado dio un golpe y anunció una revolución desde el Estado."},
+      {titulo:"La pregunta de 1968 y la reforma",
+       texto:"Después de estudiar a fondo la historia del pensamiento peruano, publicó en 1968 ¿Existe una filosofía de nuestra América?, donde sostuvo que la filosofía latinoamericana había sido imitativa porque era el producto de una cultura dominada. Zea le respondió al año siguiente, y la polémica se volvió un clásico.\n\nAl mismo tiempo aceptó un papel central en la reforma educativa del gobierno de Velasco: fue una de las figuras principales de la comisión que preparó el Informe General de 1970, base de la Ley General de Educación de 1972, y luego presidió el Consejo Superior de Educación. Murió en Lima en 1974, con la reforma todavía en marcha."},
+      {titulo:"Obra y recepción",
+       texto:"Además de ¿Existe una filosofía de nuestra América? (1968), escribió La filosofía en el Perú (1954), Historia de las ideas en el Perú contemporáneo (1965) y Para una filosofía del valor (1971), su obra sistemática de axiología.\n\nLa historiografía lo cuenta entre los precursores de la filosofía de la liberación, aunque no formó parte del grupo argentino que la organizó en los años setenta. La reforma educativa fue en gran parte abandonada después de 1975, y su evaluación sigue dividida en el Perú: unos ven en ella el proyecto educativo más ambicioso del siglo; otros, una reforma impuesta desde arriba por un régimen no elegido."},
+      {titulo:"Por qué piensa así",
+       texto:"Su tesis sale de dos fuentes. La primera es su trabajo de historiador: conocía de cerca cómo habían llegado al Perú el positivismo, el espiritualismo o el marxismo, y vio que cada ola se adoptaba y se abandonaba sin formar tradición. La segunda es el clima de los años sesenta, cuando la dependencia económica se volvió la clave para entender a América Latina: aplicada a la cultura, esa idea le dio la explicación de lo que el historiador había observado.\n\nComo su diagnóstico ponía la raíz del problema en la sociedad y no solo en la filosofía, la salida tampoco podía ser solo filosófica. Eso explica su paso a la acción política y educativa, y también la apuesta más discutida de su vida: buscar ese cambio desde un gobierno militar."}
+    ],
+    hitos:[
+      {anio:"1925", texto:"Nace en Lima."},
+      {anio:"Años cuarenta", texto:"Estudia en México con José Gaos, maestro también de Leopoldo Zea."},
+      {anio:"1954", texto:"Publica La filosofía en el Perú, un panorama histórico."},
+      {anio:"1956", texto:"Participa en la fundación del Movimiento Social Progresista, con su hermano Sebastián."},
+      {anio:"1965", texto:"Publica Historia de las ideas en el Perú contemporáneo."},
+      {anio:"1968", texto:"Publica ¿Existe una filosofía de nuestra América? Golpe de Velasco Alvarado en el Perú."},
+      {anio:"1969", texto:"Zea le responde con La filosofía americana como filosofía sin más."},
+      {anio:"1972", texto:"Se promulga la Ley General de Educación de la reforma que orientó."},
+      {anio:"1974", texto:"Muere en Lima."}
+    ]
+  },
   freire: {
     lema:"Educador brasileño que, desde la alfabetización de campesinos y obreros del nordeste, pensó la educación como lectura crítica del mundo y práctica de la libertad.",
     secciones:[
@@ -1915,6 +1967,32 @@ const VIDAS = {
       {anio:"1992–1993", texto:"Disturbios de Los Ángeles tras el caso Rodney King; publica Race Matters."},
       {anio:"2004", texto:"Publica Democracy Matters, en plena guerra de Irak."},
       {anio:"2024", texto:"Se presenta como candidato independiente a la presidencia de Estados Unidos."}
+    ]
+  },
+  wiredu: {
+    lema:"Filósofo ghanés formado en Oxford que pidió examinar en la propia lengua los conceptos heredados de la colonia y defendió una democracia por consenso; a su lado, el ubuntu sudafricano, una ética de la persona como relación que pasó del proverbio a la filosofía y a la política de la transición. El dicho «umuntu ngumuntu ngabantu» (una persona es persona a través de otras personas) es un proverbio tradicional zulú, no la frase de un autor.",
+    secciones:[
+      {titulo:"De Kumasi a Oxford",
+       texto:"Kwasi Wiredu nació en 1931 en Kumasi, la antigua capital del reino asante, en lo que era entonces la colonia británica de Costa de Oro. Creció hablando twi, una de las lenguas akan, y estudiando en inglés, la lengua de la escuela colonial: esa doble pertenencia es el origen de su filosofía. Estudió en la Universidad de Ghana y después en Oxford, en los años en que dominaba allí la filosofía del lenguaje ordinario; entre sus profesores estuvo Gilbert Ryle. De Oxford trajo un método: el análisis cuidadoso de los conceptos y de las palabras con que se los dice.\n\nVolvió a Ghana, que en 1957 se había convertido en la primera colonia del África subsahariana en independizarse, con Kwame Nkrumah. Enseñó durante muchos años en la Universidad de Ghana, donde dirigió el departamento de filosofía. Vio de cerca el entusiasmo de la independencia, el partido único que Nkrumah impuso en 1964, los golpes militares que siguieron y la larga crisis económica de los años setenta y ochenta."},
+      {titulo:"¿Hay una filosofía africana?",
+       texto:"Cuando Wiredu empezó a escribir, la pregunta por la filosofía africana estaba marcada por un libro: La filosofía bantú (1945), del misionero belga Placide Tempels, que atribuía a los pueblos bantúes una filosofía implícita centrada en la fuerza vital. A ese modelo, que reconstruía la filosofía colectiva de un pueblo a partir de sus costumbres y proverbios, el filósofo de Benín Paulin Hountondji lo llamó en 1977 etnofilosofía y lo criticó con dureza. El debate ocupó a toda una generación: el keniano Henry Odera Oruka, el nigeriano Ifeanyi Menkiti y el ghanés Kwame Gyekye, entre otros.\n\nWiredu entró en él con Philosophy and an African Culture (1980), donde defendía una filosofía crítica, que examinara la tradición africana con el mismo rigor que la europea. En los años noventa, ya fuera de Ghana, formuló su programa de descolonización conceptual y su defensa de la democracia por consenso. Desde fines de los ochenta enseñó en la Universidad del Sur de Florida, en Tampa, donde siguió trabajando hasta su retiro. Editó A Companion to African Philosophy (2004), una obra de referencia del campo. Murió en enero de 2022, a los noventa años."},
+      {titulo:"El ubuntu y el fin del apartheid",
+       texto:"En el sur del continente, otra línea de pensamiento tomó forma con el fin del apartheid, el régimen de segregación racial que gobernó Sudáfrica desde 1948. La palabra ubuntu, de las lenguas nguni, y el proverbio zulú que la resume pasaron a los textos de la transición: el epílogo de la Constitución provisoria de 1993, la sentencia que abolió la pena de muerte en 1995 y la Comisión de la Verdad y la Reconciliación, presidida por el arzobispo Desmond Tutu, que empezó sus audiencias en 1996.\n\nAl mismo tiempo, filósofos sudafricanos trataron de convertir el ubuntu en una filosofía en sentido estricto. Mogobe Ramose publicó African Philosophy through Ubuntu en 1999, el mismo año en que Tutu publicó su testimonio, No Future Without Forgiveness. Thaddeus Metz, que enseña en Sudáfrica, propuso en 2007 una teoría ética basada en el ubuntu. Y pronto llegaron las críticas, de antropólogos como Richard A. Wilson y de filósofos como Bernard Matolino y Wenceslaus Kwindingwi."},
+      {titulo:"Obra y recepción",
+       texto:"Wiredu es considerado uno de los fundadores de la filosofía africana académica, y su programa de descolonización conceptual es hoy una referencia en debates que van más allá de África, también en América Latina. Su democracia por consenso fue muy discutida: Emmanuel Chukwudi Eze le objetó que el consenso puede esconder presiones y que idealizaba el pasado asante. El ubuntu, por su parte, se volvió una palabra conocida en todo el mundo, hasta dar nombre a un sistema operativo, y ese mismo éxito alimentó la sospecha de que se había vaciado.\n\nConviene no mezclar las dos líneas: Wiredu pensaba desde el akan, en África occidental, y casi no escribió sobre el ubuntu, que viene del sur. Las une la época, la pregunta por una filosofía propia después de la colonia, y una idea de la persona como algo que se realiza en relación con otros."},
+      {titulo:"Por qué piensa así",
+       texto:"Wiredu aprendió a pensar en dos lenguas que no coincidían: el twi de su casa y el inglés de la escuela y de Oxford. Esa experiencia está detrás de la descolonización conceptual: notó que ciertos problemas filosóficos que en inglés parecían inevitables se volvían extraños en akan, y se preguntó cuántos de ellos eran universales y cuántos venían con la lengua del colonizador. Su formación analítica le dio el método, y su independencia de juicio le impidió caer en la defensa automática de la tradición.\n\nSu defensa del consenso nace de lo que vio en Ghana y en África después de las independencias: democracias de partidos donde las minorías étnicas quedaban fuera, partidos únicos que decían representar a todos, golpes militares. Buscó en los consejos asante un procedimiento, no una nostalgia. El ubuntu, por su parte, se formuló en un país que salía de una violencia racial extrema y necesitaba un lenguaje para convivir: de ahí su fuerza, y de ahí también el riesgo de que sirviera para pedir a las víctimas más de lo que les correspondía dar."}
+    ],
+    hitos:[
+      {anio:"1931", texto:"Nace Kwasi Wiredu en Kumasi, en la colonia británica de Costa de Oro."},
+      {anio:"1945", texto:"Placide Tempels publica La filosofía bantú, punto de partida del debate sobre la etnofilosofía."},
+      {anio:"1957", texto:"Ghana se independiza con Kwame Nkrumah, primera colonia del África subsahariana en hacerlo."},
+      {anio:"1977", texto:"Paulin Hountondji publica Sur la «philosophie africaine», crítica de la etnofilosofía."},
+      {anio:"1980", texto:"Wiredu publica Philosophy and an African Culture."},
+      {anio:"1995", texto:"La Corte Constitucional sudafricana abole la pena de muerte invocando el ubuntu; se crea la Comisión de la Verdad y la Reconciliación."},
+      {anio:"1996", texto:"Wiredu publica Cultural Universals and Particulars; empiezan las audiencias de la Comisión, presidida por Desmond Tutu."},
+      {anio:"1999", texto:"Mogobe Ramose publica African Philosophy through Ubuntu y Tutu, No Future Without Forgiveness."},
+      {anio:"2022", texto:"Muere Kwasi Wiredu, en enero, a los noventa años."}
     ]
   },
 };
