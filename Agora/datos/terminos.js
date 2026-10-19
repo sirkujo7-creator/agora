@@ -757,6 +757,25 @@ const TERMINOS = {
     {k:"burguesía nacional", tapar:["burguesía"]},
     {k:"nuevo humanismo", tapar:["humanismo","hombre nuevo"]}
   ],
+  kusch: [
+    {q:"¿Qué dos actitudes ante la vida nombra Kusch aprovechando que el castellano tiene dos verbos donde otras lenguas tienen uno?"},
+    {k:"hedor", tapar:["hedor de América","pulcritud"]},
+    {q:"¿Qué teme, según Kusch, el ciudadano que se rodea de objetos e instituciones, y cómo enfrenta ese mismo temor el mundo andino?"},
+    {k:"fagocitación", tapar:["fagocitar","Fagocitar","fagocitando"]},
+    {k:"estar siendo", tapar:[]},
+    {q:"¿Dónde buscó Kusch un pensamiento que la universidad no reconocía, y qué lógica distinta de la científica creyó encontrar allí?"},
+    {k:"geocultura", tapar:["Geocultura"]},
+    {q:"¿Qué le reprochan a Kusch sus críticos sobre su manera de presentar al indígena y al pueblo, y qué responden sus defensores?"}
+  ],
+  salazarbondy: [
+    {q:"¿Qué pregunta exactamente Salazar Bondy cuando se pregunta si existe una filosofía de nuestra América, y qué responde?"},
+    {k:"inauténtica", tapar:["inautenticidad","imitativa","imitativo"]},
+    {k:"cultura de la dominación", tapar:["dominada","dominado"]},
+    {q:"Si la inautenticidad viene de la dominación, ¿cómo puede la filosofía volverse auténtica sin esperar a que termine la dependencia?"},
+    {q:"¿En qué coinciden y en qué se separan Salazar Bondy y Zea en la polémica de 1968-1969?"},
+    {q:"¿Cómo se relaciona Salazar Bondy con la filosofía analítica, y qué tensión plantea eso con su tesis central?"},
+    {q:"¿Qué papel tuvo Salazar Bondy en la reforma educativa del gobierno de Velasco, y qué pregunta deja?"}
+  ],
   freire: [
     {k:"educación bancaria", tapar:["bancaria"]},
     {k:"educación problematizadora", tapar:["problematizadora"]},
@@ -834,6 +853,16 @@ const TERMINOS = {
     {q:"¿Qué le debe West a Rorty y qué le reprocha?"},
     {k:"intelectual público", tapar:["filosofía pública"]},
     {k:"esperanza trágica", tapar:["tragicómica"]}
+  ],
+  wiredu: [
+    {k:"descolonización conceptual", tapar:["Descolonizar conceptualmente","descolonizar conceptualmente","descolonizar el pensamiento"]},
+    {q:"¿Qué le pasa al «pienso, luego existo» de Descartes cuando se lo traduce al akan, y qué concluye Wiredu de eso?"},
+    {q:"¿Con qué componentes describen los akan a la persona, y qué se discute sobre ellos?"},
+    {k:"consenso", tapar:["sin partidos","suspensión voluntaria del desacuerdo"]},
+    {k:"etnofilosofía", tapar:["Etnofilosofía"]},
+    {k:"ubuntu", tapar:["Ubuntu","umuntu ngumuntu ngabantu"]},
+    {q:"¿Cómo entró el ubuntu en la transición sudafricana tras el apartheid, y qué le reprocharon sus críticos?"},
+    {k:"imparcialidad compasiva", tapar:["Imparcialidad compasiva"]}
   ],
   falacias: [
     {k:"ad hominem", tapar:[]},
