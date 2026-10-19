@@ -443,6 +443,32 @@ const VIDAS = {
       {anio:"1677", texto:"Muere en La Haya; sus amigos publican las Obras póstumas, con la Ética."}
     ]
   },
+  leibniz: {
+    lema:"Matemático, jurista, diplomático, bibliotecario y filósofo alemán que quiso reconciliarlo todo —la física nueva con Dios, las iglesias entre sí, Europa con China— bajo un principio: nada es sin razón.",
+    secciones:[
+      {titulo:"Leipzig: la biblioteca del padre",
+       texto:"Gottfried Wilhelm Leibniz nació en Leipzig en 1646, dos años antes de que terminara la guerra de los Treinta Años. Su padre, profesor de filosofía moral en la universidad, murió cuando él tenía seis años, y el niño se educó en buena parte solo, en la biblioteca paterna: aprendió latín leyendo a Tito Livio y a los ocho años leía a los clásicos y a los escolásticos.\n\nEntró a la Universidad de Leipzig a los catorce años. A los veinte publicó la Disertación sobre el arte combinatorio (1666), donde ya aparece el sueño de un alfabeto de los pensamientos humanos. Leipzig le negó el doctorado en derecho, oficialmente por su juventud, y lo obtuvo en Altdorf, cerca de Núremberg, en 1667; rechazó la cátedra que le ofrecieron allí y prefirió el servicio de los príncipes."},
+      {titulo:"Una Europa rota que había que recomponer",
+       texto:"La Alemania de su juventud era un mosaico de cientos de estados, arrasado por una guerra religiosa que había matado a una parte enorme de su población. Católicos, luteranos y calvinistas seguían enfrentados, y Francia, bajo Luis XIV, amenazaba el Imperio.\n\nAl mismo tiempo, era el siglo de la ciencia nueva: Galileo, Descartes, Huygens, Boyle y luego Newton estaban reemplazando la física de Aristóteles por una física matemática y mecánica. Leibniz creció entre esas dos urgencias: la de una paz que reconciliara confesiones y estados, y la de integrar la ciencia nueva sin perder a Dios, el alma y la finalidad. Toda su obra puede leerse como un esfuerzo de conciliación."},
+      {titulo:"París, Londres, La Haya",
+       texto:"Al servicio del elector de Maguncia viajó a París en 1672 con un plan diplomático: convencer a Luis XIV de conquistar Egipto en lugar de atacar a los estados alemanes. El plan no prosperó, pero Leibniz se quedó cuatro años. Christiaan Huygens lo introdujo en la matemática avanzada, conoció a Arnauld y a Malebranche, y hacia 1675 desarrolló el cálculo diferencial e integral. En Londres, en 1673, presentó a la Royal Society una máquina de calcular que multiplicaba y fue elegido miembro.\n\nMuertos sus protectores, aceptó un puesto en la corte de Hannover. De camino, en 1676, pasó otra vez por Londres y luego por Holanda, donde visitó al microscopista Leeuwenhoek y conversó varias veces con Spinoza en La Haya, pocos meses antes de la muerte de este."},
+      {titulo:"Hannover: el cortesano de mil proyectos",
+       texto:"Desde 1676 hasta su muerte fue consejero y bibliotecario de los duques de Brunswick-Luneburgo en Hannover. Escribió la historia de la casa de Brunswick, para la que recorrió archivos de Alemania, Austria e Italia; intentó drenar las minas de plata del Harz con molinos de viento; negoció la reunión de las iglesias católica y protestante con el obispo Bossuet; fundó en 1700 la Sociedad de Ciencias de Berlín y fue su primer presidente; aconsejó a Pedro el Grande; y mantuvo una correspondencia con cientos de personas, de la princesa Sofía a los jesuitas de Pekín.\n\nCasi toda su filosofía está en cartas, artículos y manuscritos: en vida publicó un solo libro filosófico extenso, la Teodicea (1710). Sus últimos años fueron amargos: la disputa con Newton por el cálculo le quitó prestigio en Inglaterra, y cuando el duque Jorge Luis se convirtió en Jorge I de Gran Bretaña, en 1714, no lo llevó a Londres. Murió en Hannover en 1716; según los testimonios de la época, a su entierro no asistió nadie de la corte."},
+      {titulo:"Por qué piensa así",
+       texto:"La exigencia de que todo tenga razón y de que las razones concuerden es la de alguien que vivió entre las ruinas de una guerra religiosa y pasó la vida buscando acuerdos: entre iglesias, entre estados, entre la física mecánica y la teología. La armonía preestablecida es, en metafísica, el mismo sueño que la reunión de las iglesias en política: muchos que no se fusionan pero concuerdan.\n\nEl matemático explica el resto. Quien inventó un cálculo que trata con cantidades infinitamente pequeñas podía pensar el mundo como compuesto de unidades sin extensión y la verdad como un análisis que, en los hechos contingentes, no termina nunca. Quien construyó una máquina de calcular soñó con un lenguaje en el que razonar fuera calcular. Y quien escribía a los jesuitas de Pekín pudo ver en el I Ching y en la filosofía china no una curiosidad exótica, sino un interlocutor, aunque lo leyera con categorías europeas."}
+    ],
+    hitos:[
+      {anio:"1646", texto:"Nace en Leipzig; su padre, profesor de filosofía moral, muere en 1652."},
+      {anio:"1666–1667", texto:"Publica la Disertación sobre el arte combinatorio y se doctora en derecho en Altdorf."},
+      {anio:"1672–1676", texto:"Vive en París: estudia matemática con Huygens y desarrolla el cálculo hacia 1675."},
+      {anio:"1676", texto:"Visita a Spinoza en La Haya y se instala en Hannover como consejero y bibliotecario."},
+      {anio:"1684–1686", texto:"Publica el cálculo diferencial en las Acta Eruditorum y escribe el Discurso de metafísica."},
+      {anio:"1697–1703", texto:"Novissima Sinica; correspondencia con Bouvet sobre el I Ching y publicación de su aritmética binaria."},
+      {anio:"1700", texto:"Funda la Sociedad de Ciencias de Berlín y es su primer presidente."},
+      {anio:"1710–1714", texto:"Publica la Teodicea y escribe en Viena la Monadología y los Principios de la naturaleza y de la gracia."},
+      {anio:"1716", texto:"Muere en Hannover, en plena correspondencia con Clarke y con la disputa del cálculo sin cerrar."}
+    ]
+  },
   hume: {
     lema:"Escocés de la Ilustración que quiso aplicar a la mente el método experimental de Newton y terminó mostrando los límites de la razón: costumbre, sentimiento y un escepticismo vivido con buen humor.",
     secciones:[
@@ -547,6 +573,32 @@ const VIDAS = {
       {anio:"1831", texto:"Muere en Berlín durante una epidemia de cólera."}
     ]
   },
+  schopenhauer: {
+    lema:"Hijo de comerciantes, enemigo de Hegel y lector temprano de la India, escribió a los treinta años un libro que nadie leyó y que décadas después marcó a músicos, escritores y filósofos.",
+    secciones:[
+      {titulo:"Danzig, Hamburgo y un viaje por Europa",
+       texto:"Arthur Schopenhauer nació en 1788 en Danzig, una ciudad comercial del Báltico, hoy Gdansk, en Polonia. Su padre, Heinrich Floris, era un rico comerciante de ideas republicanas; su madre, Johanna, sería después una novelista conocida. Cuando Prusia anexó Danzig en 1793, la familia se mudó a Hamburgo.\n\nEl padre quería hacer de él un comerciante, y le ofreció un trato: un largo viaje por Europa a cambio de entrar después como aprendiz en un negocio. Entre 1803 y 1804 Arthur recorrió Holanda, Inglaterra, Francia, Suiza y Austria. Sus biógrafos destacan las anotaciones del diario de viaje sobre la miseria que vio, como los forzados de las galeras de Tolón. En 1805 el padre murió al caer en un canal de Hamburgo, probablemente un suicidio. Poco después, Arthur abandonó el comercio para estudiar."},
+      {titulo:"Weimar, Goethe y la India",
+       texto:"Su madre se instaló en Weimar, donde abrió un salón que frecuentaba Goethe. Arthur estudió en Gotinga, primero medicina y luego filosofía; allí su profesor Gottlob Ernst Schulze le aconsejó leer sobre todo a Platón y a Kant. En Berlín escuchó a Fichte y salió decepcionado. En 1813, mientras Alemania se levantaba contra Napoleón, se retiró a Rudolstadt y escribió su tesis sobre el principio de razón suficiente.\n\nEn Weimar trabajó con Goethe en la teoría de los colores, y en 1814, por sugerencia del orientalista Friedrich Majer, leyó el Oupnek'hat, la traducción latina de las Upanishads. Ese mismo año rompió con su madre: no volvieron a verse en los veinticuatro años que ella siguió viviendo. Se mudó a Dresde, y allí, entre 1814 y 1818, escribió El mundo como voluntad y representación."},
+      {titulo:"El fracaso: Berlín y Hegel",
+       texto:"El libro apareció a fines de 1818 con fecha de 1819 y casi no se vendió. Después de un viaje a Italia, Schopenhauer se habilitó en 1820 como profesor en la Universidad de Berlín, donde Hegel era la gran figura, y anunció su curso a la misma hora que la lección principal de Hegel. Fueron muy pocos estudiantes, y en los semestres siguientes sus cursos siguieron anunciados pero no llegaron a dictarse. Nunca tuvo una carrera académica.\n\nEn 1821 tuvo un altercado con una costurera vecina, Caroline Marquet, a la que empujó y que cayó por la escalera; tras un largo pleito, un tribunal lo condenó a pagarle una pensión, que pagó durante unos veinte años, hasta la muerte de ella. En 1831, cuando el cólera llegó a Berlín, huyó a Fráncfort del Meno; Hegel murió en esa epidemia. Desde 1833 vivió en Fráncfort, solo, con una renta heredada, sus perros caniches y una rutina estricta."},
+      {titulo:"La fama tardía",
+       texto:"En Fráncfort siguió escribiendo: Sobre la voluntad en la naturaleza (1836), las dos memorias de ética (1841), un segundo volumen de complementos para la segunda edición de su obra principal (1844). Su desprecio por Hegel y por la filosofía universitaria creció con los años y llenó sus prólogos de insultos.\n\nLa fama llegó con Parerga y paralipómena (1851), una colección de ensayos más accesibles, y con un artículo del inglés John Oxenford en la Westminster Review (1853), traducido enseguida al alemán. Después del fracaso de las revoluciones de 1848, una generación desencantada encontró en él a su filósofo. Richard Wagner le envió el libreto del Anillo del nibelungo. En sus últimos años recibía visitantes y lectores. Murió en Fráncfort en 1860. Después lo leyeron Nietzsche, Tolstói, Thomas Mann, Freud, el joven Wittgenstein y Borges."},
+      {titulo:"Por qué piensa así",
+       texto:"Su formación explica su punto de partida: Kant le dio la distinción entre fenómeno y cosa en sí, Platón la idea de formas eternas que el arte contempla, y las Upanishads la confirmación de que el mundo de lo múltiple no es la realidad última. Leyó todo eso juntos, en los mismos años, y de esa mezcla salió su sistema.\n\nSu experiencia del mundo explica el tono: el viaje juvenil por la miseria europea, la muerte probable por suicidio de su padre, la ruptura con su madre, las guerras napoleónicas, la epidemia de cólera. No lo pensó como desdicha personal, sino como prueba de que el sufrimiento es la regla. Y su fracaso frente a Hegel explica su odio a la filosofía universitaria y a los sistemas que justifican la historia: donde Hegel veía la razón realizándose, él veía una voluntad ciega que se devora a sí misma. Su vida de rentista solitario y su trato a las mujeres, empezando por su madre y por Caroline Marquet, son también parte del contexto de «Sobre las mujeres», aunque no lo explican del todo."}
+    ],
+    hitos:[
+      {anio:"1788", texto:"Nace en Danzig, en una familia de comerciantes; en 1793 la familia se muda a Hamburgo."},
+      {anio:"1803–1805", texto:"Viaje por Europa con sus padres; en 1805 muere su padre, probablemente por suicidio."},
+      {anio:"1813", texto:"Presenta su tesis Sobre la cuádruple raíz del principio de razón suficiente."},
+      {anio:"1814", texto:"En Weimar lee las Upanishads en latín; rompe con su madre y se muda a Dresde."},
+      {anio:"1819", texto:"Aparece El mundo como voluntad y representación (impreso a fines de 1818); casi no se vende."},
+      {anio:"1820", texto:"Da clases en Berlín a la misma hora que Hegel; asisten muy pocos estudiantes."},
+      {anio:"1831–1833", texto:"Huye del cólera de Berlín y se instala en Fráncfort, donde vivirá hasta su muerte."},
+      {anio:"1851–1853", texto:"Publica Parerga y paralipómena; un artículo de John Oxenford le da fama."},
+      {anio:"1860", texto:"Muere en Fráncfort; ya es leído en toda Europa."}
+    ]
+  },
   kierkegaard: {
     lema:"Pensador danés que hizo de su propia vida, de su ruptura con Regine Olsen y de su lucha contra la Iglesia oficial, el material de una filosofía del individuo que tiene que elegir.",
     secciones:[
@@ -649,6 +701,31 @@ const VIDAS = {
       {anio:"1883–1887", texto:"Así habló Zaratustra, Más allá del bien y del mal y La genealogía de la moral."},
       {anio:"1889", texto:"Colapso mental en Turín; no vuelve a escribir."},
       {anio:"1900", texto:"Muere en Weimar; su hermana controla su legado y sus manuscritos."}
+    ]
+  },
+  husserl: {
+    lema:"Matemático de formación que quiso hacer de la filosofía una ciencia estricta, fundó la fenomenología y, excluido de la universidad por las leyes raciales nazis, escribió al final de su vida sobre la crisis de la razón europea.",
+    secciones:[
+      {titulo:"De las matemáticas a la filosofía",
+       texto:"Edmund Husserl nació en 1859 en Prossnitz, en Moravia (hoy Prostějov, en la República Checa), entonces parte del Imperio austríaco, en una familia judía de comerciantes. Estudió astronomía, matemáticas y filosofía en Leipzig y en Berlín, donde tuvo como maestros a los matemáticos Karl Weierstrass y Leopold Kronecker, y se doctoró en matemáticas en Viena en 1883, con un trabajo sobre el cálculo de variaciones.\n\nDespués de un breve período como asistente de Weierstrass, volvió a Viena para escuchar a Franz Brentano entre 1884 y 1886. Esas lecciones lo decidieron: la filosofía podía ser una ciencia rigurosa, y de Brentano tomó la noción de intencionalidad. En 1886 se bautizó en la Iglesia luterana, y al año siguiente se casó con Malvine Steinschneider, también de origen judío y convertida."},
+      {titulo:"Halle y Gotinga: nace un movimiento",
+       texto:"Se habilitó en Halle en 1887 con un trabajo sobre el concepto de número, y allí enseñó catorce años como profesor sin cátedra. Eran años de una pregunta urgente: si las matemáticas y la lógica tienen fundamentos firmes, y si esos fundamentos son psicológicos. Su Filosofía de la aritmética (1891) se acercaba a esa respuesta psicológica; Gottlob Frege la criticó en 1894, y en las Investigaciones lógicas (1900–1901) Husserl se volvió contra el psicologismo.\n\nEl libro le valió un puesto en Gotinga en 1901. Allí se formó un círculo de discípulos —Adolf Reinach, Edith Stein, Roman Ingarden, Hedwig Conrad-Martius— y se habló por primera vez de un movimiento fenomenológico. En 1913 fundó su anuario y publicó Ideas I, cuyo giro trascendental muchos de esos discípulos no compartieron. La Primera Guerra Mundial golpeó a su familia: su hijo menor, Wolfgang, murió en Verdún en 1916, y el mayor, Gerhart, fue herido."},
+      {titulo:"Friburgo, Heidegger y la exclusión",
+       texto:"En 1916 pasó a la cátedra de Friburgo. Edith Stein fue su asistente hasta 1918, y desde 1919 lo fue Martin Heidegger, en quien vio a su heredero; lo apoyó para que lo sucediera cuando se jubiló en 1928. Heidegger le había dedicado Ser y tiempo (1927), pero Husserl, al leerlo con atención, concluyó que su discípulo había abandonado la fenomenología, y la distancia intelectual se volvió personal. En 1929 dio en la Sorbona las conferencias que serían las Meditaciones cartesianas.\n\nDesde 1933, con Hitler en el poder, su origen judío lo convirtió en un excluido: en abril de ese año un decreto del estado de Baden contra los funcionarios judíos lo suspendió, y entre 1935 y 1936 perdió la licencia para enseñar y fue borrado de las listas de la universidad; ya no podía publicar en Alemania ni viajar libremente. Heidegger, rector entre 1933 y 1934, no rompió públicamente con el régimen ni defendió a su maestro. Circuló durante décadas que le había prohibido el acceso a la biblioteca, pero no hay documentos que lo confirmen. Según el propio Heidegger, la dedicatoria de Ser y tiempo se suprimió en la edición de 1941 a pedido del editor, que temía que el libro fuera prohibido, y se mantuvo una nota de agradecimiento a Husserl en el cuerpo del texto; la dedicatoria volvió en 1953. Heidegger no asistió al entierro de Husserl, y años después admitió como una falta no haberle expresado a la viuda su gratitud y su respeto."},
+      {titulo:"Un archivo salvado",
+       texto:"Husserl murió en Friburgo en abril de 1938. Dejaba unas cuarenta mil páginas de manuscritos escritos en taquigrafía, casi todos inéditos. Ese mismo año, Herman Leo Van Breda, un joven franciscano belga que preparaba una tesis sobre su obra, viajó a Friburgo, comprendió que los papeles corrían peligro y, con ayuda de Malvine Husserl y de los asistentes Eugen Fink y Ludwig Landgrebe, logró sacarlos de Alemania en la valija diplomática de la legación belga. En Lovaina fundó el Archivo Husserl, que siguió trabajando durante la ocupación alemana de Bélgica; Malvine sobrevivió a la guerra escondida en un convento belga.\n\nDesde 1950 el archivo publica la edición crítica de sus obras, Husserliana, que transformó la imagen de Husserl: buena parte de lo que hoy se discute de él —la intersubjetividad, el mundo de la vida, la conciencia del tiempo— estaba en esos manuscritos. Edith Stein, su antigua asistente, convertida al catolicismo y monja carmelita, fue asesinada en Auschwitz en 1942."},
+      {titulo:"Por qué piensa así",
+       texto:"Su formación de matemático explica su exigencia de rigor y su pregunta inicial: de dónde sacan las matemáticas y la lógica su validez. De ahí la crítica del psicologismo y la defensa de una verdad que no depende de quién la piensa. Brentano le dio el instrumento, la intencionalidad, y el ideal de una filosofía como ciencia descriptiva.\n\nLa insatisfacción con las explicaciones naturalistas de la conciencia, dominantes en su época, lo llevó a buscar un punto de partida que no presupusiera el mundo, y de ahí la epojé y el giro trascendental. Las críticas de sus discípulos, Heidegger entre ellos, lo empujaron en sus últimos años a pensar el mundo de la vida y la historia. Y la experiencia de la guerra, del nazismo y de su propia exclusión explica que, al final, la pregunta por el fundamento de las ciencias se volviera una pregunta por el sentido de la razón en una Europa que se hundía. Su idea de esa Europa como portadora exclusiva de la razón muestra también los límites de su propio punto de vista."}
+    ],
+    hitos:[
+      {anio:"1859", texto:"Nace en Prossnitz, Moravia, en una familia judía."},
+      {anio:"1883–1886", texto:"Se doctora en matemáticas en Viena y estudia filosofía con Franz Brentano."},
+      {anio:"1900–1901", texto:"Publica las Investigaciones lógicas: crítica del psicologismo y nacimiento de la fenomenología."},
+      {anio:"1913", texto:"Publica Ideas I y expone la epojé y el giro trascendental."},
+      {anio:"1916", texto:"Obtiene la cátedra de Friburgo; su hijo Wolfgang muere en Verdún."},
+      {anio:"1928–1929", texto:"Se jubila y lo sucede Heidegger; conferencias de París, origen de las Meditaciones cartesianas."},
+      {anio:"1933–1936", texto:"Suspendido por su origen judío; pierde la licencia para enseñar. Escribe La crisis de las ciencias europeas."},
+      {anio:"1938", texto:"Muere en Friburgo; Van Breda salva sus manuscritos y funda el Archivo Husserl en Lovaina."}
     ]
   },
   heidegger: {
@@ -778,6 +855,32 @@ const VIDAS = {
       {anio:"1945", texto:"Funda Les Temps modernes y da la conferencia El existencialismo es un humanismo."},
       {anio:"1956–1960", texto:"Rompe con el Partido Comunista tras la invasión de Hungría; se opone a la guerra de Argelia y publica la Crítica de la razón dialéctica."},
       {anio:"1964", texto:"Publica Las palabras y rechaza el premio Nobel de Literatura."}
+    ]
+  },
+  frankfurt: {
+    lema:"Un grupo de pensadores judíos y de izquierda, exiliados por el nazismo, que se preguntó por qué la razón moderna desembocó en la barbarie y cómo criticarla sin renunciar a ella.",
+    secciones:[
+      {titulo:"Un instituto en Frankfurt",
+       texto:"El Instituto de Investigación Social se fundó en 1923 junto a la Universidad de Frankfurt, con el dinero de Felix Weil, hijo de un rico comerciante de granos que simpatizaba con el marxismo. Su primer director, Carl Grünberg, lo dedicó a la historia del movimiento obrero.\n\nEn 1930 asumió la dirección Max Horkheimer, nacido en 1895 en Stuttgart, hijo de un industrial textil. Con él llegaron una revista, la Zeitschrift für Sozialforschung, y un programa: reunir filosofía, economía, sociología y psicoanálisis para entender la sociedad entera. Lo rodeaban Friedrich Pollock, Leo Löwenthal, Erich Fromm y, cada vez más cerca, Theodor W. Adorno, nacido en Frankfurt en 1903, músico y filósofo, y Herbert Marcuse, berlinés de 1898 que venía de trabajar con Heidegger en Friburgo."},
+      {titulo:"Weimar, el nazismo y la huida",
+       texto:"Se formaron en la República de Weimar, con la derrota de 1918, la revolución alemana fracasada, la inflación y el ascenso del nazismo. La pregunta que los movía era por qué la clase obrera alemana no había hecho la revolución que el marxismo esperaba y por qué muchos trabajadores se volvían hacia el autoritarismo.\n\nEn 1933 los nazis cerraron el Instituto. Casi todos sus miembros eran de familias judías y de izquierda. El Instituto pasó por Ginebra y París y en 1934 se instaló en Nueva York, asociado a la Universidad de Columbia. Walter Benjamin, berlinés de 1892, crítico literario sin cargo universitario —su tesis de habilitación había sido rechazada en Frankfurt en 1925—, vivió en París con una pequeña beca del Instituto."},
+      {titulo:"El exilio y la muerte de Benjamin",
+       texto:"En 1940, con la invasión alemana de Francia, Benjamin intentó huir a España por los Pirineos. En Portbou le anunciaron que lo devolverían a Francia; esa noche se quitó la vida con morfina, el 26 de septiembre. Dejó las tesis sobre el concepto de historia, que circularon gracias a amigos, entre ellos Hannah Arendt.\n\nHorkheimer y Adorno se instalaron en Los Ángeles en 1941, donde escribieron la Dialéctica de la Ilustración, publicada en Ámsterdam en 1947, y participaron en los estudios sobre la personalidad autoritaria. Marcuse, Franz Neumann y Otto Kirchheimer trabajaron para los servicios de inteligencia estadounidenses analizando la Alemania nazi."},
+      {titulo:"El regreso, 1968 y la segunda generación",
+       texto:"Horkheimer y Adorno volvieron a Frankfurt y reabrieron el Instituto en 1951; Horkheimer fue rector de la universidad. Marcuse se quedó en Estados Unidos y con El hombre unidimensional (1964) se convirtió en referencia de la nueva izquierda. En los años sesenta se generalizó el nombre «Escuela de Frankfurt».\n\nEl movimiento estudiantil leyó sus libros, pero chocó con Adorno: en enero de 1969 él llamó a la policía cuando un grupo de estudiantes ocupó el Instituto, y en abril una protesta interrumpió su curso. Murió en agosto de 1969 en Suiza. Jürgen Habermas, nacido en 1929, que había sido su asistente, publicó en 1981 la Teoría de la acción comunicativa y se convirtió en el filósofo público más influyente de Alemania. Axel Honneth, su discípulo, encabeza la llamada tercera generación."},
+      {titulo:"Por qué piensa así",
+       texto:"La pregunta de por qué la razón moderna produjo el fascismo no era abstracta para ellos: eran judíos, de izquierda y alemanes, y vieron a la nación de Kant y Goethe organizar el exterminio con eficiencia industrial. De ahí la crítica de la razón instrumental y la tesis de que la Ilustración puede recaer en mito.\n\nEl exilio en Estados Unidos les mostró otra cosa: una democracia sin terror en la que la radio, el cine y la publicidad producían conformidad. De ahí la industria cultural y, en Marcuse, el hombre unidimensional. Benjamin escribió sobre los vencidos de la historia mientras huía. Y Habermas, que tenía quince años al terminar la guerra y descubrió los crímenes nazis por los juicios de Núremberg, buscó en la democracia deliberativa y en la razón comunicativa una salida que la generación anterior, golpeada por la catástrofe, ya no veía."}
+    ],
+    hitos:[
+      {anio:"1923", texto:"Se funda en Frankfurt el Instituto de Investigación Social, con el apoyo de Felix Weil."},
+      {anio:"1930", texto:"Max Horkheimer asume la dirección del Instituto; al año siguiente presenta su programa interdisciplinario."},
+      {anio:"1933–1934", texto:"Los nazis cierran el Instituto; tras pasar por Ginebra y París, se instala en Nueva York, junto a la Universidad de Columbia."},
+      {anio:"1937", texto:"Horkheimer publica «Teoría tradicional y teoría crítica»."},
+      {anio:"1940", texto:"Walter Benjamin escribe sus tesis sobre la historia y muere en Portbou, en la frontera española."},
+      {anio:"1947", texto:"Se publica en Ámsterdam la Dialéctica de la Ilustración de Horkheimer y Adorno."},
+      {anio:"1951", texto:"Reabre el Instituto en Frankfurt; Adorno publica Minima moralia."},
+      {anio:"1964–1969", texto:"El hombre unidimensional de Marcuse; conflictos con el movimiento estudiantil y muerte de Adorno en 1969."},
+      {anio:"1981", texto:"Habermas publica la Teoría de la acción comunicativa."}
     ]
   },
   beauvoir: {

@@ -53,7 +53,11 @@ const EPOCA = {
   levinas:1961,
   foucault:1975,
   fanon:1961,
-  gandhi:1909
+  gandhi:1909,
+  leibniz:1714,
+  schopenhauer:1819,
+  husserl:1900,
+  frankfurt:1947
 };
 
 /* ============ CONSTELACIONES: un mismo problema, varias fichas ============

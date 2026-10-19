@@ -123,6 +123,13 @@ const CLAVES = {
     ["La facultad de juzgar no se puede transferir al soberano", "Reprimir opiniones produce hipócritas y premia a los aduladores", "Límite: criticar con razones sin actuar contra las leyes por la propia autoridad", "Con Hobbes comparte el derecho natural como potencia; Locke excluía a los ateos"],
     ["La comunidad era de antiguos conversos que habían huido de la Inquisición", "El herem contra Spinoza fue excepcionalmente duro y nunca se levantó", "Los motivos precisos no se conocen: vienen de fuentes posteriores", "Comprender las razones de la comunidad no es justificarlas"]
   ],
+  leibniz: [
+    ["Nada entra en la mónada: la percepción brota de su interior", "Armonía preestablecida, como dos relojes que concuerdan sin tocarse", "Evita la interacción cartesiana y el ocasionalismo", "Objeciones: hipótesis extravagante e inverificable, y la pregunta por la libertad"],
+    ["Leibniz nunca dijo que cada mal sea bueno: el mejor es el conjunto", "Distingue mal moral, del que somos responsables, y mal físico", "Pangloss mezcla a Leibniz con Wolff y Pope", "Riesgo real: una explicación total puede volverse indiferente al sufrimiento"],
+    ["Spinoza: todo se sigue con necesidad y otro mundo es imposible", "Otros mundos eran posibles: necesidad solo hipotética", "Las razones inclinan sin necesitar", "Crítica: una elección infalible de lo mejor se parece a la necesidad (Arnauld y la noción completa)"],
+    ["Las tres separan lo verdadero por conceptos de lo verdadero por el mundo", "Para Leibniz los hechos también tienen razón suficiente y el predicado está en el sujeto", "Para Hume las cuestiones de hecho se conocen por experiencia y costumbre", "Kant rompe el esquema con los juicios sintéticos a priori"],
+    ["Invención independiente: Newton primero, Leibniz publicó primero", "El informe de la Royal Society de 1712 lo redactó en buena parte Newton", "El nacionalismo dejó atrás a la matemática británica", "Los descubrimientos simultáneos son frecuentes y la notación importa"]
+  ],
   hume: [
     ["Hume no niega que hagamos inducciones, niega que se funden en un razonamiento", "El supuesto de uniformidad no se demuestra ni se prueba por experiencia sin círculo", "No todas las creencias valen igual: hay experiencia buena y mala", "Respuestas posteriores: Kant, Popper, justificaciones probabilísticas"],
     ["La razón informa sobre hechos y medios, pero no mueve a actuar", "Una pasión solo es irracional si se funda en una creencia falsa o elige malos medios", "Las pasiones tranquilas se confunden con la razón", "Objeción de Kant y respuesta: la simpatía hace uniformes los sentimientos morales"],
@@ -151,6 +158,13 @@ const CLAVES = {
     ["La mediación funciona en el pensamiento pero no en la existencia", "Se vive en la elección singular, la angustia y el instante", "Réplica hegeliana: solo una época moderna puede formular esa crítica", "Duda de si el sufrimiento singular es momento del todo o resto"],
     ["Se conserva la estructura: contradicción, negación determinada y superación", "Cambia el sujeto: relaciones materiales de producción en lugar del Espíritu", "La contradicción es entre fuerzas productivas y relaciones sociales", "Objeción: Marx conserva la certeza de un desenlace necesario"]
   ],
+  schopenhauer: [
+    ["El cuerpo se conoce por fuera como objeto y por dentro como voluntad", "El acto de voluntad y el movimiento corporal son lo mismo dado de dos modos", "La analogía desde el cuerpo a toda la naturaleza no está demostrada", "Él admite que el conocimiento de la voluntad sigue en la forma del tiempo"],
+    ["El pesimismo se presenta como consecuencia de la metafísica de la voluntad", "Todo querer nace de una carencia; la satisfacción es negativa", "Hay placeres que no parecen cese de un dolor", "Una tesis que interpreta todo dato a su favor es difícil de refutar"],
+    ["La compasión reconoce en el otro el mismo ser, incluso en los animales", "«Sobre las mujeres» las describe como niños grandes sin sentido de la justicia", "El ensayo puede salir de su metafísica del amor sexual y no ser un exabrupto", "Compadecer no es reconocer igualdad: límite de una moral de la compasión"],
+    ["Fue de los primeros europeos en leer la India como filosofía", "Leyó las Upanishads en latín desde una versión persa, con lentes kantianos", "Para Shankara el fondo es conciencia, no voluntad ciega", "El Buda enseña el no-yo y no pone una sustancia detrás de la experiencia"],
+    ["Nietzsche lo leyó en 1865 y escribió «Schopenhauer como educador»", "Conservó la primacía de los impulsos y la importancia de la música", "Rechazó la negación de la voluntad como síntoma de decadencia", "Rechazó la compasión y opuso la afirmación de la vida"]
+  ],
   kierkegaard: [
     ["El libro plantea un dilema, no una receta para suspender la ética", "Habla un seudónimo que se declara incapaz de imitar a Abraham", "El caballero de la fe no busca seguidores ni actúa por odio", "Objeción de Buber y Levinas: una voz que ordena matar no viene de Dios"],
     ["Distingue el qué de la verdad del cómo de la relación con ella", "La tesis vale para las cuestiones de la existencia, no para la ciencia", "Kierkegaard no era relativista: creía verdadero el cristianismo", "La fe es una incertidumbre objetiva sostenida con pasión"],
@@ -178,6 +192,13 @@ const CLAVES = {
     ["Nietzsche despreció el antisemitismo y el nacionalismo alemán", "La apropiación nazi usó una compilación manipulada por Elisabeth", "Hay textos reales sobre rango, esclavitud y dureza", "Una figura vacía de contenido no resiste un contenido brutal"],
     ["El origen de una creencia no refuta su contenido", "Nietzsche no busca refutar sino evaluar tipos de vida", "La pregunta es qué vale el valor y qué función cumple", "La legitimidad depende de si los valores pueden ser verdaderos o falsos"],
     ["Lectura que los descarta como escoria de época prescindible", "Lectura que los considera constitutivos de todo el sistema", "Usar la genealogía contra sus propios contenidos, como Irigaray o Butler", "Masculinidad y superioridad europea también tienen una historia"]
+  ],
+  husserl: [
+    ["Distingue el acto de pensar del contenido pensado, que es ideal", "Las leyes psicológicas son inductivas y probables; las lógicas, exactas", "La ley lógica no afirma la existencia de hechos psíquicos", "El psicologismo lleva a un relativismo que se refuta a sí mismo"],
+    ["Los dos quieren empezar desde cero, sin aceptar nada sin examen", "Descartes trata lo dudoso como falso; Husserl no niega ni duda del mundo", "El ego de Husserl no es una sustancia, sino el campo donde todo tiene sentido", "Objeción: la epojé nunca puede ser completa"],
+    ["La quinta Meditación cartesiana responde a esa objeción", "El otro se da como cuerpo vivido y su vida, de modo indirecto (empatía)", "La objetividad del mundo se constituye en comunidad", "Levinas: Husserl sigue pensando al otro como alter ego"],
+    ["Distingue el éxito técnico de las ciencias de su sentido", "Desde Galileo, el ropaje de idealidades se tomó por la realidad", "Las ciencias olvidaron el mundo de la vida en que se fundan", "El positivismo dejó fuera las preguntas por la razón y el sentido"],
+    ["Heidegger: antes de mirar objetos ya estamos en el mundo, usando cosas", "Para Heidegger la epojé es imposible o encubridora", "Husserl leyó Ser y tiempo como una recaída en la antropología", "Heidegger transforma la fenomenología desde adentro"]
   ],
   heidegger: [
     ["Hechos: afiliación de 1933, rectorado y Cuadernos negros antisemitas", "Lectura de Farías y Faye: el nazismo estructura la obra", "Lectura de Arendt y Gadamer: separar al hombre de los conceptos", "Posición dominante: buscar dónde el sistema no ofreció resistencia"],
@@ -213,6 +234,13 @@ const CLAVES = {
     ["No critica el trabajo bien hecho, sino identificarse con un papel", "Mala fe es tratarse a sí mismo como una cosa", "Objeción: el camarero actúa por necesidad económica, no por evasión", "La autenticidad no es un estado que se alcanza de una vez"],
     ["La frase de A puerta cerrada no dice que toda relación sea mala", "Si la relación está viciada, el otro se vuelve un infierno", "Los personajes están muertos y ya no pueden actuar", "En El ser y la nada la relación con el otro sí es conflicto"],
     ["Aciertos: oposición a la guerra de Argelia y a la tortura", "Errores: cercanía al Partido Comunista y elogios a la URSS en 1954", "Rechazó el Nobel para no volverse una institución", "Su propia filosofía le exige responder por sus actos sin excusas"]
+  ],
+  frankfurt: [
+    ["La teoría tradicional tampoco es neutral: sus categorías dependen de una sociedad", "El interés emancipatorio no reemplaza la investigación empírica", "La teoría crítica pregunta para qué y para quién sirve el conocimiento", "Queda abierto quién define la emancipación; Habermas intenta responderlo"],
+    ["Habermas: una crítica total de la razón es una contradicción performativa", "El prólogo afirma que la libertad es inseparable del pensamiento ilustrado", "Adorno: pensar contra el pensamiento con los propios conceptos", "Réplica: el consenso idealizado puede olvidar el sufrimiento sin palabras"],
+    ["En 1949 escribió que escribir un poema después de Auschwitz es bárbaro", "Es un diagnóstico de la cultura cómplice, no una prohibición a los poetas", "En 1962 admitió con Enzensberger que la literatura debe resistir el veredicto", "En 1966: el sufrimiento tiene derecho a expresarse como el torturado a gritar"],
+    ["Separar el gusto de Adorno, injusto con el jazz, del análisis estructural", "La producción industrial estandariza y forma los deseos", "Objeción: las audiencias reinterpretan y resisten", "Marcuse: ¿quién decide qué necesidades son falsas?"],
+    ["No hay historia neutral: la tradición la conservaron los vencedores", "No se trata de invertir el sesgo sino de mostrar lo borrado y criticar el progreso", "Riesgo de subordinar los hechos a una causa", "Memoria de las víctimas en Colombia con contraste de testimonios"]
   ],
   beauvoir: [
     ["Beauvoir no niega las diferencias biológicas", "Esas diferencias no explican el lugar social de las mujeres", "El cuerpo es una situación, no una cosa", "Butler: Beauvoir mantuvo la idea de un sexo natural"],
