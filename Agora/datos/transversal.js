@@ -57,7 +57,11 @@ const EPOCA = {
   leibniz:1714,
   schopenhauer:1819,
   husserl:1900,
-  frankfurt:1947
+  frankfurt:1947,
+  rawls:1971,
+  ortega:1930,
+  pascalmontaigne:1580,
+  bacon:1620
 };
 
 /* ============ CONSTELACIONES: un mismo problema, varias fichas ============

@@ -164,6 +164,26 @@ const TERMINOS = {
     {k:"humores", tapar:["humor"]},
     {q:"¿De dónde viene la etiqueta «maquiavélico» y qué hay de cierto en atribuirle a Maquiavelo la frase «el fin justifica los medios»?"}
   ],
+  pascalmontaigne: [
+    {q:"¿Qué quiere decir Montaigne con que él mismo es la materia de su libro, y qué clase de escrito es un ensayo?"},
+    {q:"¿Qué significa el «¿Qué sé yo?» de Montaigne y para qué le sirvió su escepticismo en la Francia de las guerras de religión?"},
+    {q:"¿Qué sostiene Montaigne en «De los caníbales» sobre la barbarie y la costumbre, y por qué su posición no es un simple «todo vale»?"},
+    {k:"caña pensante", tapar:["caña que piensa"]},
+    {k:"espíritu de fineza", tapar:["fineza","finos"]},
+    {k:"diversión", tapar:["divertissement","divertirse"]},
+    {k:"corazón", tapar:[]},
+    {k:"apuesta", tapar:["apostar","apostás"]}
+  ],
+  bacon: [
+    {k:"ídolos", tapar:["idola","eidola"]},
+    {q:"¿En qué se diferencian los ídolos de la tribu de los ídolos de la caverna, y qué ejemplo da Bacon de cada uno?"},
+    {q:"¿De dónde vienen los ídolos del foro y los del teatro, y por qué Bacon compara las filosofías con obras de teatro?"},
+    {q:"¿Qué diferencia hay entre anticipar e interpretar la naturaleza, y por qué el silogismo no sirve para descubrir según Bacon?"},
+    {q:"¿Cómo funciona la inducción que propone Bacon con el ejemplo del calor, y por qué desprecia la enumeración simple?"},
+    {q:"¿Qué dice exactamente el aforismo 3 del Novum Organum sobre la ciencia y el poder, y dónde aparece una fórmula más cercana a «saber es poder»?"},
+    {q:"¿Qué tres ambiciones distingue Bacon y qué críticas recibió su idea de dominar la naturaleza?"},
+    {k:"Casa de Salomón", tapar:[]}
+  ],
   descartes: [
     {k:"duda metódica", tapar:[]},
     {k:"cogito ergo sum", tapar:["cogito","yo soy, yo existo"]},
@@ -347,6 +367,16 @@ const TERMINOS = {
     {k:"lenguaje privado", tapar:[]},
     {q:"¿Qué paradoja plantea Wittgenstein sobre seguir una regla y cómo la responde?"},
     {q:"¿Qué entiende Wittgenstein por gramática y cómo explica el surgimiento de los problemas filosóficos?"}
+  ],
+  ortega: [
+    {q:"¿Qué quiere decir la fórmula de las Meditaciones del Quijote sobre el yo y lo que lo rodea, y por qué no es una excusa?"},
+    {k:"realidad radical", tapar:["la vida como realidad radical"]},
+    {k:"razón vital", tapar:["raciovitalismo"]},
+    {k:"perspectivismo", tapar:["doctrina del punto de vista"]},
+    {k:"razón histórica", tapar:["no tiene naturaleza sino historia"]},
+    {q:"¿Qué distingue, según Ortega, aquello que tenemos de aquello en lo que estamos, y para qué sirve la distinción?"},
+    {k:"hombre-masa", tapar:["hombre masa"]},
+    {k:"Revista de Occidente", tapar:["Escuela de Madrid"]}
   ],
   zambrano: [
     {k:"razón poética", tapar:[]},
@@ -737,6 +767,18 @@ const TERMINOS = {
     {k:"praxis", tapar:[]},
     {q:"¿Qué son los temas generadores, las situaciones límite y el inédito viable, y cómo se relacionan?"},
     {q:"¿Cómo distingue Freire la autoridad del autoritarismo y del espontaneísmo en el aula?"}
+  ],
+  rawls: [
+    {k:"justicia como equidad", tapar:["fairness"]},
+    {k:"velo de ignorancia", tapar:["posición original"]},
+    {q:"¿Cuáles son los dos principios de la justicia de Rawls y en qué orden de prioridad están?"},
+    {k:"principio de diferencia", tapar:["lotería natural"]},
+    {k:"bienes primarios", tapar:[]},
+    {q:"¿Por qué sostiene Rawls que el utilitarismo no toma en serio la distinción entre personas?"},
+    {k:"prioridad de lo justo sobre lo bueno", tapar:[]},
+    {k:"equilibrio reflexivo", tapar:[]},
+    {k:"consenso entrecruzado", tapar:["overlapping consensus"]},
+    {k:"razón pública", tapar:[]}
   ],
   dussel: [
     {k:"exterioridad", tapar:[]},
