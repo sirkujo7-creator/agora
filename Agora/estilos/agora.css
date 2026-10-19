@@ -799,3 +799,14 @@ footer{font-family:var(--font-ui);}
 .corrnota{margin:4px 0 0;font-size:.9rem;max-width:72ch;}
 .dnodo.hueco .dpistap{display:block;margin-top:6px;font-family:var(--font-body);font-weight:400;font-size:.78rem;line-height:1.35;color:var(--ink-soft);text-align:left;}
 .dnodo.hueco .dpistap .hueco{font-size:.7rem;padding:0 6px;}
+
+/* ===== Obras: fichas de lectura (renderObras) ===== */
+.obrascab{margin:4px 0 14px;font-size:.9rem;}
+.obraslista{display:grid;gap:14px;}
+.obracard{display:grid;grid-template-columns:44px 1fr;gap:14px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tclr,var(--accent));border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;animation:hitoEntra .45s ease both;animation-delay:calc(var(--i)*60ms);}
+.obracard.leida{border-left-color:var(--good);}
+.obracard.destacada{outline:2px solid var(--accent);outline-offset:3px;}
+.obranum{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--tsoft,var(--accent-soft));color:var(--tclr,var(--accent));font-family:var(--font-ui);font-weight:700;}
+.obracard h3{margin:2px 0 8px;font-size:1.25rem;}
+.obradesc p{margin:0 0 10px;line-height:1.65;}
+@media (max-width:560px){ .obracard{grid-template-columns:1fr;} .obranum{display:none;} }

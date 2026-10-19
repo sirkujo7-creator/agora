@@ -49,7 +49,8 @@ Las pestañas van en tres grupos (`DET_GRUPOS` en `app/agora.js`): **Estudiar** 
 - `actividades` se desarrollan en **Escribir**, que guarda el texto, permite bajarlo en `.txt` y tiene la ruleta.
 - Los enunciados que se arman con definiciones pasan por `pista()`, que tapa la respuesta y recorta el texto. Para conceptos con término (`TERMINOS.<id>[i] = {k, tapar}`) se tapan solo k y las expresiones de `tapar` (`taparTermino`); si no, las palabras del título (`enmascarar`). Cada tramo tapado se ve como **un solo hueco** (`HUECO`, `juntarHuecos`).
 - **Tarjetas de concepto**: con término, el frente muestra las oraciones desde donde aparece el hueco (`extractoTermino`) y pregunta qué concepto va ahí (o qué concepto describe el texto, si el término no aparece); con tema (`{q}`), el frente hace la pregunta. Al dorso siempre van el título y la explicación completa. Una ficha nueva necesita sus `TERMINOS` (`verificar.js` lo controla y las pruebas revisan que el término nunca quede a la vista).
-- Tarjetas con repetición espaciada (cajas de Leitner: 1, 3, 7, 14 y 30 días). Las tarjetas vencidas de todas las fichas aparecen en **Repaso de hoy**, en el Inicio.
+- **Obras** (pestaña Obras, `renderObras`): no son tarjetas para adivinar (pedido de Juan: los títulos de libros tapados no tienen sentido). Cada obra se muestra completa, con título y descripción, y se marca como leída (`progress.obraDone`, mismos índices). Las obras no entran al repaso espaciado.
+- Tarjetas de concepto con repetición espaciada (cajas de Leitner: 1, 3, 7, 14 y 30 días). Las tarjetas vencidas de todas las fichas aparecen en **Repaso de hoy**, en el Inicio.
 
 ## Identidad visual
 
