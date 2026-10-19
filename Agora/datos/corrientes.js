@@ -176,7 +176,7 @@ Porfirio, Jámblico y Proclo continúan la escuela, hasta que en el 529 una ley 
     conceptos:["lo Uno","Inteligencia (nous)","Alma del mundo","emanación","conversión o retorno","mal como privación","unión mística","teología negativa"],
     noConfundir:"La emanación no es una creación libre en el tiempo: lo Uno produce por sobreabundancia, sin decidirlo. Por eso los teólogos cristianos y musulmanes que lo heredaron tuvieron que corregirlo: Agustín toma de él mucho pero no la idea de que el mundo brota necesariamente, y Al-Ghazali atacó a los filósofos, como Avicena, que conservaron una emanación necesaria y eterna.",
     hoy:"Vive en la teología negativa y en el estudio de la mística comparada. Historiadores como Pierre Hadot lo leyeron como un ejercicio espiritual, no solo como un sistema.",
-    de:["socratismo","aristotelismo"], vecinas:["socratismo","falsafa"], rivales:["estoicismo","epicureismo"] },
+    de:["socratismo","aristotelismo"], vecinas:["socratismo","falsafa", "mistica"], rivales:["estoicismo","epicureismo"] },
 
   { id:"iusnaturalismo", nombre:"Derecho natural", periodo:"s. III a.C. – hoy", desde:-300, hasta:null, trad:"europea",
     pregunta:"¿Hay algo justo antes de que lo diga una ley, y vale contra la ley?",
@@ -204,6 +204,30 @@ Desde el siglo XVIII recibe críticas duras: Hume advierte que de cómo son las 
     hoy:"Vive en el lenguaje de los derechos humanos y en la «nueva teoría de la ley natural» de John Finnis. Sigue abierta la discusión sobre si los derechos humanos necesitan un fundamento natural o basta con un acuerdo entre los Estados.",
     de:["estoicismo","aristotelismo"], vecinas:["escolastica","contractualismo","estoicismo"], rivales:["utilitarismo"] },
 
+  { id:"republicanismo", nombre:"Republicanismo", periodo:"de la Roma republicana a hoy (renovado desde los años setenta del s. XX)", desde:-150, hasta:null, trad:"europea",
+    pregunta:"¿Basta con que nadie me impida actuar para ser libre, o solo soy libre si nadie tiene el poder de interferir en mi vida a su arbitrio?",
+    lema:"Ser libre es no vivir a merced de nadie.",
+    resumen:`No es una escuela con fundador, sino una tradición reconstruida por historiadores del siglo XX (Hans Baron, J. G. A. Pocock, Quentin Skinner), que va de la Roma republicana a las revoluciones del siglo XVIII. Parte de una definición de Cicerón: la república es «cosa del pueblo», no propiedad de quien gobierna. Maquiavelo, en los Discursos sobre Tito Livio, sostiene que Roma fue libre gracias al conflicto entre la plebe y el senado; Harrington, Montesquieu y Rousseau piensan la libertad política para los Estados modernos, y Madison defiende en El federalista una república representativa con poderes que se frenan.
+
+Lo que la une es una idea de libertad. Ser libre no es solo que nadie me impida hacer lo que quiero, sino no depender de la voluntad arbitraria de otro: el esclavo de un amo bondadoso no es libre, aunque nunca lo castiguen. Por eso una ley que los ciudadanos controlan no es enemiga de la libertad, y por eso la libertad exige ciudadanos atentos a lo común, contrapesos y un temor constante a la corrupción. Hobbes la atacó en el Leviatán: el ciudadano de Lucca, escribió, no es más libre que el súbdito de Constantinopla.
+
+Hay dos acentos. Para una línea que se remonta a Aristóteles y pasa por Arendt, participar en lo público es parte de una vida plenamente humana; para la que Skinner llama «neorromana» y Philip Pettit convirtió en teoría desde 1997, la participación es sobre todo un resguardo contra la dominación. Los rótulos «humanismo cívico» y «neorrepublicanismo» son de los estudiosos actuales: Cicerón y Maquiavelo hablaban de la república y del vivir libre, no de un «ismo».`,
+    tesis:[
+      "Un esclavo cuyo amo es bondadoso y nunca lo castiga sigue sin ser libre: vive a merced de una voluntad ajena que puede cambiar en cualquier momento.",
+      "La ley no le quita libertad al ciudadano si él y sus iguales pueden discutirla y controlarla: lo que se la quita es depender del capricho de otro.",
+      "Cuando los ciudadanos se desentienden de lo común y solo atienden sus asuntos privados, el poder queda en manos de unos pocos y la libertad se pierde sin que nadie la haya abolido.",
+      "Los tumultos entre los poderosos y el pueblo no arruinan una ciudad: bien encauzados por las leyes, son lo que la mantiene libre.",
+      "Ningún poder, tampoco el de la mayoría, debe quedar sin contrapesos que permitan a cualquier ciudadano impugnar sus decisiones."],
+    autores:[
+      {mod:"aristoteles", rol:"Precursor según la historiografía posterior: el ser humano como animal político, el ciudadano como el que participa en deliberar y juzgar, y el elogio de un régimen mixto."},
+      {mod:"maquiavelo", rol:"El de los Discursos sobre Tito Livio más que el de El príncipe: el conflicto entre los grandes y el pueblo hizo libre a Roma. Pocock lo puso en el centro de su «momento maquiavélico»."},
+      {mod:"rousseau", rol:"Llama república a todo Estado regido por leyes: libertad como obediencia a la ley que uno mismo se da y la dependencia personal como el gran mal. Pettit lo ubica en una variante distinta de la suya."},
+      {mod:"arendt", rol:"La versión participativa: la libertad pública de actuar juntos y los consejos de las revoluciones (Sobre la revolución, 1963). No usó el rótulo; la ubican así sus intérpretes."}],
+    otros:["Polibio","Cicerón","James Harrington","Montesquieu","James Madison","J. G. A. Pocock","Quentin Skinner","Philip Pettit"],
+    conceptos:["res publica (cosa del pueblo)","libertad como no dominación","vivir libre","gobierno mixto","virtud cívica","corrupción","imperio de la ley","conflicto civil"],
+    noConfundir:"No tiene que ver con los partidos que hoy se llaman republicanos, ni consiste solo en oponerse a los reyes: lo decisivo es que nadie gobierne de modo arbitrario, y Montesquieu llegó a describir a Inglaterra como una república escondida bajo la forma de una monarquía. Tampoco es democracia directa: Madison defendía la república representativa justamente frente a ella.",
+    hoy:"Pettit evaluó en 2007, a pedido del propio presidente, el gobierno de José Luis Rodríguez Zapatero, que lo había invocado como inspiración (Examen a Zapatero, 2008). Desde esta idea de libertad se discute la dominación en el trabajo y en la familia (Elizabeth Anderson, Gobierno privado, 2017) y la renta básica.",
+    de:["aristotelismo"], vecinas:["contractualismo","ilustracion"], rivales:["utilitarismo"] },
   { id:"escolastica", nombre:"Escolástica", periodo:"s. XI – s. XVII", desde:1070, hasta:1620, trad:"europea",
     pregunta:"¿Cómo se entiende con la razón lo que se cree por fe?",
     lema:"La fe que busca entender.",
@@ -228,8 +252,30 @@ En el siglo XIV, Duns Escoto y sobre todo Ockham ponen el acento en la libertad 
     conceptos:["cuestión disputada","autoridad","fe y razón","querella de los universales","nominalismo","esencia y existencia","analogía del ser","potencia absoluta y ordenada"],
     noConfundir:"No es una discusión estéril sobre cuántos ángeles caben en la cabeza de un alfiler: esa imagen es una caricatura posterior que no aparece en los textos medievales. Y no es lo mismo que el tomismo: Tomás es una voz entre muchas, y Escoto y Ockham lo discutieron a fondo.",
     hoy:"Sigue viva en el neotomismo, impulsado por la encíclica Aeterni Patris (1879), y en la filosofía analítica, que redescubrió la lógica y la semántica medievales.",
-    de:["aristotelismo","neoplatonismo","falsafa"], vecinas:["falsafa","iusnaturalismo","aristotelismo"], rivales:["racionalismo","empirismo"] },
+    de:["aristotelismo","neoplatonismo","falsafa"], vecinas:["falsafa","iusnaturalismo","aristotelismo", "mistica"], rivales:["racionalismo","empirismo"] },
 
+  { id:"mistica", nombre:"Mística cristiana medieval", periodo:"c. 500 – s. XVI", desde:500, hasta:1591, trad:"europea",
+    pregunta:"¿Puede conocerse a Dios si está más allá de todo concepto, y qué clase de conocimiento sería ese?",
+    lema:"Buscar a Dios más allá de lo que se puede pensar y decir de él.",
+    resumen:`No es una escuela, sino una corriente de experiencia y de escritura que atraviesa la Edad Media cristiana. Su fuente es un autor sirio de hacia el año 500 que firmó como Dionisio Areopagita, el ateniense convertido por Pablo (por eso hoy se lo llama Pseudo-Dionisio). Su Teología mística, muy cercana a Proclo, enseña que de Dios se dice con más verdad lo que no es que lo que es. Bernardo de Claraval lee el Cantar de los Cantares como el amor entre el alma y Dios; las beguinas Hadewijch y Margarita Porete escriben en lengua vulgar, y Porete muere en la hoguera en París (1310); el Maestro Eckhart habla del nacimiento de Dios en el fondo del alma, y en 1329, poco después de su muerte, una bula papal condena proposiciones suyas. Juan de la Cruz, ya en el siglo XVI, da su forma más rigurosa a la noche del alma.
+
+La palabra es un problema. En la Edad Media «místico» era un adjetivo (teología mística, sentido místico de la Escritura); el sustantivo «la mística», como un saber aparte, se forma en los siglos XVI y XVII, como mostró Michel de Certeau. Hildegarda se presentaba como profetisa, y se discute si conviene llamarla mística.
+
+¿Es filosofía? No en el sentido de argumentos que cualquiera aceptaría con la sola razón: estos autores hablan desde la fe y desde una práctica de oración. Lo es en otro sentido: plantean problemas filosóficos de primer orden —los límites del lenguaje ante lo absoluto, si el amor conoce donde el entendimiento no llega, qué queda del yo cuando renuncia a su voluntad—, a veces con herramientas escolásticas (Eckhart escribió también obras latinas de escuela), y entienden el saber como un ejercicio que transforma a quien lo practica.`,
+    tesis:[
+      "De lo divino se dice con más verdad lo que no es que lo que es: como Moisés al entrar en la nube del Sinaí, el alma lo encuentra en una tiniebla que está más allá de todo conocer.",
+      "El amor llega adonde el entendimiento no llega: a Dios se lo puede amar, pero no abarcar con el pensamiento.",
+      "Pobre de verdad es quien no quiere nada, no sabe nada y no tiene nada, ni siquiera la voluntad de cumplir la voluntad de Dios.",
+      "La relación del alma con Dios se dice mejor con el lenguaje de los amantes que con el de las disputas: el alma es la esposa que busca al amado.",
+      "Para unirse a Dios el alma tiene que atravesar un despojo en el que se apagan los gustos de los sentidos y hasta los consuelos de la oración, y esa oscuridad no es abandono sino purificación."],
+    autores:[
+      {mod:"agustin", rol:"Antecedente: la vuelta a la interioridad para subir a lo que está por encima del alma, la visión compartida con su madre en Ostia (Confesiones IX) y la distinción entre visión corporal, imaginativa e intelectual, que los medievales usarán para juzgar las experiencias."},
+      {mod:"hildegarda", rol:"Visionaria del siglo XII, incluida a menudo entre los místicos medievales, aunque se presentaba como profetisa y sus visiones muestran el orden de la creación más que una unión del alma con Dios."}],
+    otros:["Pseudo Dionisio Areopagita","Bernardo de Claraval","Buenaventura","Hadewijch","Maestro Eckhart","Margarita Porete","Juliana de Norwich","Juan de la Cruz"],
+    conceptos:["teología negativa (apofática)","tiniebla divina","contemplación","fondo del alma","desasimiento","nacimiento de Dios en el alma","aniquilación del alma","noche oscura"],
+    noConfundir:"Mística no es sinónimo de visiones extraordinarias ni de irracionalismo: Eckhart fue maestro de teología en París, y Juan de la Cruz pedía no apoyarse en visiones ni revelaciones, sino en la fe desnuda. Tampoco fue una espiritualidad sin conflictos con la Iglesia: Porete murió en la hoguera y Eckhart fue condenado.",
+    hoy:"William James le dedicó dos lecciones de Las variedades de la experiencia religiosa (1902), y la filosofía de la religión sigue discutiendo si hay una experiencia común a todas las tradiciones. Heidegger tomó de Eckhart la palabra Gelassenheit, y la Escuela de Kioto lo comparó con el budismo zen.",
+    de:["neoplatonismo"], vecinas:["neoplatonismo","escolastica"], rivales:[] },
   { id:"falsafa", nombre:"Filosofía islámica clásica", periodo:"s. IX – s. XII", desde:830, hasta:1200, trad:"islamica",
     pregunta:"¿Puede la filosofía de los griegos convivir con la verdad revelada?",
     lema:"La verdad no contradice a la verdad.",
@@ -279,8 +325,29 @@ Frente al prestigio del budismo y el taoísmo, el neoconfucianismo de la dinast�
     conceptos:["ren (humanidad)","li (ritos)","junzi (persona noble)","piedad filial","rectificación de los nombres","mandato del Cielo","principio y energía (li y qi)","conocimiento innato del bien"],
     noConfundir:"Los ritos no son formalismo vacío ni simple obediencia: Confucio dice que sin humanidad no sirven de nada, y Mencio justifica deponer al tirano. Tampoco es una religión con dioses e iglesia, aunque se haya practicado un culto a Confucio y a los antepasados.",
     hoy:"Fue atacado como lastre feudal en el Movimiento del Cuatro de Mayo (1919) y en la campaña «Criticar a Lin Biao, criticar a Confucio» (1973–1974); hoy el Estado chino lo reivindica. El «nuevo confucianismo» discute si es compatible con la democracia y los derechos humanos.",
-    de:[], vecinas:["taoismo"], rivales:["taoismo"] },
+    de:[], vecinas:["taoismo"], rivales:["taoismo", "moismo"] },
 
+  { id:"moismo", nombre:"Moísmo", periodo:"s. V – s. III a.C.", desde:-430, hasta:-210, trad:"asiatica",
+    pregunta:"¿Debemos cuidar de todos por igual, o es justo querer más a los nuestros?",
+    lema:"Promover lo que beneficia al mundo y eliminar lo que lo daña.",
+    resumen:`Mozi (Mo Di) enseñó en China a fines del siglo V a.C., en los comienzos del período de los Reinos Combatientes, y su escuela fue la primera que discutió de frente con los seguidores de Confucio. Sus discípulos no eran solo lectores: formaban una comunidad disciplinada bajo un jefe (juzi), vivían con austeridad y se ofrecían como expertos en defender ciudades sitiadas. Durante dos siglos, ellos y los confucianos fueron las escuelas más conocidas; el nombre de «escuela de Mo» (mojia) lo fijaron los historiadores de la dinastía Han, pero ya Mencio y Han Feizi hablan de los seguidores de Mo como un grupo.
+
+Su medida de lo correcto es el beneficio del mundo: lo que da al pueblo comida, abrigo, descanso y orden. Desde ahí ataca el amor graduado de los confucianos, que empieza por la familia y se debilita con la distancia: los males nacen de preferir lo propio, y el remedio es cuidar de todos sin distinción. Condena la guerra de agresión, los funerales lujosos y la música de las cortes, y sostiene que el Cielo tiene voluntad y quiere que los seres humanos se beneficien unos a otros. Mencio le respondió que cuidar de todos por igual era no reconocer al propio padre.
+
+Los moístas tardíos (s. IV–III a.C.) escribieron los Cánones, definiciones y discusiones sobre el lenguaje, el razonamiento, la geometría, la óptica y la mecánica: lo más parecido a una lógica en la China antigua. Tras la unificación imperial (221 a.C.) la escuela se extingue, y sus textos, mal conservados, fueron rescatados por filólogos del siglo XIX y pensadores del XX.`,
+    tesis:[
+      "Hay que mirar el Estado ajeno como el propio, la familia ajena como la propia y a la persona ajena como a uno mismo: los males del mundo nacen de preferir lo propio.",
+      "Si robar un cerdo es un crimen y matar a un inocente es peor, invadir un Estado vecino es el mayor de los crímenes, aunque los gobernantes lo llamen justo.",
+      "Los funerales suntuosos, los lutos de tres años y la música de las cortes son un derroche que le quita al pueblo comida, abrigo y descanso.",
+      "Una doctrina se juzga con tres pruebas: si concuerda con lo que hicieron los sabios reyes antiguos, si la confirma lo que la gente común ve y oye, y si aplicada al gobierno beneficia al pueblo.",
+      "Creer que la riqueza y la pobreza, el orden y el desorden están fijados por el destino es dañino: vuelve perezosos a los de abajo y descuidados a los gobernantes."],
+    autores:[
+      {mod:"mozi", rol:"El fundador: cuidado imparcial, beneficio de todos, contra la guerra de agresión y el lujo, la voluntad del Cielo y las tres pruebas de una doctrina."}],
+    otros:["Qin Guli","Meng Sheng","Fu Tun","los autores anónimos de los Cánones moístas","Sun Yirang","Liang Qichao","Hu Shi"],
+    conceptos:["jian ai (cuidado imparcial)","li (beneficio)","fei gong (contra la agresión)","tres pruebas","voluntad del Cielo","elevar a los capaces","contra el destino","disputación (bian)"],
+    noConfundir:"Se lo llama a veces «utilitarismo chino», pero con cuidado: el beneficio se mide en riqueza, población y orden del pueblo, no en placer, y se apoya en la voluntad del Cielo. Tampoco es un pacifismo absoluto: condenaba la guerra de agresión, pero enseñaba a defenderse de ella.",
+    hoy:"La ética comparada lo discute como una de las primeras éticas que juzgan las acciones por sus consecuencias, y sus Cánones interesan a la historia de la lógica y de la ciencia. En 2016 China llamó Micius, el nombre latinizado de Mozi, a su primer satélite de comunicación cuántica, en homenaje a sus observaciones de óptica.",
+    de:[], vecinas:["utilitarismo"], rivales:["confucianismo"] },
   { id:"taoismo", nombre:"Taoísmo", periodo:"s. IV a.C. – hoy", desde:-400, hasta:null, trad:"asiatica",
     pregunta:"¿Cómo se vive en armonía con el curso espontáneo de las cosas?",
     lema:"Actuar sin forzar, y nada queda sin hacer.",
@@ -421,7 +488,7 @@ En 1971 John Rawls lo revivió con su Teoría de la justicia: los principios jus
     conceptos:["estado de naturaleza","pacto social","consentimiento","soberanía","voluntad general","legitimidad","posición original","velo de ignorancia"],
     noConfundir:"El contrato casi nunca se presenta como un hecho que ocurrió, sino como una prueba de legitimidad; Hume ya objetó que nadie firmó nada. Y no implica una sola política: de él salieron el absolutismo de Hobbes, el liberalismo de Locke y la democracia radical de Rousseau.",
     hoy:"Rawls y Scanlon lo convirtieron en una de las grandes teorías de la justicia y de la moral del s. XX, en polémica abierta con el utilitarismo. Las críticas del «contrato sexual» (Pateman) y del «contrato racial» (Mills) siguen siendo lectura obligada.",
-    de:["iusnaturalismo"], vecinas:["iusnaturalismo","ilustracion"], rivales:["utilitarismo"] },
+    de:["iusnaturalismo"], vecinas:["iusnaturalismo","ilustracion", "republicanismo"], rivales:["utilitarismo"] },
 
   { id:"ilustracion", nombre:"Ilustración", periodo:"fines del s. XVII – fines del s. XVIII", desde:1688, hasta:1800, trad:"europea",
     pregunta:"¿Hay alguna autoridad —la tradición, la Iglesia, el rey— que pueda quedar exenta del examen público de la razón?",
@@ -447,7 +514,7 @@ Tuvo críticos desde dentro, como Rousseau, que dudó de que el progreso de las 
     conceptos:["mayoría de edad","sapere aude","uso público de la razón","tolerancia","progreso","separación de poderes","derechos del hombre"],
     noConfundir:"No es una fe ingenua en que la razón lo resuelve todo: Hume puso límites severos a la razón y Rousseau dudó del progreso. Y no es solo francesa: hubo Ilustración escocesa, alemana, italiana, española e hispanoamericana.",
     hoy:"Sigue en disputa: Habermas llamó a la modernidad que ella inauguró un proyecto inacabado que hay que corregir, no abandonar; la crítica decolonial y feminista pregunta a quiénes dejó fuera su universalismo. Los derechos humanos y el Estado de derecho son en buena parte su herencia.",
-    de:["racionalismo","empirismo"], vecinas:["contractualismo","positivismo"], rivales:["escolastica"] },
+    de:["racionalismo","empirismo"], vecinas:["contractualismo","positivismo", "republicanismo"], rivales:["escolastica"] },
 
   { id:"idealismo", nombre:"Idealismo alemán", periodo:"1781 – mediados del s. XIX", desde:1781, hasta:1854, trad:"europea",
     pregunta:"Si el mundo que conocemos lleva la marca de la mente, ¿qué es, en el fondo, lo real?",
@@ -495,7 +562,7 @@ Sus críticos la acusan de permitir sacrificar a unos pocos por el bien de la ma
     conceptos:["principio de utilidad","consecuencialismo","placer y dolor","cálculo felicífico","imparcialidad","calidad de los placeres","utilitarismo de actos y de reglas","panóptico"],
     noConfundir:"No es «utilitario» en el sentido de egoísta o interesado: exige contar el bienestar de todos por igual, y suele ser muy exigente. Tampoco es el hedonismo epicúreo, que busca la tranquilidad propia y no la suma de la felicidad general.",
     hoy:"Está detrás del análisis costo-beneficio en políticas públicas, de debates de bioética sobre cómo repartir recursos escasos, de la ética animal de Peter Singer y del llamado altruismo eficaz, también muy discutido.",
-    de:["empirismo","ilustracion"], vecinas:["epicureismo"], rivales:["contractualismo","iusnaturalismo"] },
+    de:["empirismo","ilustracion"], vecinas:["epicureismo", "moismo"], rivales:["contractualismo","iusnaturalismo", "republicanismo"] },
 
   { id:"positivismo", nombre:"Positivismo", periodo:"1830 – c. 1920", desde:1830, hasta:1920, trad:"varias",
     pregunta:"¿Puede la ciencia, y solo ella, decirnos cómo es el mundo y cómo organizar la sociedad?",
@@ -536,17 +603,19 @@ En el siglo XX se ramifica: Lenin y la revolución rusa, Gramsci y la hegemonía
       "Las ideas dominantes de cada época son las ideas de la clase que domina económicamente.",
       "Una teoría revolucionaria importada no sirve como receta: hay que recrearla desde la realidad propia, empezando por quién es dueño de la tierra."],
     autores:[
+      {mod:"fanon", rol:"Heterodoxo: «estira» el análisis marxista en la situación colonial, con el campesinado como fuerza revolucionaria y la crítica a la burguesía nacional."},
+      {mod:"foucault", rol:"Crítico cercano: militó brevemente en el Partido Comunista y comparte la historia de las prácticas, pero rechaza el poder como propiedad de una clase y la ideología como conciencia falsa."},
       {mod:"hegel", rol:"Precursor: la dialéctica y la historia como proceso, que Marx pone sobre bases materiales."},
       {mod:"marx", rol:"Con Engels: materialismo histórico, plusvalía, ideología y praxis."},
       {mod:"mariategui", rol:"El marxismo latinoamericano como «creación heroica»: tierra, indio y socialismo."},
       {mod:"falsborda", rol:"Sociología comprometida e investigación-acción, con fuerte influencia marxista."},
       {mod:"zuleta", rol:"Lector heterodoxo de Marx, que lo cruzó con Freud y Nietzsche."},
       {mod:"freire", rol:"En diálogo: toma la praxis y la opresión, pero desde una pedagogía también cristiana."}],
-    otros:["Friedrich Engels","Rosa Luxemburgo","Antonio Gramsci","Georg Lukács","Theodor W. Adorno","Louis Althusser","Lenin"],
+    otros:["Friedrich Engels", "Rosa Luxemburgo", "Antonio Gramsci", "Georg Lukács", "Theodor W. Adorno", "Louis Althusser", "Lenin"],
     conceptos:["materialismo histórico","lucha de clases","plusvalía","enajenación","ideología","praxis","base y superestructura","hegemonía"],
     noConfundir:"Marxismo no es lo mismo que los regímenes que usaron su nombre: es sobre todo un método de análisis de la sociedad, y muchos de sus críticos más duros del estalinismo fueron marxistas. Tampoco es un determinismo económico simple: el propio Engels advirtió contra esa lectura.",
     hoy:"Sigue vivo en la sociología, la historia económica y los estudios sobre desigualdad y trabajo, y en debates sobre ecología y capitalismo. En América Latina alimentó la filosofía de la liberación y la educación popular.",
-    de:["idealismo","ilustracion"], vecinas:["liberacion"], rivales:["idealismo","contractualismo"] },
+    de:["idealismo","ilustracion"], vecinas:["liberacion", "anticolonialismo", "estructuralismo"], rivales:["idealismo","contractualismo"] },
 
   { id:"existencialismo", nombre:"Existencialismo", periodo:"décadas de 1940 a 1970 (precursores en el s. XIX)", desde:1943, hasta:1980, trad:"europea",
     pregunta:"¿Hay algo que defina quién soy antes de que elija, o me hago con lo que hago con mi libertad?",
@@ -565,16 +634,17 @@ No es una escuela homogénea, y varios de los que suelen incluirse rechazaron la
       "La verdad que importa es la que se vive en primera persona, no la que encaja en un sistema.",
       "Al elegir para mí, propongo también una imagen de lo que debe ser un ser humano."],
     autores:[
+      {mod:"fanon", rol:"En diálogo crítico, sin asumir el rótulo: toma de Sartre la mirada y la situación, pero muestra que la mirada racial no es recíproca y le discute «Orfeo negro»."},
       {mod:"kierkegaard", rol:"Precursor según la historiografía posterior; no usó el término, que es del s. XX. Pensó el individuo que existe, la angustia y la elección frente al sistema hegeliano, desde la fe cristiana."},
       {mod:"nietzsche", rol:"Precursor según la historiografía posterior (Jaspers, Kaufmann); no usó el término. Se lo vincula por la muerte de Dios y la creación de valores, aunque su crítica del sujeto libre lo aleja de Sartre."},
       {mod:"heidegger", rol:"Su análisis de la existencia en Ser y tiempo (1927) da el vocabulario (angustia, autenticidad, ser-para-la-muerte), pero rechazó la etiqueta y se separó de Sartre en la Carta sobre el humanismo."},
       {mod:"sartre", rol:"La formulación clásica, y el que asumió el nombre: existencia, libertad, mala fe y compromiso."},
       {mod:"beauvoir", rol:"Aceptó el nombre: la moral de la ambigüedad y la libertad situada, que llevará a El segundo sexo."}],
-    otros:["Albert Camus","Gabriel Marcel","Karl Jaspers","Miguel de Unamuno","Frantz Fanon"],
+    otros:["Albert Camus", "Gabriel Marcel", "Karl Jaspers", "Miguel de Unamuno"],
     conceptos:["existencia","angustia","libertad","mala fe","proyecto","situación","absurdo","compromiso"],
     noConfundir:"No es una escuela del s. XIX: Kierkegaard y Nietzsche son precursores puestos ahí después, y Heidegger y Camus rechazaron el rótulo. No es pesimismo ni gusto por la desesperación: Sartre lo presentó como «un humanismo». Y no es lo mismo que el nihilismo: en su versión atea parte de que no hay valores dados, pero sostiene que somos responsables de crearlos.",
     hoy:"Vive en la ética de la autenticidad, en la psicoterapia existencial (Viktor Frankl, Irvin Yalom) y en el feminismo y el pensamiento anticolonial que heredaron la idea de libertad situada.",
-    de:["fenomenologia"], vecinas:["fenomenologia","nihilismo"], rivales:["marxismo"] },
+    de:["fenomenologia"], vecinas:["fenomenologia","nihilismo"], rivales:["marxismo", "estructuralismo"] },
 
   { id:"nihilismo", nombre:"Nihilismo", periodo:"s. XIX – hoy", desde:1862, hasta:null, trad:"varias",
     pregunta:"¿Qué pasa cuando los valores por los que se vivía dejan de valer?",
@@ -599,7 +669,7 @@ Heidegger lee incluso la respuesta de Nietzsche como la culminación del nihilis
     conceptos:["muerte de Dios","nihilismo pasivo","nihilismo activo","transmutación de los valores","Gestell","nada absoluta","vacuidad"],
     noConfundir:"No es tanto una doctrina como un diagnóstico, casi siempre para superarlo; los pocos que se llamaron nihilistas, como los radicales rusos de 1860, usaban la palabra para una crítica sin concesiones, no para decir que nada importa. Tampoco es lo mismo que el existencialismo ni que el pesimismo: Nietzsche lo describe como un tránsito, y la nada de Kioto no es negativa.",
     hoy:"La palabra circula para nombrar la apatía, el cinismo o la sensación de que nada importa, a veces sin el rigor del diagnóstico original. El debate sobre la técnica de Heidegger sigue en la filosofía de la tecnología.",
-    de:["idealismo","positivismo"], vecinas:["existencialismo","fenomenologia","budismo"], rivales:["socratismo"] },
+    de:["idealismo","positivismo"], vecinas:["existencialismo","fenomenologia","budismo", "estructuralismo"], rivales:["socratismo"] },
 
   { id:"fenomenologia", nombre:"Fenomenología y hermenéutica", periodo:"s. XX – hoy", desde:1900, hasta:null, trad:"europea",
     pregunta:"¿Cómo se nos da el mundo antes de que lo expliquemos, y cómo comprendemos lo que nos llega?",
@@ -616,17 +686,43 @@ La corriente tiene una sombra que no se puede omitir: Heidegger se afilió al pa
       "Comprender siempre parte de prejuicios heredados; no se trata de eliminarlos, sino de ponerlos a prueba en el diálogo con lo que se interpreta.",
       "Un texto, una vez escrito, se separa de la intención de su autor y abre un mundo que el lector puede habitar."],
     autores:[
+      {mod:"fanon", rol:"Describe en primera persona la experiencia vivida del cuerpo racializado, con el esquema corporal de Merleau-Ponty."},
+      {mod:"foucault", rol:"Crítico: formado en ella, la combatió como filosofía del sujeto fundador del sentido y opuso a la conciencia el análisis de los discursos y las prácticas."},
+      {mod:"levinas", rol:"Formado con Husserl y Heidegger, lleva la fenomenología hacia una ética del rostro y discute la primacía de la ontología."},
       {mod:"heidegger", rol:"Del análisis de la existencia a la hermenéutica; su compromiso nazi de 1933 es parte de su historia."},
       {mod:"arendt", rol:"Formada con Heidegger y Jaspers, piensa la acción, la pluralidad y el juicio."},
       {mod:"sartre", rol:"Lleva la fenomenología a una filosofía de la libertad y la conciencia."},
       {mod:"beauvoir", rol:"La experiencia vivida y la situación como método para pensar a las mujeres."},
       {mod:"zambrano", rol:"En diálogo: la razón poética frente a la razón que solo define y domina."}],
-    otros:["Edmund Husserl","Hans-Georg Gadamer","Paul Ricoeur","Maurice Merleau-Ponty","Edith Stein","Emmanuel Levinas","José Ortega y Gasset"],
+    otros:["Edmund Husserl", "Hans-Georg Gadamer", "Paul Ricoeur", "Maurice Merleau-Ponty", "Edith Stein", "José Ortega y Gasset"],
     conceptos:["intencionalidad","epojé","fenómeno","ser-en-el-mundo","mundo de la vida","círculo hermenéutico","fusión de horizontes","prejuicio"],
     noConfundir:"La fenomenología no estudia fenómenos en el sentido de cosas raras, sino el modo en que cualquier cosa aparece. Y la hermenéutica no es un método para encontrar la única interpretación correcta, ni tampoco la idea de que cualquier interpretación vale.",
     hoy:"Vive en la psicología y la psiquiatría fenomenológicas, en las ciencias cognitivas de la cognición corporizada y en la teoría de la interpretación en derecho, historia y teología.",
-    de:["racionalismo","idealismo"], vecinas:["existencialismo","nihilismo"], rivales:["positivismo","analitica"] },
+    de:["racionalismo","idealismo"], vecinas:["existencialismo","nihilismo"], rivales:["positivismo","analitica", "estructuralismo"] },
 
+  { id:"estructuralismo", nombre:"Estructuralismo y posestructuralismo", periodo:"1916 – fines del s. XX (auge en Francia, 1955–1980)", desde:1916, hasta:2000, trad:"europea",
+    pregunta:"¿Somos nosotros quienes damos sentido al lenguaje y a la cultura, o son sistemas que nadie eligió los que nos dan forma y hablan a través de nosotros?",
+    lema:"El sentido no está en las cosas ni en la conciencia, sino en las diferencias de un sistema.",
+    resumen:`Su base es el Curso de lingüística general de Ferdinand de Saussure, publicado en 1916, tres años después de su muerte, por discípulos que lo reconstruyeron con apuntes de clase. Saussure propone estudiar la lengua como un sistema en un momento dado, no como una historia de palabras: un signo vale por su diferencia con los demás, y el lazo entre el significante (la imagen acústica) y el significado (el concepto) es arbitrario. Saussure habla sobre todo de «sistema»; «estructura» y «estructuralismo» se imponen después, con lingüistas como Roman Jakobson.
+
+En los años cincuenta y sesenta el método sale de la lingüística y se vuelve una moda intelectual francesa. Claude Lévi-Strauss, que conoció a Jakobson en Nueva York durante la guerra, analiza el parentesco y los mitos como sistemas de oposiciones; Jacques Lacan relee a Freud y sostiene que el inconsciente está estructurado como un lenguaje; Roland Barthes estudia la moda y la publicidad como signos, y Louis Althusser lee a Marx contra el humanismo. Su blanco común es el sujeto que da sentido, de la fenomenología y del existencialismo: Lévi-Strauss polemizó con Sartre en El pensamiento salvaje (1962).
+
+«Posestructuralismo» es una etiqueta posterior, sobre todo de las universidades de EE. UU., para quienes desarmaron ese programa desde dentro: Jacques Derrida, que en un congreso en Baltimore en 1966 mostró que toda estructura supone un centro que ella misma no puede justificar; Gilles Deleuze, que pensó la diferencia sin subordinarla a la identidad; Michel Foucault, que historió las condiciones en que algo cuenta como verdad. Ninguno se llamó así, y Foucault rechazó que lo llamaran estructuralista; Lévi-Strauss y Barthes, en cambio, sí usaron ese nombre en los sesenta.`,
+    tesis:[
+      "Una palabra no significa por sí sola, sino por su diferencia con las demás palabras de la lengua; y el lazo entre un sonido y un concepto es arbitrario.",
+      "Los mitos de pueblos muy distantes pueden compararse porque combinan, según reglas que nadie eligió conscientemente, unos pocos pares de opuestos, como crudo y cocido o naturaleza y cultura.",
+      "El sujeto no es el origen del sentido: la lengua, el inconsciente y las instituciones hablan a través de él antes de que él hable.",
+      "Hay que dejar de preguntar qué quiso decir el autor: el autor es una figura reciente, y un texto es un tejido de citas que cobra sentido en quien lo lee.",
+      "Las oposiciones con que piensa la tradición occidental —habla y escritura, presencia y ausencia, naturaleza y cultura— nunca son neutrales: una ocupa el lugar privilegiado, y una lectura atenta muestra que no se sostiene sin la otra."],
+    autores:[
+      {mod:"nietzsche", rol:"Antecedente reivindicado, sin relación con la lingüística: Deleuze le dedica Nietzsche y la filosofía (1962), Foucault toma de él la genealogía y Derrida lo lee en Espolones (1978)."},
+      {mod:"heidegger", rol:"Antecedente para Derrida: la deconstrucción retoma y transforma la «destrucción» de la historia de la metafísica que Heidegger anunció en Ser y tiempo."},
+      {mod:"foucault", rol:"Leído como estructuralista por Las palabras y las cosas (1966) y como posestructuralista después: rechazó la primera etiqueta y no usó la segunda. Arqueología de los saberes, genealogía del poder, muerte del hombre."}],
+    otros:["Ferdinand de Saussure","Roman Jakobson","Claude Lévi-Strauss","Jacques Lacan","Roland Barthes","Louis Althusser","Gilles Deleuze","Jacques Derrida"],
+    conceptos:["significante y significado","lengua y habla","sincronía y diacronía","oposición binaria","descentramiento del sujeto","muerte del autor","deconstrucción","différance"],
+    noConfundir:"No es lo mismo que el posmodernismo, otra etiqueta de otros (la difundió Lyotard en 1979), ni la tesis de que cualquier interpretación vale: Derrida reclamaba leer con un rigor extremo. Y «estructura» no es aquí un armazón fijo, sino un sistema de relaciones en el que cada elemento vale por su posición.",
+    hoy:"Sigue en la teoría literaria, el psicoanálisis, los estudios de género (Judith Butler parte de Foucault, Derrida y Lacan) y la teoría poscolonial. En 1996 el físico Alan Sokal logró publicar un artículo paródico en una revista académica, y después criticó con Jean Bricmont el uso de la matemática en Lacan, Deleuze y otros: la polémica sobre su rigor sigue abierta.",
+    de:["fenomenologia","marxismo"], vecinas:["marxismo","nihilismo"], rivales:["existencialismo","fenomenologia"] },
   { id:"analitica", nombre:"Filosofía analítica", periodo:"fines del s. XIX – hoy", desde:1879, hasta:null, trad:"europea",
     pregunta:"¿Qué queremos decir exactamente cuando decimos algo?",
     lema:"Los límites de mi lenguaje significan los límites de mi mundo.",
@@ -692,6 +788,8 @@ La corriente tiene parientes cercanos en la pedagogía y las ciencias sociales: 
       "Nadie educa a nadie y nadie se educa solo: las personas se educan entre sí, con el mundo como mediador.",
       "Quien investiga no estudia a una comunidad como objeto: investiga con ella y le devuelve lo que se sabe para que transforme su realidad."],
     autores:[
+      {mod:"fanon", rol:"Pariente cercano y fuente: no es latinoamericano, pero Freire, Dussel y el pensamiento decolonial lo leyeron como punto de partida para pensar desde la herida colonial."},
+      {mod:"levinas", rol:"Precursor decisivo: Dussel toma de él la exterioridad y el rostro que interpela, y les da domicilio histórico."},
       {mod:"lascasas", rol:"Antecedente del siglo XVI: la defensa de la humanidad de los indígenas."},
       {mod:"marti", rol:"«Nuestra América»: el gobierno y el pensamiento desde lo propio."},
       {mod:"vasconcelos", rol:"El mestizaje como valor, con un lenguaje eugenésico que hoy se critica."},
@@ -701,12 +799,35 @@ La corriente tiene parientes cercanos en la pedagogía y las ciencias sociales: 
       {mod:"dussel", rol:"La filosofía de la liberación en sentido estricto: exterioridad, víctima, transmodernidad."},
       {mod:"falsborda", rol:"La investigación-acción participativa y la ciencia propia."},
       {mod:"zuleta", rol:"En diálogo: el elogio de la dificultad y la crítica del sectarismo en Colombia."}],
-    otros:["Andrés Bello","Francisco Miró Quesada","Augusto Salazar Bondy","Arturo Andrés Roig","Rodolfo Kusch","Gustavo Gutiérrez","Aníbal Quijano"],
+    otros:["Andrés Bello", "Francisco Miró Quesada", "Augusto Salazar Bondy", "Arturo Andrés Roig", "Rodolfo Kusch", "Gustavo Gutiérrez", "Aníbal Quijano"],
     conceptos:["Nuestra América","mestizaje","colonialismo mental","exterioridad","víctima","concientización","investigación-acción participativa","transmodernidad"],
     noConfundir:"No es rechazar la filosofía europea: sus autores la leen a fondo y discuten con ella. Y no es lo mismo que la teología de la liberación, aunque nacen en la misma época y comparten la opción por los pobres.",
     hoy:"Sigue en el pensamiento decolonial (Quijano, Mignolo), en la educación popular y en la investigación participativa que se practica en universidades y organizaciones sociales colombianas.",
-    de:["iusnaturalismo","marxismo","fenomenologia"], vecinas:["marxismo","feminismo"], rivales:["positivismo"] },
+    de:["iusnaturalismo","marxismo","fenomenologia"], vecinas:["marxismo","feminismo", "anticolonialismo"], rivales:["positivismo"] },
 
+  { id:"anticolonialismo", nombre:"Pensamiento anticolonial y poscolonial", periodo:"desde comienzos del s. XX (teoría poscolonial desde 1978)", desde:1909, hasta:null, trad:"varias",
+    pregunta:"¿Qué le hace la dominación de un pueblo sobre otro a la manera en que el dominado se piensa a sí mismo, y cómo se recupera una voz propia?",
+    lema:"Descolonizar no es solo cambiar de bandera: es cambiar la mirada.",
+    resumen:`Reúne a pensadores muy distintos que se preguntaron qué hace la dominación colonial a quienes la sufren y cómo se sale de ella. En la India, Gandhi propone en Hind Swaraj (1909) una independencia que no copie la civilización del ocupante y una lucha sin violencia; B. R. Ambedkar, jurista nacido intocable, le responde que no hay liberación mientras subsista el sistema de castas. En el Caribe francés, Aimé Césaire, poeta de la negritud, sostiene en el Discurso sobre el colonialismo (1950) que la colonización convierte a las personas en cosas; su alumno Frantz Fanon analiza desde la psiquiatría cómo el racismo se mete en el cuerpo y en la conciencia, y se suma a la guerra de independencia de Argelia.
+
+Con Orientalismo (1978), de Edward Said, nace en las universidades de habla inglesa la llamada teoría poscolonial: estudia cómo los saberes, la literatura y las imágenes europeas fabricaron al «otro» que se gobernaba. Gayatri Spivak, traductora de Derrida, pregunta si el subalterno puede hablar cuando otros hablan por él; Homi Bhabha piensa la hibridez y la imitación ambivalente. «Poscolonial» no quiere decir que el colonialismo haya terminado: nombra lo que sigue operando después de las independencias.
+
+No es una escuela ni una doctrina. Gandhi defendía la no violencia y Fanon pensó la violencia como parte de la descolonización; Ambedkar desconfiaba del nacionalismo que Gandhi encarnaba. Lo que comparten es una sospecha: que el universalismo europeo —la civilización, el progreso, el humanismo— sirvió también para justificar la conquista, y que hay que pensarlo de nuevo desde quienes la sufrieron.`,
+    tesis:[
+      "La dominación de un pueblo sobre otro no se sostiene solo con armas: necesita que el dominado termine viéndose con los ojos de su amo y sintiéndose inferior en su propia piel.",
+      "Los saberes que pintaron a los pueblos de Oriente como inmóviles, sensuales e incapaces de gobernarse no fueron un error inocente: formaron parte del aparato con que se los gobernó.",
+      "Expulsar al gobernante extranjero no basta si se conservan su civilización y su Estado: sería quedarse con el mismo dominio y cambiar solo de dominador.",
+      "Lo que escandalizó a Europa del nazismo no fue tanto el crimen contra el ser humano como que aplicara en Europa los métodos que hasta entonces reservaba para los pueblos de África y Asia.",
+      "Cuando los poderosos hablan en nombre de los más oprimidos de un país sometido, aunque sea para salvarlos, estos pueden seguir sin ser escuchados."],
+    autores:[
+      {mod:"marti", rol:"Precursor desde Cuba: «Nuestra América» (1891) pide gobernar desde lo propio y advierte contra el imperialismo de EE. UU.; murió en la guerra de independencia contra España (1895)."},
+      {mod:"gandhi", rol:"La independencia como autogobierno (swaraj) y la lucha sin violencia (satyagraha); también sus límites: defendió durante décadas el varna frente a Ambedkar."},
+      {mod:"fanon", rol:"La alienación racial vivida en primera persona, la descolonización como ruptura y la crítica de la burguesía nacional que solo quiere ocupar el lugar del colono."}],
+    otros:["Aimé Césaire","B. R. Ambedkar","Amílcar Cabral","Edward Said","Gayatri Chakravorty Spivak","Homi K. Bhabha","Ranajit Guha","Ngũgĩ wa Thiong'o"],
+    conceptos:["satyagraha","swaraj","negritud","cosificación","descolonización","orientalismo","subalterno","hibridez"],
+    noConfundir:"Anticolonial, poscolonial y decolonial no son sinónimos: el primero nombra las luchas y los textos de las independencias; el segundo, una teoría académica de los años ochenta, escrita sobre todo en inglés; el tercero, una corriente latinoamericana (Aníbal Quijano, Walter Mignolo) que habla de «colonialidad del poder» y se distingue de la poscolonial. Y no es un rechazo de todo lo europeo: Fanon cierra Los condenados de la tierra llamando a crear un hombre nuevo, no a imitar ni a destruir a Europa.",
+    hoy:"Inspira los debates sobre la restitución de objetos de los museos europeos, sobre programas de estudio que solo enseñan autores europeos y sobre las estatuas de conquistadores y esclavistas, como la campaña Rhodes Must Fall (Ciudad del Cabo, 2015). Tiene críticos también en la izquierda: Vivek Chibber le reprocha haber cambiado el análisis del capitalismo por el de la cultura.",
+    de:["marxismo","existencialismo","estructuralismo"], vecinas:["liberacion","marxismo"], rivales:[] },
   { id:"feminismo", nombre:"Feminismo", periodo:"fines del s. XVIII – hoy (precursoras antes)", desde:1792, hasta:null, trad:"varias",
     pregunta:"¿Por qué la diferencia entre los sexos se convirtió en subordinación, y cuánto de lo que se llama «femenino» es naturaleza y cuánto construcción social?",
     lema:"No se nace mujer: se llega a serlo.",

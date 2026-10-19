@@ -451,6 +451,38 @@ const DIAGRAMAS = {
       {t:"La experiencia vivida", d:"El segundo volumen abre con «No se nace mujer: se llega a serlo» y describe cómo la niña aprende a ser mujer por la educación y los límites que recibe."},
       {t:"Hacia la liberación", d:"La liberación exige renunciar a las ventajas de la complicidad y apunta a una relación recíproca en la que cada uno reconozca al otro como libertad."}]}
   ],
+  levinas: [
+    {tipo:"polos", titulo:"Totalidad e infinito", intro:"Los dos polos de Totalidad e infinito (1961): la lógica que reduce lo Otro a lo Mismo y la relación que la desborda.", polos:{"izq":"totalidad","der":"infinito"}, nota:"La imagen de Ulises y Abraham es del ensayo «La huella del otro» (1963); los demás pares resumen el libro.",
+     nodos:[
+      {a:"Lo Mismo que comprende", b:"Lo Otro que desborda", d:"Comprender es volver propio lo extraño; el otro ser humano excede toda idea que tengo de él, como la idea de lo infinito en Descartes."},
+      {a:"Necesidad que se satisface", b:"Deseo que se ahonda", d:"La necesidad busca lo que le falta y se calma; el deseo metafísico se dirige a lo absolutamente otro y crece en lugar de saciarse."},
+      {a:"Ulises vuelve a su isla", b:"Abraham parte sin volver", d:"La filosofía de lo Mismo regresa siempre a sí misma; la relación con el otro es una salida sin retorno hacia lo desconocido."},
+      {a:"La ontología va primero", b:"La ética va primero", d:"Para la tradición, primero hay que comprender el ser; para Levinas, antes de comprender ya estoy llamado a responder al otro."},
+      {a:"La guerra suspende la moral", b:"El rostro dice «no matarás»", d:"En la totalidad cada individuo es una fuerza al servicio del conjunto; el rostro interrumpe esa lógica con una prohibición."}]},
+    {tipo:"secuencia", titulo:"Del hay a la justicia", intro:"Un recorrido por la obra de Levinas, desde la existencia anónima hasta las instituciones.", nota:"El orden es una reconstrucción didáctica de De la existencia al existente y Totalidad e infinito, no una secuencia temporal que Levinas proponga así.",
+     nodos:[
+      {t:"El hay: existir sin nadie", d:"Un existir anónimo e impersonal, sin sujeto, que se siente en el insomnio y en el horror de la noche."},
+      {t:"Hipóstasis: surge el existente", d:"Alguien toma posición y se arranca del murmullo del ser: nace un sujeto que existe por su cuenta."},
+      {t:"Gozo y morada: el yo separado", d:"El sujeto vive de las cosas, las disfruta y habita una casa: es un yo separado, todavía encerrado en lo Mismo."},
+      {t:"El rostro: el otro me interpela", d:"El otro irrumpe desnudo y sin defensa, desborda mi mundo y me dice «no matarás»: soy responsable de él."},
+      {t:"El tercero: hay que comparar", d:"El otro nunca está solo; hay un tercero, y la responsabilidad obliga a juzgar entre los incomparables."},
+      {t:"Justicia e instituciones", d:"Nacen la ley y el Estado, que vienen de la responsabilidad y tienen que dejarse corregir por los rostros."}]}
+  ],
+  foucault: [
+    {tipo:"polos", titulo:"Poder soberano y poder disciplinario", intro:"Vigilar y castigar (1975): dos formas de poder que se ven en el paso del suplicio a la prisión.", polos:{"izq":"soberanía","der":"disciplina"}, nota:"Foucault insiste en que las formas se superponen: la soberanía no desaparece cuando aparece la disciplina.",
+     nodos:[
+      {a:"Castigo espectacular", b:"Corrección discreta", d:"El suplicio de Damiens (1757) se hace en una plaza ante la multitud; la prisión corrige en secreto, con horarios y reglamentos."},
+      {a:"Golpea de vez en cuando", b:"Vigila siempre", d:"El soberano se manifiesta en momentos excepcionales; la disciplina es continua y minuciosa, y no deja tiempos muertos."},
+      {a:"El poder se hace visible", b:"Los sometidos se hacen visibles", d:"En la soberanía brilla el rey y su venganza; en la disciplina el poder se oculta y son los individuos los que quedan expuestos a la mirada."},
+      {a:"Destruye el cuerpo", b:"Fabrica cuerpos dóciles", d:"El suplicio marca y destruye; la disciplina ejercita los cuerpos para hacerlos más útiles y más obedientes a la vez."}]},
+    {tipo:"secuencia", titulo:"Las epistemes de Las palabras y las cosas", intro:"Las palabras y las cosas (1966): los suelos de saber que Foucault distingue en la cultura europea desde el siglo XVI.", nota:"Foucault presenta los cambios como discontinuidades, no como progreso; las fechas son aproximadas y el esquema fue criticado por rígido. Él mismo dejó de usar el concepto.",
+     nodos:[
+      {t:"Renacimiento: la semejanza", d:"Hasta fines del siglo XVI, conocer es descifrar parecidos y firmas entre las cosas: el mundo es un texto que hay que leer."},
+      {t:"Época clásica: la representación", d:"Siglos XVII y XVIII: conocer es ordenar y clasificar en tablas. Historia natural, gramática general y análisis de las riquezas."},
+      {t:"Modernidad: vida, trabajo y lenguaje", d:"Desde fines del siglo XVIII, biología, economía política y filología estudian lo que tiene historia y profundidad."},
+      {t:"Aparece el hombre", d:"Con la episteme moderna surge el hombre como objeto de las ciencias humanas y sujeto que funda el conocimiento."},
+      {t:"¿Un rostro de arena?", d:"Foucault sugiere que, si esa disposición cambiara, el hombre podría borrarse como un rostro dibujado en la arena a la orilla del mar."}]}
+  ],
   avicena: [
     {tipo:"niveles", titulo:"La emanación desde el Necesario", intro:"De lo uno procede solo uno: así explica Avicena cómo sale la multiplicidad del mundo de un principio simple.", eje:"del Uno a la multiplicidad", nota:"Avicena cuenta diez intelectos y nueve esferas; aquí los intermedios se agrupan en un solo nivel.",
      nodos:[
@@ -652,6 +684,22 @@ const DIAGRAMAS = {
       {t:"Olvidarse de uno mismo", d:"Ese examen llevado hasta el final descubre que no hay un yo separado que examinar: cuerpo y mente se dejan caer (shinjin datsuraku)."},
       {t:"Realizado por las cosas", d:"Se invierte la dirección: uno no ilumina el mundo, es confirmado por él. Llevar el yo hacia las cosas es ilusión; que las cosas se realicen a través de uno es despertar."}]}
   ],
+  gandhi: [
+    {tipo:"polos", titulo:"Fuerza bruta y fuerza del alma", intro:"Hind Swaraj, capítulos XVI y XVII: las dos fuerzas con que se puede respaldar una demanda.", polos:{"izq":"Fuerza bruta","der":"Fuerza del alma"}, nota:"Las tres primeras filas resumen Hind Swaraj; la idea de convertir al adversario está sobre todo en escritos posteriores sobre el satyagraha.",
+     nodos:[
+      {a:"Amenaza con hacer daño al otro", b:"Acepta sufrir uno mismo", d:"La fuerza de las armas dice «te haré daño si no me lo das»; la del alma asegura derechos por medio del sufrimiento propio."},
+      {a:"Lo obtenido dura lo que dura el miedo", b:"Solo podés gobernarnos si te obedecemos", d:"Lo que se gana por el miedo hay que sostenerlo por el miedo; la fuerza del alma retira la cooperación de la que depende todo gobierno."},
+      {a:"Fuerza al gobierno a derogar la ley", b:"Desobedece en público y acepta la pena", d:"Ante una ley injusta, la fuerza bruta obliga al gobierno con violencia a derogarla; la del alma la desobedece a la vista de todos y acepta el castigo."},
+      {a:"Busca vencer al adversario", b:"Busca convertir al adversario", d:"La meta del satyagraha no es destruir al otro sino llevarlo a reconocer la injusticia; por eso excluye el odio."}]},
+    {tipo:"secuencia", titulo:"La marcha de la sal (1930–1931)", intro:"Cómo una campaña contra el impuesto a la sal se volvió el símbolo de la lucha por la independencia.",
+     nodos:[
+      {t:"Carta al virrey (2 de marzo)", d:"Gandhi le escribe a Lord Irwin, enumera los males del dominio británico y le anuncia que, si no hay respuesta, desobedecerá las leyes de la sal."},
+      {t:"Salida de Sabarmati (12 de marzo)", d:"Parte de su áshram con 78 seguidores elegidos, de distintas regiones y religiones."},
+      {t:"Veinticuatro días a pie hasta Dandi", d:"Unos 385 kilómetros, hablando en cada aldea; la prensa nacional e internacional sigue la marcha."},
+      {t:"Un puñado de sal (6 de abril)", d:"En la playa de Dandi recoge sal natural y viola así el monopolio británico; miles lo imitan en toda la costa."},
+      {t:"Desobediencia masiva y cárcel", d:"Decenas de miles de detenidos, Gandhi entre ellos; en Dharasana, la policía golpea a manifestantes que no se defienden."},
+      {t:"Pacto Gandhi-Irwin (marzo de 1931)", d:"El gobierno libera a los presos y negocia con Gandhi, que viaja a Londres; la independencia todavía tardará dieciséis años."}]}
+  ],
   nishida: [
     {tipo:"secuencia", titulo:"El itinerario de Nishida", intro:"Las cuatro etapas de su obra, de Una investigación sobre el bien (1911) a su último ensayo (1945), cada una respondiendo a un problema de la anterior.", nota:"Es una simplificación: los conceptos se superponen entre etapas, y las fechas son las de las obras donde cada uno aparece con más claridad.",
      nodos:[
@@ -812,6 +860,19 @@ const DIAGRAMAS = {
       {a:"América como conciencia histórica", b:"La víctima, el excluido", d:"El sujeto del filosofar: para Zea, un nosotros cultural americano amplio; para Dussel, el oprimido, categoría que corta transversalmente ese nosotros y lo divide."},
       {a:"Participar en Occidente", b:"Exterioridad y transmodernidad", d:"Para Zea, América Latina es parte de Occidente y debe participar en él con voz propia; Dussel propone un exterior que no se define desde el proyecto moderno."},
       {a:"Ser reconocida filosofía sin más", b:"Sospechar del reconocimiento", d:"Zea busca la incorporación en pie de igualdad; Dussel sospecha que el reconocimiento es la trampa, porque lo otorga el mismo centro que produjo la exclusión."}]}
+  ],
+  fanon: [
+    {tipo:"secuencia", titulo:"Las tres fases del intelectual colonizado", intro:"Los momentos que Fanon distingue en «Sobre la cultura nacional», en Los condenados de la tierra, para la relación del intelectual colonizado con su cultura.", nota:"Fanon presenta las fases como un esquema para orientarse, no como una ley: un mismo escritor puede mezclarlas o quedarse en una.",
+     nodos:[
+      {t:"Asimilación", d:"El intelectual demuestra que ha asimilado la cultura del colonizador: escribe como los autores de la metrópoli y busca su aprobación."},
+      {t:"Rememoración", d:"Inquieto, decide recordar quién es: vuelve a las leyendas, al folclor y a un pasado idealizado, a menudo mirándolos con ojos de extranjero."},
+      {t:"Combate", d:"Se une a la lucha de su pueblo y produce una literatura de combate, nacional y revolucionaria, que despierta al pueblo en vez de exhibirlo."}]},
+    {tipo:"polos", titulo:"Hegel y la situación colonial", intro:"Piel negra, máscaras blancas, capítulo 7: por qué la dialéctica del señor y el siervo no se cumple tal cual entre el amo colonial y el colonizado.", polos:{"izq":"Hegel: señor y siervo","der":"Fanon: amo colonial y colonizado"}, nota:"La comparación la hace Fanon en el texto y en una nota al pie; la disposición en pares es de Ágora.",
+     nodos:[
+      {a:"El señor busca reconocimiento", b:"El amo busca el trabajo del esclavo", d:"En Hegel la lucha es por ser reconocido; Fanon dice que el amo colonial se ríe de la conciencia del esclavo y solo quiere su trabajo."},
+      {a:"Reciprocidad que puede invertirse", b:"Relación sin reciprocidad", d:"La dialéctica hegeliana avanza porque el reconocimiento tiene que ser mutuo; en la colonia esa exigencia no rige para el amo."},
+      {a:"El siervo se vuelca hacia el objeto", b:"El esclavo se vuelve hacia el amo", d:"El siervo hegeliano se forma trabajando la cosa; según Fanon, el esclavo antillano abandona el objeto y quiere ser como el amo."},
+      {a:"Libertad conquistada en la lucha", b:"Libertad otorgada por decreto", d:"En las Antillas la abolición llegó desde París en 1848: según Fanon, el negro fue actuado y esa libertad le resultó ajena."}]}
   ],
   freire: [
     {tipo:"secuencia", titulo:"El método de las palabras generadoras", intro:"Los pasos del método de alfabetización de adultos, tal como Freire lo describe en La educación como práctica de la libertad.", nota:"Freire insistía en que no es una técnica aislable: si se aplican los pasos sin diálogo, el método se vuelve bancario.",
