@@ -199,6 +199,18 @@ const TERMINOS = {
     {q:"¿Cuáles son los tres géneros de conocimiento que distingue Spinoza y qué nace del tercero?"},
     {q:"¿Qué argumentos da el Tratado teológico-político a favor de la libertad de pensar y qué papel cumple la crítica bíblica?"}
   ],
+  leibniz: [
+    {k:"mónada", tapar:["mónadas","monadología"]},
+    {q:"¿Qué son la percepción, la apetición y las pequeñas percepciones en Leibniz, y qué muestra el argumento del molino?"},
+    {k:"armonía preestablecida", tapar:[]},
+    {k:"principio de razón suficiente", tapar:["razón suficiente"]},
+    {k:"identidad de los indiscernibles", tapar:["indiscernibles"]},
+    {q:"¿Cómo distingue Leibniz las verdades de razón de las verdades de hecho, y qué tesis agrega sobre el predicado y el sujeto?"},
+    {k:"mejor de los mundos posibles", tapar:["el mejor"]},
+    {q:"¿Qué es una teodicea, qué tres clases de mal distingue Leibniz y qué le objetó Voltaire en Cándido?"},
+    {k:"característica universal", tapar:["cálculo racional","calculemos"]},
+    {q:"¿Qué relación vio Leibniz entre su aritmética binaria y los hexagramas del I Ching, y qué hay que precisar sobre ella?"}
+  ],
   hume: [
     {k:"impresiones", tapar:["impresión","impresiones","principio de copia"]},
     {k:"cuestiones de hecho", tapar:["relaciones de ideas"]},
@@ -243,6 +255,18 @@ const TERMINOS = {
     {q:"¿En qué sentido el Estado es para Hegel la realidad de la idea ética, y qué objeciones siguen en pie?"},
     {k:"búho de Minerva", tapar:[]},
     {q:"¿Qué distinción usa Hegel para corregir la lectura conservadora de su frase sobre lo racional y lo real?"}
+  ],
+  schopenhauer: [
+    {k:"representación", tapar:["Vorstellung"]},
+    {k:"principio de razón suficiente", tapar:[]},
+    {q:"¿Cómo llega Schopenhauer a afirmar que la cosa en sí es voluntad, y qué papel cumple el propio cuerpo en ese paso?"},
+    {k:"velo de Maya", tapar:["principium individuationis","principio de individuación"]},
+    {q:"¿Por qué, según Schopenhauer, la vida oscila entre el dolor y el aburrimiento, y por qué la felicidad sería solo negativa?"},
+    {q:"¿Qué ocurre en la contemplación estética según Schopenhauer, y por qué la música ocupa un lugar aparte entre las artes?"},
+    {k:"compasión", tapar:[]},
+    {k:"negación de la voluntad", tapar:["ascesis"]},
+    {q:"¿Por qué sostiene Schopenhauer que el suicidio no es una negación de la voluntad de vivir?"},
+    {q:"¿Cómo conoció Schopenhauer las Upanishads y el budismo, y qué límites tuvo su lectura?"}
   ],
   kierkegaard: [
     {k:"individuo", tapar:["individuos"]},
@@ -289,6 +313,18 @@ const TERMINOS = {
     {q:"¿Qué distingue el nihilismo pasivo del activo, y por qué ninguno de los dos es todavía la superación?"},
     {q:"¿Qué representan Apolo y Dioniso en El nacimiento de la tragedia y cómo se combinan en la tragedia griega?"},
     {q:"¿Qué son el ressentiment y la mala conciencia, y cómo funciona cada uno en la genealogía de la moral?"}
+  ],
+  husserl: [
+    {k:"psicologismo", tapar:["psicologista"]},
+    {k:"intencionalidad", tapar:["intencional"]},
+    {q:"¿Qué pide la consigna de volver «a las cosas mismas» y cómo la convierte Husserl en un principio de método?"},
+    {k:"actitud natural", tapar:[]},
+    {k:"epojé", tapar:["reducción fenomenológica","reducción"]},
+    {k:"variación eidética", tapar:["intuición de esencias"]},
+    {q:"¿Cómo explica Husserl que podamos oír una melodía, y qué son la retención y la protención?"},
+    {k:"empatía", tapar:["Einfühlung","intersubjetividad"]},
+    {k:"mundo de la vida", tapar:["Lebenswelt"]},
+    {q:"¿En qué consiste, para Husserl, la crisis de las ciencias europeas y qué límite tiene su manera de plantearla?"}
   ],
   heidegger: [
     {k:"Dasein", tapar:["Da-sein","ser-ahí"]},
@@ -344,6 +380,18 @@ const TERMINOS = {
     {q:"¿Qué relación hay, según Sartre, entre la situación en que vivimos y el proyecto que elegimos?"},
     {k:"compromiso", tapar:["comprometida"]},
     {q:"¿Qué son la praxis, la escasez y lo práctico-inerte en la Crítica de la razón dialéctica?"}
+  ],
+  frankfurt: [
+    {q:"¿Qué distingue Horkheimer entre teoría tradicional y teoría crítica en su ensayo de 1937?"},
+    {q:"¿Qué quieren decir Horkheimer y Adorno con que el mito ya es ilustración y la ilustración recae en mitología?"},
+    {k:"razón instrumental", tapar:["razón subjetiva o instrumental"]},
+    {k:"industria cultural", tapar:[]},
+    {q:"¿Qué escribió Adorno sobre la poesía después de Auschwitz y cómo matizó después esa frase?"},
+    {q:"¿Cómo pide Benjamin escribir la historia en sus tesis de 1940 y qué representa el ángel de la historia?"},
+    {k:"aura", tapar:[]},
+    {k:"unidimensional", tapar:[]},
+    {q:"¿Qué distingue Habermas entre acción estratégica y acción comunicativa, y qué llama colonización del mundo de la vida?"},
+    {q:"¿Por qué conviene decir que «Escuela de Frankfurt» es un rótulo posterior y qué fue el Instituto de Investigación Social?"}
   ],
   beauvoir: [
     {q:"¿Qué quiere decir Beauvoir con «No se nace mujer: se llega a serlo» y qué distinción posterior abrió?"},

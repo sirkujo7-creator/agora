@@ -253,6 +253,22 @@ const DIAGRAMAS = {
       {a:"Pasiones tristes", b:"Alegría que nace de la razón", d:"La tristeza disminuye la potencia de obrar; la alegría que nace de entender la aumenta y culmina en el amor intelectual de Dios."},
       {a:"Meditación de la muerte", b:"Meditación de la vida", d:"El hombre libre, dice la proposición 67 de la cuarta parte, en nada piensa menos que en la muerte: su sabiduría es una meditación de la vida."}]}
   ],
+  leibniz: [
+    {tipo:"niveles", titulo:"La jerarquía de las mónadas", intro:"Monadología, §§ 19-30 y 47-48: todas las mónadas perciben, pero no con el mismo grado de distinción.", eje:"más distinción en la percepción", nota:"Leibniz habla de grados continuos más que de cuatro clases cerradas; agruparlos en cuatro niveles es una simplificación de Ágora.",
+     nodos:[
+      {t:"Dios, la mónada primitiva", d:"La unidad originaria de la que todas las mónadas creadas proceden; percibe todo con perfecta distinción y es la razón última de las cosas."},
+      {t:"Espíritus o almas racionales", d:"Tienen apercepción, es decir, conciencia reflexiva, y conocen las verdades necesarias; por eso pueden decir «yo» y formar con Dios una ciudad moral."},
+      {t:"Almas de los animales", d:"Tienen percepciones más distintas, acompañadas de memoria y sentimiento, que les permiten esperar lo que vivieron antes, pero no razonar."},
+      {t:"Mónadas desnudas", d:"Perciben sin distinción ni memoria, como nosotros en un sueño profundo o en un desmayo: toda mónada percibe, aunque sea confusamente."}]},
+    {tipo:"secuencia", titulo:"Por qué existe el mejor de los mundos", intro:"Monadología, §§ 53-55: el argumento que Voltaire satirizó en Cándido.", nota:"El paso discutido es el cuarto: supone que hay un mundo de perfección máxima y que la perfección de mundos enteros se puede comparar.",
+     nodos:[
+      {t:"Infinitos mundos posibles", d:"En el entendimiento de Dios hay infinitas combinaciones de cosas que no implican contradicción."},
+      {t:"Solo uno puede existir", d:"Los mundos posibles son incompatibles entre sí: existir uno excluye a los demás."},
+      {t:"Hace falta una razón de la elección", d:"Por el principio de razón suficiente, Dios no puede elegir sin razón uno más bien que otro."},
+      {t:"La razón es el grado de perfección", d:"Cada posible tiene derecho a existir en la medida de su perfección: mayor variedad con mayor orden."},
+      {t:"Sabiduría, bondad y poder", d:"La sabiduría hace conocer a Dios el mejor, su bondad se lo hace elegir y su poder se lo hace producir."},
+      {t:"Existe el mejor posible", d:"Este mundo es el mejor conjunto posible, lo que no significa que cada una de sus partes sea buena."}]}
+  ],
   hume: [
     {tipo:"secuencia", titulo:"Cómo nace la idea de causa", intro:"Investigación sobre el entendimiento humano, secciones IV, V y VII: del primer choque de las bolas de billar a la idea de conexión necesaria.", nota:"Hume no presenta estos pasos como una lista numerada: es una reconstrucción de su análisis.",
      nodos:[
@@ -312,6 +328,21 @@ const DIAGRAMAS = {
       {t:"Espíritu objetivo", d:"La libertad hecha mundo en el derecho, la moralidad y las instituciones de la eticidad: familia, sociedad civil y Estado."},
       {t:"Espíritu subjetivo", d:"El espíritu en el individuo: alma, conciencia y vida psicológica, todavía sin plasmarse en instituciones compartidas."}]}
   ],
+  schopenhauer: [
+    {tipo:"polos", titulo:"Las dos caras del mundo", intro:"El mundo como voluntad y representación (1819): el mismo mundo visto desde fuera y desde dentro.", polos:{"izq":"representación","der":"voluntad"}, nota:"No son dos mundos, sino dos caras del mismo: lo que desde fuera es representación, desde dentro es voluntad.",
+     nodos:[
+      {a:"Objeto para un sujeto", b:"Lo que el mundo es en sí", d:"Como representación, todo existe para alguien que conoce; como voluntad, es lo que es independientemente de ser conocido: la cosa en sí."},
+      {a:"Espacio, tiempo y causalidad", b:"Sin fundamento ni meta", d:"La representación está ordenada por el principio de razón suficiente; la voluntad está fuera de él: no tiene un porqué ni un para qué final."},
+      {a:"Muchos individuos separados", b:"Una sola en todo", d:"El espacio y el tiempo multiplican los fenómenos; la voluntad es una e idéntica en la piedra, la planta, el animal y el ser humano."},
+      {a:"El cuerpo visto desde fuera", b:"El cuerpo sentido desde dentro", d:"El propio cuerpo es la puerta entre las dos caras: el mismo movimiento es objeto que se ve y querer que se siente."}]},
+    {tipo:"secuencia", titulo:"Del egoísmo a la negación de la voluntad", intro:"Libro IV: los grados en que el conocimiento atraviesa el velo de Maya.", nota:"El arte no está en esta línea: aquieta el querer solo mientras dura la contemplación. La secuencia es una presentación ordenada del libro IV, no una escalera que Schopenhauer numere.",
+     nodos:[
+      {t:"Egoísmo", d:"Preso del principio de individuación, el individuo se cree separado y trata a los demás como medios u obstáculos para su voluntad."},
+      {t:"Justicia", d:"Primer grado de ver a través del velo: no afirmar la propia voluntad hasta negar la ajena; no dañar a nadie."},
+      {t:"Compasión y caridad", d:"Sentir el dolor ajeno como propio y ayudar a todos cuanto se pueda: el único fundamento de las acciones con valor moral."},
+      {t:"Ascesis", d:"Quien ve el sufrimiento de todos como suyo ya no afirma la vida: castidad, pobreza, aceptación del dolor."},
+      {t:"Negación de la voluntad", d:"La voluntad se da vuelta y se apaga; para quien todavía quiere, lo que queda es nada, y para quien llegó, este mundo es nada."}]}
+  ],
   kierkegaard: [
     {tipo:"niveles", titulo:"Los tres estadios de la existencia", intro:"O lo uno o lo otro, Estadios en el camino de la vida y el Postscriptum: tres maneras de vivir, de la más alta a la más inmediata.", eje:"se pasa por un salto, no por necesidad", nota:"Kierkegaard no los presenta como etapas obligatorias: muchos viven toda la vida en el estadio estético. Entre ellos sitúa zonas de transición, la ironía y el humor; ordenarlos como escalera es una simplificación.",
      nodos:[
@@ -366,6 +397,21 @@ const DIAGRAMAS = {
       {a:"Bueno y malo (schlecht)", b:"Malvado (böse) y bueno", d:"Para el señor, malo es lo bajo y fallido; el esclavo construye primero al malvado, que es el noble visto con miedo y odio."},
       {a:"Lo malo es derivado", b:"Lo bueno es derivado", d:"En una, lo malo es un concepto posterior y casi indiferente; en la otra, el bueno se deduce después como lo contrario del malvado: manso, humilde, paciente."},
       {a:"Reacción que se descarga", b:"Ressentiment creador", d:"Quien puede responder con actos agota su reacción; quien no puede, responde con una venganza imaginaria que se vuelve creadora de valores."}]}
+  ],
+  husserl: [
+    {tipo:"secuencia", titulo:"El camino del método fenomenológico", intro:"Cómo se pasa, según Ideas I y las Meditaciones cartesianas, de la vida ingenua a la descripción de esencias.", nota:"El orden en pasos es una simplificación didáctica: Husserl presentó varios caminos hacia la reducción y la reelaboró toda su vida.",
+     nodos:[
+      {t:"Actitud natural", d:"Vivimos creyendo, sin advertirlo, que el mundo está ahí y que somos parte de él. Es la condición de la vida práctica y de las ciencias."},
+      {t:"Epojé: poner entre paréntesis", d:"Se deja de usar esa creencia como punto de partida, sin negarla ni dudar de ella, para mirar cómo se da el mundo."},
+      {t:"Reducción a la conciencia", d:"La mirada se reconduce de las cosas a la conciencia en que aparecen: el campo de la subjetividad trascendental."},
+      {t:"Descripción intencional", d:"Se describe cada vivencia en sus dos polos, el acto (nóesis) y lo mentado tal como es mentado (nóema)."},
+      {t:"Variación eidética", d:"Variando libremente un ejemplo en la imaginación se busca lo invariable: la esencia de ese tipo de experiencia."}]},
+    {tipo:"capas", titulo:"Lo que la ciencia olvidó", intro:"La crisis de las ciencias europeas: del mundo de la vida, en el centro, a las construcciones que se apoyan en él.", nota:"La disposición en capas interpreta la tesis de Husserl sobre Galileo (Crisis, §9); él no la presenta como esquema.",
+     nodos:[
+      {t:"Mundo de la vida", d:"El mundo vivido antes de cualquier teoría: cosas con colores y olores, otros, usos y proyectos. Es el suelo de todo sentido."},
+      {t:"Idealización geométrica", d:"Las formas imprecisas de las cosas se reemplazan por figuras ideales, exactas, que la práctica de medir hizo posibles."},
+      {t:"Física matemática", d:"Galileo extiende la idealización a toda la naturaleza: el mundo se vuelve un sistema de magnitudes medibles, un ropaje de ideas."},
+      {t:"Ciencias de meros hechos", d:"La técnica funciona, pero toma el ropaje por la realidad y olvida de dónde recibe su sentido: esa es la crisis."}]}
   ],
   heidegger: [
     {tipo:"partes", titulo:"La muerte como posibilidad", intro:"Ser y tiempo: los rasgos con que Heidegger define la muerte como posibilidad del Dasein, no como suceso final.", centro:"Ser-para-la-muerte",
@@ -436,6 +482,20 @@ const DIAGRAMAS = {
       {t:"Angustia", d:"La conciencia de que, al elegir, elijo una imagen del ser humano: soy legislador para toda la humanidad, sin que nadie me garantice que elijo bien."},
       {t:"Desamparo", d:"Si Dios no existe, no hay valores escritos en ningún cielo ni signos que decidan por mí; hasta el consejero lo elijo yo."},
       {t:"Desesperación", d:"Solo cuento con lo que depende de mi voluntad: actúo sin esperar que otros o la historia aseguren el resultado."}]}
+  ],
+  frankfurt: [
+    {tipo:"ciclo", titulo:"La dialéctica de la Ilustración", intro:"Dialéctica de la Ilustración (1947): cómo la razón que libera del mito termina recayendo en él.", nota:"El esquema en pasos es una reconstrucción didáctica; Horkheimer y Adorno escriben en fragmentos y rechazan presentar la historia como un mecanismo necesario.",
+     nodos:[
+      {t:"El mito ya quiere explicar", d:"Los mitos ya narran, nombran y quieren controlar el mundo: en ellos empieza la ilustración."},
+      {t:"Liberarse del miedo", d:"La Ilustración, en sentido amplio, quiere quitar el miedo a los seres humanos y hacerlos señores de la naturaleza por el conocimiento."},
+      {t:"Todo se vuelve calculable", d:"Para dominar la naturaleza, el pensamiento la reduce a lo medible e intercambiable; lo que no entra en el cálculo deja de contar."},
+      {t:"Dominio sobre las personas", d:"El dominio sobre la naturaleza exterior se vuelve dominio sobre la naturaleza interior y sobre otros seres humanos, administrados como cosas."},
+      {t:"Recaída en mitología", d:"Lo dado se acepta como destino y la razón sirve a cualquier fin, también a la barbarie. Solo una Ilustración que reflexiona sobre sí misma rompe el ciclo."}]},
+    {tipo:"polos", titulo:"Dos maneras de coordinar la acción", intro:"Habermas, Teoría de la acción comunicativa (1981): la razón no se reduce al cálculo de medios.", polos:{"izq":"acción estratégica","der":"acción comunicativa"}, nota:"En la vida real las dos se mezclan; la distinción es un criterio para analizar, no una clasificación de personas.",
+     nodos:[
+      {a:"Busca el propio éxito", b:"Busca entenderse con el otro", d:"En la acción estratégica el otro es un medio para mis fines; en la comunicativa es alguien con quien busco un acuerdo."},
+      {a:"Influye con amenazas o incentivos", b:"Convence con razones criticables", d:"La estratégica actúa sobre el otro; la comunicativa eleva pretensiones de verdad, corrección y sinceridad que el otro puede rechazar."},
+      {a:"Coordina por dinero y poder", b:"Reproduce el mundo de la vida", d:"Los sistemas coordinan sin entenderse, y eso es eficaz; la patología es que colonicen la educación, la familia o la opinión pública."}]}
   ],
   beauvoir: [
     {tipo:"polos", titulo:"El Sujeto y lo Otro", intro:"El segundo sexo (1949): la oposición no recíproca con que, según Beauvoir, se construyó la relación entre los sexos.", polos:{"izq":"el hombre como Sujeto","der":"la mujer como lo Otro"}, nota:"No describe una naturaleza sino una situación construida históricamente; el horizonte de Beauvoir es la reciprocidad entre dos libertades.",
