@@ -810,3 +810,5 @@ footer{font-family:var(--font-ui);}
 .obracard h3{margin:2px 0 8px;font-size:1.25rem;}
 .obradesc p{margin:0 0 10px;line-height:1.65;}
 @media (max-width:560px){ .obracard{grid-template-columns:1fr;} .obranum{display:none;} }
+.obrafrag{margin:0 0 12px;padding:10px 14px;border-left:3px solid var(--tclr,var(--accent));background:var(--tsoft,var(--accent-soft));border-radius:0 10px 10px 0;font-family:var(--font-body);font-style:italic;line-height:1.55;}
+.obrafrag cite{display:block;margin-top:6px;font-style:normal;font-family:var(--font-ui);font-size:.78rem;color:var(--ink-faint);}
