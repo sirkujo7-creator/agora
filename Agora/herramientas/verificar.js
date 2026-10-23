@@ -38,8 +38,8 @@ for (const trad of fs.readdirSync(dirMod)) for (const f of fs.readdirSync(path.j
 if (errores.length) fin();
 
 const ctx = {}; vm.createContext(ctx);
-vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, DIAGRAMAS: typeof DIAGRAMAS==='undefined' ? null : DIAGRAMAS, TEXTOS: typeof TEXTOS==='undefined' ? null : TEXTOS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS, CORRIENTES: typeof CORRIENTES==='undefined' ? null : CORRIENTES};", ctx);
-const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, VIDAS, DIAGRAMAS, TEXTOS, EXAMEN_FINAL, CLAVES, TERMINOS, CORRIENTES } = ctx.__d;
+vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, DIAGRAMAS: typeof DIAGRAMAS==='undefined' ? null : DIAGRAMAS, TEXTOS: typeof TEXTOS==='undefined' ? null : TEXTOS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS, CORRIENTES: typeof CORRIENTES==='undefined' ? null : CORRIENTES, REPASO: typeof REPASO==='undefined' ? null : REPASO};", ctx);
+const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, VIDAS, DIAGRAMAS, TEXTOS, EXAMEN_FINAL, CLAVES, TERMINOS, CORRIENTES, REPASO } = ctx.__d;
 
 const ids = new Set();
 for (const m of MODULES) {
@@ -260,6 +260,17 @@ if (CORRIENTES) {
   const sinCorr = MODULES.filter(m => m.trad !== "metodo" && !CORRIENTES.some(c => c.autores.some(a => a.mod === m.id))).map(m => m.id);
   if (sinCorr.length) aviso(`fichas que no están en ninguna corriente: ${sinCorr.join(", ")}`);
 }
+
+// Banco del Repaso (datos/repaso.js): preguntas solo del autor, 4 opciones, sin referencias a la posición.
+if (REPASO) Object.entries(REPASO).forEach(([id, qs]) => {
+  if (!ids.has(id)) err(`REPASO.${id}: no hay ficha con ese id`);
+  qs.forEach((q, i) => {
+    const donde = `REPASO.${id}[${i}]`;
+    if (!q.pregunta || !Array.isArray(q.opciones) || q.opciones.length !== 4 || !Number.isInteger(q.correcta) || q.correcta < 0 || q.correcta > 3 || !q.explicacion) err(`${donde}: forma inválida`);
+    if (/\b[Ll]a (primera|segunda|tercera|cuarta|última) (opción|es)\b/.test(q.explicacion || "")) err(`${donde}: la explicación nombra una opción por su posición`);
+    if (new Set(q.opciones).size !== 4) err(`${donde}: opciones repetidas`);
+  });
+});
 
 const conEj = MODULES.filter(m => m.cadena && (m.reconstruccion || []).length && (m.dilemas || []).length).map(m => m.id);
 console.log(`Fichas: ${MODULES.length} · con los 3 ejercicios avanzados: ${conEj.length}`);

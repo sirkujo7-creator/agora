@@ -6,7 +6,7 @@ const J=x=>JSON.stringify(x);
 let html=fs.readFileSync("index.html","utf8");
 const x={};vm.createContext(x);
 let c="";for(const m of html.matchAll(/<script src="(datos[^"]+)"/g))c+=fs.readFileSync(m[1],"utf8")+"\n";
-vm.runInContext(c+";globalThis.D={TERMINOS,CLAVES,VIDAS,DIAGRAMAS,TEXTOS,EXAMEN_FINAL}",x);
+vm.runInContext(c+";globalThis.D={TERMINOS,CLAVES,VIDAS,DIAGRAMAS,TEXTOS,EXAMEN_FINAL,REPASO:typeof REPASO==='undefined'?{}:REPASO}",x);
 const D=x.D;
 const cab=(f,v)=>{const s=fs.readFileSync(f,"utf8");return s.slice(0,s.indexOf("const "+v));};
 for(const [id,trad,antes] of specs){
@@ -18,7 +18,9 @@ for(const [id,trad,antes] of specs){
       else { const met=html.match(/<script src="datos\/modulos\/metodo\/[a-z]+\.js"><\/script>/); html=html.replace(met[0],tag+"\n"+met[0]); } }   // tradición nueva: antes de las fichas de método
     else { const ref=html.match(new RegExp(`<script src="datos/modulos/[a-z]+/${antes}\\.js"></script>`)); if(!ref) throw "no encuentro "+antes; html=html.replace(ref[0],tag+"\n"+ref[0]); }
   }
-  D.TERMINOS[id]=X.terminos; D.CLAVES[id]=X.claves; D.VIDAS[id]=X.vida; D.DIAGRAMAS[id]=X.diagramas; if((X.textos||[]).length) D.TEXTOS[id]=X.textos;
+  D.TERMINOS[id]=X.terminos; D.CLAVES[id]=X.claves; if(X.vida) D.VIDAS[id]=X.vida; D.DIAGRAMAS[id]=X.diagramas; if((X.textos||[]).length) D.TEXTOS[id]=X.textos;
+  if((X.repaso||[]).length) D.REPASO[id]=X.repaso;
+  X.examen=X.examen||{};
   const E=D.EXAMEN_FINAL; const ya=q=>JSON.stringify(q);
   (X.examen.seleccion||[]).forEach(q=>{ if(!E.seleccion.some(z=>ya(z)===ya(q))) E.seleccion.push(q); });
   (X.examen.vf||[]).forEach(q=>{ if(!E.vf.some(z=>ya(z)===ya(q))) E.vf.push(q); });
@@ -68,4 +70,5 @@ for(const [id] of specs){
   }
 }
 fs.writeFileSync("datos/corrientes.js",cr);
+fs.writeFileSync("datos/repaso.js",cab("datos/repaso.js","REPASO")+"const REPASO = {\n"+porOrden(D.REPASO).map(id=>`  ${id}: [\n`+D.REPASO[id].map(q=>"    "+J(q)).join(",\n")+"\n  ],\n").join("")+"};\n");
 console.log("integradas:",specs.map(s=>s[0]).join(", "));

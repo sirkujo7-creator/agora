@@ -8,9 +8,9 @@ MODULES.forEach(m=>{ const L = LECTURAS[m.id]; if(L){ m.lecturas = L.lecturas; m
    opcionales, así que un progreso viejo se lee sin migrar (arrancan vacíos).
    - respuestas["<id>:preguntas:<i>" | "<id>:actividades:<i>"] = {texto, visto?, eval?, claves?}
    - repaso["<id>:conceptos:<i>" | "<id>:obras:<i>"] = {caja:0-5, prox:"AAAA-MM-DD"} */
-function defaultProgress(){ return { conceptDone:{}, obraDone:{}, examHistory:[], streak:{last:null,count:0}, moduleQuiz:{}, respuestas:{}, repaso:{} }; }
+function defaultProgress(){ return { conceptDone:{}, obraDone:{}, examHistory:[], streak:{last:null,count:0}, moduleQuiz:{}, respuestas:{}, repaso:{}, rev:{} }; }
 let progress = defaultProgress();
-let currentModule = null, currentDetTab = "panorama";
+let currentModule = null, currentDetTab = "vida";
 let flashIndex = 0, flashDeck = [], flashKind = "conceptos", flashTarget = "#detBody", flashGlobal = false;
 let matchState = null;
 let examState = null;
@@ -70,6 +70,9 @@ function sanitizeProgress(raw){
         p.repaso[k] = { caja:v.caja, prox:v.prox };
     });
   }
+  if(isPlainObj(raw.rev)){
+    Object.entries(raw.rev).forEach(([k,v])=>{ if(Number.isInteger(v) && v>0) p.rev[k] = v; });
+  }
   if(isPlainObj(raw.streak)){
     p.streak.last = (typeof raw.streak.last==="string" && /^\d{4}-\d{2}-\d{2}$/.test(raw.streak.last)) ? raw.streak.last : null;
     p.streak.count = (Number.isInteger(raw.streak.count) && raw.streak.count>0) ? raw.streak.count : 0;
@@ -88,6 +91,19 @@ function loadProgress(){
     /* Guardamos una copia de lo ilegible por si hiciera falta recuperarlo a mano. */
     try{ localStorage.setItem(STORAGE_KEY+"-corrupt-backup", raw); }catch(e2){}
   }
+}
+/* Cuando el contenido de una ficha se reescribe (conceptos, preguntas), la ficha sube su `rev`
+   y el progreso guardado con los índices viejos se borra: si no, apuntaría a otras tarjetas. */
+function aplicarRevisiones(){
+  let cambio = false;
+  MODULES.forEach(m=>{
+    if(!m.rev || progress.rev[m.id] === m.rev) return;
+    const pref = m.id+":";
+    ["conceptDone","obraDone","respuestas","repaso"].forEach(k=>Object.keys(progress[k]).forEach(key=>{ if(key.startsWith(pref)) delete progress[k][key]; }));
+    delete progress.moduleQuiz[m.id];
+    progress.rev[m.id] = m.rev; cambio = true;
+  });
+  if(cambio) saveProgress();
 }
 function saveProgress(){
   try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); saveFailed = false; }
@@ -279,21 +295,23 @@ function renderModuleCards(){
    recorrerlos: primero se estudia, después se practica el reconocimiento y al final
    se piensa y se escribe. Solo se muestran las pestañas del grupo activo. */
 const DET_GRUPOS = [
-  { id:"estudiar",  label:"1 · Estudiar",  tabs:[["panorama","Panorama"],["vida","Vida y contexto"],["conceptos","Conceptos"],["diagramas","Diagramas"],["obras","Obras"],["lecturas","Lecturas"],["dialogo","Diálogo"]] },
-  { id:"practicar", label:"2 · Practicar", tabs:[["repaso","Repaso mixto"],["emparejar","Emparejar"],["cuestionario","Cuestionario final"]] },
-  { id:"pensar",    label:"3 · Pensar",    tabs:[["preguntas","Preguntas"],["razonamiento","Razonamiento"],["argumentos","Argumentos"],["dilema","Dilema"],["actividades","Escribir"]] }
+  { id:"estudiar",  label:"1 · Estudiar",  tabs:[["vida","Vida y contexto"],["conceptos","Conceptos"],["obras","Obras"],["lecturas","Lecturas"],["diagramas","Diagrama"],["dialogo","Diálogo"]] },
+  { id:"practicar", label:"2 · Practicar", tabs:[["repaso","Repaso"],["emparejar","Emparejar"]] },
+  { id:"pensar",    label:"3 · Pensar",    tabs:[["preguntas","Preguntas"],["argumentos","Argumentos"],["dilema","Dilema"]] }
 ];
 const DET_RENDER = {
-  panorama:()=>renderPanorama(), vida:()=>renderVida(), diagramas:()=>{ diagIdx = 0; renderDiagramas(); }, conceptos:()=>renderFlashcards("conceptos"), obras:()=>renderObras(),
+  panorama:()=>{ currentDetTab = "vida"; renderDetTab(); }, vida:()=>renderVida(), diagramas:()=>{ diagIdx = 0; renderDiagramas(); }, conceptos:()=>renderFlashcards("conceptos"), obras:()=>renderObras(),
   lecturas:()=>renderLecturas(), dialogo:()=>renderDialogue(),
-  repaso:()=>renderRepasoMixto(), emparejar:()=>renderMatching(), cuestionario:()=>renderModuleQuiz(),
-  preguntas:()=>renderPreguntas(), razonamiento:()=>renderCadena(), argumentos:()=>renderReconstruccion(),
-  dilema:()=>renderDilema(), actividades:()=>renderActivities()
+  repaso:()=>renderRepasoMixto(), emparejar:()=>renderMatching(),
+  preguntas:()=>renderPreguntas(), argumentos:()=>renderReconstruccion(), dilema:()=>renderDilema(),
+  // pestañas retiradas (pedido de Juan): sus enlaces viejos llevan a la que las reemplaza
+  cuestionario:()=>{ currentDetTab = "repaso"; renderDetTab(); }, razonamiento:()=>{ currentDetTab = "argumentos"; renderDetTab(); },
+  actividades:()=>{ currentDetTab = "preguntas"; renderDetTab(); }
 };
 function grupoDe(tab){ return DET_GRUPOS.find(g=>g.tabs.some(([k])=>k===tab)) || DET_GRUPOS[0]; }
 function openModule(id, tab){
   currentModule = moduleById(id);
-  currentDetTab = DET_RENDER[tab] ? tab : "panorama";
+  currentDetTab = DET_RENDER[tab] ? tab : "vida";
   const m = currentModule, partes = m.fechas.split("·").map(x=>x.trim());
   $("#view-detalle").setAttribute("style", varsTrad(m));
   $("#detHero").innerHTML = `<div class="dethero pat-${clrDe(m)}">${monograma(m,"grande")}
@@ -305,7 +323,7 @@ function setDetTab(k){ currentDetTab = k; renderDetTab(); }
 function setDetGrupo(g){ setDetTab(DET_GRUPOS.find(x=>x.id===g).tabs[0][0]); }
 function renderDetTabs(){
   const g = grupoDe(currentDetTab);
-  const SUB = { estudiar:"panorama, conceptos, obras, lecturas", practicar:"repaso, emparejar, cuestionario", pensar:"preguntas, razonamiento, dilema" };
+  const SUB = { estudiar:"vida, conceptos, obras, lecturas", practicar:"repaso y emparejar", pensar:"preguntas, argumentos, dilema" };
   $("#detTabs").innerHTML = `
     <div class="grouptabs" role="tablist">${DET_GRUPOS.map(x=>`<button class="${x.id===g.id?'active':''}" aria-pressed="${x.id===g.id}" onclick="setDetGrupo('${x.id}')"><b>${x.label}</b><small>${SUB[x.id]}</small></button>`).join("")}</div>
     <div class="subtabs">${g.tabs.map(([k,l])=>`<button data-dt="${k}" class="${k===currentDetTab?'active':''}" onclick="setDetTab('${k}')">${l}</button>`).join("")}</div>`;
@@ -317,7 +335,8 @@ function renderDetTab(){
 }
 
 /* --- Panorama: tesis, conexión y la ruta sugerida con el avance en esta ficha --- */
-function renderPanorama(){
+function renderPanorama(){ renderVida(); }
+function panoramaHTML(){
   const d = currentModule;
   if(reinicioFicha && reinicioFicha !== d.id) reinicioFicha = null;
   const clr = LEVELS[d.trad].clr;
@@ -327,12 +346,12 @@ function renderPanorama(){
   const resp = getQuiz(d).filter((_,i)=>palabras((progress.respuestas[d.id+":preguntas:"+i]||{}).texto)>0).length;
   const quiz = progress.moduleQuiz[d.id];
   const hoy = mazoFicha(d, "conceptos").filter(c=>srsVence(c)).length;
-  const avanzados = ["cadena","reconstruccion","dilemas"].filter(k=>d[k] && (!Array.isArray(d[k]) || d[k].length)).length;
+  const avanzados = ["reconstruccion","dilemas"].filter(k=>d[k] && (!Array.isArray(d[k]) || d[k].length)).length;
   let nPaso = 0; const sig = ()=>++nPaso;   // los pasos se numeran solos (Vida y contexto puede faltar)
   const paso = (n, titulo, detalle, tab, hecho)=>`
     <li class="rutapaso${hecho?' hecho':''}"><span class="rutanum">${hecho?'✓':n}</span>
       <div><button class="linkbtn" onclick="setDetTab('${tab}')">${titulo}</button><div class="rutadet">${detalle}</div></div></li>`;
-  $("#detBody").innerHTML = `
+  return `
     <div class="panocols">
       <div>
         <div class="kicker">Tesis central</div>
@@ -343,13 +362,12 @@ function renderPanorama(){
       <aside class="margen">
         <div class="kicker">Tu ruta en esta ficha</div>
         <ol class="ruta">
-          ${vidaDe(d)?paso(sig(),"Vida y contexto","Quién fue, en qué mundo pensó y por qué piensa así.","vida", false):''}
-          ${paso(sig(),"Lecturas","Fuente o comentario, con su nota de lectura.","lecturas", false)}
-          ${paso(sig(),"Conceptos y obras",`${domC}/${d.conceptos.length} conceptos · ${domO}/${d.obras.length} obras leídas${hoy?` · <b>${hoy} para hoy</b>`:''}`,"conceptos", domC===d.conceptos.length && domO===d.obras.length && !hoy)}
-          ${paso(sig(),"Diálogo","Las objeciones fuertes y las respuestas.","dialogo", false)}
-          ${paso(sig(),"Practicar",quiz!=null?`Último cuestionario: ${quiz} %`:"Repaso mixto, emparejar y cuestionario.","repaso", quiz!=null && quiz>=70)}
+          ${paso(sig(),"Conceptos",`${domC}/${d.conceptos.length} dominados${hoy?` · <b>${hoy} para hoy</b>`:''}`,"conceptos", domC===d.conceptos.length && !hoy)}
+          ${paso(sig(),"Obras y lecturas",`${domO}/${d.obras.length} obras leídas`,"obras", domO===d.obras.length)}
+          ${paso(sig(),"Diálogo","Las objeciones fuertes, llevadas a la vida real.","dialogo", false)}
+          ${paso(sig(),"Repaso",quiz!=null?`Último repaso: ${quiz} %`:"Preguntas solo de este autor, y emparejar.","repaso", quiz!=null && quiz>=70)}
           ${paso(sig(),"Preguntas",`${resp}/${nPreg} respondidas por escrito`,"preguntas", nPreg>0 && resp===nPreg)}
-          ${paso(sig(),"Pensar",avanzados?"Razonamiento, argumentos y dilema.":"Ejercicios todavía no disponibles.","razonamiento", false)}
+          ${paso(sig(),"Argumentos y dilema",avanzados?"Reconstruir su argumento y decidir en un caso real.":"Ejercicios todavía no disponibles.","argumentos", false)}
         </ol>
         <button class="linkbtn reset" onclick="reiniciarFicha('${d.id}')">${reinicioFicha===d.id?'¿Seguro? Se borra lo de esta ficha (tarjetas, repasos, cuestionario y lo escrito). Tocá de nuevo para confirmar.':'Reiniciar el progreso de esta ficha'}</button>
       </aside>
@@ -363,10 +381,10 @@ function vidaDe(d){ return (typeof VIDAS !== "undefined" && VIDAS[d.id]) || null
 function parrafos(t){ return String(t).split(/\n\s*\n/).map(x=>`<p>${x.trim()}</p>`).join(""); }
 function renderVida(){
   const d = currentModule, v = vidaDe(d);
-  if(!v){ $("#detBody").innerHTML = `<div class="lecnote">Esta ficha no tiene biografía: es un taller de método, no un autor.</div>`; return; }
+  if(!v){ $("#detBody").innerHTML = panoramaHTML(); return; }
   const ultima = v.secciones.length-1;
-  $("#detBody").innerHTML = `
-    <div class="vida">
+  $("#detBody").innerHTML = panoramaHTML() + `
+    <div class="vida" style="margin-top:22px;">
       <p class="vidalema">${v.lema}</p>
       <section class="cinta" aria-label="Línea de tiempo">
         <div class="cintahead">
@@ -440,6 +458,7 @@ function renderObras(){
         <div class="obranum">${i+1}</div>
         <div class="obracuerpo">
           <h3>${o.t}</h3>
+          ${o.frag?`<blockquote class="obrafrag">${o.frag}${o.fuente?`<cite>${o.fuente}</cite>`:''}</blockquote>`:''}
           <div class="obradesc">${parrafos(o.d)}</div>
           <button class="chip ${leidas.has(i)?'active':''}" aria-pressed="${leidas.has(i)}" onclick="marcarObra(${i})">${leidas.has(i)?'✓ Leída':'Marcar como leída'}</button>
         </div>
@@ -689,9 +708,14 @@ function autoDialogue(d){
   });
   return { titulo:"Conversación a partir del cuestionario", lineas };
 }
+let dialogoIdx = 0;
+function dialogosDe(m){ return [m.dialogo, ...(m.dialogos||[])].filter(Boolean); }
 function renderDialogue(){
-  const dlg = currentModule.dialogo || autoDialogue(currentModule);
+  const todos = dialogosDe(currentModule);
+  if(dialogoIdx >= todos.length) dialogoIdx = 0;
+  const dlg = todos[dialogoIdx] || autoDialogue(currentModule);
   $("#detBody").innerHTML = `
+    ${todos.length>1?`<div class="chiprow" role="group" aria-label="Elegí un diálogo">${todos.map((x,i)=>`<button class="chip ${i===dialogoIdx?'active':''}" aria-pressed="${i===dialogoIdx}" onclick="dialogoIdx=${i}; renderDialogue();">${escapeHtml(x.titulo)}</button>`).join("")}</div>`:''}
     <h4 style="margin-bottom:10px;">${dlg.titulo}</h4>
     <div id="diagLines">
       ${dlg.lineas.map(l=>`
@@ -889,6 +913,8 @@ function distractorTiers(mod, kind, item, opts){
   const modo = opts.modo || "mcq";
   const correctT = item ? item.t : null;
   let otros = MODULES.filter(m=>m.id!==mod.id && !mismaEscuela(mod,m));
+  // «anteriores»: solo autores ya estudiados en un recorrido cronológico (época anterior)
+  if(opts.anteriores) otros = otros.filter(m=>typeof EPOCA!=="undefined" && EPOCA[m.id]!=null && EPOCA[mod.id]!=null && EPOCA[m.id] < EPOCA[mod.id]);
   if(modo==="autoria" && mod.trad!=="metodo") otros = otros.filter(m=>m.trad!=="metodo");
   let ref;
   if(modo==="autoria") ref = { titles:[...(mod.conceptos||[]), ...(mod.obras||[])].map(x=>x.t), text:textoFicha(mod) };
@@ -1199,13 +1225,30 @@ let miniState = null;
 let repState = null;
 function otherModules(mod){ return MODULES.filter(m=>m.id!==mod.id); }
 function pickFrom(arr,n){ return shuffle(arr.slice()).slice(0,n); }
+/* Repaso de la ficha (pedido de Juan): solo preguntas sobre ESTE autor, escritas a mano y
+   exigentes, sin enunciados con huecos. Fuentes, en orden: el banco REPASO.<id> (datos/repaso.js),
+   las preguntas del examen final que tratan solo de esta ficha, las de las lecturas y las de los
+   textos. Además, a lo sumo un «intruso», pero solo con autores ANTERIORES (que ya se estudiaron). */
+const REPASO_N = 10;
+function preguntasPropias(d){
+  const sel = q=>({ tipo:"🎯 Pregunta", prompt:`${q.situacion?`<div class="muted" style="margin-bottom:8px;">${q.situacion}</div>`:''}${q.pregunta||q.q}`,
+    options:q.opciones.slice(), answer: q.r!==undefined ? q.r : q.opciones[q.correcta], why:q.explicacion||q.why||"" });
+  const banco = (typeof REPASO!=="undefined" && REPASO[d.id]) ? REPASO[d.id].map(sel) : [];
+  const solo = q=>Array.isArray(q.fichas) && q.fichas.length===1 && q.fichas[0]===d.id;
+  const ex = typeof EXAMEN_FINAL!=="undefined" ? EXAMEN_FINAL : {seleccion:[],vf:[]};
+  const exSel = ex.seleccion.filter(solo).map(sel);
+  const exVf = ex.vf.filter(solo).map(q=>({ tipo:"⚡ Verdadero o falso", prompt:q.afirmacion, options:["Verdadero","Falso"], answer:q.verdadero?"Verdadero":"Falso", why:q.explicacion }));
+  const lec = (d.preguntasLectura||[]).map(q=>({...sel(q), tipo:"📖 Lectura"}));
+  const tex = textosDe(d).flatMap(t=>(t.preguntas||[]).map(q=>({...sel(q), tipo:"📜 Texto"})));
+  return { banco, otras:[...exSel, ...exVf, ...lec, ...tex] };
+}
 function buildRepasoItems(d){
-  const mc = buildMCItems(d).slice(0,4).map(q=>({ tipo:"🎯 Identificá", prompt:q.prompt, options:q.options, answer:q.answer, why:q.why }));
-  const tf = buildTFItems(d).slice(0,4).map(q=>({ tipo:"⚡ Verdadero o falso", prompt:q.texto, options:["Verdadero","Falso"], answer:q.verdadero?"Verdadero":"Falso", why:q.why }));
-  const intr = buildIntrusoItems(d).slice(0,2).map(q=>({ tipo:"🕵️ El intruso",
-    prompt:`Tres de ${q.etiqueta==='obras'?'estas obras':'estos conceptos'} están en la ficha de ${d.nombre}. ¿Cuál viene de otra ficha? (Suele ser de un autor cercano.)`,
+  const { banco, otras } = preguntasPropias(d);
+  const intr = buildIntrusoItems(d, {anteriores:true}).slice(0,1).map(q=>({ tipo:"🕵️ El intruso",
+    prompt:`Tres de ${q.etiqueta==='obras'?'estas obras':'estos conceptos'} son de ${d.nombre}. ¿Cuál es de un autor que estudiaste antes?`,
     options:q.opciones.map(o=>o.txt), answer:q.opciones.find(o=>o.malo).txt, why:q.why }));
-  return shuffle([...mc, ...tf, ...intr]);
+  const base = [...shuffle(banco), ...shuffle(otras)].slice(0, REPASO_N - intr.length);
+  return shuffle([...base, ...intr]);
 }
 function renderRepasoMixto(){
   repState = { items:buildRepasoItems(currentModule), i:0, ok:0, respondida:false };
@@ -1216,9 +1259,10 @@ function drawRepaso(){
   if(!st.items.length){ box.innerHTML = `<div class="lecnote">No hay suficiente material en esta ficha para armar un repaso.</div>`; return; }
   if(st.i >= st.items.length){
     box.innerHTML = `<div class="qcard center"><div class="resultbig">${st.ok}/${st.items.length}</div>
-      <p class="muted">Este repaso no se guarda: es para practicar. El que cuenta es el <b>Cuestionario final</b>.</p>
+      <p class="muted">Queda guardado como el puntaje de esta ficha (${Math.round(100*st.ok/st.items.length)} %).</p>
       <button class="btn" onclick="renderRepasoMixto()">↺ Otra ronda</button>
-      <button class="btn ghost" onclick="setDetTab('cuestionario')">Ir al cuestionario final</button></div>`;
+      <button class="btn ghost" onclick="setDetTab('emparejar')">Ir a emparejar</button></div>`;
+    if(!st.guardado){ st.guardado = true; progress.moduleQuiz[currentModule.id] = Math.round(100*st.ok/st.items.length); saveProgress(); renderModuleCards(); }
     return;
   }
   const q = st.items[st.i];
@@ -1226,7 +1270,7 @@ function drawRepaso(){
     <div class="qhead"><span>${q.tipo} · ${st.i+1} / ${st.items.length}</span><span>✅ ${st.ok}</span></div>
     <div class="qcard">
       <div class="prompt" style="margin-bottom:14px;">${q.prompt}</div>
-      <div class="optrow" id="repOpts">${q.options.map((o,ix)=>`<button class="optbtn" data-ix="${ix}" onclick="answerRepaso(${ix})">${escapeHtml(o)}</button>`).join("")}</div>
+      <div class="optrow" id="repOpts">${q.options.map((o,ix)=>`<button class="optbtn" data-ix="${ix}" onclick="answerRepaso(${ix})">${o}</button>`).join("")}</div>
       <div class="gfeedback" id="repFb" aria-live="polite"></div>
     </div>`;
 }
@@ -1312,7 +1356,8 @@ function buildTFItems(d){
 /* (c) Intruso: 3 elementos de esta ficha + 1 ajeno.
    El intruso ya no es uno cualquiera: es el concepto/obra de OTRO autor más parecido a los
    tres de la ronda (primero de la misma tradición), sin repetir intrusos entre rondas. */
-function buildIntrusoItems(d){
+function buildIntrusoItems(d, opts){
+  opts = opts || {};
   const items = [];
   const usados = new Set();
   const mkRound = (kind, etiqueta)=>{
@@ -1320,7 +1365,7 @@ function buildIntrusoItems(d){
     if(propios.length < 3) return null;
     const tres = pickFrom(propios,3);
     const target = { t:tres.map(x=>x.t).join(" "), d:tres.map(x=>x.d).join(" ") };
-    const tiers = distractorTiers(d, kind, null, {maxSame:0, modo:"autoria"})
+    const tiers = distractorTiers(d, kind, null, {maxSame:0, modo:"autoria", anteriores:opts.anteriores})
       .map(tier=>tier.filter(x=>!usados.has(x.t) && !propios.some(p=>p.t===x.t)));
     const intruso = pickClosest(target, tiers, 1)[0];
     if(!intruso) return null;
@@ -2302,12 +2347,12 @@ function reiniciarTodo(){
 }
 let reinicioFicha = null;
 function reiniciarFicha(id){
-  if(reinicioFicha !== id){ reinicioFicha = id; renderPanorama(); return; }   // primer toque: pide confirmar
+  if(reinicioFicha !== id){ reinicioFicha = id; renderVida(); return; }   // primer toque: pide confirmar
   reinicioFicha = null;
   const pref = id+":";
   ["conceptDone","obraDone","respuestas","repaso"].forEach(k=>Object.keys(progress[k]).forEach(key=>{ if(key.startsWith(pref)) delete progress[k][key]; }));
   delete progress.moduleQuiz[id];
-  saveProgress(); refreshProgressUI(); renderPanorama();
+  saveProgress(); refreshProgressUI(); renderVida();
 }
 
 /* ============================= TIPS ============================= */
@@ -2364,6 +2409,7 @@ function renderProgressView(){
 /* ============================= INIT ============================= */
 function init(){
   loadProgress();   // síncrono: el progreso ya está en memoria antes del primer render
+  aplicarRevisiones();
   bumpStreak();     // cuenta la visita de hoy y guarda
   renderStorageNotice();
   renderStreak();   // también cuando hoy ya se había contado y bumpStreak() no guarda
