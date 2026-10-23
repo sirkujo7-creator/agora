@@ -211,7 +211,7 @@ else {
     if (!Array.isArray(c)) { err(`${m.id}: no tiene ideas clave en datos/claves.js`); return; }
     if (c.length !== n) err(`${m.id}: tiene ${c.length} listas de ideas clave para ${n} preguntas`);
     c.forEach((l, i) => {
-      if (!Array.isArray(l) || l.length < 3 || l.length > 4) err(`${m.id}: la pregunta ${i + 1} necesita entre 3 y 4 ideas clave`);
+      if (!Array.isArray(l) || l.length < 2 || l.length > 4) err(`${m.id}: la pregunta ${i + 1} necesita entre 2 y 4 ideas clave`);
       else if (l.some(x => typeof x !== "string" || !x.trim())) err(`${m.id}: la pregunta ${i + 1} tiene una idea clave vacía`);
     });
   });

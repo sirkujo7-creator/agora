@@ -9,12 +9,11 @@ const TERMINOS = {
   tales: [
     {k:"arché", tapar:["principio"]},
     {k:"physis", tapar:["naturaleza"]},
-    {q:"¿Qué tiene de verdadero y qué simplifica la fórmula «del mito al logos» aplicada a los milesios?"},
-    {q:"¿Qué principio propuso Tales, según Aristóteles, y qué razones le atribuye?"},
     {k:"ápeiron", tapar:["ilimitado","indeterminado","Anaximandro"]},
-    {q:"¿Qué dice el único fragmento conservado de Anaximandro y cómo suele interpretarse?"},
-    {q:"¿Qué principio propuso Anaxímenes y cómo explicaba que de él salieran cosas distintas?"},
-    {q:"¿Por qué se dice que Tales pensó que todo está lleno de dioses, y qué muestra eso sobre la materia para los milesios?"},
+    {k:"contrarios", tapar:["opuestos"]},
+    {k:"rarefacción", tapar:["condensación","enrarecido","condensado"]},
+    {k:"hilozoísmo", tapar:[]},
+    {k:"logos", tapar:["mito"]},
     {k:"doxografía", tapar:["doxógrafos"]}
   ],
   heraclito: [

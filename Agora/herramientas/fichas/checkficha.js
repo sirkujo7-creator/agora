@@ -34,7 +34,7 @@ if(extraPath){ let X; try{X=JSON.parse(fs.readFileSync(extraPath,"utf8"));}catch
   if(!Array.isArray(X.terminos)||X.terminos.length!==(m.conceptos||[]).length) e("terminos: uno por concepto");
   else X.terminos.forEach((t,i)=>{ if((typeof t.k==="string")===(typeof t.q==="string")) e(`terminos[${i}]: k o q`); if(t.k!==undefined&&!Array.isArray(t.tapar)) e(`terminos[${i}]: falta tapar`); if(t.q&&!/\?$/.test(t.q.trim())) e(`terminos[${i}]: q termina en ?`); });
   if(!Array.isArray(X.claves)||X.claves.length!==(m.cuestionario||[]).length) e("claves: una lista por pregunta");
-  else X.claves.forEach((l,i)=>{ if(!Array.isArray(l)||l.length<3||l.length>4) e(`claves[${i}]: 3-4`); });
+  else X.claves.forEach((l,i)=>{ if(!Array.isArray(l)||l.length<2||l.length>4) e(`claves[${i}]: 2-4`); });
   const v=X.vida; if(!REES || v) if(!v||!v.lema||!Array.isArray(v.secciones)||v.secciones.length<4||v.secciones.at(-1).titulo!=="Por qué piensa así"||!Array.isArray(v.hitos)||v.hitos.length<6) e("vida: lema, 4-5 secciones (última «Por qué piensa así»), 6-9 hitos");
   const TIP={ciclo:[3,6],partes:[3,6],niveles:[3,6],secuencia:[3,6],polos:[2,5],cuadrantes:[4,4],capas:[2,4]};
   if(!Array.isArray(X.diagramas)||X.diagramas.length<(BREVE?1:2)||X.diagramas.length>2) e(BREVE?"diagramas: 1 o 2":"diagramas: 2"); else X.diagramas.forEach((g,i)=>{ const r=TIP[g.tipo]; if(!r){e(`diagrama ${i}: tipo ${g.tipo}`);return;} const n=(g.nodos||[]).length; if(n<r[0]||n>r[1]) e(`diagrama ${i}: ${n} piezas`);

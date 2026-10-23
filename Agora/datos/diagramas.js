@@ -6,15 +6,9 @@ const DIAGRAMAS = {
   tales: [
     {tipo:"partes", titulo:"Tres respuestas a la pregunta por el principio", intro:"La misma pregunta —de qué está hecho todo y de dónde viene— recibió en Mileto tres respuestas, y cada una corrigió a la anterior.", centro:"Arché: ¿de dónde viene todo?", nota:"Presentar a los tres como maestro y discípulos viene de la tradición antigua, de Teofrasto a Diógenes Laercio; los vínculos personales no están documentados con certeza.",
      nodos:[
-      {t:"Agua (Tales)", d:"Según Aristóteles, Tales puso el agua como principio y sostuvo que la tierra descansa sobre ella; sus razones, conjeturadas por Aristóteles, son que el alimento y las semillas son húmedos."},
-      {t:"Ápeiron (Anaximandro)", d:"Lo ilimitado e indeterminado: el principio de los opuestos no puede ser uno de ellos, porque si fuera ilimitado habría destruido a su contrario."},
-      {t:"Aire (Anaxímenes)", d:"Un principio determinado que se transforma por condensación y rarefacción: enrarecido es fuego; condensado, viento, nube, agua, tierra y piedras."}]},
-    {tipo:"capas", titulo:"Cómo nos llegan los milesios", intro:"Del núcleo más seguro a la capa más legendaria: lo que sabemos de Tales, Anaximandro y Anaxímenes pasa por muchas manos.", nota:"La división es una simplificación: un mismo autor, como Diógenes Laercio, transmite en la misma página datos de cronógrafos, opiniones y leyendas.",
-     nodos:[
-      {t:"Fragmentos: palabras propias", d:"Lo que se cree dicho por el autor mismo. De Tales, nada seguro; de Anaximandro, una frase sobre la injusticia y el orden del tiempo; de Anaxímenes, quizás ninguna."},
-      {t:"Testimonios: Aristóteles y Teofrasto", d:"Informes del siglo IV a.C., dos siglos después de los milesios, hechos por lectores con una teoría propia, como la de las cuatro causas."},
-      {t:"Doxografía tardía", d:"Resúmenes copiados y abreviados durante siglos, de Aecio a Simplicio, que dependen sobre todo de la obra perdida de Teofrasto."},
-      {t:"Anécdotas y leyenda", d:"El eclipse, el pozo, las prensas de aceite, el trípode de los Siete Sabios: historias ejemplares sobre el sabio, que crecieron con el tiempo."}]}
+      {t:"Agua (Tales)", d:"Una sustancia que se ve y se toca, húmeda, que nutre a todo y de la que nacen las semillas; sobre ella descansaría la tierra. Las razones son una conjetura de Aristóteles."},
+      {t:"Ápeiron (Anaximandro)", d:"Ningún elemento, sino algo sin límites ni cualidades fijas: si el principio fuera uno de los contrarios, al ser ilimitado ya habría destruido a los demás."},
+      {t:"Aire (Anaxímenes)", d:"Vuelve a un elemento determinado, pero le agrega un mecanismo de cambio: enrarecido se hace fuego; condensado, viento, nube, agua, tierra y piedra."}]}
   ],
   heraclito: [
     {tipo:"ciclo", titulo:"Las transformaciones del fuego", intro:"DK 30, 31, 60 y 90: el fuego siempre vivo se convierte en mar y en tierra, y vuelve a ser fuego, según medidas.", nota:"El orden del ciclo y el regreso del mar al fuego son una reconstrucción a partir de los fragmentos y de Diógenes Laercio (IX 9); Heráclito no lo expone como esquema.",

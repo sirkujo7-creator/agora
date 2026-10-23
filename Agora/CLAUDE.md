@@ -11,7 +11,7 @@ datos/base.js              LEVELS (tradiciones) y los contenedores vacíos MODUL
 datos/modulos/<trad>/<id>.js   Una ficha por archivo: MODULES.push({...}) + LECTURAS.<id> = {...}
 datos/transversal.js       POLYSEMOUS_TERMS, EPOCA (año de cada ficha para el mapa) y CONSTELACIONES
 datos/examen.js            EXAMEN_FINAL: banco del examen final integrador
-datos/claves.js            CLAVES: 3-4 ideas clave por pregunta del cuestionario de cada ficha
+datos/claves.js            CLAVES: 2-4 ideas clave por pregunta (solo las relevantes) del cuestionario de cada ficha
 datos/terminos.js          TERMINOS: cómo se arma la tarjeta de cada concepto ({k, tapar} o {q})
 datos/vidas.js             VIDAS: «Vida y contexto» de cada autor (secciones y línea de tiempo)
 datos/diagramas.js         DIAGRAMAS: 2 diagramas por ficha (tipos descritos en app/diagramas.js)

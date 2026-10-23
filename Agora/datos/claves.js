@@ -5,11 +5,11 @@
    una pregunta, agregar su lista al final. verificar.js controla que no falte ninguna. */
 const CLAVES = {
   tales: [
-    ["Se reconoce la forma de la pregunta, no el acierto de la respuesta", "Un principio único, natural y apoyado en razones discutibles", "Hace posible una tradición crítica: el discípulo corrige al maestro", "El título de primer filósofo es retrospectivo y se lo da Aristóteles"],
-    ["No dejó escritos seguros: todo llega de segunda o tercera mano", "Criterios: antigüedad del testimonio y dudas del propio testigo", "Las anécdotas del pozo y del aceite son historias ejemplares", "El eclipse es dudoso; queda un núcleo: milesio prestigioso que puso el agua como principio"],
-    ["El ápeiron responde a un problema lógico: un elemento ilimitado destruiría a su contrario", "El ápeiron no explica cómo sale lo determinado de lo indeterminado", "Anaxímenes aporta un mecanismo: condensación y rarefacción", "Lo cualitativo se explica por lo cuantitativo"],
-    ["Las respuestas milesias son impersonales y expuestas a la crítica", "Continuidad con Océano y con las cosmogonías de Egipto y Babilonia", "Lo divino no desaparece: todo está lleno de dioses, el ápeiron es divino", "Según Vernant cambia el estatuto de la respuesta, ligado a la discusión en la ciudad"],
-    ["Los opuestos se invaden y pagan la injusticia retrocediendo", "Primera idea de la naturaleza como orden necesario, con ley", "El orden del cosmos se piensa con categorías políticas", "Lecturas discutidas y cita incierta: no sabemos dónde termina la frase"]
+    ["Se le reconoce la forma de la respuesta, no su acierto", "Un principio único y natural, con razones que otros pueden discutir y corregir", "El título de primer filósofo es retrospectivo: se lo da Aristóteles"],
+    ["Un elemento ilimitado habría destruido a su contrario", "El principio de los contrarios tiene que ser distinto de todos: el ápeiron", "Costo: no explica cómo de lo indeterminado sale lo determinado"],
+    ["Cambia el estatuto de la respuesta: impersonal, general y expuesta a la crítica", "Hay continuidad de contenidos con el mito, como el agua de Océano", "Lo divino no desaparece: todo está lleno de dioses"],
+    ["Los contrarios se invaden y pagan la injusticia retrocediendo", "La naturaleza obedece a un orden necesario, como una ley que nadie decide", "Ese orden se piensa con el vocabulario de la justicia de la ciudad"],
+    ["La tesis del agua es un informe de Aristóteles, no un fragmento de Tales", "Aristóteles lee a los milesios desde su teoría de las causas", "Hay que distinguir lo probable, la conjetura y la leyenda"]
   ],
   heraclito: [
     ["«Todo fluye» no aparece en ningún fragmento: viene de Platón", "DK 12: los ríos son los mismos y las aguas cambian", "La identidad se mantiene a través del cambio (lectura de Kirk)", "Crátilo radicalizó la tesis: ni una sola vez"],
