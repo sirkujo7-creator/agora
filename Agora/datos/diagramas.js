@@ -186,64 +186,40 @@ const DIAGRAMAS = {
       {t:"Idea de conexión necesaria", d:"Copiada de esa impresión interna, y no de los objetos, es la necesidad que después atribuimos a las cosas."}]}
   ],
   rousseau: [
-    {tipo:"secuencia", titulo:"De la cabaña a la ley de los ricos", intro:"Discurso sobre la desigualdad (1755), segunda parte: la historia conjetural de cómo la desigualdad natural se volvió desigualdad política.", nota:"Rousseau presenta esta historia como conjetural, no como un relato documentado; el orden de las etapas es suyo, pero las fechas no existen.",
+    {tipo:"secuencia", titulo:"Cómo la desigualdad se volvió ley", intro:"La historia conjetural de la segunda parte del Discurso sobre la desigualdad (1755): de individuos dispersos a un pacto que consagra la desigualdad.", nota:"El orden es el del propio Rousseau, pero él advierte que se trata de razonamientos hipotéticos y condicionales, no de una historia documentada.",
      nodos:[
-      {t:"Estado de naturaleza", d:"Seres humanos dispersos, guiados por el amor de sí y la piedad; las diferencias naturales existen, pero nadie depende de nadie."},
-      {t:"Chozas y familias", d:"Una primera revolución: se construyen cabañas, nacen las familias y una primera forma de propiedad; aparecen la comparación y el deseo de estima."},
-      {t:"La juventud del mundo", d:"Una edad intermedia entre la indolencia primitiva y el amor propio desatado, que Rousseau considera la más feliz y duradera."},
-      {t:"Metalurgia y agricultura", d:"Desde que uno necesita el auxilio de otro desaparece la igualdad: el trabajo se vuelve indispensable y la tierra se reparte."},
-      {t:"Guerra entre ricos y pobres", d:"La propiedad desata la rivalidad, las usurpaciones de los ricos y los robos de los pobres, hasta un estado de guerra."},
-      {t:"El pacto de los ricos", d:"Los ricos proponen leyes y paz para todos; bajo apariencia de justicia, convierten la usurpación en derecho irrevocable."}]},
-    {tipo:"polos", titulo:"Amor de sí y amor propio", intro:"Discurso sobre la desigualdad y Emilio: las dos formas del amor a uno mismo que Rousseau distingue.", polos:{"izq":"amor de sí","der":"amor propio"}, nota:"Lecturas recientes sostienen que el amor propio no es solo vicio: puede tomar la forma del deseo de ser reconocido como igual.",
-     nodos:[
-      {a:"Natural", b:"Nace en sociedad", d:"El amor de sí existe antes de toda relación; el amor propio aparece cuando los seres humanos viven juntos y se miran unos a otros."},
-      {a:"Absoluto, no compara", b:"Relativo, se mide con otros", d:"El amor de sí busca el propio bien sin mirar a los demás; el amor propio se valora por comparación."},
-      {a:"Se satisface con lo necesario", b:"Insaciable", d:"Cubiertas las necesidades, el amor de sí descansa; el amor propio exige que los otros nos prefieran, lo cual nunca se cumple del todo."},
-      {a:"Ser", b:"Parecer", d:"Cuando lo que cuenta es la estima ajena, hay que mostrarse distinto de lo que uno es: de ahí la vanidad, la envidia y la hipocresía."}]}
+      {t:"Individuos dispersos", d:"En el estado de naturaleza cada uno vive solo, con pocas necesidades, guiado por el amor de sí y la piedad. Las diferencias de fuerza existen, pero casi no importan: nadie depende de nadie."},
+      {t:"Chozas, familias y primeras reuniones", d:"Aparecen las chozas y las familias, y la gente se reúne a cantar y bailar. Cada uno quiere ser mirado: nace el amor propio. Rousseau ve en esta etapa intermedia la más feliz."},
+      {t:"Metalurgia y agricultura", d:"El hierro y el trigo hacen que unos necesiten el trabajo de otros. La igualdad desaparece y el trabajo se vuelve necesario."},
+      {t:"Propiedad de la tierra", d:"Cultivar la tierra lleva a repartirla, y la propiedad fija las diferencias: unos tienen y otros no, y la desigualdad se acumula de generación en generación."},
+      {t:"Guerra entre ricos y pobres", d:"Los pobres disputan lo que los ricos poseen, y los ricos, cuyos bienes solo se sostienen por la fuerza, son los más expuestos."},
+      {t:"Pacto de los ricos", d:"Los ricos proponen leyes comunes en nombre de la paz y la justicia. Todos aceptan, y la usurpación queda convertida en derecho irrevocable."}]}
   ],
   kant: [
-    {tipo:"cuadrantes", titulo:"La tabla de los juicios", intro:"Crítica de la razón pura, Introducción: Kant cruza dos distinciones y localiza el conocimiento importante en una casilla nueva.", ejes:{"x":["analítico","sintético"],"y":["a posteriori","a priori"]}, nota:"Frege discutió que la aritmética sea sintética y Quine atacó de raíz la distinción analítico-sintético.",
+    {tipo:"secuencia", titulo:"El camino del conocimiento", intro:"Crítica de la razón pura: todo nuestro conocimiento empieza por los sentidos, pasa al entendimiento y termina en la razón. Cada facultad aporta algo distinto, y la última se pasa de la raya.", nota:"El orden lo da el propio Kant en la Dialéctica trascendental (A 298-299 / B 355); también es el orden de las partes del libro: Estética, Analítica y Dialéctica.",
      nodos:[
-      {t:"Analítico a priori", d:"El predicado ya está contenido en el sujeto y basta analizarlo para verlo, como en todo cuerpo es extenso: necesario, pero no amplía el conocimiento."},
-      {t:"Sintético a priori", d:"Amplía el conocimiento y vale con necesidad universal, como siete más cinco es doce o todo cambio tiene una causa. La Crítica pregunta cómo son posibles."},
-      {t:"Analítico a posteriori", d:"Casilla vacía: si un juicio es verdadero por mero análisis de sus conceptos, no hace falta acudir a la experiencia para fundarlo."},
-      {t:"Sintético a posteriori", d:"Añade algo nuevo al sujeto y depende de la experiencia: los juicios empíricos corrientes, que no valen con necesidad ni universalidad estricta."}]},
-    {tipo:"partes", titulo:"Fórmulas del imperativo categórico", intro:"Fundamentación de la metafísica de las costumbres: tres formulaciones que Kant declara equivalentes en el fondo.", centro:"Imperativo categórico", nota:"A diferencia del imperativo hipotético, manda sin condición: no ordena un medio para un fin que uno podría abandonar.",
-     nodos:[
-      {t:"Ley universal", d:"Obrar solo según aquella máxima que pueda quererse como ley universal; la prueba es de coherencia, como la promesa falsa que, universalizada, se autodestruye."},
-      {t:"Humanidad como fin en sí", d:"No usar nunca a la humanidad, en uno mismo o en otro, solo como medio: lo que tiene precio admite equivalente, lo que tiene dignidad no."},
-      {t:"Reino de los fines", d:"Obrar como miembro legislador de una comunidad ideal en la que cada uno es a la vez autor y súbdito de la ley."}]}
+      {t:"Sensibilidad: intuiciones", d:"Recibe lo que se nos da, siempre bajo las formas del espacio y el tiempo. Sin ella no habría contenido: los conceptos quedarían vacíos."},
+      {t:"Entendimiento: conceptos", d:"Une lo dado según las categorías, como sustancia o causa, y así lo convierte en objeto de experiencia. Sin él las intuiciones serían ciegas."},
+      {t:"Razón: ideas", d:"Busca lo incondicionado: el alma, el mundo como totalidad, Dios. Sus ideas orientan la investigación, pero tomadas como objetos conocidos producen ilusión."}]}
   ],
   hegel: [
-    {tipo:"secuencia", titulo:"Señorío y servidumbre", intro:"Fenomenología del espíritu, capítulo IV: cómo la autoconciencia busca reconocimiento y dónde termina la verdad del señor.", nota:"Es una figura de la conciencia, no una institución histórica, y el trabajo funciona aquí como categoría epistemológica, no económica.",
+    {tipo:"secuencia", titulo:"El viaje de la Fenomenología", intro:"La Fenomenología del espíritu sigue a la conciencia por figuras cada vez más ricas: cada una cae por su propia insuficiencia y deja paso a la siguiente. Ordená las grandes etapas del libro.", nota:"El orden es el de los capítulos del libro. Hegel agrupa los cuatro últimos bajo una misma sección (la C), como desarrollos de la razón; separarlos en seis etapas sigue los títulos de los capítulos.",
      nodos:[
-      {t:"Exigencia de reconocimiento", d:"La autoconciencia no es un dato interior que se posea a solas: solo soy sujeto en cuanto soy reconocido por otro sujeto."},
-      {t:"Lucha a muerte", d:"Las dos autoconciencias arriesgan la vida para mostrar que no están atadas a ella, pero la lucha debe detenerse: un muerto no reconoce a nadie."},
-      {t:"Uno cede: señor y siervo", d:"Quien prefiere la vida a la libertad queda como siervo; el otro, como señor, obtiene un reconocimiento de alguien a quien él no reconoce."},
-      {t:"Miedo y trabajo", d:"El miedo a la muerte vuelve fluida la fijeza del mundo del siervo, y el trabajo, apetencia reprimida, le permite verse a sí mismo en el objeto que forma."},
-      {t:"Inversión", d:"La verdad de la conciencia independiente resulta ser la conciencia servil: es el siervo, no el señor, quien de hecho avanza."}]},
-    {tipo:"niveles", titulo:"Los grados del Espíritu", intro:"Enciclopedia, Filosofía del espíritu: del espíritu subjetivo al absoluto y sus tres figuras.", eje:"el Espíritu se sabe a sí mismo", nota:"Es una simplificación: arte, religión y filosofía no son peldaños de contenido distinto sino tres formas de un mismo contenido.",
-     nodos:[
-      {t:"Filosofía", d:"Figura suprema del espíritu absoluto: dice el mismo contenido que el arte y la religión, pero en la forma del concepto, que se piensa a sí misma."},
-      {t:"Religión", d:"El espíritu absoluto en la representación y el sentimiento: el mismo contenido que la filosofía, en un modo que todavía no se piensa a sí mismo."},
-      {t:"Arte", d:"El espíritu absoluto en la intuición sensible; dejó de ser el modo más alto en que una época se comprende, sin que eso signifique que desaparezca."},
-      {t:"Espíritu objetivo", d:"La libertad hecha mundo en el derecho, la moralidad y las instituciones de la eticidad: familia, sociedad civil y Estado."},
-      {t:"Espíritu subjetivo", d:"El espíritu en el individuo: alma, conciencia y vida psicológica, todavía sin plasmarse en instituciones compartidas."}]}
+      {t:"Conciencia", d:"Se dirige a un objeto que cree independiente de ella: la certeza sensible, la percepción de cosas con propiedades y el entendimiento que busca fuerzas y leyes."},
+      {t:"Autoconciencia", d:"La conciencia se vuelve sobre sí: el deseo, la lucha por el reconocimiento, el señor y el siervo, el estoicismo, el escepticismo y la conciencia desventurada."},
+      {t:"Razón", d:"La conciencia está segura de ser toda la realidad: observa la naturaleza, intenta realizarse en la acción y examina las leyes morales."},
+      {t:"Espíritu", d:"Ya no un individuo sino un mundo compartido: la vida ética griega, la cultura, la Ilustración, la Revolución y el Terror, la visión moral del mundo."},
+      {t:"Religión", d:"El espíritu se representa a sí mismo en imágenes: religión natural, religión del arte de los griegos y religión revelada."},
+      {t:"Saber absoluto", d:"El espíritu se sabe a sí mismo en la forma del concepto y recoge todo el recorrido anterior."}]}
   ],
   schopenhauer: [
-    {tipo:"polos", titulo:"Las dos caras del mundo", intro:"El mundo como voluntad y representación (1819): el mismo mundo visto desde fuera y desde dentro.", polos:{"izq":"representación","der":"voluntad"}, nota:"No son dos mundos, sino dos caras del mismo: lo que desde fuera es representación, desde dentro es voluntad.",
+    {tipo:"polos", titulo:"Las dos caras del mundo", intro:"El mundo como voluntad y representación, libros I y II: el mismo mundo visto desde fuera y desde dentro.", polos:{"izq":"Representación","der":"Voluntad"}, nota:"No son dos mundos, sino uno solo visto de dos maneras. Schopenhauer admitió que ni siquiera desde dentro conocemos la voluntad del todo desnuda, porque la autoconciencia sigue en la forma del tiempo.",
      nodos:[
-      {a:"Objeto para un sujeto", b:"Lo que el mundo es en sí", d:"Como representación, todo existe para alguien que conoce; como voluntad, es lo que es independientemente de ser conocido: la cosa en sí."},
-      {a:"Espacio, tiempo y causalidad", b:"Sin fundamento ni meta", d:"La representación está ordenada por el principio de razón suficiente; la voluntad está fuera de él: no tiene un porqué ni un para qué final."},
-      {a:"Muchos individuos separados", b:"Una sola en todo", d:"El espacio y el tiempo multiplican los fenómenos; la voluntad es una e idéntica en la piedra, la planta, el animal y el ser humano."},
-      {a:"El cuerpo visto desde fuera", b:"El cuerpo sentido desde dentro", d:"El propio cuerpo es la puerta entre las dos caras: el mismo movimiento es objeto que se ve y querer que se siente."}]},
-    {tipo:"secuencia", titulo:"Del egoísmo a la negación de la voluntad", intro:"Libro IV: los grados en que el conocimiento atraviesa el velo de Maya.", nota:"El arte no está en esta línea: aquieta el querer solo mientras dura la contemplación. La secuencia es una presentación ordenada del libro IV, no una escalera que Schopenhauer numere.",
-     nodos:[
-      {t:"Egoísmo", d:"Preso del principio de individuación, el individuo se cree separado y trata a los demás como medios u obstáculos para su voluntad."},
-      {t:"Justicia", d:"Primer grado de ver a través del velo: no afirmar la propia voluntad hasta negar la ajena; no dañar a nadie."},
-      {t:"Compasión y caridad", d:"Sentir el dolor ajeno como propio y ayudar a todos cuanto se pueda: el único fundamento de las acciones con valor moral."},
-      {t:"Ascesis", d:"Quien ve el sufrimiento de todos como suyo ya no afirma la vida: castidad, pobreza, aceptación del dolor."},
-      {t:"Negación de la voluntad", d:"La voluntad se da vuelta y se apaga; para quien todavía quiere, lo que queda es nada, y para quien llegó, este mundo es nada."}]}
+      {a:"Fenómeno", b:"Cosa en sí", d:"Lo que aparece para un sujeto, frente a lo que eso es en sí mismo, que Kant había declarado incognoscible."},
+      {a:"Múltiple, en individuos separados", b:"Una e idéntica en todo", d:"El espacio y el tiempo multiplican en individuos lo que en sí es una sola voluntad."},
+      {a:"Sometida al principio de razón", b:"Sin fundamento ni meta final", d:"Cada representación tiene su razón en otra; la voluntad misma no tiene razón ni fin último."},
+      {a:"Conocida desde fuera", b:"Sentida desde dentro", d:"El propio cuerpo se da como un objeto entre objetos y, a la vez, como querer."},
+      {a:"Lo que explica la ciencia", b:"Lo que pregunta la filosofía", d:"La ciencia conecta fenómenos y deja un resto sin explicar, las fuerzas naturales; la filosofía pregunta qué son."}]}
   ],
   kierkegaard: [
     {tipo:"niveles", titulo:"Los tres estadios de la existencia", intro:"O lo uno o lo otro, Estadios en el camino de la vida y el Postscriptum: tres maneras de vivir, de la más alta a la más inmediata.", eje:"se pasa por un salto, no por necesidad", nota:"Kierkegaard no los presenta como etapas obligatorias: muchos viven toda la vida en el estadio estético. Entre ellos sitúa zonas de transición, la ironía y el humor; ordenarlos como escalera es una simplificación.",

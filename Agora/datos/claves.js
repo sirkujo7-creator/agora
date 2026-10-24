@@ -152,32 +152,32 @@ const CLAVES = {
     ["La nota existe: no hay que omitirla ni reducir a Hume a ella", "La nota contradice su propio método de proporcionar la creencia a la evidencia"]
   ],
   rousseau: [
-    ["El hombre natural no es virtuoso, sino ajeno al bien y al mal", "Los vicios que Hobbes atribuía a la naturaleza nacen en sociedad", "El amor de sí y la piedad no llevan a la guerra", "El estado de naturaleza es una hipótesis que sirve de medida"],
-    ["El amor de sí es absoluto y se satisface con lo necesario", "El amor propio es relativo, nace de la comparación y es insaciable", "La desigualdad produce la escisión entre ser y parecer y una dependencia mutua", "El amor propio puede volverse deseo de ser reconocido como igual"],
-    ["La voluntad de todos es la suma de intereses particulares", "La voluntad general mira al interés común y es siempre recta", "El pueblo puede equivocarse por engaño o por facciones", "Objeción: alguien puede decir que conoce la voluntad del pueblo mejor que el pueblo"],
-    ["Leída sola parece justificar la tiranía (Talmon, Berlin)", "Distingue libertad natural, civil y moral", "Obligar a cumplir la ley común impide la dependencia personal", "Solo se sostiene si la ley es realmente general"],
-    ["Descubre la infancia como etapa con su propia lógica", "Aprender de las cosas y de las consecuencias, no de sermones", "El preceptor manipula en secreto el entorno: libertad dirigida", "El libro V subordina la educación de Sofía, y el autor abandonó a sus hijos"]
+    ["Los vicios que se atribuían a la naturaleza (orgullo, codicia, dominio) solo nacen en sociedad", "El estado de naturaleza es una hipótesis que sirve de medida, no un hecho histórico"],
+    ["Los ricos, inseguros de bienes sostenidos por la fuerza, proponen leyes comunes que fijan la desigualdad", "Un pacto aceptado por todos puede ser ilegítimo: corrieron a sus cadenas creyendo asegurar su libertad"],
+    ["La voluntad general es lo que cada uno quiere como ciudadano, no la suma de intereses privados", "Una voluntad no se transfiere: los diputados solo pueden ser comisionados"],
+    ["La libertad moral es obedecer a la ley que uno se ha prescrito; forzar su cumplimiento preserva la igualdad del pacto", "La defensa depende de que la ley sea realmente general; si no, disfraza la coacción de libertad"],
+    ["Medirse por la estima ajena separa ser y parecer: se vive en la opinión de los demás", "No se suprime el amor propio: se lo extiende a los demás para convertirlo en virtud"]
   ],
   kant: [
-    ["La universalización detecta contradicciones, no calcula resultados", "La promesa falsa universalizada anula la posibilidad de prometer", "Hegel: la forma sola es vacía y presupone instituciones", "La misma acción admite máximas que pasan y no pasan la prueba"],
-    ["Kant mantiene el deber de no mentir contra Constant en 1797", "Argumento débil: no se pueden prever las consecuencias de mentir", "Argumento fuerte: mentir destruye la confianza que permite toda declaración", "Objeción: negarse a declarar no es mentir y el asesino rompió las condiciones"],
-    ["Se gana necesidad y universalidad al precio de la metafísica tradicional", "Queda fundada la física newtoniana y cancelado el conocimiento de alma, mundo y Dios", "Objeción de Jacobi: la cosa en sí usa la causalidad fuera de la experiencia", "Alternativa: entender el noúmeno como concepto límite negativo"],
-    ["El yo libre queda pensado, no conocido", "En el sentido interno el yo aparece determinado como fenómeno", "La libertad se afirma por el hecho de la razón: debo, luego puedo", "Problema: una libertad fuera del tiempo no explica esta acción concreta"],
-    ["La objeción vale para unos ejemplos y no para otros", "La promesa falsa universalizada es genuinamente autodestructiva", "En talento descuidado y no ayudar, lo que falla es que no puede quererse", "La grieta entre deberes perfectos e imperfectos difumina deontología y consecuencialismo"]
+    ["Invierte el supuesto: los objetos, en cuanto conocidos, se rigen por las condiciones que pone el sujeto", "Gana la necesidad de la geometría y de la causalidad", "Solo conocemos fenómenos: la metafísica más allá de la experiencia queda cerrada"],
+    ["Conforme al deber: hacer lo debido por cualquier motivo; por deber: por respeto a la ley", "El valor moral está en la máxima, no en el resultado visible", "La inclinación no vuelve mala la acción, pero no le da su valor"],
+    ["Examina si la máxima universalizada es posible sin contradicción", "Dos fallas: no poder pensarla (promesa falsa) o no poder quererla (no ayudar)", "Detecta las excepciones que uno se concede a sí mismo"],
+    ["Lo que tiene precio admite equivalente; la dignidad, no", "Lo prohibido es tratar a alguien solo como medio, de un modo en que no podría consentir"],
+    ["Como fenómeno la acción está determinada; la causalidad no vale para la cosa en sí", "La libertad se piensa sin contradicción y se sabe por la ley moral (hecho de la razón)", "Cuesta conectar una libertad fuera del tiempo con una decisión concreta"]
   ],
   hegel: [
-    ["Hegel afirma un punto de llegada: el saber absoluto", "El Espíritu se reconoce en lo que produce sin extrañamiento", "Objeción de Kierkegaard, Schelling y Adorno: un sistema cerrado traiciona su principio", "Lectura alternativa: no hay criterio externo al proceso mismo"],
-    ["La Filosofía del derecho no admite derecho de resistencia", "La guerra recibe una función ética de renovación", "Popper usó citas de segunda mano y descontextualizadas", "El Estado hegeliano es una monarquía constitucional con división de poderes"],
-    ["La contradicción es la determinación de lo real, no un error", "El método sigue el desarrollo inmanente del contenido", "Objeción: abandonar la no contradicción impide distinguir argumentos válidos", "La fórmula tesis-antítesis-síntesis no es de Hegel sino de Fichte"],
-    ["La mediación funciona en el pensamiento pero no en la existencia", "Se vive en la elección singular, la angustia y el instante", "Réplica hegeliana: solo una época moderna puede formular esa crítica", "Duda de si el sufrimiento singular es momento del todo o resto"],
-    ["Se conserva la estructura: contradicción, negación determinada y superación", "Cambia el sujeto: relaciones materiales de producción en lugar del Espíritu", "La contradicción es entre fuerzas productivas y relaciones sociales", "Objeción: Marx conserva la certeza de un desenlace necesario"]
+    ["Ninguna tesis aislada contiene toda la verdad: cada una es un momento de un desarrollo", "Lo verdadero es resultado, y el resultado separado del camino no basta"],
+    ["El reconocimiento del señor es vacío porque viene de alguien a quien él no reconoce", "El miedo a la muerte y el trabajo forman al siervo, que se ve a sí mismo en lo que produce"],
+    ["Un deber puramente formal no da contenido (formalismo)", "La libertad se realiza en vínculos e instituciones concretas que uno reconoce como propias"],
+    ["Hegel distingue la mera existencia de la efectividad (Wirklichkeit)", "Así leída, la frase mide lo existente por su concepto, aunque se prestó a una lectura conservadora"],
+    ["La historia avanza en la conciencia de la libertad: uno, algunos, todos", "El esquema mide con la vara europea y excluye a África: un eurocentrismo ligado a la estructura del relato"]
   ],
   schopenhauer: [
-    ["El cuerpo se conoce por fuera como objeto y por dentro como voluntad", "El acto de voluntad y el movimiento corporal son lo mismo dado de dos modos", "La analogía desde el cuerpo a toda la naturaleza no está demostrada", "Él admite que el conocimiento de la voluntad sigue en la forma del tiempo"],
-    ["El pesimismo se presenta como consecuencia de la metafísica de la voluntad", "Todo querer nace de una carencia; la satisfacción es negativa", "Hay placeres que no parecen cese de un dolor", "Una tesis que interpreta todo dato a su favor es difícil de refutar"],
-    ["La compasión reconoce en el otro el mismo ser, incluso en los animales", "«Sobre las mujeres» las describe como niños grandes sin sentido de la justicia", "El ensayo puede salir de su metafísica del amor sexual y no ser un exabrupto", "Compadecer no es reconocer igualdad: límite de una moral de la compasión"],
-    ["Fue de los primeros europeos en leer la India como filosofía", "Leyó las Upanishads en latín desde una versión persa, con lentes kantianos", "Para Shankara el fondo es conciencia, no voluntad ciega", "El Buda enseña el no-yo y no pone una sustancia detrás de la experiencia"],
-    ["Nietzsche lo leyó en 1865 y escribió «Schopenhauer como educador»", "Conservó la primacía de los impulsos y la importancia de la música", "Rechazó la negación de la voluntad como síntoma de decadencia", "Rechazó la compasión y opuso la afirmación de la vida"]
+    ["El acceso a la cosa en sí es el propio cuerpo, conocido por fuera como objeto y por dentro como voluntad", "El paso por analogía del cuerpo a toda la naturaleza es el punto débil", "La voluntad se conoce todavía en la forma del tiempo, no del todo desnuda"],
+    ["Todo querer nace de una carencia, que es dolor; la satisfacción es solo su cese", "Satisfecho un deseo, viene otro o el aburrimiento: el péndulo", "Hay placeres que no parecen cese de una carencia, y la tesis es difícil de refutar"],
+    ["Las demás artes copian Ideas; la música copia la voluntad misma", "Expresa la alegría o el dolor en sí, sin sus motivos", "Es consuelo y no salida: no niega la voluntad y termina"],
+    ["La ética de Kant es para él una moral teológica disfrazada, un deber sin motivo real", "De los tres motivos, solo la compasión da valor moral", "La compasión es un misterio que explica con la voluntad única, y puede faltar"],
+    ["El suicida afirma la voluntad: rechaza sus condiciones, no el querer", "La negación apaga el querer por conocimiento del sufrimiento de todos", "Destruir un fenómeno deja intacta la voluntad como cosa en sí"]
   ],
   kierkegaard: [
     ["El libro plantea un dilema, no una receta para suspender la ética", "Habla un seudónimo que se declara incapaz de imitar a Abraham", "El caballero de la fe no busca seguidores ni actúa por odio", "Objeción de Buber y Levinas: una voz que ordena matar no viene de Dios"],
