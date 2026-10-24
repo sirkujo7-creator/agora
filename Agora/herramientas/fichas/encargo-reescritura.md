@@ -32,6 +32,9 @@ rioplatense al hablarle al estudiante. No inventes citas ni posiciones; si un da
   opción menciona a otros autores. La explicación nombra las opciones por su contenido, nunca por posición.
 - Se eliminan de la ficha: `cadena` y `actividades` (no los incluyas). Se mantienen tal cual: tesis,
   conexion, dialogo, reconstruccion, dilemas y LECTURAS (podés corregir errores evidentes, nada más).
+  Excepción obligatoria en el diálogo existente: si el autor dice algo que no sostuvo (un adagio posterior,
+  un rótulo que no usó, una tesis de intérpretes modernos) o comenta a alguien posterior como si lo hubiera
+  conocido, corregí SOLO esa frase para que diga lo que él sostuvo, y avisalo en tus dudas.
 - Agregá `rev: 2` al objeto de la ficha (borra el progreso viejo de esa ficha, porque cambian los índices).
 
 ## Qué entregar

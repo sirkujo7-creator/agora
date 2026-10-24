@@ -105,48 +105,46 @@ const TERMINOS = {
     {k:"dos ciudades", tapar:[]}
   ],
   anselmo: [
-    {k:"fides quaerens intellectum", tapar:["fe que busca entender","creer para entender"]},
-    {k:"aquello mayor que lo cual nada puede pensarse", tapar:["algo mayor que lo cual nada puede pensarse","aliquid quo nihil maius cogitari possit"]},
-    {q:"¿Cómo pasa el argumento del capítulo II del Proslogion de la existencia en el entendimiento a la existencia en la realidad?"},
-    {q:"¿Qué agrega el capítulo III del Proslogion al argumento y por qué algunos filósofos del siglo XX vieron allí una versión distinta?"},
-    {q:"¿Cómo explica Anselmo que el insensato pueda decir que Dios no existe, si no puede pensarse que no exista?"},
+    {k:"fides quaerens intellectum", tapar:["fe que busca entender","creo para entender"]},
+    {k:"razones necesarias", tapar:[]},
+    {k:"aliquid quo nihil maius cogitari possit", tapar:["algo mayor que lo cual nada puede pensarse","aquello mayor que lo cual nada puede pensarse"]},
+    {k:"argumento ontológico", tapar:[]},
+    {k:"existencia necesaria", tapar:[]},
     {k:"isla perdida", tapar:[]},
     {k:"satisfacción", tapar:[]},
-    {k:"rectitud", tapar:["rectitudes","recto"]},
-    {q:"¿Cómo define Anselmo la libertad del albedrío y por qué el poder de pecar no forma parte de ella?"},
-    {q:"¿Qué objetan Tomás de Aquino y Kant al argumento de Anselmo, y en qué se diferencian sus críticas?"}
+    {k:"rectitud", tapar:["recto"]},
+    {k:"libertad del albedrío", tapar:["libertad"]}
   ],
   hildegarda: [
-    {k:"sombra de la luz viviente", tapar:["umbra viventis luminis","luz viviente"]},
-    {q:"¿Cómo describe Hildegarda la manera en que recibe sus visiones y por qué insiste en que no son sueños ni éxtasis?"},
+    {k:"umbra viventis luminis", tapar:["sombra de la luz viviente","luz viviente"]},
+    {k:"hombre interior", tapar:[]},
     {k:"viriditas", tapar:["verdor"]},
-    {q:"¿Qué forma tiene el cosmos en las visiones de Hildegarda y cómo cambió esa imagen entre el Scivias y el Libro de las obras divinas?"},
+    {k:"huevo cósmico", tapar:["huevo"]},
     {k:"microcosmos", tapar:["mundo pequeño"]},
-    {q:"¿Por qué la música es, para Hildegarda, memoria del paraíso, y por qué el Diablo no canta en el Ordo virtutum?"},
-    {q:"¿Cómo justifica Hildegarda que una mujer sin estudios hable con autoridad a la Iglesia, y qué límites tiene esa autoridad?"},
-    {q:"¿En qué sentido se puede llamar filósofa a Hildegarda y qué discute la historiografía sobre esa etiqueta?"}
+    {k:"symphonia", tapar:["sinfonía"]},
+    {k:"autoridad profética", tapar:["profética"]},
+    {k:"teología monástica", tapar:[]}
   ],
   tomas: [
-    {q:"¿Cómo articula Tomás la fe y la razón, y qué verdades sobre Dios corresponden a cada una?"},
-    {q:"¿Cuáles son las cinco vías de Tomás y qué tienen en común como pruebas?"},
-    {q:"¿Qué distingue Tomás en El ente y la esencia, y por qué solo en Dios coinciden las dos cosas?"},
-    {k:"analogía", tapar:["analógico","analógica"]},
-    {q:"¿Qué relación hay entre la ley eterna, la ley natural y la ley humana, y qué pasa con una ley humana injusta?"},
-    {k:"primer precepto", tapar:[]},
+    {q:"¿Cómo articula Tomás la fe y la razón, y qué hace cuando una conclusión filosófica parece contradecir la fe?"},
+    {k:"cinco vías", tapar:["vías"]},
+    {q:"¿Qué distingue Tomás en las criaturas, y por qué solo en Dios coinciden las dos cosas?"},
+    {k:"creación", tapar:["crear","creado"]},
+    {k:"analogía", tapar:[]},
+    {k:"ley eterna", tapar:[]},
+    {k:"ley natural", tapar:[]},
     {k:"forma del cuerpo", tapar:[]},
-    {k:"cuestión disputada", tapar:["cuestiones disputadas","disputatio"]},
-    {q:"¿Cómo llegó Aristóteles a Tomás, qué defendían los averroístas latinos y qué fueron las condenas de 1277?"}
+    {k:"abstracción", tapar:[]}
   ],
   ockham: [
-    {k:"nominalismo", tapar:[]},
+    {k:"nominalismo", tapar:["nominalista","nominalistas"]},
     {q:"¿En qué sentido es universal un concepto para Ockham, si en sí mismo es tan singular como cualquier cosa?"},
     {k:"lenguaje mental", tapar:["oratio mentalis"]},
     {k:"suposición", tapar:[]},
     {k:"principio de economía", tapar:["navaja"]},
-    {q:"¿Qué distingue el conocimiento intuitivo del abstractivo según Ockham, y qué problema plantea la visión de una estrella que ya no existe?"},
+    {k:"conocimiento intuitivo", tapar:["intuitivo","intuición","intuitiva"]},
     {k:"potencia absoluta", tapar:["potencia ordenada"]},
     {q:"¿Depende el bien moral solo de la voluntad de Dios para Ockham, o tiene un papel la recta razón?"},
-    {q:"¿Por qué la razón no puede demostrar, según Ockham, que hay un solo Dios infinito y omnipotente, y qué consecuencia tiene eso para la teología?"},
     {k:"uso de hecho", tapar:["usus facti"]}
   ],
   maquiavelo: [

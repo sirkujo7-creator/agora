@@ -68,32 +68,32 @@ const CLAVES = {
     ["Tres presentes en el alma: memoria, atención y espera", "Explica el tiempo vivido; queda abierto cómo se relaciona con el tiempo del mundo"]
   ],
   anselmo: [
-    ["No dice que una definición cree la cosa, sino que un concepto no puede existir solo en el pensamiento", "Es una reducción al absurdo", "Supone que existir en la realidad es mayor (lo ataca Kant)", "Supone que del concepto se pasa a la realidad (lo ataca Tomás)"],
-    ["La isla es una parodia que usa la misma forma de argumento", "Anselmo responde que su fórmula no es lo mayor de una clase", "Una isla siempre puede pensarse mejor o inexistente", "Queda abierto si un máximo de todas las perfecciones es coherente"],
-    ["Los dos niegan el paso del concepto a la existencia", "Tomás: evidente en sí, no para nosotros; prefiere las cinco vías", "Kant: el ser no es un predicado real", "Kant: la razón teórica no puede demostrar a Dios; Tomás solo rechaza el atajo"],
-    ["El vocabulario de honor y deuda tiene ecos feudales", "La satisfacción es la alternativa al castigo, no un castigo sustituto", "El honor de Dios es el orden del universo, no su orgullo", "Abelardo y otros: salva el amor, no un pago"],
-    ["Algo es verdadero cuando es o hace lo que debe", "La verdad es la rectitud perceptible solo por la mente", "Une conocer y obrar: verdad, justicia y libertad como rectitud", "Objeción: mezcla correspondencia con corrección moral"]
+    ["No es un decreto: hay un único concepto que no puede existir solo en el pensamiento sin contradecirse", "Todo depende de la premisa de que existir en la realidad es mayor"],
+    ["La parodia es legítima solo si la forma del argumento es la misma", "Anselmo: su fórmula no es lo mejor de una clase, y cualquier otra cosa puede pensarse como no existente"],
+    ["La fe es el punto de partida, no el techo: pide entender lo que cree", "Busca razones necesarias, que no citan la Escritura y valen para el que no cree"],
+    ["La satisfacción es la alternativa al castigo, no un castigo sustituto", "El honor de Dios nombra el orden que el pecado altera, no su orgullo; el peso del marco feudal sigue en discusión"],
+    ["Si la libertad fuera poder pecar, Dios no sería libre: el poder de pecar la disminuye", "Libertad: poder de conservar la rectitud por sí misma; objeción: deja afuera la elección propia y supone lo recto"]
   ],
   hildegarda: [
-    ["No argumenta por silogismos ni con la sola razón, como Anselmo o Tomás", "En el sentido de buscar una sabiduría sobre el todo, sí: cosmología, antropología, conocimiento, ética", "Dronke, Newman y Leclercq la recuperaron como pensamiento sistemático o teología monástica", "La etiqueta es nuestra: ella se veía como profetisa"],
-    ["El origen de una idea no decide su verdad: falacia genética", "La explicación médica socava el argumento de autoridad basado en la visión", "Quedan sus ideas, que hay que juzgar por sí mismas", "El diagnóstico es retrospectivo y no responde la pregunta religiosa"],
-    ["Lo desafió en los hechos: escribió, predicó y amonestó a papas y emperadores", "Lo confirmó en los principios: aceptaba la debilidad y subordinación femenina", "Su voz es una excepción justificada por el «tiempo afeminado»", "Defendió la jerarquía social, como en la respuesta a Tengswich"],
-    ["El contenido es falso: los humores no explican la salud", "Sus libros médicos son historia de la ciencia, no guías para tratarse", "La intuición de que salud y entorno están unidos merece discusión", "Sacada de su sistema, la intuición se vuelve vaga"],
-    ["Una misma fuerza vital recorre plantas, cuerpos y almas", "La viriditas es un don de Dios, no un valor propio de la naturaleza", "Su cosmos es jerárquico y antropocéntrico, y el desorden viene del pecado", "Puede inspirar una reflexión ecológica si se reconoce como relectura"]
+    ["Depende del sentido: no argumenta con razones que cualquiera deba aceptar", "Sí en el sentido antiguo: busca una sabiduría sobre el todo, pensada en imágenes", "La etiqueta es nuestra: ella se veía como profetisa"],
+    ["El origen de una idea no decide su valor: sería la falacia genética", "Sí se debilita el fundamento de su autoridad: sus ideas hay que juzgarlas por sí mismas"],
+    ["Lo desafió en los hechos: escribió, predicó y amonestó a las autoridades", "Lo confirmó en los principios: su voz es una excepción que usa la debilidad femenina como credencial"],
+    ["El contenido es falso: los humores son historia de la ciencia, no medicina", "Queda una intuición discutible: el ser humano no se entiende separado de su entorno"],
+    ["Parecido: una fuerza vital común y responsabilidad humana por el orden del mundo", "Diferencia: la viriditas es don de Dios en un cosmos jerárquico; llamarla ecologista es anacrónico"]
   ],
   tomas: [
-    ["Las vías prueban un primer principio, no la Trinidad ni la Encarnación", "Objeción a las premisas: la inercia y el salto de la tercera vía", "Objeción de Hume y Kant: unicidad y dependencia del argumento ontológico", "Respuesta tomista: dependencia presente, no serie en el tiempo"],
-    ["Si una conclusión contradice la fe, el argumento tiene un error", "Costo: la fe queda como juez último de la razón", "Límite reconocido: no se puede demostrar que el mundo empezó", "La doble verdad se atribuyó a los averroístas en la condena de 1277"],
-    ["Una ley contraria a la ley natural es corrupción de ley", "No obliga en conciencia, salvo para evitar escándalo o desorden", "Contra la ley divina nunca debe cumplirse; King citó esta doctrina", "Objeción positivista: quién decide el contenido de la ley natural"],
-    ["El alma es forma del cuerpo, pero de un tipo especial", "Entender no es acto de un órgano, por eso el alma subsiste", "El alma separada no es la persona: importancia de la resurrección", "Objeciones dualista y materialista (neurociencia)"],
-    ["No esconder: herejes reincidentes entregados a la muerte (II-II, q.11)", "La mujer como varón defectuoso, tomado de Aristóteles", "Que su época lo compartiera no lo vuelve correcto", "Separar lo que se sostiene por argumentos y discutirlo, sin absolver ni descartar en bloque"]
+    ["Prueban un primer principio, no la Trinidad ni la Encarnación", "La serie que se detiene es de dependencia presente, no una cadena en el tiempo"],
+    ["Si una conclusión contradice la fe, el argumento tiene un error que se busca con razones", "Costo: la fe queda como juez último", "Tampoco acepta pruebas débiles a favor de la fe, como la del comienzo del mundo"],
+    ["Una ley contraria a la ley natural es corrupción de ley y no obliga en conciencia", "Contra el bien humano puede cumplirse para evitar un mal mayor; contra la ley divina, nunca", "Dificultad: quién decide qué dice la ley natural en lo particular"],
+    ["Entender no es acto de un órgano: el alma tiene un ser propio y subsiste", "El alma separada no es la persona: de ahí el papel de la resurrección"],
+    ["No esconder: herejes reincidentes entregados a la muerte y la mujer como algo defectuoso", "Discutirlas como argumentos, empezando por la analogía con la moneda falsa"]
   ],
   ockham: [
-    ["Las palabras son convencionales, los conceptos son signos naturales", "Ockham no niega que el parecido entre las cosas sea real", "El parecido no es una entidad más ni una naturaleza común", "Objeción realista: el parecido real ya parece algo común"],
-    ["Es una regla sobre lo que estamos autorizados a afirmar, no sobre el mundo", "Solo se afirma lo que exigen la experiencia, la razón o la fe", "La fórmula de las entidades es del siglo XVII y el principio es anterior a Ockham", "La ciencia lo usa para elegir entre teorías, no como prueba de verdad"],
-    ["La potencia absoluta es lo que Dios podría hacer sin contradicción, no otra manera de actuar", "En el orden establecido, la experiencia es confiable", "La contingencia empuja a conocer el mundo por experiencia", "Objeción: el caso de la estrella inexistente abre una puerta al escepticismo"],
-    ["Nicolás III había aprobado el uso de hecho sin propiedad", "Juan XXII declaró herético que Cristo no tuviera nada", "Un papa que contradice la fe definida pierde su autoridad", "El poder papal es ministerial, no una plenitud ilimitada"],
-    ["Lectura negativa: disolvió la síntesis de Tomás", "Lectura positiva: originó la vía moderna, atenta a lógica y experiencia", "Influyó en Buridán, Ailly, Biel y en la formación de Lutero", "No destruyó la escolástica, cambió sus preguntas"]
+    ["La palabra es convencional; el concepto es un signo natural que nadie decide", "El parecido entre individuos es real, pero no es una entidad añadida"],
+    ["Es una regla sobre lo que estamos autorizados a afirmar, no sobre lo verdadero", "Solo autorizan a afirmar la evidencia, la experiencia o la fe", "No prueba que algo no exista"],
+    ["La potencia absoluta es lo que Dios podría hacer sin contradicción, no un segundo modo de actuar", "Un mundo contingente se conoce por experiencia, no deduciendo esencias", "Queda la objeción de la estrella que ya no existe"],
+    ["Un papa contradecía lo que otro había definido en materia de fe", "El poder del papa es ministerial y no puede quitar derechos naturales"],
+    ["Una demostración estricta exige premisas evidentes, y las que llevan a un Dios único no lo son", "No es escepticismo: pone la fe a salvo de la filosofía y rompe la continuidad entre razón y fe"]
   ],
   maquiavelo: [
     ["Strauss: la vieja acusación de maestro del mal es la más cercana a la verdad", "No llama virtù a los crímenes de Agatocles: poder sin gloria", "Berlin: choque entre la moral cristiana y la moral cívica pagana", "La lectura republicana se apoya en los Discursos"],
