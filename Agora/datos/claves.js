@@ -180,32 +180,32 @@ const CLAVES = {
     ["El suicida afirma la voluntad: rechaza sus condiciones, no el querer", "La negación apaga el querer por conocimiento del sufrimiento de todos", "Destruir un fenómeno deja intacta la voluntad como cosa en sí"]
   ],
   kierkegaard: [
-    ["El libro plantea un dilema, no una receta para suspender la ética", "Habla un seudónimo que se declara incapaz de imitar a Abraham", "El caballero de la fe no busca seguidores ni actúa por odio", "Objeción de Buber y Levinas: una voz que ordena matar no viene de Dios"],
-    ["Distingue el qué de la verdad del cómo de la relación con ella", "La tesis vale para las cuestiones de la existencia, no para la ciencia", "Kierkegaard no era relativista: creía verdadero el cristianismo", "La fe es una incertidumbre objetiva sostenida con pasión"],
-    ["En Hegel el paso es mediación necesaria; en Kierkegaard, elección y salto", "Nadie está obligado a pasar de un estadio a otro", "El estadio religioso puede suspender lo ético en vez de conservarlo", "Objeción: al ordenar los estadios se acerca a Hegel"],
-    ["Los seudónimos eran un método, no un escondite", "La verdad existencial no se transmite como un dato", "Herencia de Sócrates: ayudar al otro a decidir por sí mismo", "Dificultad: es difícil saber qué pensaba el propio Kierkegaard"],
-    ["La desesperación es una categoría espiritual, no un diagnóstico", "Puede haber desesperación sin sentirla", "Su curación, para Kierkegaard, es religiosa y no clínica", "Una lectura laica conserva el yo como tarea"]
+    ["Entre los estadios hay una elección o salto, no una deducción necesaria", "Entender los argumentos no basta: el esteta puede comprenderlos y no comprometerse", "Por eso O lo uno o lo otro no concluye y deja al lector frente a la alternativa"],
+    ["El miedo tiene un objeto determinado; la angustia se refiere a lo posible", "La angustia es el vértigo de la libertad ante su propia posibilidad", "Bien vivida, deshace las seguridades finitas y educa para la fe"],
+    ["Distingue el qué de la verdad del cómo de la relación con ella", "La tesis vale para las cuestiones de la existencia, no para la matemática o la historia", "Niega que haya pruebas que eximan de decidir, no que haya verdad"],
+    ["La desesperación es un desajuste del yo, no un estado de ánimo", "La forma más extendida es ignorar que se tiene un yo, y no se siente", "Su intensidad crece con la conciencia, hasta el desafío"],
+    ["Los seudónimos son comunicación indirecta: obligan al lector a apropiarse y decidir", "Cada seudónimo habla desde una manera de vivir", "Hay que preguntar quién habla antes de atribuirle una tesis a Kierkegaard"]
   ],
   marx: [
-    ["Los crímenes de esos regímenes son un hecho que no se suaviza", "Marx no describió un partido único y elogió la Comuna de París", "Críticos: leyes de la historia y dictadura del proletariado sin garantías", "Su silencio sobre cómo limitar el poder dejó un vacío que otros llenaron"],
-    ["El prólogo de 1859 se presta a una lectura determinista", "Carta de Engels a Bloch: la economía determina solo en última instancia", "La superestructura actúa a su vez sobre la base", "Objeción: «en última instancia» puede volverse una fórmula que no se pone a prueba"],
-    ["Falló la revolución en los países industriales y el empobrecimiento absoluto", "No previó sindicatos, reformas ni Estado de bienestar", "Siguen vigentes la globalización, la concentración y las crisis", "Separar el análisis de tendencias de las predicciones políticas"],
-    ["La ideología depende de quién controla la producción de ideas", "El fetichismo surge de la producción para el mercado y no desaparece al explicarlo", "Sirve para pensar la ropa barata o los mercados financieros", "Objeción del autor que se incluye: la teoría de Marx también sería ideológica"],
-    ["Textos eurocéntricos: India en 1853 y el artículo sobre Bolívar", "La acumulación originaria incluye la conquista y la esclavitud", "Carta a Zasulich: no hay un camino único para todos los pueblos", "Mariátegui y Dussel lo releen desde América Latina sin aplicarlo como plantilla"]
+    ["La explotación está en la producción, no en el intercambio: el salario paga el valor de la fuerza de trabajo", "La fuerza de trabajo produce más valor del que cuesta: el trabajo excedente no pagado es la plusvalía", "La desigualdad previa está en la propiedad de los medios de producción"],
+    ["Las formas de conciencia se levantan sobre las relaciones de producción y no se explican por sí mismas", "Engels: la economía determina solo en última instancia y la superestructura actúa sobre la base"],
+    ["El fetichismo surge de la producción para el mercado, donde las personas se relacionan a través de sus productos", "Explicarlo no lo disuelve: es la forma real en que aparece la relación social, y solo cambiaría con otra organización de la producción"],
+    ["Critica la actitud contemplativa, no la teoría: Marx mismo interpretó toda su vida", "El conocimiento es práctica y la verdad de un pensamiento se decide en la práctica"],
+    ["Los crímenes de esos regímenes son un hecho y se cometieron invocando a Marx", "Marx no describió un partido único; la pregunta es si su silencio sobre las garantías facilitó ese uso"]
   ],
   mill: [
-    ["Responde a la acusación de moral de cerdos: felicidad no es contento", "Si la calidad no es placer, Mill abandona el hedonismo", "Los jueces competentes reflejan los gustos de su clase", "No autoriza imponer a otros un modo de vida"],
-    ["Excluye el paternalismo y la imposición moral de la mayoría", "Casi toda conducta afecta a otros: se castiga el daño, no el acto", "La frontera entre ofensa y daño es lo discutido", "Excepción: no se puede uno vender como esclavo"],
-    ["Defiende incluso opiniones falsas y odiosas", "Desconfía de quien decide qué es odio", "El comerciante de granos: la incitación a un daño concreto se limita", "Discusión: si la humillación acumulada cuenta como daño"],
-    ["Trabajó 35 años en la Compañía y justificó el despotismo sobre «bárbaros»", "Defensores: criterio de desarrollo, caso Eyre", "Críticos: la jerarquía civilizatoria es estructural y la aplica el colonizador", "Su argumento de la infalibilidad se vuelve contra la excepción"],
-    ["Propuso el voto femenino en 1867 y perdió 73 contra 196", "La naturaleza femenina es un producto artificial", "Reconoció la deuda con Harriet Taylor", "Dejó intacta la división del trabajo doméstico"]
+    ["Responde a la objeción de la moral para cerdos: los placeres difieren en calidad", "El criterio es la preferencia de quienes conocen bien ambos placeres", "Si la calidad no es placer, Mill parece abandonar el hedonismo"],
+    ["Solo el daño a otros justifica obligar; el bien propio permite aconsejar, no forzar", "Cada adulto conoce mejor su bien y la sociedad suele equivocarse al intervenir", "Elegir ejercita las facultades que hacen valiosa una vida"],
+    ["Silenciar supone infalibilidad, y estar seguro no es ser infalible", "Sin discusión, la verdad se sostiene como prejuicio y se vuelve dogma muerto"],
+    ["La democracia no garantiza la libertad: manda la parte más numerosa", "La presión social castiga sin leyes y penetra en los detalles de la vida", "Moldea el carácter: la gente deja de elegir"],
+    ["El principio excluye a los niños y a las sociedades que juzgaba «atrasadas»", "La excepción choca con su propio argumento de la infalibilidad", "Su criterio era de desarrollo, pero lo aplicaba el colonizador"]
   ],
   nietzsche: [
-    ["La objeción de autorrefutación tiene fuerza", "El perspectivismo como práctica de lectura, no verdad sobre el mundo", "Multiplicar perspectivas en lugar de abolir el conocimiento", "Distinción entre perspectivismo global y restringido a los valores"],
-    ["Afirmar que todo es voluntad de poder parece una tesis metafísica", "Heidegger: invertir el platonismo conserva el esquema y lo hace último metafísico", "En Más allá del bien y del mal aparece como hipótesis", "El libro La voluntad de poder lo compuso su hermana"],
-    ["Nietzsche despreció el antisemitismo y el nacionalismo alemán", "La apropiación nazi usó una compilación manipulada por Elisabeth", "Hay textos reales sobre rango, esclavitud y dureza", "Una figura vacía de contenido no resiste un contenido brutal"],
-    ["El origen de una creencia no refuta su contenido", "Nietzsche no busca refutar sino evaluar tipos de vida", "La pregunta es qué vale el valor y qué función cumple", "La legitimidad depende de si los valores pueden ser verdaderos o falsos"],
-    ["Lectura que los descarta como escoria de época prescindible", "Lectura que los considera constitutivos de todo el sistema", "Usar la genealogía contra sus propios contenidos, como Irigaray o Butler", "Masculinidad y superioridad europea también tienen una historia"]
+    ["Es un diagnóstico cultural: la fe dejó de fundar la ciencia, la moral y el derecho, aunque sigan por inercia", "Si cae el garante caen los valores que se apoyaban en él: de ahí el nihilismo como tarea"],
+    ["La moral noble empieza afirmándose; la de esclavos empieza por un no a lo otro", "El resentimiento de quien no puede actuar crea primero al malvado y deriva de él un bueno"],
+    ["Es una prueba práctica de cómo se recibe la propia vida, no una tesis física", "La respuesta esperada es el amor fati: querer la vida entera, no resignarse"],
+    ["En los textos es superación de sí y creación de valores leales a la tierra, frente al último hombre", "Su rechazo de la igualdad y la vaguedad de la figura facilitaron usos que la deformaron"],
+    ["Nietzsche presenta su tesis como interpretación que compite con otras, no como verdad sin perspectiva", "Perspectivismo no es relativismo: más ojos sobre una cosa dan más objetividad"]
   ],
   husserl: [
     ["Distingue el acto de pensar del contenido pensado, que es ideal", "Las leyes psicológicas son inductivas y probables; las lógicas, exactas", "La ley lógica no afirma la existencia de hechos psíquicos", "El psicologismo lleva a un relativismo que se refuta a sí mismo"],
