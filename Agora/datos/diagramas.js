@@ -222,59 +222,37 @@ const DIAGRAMAS = {
       {a:"Lo que explica la ciencia", b:"Lo que pregunta la filosofía", d:"La ciencia conecta fenómenos y deja un resto sin explicar, las fuerzas naturales; la filosofía pregunta qué son."}]}
   ],
   kierkegaard: [
-    {tipo:"niveles", titulo:"Los tres estadios de la existencia", intro:"O lo uno o lo otro, Estadios en el camino de la vida y el Postscriptum: tres maneras de vivir, de la más alta a la más inmediata.", eje:"se pasa por un salto, no por necesidad", nota:"Kierkegaard no los presenta como etapas obligatorias: muchos viven toda la vida en el estadio estético. Entre ellos sitúa zonas de transición, la ironía y el humor; ordenarlos como escalera es una simplificación.",
+    {tipo:"niveles", titulo:"Los grados de la desesperación", intro:"La enfermedad mortal (1849), de Anti-Climacus: la desesperación ordenada según la conciencia que el yo tiene de sí, de la más intensa a la más extendida.", eje:"a más conciencia, más intensa", nota:"Es el orden del propio libro, que trata la desesperación según el grado de conciencia; las dos formas de debilidad del medio son las que no quieren ser uno mismo. La fe no es un grado más: es el contrario de todos, el yo que descansa de manera transparente en el poder que lo puso.",
      nodos:[
-      {t:"Religioso", d:"El individuo descubre su culpa y se relaciona de manera absoluta con Dios, por encima de lo universal. Su figura extrema es Abraham, el caballero de la fe."},
-      {t:"Ético", d:"Quien se elige a sí mismo asume deberes y expresa su vida en lo universal: el matrimonio, el trabajo, la palabra dada. Su figura es el juez Wilhelm."},
-      {t:"Estético", d:"La vida en lo inmediato: el placer, lo interesante, las posibilidades sin compromiso. Su figura es el seductor, y su destino, el aburrimiento y la desesperación."}]},
-    {tipo:"polos", titulo:"El Sistema y el individuo", intro:"El Postscriptum (1846) y Temor y temblor frente a la filosofía de Hegel y sus seguidores daneses.", polos:{"izq":"Hegel","der":"Kierkegaard"}, nota:"Es la versión de Hegel que Kierkegaard combate, en buena parte la de los hegelianos de Copenhague; los lectores de Hegel discuten si le hace justicia.",
-     nodos:[
-      {a:"Mediación", b:"Salto", d:"Para Hegel, cada figura pasa necesariamente a la siguiente, que la conserva y la supera; para Kierkegaard, en la existencia se pasa por una decisión que ningún argumento obliga a tomar."},
-      {a:"El todo es lo verdadero", b:"La subjetividad es la verdad", d:"Hegel busca la verdad en el sistema completo; Kierkegaard sostiene que en las cuestiones de la existencia lo decisivo es cómo el individuo se apropia de ella."},
-      {a:"Lo universal es lo más alto", b:"El individuo sobre lo universal", d:"Para la ética hegeliana, el individuo se realiza en las instituciones; para Temor y temblor, en la fe el individuo puede estar por encima de lo universal."},
-      {a:"La fe superada por el concepto", b:"La fe como paradoja", d:"Para Hegel, la filosofía piensa en conceptos lo que la religión representa; para Kierkegaard, la fe no es una etapa que se supera, sino una tarea de toda la vida."}]}
+      {t:"Desafío: querer ser uno mismo a su modo", d:"La forma más consciente e intensa: el yo quiere ser sí mismo, pero inventándose a su antojo y rechazando que lo haya puesto un poder que no es él."},
+      {t:"Desesperar de sí mismo", d:"El yo, consciente de su debilidad, se desespera de ella, se encierra y la oculta a los demás: sigue sin querer ser el que es, pero ya sabe que el problema está en él."},
+      {t:"Desesperar por lo terrenal", d:"Alguien pierde algo de este mundo —un amor, un trabajo, un lugar— y querría ser otro; cree que sufre por lo perdido y no ve que lo que no quiere es ser sí mismo."},
+      {t:"Ignorar que se tiene un yo", d:"La forma más extendida y menos consciente: quien vive absorbido en lo que hacen todos, sin haberse tomado nunca como tarea, está desesperado sin sentirlo."}]}
   ],
   marx: [
-    {tipo:"niveles", titulo:"Base y superestructura", intro:"Prólogo a la Contribución a la crítica de la economía política (1859): el edificio de una sociedad, de las formas de conciencia a las fuerzas productivas.", eje:"condiciona en última instancia, de abajo hacia arriba", nota:"Engels advirtió en su carta a Joseph Bloch (1890) que la determinación económica es solo «en última instancia»: los niveles superiores también actúan sobre los inferiores. La división en cuatro niveles es una simplificación didáctica del texto de 1859.",
+    {tipo:"secuencia", titulo:"Las épocas de la formación económica", intro:"Prólogo a la Contribución a la crítica de la economía política (1859): los modos de producción que Marx enumera como épocas progresivas, y lo que anuncia después.", nota:"Los cuatro primeros pasos, en ese orden, son la lista del prólogo de 1859; el quinto es lo que Marx anuncia allí mismo. En la carta a Vera Zasulich (1881) rechazó que ese esquema fuera un camino obligatorio para todos los pueblos.",
      nodos:[
-      {t:"Formas de conciencia social", d:"La religión, la moral, el arte y la filosofía: las ideas con que una época se piensa a sí misma, que corresponden a la base sin ser su simple reflejo."},
-      {t:"Superestructura jurídica y política", d:"El derecho y el Estado, que regulan y garantizan las relaciones de propiedad existentes."},
-      {t:"Relaciones de producción", d:"Quién es dueño de los medios de producción y quién trabaja para quién: esclavo y amo, siervo y señor, obrero y capitalista. Forman la estructura económica, la base real."},
-      {t:"Fuerzas productivas", d:"Los seres humanos con sus capacidades, sus herramientas, sus técnicas y sus máquinas. Cuando crecen y chocan con las relaciones de propiedad, se abre una época de revolución social."}]},
-    {tipo:"ciclo", titulo:"El circuito del capital", intro:"El capital, tomo I: el dinero que se convierte en capital al pasar por la producción y volver aumentado (D–M–D′).", nota:"Marx resume el ciclo con la fórmula D–M–D′: dinero, mercancía, más dinero. El orden en cinco pasos es una presentación didáctica de los capítulos 4 a 7.",
-     nodos:[
-      {t:"Dinero inicial", d:"El capitalista empieza con una suma de dinero que no quiere gastar, sino aumentar."},
-      {t:"Compra de medios y fuerza de trabajo", d:"Compra máquinas y materias primas (capital constante) y fuerza de trabajo (capital variable), pagando por esta su valor: el salario."},
-      {t:"Producción y plusvalía", d:"Durante la jornada, los obreros producen más valor del que cuesta su salario. Ese trabajo excedente no pagado es la plusvalía."},
-      {t:"Venta de las mercancías", d:"Las mercancías producidas se venden en el mercado y el valor que contienen, incluida la plusvalía, se realiza en dinero."},
-      {t:"Dinero aumentado y reinversión", d:"El capitalista recupera más dinero del que adelantó, y la competencia lo obliga a reinvertir buena parte para volver a empezar a mayor escala: es la acumulación."}]}
+      {t:"Modo asiático", d:"Comunidades aldeanas que trabajan la tierra en común bajo un poder central que se apropia del excedente. Es la categoría más discutida de la lista."},
+      {t:"Antigüedad esclavista", d:"Grecia y Roma: la producción descansa en el trabajo de esclavos, que son propiedad de sus amos."},
+      {t:"Feudalismo", d:"El siervo, atado a la tierra por vínculos personales, entrega al señor parte de su trabajo o de su producto."},
+      {t:"Capitalismo (burgués moderno)", d:"El obrero, libre ante la ley y sin medios de producción, vende su fuerza de trabajo al capitalista. Es, dice Marx, la última forma antagónica del proceso social de producción."},
+      {t:"Fin de la prehistoria humana", d:"Con la sociedad burguesa, escribe Marx, se cierra la prehistoria de la sociedad humana. Sobre cómo sería lo que viene después dijo muy poco."}]}
   ],
   mill: [
-    {tipo:"partes", titulo:"Los cuatro argumentos por la libertad de expresión", intro:"Sobre la libertad (1859), capítulo II: cuatro razones para no silenciar ninguna opinión.", centro:"No silenciar opiniones", nota:"Mill los resume al final del capítulo II. El límite no está en la opinión sino en la incitación a un daño concreto, como en el ejemplo del comerciante de granos.",
+    {tipo:"polos", titulo:"Lo que concierne a uno y lo que daña a otros", intro:"Sobre la libertad, capítulos IV y V: la misma conducta cae de un lado o del otro según afecte o no los intereses de otros.", polos:{"izq":"Concierne solo a uno: libertad","der":"Daña a otros: se puede intervenir"}, nota:"Los pares salen de ejemplos del propio Mill. Dónde pasa exactamente la frontera, sobre todo entre ofensa y daño, es lo que más se discute de su principio.",
      nodos:[
-      {t:"Puede ser verdadera", d:"Suprimir una opinión es suponerse infalible, y ninguna autoridad lo es: las que condenaron a Sócrates y a Jesús estaban seguras de tener razón."},
-      {t:"Puede tener parte de verdad", d:"La opinión dominante rara vez es toda la verdad; solo el choque con las opiniones contrarias completa lo que le falta."},
-      {t:"Sin discusión, la verdad es prejuicio", d:"Aunque la opinión aceptada sea verdadera, si nadie la discute se sostiene sin comprender sus razones: quien solo conoce su lado sabe poco incluso de eso."},
-      {t:"Sin discusión, el sentido muere", d:"La doctrina no discutida se vuelve un dogma muerto, una fórmula que se repite y ya no orienta la conducta ni el carácter."}]},
-    {tipo:"polos", titulo:"Bentham y Mill: dos utilitarismos", intro:"El utilitarismo que Mill heredó de Bentham y el que propuso en El utilitarismo (1861).", polos:{"izq":"Bentham","der":"Mill"}, nota:"Mill no rompió con Bentham: corrigió su psicología y su idea del placer. Algunos críticos piensan que, al hacerlo, abandonó sin decirlo el hedonismo.",
-     nodos:[
-      {a:"Solo cantidad de placer", b:"Calidad de los placeres", d:"Bentham medía los placeres por intensidad, duración y otras dimensiones cuantitativas; Mill sostiene que unos placeres son superiores en clase, según la preferencia de los jueces competentes."},
-      {a:"Un juego vale tanto como la poesía", b:"Mejor Sócrates insatisfecho", d:"Para Bentham, a igual placer, un juego infantil vale lo mismo que la poesía; para Mill, es mejor ser Sócrates insatisfecho que un tonto satisfecho."},
-      {a:"Calcular las consecuencias", b:"Reglas como almanaque náutico", d:"Bentham proponía un cálculo de placeres y dolores; Mill sostiene que las reglas morales corrientes recogen la experiencia de la humanidad y sirven de guía, como el almanaque para el navegante."},
-      {a:"Ser humano como calculador", b:"Ser humano capaz de progreso", d:"Mill reprocha a Bentham una visión pobre de la naturaleza humana y funda la libertad en los intereses permanentes de un ser que se desarrolla."}]}
+      {a:"Emborracharse en su casa", b:"Emborracharse estando de guardia", d:"Nadie debe ser castigado solo por estar borracho; un soldado o un policía, sí, si lo está en servicio, porque pone en riesgo a otros."},
+      {a:"Gastarse el sueldo en sus gustos", b:"Dejar a sus hijos sin sustento", d:"Si alguien no mantiene a su familia, se lo puede sancionar por incumplir ese deber con otros, no por la extravagancia misma."},
+      {a:"Publicarlo en un periódico", b:"Gritarlo ante una multitud enfurecida", d:"Decir que los comerciantes de granos matan de hambre a los pobres es una opinión legítima; gritarlo ante la casa de uno de ellos es incitar a un daño concreto."},
+      {a:"Disgustar los gustos ajenos", b:"Lesionar los intereses ajenos", d:"La ofensa o el disgusto que produce una conducta no autorizan a intervenir; el daño a los intereses de otros, sí."}]}
   ],
   nietzsche: [
-    {tipo:"secuencia", titulo:"Las tres transformaciones", intro:"Así habló Zaratustra: camello, león y niño ordenan el trabajo de transmutar los valores.", nota:"Relacionar las figuras con genealogía, crítica y creación es una lectura de conjunto, no una correspondencia que Nietzsche enuncie paso por paso.",
+    {tipo:"polos", titulo:"Dos maneras de valorar", intro:"En La genealogía de la moral, la moral noble y la moral del resentimiento no se distinguen por lo que mandan, sino por el orden en que valoran. Ubicá cada rasgo en su polo.", polos:{"izq":"Moral de señores","der":"Moral de esclavos"}, nota:"Nietzsche advierte que las morales reales mezclan las dos maneras, incluso dentro de una misma persona (Más allá del bien y del mal, § 260). No son clases sociales sino tipos de valoración.",
      nodos:[
-      {t:"Camello", d:"El espíritu que carga la tradición y sus valores heredados, el peso del tú debes; corresponde a la tabla recibida que la genealogía mostrará como histórica."},
-      {t:"León", d:"Dice el sagrado No y conquista libertad frente al deber heredado; pero no es capaz de crear valores nuevos: la crítica sola sigue siendo reactiva."},
-      {t:"Niño", d:"Inocencia, olvido, un nuevo comienzo y un santo decir sí: solo él puede crear valores que no necesiten garante."}]},
-    {tipo:"polos", titulo:"Moral de señores y moral de esclavos", intro:"Más allá del bien y del mal y Genealogía de la moral I: dos maneras opuestas de generar valores.", polos:{"izq":"moral de señores","der":"moral de esclavos"}, nota:"No son clases sociales ni recomendaciones de conducta: casi todas las morales reales mezclan ambas, y Nietzsche reconoce la fecundidad de la moral de esclavos.",
-     nodos:[
-      {a:"Empieza afirmándose", b:"Empieza negando al otro", d:"El noble se llama bueno a sí mismo; el esclavo empieza diciendo No a lo que está afuera, a lo otro, a lo que no es él."},
-      {a:"Bueno y malo (schlecht)", b:"Malvado (böse) y bueno", d:"Para el señor, malo es lo bajo y fallido; el esclavo construye primero al malvado, que es el noble visto con miedo y odio."},
-      {a:"Lo malo es derivado", b:"Lo bueno es derivado", d:"En una, lo malo es un concepto posterior y casi indiferente; en la otra, el bueno se deduce después como lo contrario del malvado: manso, humilde, paciente."},
-      {a:"Reacción que se descarga", b:"Ressentiment creador", d:"Quien puede responder con actos agota su reacción; quien no puede, responde con una venganza imaginaria que se vuelve creadora de valores."}]}
+      {a:"Empieza por un sí a uno mismo", b:"Empieza por un no a lo otro", d:"El punto de partida: una valoración nace de afirmarse; la otra, de reaccionar contra lo que está afuera."},
+      {a:"Concepto primero: «bueno» (noble)", b:"Concepto primero: «malvado» (böse)", d:"Lo que cada moral crea primero: el noble se llama bueno a sí mismo; el resentido inventa primero al malvado, que es el noble visto con odio."},
+      {a:"Derivado: «malo» (schlecht), lo bajo", b:"Derivado: «bueno» como manso y humilde", d:"Lo que cada moral deduce después: para una, lo malo es lo fallido y casi indiferente; para la otra, lo bueno es ser lo contrario del malvado."},
+      {a:"La reacción se descarga en actos", b:"La reacción se vuelve venganza imaginaria", d:"Qué pasa con la reacción ante una ofensa: en un caso se agota al actuar; en el otro, impedida de actuar, se vuelve rencor creador de valores."}]}
   ],
   husserl: [
     {tipo:"secuencia", titulo:"El camino del método fenomenológico", intro:"Cómo se pasa, según Ideas I y las Meditaciones cartesianas, de la vida ingenua a la descripción de esencias.", nota:"El orden en pasos es una simplificación didáctica: Husserl presentó varios caminos hacia la reducción y la reelaboró toda su vida.",
