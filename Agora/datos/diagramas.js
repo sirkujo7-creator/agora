@@ -112,63 +112,43 @@ const DIAGRAMAS = {
       {t:"Palabra escrita", d:"Signo convencional subordinado a la palabra hablada; como ella, significa las cosas, no los conceptos, pero según el orden de los conceptos."}]}
   ],
   maquiavelo: [
-    {tipo:"ciclo", titulo:"El ciclo de los gobiernos", intro:"Discursos, I, 2: las formas de gobierno se degeneran y se suceden en un ciclo que Maquiavelo toma del historiador griego Polibio.", nota:"El ciclo es de Polibio (Historias, libro VI) y Maquiavelo lo adopta; agrega que casi ninguna ciudad lo recorre entero, porque antes la conquista un vecino mejor ordenado. Su salida es el gobierno mixto, que combina los tres buenos, como en Esparta y en Roma.",
+    {tipo:"ciclo", titulo:"El ciclo de los gobiernos", intro:"En los Discursos (I, 2), Maquiavelo retoma de Polibio la idea de que las formas de gobierno se suceden en círculo: cada forma buena degenera en su vicio, y el vicio provoca la forma siguiente. Ubicá cada etapa.", nota:"El esquema no es invención de Maquiavelo: lo toma de Polibio, y él mismo agrega que pocas repúblicas recorren el ciclo varias veces, porque antes caen bajo un vecino mejor ordenado. Su conclusión es que las tres formas simples son malas, por breves o por viciosas, y que conviene un gobierno mixto que participe de las tres.",
      nodos:[
-      {t:"Principado", d:"Para defenderse, los primeros hombres eligen como jefe al más fuerte y valeroso, y después al más prudente y justo."},
-      {t:"Tiranía", d:"Los herederos del principado se entregan a los excesos y se hacen odiar: el principado se vuelve tiranía."},
-      {t:"Aristocracia", d:"Los más poderosos y nobles encabezan la conspiración contra el tirano y gobiernan con miras al bien común."},
-      {t:"Oligarquía", d:"Sus hijos, que no conocieron la tiranía, gobiernan con avaricia y ambición, y el gobierno de los mejores se vuelve el de unos pocos."},
-      {t:"Gobierno popular", d:"El pueblo derroca a los pocos y, para no volver ni a príncipe ni a oligarcas, gobierna por sí mismo."},
-      {t:"Licencia", d:"Con el tiempo cada uno hace lo que quiere y se ofende a todos: la anarquía obliga a buscar otra vez un príncipe, y el ciclo recomienza."}]},
-    {tipo:"polos", titulo:"El zorro y el león", intro:"El príncipe, capítulo XVIII: de las bestias, el príncipe debe imitar al zorro y al león, y saber usar las dos naturalezas.", polos:{"izq":"zorro","der":"león"}, nota:"Maquiavelo no elige uno: el que se apoya solo en el león no entiende lo que hace. Y las dos bestias vienen después de la manera propia de los hombres, que es combatir con las leyes.",
-     nodos:[
-      {a:"Descubre las trampas", b:"Espanta a los lobos", d:"Hay que ser zorro para conocer las trampas y león para espantar a los lobos: cada uno sirve contra un peligro distinto."},
-      {a:"No puede con los lobos", b:"Cae en las trampas", d:"Cada bestia sola tiene una debilidad: el zorro no se defiende de los lobos y el león no se defiende de las trampas."},
-      {a:"Simular y disimular", b:"Armas y castigo", d:"La astucia del zorro es saber parecer fiel, piadoso y humano; la fuerza del león, las armas propias y el temor al castigo."},
-      {a:"Fraude según Cicerón", b:"Violencia según Cicerón", d:"Cicerón, en Sobre los deberes, condenaba el fraude del zorro y la fuerza del león como indignos del ser humano; Maquiavelo invierte la imagen."}]}
+      {t:"Principado", d:"Para defenderse, los hombres eligen al más fuerte y después al más prudente y justo, y lo siguen como jefe."},
+      {t:"Tiranía", d:"Cuando el mando se vuelve hereditario, los herederos degeneran en lujos y excesos y se hacen odiar."},
+      {t:"Aristocracia", d:"Los más poderosos, con el apoyo de la multitud, derriban al tirano y gobiernan según el bien común."},
+      {t:"Oligarquía", d:"Sus hijos, que no conocieron la tiranía, gobiernan para su propia ambición y codicia."},
+      {t:"Gobierno popular", d:"El pueblo derriba a los pocos y, para no volver a tener ni príncipe ni grandes, gobierna por sí mismo."},
+      {t:"Licencia", d:"Muerta la generación que lo fundó, cada uno hace lo que quiere y se ofende sin freno, hasta que se vuelve a un príncipe."}]}
   ],
   pascalmontaigne: [
-    {tipo:"polos", titulo:"Montaigne y Pascal frente a frente", intro:"Ensayos (1580-1595) y Pensamientos (1670): los mismos materiales, actitudes opuestas.", polos:{"izq":"Montaigne","der":"Pascal"}, nota:"La oposición la construyó en buena parte Pascal mismo, en la Conversación con el señor de Sacy; Montaigne era católico practicante y no se presenta como enemigo de la fe.",
+    {tipo:"polos", titulo:"Dos respuestas a la incertidumbre", intro:"Pascal leyó a Montaigne sin descanso y le respondió punto por punto. Ubicá cada postura en su polo.", polos:{"izq":"Montaigne","der":"Pascal"}, nota:"Las parejas son una comparación didáctica: Montaigne murió antes de que naciera Pascal, y es Pascal quien le responde a él.",
      nodos:[
-      {a:"«¿Qué sé yo?»: vivir en la duda", b:"La duda obliga a decidir", d:"Montaigne suspende el juicio y vive en paz siguiendo la costumbre; para Pascal, sobre la pregunta por Dios no hay neutralidad posible: estamos embarcados."},
-      {a:"El yo como materia del libro", b:"«El yo es odioso»", d:"Montaigne se pinta para conocer la condición humana; Pascal le reprocha ese proyecto y sostiene que el yo se hace centro de todo (B 455, L 597)."},
-      {a:"La costumbre como segunda naturaleza", b:"La costumbre como signo de caída", d:"Los dos muestran que la costumbre decide lo que llamamos justo; Montaigne aconseja seguirla con prudencia, Pascal ve en ella la prueba de una naturaleza corrompida."},
-      {a:"Aceptar la condición mortal", b:"Huir de ella en la diversión", d:"Montaigne quiere familiarizarse con la muerte para vivir mejor; Pascal muestra que la mayoría se divierte para no pensar en ella."},
-      {a:"Naturaleza y razón como medida", b:"Corazón y gracia como salida", d:"Montaigne juzga desde la naturaleza; Pascal cree que solo el conocimiento del corazón y la gracia sacan al hombre de su contradicción."}]},
-    {tipo:"cuadrantes", titulo:"La tabla de la apuesta", intro:"Pensamientos, fragmento «Infinito, nada» (B 233, L 418): las cuatro combinaciones entre lo que se apuesta y lo que es el caso.", ejes:{"x":["Apostar a que no existe","Apostar a que existe"],"y":["Dios no existe","Dios existe"]}, nota:"Pascal no presenta una tabla: la reconstruyen sus lectores. Él mismo dice que quien apuesta por Dios, si pierde, no pierde nada, aunque reconoce que renuncia a algunos placeres.",
-     nodos:[
-      {t:"Se pierde un bien infinito", d:"Quien vivió como si Dios no existiera, si Dios existe, pierde la vida infinitamente feliz que estaba en juego."},
-      {t:"Se gana un bien infinito", d:"Quien apostó por Dios, si existe, gana todo: una infinidad de vida infinitamente feliz."},
-      {t:"Se gana algo finito", d:"Si Dios no existe, el que no apostó por él solo conserva los placeres y la libertad de esta vida, que son finitos."},
-      {t:"Se pierde algo finito o nada", d:"Si Dios no existe, el que apostó por él pierde a lo sumo algunos placeres; Pascal agrega que gana virtudes como la fidelidad y la gratitud."}]}
+      {a:"Suspender el juicio y vivir en paz", b:"No hay neutralidad: estamos embarcados", d:"Ante lo que no se puede saber, Montaigne se abstiene y sigue las leyes de su país; Pascal responde que no decidir ya es decidir."},
+      {a:"Pintarse: el yo como materia del libro", b:"El yo es odioso", d:"Montaigne estudia la condición humana en sí mismo; Pascal le reprocha el proyecto de pintarse (B 62) y desconfía del amor propio (B 455, L 597)."},
+      {a:"Las razones se oponen con igual fuerza", b:"El corazón conoce los primeros principios", d:"El escéptico ve que ningún argumento cierra la discusión; Pascal acepta que la razón no lo prueba todo, pero sostiene que el corazón conoce lo que ella no demuestra."},
+      {a:"Desviar la pena es un buen remedio", b:"Divertirse es huir de la propia condición", d:"En «De la diversión» (III, 4) Montaigne cuenta cómo distraer a alguien de un duelo; para Pascal la diversión es el síntoma de un vacío."},
+      {a:"Vivir a propósito es la gran obra", b:"Buscar a Dios aunque inquiete", d:"Montaigne cierra los Ensayos con el arte de vivir bien esta vida; Pascal pide no descansar mientras no se resuelva la pregunta por el fin."}]}
   ],
   bacon: [
-    {tipo:"partes", titulo:"Los cuatro ídolos", intro:"Novum Organum, libro I, aforismos 38-44: las cuatro clases de nociones falsas que ocupan el entendimiento.", centro:"Ídolos de la mente", nota:"El orden va de lo más natural a lo más adquirido. Bacon dice que los dos primeros se pueden vigilar pero no eliminar del todo, y que los del foro son los más molestos.",
+    {tipo:"secuencia", titulo:"El método de las tablas", intro:"Cómo se investiga una naturaleza, como el calor, según el libro II del Novum Organum: de la recolección de casos a una primera hipótesis.", nota:"Bacon anunciaba más pasos después de la primera vendimia (las «instancias prerrogativas» y otros auxilios del entendimiento), pero el Novum Organum quedó inconcluso y solo trató el primero.",
      nodos:[
-      {t:"Tribu: la especie humana", d:"Vienen de la naturaleza humana común: la mente es como un espejo desigual que mezcla su naturaleza con la de las cosas y supone más orden del que hay."},
-      {t:"Caverna: el individuo", d:"Vienen del temperamento, la educación, las lecturas y los autores que cada uno admira: cada persona tiene una cueva propia que desvía la luz de la naturaleza."},
-      {t:"Foro: el lenguaje", d:"Vienen del trato entre las personas: las palabras se forman según el entendimiento común y nombran cosas que no existen o mezclan cosas distintas."},
-      {t:"Teatro: los sistemas", d:"Vienen de las filosofías recibidas y de las malas reglas de demostración: cada sistema es como una obra que pone en escena un mundo ficticio."}]},
-    {tipo:"secuencia", titulo:"La investigación del calor", intro:"Novum Organum, libro II, aforismos 11-20: cómo se busca la forma de una naturaleza con tablas y exclusión.", nota:"Después de la primera vendimia, Bacon prevé más pasos (instancias prerrogativas, rectificaciones de la inducción) que el libro deja incompletos.",
-     nodos:[
-      {t:"Tabla de presencia", d:"Casos muy distintos donde hay calor: los rayos del sol, el fuego, los cuerpos de los animales, la fermentación."},
-      {t:"Tabla de ausencia en lo próximo", d:"Casos parecidos a los anteriores donde falta el calor: por ejemplo, los rayos de la luna, que no calientan."},
-      {t:"Tabla de grados", d:"Casos donde el calor aumenta o disminuye, para ver qué cualidad varía junto con él."},
-      {t:"Exclusión", d:"Se descarta toda cualidad que falte donde hay calor, aparezca donde no lo hay o no varíe con él; un caso negativo pesa más que muchos positivos."},
-      {t:"Primera vendimia", d:"Una hipótesis provisoria con lo que quedó: el calor sería un movimiento expansivo, contenido y que se ejerce en las partes pequeñas de los cuerpos."}]}
+      {t:"Historia natural y experimental", d:"Reunir observaciones y experimentos sobre la naturaleza investigada, sin saltar todavía a conclusiones."},
+      {t:"Tabla de presencia", d:"Casos muy distintos entre sí donde la naturaleza aparece: el sol, el fuego, el estiércol en fermentación."},
+      {t:"Tabla de ausencia en lo próximo", d:"Casos parecidos a los anteriores donde la naturaleza falta: los rayos de la luna no calientan."},
+      {t:"Tabla de grados", d:"Casos donde la naturaleza aumenta o disminuye, para ver qué cualidades varían con ella."},
+      {t:"Exclusión", d:"Descartar toda cualidad que falte donde está la naturaleza, aparezca donde falta o no varíe con ella."},
+      {t:"Primera vendimia", d:"Hipótesis provisoria sobre la forma: el calor sería un movimiento expansivo y contenido de las partes pequeñas."}]}
   ],
   descartes: [
-    {tipo:"secuencia", titulo:"El camino de la duda", intro:"Meditaciones I y II: de la duda a la primera certeza.",
+    {tipo:"secuencia", titulo:"El orden de las Meditaciones", intro:"Las seis Meditaciones siguen un orden de razones: cada paso se apoya en el anterior y no puede adelantarse. Ubicá qué se gana en cada una.",
      nodos:[
-      {t:"Duda de los sentidos", d:"Los sentidos a veces engañan; no conviene fiarse de quien engañó una vez."},
-      {t:"Argumento del sueño", d:"No hay señales seguras para distinguir la vigilia del sueño."},
-      {t:"Genio maligno", d:"Hipótesis de un engañador poderoso que nos haría equivocar incluso en matemáticas."},
-      {t:"Pienso, existo", d:"Aun si me engaña, para ser engañado tengo que existir: la primera certeza."}]},
-    {tipo:"polos", titulo:"Las dos sustancias creadas", intro:"Meditaciones y Principios: cada sustancia se define por un atributo principal del que todo lo demás es modo.", polos:{"izq":"res cogitans","der":"res extensa"}, nota:"La distinción real se apoya en que cada una se concibe clara y distintamente sin la otra; el costo es explicar cómo interactúan.",
-     nodos:[
-      {a:"Atributo: pensamiento", b:"Atributo: extensión", d:"La mente duda, entiende, afirma, niega, quiere, imagina y siente; el cuerpo tiene longitud, anchura y profundidad."},
-      {a:"Indivisible, sin lugar", b:"Infinitamente divisible", d:"La sustancia pensante no ocupa espacio ni tiene partes; la extensa puede dividirse sin término y ocupa lugar."},
-      {a:"Más conocida que el cuerpo", b:"Sin fines ni interioridad", d:"La mente se conoce antes y mejor que cualquier cuerpo; la materia carece de cualidades sensibles y de finalidad, y por eso es enteramente geometrizable."}]}
+      {t:"I. Se derriba todo lo dudoso", d:"Sentidos, sueño y genio maligno: se suspende la confianza en el mundo, en el propio cuerpo y hasta en la matemática."},
+      {t:"II. Existo como cosa que piensa", d:"Si me engaña, existo; lo que soy es una cosa que piensa. La cera muestra que la mente se conoce mejor que cualquier cuerpo."},
+      {t:"III. Dios existe y no engaña", d:"La idea de un ser infinito no puede venir de mí, que soy finito: su causa es Dios, que por ser perfecto no puede ser engañador."},
+      {t:"IV. El error nace de la voluntad", d:"Me equivoco cuando la voluntad afirma más allá de lo que el entendimiento percibe con claridad; el remedio es abstenerme de juzgar."},
+      {t:"V. La extensión y otra prueba de Dios", d:"Los cuerpos, en cuanto objeto de la geometría, son extensión; y la existencia está contenida en la esencia del ser perfecto."},
+      {t:"VI. Existen los cuerpos; mente distinta", d:"Existen las cosas materiales y la mente es realmente distinta del cuerpo, aunque está estrechamente unida y como mezclada con él."}]}
   ],
   hobbeslocke: [
     {tipo:"secuencia", titulo:"Del miedo al Leviatán", intro:"Leviatán, capítulos XIII a XVII: el camino que va de la igualdad natural a la creación del Estado.", nota:"Hobbes presenta este camino como un razonamiento, no como una historia de cómo nacieron los Estados reales; la división en seis pasos es didáctica.",
