@@ -12,32 +12,32 @@ const CLAVES = {
     ["La tesis del agua es un informe de Aristóteles, no un fragmento de Tales", "Aristóteles lee a los milesios desde su teoría de las causas", "Hay que distinguir lo probable, la conjetura y la leyenda"]
   ],
   heraclito: [
-    ["«Todo fluye» no aparece en ningún fragmento: viene de Platón", "DK 12: los ríos son los mismos y las aguas cambian", "La identidad se mantiene a través del cambio (lectura de Kirk)", "Crátilo radicalizó la tesis: ni una sola vez"],
-    ["Aristóteles lo acusa de negar la no contradicción", "Los ejemplos especifican un respecto: para quién, desde dónde, cuándo", "La unidad es conexión entre opuestos, no identidad", "Heráclito escribe con paradojas y no distingue respectos con precisión"],
-    ["Lectura cosmológica: tensión de contrarios, como el arco y la lira", "La discordia es justicia dentro de una medida; la desmesura se apaga", "Lectura literal: esclavos, libres y caídos en combate", "Heidegger la leyó como confrontación; Dussel la critica como dominación"],
-    ["El logos es común: el mismo para todos y accesible a cualquiera", "Los muchos viven como dormidos, con un entendimiento privado", "Pide escuchar al logos y no a él", "Objeción: ¿quién certifica lo común si casi nadie lo ve?"],
-    ["Los milesios buscaban una sustancia: agua, aire", "El fuego es proceso: solo existe mientras cambia", "Se enciende y se apaga según medidas, como el oro en el intercambio", "Nadie hizo el mundo; la conflagración estoica es discutida"]
+    ["«Todo fluye» no está en los fragmentos: viene de la lectura de Platón", "En DK 12 el río es el mismo porque el agua cambia: la identidad se sostiene en el cambio"],
+    ["Los ejemplos indican un respecto: para quién, hacia dónde, cuándo", "La unidad de los contrarios es conexión, no identidad lógica", "Heráclito escribe con paradojas y no distingue respectos"],
+    ["Lectura cosmológica: la tensión entre contrarios sostiene el orden, dentro de una medida", "Lectura literal: habla de guerra real, de esclavos y libres, y no se puede limpiar"],
+    ["Común quiere decir disponible para todos, no opinión de la mayoría", "Objeción: si casi nadie lo ve, ¿quién certifica qué es lo común?"],
+    ["El fuego es un proceso, no una sustancia estable", "Es un cambio medido: se intercambia por todo como el oro por las mercancías"]
   ],
   parmenides: [
-    ["Pensar y decir son siempre pensar y decir algo que es", "Objeción: hablamos con sentido de lo que no existe", "Parménides no distingue usos del verbo ser (existir, ser algo, ser verdad)", "Platón: no ser como diferencia; lógica moderna: el no niega una oración"],
-    ["La diosa la llama orden engañoso pero la expone", "Lectura: catálogo de creencias ajenas, quizá pitagóricas", "Lectura: la mejor descripción posible de lo que aparece", "Aristóteles: obligado a seguir los fenómenos, admitió dos principios"],
-    ["Zenón devuelve la burla a quienes se reían de Parménides", "Son reducciones al absurdo de la hipótesis del movimiento", "Aristóteles: el tiempo también se divide y el infinito es potencial", "La suma finita de una serie infinita no cierra para todos la pregunta"],
-    ["La tradición y Platón los opusieron: devenir contra ser inmóvil", "Diferencia real: unidad de opuestos frente a error de los mortales", "El pasaje de los de dos cabezas quizá alude a Heráclito, sin prueba", "Coinciden en despreciar la opinión de la mayoría y buscar un logos"],
-    ["Ambos aceptan que el saber necesita un objeto estable", "Platón da a las Formas los rasgos del ser eleático", "Sofista: parricidio, el no ser como lo diferente", "Aristóteles: el ser se dice de muchas maneras; potencia y acto"]
+    ["Pensar y decir son siempre pensar y decir algo que es: el camino del «no es» está vacío", "Punto débil: «no es» mezcla no existir, no ser algo y no ser verdad"],
+    ["La diosa la expone para que ningún parecer de los mortales aventaje al joven", "Es la mejor versión de lo que aparece: coherente, pero montada sobre un primer error"],
+    ["Todas las propiedades de lo que es se deducen de una sola premisa, sin observación", "Un argumento válido obliga: hay que mostrar dónde falla, no solo rechazar la conclusión"],
+    ["Son reducciones al absurdo que defienden a Parménides devolviendo la burla", "La suma de una serie infinita calcula el resultado, pero no cierra para todos la pregunta"],
+    ["Tuvieron que abandonar el supuesto de que «ser» tiene un solo sentido", "Platón: no ser como diferencia; Aristóteles: el cambio va de la privación a la forma en un sujeto que permanece"]
   ],
   socrates: [
-    ["Tres fuentes que no coinciden: Aristófanes, Jenofonte y Platón", "Aristóteles: buscaba definiciones universales sin separarlas de las cosas", "Los diálogos tempranos de Platón como base (Vlastos), las Formas son de Platón", "Es una hipótesis: algunos creen que el Sócrates histórico es inalcanzable"],
-    ["No lo dijo así: no cree saber lo que no sabe (Apología)", "La fórmula viene de autores posteriores como Cicerón y Diógenes Laercio", "Afirma con seguridad que cometer injusticia es malo", "Niega un saber experto, no tener convicciones examinadas"],
-    ["Choca con la experiencia de saber lo mejor y hacer lo peor", "Objeción de Aristóteles y corrección de Platón con el alma dividida", "Protágoras: ser vencido por el placer es un error de medida", "Consecuencia: al que obra mal hay que enseñarle más que castigarlo"],
-    ["Apología: obedecerá al dios antes que a los atenienses; León de Salamina", "Critón: persuadir u obedecer a las Leyes", "Se niega a cometer injusticias, pero no evade el castigo", "Distingue la ley de los hombres que la aplican mal"],
-    ["Cargos formales: impiedad y corrupción de los jóvenes", "Prejuicios de los acusadores antiguos, como Las nubes", "Trasfondo político: Critias, Alcibíades y la amnistía del 403", "Nada de eso vuelve justa la condena, pero los jueces no eran simples ignorantes"]
+    ["Las fuentes no coinciden, y Platón le atribuye con el tiempo doctrinas propias", "Base: diálogos tempranos más el dato de Aristóteles (definiciones universales no separadas)", "Es una reconstrucción: lo más seguro es lo que comparten todas las fuentes"],
+    ["Niega un saber experto sobre la virtud, capaz de definirla y enseñarla", "Tiene convicciones que resistieron todos los exámenes", "Su ignorancia no es escepticismo: lo empuja a seguir buscando"],
+    ["Protágoras: ser vencido por el placer es un error de medida", "Costo: reduce las pasiones a errores de cálculo; Platón dividirá el alma en partes"],
+    ["Se niega a cometer injusticias que le ordenen, pero no evade el castigo", "Las Leyes piden persuadir u obedecer, y Sócrates intentó persuadir en el juicio"],
+    ["El daño se mide por el alma, no por los bienes exteriores", "Quien comete injusticia se vuelve peor; al hombre bueno no se lo daña de verdad", "Obliga a preguntar qué entendemos por daño"]
   ],
   platon: [
-    ["Ninguna evidencia sensible basta para salir de las sombras", "Hace falta un giro del alma hacia el razonamiento dialéctico", "La evidencia decisiva es racional, no de los sentidos", "Riesgo de que la tesis resulte infalsable"],
-    ["Nunca se ha visto un triángulo perfecto y aun así se entiende", "Ese conocimiento no proviene de los sentidos", "La intuición sostiene la Teoría de las Formas"],
-    ["El alma tripartita está ordenada jerárquicamente", "La justicia interior consiste en que gobierne la razón", "Si gana el apetito, el alma queda desordenada", "No existe un cuarto juez por encima de las partes"],
-    ["Educación obligatoria de décadas para los guardianes", "No se deja al candidato decidir libremente", "Se forma al gobernante y luego se lo obliga a volver a gobernar"],
-    ["El regreso al infinito depende de la autopredicación de la Forma", "Negarla convierte a la Forma en aquello en virtud de lo cual algo es", "Se debilita la imagen de modelo y copia de la reminiscencia", "Aristóteles concluye que el universal no debe separarse de las cosas"]
+    ["Lo sensible cambia y admite contrarios: de él solo hay opinión", "El saber necesita un objeto estable, como el de la matemática", "Las Formas explican por qué muchas cosas distintas reciben el mismo nombre"],
+    ["Saber es poder dar razón: la opinión verdadera se ata con un razonamiento sobre la causa", "Sin fundamento, la opinión verdadera se pierde ante quien la contradice", "El jurado persuadido acierta sin saber"],
+    ["No hay un cuarto juez: decide la parte que manda", "Debe gobernar la razón, la única que mira el bien del conjunto", "La justicia es un orden interior, no ante todo una conducta"],
+    ["La legitimidad viene del saber del Bien, con educación larga y sin propiedad", "Gobierna mejor quien menos desea gobernar", "Objeción: no hay mecanismos para controlar o remover a los gobernantes"],
+    ["Amor y filosofía nacen de una falta: se desea lo que no se tiene", "El amor quiere poseer el bien para siempre", "El deseo puede ascender por grados hasta la Belleza misma"]
   ],
   aristoteles: [
     ["Distinción entre episteme y phronesis", "La sabiduría práctica exige experiencia y carácter formado", "Se puede dominar teorías morales y deliberar mal", "Analogía con saber medicina sin saber curar a un paciente"],
