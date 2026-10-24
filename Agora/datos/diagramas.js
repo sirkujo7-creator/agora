@@ -151,64 +151,39 @@ const DIAGRAMAS = {
       {t:"VI. Existen los cuerpos; mente distinta", d:"Existen las cosas materiales y la mente es realmente distinta del cuerpo, aunque está estrechamente unida y como mezclada con él."}]}
   ],
   hobbeslocke: [
-    {tipo:"secuencia", titulo:"Del miedo al Leviatán", intro:"Leviatán, capítulos XIII a XVII: el camino que va de la igualdad natural a la creación del Estado.", nota:"Hobbes presenta este camino como un razonamiento, no como una historia de cómo nacieron los Estados reales; la división en seis pasos es didáctica.",
+    {tipo:"polos", titulo:"Hobbes frente a Locke", intro:"Los dos usan las mismas piezas —estado de naturaleza, ley natural, pacto— y llegan a conclusiones opuestas. Cada fila enfrenta la respuesta de uno y otro a la misma pregunta.", polos:{"izq":"Hobbes","der":"Locke"}, nota:"Agrupar las tesis en estas cinco preguntas es una ayuda de estudio, no una división de los autores.",
      nodos:[
-      {t:"Igualdad natural", d:"Nadie es tan superior que no pueda ser vencido: el más débil puede matar al más fuerte con astucia o con aliados."},
-      {t:"Competencia, desconfianza y gloria", d:"Las tres causas de discordia: atacar por ganancia, por seguridad anticipándose a otros y por reputación."},
-      {t:"Guerra de todos contra todos", d:"Sin poder común no hay industria, ni artes, ni sociedad, ni justicia: la vida es solitaria, pobre, desagradable, brutal y breve."},
-      {t:"Las leyes de naturaleza", d:"El miedo a la muerte y la razón aconsejan buscar la paz y renunciar al derecho a todo si los demás también lo hacen."},
-      {t:"El pacto de cada uno con cada uno", d:"Todos autorizan a un hombre o a una asamblea a actuar en su nombre, porque los pactos sin la espada son solo palabras."},
-      {t:"El soberano, dios mortal", d:"Nace el Leviatán, con poder absoluto e indivisible; solo el derecho a defender la propia vida queda fuera del pacto."}]},
-    {tipo:"polos", titulo:"Hobbes y Locke frente a frente", intro:"Leviatán (1651) y Segundo tratado (1689): las mismas piezas teóricas con respuestas opuestas.", polos:{"izq":"Hobbes","der":"Locke"}, nota:"La comparación simplifica: los dos parten de la igualdad natural, y Hobbes también reconoce un derecho inalienable a defender la vida.",
-     nodos:[
-      {a:"Estado de naturaleza: guerra", b:"Estado de naturaleza: ley natural", d:"Para Hobbes, sin poder común no hay justicia y todos tienen derecho a todo; para Locke, la razón ya obliga a no dañar a otros."},
-      {a:"Propiedad después del soberano", b:"Propiedad antes del gobierno", d:"Para Hobbes no hay mío y tuyo sin ley; para Locke la propiedad nace del trabajo y el gobierno existe para protegerla."},
-      {a:"Soberano absoluto e indivisible", b:"Gobierno limitado y poderes separados", d:"Hobbes cree que dividir el poder lleva a la guerra civil; Locke, que concentrarlo deja a los súbditos indefensos frente al gobernante."},
-      {a:"Sin derecho de rebelión", b:"Derecho de resistencia del pueblo", d:"Para Hobbes los súbditos son autores de los actos del soberano; para Locke, si el gobierno traiciona la confianza, se disuelve."},
-      {a:"El soberano fija las doctrinas", b:"Tolerancia religiosa", d:"Hobbes da al soberano el control de lo que se enseña para evitar guerras de religión; Locke separa el Estado de la Iglesia, con exclusiones."}]}
+      {a:"Guerra de todos contra todos", b:"Libertad con incomodidades", d:"Cómo es el estado de naturaleza: para Hobbes, una disposición permanente a pelear; para Locke, libertad e igualdad bajo una ley, sin juez imparcial."},
+      {a:"Sin ley común no hay injusticia", b:"La razón ya obliga antes del Estado", d:"Cuándo obliga la ley natural: para Hobbes, solo en conciencia mientras no haya poder común; para Locke, desde antes de todo gobierno."},
+      {a:"El soberano no firma el pacto", b:"El gobierno recibe un poder en confianza", d:"Qué relación hay entre el que manda y los demás: para Hobbes, el soberano es el resultado del pacto entre súbditos; para Locke, un fiduciario del pueblo."},
+      {a:"Poder absoluto e indivisible", b:"Legislativo y ejecutivo separados", d:"Cómo se organiza el poder: Hobbes ve en la división la causa de la guerra civil; Locke separa a quien hace las leyes de quien las aplica."},
+      {a:"Solo se defiende la propia vida", b:"El pueblo puede resistir", d:"Qué se puede contra el que manda: Hobbes admite la defensa individual de la vida; Locke, que el pueblo resista a un gobierno que traiciona su confianza."}]}
   ],
   spinoza: [
-    {tipo:"niveles", titulo:"Los tres géneros de conocimiento", intro:"Ética, parte II, proposición 40, escolio 2: tres maneras de conocer, de la más confusa a la más alta.", nota:"Spinoza ilustra los tres con un mismo problema de proporciones, resuelto de memoria, por demostración o de un golpe de vista.",
+    {tipo:"secuencia", titulo:"El recorrido de la Ética", intro:"Las cinco partes de la Ética siguen un orden demostrativo: cada una se apoya en las anteriores, y el libro va de Dios a la libertad humana. Ubicá qué trata cada parte.",
      nodos:[
-      {t:"Imaginación u opinión", d:"Primer género: conocimiento por los sentidos, de oídas o por signos. Es fragmentario y confuso, y la única fuente de falsedad."},
-      {t:"Razón", d:"Segundo género: conocimiento por nociones comunes, lo que todas las cosas comparten. Es adecuado y necesariamente verdadero."},
-      {t:"Ciencia intuitiva", d:"Tercer género: va de la idea adecuada de un atributo de Dios a la esencia de las cosas singulares. De él nace el amor intelectual de Dios y la beatitud."}]},
-    {tipo:"polos", titulo:"Servidumbre y libertad", intro:"Ética, partes IV y V: dos maneras de vivir los afectos.", polos:{"izq":"servidumbre","der":"libertad"}, nota:"No son dos clases de personas, sino dos extremos entre los que cada uno se mueve: la libertad humana es de grado.",
-     nodos:[
-      {a:"Padecer: causas externas", b:"Actuar: por la propia naturaleza", d:"En la servidumbre, la causa adecuada de lo que hacemos está fuera de nosotros; en la libertad, lo que hacemos se sigue de lo que comprendemos."},
-      {a:"Ideas inadecuadas", b:"Ideas adecuadas", d:"Quien padece conoce de manera confusa, por la imaginación; quien es libre forma ideas claras y distintas de sus afectos y de sus causas."},
-      {a:"Pasiones tristes", b:"Alegría que nace de la razón", d:"La tristeza disminuye la potencia de obrar; la alegría que nace de entender la aumenta y culmina en el amor intelectual de Dios."},
-      {a:"Meditación de la muerte", b:"Meditación de la vida", d:"El hombre libre, dice la proposición 67 de la cuarta parte, en nada piensa menos que en la muerte: su sabiduría es una meditación de la vida."}]}
+      {t:"I. De Dios", d:"Una sola sustancia, infinita y necesaria: todo lo que es, es en Dios, y en la naturaleza no hay nada contingente."},
+      {t:"II. Naturaleza y origen de la mente", d:"La mente es la idea del cuerpo; se distinguen la imaginación, la razón y la ciencia intuitiva."},
+      {t:"III. Origen y naturaleza de los afectos", d:"El esfuerzo por perseverar en el ser y los tres afectos primarios: deseo, alegría y tristeza."},
+      {t:"IV. La servidumbre humana", d:"La impotencia para moderar los afectos, y lo que la razón muestra como verdaderamente útil."},
+      {t:"V. Potencia del entendimiento o libertad", d:"El poder de entender sobre las pasiones, el amor intelectual de Dios y la beatitud."}]}
   ],
   leibniz: [
-    {tipo:"niveles", titulo:"La jerarquía de las mónadas", intro:"Monadología, §§ 19-30 y 47-48: todas las mónadas perciben, pero no con el mismo grado de distinción.", eje:"más distinción en la percepción", nota:"Leibniz habla de grados continuos más que de cuatro clases cerradas; agruparlos en cuatro niveles es una simplificación de Ágora.",
+    {tipo:"polos", titulo:"Dos clases de verdades", intro:"Monadología, §§31-36: los dos grandes principios del razonamiento y las verdades que gobierna cada uno.", polos:{"izq":"Verdades de razón","der":"Verdades de hecho"}, nota:"La distinción entre análisis finito e infinito no está en la Monadología: aparece en escritos breves de Leibniz sobre la libertad y la contingencia, de la década de 1680.",
      nodos:[
-      {t:"Dios, la mónada primitiva", d:"La unidad originaria de la que todas las mónadas creadas proceden; percibe todo con perfecta distinción y es la razón última de las cosas."},
-      {t:"Espíritus o almas racionales", d:"Tienen apercepción, es decir, conciencia reflexiva, y conocen las verdades necesarias; por eso pueden decir «yo» y formar con Dios una ciudad moral."},
-      {t:"Almas de los animales", d:"Tienen percepciones más distintas, acompañadas de memoria y sentimiento, que les permiten esperar lo que vivieron antes, pero no razonar."},
-      {t:"Mónadas desnudas", d:"Perciben sin distinción ni memoria, como nosotros en un sueño profundo o en un desmayo: toda mónada percibe, aunque sea confusamente."}]},
-    {tipo:"secuencia", titulo:"Por qué existe el mejor de los mundos", intro:"Monadología, §§ 53-55: el argumento que Voltaire satirizó en Cándido.", nota:"El paso discutido es el cuarto: supone que hay un mundo de perfección máxima y que la perfección de mundos enteros se puede comparar.",
-     nodos:[
-      {t:"Infinitos mundos posibles", d:"En el entendimiento de Dios hay infinitas combinaciones de cosas que no implican contradicción."},
-      {t:"Solo uno puede existir", d:"Los mundos posibles son incompatibles entre sí: existir uno excluye a los demás."},
-      {t:"Hace falta una razón de la elección", d:"Por el principio de razón suficiente, Dios no puede elegir sin razón uno más bien que otro."},
-      {t:"La razón es el grado de perfección", d:"Cada posible tiene derecho a existir en la medida de su perfección: mayor variedad con mayor orden."},
-      {t:"Sabiduría, bondad y poder", d:"La sabiduría hace conocer a Dios el mejor, su bondad se lo hace elegir y su poder se lo hace producir."},
-      {t:"Existe el mejor posible", d:"Este mundo es el mejor conjunto posible, lo que no significa que cada una de sus partes sea buena."}]}
+      {a:"Necesarias", b:"Contingentes", d:"El opuesto de una verdad de razón es imposible; el de una verdad de hecho es posible, aunque no ocurra."},
+      {a:"Principio de contradicción", b:"Principio de razón suficiente", d:"Unas se apoyan en que lo contradictorio es falso; las otras, en que nada ocurre sin una razón para que sea así y no de otro modo."},
+      {a:"Análisis finito", b:"Análisis infinito", d:"En unas, el análisis llega a identidades en un número finito de pasos; en las otras no termina nunca, y solo Dios lo abarca."},
+      {a:"El triángulo tiene tres ángulos", b:"César cruzó el Rubicón", d:"Un ejemplo de cada lado: una verdad de la geometría y un hecho de la historia."}]}
   ],
   hume: [
-    {tipo:"secuencia", titulo:"Cómo nace la idea de causa", intro:"Investigación sobre el entendimiento humano, secciones IV, V y VII: del primer choque de las bolas de billar a la idea de conexión necesaria.", nota:"Hume no presenta estos pasos como una lista numerada: es una reconstrucción de su análisis.",
+    {tipo:"secuencia", titulo:"De las bolas de billar a la necesidad", intro:"Investigación sobre el entendimiento humano, secciones IV, V y VII: cómo se forma, según Hume, la idea de que una causa obliga a su efecto.", nota:"Hume no enumera estos pasos: el orden es una reconstrucción de su análisis.",
      nodos:[
-      {t:"Un hecho sigue a otro", d:"En un solo caso vemos contigüidad y sucesión: una bola toca a la otra y la segunda se mueve. No vemos ninguna fuerza que las una."},
-      {t:"Conjunción constante", d:"Observamos muchas veces que hechos semejantes siguen a hechos semejantes. La repetición no agrega nada a cada caso, pero cambia algo en nosotros."},
-      {t:"La costumbre crea un hábito", d:"La repetición produce una propensión: ante la causa, la mente pasa por sí sola a esperar el efecto, sin ningún razonamiento."},
-      {t:"Determinación sentida", d:"Esa transición de la mente es una impresión interna: nos sentimos determinados a esperar el efecto."},
-      {t:"Idea de conexión necesaria", d:"De esa impresión interna, y no de los objetos, se copia la idea de necesidad que atribuimos a la relación causal."}]},
-    {tipo:"polos", titulo:"La horquilla de Hume", intro:"Investigación, sección IV: los dos tipos de objetos de la razón humana.", polos:{"izq":"relaciones de ideas","der":"cuestiones de hecho"}, nota:"Kant intentará mostrar que hay un tercer tipo: los juicios sintéticos a priori.",
-     nodos:[
-      {a:"Se descubren solo pensando", b:"Se conocen por experiencia", d:"Las relaciones de ideas no dependen de lo que exista en el mundo; las cuestiones de hecho solo se conocen observando."},
-      {a:"Su contrario es contradictorio", b:"Su contrario es concebible", d:"Que tres por cinco no sea quince es contradictorio; que el sol no salga mañana se puede concebir sin contradicción."},
-      {a:"Geometría, álgebra, aritmética", b:"Causas, física, historia", d:"Las matemáticas son el ejemplo de las primeras; todo razonamiento sobre causas y efectos pertenece a las segundas."}]}
+      {t:"Un caso: contigüidad y sucesión", d:"Una bola toca a la otra y la segunda se mueve. Se ve que un hecho sigue a otro, no la fuerza que los une."},
+      {t:"Muchos casos: conjunción constante", d:"Hechos semejantes siguen siempre a hechos semejantes. La repetición no muestra nada nuevo en cada caso."},
+      {t:"La costumbre forma un hábito", d:"La repetición sí cambia algo en quien observa: produce una inclinación a esperar el efecto, sin razonamiento de por medio."},
+      {t:"La mente se siente determinada", d:"Ante la causa, la imaginación pasa sola al efecto. Esa transición sentida es una impresión interna."},
+      {t:"Idea de conexión necesaria", d:"Copiada de esa impresión interna, y no de los objetos, es la necesidad que después atribuimos a las cosas."}]}
   ],
   rousseau: [
     {tipo:"secuencia", titulo:"De la cabaña a la ley de los ricos", intro:"Discurso sobre la desigualdad (1755), segunda parte: la historia conjetural de cómo la desigualdad natural se volvió desigualdad política.", nota:"Rousseau presenta esta historia como conjetural, no como un relato documentado; el orden de las etapas es suyo, pero las fechas no existen.",
