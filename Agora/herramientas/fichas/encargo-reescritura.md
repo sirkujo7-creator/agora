@@ -43,7 +43,8 @@ de los que se nombran acá. Escribí SOLO lo nuevo; un script lo une a la ficha 
   una lectura errónea, interpretar un fragmento, reconocer un supuesto): `{situacion?, pregunta, opciones:[4], correcta:0-3, explicacion}`.
   Enunciados limpios, sin huecos; reparte la correcta entre posiciones.
 - **Términos** (uno por concepto, mismo orden): `{k, tapar}` si el término `k` aparece tal cual en la `d`
-  del concepto (`tapar`: otras expresiones de la `d` que delatarían la respuesta), o `{q:"¿…?"}` si no.
+  del concepto (`tapar`: otras expresiones de la `d` que delatarían la respuesta, incluidas las palabras que
+  contienen `k` sin tildes: «virtù» → tapar «virtud»), o `{q:"¿…?"}` si no.
 - **Correcciones del diálogo existente** (obligatorias si hacen falta): si en el `dialogo` viejo el autor dice
   algo que no sostuvo (adagio posterior, rótulo que no usó, tesis de intérpretes modernos) o comenta a alguien
   posterior como si lo hubiera conocido, corregí SOLO esa frase. También errores evidentes en tesis/conexion.
