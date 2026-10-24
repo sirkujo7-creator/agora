@@ -1078,12 +1078,9 @@ function exportarEscritos(){
    Primero se escribe la respuesta y recién después se ve la del modelo: el esfuerzo de
    formularla es lo que la fija. Después se marcan las ideas clave (CLAVES, en datos/claves.js)
    que aparecen en lo escrito, y de ahí sale la autoevaluación de tres niveles (sin claves,
-   se elige a mano). El modo «Revisar a un compañero» usa las mismas claves sobre un texto ajeno. */
+   se elige a mano). */
 const PREG_EVAL = [["si","Tenía lo central"],["parte","En parte"],["no","Se me escapó lo central"]];
 let pregAviso = {};
-let pregModo = "mia";   // "mia" | "par"
-/* Revisión de un compañero: vive solo en memoria (no es progreso propio) y se pierde al cambiar de ficha. */
-let revPar = null;
 function clavesDe(d, i){
   const c = (typeof CLAVES !== "undefined" && CLAVES[d.id]) ? CLAVES[d.id][i] : null;
   return Array.isArray(c) ? c : [];
@@ -1100,33 +1097,9 @@ function renderPreguntas(){
   const qs = getQuiz(currentModule);
   if(!qs.length){ sinEjercicio(); return; }
   pregAviso = {};
-  if(!revPar || revPar.id !== currentModule.id) revPar = { id:currentModule.id, nombre:"", items: qs.map(()=>({texto:"", claves:[], comentario:""})) };
   const clr = LEVELS[currentModule.trad].clr;
-  const toggle = `<div class="evalrow pregmodo" role="group" aria-label="Modo">
-      ${[["mia","Mi respuesta"],["par","Revisar a un compañero"]].map(([k,l])=>`<button class="chip ${pregModo===k?'active':''}" aria-pressed="${pregModo===k}" onclick="cambiarModoPreg('${k}')">${l}</button>`).join("")}</div>`;
-  if(pregModo === "par"){
-    $("#detBody").innerHTML = `
-    <div style="--tclr:var(--${clr});">
-      ${toggle}
-      <div class="lecnote">🤝 Pegá o copiá la respuesta de tu compañero, marcá qué ideas clave tiene y dejale un comentario. Al final bajás la revisión en un archivo para entregársela. <b>Esto no se guarda:</b> se borra al cambiar de ficha.</div>
-      <label class="parnombre">Nombre del compañero <input type="text" value="${escapeHtml(revPar.nombre)}" oninput="revPar.nombre=this.value" placeholder="Opcional"></label>
-      ${qs.map((q,i)=>{
-        const it = revPar.items[i], cl = clavesDe(currentModule, i);
-        return `<article class="activity pregcard">
-          <h4>Pregunta ${i+1}</h4>
-          <p class="pregq">${q.q}</p>
-          <textarea class="escritura" rows="5" aria-label="Respuesta del compañero" placeholder="Respuesta del compañero…" oninput="revPar.items[${i}].texto=this.value">${escapeHtml(it.texto)}</textarea>
-          <div class="modelo"><b>Respuesta del modelo</b><p>${q.p}</p></div>
-          ${cl.length ? `<p class="clavesq">¿Cuáles de estas ideas clave aparecen en su respuesta?</p>${checklistClaves(cl, it.claves, "marcarClavePar", i+",")}<div class="muted clavescuenta" id="parcuenta-${i}">${cuentaClaves(it.claves.length, cl.length, "Cubrió")}</div>` : ''}
-          <textarea class="escritura" rows="3" aria-label="Comentario para el compañero" placeholder="Tu comentario: qué está bien, qué falta, qué le preguntarías…" oninput="revPar.items[${i}].comentario=this.value">${escapeHtml(it.comentario)}</textarea>
-        </article>`;}).join("")}
-      <div class="row" style="margin-top:14px;"><button class="btn sm" onclick="exportarRevision()">⬇️ Bajar la revisión</button></div>
-    </div>`;
-    return;
-  }
   $("#detBody").innerHTML = `
     <div style="--tclr:var(--${clr});">
-      ${toggle}
       <div class="lecnote">✍️ Escribí tu respuesta antes de mirar la del modelo. La del modelo no es la única válida: usala para ver qué se te escapó y qué viste vos que ella no dice.</div>
       ${qs.map((q,i)=>`
         <article class="activity pregcard">
@@ -1138,7 +1111,6 @@ function renderPreguntas(){
     </div>`;
   qs.forEach((_,i)=>drawModelo(i));
 }
-function cambiarModoPreg(m){ pregModo = m; renderPreguntas(); }
 function cuentaClaves(n, total, verbo){
   const ev = evalDeClaves(n, total);
   const txt = ev==="si" ? "lo central está" : ev==="parte" ? "falta algo de lo central" : "se escapó lo central";
@@ -1189,32 +1161,6 @@ function marcarClave(i, j, on){
   progress.respuestas[k] = r;
   saveProgress();
   drawModelo(i);
-}
-function marcarClavePar(i, j, on){
-  const it = revPar.items[i];
-  it.claves = on ? Array.from(new Set(it.claves.concat(j))).sort((a,b)=>a-b) : it.claves.filter(x=>x!==j);
-  const el = document.getElementById("parcuenta-"+i);
-  if(el) el.textContent = cuentaClaves(it.claves.length, clavesDe(currentModule, i).length, "Cubrió");
-}
-function exportarRevision(){
-  const d = currentModule;
-  const quien = revPar.nombre.trim();
-  const bloques = [`ÁGORA · ${d.nombre} · Revisión entre pares`, quien ? `Respuestas de: ${quien}` : "", `Fecha: ${todayStr()}`, ""];
-  getQuiz(d).forEach((q,i)=>{
-    const it = revPar.items[i], cl = clavesDe(d, i);
-    bloques.push(`PREGUNTA ${i+1}. ${q.q.replace(/<[^>]+>/g,"")}`, "", "Respuesta:", it.texto.trim() || "(sin respuesta)", "");
-    if(cl.length){
-      bloques.push(`Ideas clave (${it.claves.length} de ${cl.length}):`);
-      cl.forEach((c,j)=>bloques.push(`  [${it.claves.includes(j)?"x":" "}] ${c}`));
-      bloques.push("");
-    }
-    if(it.comentario.trim()) bloques.push("Comentario:", it.comentario.trim(), "");
-  });
-  const url = URL.createObjectURL(new Blob([bloques.join("\n")], {type:"text/plain;charset=utf-8"}));
-  const a = document.createElement("a");
-  a.href = url; a.download = `agora-${d.id}-revision${quien?"-"+quien.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""):""}.txt`;
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(()=>URL.revokeObjectURL(url), 1000);
 }
 
 /* ============================= REPASO MIXTO ============================= */

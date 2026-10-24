@@ -133,17 +133,6 @@ function servidor(){
   const todo = await p.evaluate(() => progress.respuestas["kant:preguntas:0"].eval === "si");
   const guardado = await p.evaluate(() => JSON.parse(localStorage.getItem("agora-progress-v1")).respuestas["kant:preguntas:0"].claves.length);
   comprobar(nClaves >= 3 && parte && todo && guardado === nClaves && (await p.textContent("#modelo-0")).includes(`Cubriste ${nClaves} de ${nClaves}`), "las ideas clave marcadas dan la autoevaluación y se guardan");
-  await p.click('button:has-text("Revisar a un compañero")');
-  await p.fill(".parnombre input", "Ana Gómez");
-  await p.fill('#detBody textarea[aria-label="Respuesta del compañero"] >> nth=0', "Universalizar la máxima.");
-  await p.locator("#detBody .claves >> nth=0").locator("input").nth(0).check();
-  await p.fill('#detBody textarea[aria-label="Comentario para el compañero"] >> nth=0', "Falta la objeción de Hegel.");
-  const [dlRev] = await Promise.all([p.waitForEvent("download"), p.click('button:has-text("Bajar la revisión")')]);
-  const revTxt = fs.readFileSync(await dlRev.path(), "utf8");
-  const propioIntacto = await p.evaluate(() => progress.respuestas["kant:preguntas:0"].texto.startsWith("La prueba"));
-  comprobar(dlRev.suggestedFilename() === "agora-kant-revision-ana-gomez.txt" && revTxt.includes("Universalizar la máxima.") && revTxt.includes("  [x] ") && revTxt.includes("Falta la objeción de Hegel.") && propioIntacto,
-    "revisión entre pares: se marca, se comenta y se baja sin tocar lo propio");
-  await p.click('button:has-text("Mi respuesta")');
 
   // 4. Buscador
   await p.keyboard.press("Escape"); await p.evaluate(() => showView("inicio")); await p.keyboard.press("/");
