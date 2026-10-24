@@ -78,20 +78,12 @@ const DIAGRAMAS = {
       {t:"Cuerpos", d:"Lo que solo existe, como la piedra: es percibido y no percibe nada. Es el escalón del ser sin vida ni entendimiento."}]}
   ],
   anselmo: [
-    {tipo:"secuencia", titulo:"El argumento del Proslogion II", intro:"Los pasos de la reducción al absurdo con la que Anselmo pasa del entendimiento a la realidad.", nota:"La división en cinco pasos es una reconstrucción didáctica; Anselmo lo expone en un solo párrafo continuo.",
+    {tipo:"partes", titulo:"La rectitud y sus formas", intro:"En los diálogos Sobre la verdad, Sobre la libertad del albedrío y La caída del diablo, Anselmo piensa el conocer y el obrar con una sola noción. Ubicá cada forma de la rectitud.", centro:"Rectitud: ser o hacer lo que se debe", nota:"La agrupación es didáctica. Anselmo distingue además la verdad del enunciado, del pensamiento, de la acción, de los sentidos y de las cosas; aquí aparecen juntas bajo «Verdad».",
      nodos:[
-      {t:"El insensato entiende la fórmula", d:"Cuando oye «algo mayor que lo cual nada puede pensarse», el que niega a Dios entiende lo que oye; y lo que se entiende está en el entendimiento."},
-      {t:"Existir en la realidad es mayor", d:"Lo que existe en el entendimiento y en la realidad es mayor que lo que existe solo en el entendimiento. Es la premisa que atacará Kant."},
-      {t:"Supuesto: solo en el entendimiento", d:"Se supone lo contrario de lo que se quiere probar: que aquello mayor que lo cual nada puede pensarse existe solo como pensamiento."},
-      {t:"Contradicción", d:"Entonces podría pensarse algo mayor: lo mismo, existiendo también en la realidad. Lo máximo pensable no sería lo máximo pensable."},
-      {t:"Existe también en la realidad", d:"Como el supuesto lleva a una contradicción, se concluye que aquello mayor que lo cual nada puede pensarse existe en el entendimiento y en la realidad."}]},
-    {tipo:"partes", titulo:"La verdad como rectitud", intro:"Sobre la verdad (c. 1080–1085): los ámbitos en los que Anselmo encuentra verdad, y la definición que los une.", centro:"Rectitud perceptible solo por la mente", nota:"Anselmo trata también la verdad de los sentidos y la verdad suprema, que es Dios, causa de todas las rectitudes; el diagrama agrupa las principales.",
-     nodos:[
-      {t:"Enunciado", d:"Es verdadero cuando significa que es lo que es: cumple lo que debe hacer al significar."},
-      {t:"Pensamiento", d:"Es verdadero cuando piensa que es lo que es, y que no es lo que no es."},
-      {t:"Voluntad", d:"Es verdadera cuando quiere lo que debe querer. De aquí sale la definición de la justicia: rectitud de la voluntad conservada por sí misma."},
-      {t:"Acción", d:"Es verdadera cuando hace lo que debe: obrar bien es, en este sentido, hacer la verdad."},
-      {t:"Esencia de las cosas", d:"Las cosas son verdaderas cuando son lo que deben ser según la verdad suprema de la que reciben el ser."}]}
+      {t:"Verdad", d:"La rectitud perceptible solo por la mente: un enunciado es verdadero cuando significa que es lo que es."},
+      {t:"Justicia", d:"La rectitud de la voluntad conservada por sí misma: querer lo debido porque es debido, no por miedo a una sanción ni por un premio."},
+      {t:"Libertad", d:"No es poder elegir entre pecar o no pecar, sino el poder de no soltar lo recto, que tienen en grado máximo quienes no pueden pecar."},
+      {t:"Injusticia", d:"No es una cosa con ser propio, sino la falta de la justicia que debería haber en la voluntad: por eso el mal es una ausencia."}]}
   ],
   hildegarda: [
     {tipo:"capas", titulo:"El cosmos como un huevo (Scivias I, 3)", intro:"La tercera visión del primer libro del Scivias: el universo en capas, de afuera hacia el centro.", nota:"Simplificado: Hildegarda distingue más capas (el aire acuoso, el aire fuerte y blanco y el aire tenue con las nubes van aquí juntos). En el Libro de las obras divinas cambió el huevo por una rueda.",
@@ -99,26 +91,16 @@ const DIAGRAMAS = {
       {t:"Fuego luminoso y fuego oscuro", d:"Afuera, un fuego brillante; debajo, una piel sombría con un fuego oscuro. Allí están el sol y algunos astros, y desde allí soplan vientos."},
       {t:"Éter puro", d:"Una capa clara, debajo de los fuegos, donde Hildegarda ubica la luna y otros astros."},
       {t:"Aires: acuoso, fuerte y blanco, tenue", d:"Varias capas de aire: una cargada de humedad, otra fuerte y luminosa, y la más baja, tenue, donde se forman las nubes."},
-      {t:"La tierra, esfera en el centro", d:"En el medio, una esfera de arena: la tierra, rodeada por todas las capas y alcanzada por sus vientos y sus influencias."}]},
-    {tipo:"polos", titulo:"Verdor y aridez", intro:"La viriditas y su contrario: la misma oposición recorre la naturaleza, el cuerpo y el alma.", polos:{"izq":"viriditas","der":"aridez"}, nota:"La agrupación en tres ámbitos es una manera de ordenar los usos del término, no una lista de Hildegarda.",
-     nodos:[
-      {a:"Tierra que brota y da fruto", b:"Tierra estéril y seca", d:"En la naturaleza, la viriditas es la fuerza que hace brotar las plantas y fructificar la tierra; su ausencia es la esterilidad."},
-      {a:"Cuerpo sano, humores en equilibrio", b:"Enfermedad y melancolía", d:"En el cuerpo, el verdor es la salud; la sequedad acompaña la enfermedad y la tristeza que, para Hildegarda, entraron con la caída."},
-      {a:"Alma fecunda en virtudes", b:"Alma marchita por el pecado", d:"En el alma, la viriditas es la fecundidad que da fruto en obras buenas; el pecado la seca, y el Espíritu Santo la hace reverdecer."}]}
+      {t:"La tierra, esfera en el centro", d:"En el medio, una esfera de arena: la tierra, rodeada por todas las capas y alcanzada por sus vientos y sus influencias."}]}
   ],
   tomas: [
-    {tipo:"partes", titulo:"Las cinco vías", intro:"Suma teológica I, q.2, a.3: cinco caminos que van de algo observado en el mundo a su causa primera.", centro:"Existencia de Dios", nota:"Todas son pruebas a posteriori, desde los efectos. Lo que concluyen es un primer principio; que sea el Dios de la fe se discute en las cuestiones siguientes.",
+    {tipo:"secuencia", titulo:"Cómo está armado un artículo de la Suma", intro:"Cada artículo de la Suma teológica sigue el mismo orden, el de una disputa universitaria. El ejemplo es el artículo «¿Existe Dios?» (I, q.2, a.3).", nota:"Es la forma de la disputatio de la universidad medieval. El «en sentido contrario» no es la prueba de Tomás, sino una autoridad que apoya la otra posición; su argumento está en el «Respondo».",
      nodos:[
-      {t:"Movimiento", d:"Todo lo que pasa de la potencia al acto es movido por otro, y esa serie de motores no puede ir al infinito: hay un primer motor no movido."},
-      {t:"Causa eficiente", d:"Nada es causa eficiente de sí mismo, y en las causas ordenadas no se puede ir al infinito: hay una primera causa eficiente."},
-      {t:"Lo posible y lo necesario", d:"Las cosas que se generan y se corrompen pueden no ser; si todo pudiera no ser, ahora no habría nada: tiene que haber algo necesario por sí mismo."},
-      {t:"Grados de perfección", d:"Hay cosas más y menos buenas, verdaderas y nobles; el más y el menos suponen un máximo que es causa de esas perfecciones."},
-      {t:"Gobierno del mundo", d:"Cosas sin conocimiento obran por un fin, como la flecha que va al blanco; tiene que haber una inteligencia que las ordena."}]},
-    {tipo:"niveles", titulo:"Los órdenes de la ley", intro:"Suma teológica I-II, q.91-95: de la razón con que Dios gobierna el universo a las leyes de una ciudad.", eje:"cada nivel participa del anterior", nota:"Tomás agrega la ley divina, revelada en la Escritura, que no está debajo de la natural, sino que la completa para orientar al ser humano a un fin que supera la naturaleza.",
-     nodos:[
-      {t:"Ley eterna", d:"El plan de la razón divina que gobierna todo el universo. Nadie la conoce entera, pero todo lo creado la refleja de algún modo."},
-      {t:"Ley natural", d:"La participación de la ley eterna en la criatura racional. Su primer precepto es hacer el bien y evitar el mal, y se ordena según las inclinaciones naturales."},
-      {t:"Ley humana", d:"Concreta la ley natural para una comunidad, por conclusión o por determinación. Si la contradice, no es ley, sino corrupción de ley."}]}
+      {t:"La pregunta", d:"Se plantea una cuestión que se responde con sí o no: «¿Existe Dios?»."},
+      {t:"Objeciones («Parece que…»)", d:"Primero hablan los argumentos contra la posición que Tomás va a defender: aquí, el problema del mal y la idea de que la naturaleza y la voluntad humana bastan para explicarlo todo."},
+      {t:"En sentido contrario", d:"Se cita una autoridad a favor de la otra posición: aquí, el «Yo soy el que soy» del Éxodo."},
+      {t:"Respondo", d:"El cuerpo del artículo: la solución del maestro con sus razones; aquí, las cinco vías."},
+      {t:"Respuestas a las objeciones", d:"Se vuelve a cada objeción y se la resuelve una por una; a la del mal responde que Dios no permitiría ningún mal si no pudiera sacar de él un bien."}]}
   ],
   ockham: [
     {tipo:"secuencia", titulo:"De la cosa singular a la palabra escrita", intro:"Suma de lógica I, 1-15: cómo se encadenan, según Ockham, el conocimiento de los singulares y los tres lenguajes.", nota:"Ockham no presenta estos pasos como una lista numerada; el orden es una reconstrucción de su explicación sobre el origen de los conceptos y la subordinación de los signos.",
@@ -127,12 +109,7 @@ const DIAGRAMAS = {
       {t:"Conocimiento intuitivo", d:"El primer contacto con lo singular: saber de manera evidente que esta cosa existe y cómo está, aquí y ahora."},
       {t:"Concepto: signo natural", d:"La mente forma naturalmente un concepto que está en lugar de muchos individuos parecidos. Es singular en sí mismo, universal por su función."},
       {t:"Palabra hablada", d:"Signo convencional subordinado al concepto: «hombre», homo o man significan lo mismo por acuerdo de cada comunidad."},
-      {t:"Palabra escrita", d:"Signo convencional subordinado a la palabra hablada; como ella, significa las cosas, no los conceptos, pero según el orden de los conceptos."}]},
-    {tipo:"polos", titulo:"Realismo y nominalismo", intro:"El problema de los universales: la posición de Ockham frente al realismo de Tomás y de Escoto.", polos:{"izq":"realismo","der":"nominalismo de Ockham"}, nota:"Tomás y Escoto no defienden el mismo realismo: para Tomás la naturaleza es universal solo en la mente; Escoto le da en las cosas una unidad menor que la numérica. Ockham rechaza ambas versiones.",
-     nodos:[
-      {a:"Hay una naturaleza común en las cosas", b:"Fuera de la mente todo es singular", d:"El realista pone en Sócrates y Platón algo común, la humanidad; Ockham sostiene que cada uno tiene solo su ser singular."},
-      {a:"El universal se funda en una realidad", b:"El universal es un signo de muchos", d:"Para Ockham, lo universal es el concepto, que está en lugar de muchos individuos parecidos; no hace falta otra entidad que lo fundamente."},
-      {a:"Distinción formal en la cosa", b:"Solo distinción real o de razón", d:"Escoto distinguía en la cosa la naturaleza y lo que la individúa; Ockham considera esa distinción ininteligible fuera de la Trinidad y la corta con la navaja."}]}
+      {t:"Palabra escrita", d:"Signo convencional subordinado a la palabra hablada; como ella, significa las cosas, no los conceptos, pero según el orden de los conceptos."}]}
   ],
   maquiavelo: [
     {tipo:"ciclo", titulo:"El ciclo de los gobiernos", intro:"Discursos, I, 2: las formas de gobierno se degeneran y se suceden en un ciclo que Maquiavelo toma del historiador griego Polibio.", nota:"El ciclo es de Polibio (Historias, libro VI) y Maquiavelo lo adopta; agrega que casi ninguna ciudad lo recorre entero, porque antes la conquista un vecino mejor ordenado. Su salida es el gobierno mixto, que combina los tres buenos, como en Esparta y en Roma.",
