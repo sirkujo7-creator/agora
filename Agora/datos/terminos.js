@@ -149,7 +149,7 @@ const TERMINOS = {
   ],
   maquiavelo: [
     {k:"verità effettuale", tapar:["verdad efectiva","La verdad efectiva"]},
-    {k:"virtù", tapar:["Virtù"]},
+    {k:"virtù", tapar:["Virtù","virtud"]},
     {k:"fortuna", tapar:["La fortuna"]},
     {k:"ocasión", tapar:["occasione","La ocasión"]},
     {k:"necesidad", tapar:["necessità","La necesidad"]},
