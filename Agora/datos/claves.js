@@ -40,32 +40,32 @@ const CLAVES = {
     ["Amor y filosofía nacen de una falta: se desea lo que no se tiene", "El amor quiere poseer el bien para siempre", "El deseo puede ascender por grados hasta la Belleza misma"]
   ],
   aristoteles: [
-    ["Distinción entre episteme y phronesis", "La sabiduría práctica exige experiencia y carácter formado", "Se puede dominar teorías morales y deliberar mal", "Analogía con saber medicina sin saber curar a un paciente"],
-    ["El medio lo fija la phronesis, no el deseo del agente", "Criterio del hombre prudente con juicio educado por la experiencia", "Objeción: la ética de la virtud podría depender de un consenso social"],
-    ["La naturaleza obra por un fin inmanente", "El ojo es para ver sin que nadie lo haya diseñado", "La física moderna eliminó la causa final", "La biología sigue hablando de funciones, el debate sigue abierto"],
-    ["Vivir fuera de la pólis no es una opción neutral", "Sin ciudad no se desarrolla la deliberación sobre lo justo", "Quien vive sin ciudad es una bestia o un dios", "Objeción moderna: confunde un hecho estadístico con una naturaleza"],
-    ["Aristóteles no separa hecho y valor como Hume", "La forma de una cosa ya incluye su fin", "Describir plenamente al humano es describir su plenitud", "Ese supuesto es lo que discute la filosofía moderna"]
+    ["La virtud es una héxis que se forma repitiendo actos, no un saber", "El placer o el dolor que acompaña al acto distingue al virtuoso del que solo se domina", "Por eso la educación de los hábitos desde joven es decisiva"],
+    ["El medio es lo que corresponde en cada caso, relativo a nosotros, y lo determina la phrónesis", "No siempre está a igual distancia de los extremos", "Hay acciones que no admiten medio: son malas sin más"],
+    ["Las Formas separadas duplican las cosas y no explican su ser ni su cambio", "Un bien separado no sirve para la acción", "La forma está en las cosas, unida a la materia: lo universal existe en los singulares"],
+    ["Lo que algo es en potencia es una capacidad real, no la nada", "El cambio es el paso de la potencia al acto a partir de algo que ya existe", "El acto es anterior: solo lo que ya está en acto hace pasar a otro al acto"],
+    ["La naturaleza obra por un fin sin deliberar: lo que ocurre siempre o casi siempre no es azar", "La causa final es la forma misma del ser vivo, no un diseñador", "La ciencia moderna la expulsó, pero el lenguaje de funciones en biología mantiene el debate"]
   ],
   epicuro: [
-    ["El placer más alto es la ausencia de dolor y de turbación", "El placer tiene un límite: suprimido el dolor, solo varía", "Los deseos naturales se satisfacen con poco; los vacíos no tienen límite", "Objeción de Cicerón: llamar placer a la ausencia de dolor cambia la palabra"],
-    ["Todo bien y todo mal están en la sensación; la muerte es privación de sensación", "Temer por anticipado lo que no dañará cuando esté presente es absurdo", "Simetría de Lucrecio con el tiempo antes de nacer", "Objeción de la privación (Nagel) y el miedo a morir no queda resuelto"],
-    ["La física tiene una función terapéutica, no de curiosidad", "Los fenómenos tienen causas naturales y los dioses no castigan", "El alma es atómica y se dispersa con la muerte", "El desvío de los átomos rompe la necesidad y deja lugar a la libertad"],
-    ["La amistad empieza por la utilidad pero lo que importa es la confianza", "Puede volverse deseable por sí misma (lectura discutida del manuscrito)", "El sabio moriría por un amigo; el Jardín y el testamento", "Crítica de Cicerón: una amistad interesada no es amistad"],
-    ["La vida pública trae más turbación que seguridad: «vive oculto»", "La justicia es un pacto útil, no una causa", "A favor: lucidez frente a la ambición en el mundo helenístico; el Jardín era comunidad", "En contra: si los que pueden se retiran, los que dañan quedan sin oposición; los estoicos piden participar"]
+    ["El placer más alto es un estado de calma: no sufrir ni estar turbado", "El placer tiene un límite: suprimido el dolor, solo varía", "La sencillez sale de calcular bien el placer, no de sacrificarlo"],
+    ["Todo bien y todo mal están en la sensación, y la muerte es privación de sensación", "Objeción: un daño no necesita ser sentido; la muerte priva de bienes futuros"],
+    ["La física se estudia para quitar el miedo, no por curiosidad", "Causas naturales en lugar de castigos divinos; el alma se dispersa con la muerte", "Basta cualquier explicación natural: lo que importa es excluir a los dioses"],
+    ["Lo que más ayuda es la confianza en la ayuda, no el favor concreto", "Un origen útil no impide que la amistad se vuelva deseable por sí misma"],
+    ["La injusticia es mala por el miedo a ser descubierto, que destruye la tranquilidad", "Esa seguridad de no ser descubierto nunca existe", "Costo: la justicia queda atada al miedo y a la conveniencia"]
   ],
   estoicos: [
-    ["Ningún estoico romano pidió abolir la esclavitud", "La distinción pide actuar en lo que depende de uno y aceptar el resultado", "La justicia es virtud cardinal y hubo oposición estoica a los tiranos", "Da fuerza para resistir, pero poco para transformar instituciones"],
-    ["Los indiferentes preferidos tienen valor y es razonable buscarlos", "La virtud consiste en elegir bien entre los indiferentes", "Carnéades: la distinción sería solo de palabras", "Aristóteles: la desgracia extrema impide la felicidad"],
-    ["Las pasiones son juicios equivocados que se pueden corregir", "Apátheia no es insensibilidad: hay primeros movimientos y emociones buenas", "Séneca: la ira es una aliada peligrosa", "Objeción: algunos juicios emocionales, como el duelo, son verdaderos"],
-    ["Crisipo: el cilindro rueda por su propia forma", "Las causas externas provocan, pero el carácter decide la respuesta", "El perro atado al carro: seguir de buena gana o ser arrastrado", "Crítica: sería una libertad muy pobre"],
-    ["Epicuro: el fin es el placer como ausencia de dolor y turbación", "Estoicos: el único bien es la virtud", "Átomos sin providencia frente a un cosmos gobernado por la razón", "Vida retirada frente a participación en la ciudad y cosmopolitismo"]
+    ["Ningún estoico romano pidió abolir la esclavitud: la libertad quedó como asunto interior", "La distinción pide actuar en lo que depende de uno y aceptar solo el resultado", "Da fuerza para resistir, pero poco para transformar instituciones"],
+    ["Salud y riqueza son indiferentes preferidos: tienen valor y es razonable buscarlos", "La virtud consiste en elegir bien entre ellos sin hacer depender la felicidad del resultado", "Lo que está en juego: si la vida buena depende en parte de la suerte"],
+    ["Las pasiones son juicios equivocados; la apátheia no es insensibilidad", "Hay primeros movimientos involuntarios y emociones buenas", "Objeción: algunos juicios emocionales, como el duelo, son verdaderos"],
+    ["El cilindro de Crisipo: el empujón lo pone en marcha, pero rueda por su propia forma", "El asentimiento sale del carácter: somos una de las causas, y la decisiva", "Crítica: sería una libertad muy pobre"],
+    ["Entre lo que pasa y lo que sentimos media un juicio", "Si el juicio es nuestro, se puede revisar: ahí está la libertad", "No es subjetivismo: la perturbación depende de un asentimiento que podemos negar"]
   ],
   agustin: [
-    ["La tesis responde al dualismo maniqueo del mal como sustancia", "Todo lo que existe es bueno; el mal vive en lo bueno como falta", "La privación es real, como la ceguera o un agujero: no se niega el mal", "Objeción: el dolor no se siente como ausencia; la discusión sigue abierta"],
-    ["En la forma sí: si me engaño, existo, porque quien no existe no puede engañarse", "Agustín refuta al escéptico, no duda metódicamente para reconstruir el saber", "La certeza de sí es un peldaño hacia Dios: imagen de la Trinidad en ser, conocer y amar", "Descartes hace del cogito el fundamento de una ciencia: antecedente, no cartesiano adelantado"],
-    ["El libre albedrío, capacidad de elegir, nunca se pierde y funda la responsabilidad", "La libertad verdadera, poder querer el bien, está herida y la gracia la sana", "Pelagio: Dios no manda imposibles; Julián: dar la gracia a unos y no a otros es injusto", "La tensión entre gracia y libertad atravesó la historia posterior"],
-    ["Las ciudades son dos amores, no instituciones", "En esta vida están entremezcladas y solo el juicio final las separa", "La ciudad celestial usa la paz terrena, pero ningún reino es sagrado", "Agustinismo político y apoyo a la coerción contra los donatistas"],
-    ["Paradoja: el pasado ya no es, el futuro no es todavía, el presente no tiene extensión", "Tres presentes en el alma: memoria, atención y espera", "El tiempo como distensión del alma; no hay un antes de la creación", "Objeción: queda sin explicar el tiempo del mundo, anterior a toda alma"]
+    ["El mal es real, pero como falta en algo bueno, no como sustancia", "La tesis elimina el segundo principio y devuelve el mal moral a la voluntad", "La objeción que queda: el dolor no se vive como una ausencia"],
+    ["La forma es parecida: el engaño supone a alguien que existe", "La función es refutar al escéptico y subir hacia Dios, no fundar el saber desde cero"],
+    ["Libre albedrío (elegir, nunca se pierde) frente a libertad (poder querer el bien, herida)", "La gracia sana la voluntad, no la reemplaza", "Queda la objeción de la injusticia si la gracia se da sin mérito"],
+    ["Las ciudades son dos amores, entremezclados hasta el juicio final", "Ningún orden político es sagrado, aunque la paz terrena sea un bien", "La obra se leyó después para subordinar el poder político a la Iglesia"],
+    ["Tres presentes en el alma: memoria, atención y espera", "Explica el tiempo vivido; queda abierto cómo se relaciona con el tiempo del mundo"]
   ],
   anselmo: [
     ["No dice que una definición cree la cosa, sino que un concepto no puede existir solo en el pensamiento", "Es una reducción al absurdo", "Supone que existir en la realidad es mayor (lo ataca Kant)", "Supone que del concepto se pasa a la realidad (lo ataca Tomás)"],

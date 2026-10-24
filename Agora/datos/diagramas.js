@@ -45,62 +45,37 @@ const DIAGRAMAS = {
       {t:"Conjetura (eikasía)", d:"Capta solo imágenes de las cosas: sombras, y reflejos en el agua o en superficies pulidas."}]}
   ],
   aristoteles: [
-    {tipo:"partes", titulo:"Las cuatro causas", intro:"Explicar algo es dar sus cuatro causas.", centro:"¿Por qué existe esta estatua?",
+    {tipo:"partes", titulo:"Las cuatro causas de una estatua", intro:"Explicar algo es responder cuatro preguntas distintas. Aristóteles usa la estatua de bronce como ejemplo, y cada causa vale también para los seres naturales.", centro:"¿Por qué existe esta estatua?", nota:"En los seres naturales, dice Aristóteles en la Física (II 7), la causa formal, la eficiente y la final a menudo coinciden: la forma del roble es lo que la semilla llega a ser y aquello hacia lo que tiende.",
      nodos:[
-      {t:"Material", d:"De qué está hecha: el bronce."},
-      {t:"Formal", d:"Qué es, su forma o esencia: la figura que la define."},
-      {t:"Eficiente", d:"Qué la produjo: el escultor y su arte."},
-      {t:"Final", d:"Para qué existe: el fin al que se orienta, por ejemplo honrar a alguien."}]},
-    {tipo:"polos", titulo:"La virtud como término medio", intro:"Ética a Nicómaco II: cada virtud ética es un medio entre dos vicios opuestos.", polos:{"izq":"vicio por defecto","der":"vicio por exceso"}, nota:"No es una media aritmética sino un medio relativo a nosotros, que fija la prudencia en cada caso; y hay acciones, como el homicidio, que no admiten medio.",
-     nodos:[
-      {a:"Cobardía", b:"Temeridad", d:"Entre ambas está el valor: temer lo que se debe, cuando y como se debe, ni huir de todo peligro ni arrojarse a cualquiera."},
-      {a:"Avaricia", b:"Prodigalidad", d:"Entre ambas está la generosidad: dar y gastar en la medida adecuada, ni retener lo que conviene dar ni derrochar lo propio."},
-      {a:"Insensibilidad", b:"Intemperancia", d:"Entre ambas está la templanza respecto de los placeres corporales; Aristóteles nota que el defecto es raro y casi no tiene nombre."}]}
+      {t:"Causa material", d:"Aquello de lo que está hecha y que permanece en ella: el bronce. Por sí sola no explica nada: el mismo bronce podría ser una campana."},
+      {t:"Causa formal", d:"Lo que la hace ser esta estatua y no otra cosa: la figura del atleta, su definición. En un ser vivo, la forma es el alma."},
+      {t:"Causa eficiente", d:"Lo que inició el cambio: el escultor, o mejor, el arte de esculpir que él posee. En la naturaleza, el padre que engendra."},
+      {t:"Causa final", d:"Aquello para lo cual existe: honrar al atleta vencedor. En la naturaleza nadie lo planea: el ojo es para ver."}]}
   ],
   epicuro: [
-    {tipo:"partes", titulo:"La clasificación de los deseos", intro:"Carta a Meneceo: cómo distingue Epicuro los deseos para saber cuáles satisfacer y cuáles descartar.", centro:"Deseos", nota:"La subdivisión de los necesarios (para la vida, para el cuerpo, para la felicidad) es de la Carta; los ejemplos de cada clase vienen de un comentario antiguo a las Máximas capitales y de la tradición epicúrea.",
+    {tipo:"partes", titulo:"El tetrafármaco: cuatro remedios", intro:"El resumen de la doctrina en cuatro frases. Cada una cura un miedo o un error distinto, y cada una se apoya en una parte diferente del sistema.", centro:"Remedio cuádruple", nota:"La fórmula en cuatro frases se conserva en un papiro de Filodemo de Gádara (siglo I a.C.); corresponde a las cuatro primeras Máximas capitales. Asociar cada frase con una parte del sistema es una forma de ordenar la doctrina, no una división del propio Epicuro.",
      nodos:[
-      {t:"Necesarios para la vida", d:"Naturales y necesarios: si no se satisfacen, se sufre y se muere. Comer y beber cuando hay hambre y sed. Se satisfacen con poco: pan y agua."},
-      {t:"Necesarios para el bienestar del cuerpo", d:"Naturales y necesarios para que el cuerpo no sufra: abrigo, techo, descanso."},
-      {t:"Necesarios para la felicidad", d:"Naturales y necesarios para la tranquilidad del alma: la amistad y la filosofía, que liberan del miedo."},
-      {t:"Naturales no necesarios", d:"Varían un placer que ya tenemos, pero no suprimen ningún dolor: comer manjares en vez de pan. No son malos, pero no hay que depender de ellos."},
-      {t:"Vacíos (vanos)", d:"No nacen de la naturaleza sino de opiniones falsas, y no tienen límite: riqueza sin fin, fama, poder, estatuas y coronas. Traen más turbación que placer."}]},
-    {tipo:"polos", titulo:"El Jardín y el Pórtico", intro:"Epicúreos y estoicos, las dos grandes escuelas helenísticas: buscan la tranquilidad por caminos opuestos.", polos:{"izq":"epicúreos","der":"estoicos"}, nota:"Es una comparación de las doctrinas típicas de cada escuela; dentro de cada una hubo matices y cambios a lo largo de los siglos. Los estoicos tendrán su propia ficha.",
-     nodos:[
-      {a:"El bien es el placer", b:"El único bien es la virtud", d:"Para Epicuro, el placer como ausencia de dolor y turbación es el fin, y las virtudes son medios para alcanzarlo; para los estoicos, la virtud es el único bien y el placer es indiferente."},
-      {a:"Átomos, vacío y azar", b:"Una razón divina ordena todo", d:"Los epicúreos explican el mundo por átomos que se combinan sin plan; los estoicos ven en el cosmos un logos providente que lo gobierna todo."},
-      {a:"Dioses que no intervienen", b:"Providencia y destino", d:"Los dioses de Epicuro viven felices sin ocuparse de los humanos, y el desvío de los átomos rompe la necesidad; los estoicos aceptan un destino que el sabio debe querer."},
-      {a:"Vivir retirado entre amigos", b:"Participar como ciudadano del mundo", d:"Epicuro aconseja apartarse de la política y vivir en comunidad de amigos; los estoicos piden que el sabio participe en la vida pública si nada se lo impide."}]}
+      {t:"El dios no es de temer", d:"Lo feliz e incorruptible no tiene preocupaciones ni se las causa a otros: los seres divinos no se enojan, no premian ni castigan, y el rayo o la peste tienen causas naturales."},
+      {t:"La muerte no inspira cuidado", d:"Lo que se disuelve no siente, y lo que no siente no es nada para nosotros: el alma, hecha de átomos, se dispersa, y no queda nadie que sufra."},
+      {t:"El bien es fácil de procurar", d:"Lo que la naturaleza pide tiene límite y está al alcance: pan, agua, abrigo y amigos. Lo difícil de conseguir son los deseos que nacen de opiniones falsas."},
+      {t:"El mal es fácil de soportar", d:"El sufrimiento del cuerpo, si es intenso, dura poco; si dura mucho, es leve y deja lugar a placeres que lo compensan."}]}
   ],
   estoicos: [
-    {tipo:"polos", titulo:"Lo que depende y lo que no depende de nosotros", intro:"Enquiridión 1: la distinción con que Epicteto abre su manual y que organiza toda la ética estoica romana.", polos:{"izq":"depende de nosotros","der":"no depende de nosotros"}, nota:"Los ejemplos de cada par son de Epicteto; la presentación en pares es una simplificación didáctica.",
+    {tipo:"secuencia", titulo:"Cómo nace una pasión", intro:"Séneca, De la ira, libro II: la ira no estalla de golpe; pasa por momentos distintos, y solo en uno de ellos interviene nuestra decisión.", nota:"Los tres movimientos (involuntario, voluntario y el que ya no obedece a la razón) son de Séneca, De la ira II 4; la impresión que los desencadena viene de la doctrina de Crisipo. Los nombres de cada paso son de esta ficha.",
      nodos:[
-      {a:"El juicio y la opinión", b:"El cuerpo y la salud", d:"Puedo decidir qué pienso de lo que me pasa; no puedo decidir no enfermarme. Epicteto pone el cuerpo entre lo que no depende de nosotros."},
-      {a:"El deseo y la aversión", b:"Los bienes y la riqueza", d:"Depende de mí qué deseo y qué rechazo; no depende de mí conservar lo que tengo. El que desea lo que no depende de él se condena a la frustración."},
-      {a:"El impulso a actuar", b:"La reputación y los cargos", d:"Mis decisiones son obra mía; lo que otros piensen de mí y los puestos que me den, no. Lo primero es libre; lo segundo, ajeno y sujeto a impedimentos."},
-      {a:"Cómo respondo a lo que pasa", b:"Lo que pasa", d:"La muerte, el exilio o la pobreza pueden llegar; lo que depende de mí es el juicio con que los recibo. No nos perturban las cosas, sino nuestros juicios sobre ellas."}]},
-    {tipo:"secuencia", titulo:"Cómo nace una pasión", intro:"La psicología estoica de Crisipo y Séneca: la pasión no es una fuerza ciega, sino el resultado de un asentimiento.", nota:"La división en pasos sigue a Séneca, De ira II 1-4, y a la doctrina de Crisipo; los nombres de cada paso son de esta ficha.",
-     nodos:[
-      {t:"Impresión", d:"Algo se nos presenta como bueno o malo: un insulto, una amenaza, una oferta. Recibir la impresión no depende de nosotros."},
-      {t:"Primer movimiento", d:"El cuerpo reacciona solo: el sobresalto, el rubor, la palidez. Séneca dice que incluso el sabio los siente, y que todavía no son pasión."},
-      {t:"Asentimiento", d:"La mente da por verdadero el juicio «esto es un mal» o «esto es un bien». Aquí está nuestra libertad y nuestra responsabilidad."},
-      {t:"Pasión", d:"El impulso desmesurado que sigue al asentimiento: la ira, el miedo, la aflicción o el deseo desbordado. Es un juicio equivocado hecho emoción."},
-      {t:"Examen y corrección", d:"Detenerse y decirle a la impresión: «sos una impresión, y no del todo lo que parecés». Revisar el juicio es la terapia estoica."}]}
+      {t:"Impresión", d:"Algo se presenta como una ofensa: un comentario, un gesto, un mensaje. Recibir esa impresión no depende de nosotros."},
+      {t:"Primer movimiento", d:"El cuerpo reacciona sin permiso: el sobresalto, el rubor, el calor en la cara. Es involuntario, el sabio también lo siente, y todavía no es pasión."},
+      {t:"Asentimiento", d:"La mente da por verdadero el juicio «me hicieron un daño y corresponde vengarme». Es el segundo movimiento, el voluntario: aquí está nuestra responsabilidad."},
+      {t:"Pasión desbocada", d:"El tercer movimiento ya no obedece: no quiere vengarse si corresponde, sino de cualquier modo. La razón quedó vencida y la ira sigue sola."}]}
   ],
   agustin: [
-    {tipo:"secuencia", titulo:"El camino de una conversión", intro:"Confesiones III-VIII: las etapas por las que pasó Agustín antes del jardín de Milán.", nota:"El orden es el del relato de las Confesiones, escrito más de diez años después; Agustín organiza su vida desde el final, y los historiadores discuten cuánto de ese relato es reconstrucción.",
+    {tipo:"niveles", titulo:"La subida de Del libre albedrío II", intro:"Del libre albedrío II: de lo exterior a lo interior, y de lo interior a lo superior, con una regla: lo que juzga está por encima de lo que es juzgado.", eje:"lo que juzga está por encima de lo juzgado", nota:"La escala sigue el diálogo con Evodio en el libro II de Del libre albedrío. Agustín presenta la última conclusión con cautela: esa verdad es Dios, o, si hay algo más alto que ella, eso más alto es Dios.",
      nodos:[
-      {t:"El Hortensio de Cicerón", d:"A los diecinueve años, en Cartago, un libro de Cicerón le despierta el amor por la sabiduría; le falta, dice, el nombre de Cristo."},
-      {t:"Nueve años de maniqueísmo", d:"Encuentra una religión que promete explicarlo todo por la razón y que hace del mal una sustancia; lo decepciona la incapacidad de sus maestros para responder."},
-      {t:"La duda de los académicos", d:"Desconfiado de todo, se inclina por el escepticismo de la Academia: el sabio no debe asentir a nada."},
-      {t:"Los libros de los platónicos", d:"En Milán lee a Plotino y Porfirio: aprende a entrar en sí y a pensar a Dios y al alma sin imágenes corporales, pero no encuentra el camino para llegar."},
-      {t:"El jardín de Milán", d:"Ya sabe qué hacer y no puede quererlo; oye «toma y lee», abre las cartas de Pablo y la voluntad dividida se reúne. La conversión se vive como un don."}]},
-    {tipo:"polos", titulo:"Las dos ciudades", intro:"La ciudad de Dios XIV, 28: dos amores fundaron dos ciudades, que en esta vida están entremezcladas.", polos:{"izq":"ciudad terrena","der":"ciudad celestial"}, nota:"No son la Iglesia y el Estado: son dos maneras de amar, que atraviesan todas las instituciones y solo se separan en el juicio final.",
-     nodos:[
-      {a:"Amor de sí hasta despreciar a Dios", b:"Amor de Dios hasta despreciarse", d:"Lo que funda cada ciudad no es un territorio ni una ley, sino la orientación del amor."},
-      {a:"Busca la gloria de los hombres", b:"Pone su gloria en Dios", d:"Una se gloría en sí misma y en la opinión ajena; la otra tiene por mayor gloria a Dios, testigo de la conciencia."},
-      {a:"Deseo de dominar", b:"Servicio mutuo por caridad", d:"En una, los príncipes y las naciones son dominados por el deseo de dominar; en la otra, los que gobiernan y los que obedecen se sirven mutuamente."},
-      {a:"Hace de la paz terrena su fin", b:"Usa la paz terrena como peregrina", d:"La ciudad celestial también necesita la tranquilidad del orden, pero no pone su esperanza en ningún imperio."}]}
+      {t:"Verdad inmutable", d:"Las verdades de los números y de la sabiduría son comunes a todos y no cambian; la razón no las juzga, sino que juzga según ellas. Es la cima de la prueba de que Dios existe."},
+      {t:"Razón", d:"Entiende y juzga lo que está debajo de ella; es lo más alto del ser humano, pero cambia: a veces ve la verdad y a veces no, y por eso no puede ser la cima."},
+      {t:"Sentido interior", d:"Percibe que los sentidos exteriores perciben y los dirige: el animal advierte que ve, y por eso busca o huye. Gobierna, pero no sabe."},
+      {t:"Sentidos exteriores", d:"Vista, oído, olfato, gusto y tacto: cada uno capta su propio objeto corporal, pero ninguno percibe que percibe."},
+      {t:"Cuerpos", d:"Lo que solo existe, como la piedra: es percibido y no percibe nada. Es el escalón del ser sin vida ni entendimiento."}]}
   ],
   anselmo: [
     {tipo:"secuencia", titulo:"El argumento del Proslogion II", intro:"Los pasos de la reducción al absurdo con la que Anselmo pasa del entendimiento a la realidad.", nota:"La división en cinco pasos es una reconstrucción didáctica; Anselmo lo expone en un solo párrafo continuo.",
