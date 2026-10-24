@@ -11,67 +11,38 @@ const DIAGRAMAS = {
       {t:"Aire (Anaxímenes)", d:"Vuelve a un elemento determinado, pero le agrega un mecanismo de cambio: enrarecido se hace fuego; condensado, viento, nube, agua, tierra y piedra."}]}
   ],
   heraclito: [
-    {tipo:"ciclo", titulo:"Las transformaciones del fuego", intro:"DK 30, 31, 60 y 90: el fuego siempre vivo se convierte en mar y en tierra, y vuelve a ser fuego, según medidas.", nota:"El orden del ciclo y el regreso del mar al fuego son una reconstrucción a partir de los fragmentos y de Diógenes Laercio (IX 9); Heráclito no lo expone como esquema.",
+    {tipo:"partes", titulo:"Cuatro maneras en que los contrarios son uno", intro:"Los ejemplos de Heráclito no son todos del mismo tipo: en cada uno, los opuestos están atados de una manera distinta.", centro:"Los contrarios son uno", nota:"La clasificación es de los intérpretes, no de Heráclito, que acumula los ejemplos sin ordenarlos. Distinguir así los respectos es, en parte, responder a la objeción de Aristóteles.",
      nodos:[
-      {t:"Fuego siempre vivo", d:"El mundo no lo hizo ningún dios ni ningún hombre: siempre fue, es y será fuego siempre vivo, que se enciende y se apaga según medidas (DK 30)."},
-      {t:"Mar", d:"La primera transformación del fuego es el mar (DK 31): es el camino hacia abajo."},
-      {t:"Tierra y torbellino", d:"La mitad del mar se vuelve tierra, y la otra mitad, torbellino ardiente (DK 31)."},
-      {t:"La tierra se licúa en mar", d:"La tierra vuelve a ser mar y se mide en la misma proporción que tenía antes: el cambio conserva la medida (DK 31)."},
-      {t:"Del mar al fuego", d:"Es el camino hacia arriba: el camino hacia arriba y hacia abajo es uno y el mismo (DK 60). Todo se cambia por fuego como las mercancías por oro (DK 90)."}]},
-    {tipo:"secuencia", titulo:"Del río de Heráclito al «todo fluye»", intro:"Cómo un fragmento sobre los ríos se convirtió, a través de sus lectores, en la fórmula más famosa de la filosofía antigua.", nota:"La fórmula panta rhei no figura en ningún fragmento conservado. Qué versión del río es la original sigue en discusión.",
-     nodos:[
-      {t:"Heráclito: aguas distintas, mismos ríos", d:"DK 12, conservado por Ario Dídimo: sobre los que entran en los mismos ríos fluyen aguas distintas y distintas. El río es el mismo; lo que cambia es el agua."},
-      {t:"Platón: todo se mueve, nada permanece", d:"En el Cratilo (402a), Sócrates resume a Heráclito con esa fórmula y la ilustra con el río en que no se puede entrar dos veces."},
-      {t:"Crátilo: ni una sola vez", d:"Según Aristóteles (Metafísica IV), este seguidor de Heráclito llevó la tesis al extremo, terminó por no decir nada y solo movía el dedo."},
-      {t:"Plutarco: no se puede entrar dos veces", d:"La versión más citada (DK 91), del siglo I-II d.C., que muchos estudiosos consideran una paráfrasis que ya incorpora la lectura platónica."},
-      {t:"Kirk: lo mismo a través del cambio", d:"G. S. Kirk (1954) y otros intérpretes defienden que Heráclito afirmaba una medida que permanece en el cambio, no un flujo sin permanencia."}]}
+      {t:"Según para quién", d:"El agua del mar es la más pura y la más impura: a los peces les da vida y a los hombres los mata (DK 61)."},
+      {t:"Según la dirección", d:"El camino hacia arriba y hacia abajo es uno y el mismo (DK 60): lo que cambia es el sentido en que se lo recorre."},
+      {t:"Uno se convierte en el otro", d:"Lo vivo y lo muerto, lo despierto y lo dormido, lo joven y lo viejo son lo mismo: lo uno, al cambiar, es lo otro, y lo otro vuelve a ser lo uno (DK 88)."},
+      {t:"Tensión simultánea", d:"Lo que difiere concuerda consigo mismo, como el arco y la lira: la cuerda y la madera tiran a la vez en sentidos opuestos, y de eso viven (DK 51)."}]}
   ],
   parmenides: [
-    {tipo:"partes", titulo:"Los signos de lo que es", intro:"Fragmento 8: las propiedades que la diosa deduce, una por una, del rechazo del «no es».", centro:"Lo que es", nota:"Agrupar así los signos es una simplificación: el poema los anuncia juntos en los primeros versos y los demuestra en un orden un poco distinto.",
+    {tipo:"secuencia", titulo:"El recorrido del poema", intro:"El orden en que la diosa conduce al joven: del viaje a la revelación, de los dos caminos a los signos de lo que es, y de la verdad a la opinión.", nota:"El orden de los fragmentos es una reconstrucción moderna (Diels) a partir de citas dispersas; el comienzo y el paso del fragmento 8 a la opinión son seguros, la ubicación de algunos fragmentos breves se discute.",
      nodos:[
-      {t:"Ingénito e imperecedero", d:"No nace ni muere: nacer sería salir de lo que no es, que no se puede pensar ni decir, y nada explicaría que surgiera más tarde y no antes."},
-      {t:"Ahora, todo junto", d:"No fue ni será: es ahora, todo a la vez. Lo que es no tiene un pasado en que no era ni un futuro en que dejará de ser."},
-      {t:"Indivisible y continuo", d:"No hay más ser en un lugar que en otro, ni huecos de no ser: todo está lleno de lo que es, y lo que es está en contacto con lo que es."},
-      {t:"Inmóvil", d:"Permanece en el mismo lugar, sujeto por las cadenas del límite. Moverse sería ir hacia donde no está, es decir, hacia lo que no es."},
-      {t:"Completo y limitado", d:"No le falta nada; por eso no es infinito, porque lo ilimitado sería lo incompleto. Es como una esfera bien redonda, equilibrada desde el centro."}]},
-    {tipo:"polos", titulo:"Verdad y opinión", intro:"Las dos partes del discurso de la diosa: lo que enseña el razonamiento y lo que creen los mortales.", polos:{"izq":"Vía de la verdad","der":"Vía de la opinión"}, nota:"La vía de la opinión no es un simple error: la diosa la expone con detalle, y por qué lo hace sigue siendo una pregunta abierta.",
-     nodos:[
-      {a:"Una sola realidad", b:"Dos formas: luz y noche", d:"La verdad conoce lo que es, uno y continuo; los mortales nombraron dos formas opuestas, el fuego etéreo y la noche densa, y de su mezcla explican todo."},
-      {a:"Se juzga con el razonamiento", b:"Se guía por ojos y oídos", d:"La diosa pide juzgar con el logos; los mortales, llevados por la costumbre, siguen el ojo sin meta y el oído resonante."},
-      {a:"Nada nace ni perece", b:"Nacer, morir y cambiar", d:"Para la verdad, el cambio es imposible; para la opinión, el mundo nace, se mueve y cambia de color, y esos son solo nombres de los mortales."},
-      {a:"Discurso digno de confianza", b:"Orden engañoso de palabras", d:"Así llama la diosa a cada parte de su enseñanza: la primera persuade porque la acompaña la verdad; la segunda tiene un orden, pero engaña."}]}
+      {t:"El viaje hasta la diosa", d:"Fragmento 1: el joven llega en carro a las puertas de la Noche y del Día; una diosa lo recibe y le anuncia que aprenderá la verdad y las opiniones de los mortales."},
+      {t:"Dos caminos de búsqueda", d:"Fragmento 2: solo pueden pensarse dos caminos, «que es» y «que no es»; la diosa los presenta como una alternativa sin término medio."},
+      {t:"Se cierra el «no es»", d:"Fragmentos 2, 3, 6 y 7: lo que no es no se puede conocer ni decir; también se descarta el camino de los mortales de dos cabezas, y se pide juzgar con el razonamiento."},
+      {t:"Los signos de lo que es", d:"Fragmento 8, primera parte: del rechazo del no ser se deduce que lo que es no nace ni perece, es continuo, inmóvil y completo, como una esfera."},
+      {t:"El orden engañoso de la opinión", d:"Fragmento 8, final, y fragmentos 9 a 19: la diosa cierra el discurso verdadero y expone la cosmología de los mortales, hecha de luz y noche."}]}
   ],
   socrates: [
-    {tipo:"ciclo", titulo:"Cómo avanza un élenchos", intro:"Los diálogos tempranos de Platón: el movimiento típico de una conversación socrática en torno a la pregunta «¿qué es X?».", nota:"Es un esquema reconstruido por los intérpretes a partir de diálogos como el Laques o el Eutifrón; Sócrates no describe su método en estos pasos.",
+    {tipo:"ciclo", titulo:"Cómo avanza un élenchos", intro:"El movimiento típico de una conversación socrática en los diálogos tempranos de Platón: del atolladero final se vuelve a la pregunta inicial, con más cuidado.", nota:"Es un esquema reconstruido por los intérpretes a partir de diálogos como el Laques o el Eutifrón; Sócrates no describe su método en estos pasos.",
      nodos:[
-      {t:"¿Qué es X?", d:"Sócrates pide una definición de una virtud o de un valor: qué es la valentía, la piedad, la templanza. No le sirve un ejemplo: quiere lo que todos los casos tienen en común."},
-      {t:"El interlocutor define", d:"El otro propone una definición y Sócrates le pide que diga lo que realmente piensa, porque lo que se examina es la persona además de la tesis."},
-      {t:"Acuerdos en otras premisas", d:"Sócrates obtiene el acuerdo del interlocutor en otras afirmaciones que parecen obvias: por ejemplo, que la valentía es algo noble."},
-      {t:"Contradicción", d:"Las premisas aceptadas, juntas, contradicen la definición inicial. El interlocutor descubre que no sabía lo que creía saber."},
-      {t:"Aporía", d:"La conversación queda sin salida: perplejidad, a veces enojo. Para Sócrates es un progreso, porque ya no se cree saber lo que no se sabe."},
-      {t:"Nueva definición", d:"Se propone otra definición, más cuidadosa, y el examen vuelve a empezar. Muchos diálogos terminan sin haber encontrado la definición buscada."}]},
-    {tipo:"partes", titulo:"Las fuentes del problema socrático", intro:"Sócrates no escribió nada: lo conocemos por lo que dijeron de él otros, que lo vieron de maneras distintas.", centro:"Sócrates", nota:"Tomar los diálogos tempranos de Platón como el retrato más fiel es la solución más extendida, no un hecho establecido.",
-     nodos:[
-      {t:"Aristófanes, Las nubes", d:"Comedia del 423 a.C., el único testimonio escrito en vida de Sócrates: lo pinta como un sofista que estudia el cielo, niega a los dioses tradicionales y enseña a ganar con el peor argumento."},
-      {t:"Jenofonte, Recuerdos", d:"Un Sócrates práctico, piadoso y convencional, que da consejos sobre la amistad y la casa. Jenofonte no estuvo en el juicio y escribió para defender su memoria."},
-      {t:"Platón, diálogos tempranos", d:"Apología, Critón, Eutifrón, Laques: un Sócrates que pregunta, refuta, dice no saber y no expone una metafísica. Suele tomarse como el retrato más cercano al histórico."},
-      {t:"Platón, diálogos de madurez", d:"En República, Fedón o Banquete, Sócrates expone la teoría de las Formas, la anámnesis y el alma tripartita: doctrinas que casi todos atribuyen a Platón."},
-      {t:"Aristóteles, testigo indirecto", d:"Nacido después de la muerte de Sócrates, informa que buscó definiciones universales en ética, pero no separó los universales de las cosas, como hizo Platón."}]}
+      {t:"¿Qué es X?", d:"Sócrates pide la definición de una virtud: qué es la valentía, qué es la piedad. No le sirve un ejemplo; quiere lo que todos los casos tienen en común."},
+      {t:"El interlocutor define", d:"El otro propone una definición, y Sócrates le pide que diga lo que de verdad piensa: se examina la tesis y también a quien la sostiene."},
+      {t:"Acuerdos en otras premisas", d:"Sin discutir la definición de frente, Sócrates obtiene el acuerdo en afirmaciones que parecen obvias, como que la valentía es algo noble."},
+      {t:"Contradicción", d:"Las premisas aceptadas, juntas, chocan con la definición inicial: el interlocutor descubre que no sabía lo que creía saber."},
+      {t:"Aporía", d:"La conversación queda sin salida. Para Sócrates es un avance: quien ya no cree saber puede volver a preguntar qué es X, ahora con más cuidado."}]}
   ],
   platon: [
-    {tipo:"niveles", titulo:"La línea dividida", intro:"República VI: los grados del ser y del conocer, de lo más alto a lo más bajo.", eje:"más realidad y más verdad",
+    {tipo:"niveles", titulo:"La línea dividida", intro:"República VI (509d-511e): cuatro modos de conocer, cada uno con su objeto, de lo más claro a lo más oscuro.", eje:"más claridad y más verdad", nota:"Platón corta una línea en dos tramos desiguales, lo inteligible y lo visible, y cada tramo en la misma proporción. Los dos modos de abajo forman la opinión (doxa); los dos de arriba, el conocimiento inteligible. Los nombres griegos son de Platón; las traducciones varían.",
      nodos:[
-      {t:"Inteligencia (noesis)", d:"Captación directa de las Formas, sin imágenes, ascendiendo dialécticamente hasta el Bien."},
-      {t:"Pensamiento (dianoia)", d:"El saber matemático: razona sobre lo inteligible pero apoyándose en figuras y partiendo de hipótesis."},
-      {t:"Creencia (pistis)", d:"La opinión sobre las cosas sensibles mismas: plantas, animales, objetos fabricados."},
-      {t:"Imaginación (eikasia)", d:"El grado más bajo: tomar por reales las sombras y los reflejos."}]},
-    {tipo:"secuencia", titulo:"Salida y regreso de la caverna", intro:"República VII: las etapas del prisionero liberado, imagen de la educación y de su falta.",
-     nodos:[
-      {t:"Encadenados ante sombras", d:"Desde niños los prisioneros ven solo sombras de figuras llevadas ante un fuego y las toman por la realidad entera, sin saber de qué son sombras."},
-      {t:"Liberación forzada", d:"Uno es desatado y obligado a subir; la luz le duele y prefiere lo que veía antes: nadie sale solo de la caverna."},
-      {t:"Reflejos y cosas", d:"Fuera, se acostumbra por etapas: primero mira sombras y reflejos en el agua, después las cosas mismas; no hay iluminación instantánea."},
-      {t:"Contemplación del sol", d:"Al final puede mirar el sol mismo, imagen de la Idea del Bien, que da verdad a lo conocido y capacidad de conocer al que conoce."},
-      {t:"Retorno obligado", d:"Debe volver a bajar; torpe en la oscuridad, es ridiculizado y amenazado de muerte. Ese retorno funda el deber político del filósofo."}]}
+      {t:"Inteligencia (nóesis)", d:"Sube desde los supuestos hasta un principio que ya no es supuesto, el Bien, y razona solo con Formas, sin apoyarse en ninguna imagen: es la dialéctica."},
+      {t:"Pensamiento (diánoia)", d:"Es el modo del geómetra: razona sobre lo inteligible, pero parte de supuestos que no examina y se ayuda con figuras dibujadas."},
+      {t:"Creencia (pístis)", d:"Se ocupa de las cosas sensibles mismas —animales, plantas, objetos fabricados— y las toma por lo más real que hay."},
+      {t:"Conjetura (eikasía)", d:"Capta solo imágenes de las cosas: sombras, y reflejos en el agua o en superficies pulidas."}]}
   ],
   aristoteles: [
     {tipo:"partes", titulo:"Las cuatro causas", intro:"Explicar algo es dar sus cuatro causas.", centro:"¿Por qué existe esta estatua?",
