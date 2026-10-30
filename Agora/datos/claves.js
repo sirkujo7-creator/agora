@@ -208,31 +208,32 @@ const CLAVES = {
     ["Nietzsche presenta su tesis como interpretación que compite con otras, no como verdad sin perspectiva", "Perspectivismo no es relativismo: más ojos sobre una cosa dan más objetividad"]
   ],
   husserl: [
-    ["Distingue el acto de pensar del contenido pensado, que es ideal", "Las leyes psicológicas son inductivas y probables; las lógicas, exactas", "La ley lógica no afirma la existencia de hechos psíquicos", "El psicologismo lleva a un relativismo que se refuta a sí mismo"],
-    ["Los dos quieren empezar desde cero, sin aceptar nada sin examen", "Descartes trata lo dudoso como falso; Husserl no niega ni duda del mundo", "El ego de Husserl no es una sustancia, sino el campo donde todo tiene sentido", "Objeción: la epojé nunca puede ser completa"],
-    ["La quinta Meditación cartesiana responde a esa objeción", "El otro se da como cuerpo vivido y su vida, de modo indirecto (empatía)", "La objetividad del mundo se constituye en comunidad", "Levinas: Husserl sigue pensando al otro como alter ego"],
-    ["Distingue el éxito técnico de las ciencias de su sentido", "Desde Galileo, el ropaje de idealidades se tomó por la realidad", "Las ciencias olvidaron el mundo de la vida en que se fundan", "El positivismo dejó fuera las preguntas por la razón y el sentido"],
-    ["Heidegger: antes de mirar objetos ya estamos en el mundo, usando cosas", "Para Heidegger la epojé es imposible o encubridora", "Husserl leyó Ser y tiempo como una recaída en la antropología", "Heidegger transforma la fenomenología desde adentro"]
+    ["El acto de pensar es un hecho psíquico; lo pensado es ideal e idéntico para muchos", "Las leyes lógicas son exactas; las psicológicas, inductivas y probables", "El psicologismo lleva a un relativismo que se refuta a sí mismo"],
+    ["La epojé deja de usar la creencia en el mundo como premisa, sin negarla ni dudar de ella", "Su fin es describir cómo el mundo aparece y cobra el sentido de ser real"],
+    ["El presente vivido tiene espesor: impresión, retención y protención", "La retención no es un recuerdo: es lo recién sido todavía presente en la percepción"],
+    ["Las ciencias tomaron por realidad un ropaje de ideas y olvidaron el mundo de la vida", "La crisis es de sentido, no de eficacia: la ciencia de hechos calla sobre la razón y la libertad"],
+    ["El otro se da por empatía: un cuerpo vivido que presenta indirectamente una vida ajena", "La objetividad del mundo se constituye en comunidad", "La crítica posterior de Levinas: el otro pensado como alter ego"]
   ],
   heidegger: [
-    ["Hechos: afiliación de 1933, rectorado y Cuadernos negros antisemitas", "Lectura de Farías y Faye: el nazismo estructura la obra", "Lectura de Arendt y Gadamer: separar al hombre de los conceptos", "Posición dominante: buscar dónde el sistema no ofreció resistencia"],
-    ["El ser-con es una estructura originaria del Dasein", "La propiedad pasa por la angustia, la muerte y la voz de la conciencia", "La solicitud anticipante devuelve al otro su asunto", "Levinas: el otro no aparece como rostro que obliga"],
-    ["Ser y tiempo no define el ser porque no es un ente", "El libro quedó inconcluso antes de la sección decisiva", "Carnap: «la Nada nadea» como enunciado sin sentido", "Defensa: buscar una transformación de la comprensión, no una definición"],
-    ["Invertir esencia y existencia no sale del marco metafísico", "El lenguaje es la casa del ser y el hombre su pastor", "El Dasein está arrojado, frente a la libertad absoluta sartreana", "Réplica: la pasividad receptiva no da criterio para actuar"],
-    ["La noción de existencia disponible describe la economía de la atención", "La técnica no es instrumento neutral sino modo de hacer aparecer el mundo", "Dreyfus usó su análisis contra la inteligencia artificial simbólica", "Objeción: la generalidad no distingue una vacuna de un arma"]
+    ["La tradición respondió nombrando un ente supremo y dio por obvio qué significa ser", "Ya comprendemos el «es» de modo vago, sin poder decir qué entendemos", "El Dasein comprende el ser y le va su propio ser: por eso es el punto de partida"],
+    ["El útil se retira en el uso y remite a una red de para qué", "Cuando falla aparece como objeto con propiedades: la mirada teórica es derivada"],
+    ["El miedo tiene un objeto en el mundo; la angustia, ante el ser-en-el-mundo mismo", "En la angustia nada es obvio, el «uno» calla y el Dasein queda singularizado"],
+    ["La definición instrumental es correcta pero no muestra cómo aparecen las cosas", "La técnica moderna emplaza y vuelve todo existencia disponible (Gestell)", "El peligro es que ese modo desplace a otros y el ser humano se vuelva recurso"],
+    ["Lo propio se define por quién asume la posibilidad, no por cuál", "Sin contenido, se puede ser resueltamente cualquier cosa", "1933 muestra lo que el análisis no ofrece: un criterio para elegir"]
   ],
   wittgenstein: [
-    ["Sus observaciones son recordatorios, no doctrinas", "El estatuto de sus afirmaciones es gramatical, no empírico", "«Todo está a la vista» no parece estar a la vista", "Críticos: es una teoría que se niega a pagar el costo de serlo"],
-    ["Kripke: ningún hecho determina significar suma y no cuadición", "Solución escéptica con condiciones de asertabilidad comunitarias", "Lectura ortodoxa: hay un modo de captar la regla sin interpretarla", "Una comunidad entera también puede desviarse"],
-    ["La demostración instituye una regla nueva, no descubre una verdad", "El matemático es inventor, no descubridor", "Objeción: no explicaría la eficacia de la matemática en la física", "Defensa: forma de vida y regularidad natural restringen las prácticas"],
-    ["Wittgenstein reconoció graves errores en su primer libro", "Abandona la teoría figurativa y el atomismo lógico", "Continuidad: la filosofía es actividad que clarifica, no doctrina", "Lectores resolutos como Diamond y Conant ven un Tractatus terapéutico"],
-    ["Acusación de quietismo de Marcuse y Gellner", "Comparar con juegos de lenguaje imaginarios muestra lo contingente", "Su método desarmó el dualismo cartesiano y el mentalismo", "No ofrece criterio para saber si un cambio conceptual mejora"]
+    ["La proposición es figura de un estado de cosas posible", "El sentido se entiende antes de saber si es verdadera", "La forma lógica que permite figurar no puede decirse"],
+    ["La palabra funciona como una orden dentro de una actividad", "Nombrar es un juego entre muchos, no la esencia del lenguaje"],
+    ["Sin criterio público no hay diferencia entre acertar y creer que se acierta", "No niega las sensaciones, sino que el significado descanse en un objeto interior", "Las palabras de sensación se injertan en conductas naturales"],
+    ["Los problemas filosóficos son confusiones sobre el uso del lenguaje, no preguntas empíricas", "La filosofía describe usos para disolver el problema, como una terapia"],
+    ["Abandona la forma lógica única y la búsqueda de una esencia del lenguaje", "Conserva que los problemas nacen de malentender el lenguaje y que la filosofía es aclaración"]
   ],
   ortega: [
-    ["El yo incluye su circunstancia: no es una conciencia aislada del mundo", "Salvar la circunstancia es buscarle sentido y hacerla habitable", "No es determinista: la circunstancia es material y límite de un quehacer, no una excusa", "Era también un programa para comprender España en vez de despreciarla o idealizarla"],
-    ["La perspectiva no deforma la realidad: es uno de sus componentes", "Contra el racionalismo: no hay verdad vista desde ningún lugar", "Contra el relativismo: ninguna perspectiva es falsa por ser parcial; la falsa es la que se pretende única", "Objeción: no explica bien cómo se integran las perspectivas ni cómo distinguirlas del prejuicio"],
-    ["No condena el hecho de las masas, que en parte es una conquista de la técnica y la democracia liberal", "Critica un tipo humano: no se exige nada, recibe la civilización como natural e impone su opinión sin razones", "No es una clase social: el especialista es su ejemplo típico; ve en fascismo y bolchevismo dos formas de esa rebelión", "Objeción: el criterio de minoría selecta es vago y puede servir al desprecio"],
-    ["Las ideas se tienen: se formulan, se discuten y se abandonan", "En las creencias se está: nos sostienen sin que las pensemos y solo las notamos cuando fallan", "Una crisis histórica ocurre cuando las creencias de una época se resquebrajan", "Explica por qué ciertas discusiones con argumentos no cambian nada"]
+    ["La circunstancia es el material y el límite con que hay que hacer la vida, no su causa", "Salvar la circunstancia es una tarea: buscarle su sentido", "Leída como determinismo, la frase se vuelve excusa; en el texto es exigencia"],
+    ["Rechaza tanto las cosas sin sujeto del realismo como la conciencia encerrada del idealismo", "Lo primario es la vida: yo con mi mundo, polos inseparables", "Radical significa raíz donde todo aparece, no lo único que existe"],
+    ["La perspectiva no deforma la realidad: es uno de sus componentes", "Cada perspectiva capta algo real; lo falso es creerse la única", "Queda sin resolver cómo integrar perspectivas sin una mirada desde ninguna parte"],
+    ["Lo humano no tiene una esencia fija: es lo que ha ido haciendo de sí", "La razón histórica explica contando cómo algo llegó a ser lo que es"],
+    ["Critica un tipo humano, no una clase social ni el bienestar de las mayorías", "El hombre-masa no se exige nada e impone su opinión sin razones", "El criterio de minoría selecta es vago y abre la puerta al desprecio"]
   ],
   zambrano: [
     ["La razón poética amplía la razón, no la abandona", "La razón discursiva se volvió excluyente", "Escucha lo que todavía no tiene concepto", "La confesión como método, una palabra expuesta que puede contradecirse"],

@@ -255,64 +255,36 @@ const DIAGRAMAS = {
       {a:"La reacción se descarga en actos", b:"La reacción se vuelve venganza imaginaria", d:"Qué pasa con la reacción ante una ofensa: en un caso se agota al actuar; en el otro, impedida de actuar, se vuelve rencor creador de valores."}]}
   ],
   husserl: [
-    {tipo:"secuencia", titulo:"El camino del método fenomenológico", intro:"Cómo se pasa, según Ideas I y las Meditaciones cartesianas, de la vida ingenua a la descripción de esencias.", nota:"El orden en pasos es una simplificación didáctica: Husserl presentó varios caminos hacia la reducción y la reelaboró toda su vida.",
+    {tipo:"secuencia", titulo:"El camino del método", intro:"Cómo pasa la fenomenología de la vida corriente a la descripción de esencias, según Ideas I.", nota:"El orden es didáctico. En Ideas I, Husserl trata primero las esencias y después la epojé, y en el trabajo real los pasos se entrelazan: la variación eidética también se practica sobre las vivencias ya reducidas.",
      nodos:[
-      {t:"Actitud natural", d:"Vivimos creyendo, sin advertirlo, que el mundo está ahí y que somos parte de él. Es la condición de la vida práctica y de las ciencias."},
-      {t:"Epojé: poner entre paréntesis", d:"Se deja de usar esa creencia como punto de partida, sin negarla ni dudar de ella, para mirar cómo se da el mundo."},
-      {t:"Reducción a la conciencia", d:"La mirada se reconduce de las cosas a la conciencia en que aparecen: el campo de la subjetividad trascendental."},
-      {t:"Descripción intencional", d:"Se describe cada vivencia en sus dos polos, el acto (nóesis) y lo mentado tal como es mentado (nóema)."},
-      {t:"Variación eidética", d:"Variando libremente un ejemplo en la imaginación se busca lo invariable: la esencia de ese tipo de experiencia."}]},
-    {tipo:"capas", titulo:"Lo que la ciencia olvidó", intro:"La crisis de las ciencias europeas: del mundo de la vida, en el centro, a las construcciones que se apoyan en él.", nota:"La disposición en capas interpreta la tesis de Husserl sobre Galileo (Crisis, §9); él no la presenta como esquema.",
-     nodos:[
-      {t:"Mundo de la vida", d:"El mundo vivido antes de cualquier teoría: cosas con colores y olores, otros, usos y proyectos. Es el suelo de todo sentido."},
-      {t:"Idealización geométrica", d:"Las formas imprecisas de las cosas se reemplazan por figuras ideales, exactas, que la práctica de medir hizo posibles."},
-      {t:"Física matemática", d:"Galileo extiende la idealización a toda la naturaleza: el mundo se vuelve un sistema de magnitudes medibles, un ropaje de ideas."},
-      {t:"Ciencias de meros hechos", d:"La técnica funciona, pero toma el ropaje por la realidad y olvida de dónde recibe su sentido: esa es la crisis."}]}
+      {t:"Actitud natural", d:"Vivimos creyendo, sin advertirlo, que el mundo está ahí y que somos parte de él. Es el punto de partida de la vida y de las ciencias."},
+      {t:"Epojé", d:"Se pone entre paréntesis esa creencia: no se la niega ni se duda de ella, solo se deja de usarla como premisa."},
+      {t:"Reducción a la conciencia", d:"La mirada se reconduce desde las cosas hacia la conciencia en que aparecen, con el sentido que tienen para ella."},
+      {t:"Descripción de nóesis y nóema", d:"Se describe cada acto (percibir, recordar, imaginar) junto con lo mentado tal como es mentado."},
+      {t:"Variación eidética", d:"Se varía el ejemplo en la imaginación para captar lo invariable: la esencia de ese tipo de experiencia."}]}
   ],
   heidegger: [
-    {tipo:"partes", titulo:"La muerte como posibilidad", intro:"Ser y tiempo: los rasgos con que Heidegger define la muerte como posibilidad del Dasein, no como suceso final.", centro:"Ser-para-la-muerte",
+    {tipo:"partes", titulo:"La estructura del cuidado", intro:"Para Heidegger, el ser del Dasein es el cuidado (Sorge): tres momentos que no se dan por separado, sino a la vez. Ubicá cada uno a partir de su explicación.", centro:"Cuidado (Sorge)", nota:"La fórmula del cuidado está en Ser y tiempo, § 41; la correspondencia de cada momento con una dimensión del tiempo la desarrolla la Segunda Sección (§§ 65 y 68). Los rótulos abrevian su terminología.",
      nodos:[
-      {t:"La más propia", d:"Nadie puede morir en mi lugar: es el punto exacto donde la sustitución anónima del «uno» se vuelve imposible."},
-      {t:"Irrespectiva", d:"Desliga al Dasein de todas sus relaciones y roles, que dejan de poder responder por él."},
-      {t:"Insuperable", d:"No puede realizarse y dejarse atrás: es la posibilidad de la imposibilidad de toda otra posibilidad."},
-      {t:"Cierta", d:"Es segura en cuanto tal; la cotidianidad lo admite pero la convierte en un caso público, se muere, que le ocurre a cualquiera y a nadie."},
-      {t:"Indeterminada en su cuándo", d:"Su certeza no dice cuándo llegará, de modo que amenaza en todo momento; anticiparla (Vorlaufen) es asumir el tiempo finito como propio."}]},
-    {tipo:"polos", titulo:"Lo a-la-mano y lo ante-los-ojos", intro:"Ser y tiempo: dos modos de ser de los entes intramundanos, ilustrados con el martillo.", polos:{"izq":"Zuhandenheit","der":"Vorhandenheit"},
-     nodos:[
-      {a:"Útil en el trato", b:"Cosa meramente presente", d:"Lo a-la-mano es el útil que se maneja; lo ante-los-ojos, la cosa contemplable con propiedades que pueden describirse y medirse."},
-      {a:"Desaparece en el uso", b:"Se vuelve visible al fallar", d:"Cuanto mejor se maneja el martillo, menos se lo mira; cuando está roto, falta o estorba, aparece como objeto y se ilumina el plexo entero."},
-      {a:"Remite a un plexo", b:"Correlato del sujeto teórico", d:"El útil nunca está solo: remite a otros útiles y destinaciones; la cosa ante-los-ojos es lo que el conocimiento teórico tiene enfrente."},
-      {a:"Modo originario", b:"Modo derivado", d:"La tradición tomó lo ante-los-ojos como el ser por excelencia; Heidegger invierte la prioridad: la teoría surge cuando el trato ocupado se interrumpe."}]}
+      {t:"Existencia: anticiparse a sí", d:"El Dasein está siempre proyectado hacia posibilidades que todavía no son: tiene que hacerse cargo de lo que puede llegar a ser. Le corresponde el futuro."},
+      {t:"Facticidad: estar ya arrojado", d:"Se encuentra ya en una situación que no eligió —un cuerpo, una lengua, una familia, una época— y la descubre en un temple de ánimo. Le corresponde el haber sido."},
+      {t:"Caída: estar junto a las cosas", d:"Está ocupado con los útiles y los otros que aparecen en el mundo, y tiende a perderse en ellos y en lo que «se» hace. Le corresponde el presente."}]}
   ],
   wittgenstein: [
-    {tipo:"polos", titulo:"Las dos filosofías de Wittgenstein", intro:"Del Tractatus (1921) a las Investigaciones filosóficas (1953): qué imagen del lenguaje abandona y cuál pone en su lugar.", polos:{"izq":"Tractatus","der":"Investigaciones"}, nota:"Lo que no cambia es el diagnóstico: los problemas filosóficos son confusiones del lenguaje, no problemas empíricos ni teóricos.",
+    {tipo:"polos", titulo:"Del Tractatus a las Investigaciones", intro:"Cinco contrastes entre el libro de 1921 y la obra póstuma de 1953. Cada fila opone lo que sostenía el Tractatus a lo que proponen las Investigaciones.", polos:{"izq":"Tractatus (1921)","der":"Investigaciones (1953)"}, nota:"El contraste simplifica: en las dos etapas Wittgenstein sostiene que los problemas filosóficos nacen de malentender el lenguaje y que la filosofía es aclaración, no doctrina. Cuánto pesa la ruptura es tema de discusión entre sus intérpretes.",
      nodos:[
-      {a:"Proposición como figura", b:"Significado como uso", d:"Antes, la proposición tenía sentido por compartir forma lógica con un hecho posible; después, en muchos casos, el significado de una palabra es su uso en el lenguaje."},
-      {a:"Una forma lógica oculta", b:"Juegos de lenguaje diversos", d:"Contra la idea de una forma bajo la gramática corriente, el lenguaje aparece como multiplicidad de juegos entretejidos con actividades y formas de vida."},
-      {a:"Esencia común del lenguaje", b:"Semejanzas de familia", d:"Ya no se busca lo común a todo lenguaje: los conceptos se sostienen como una cuerda, por solapamiento de fibras cortas."},
-      {a:"Callar lo indecible", b:"Describir usos sin teorizar", d:"El Tractatus termina mandando callar; las Investigaciones describen usos y desarman nudos gramaticales. En ambas, la filosofía no produce doctrinas."}]},
-    {tipo:"secuencia", titulo:"El argumento del diario privado", intro:"Investigaciones filosóficas: por qué no puede haber un lenguaje que nombre sensaciones que solo uno mismo podría conocer.", nota:"La conclusión es gramatical, no conductista: Wittgenstein no niega que haya dolor ni vida interior.",
-     nodos:[
-      {t:"Anotar S en un diario", d:"Alguien decide anotar una S cada vez que tiene cierta sensación, sin poder definirla con palabras públicas."},
-      {t:"¿Es la misma sensación?", d:"Al volver a anotar, hay que decidir si esta sensación es la misma que aquella que bautizó con la S."},
-      {t:"Solo me parece la misma", d:"No hay ningún criterio disponible aparte de que a uno le parezca la misma: creer que se sigue la regla y seguirla coinciden."},
-      {t:"Correcto pierde sentido", d:"Si lo único que distingue lo correcto es que me parezca correcto, la palabra correcto ya no hace ningún trabajo."},
-      {t:"Injerto en conducta pública", d:"El lenguaje de las sensaciones se aprende injertándose en reacciones públicas como el quejido, el gesto y el consuelo, y por eso funciona."}]}
+      {a:"La proposición figura un hecho", b:"La palabra funciona en un juego", d:"El Tractatus explica el sentido por la figura de un estado de cosas; las Investigaciones, por el papel de la expresión en una actividad, como el «¡losa!» del albañil."},
+      {a:"Una forma lógica común a todo lenguaje", b:"Juegos diversos, sin esencia común", d:"Antes buscaba la forma general de la proposición; después muestra muchos juegos unidos por parecidos de familia."},
+      {a:"Análisis hasta proposiciones elementales", b:"Descripción de usos concretos", d:"El Tractatus supone que el análisis llega a lo simple; las Investigaciones cambian el análisis por la descripción de cómo se usan las palabras."},
+      {a:"Pureza cristalina de la lógica", b:"El suelo áspero del uso ordinario", d:"Las Investigaciones dicen que la exigencia de pureza cristalina nos dejó en el hielo, sin fricción para caminar: hay que volver al suelo áspero."},
+      {a:"Un límite trazado de una vez", b:"Confusiones disueltas caso por caso", d:"El Tractatus fija para siempre el límite entre decir y mostrar; el método tardío disuelve cada problema donde una palabra sale de su juego."}]}
   ],
   ortega: [
-    {tipo:"polos", titulo:"Ideas y creencias", intro:"Ideas y creencias (1940): dos maneras de tener algo por verdadero.", polos:{"izq":"Ideas","der":"Creencias"},
+    {tipo:"polos", titulo:"Ni razón pura ni vida sin razón", intro:"Ortega se ubica entre dos extremos que, según él, cometen el mismo error: separar la razón de la vida. Cada fila opone una tesis de cada extremo; la explicación dice dónde se para Ortega.", polos:{"izq":"Racionalismo","der":"Relativismo y vitalismo"}, nota:"La disposición en dos polos es una reconstrucción didáctica. Ortega discute el racionalismo y el relativismo sobre todo en El tema de nuestro tiempo; la última fila trae al esquema la tesis posterior de Historia como sistema.",
      nodos:[
-      {a:"Se tienen", b:"En ellas se está", d:"Las ideas las sostenemos nosotros; las creencias nos sostienen a nosotros, como el suelo que pisamos."},
-      {a:"Se nos ocurren y se formulan", b:"Están antes de todo pensar", d:"Una idea aparece en un momento y la expresamos; las creencias no las descubrimos razonando: razonamos desde ellas."},
-      {a:"Se discuten y se abandonan", b:"Solo se notan cuando fallan", d:"Podemos cambiar de idea en una discusión; una creencia se hace visible cuando se resquebraja."},
-      {a:"Se fabrican en la crisis", b:"Se hunden en la crisis", d:"Cuando las creencias de una época fallan, la gente queda sin suelo y tiene que fabricarse ideas a toda prisa."}]},
-    {tipo:"partes", titulo:"La vida como realidad radical", intro:"Lo que Ortega encuentra cuando busca, como Descartes, una realidad que no se pueda poner en duda.", centro:"Mi vida", nota:"Reunir así estos rasgos es una síntesis de Ágora: Ortega los desarrolla en textos distintos, de Meditaciones del Quijote (1914) a Historia como sistema (1941).",
-     nodos:[
-      {t:"Yo", d:"No una conciencia aislada, sino alguien que se encuentra ocupado en un mundo."},
-      {t:"Circunstancia", d:"Lo que está alrededor sin haberlo elegido: paisaje, lengua, época, cuerpo y personas. El yo no puede separarse de ella."},
-      {t:"Quehacer", d:"La vida no nos es dada hecha: hay que hacerla, eligiendo entre posibilidades en cada momento."},
-      {t:"Perspectiva", d:"Cada vida es un punto de vista insustituible sobre el universo, parcial pero real."},
-      {t:"Historia", d:"Lo humano no tiene naturaleza fija: es lo que ha llegado a ser, y se entiende contándolo."}]}
+      {a:"La verdad se ve desde ningún lugar", b:"Cada uno tiene su verdad", d:"Ortega: no hay mirada sin punto de vista, pero cada perspectiva capta algo real; la falsa es la que se cree la única."},
+      {a:"La vida debe someterse a la razón pura", b:"La vida no necesita razones", d:"Ortega: la razón es una función de la vida, y la vida necesita verdad para sostenerse."},
+      {a:"El hombre tiene una naturaleza fija", b:"Lo humano no admite explicación", d:"Ortega: lo humano se explica, pero contando cómo llegó a ser lo que es: razón histórica."}]}
   ],
   zambrano: [
     {tipo:"polos", titulo:"La separación entre filosofía y poesía", intro:"Filosofía y poesía (1939): los rasgos que, desde Platón, separaron al filósofo del poeta.", polos:{"izq":"filosofía","der":"poesía"}, nota:"La razón poética no elige el polo de la poesía: es una razón que sigue pensando, pero sin la violencia del concepto que quiere dominar.",

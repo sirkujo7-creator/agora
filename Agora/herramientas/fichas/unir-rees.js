@@ -20,7 +20,7 @@ const lit=v=>Array.isArray(v)?"["+v.map(lit).join(", ")+"]":v&&typeof v==="objec
 const lista=(nombre,arr)=>` ${nombre}:[\n${arr.map(o=>"   "+lit(o)).join(",\n")}\n ],`;
 const dialogos=arr=>` dialogos:[\n${arr.map(d=>`  {titulo:${JSON.stringify(d.titulo)}, lineas:[\n${d.lineas.map(l=>"   "+lit(l)).join(",\n")}\n  ]}`).join(",\n")}\n ],`;
 let L=src.split("\n");
-const ini=L.findIndex(l=>/^MODULES\.push/.test(l)), finObj=L.findIndex((l,i)=>i>ini&&/^\);/.test(l));
+const ini=L.findIndex(l=>/^MODULES\.push/.test(l)), finObj=L.findIndex((l,i)=>i>ini&&/^\}?\);/.test(l));
 const bloque=nombre=>{ const a=L.findIndex((l,i)=>i>ini&&i<finObj&&l.startsWith(` ${nombre}:`)); if(a<0) return null;
   let b=a+1; while(b<finObj && !/^ [a-zA-Z]+:/.test(L[b])) b++;
   if(b===finObj) b--;   // último campo: la línea que cierra el objeto queda
