@@ -290,32 +290,32 @@ const CLAVES = {
     ["Los sentidos y la imaginación preparan; la forma inteligible se recibe del intelecto agente", "La profecía es el grado más alto de la intuición, no una excepción a la teoría"]
   ],
   ghazali: [
-    ["Criterio de certeza exigente en ambos y duda de la autoridad y de los sentidos", "Los dos usan el argumento del sueño", "Descartes elige la duda como método; Al-Ghazali la padece como enfermedad", "Descartes sale con argumentos; Al-Ghazali, por una luz divina y no por pruebas"],
-    ["Eternidad del mundo, conocimiento solo universal de los particulares y negación de la resurrección corporal", "Contradicen lo que el Corán enseña claramente", "Las otras diecisiete son innovaciones, no incredulidad; la causalidad se discute por los milagros", "La calificación de incredulidad tenía consecuencias jurídicas graves"],
-    ["Los dos dicen que no se observa la conexión necesaria, solo la concomitancia", "Para Al-Ghazali la costumbre es de Dios; para Hume, de la mente", "Propósitos opuestos: salvar los milagros o desconfiar de ellos", "Paralelo estructural, sin prueba de que Hume lo leyera"],
-    ["Es una simplificación que la mayoría de los historiadores discute", "Al-Ghazali defendió la lógica y la hizo entrar en la formación religiosa", "La filosofía siguió en Oriente: Razi, Suhrawardi, Tusi, Mulla Sadra", "Hubo otras causas políticas y económicas; cambió el rumbo, no la mató"],
-    ["Descubrió que enseñaba por fama y no por Dios", "Seis meses de vacilación, pérdida de la voz y enfermedad en 1095", "Saber qué es la renuncia no es renunciar (dhawq)", "Posibles razones políticas que el propio relato menciona"]
+    ["Puede haber un juez superior a la razón, como la vigilia respecto del sueño", "Toda prueba supone los primeros principios que estaban en duda", "La salida es una luz que devuelve la confianza en ellos, no un argumento"],
+    ["Taqlid es creer por autoridad, sin conocer los fundamentos", "El origen de una creencia no decide si es verdadera", "Abandonar la fe por la fama de otros también es taqlid"],
+    ["El criterio es negar lo que la revelación afirma con claridad", "Las otras diecisiete son errores, no incredulidad", "La calificación era grave, y él mismo le puso límites"],
+    ["La observación muestra que los hechos van juntos, no que uno produzca al otro", "La costumbre de Dios es estable, aunque no necesaria", "Aun concediendo naturalezas, Dios podría impedir que actúen"],
+    ["Saborear es conocer por experiencia, no por definición", "El camino sufí exige transformar la vida, no solo estudiarla", "Por eso dejó la cátedra al ver que enseñaba por fama"]
   ],
   averroes: [
-    ["La etiqueta viene de la condena de Tempier en París (1277)", "Averroes sostiene que la verdad no contradice a la verdad", "Si chocan, se corrige la interpretación del texto", "Una verdad con varios modos de expresión, no dos verdades"],
-    ["La Ley llega a todos porque usa los tres métodos", "La división parece fija y justifica ocultar interpretaciones", "Objeción de paternalismo: alguien decide qué pueden entender los demás", "Lectura generosa: algo parecido a la divulgación"],
-    ["Al-Ghazali: la necesidad del vínculo causal no se observa", "Averroes: sin acciones propias no hay esencias ni ciencia", "Averroes no responde del todo a que la necesidad no se percibe", "Al-Ghazali no niega la regularidad, sino su necesidad sin Dios"],
-    ["El intelecto material es separado, eterno y uno para todos", "Problema: explicar que este hombre concreto piensa", "Tomás lo combatió en 1270 y la tesis fue condenada en París", "Amenaza la inmortalidad individual y la responsabilidad personal"],
-    ["Evitar la tesis simplista de que el islam rechazó la razón", "Caída almohade y desgracia de 1195", "En Oriente la filosofía siguió por la vía de Avicena", "Traducciones tempranas al hebreo y al latín, y reivindicación árabe moderna"]
+    ["El Corán manda reflexionar (i'tibar), y Averroes lo lee como razonar", "La forma más perfecta de razonar es la demostración, que exige lógica y aprovechar a los antiguos", "La obligación es solo para los aptos y depende de cómo se lea esa palabra"],
+    ["La etiqueta nace en París después de su muerte, por sus lectores latinos", "Para Averroes la verdad no se opone a la verdad: si chocan, se corrige la interpretación del texto", "Hay una sola verdad con varios modos de expresión, no dos verdades contrarias"],
+    ["Las cosas tienen naturalezas que se conocen por sus acciones propias: sin ellas no hay esencia ni definición", "Negar las causas deja sin objeto al intelecto", "No muestra que la necesidad del vínculo se perciba"],
+    ["El intelecto material es separado y único porque recibe lo universal", "Cuesta explicar por qué es este individuo el que piensa", "Lo personal muere con el cuerpo, y la responsabilidad en la vida futura se vuelve difícil"],
+    ["La división parece fija y justifica no divulgar las interpretaciones", "Quien asiente por imágenes tiene la misma verdad, y la teoría defiende a los aptos", "Queda abierto si las clases son naturaleza o efecto de la educación"]
   ],
   maimonides: [
-    ["Escribe para un creyente formado en filosofía, perplejo ante la letra", "La salida es aprender a leer: términos homónimos y figuras no señaladas", "La dispersión: dar solo los títulos y que la verdad aparezca y se oculte", "Objeción de elitismo o engaño, y la respuesta del estudio con método"],
-    ["De Dios sabemos que existe, no qué es", "Los atributos positivos introducen composición y lo miden con nuestras perfecciones", "Cada negación demostrada excluye algo y acerca a Dios; al final, el silencio", "Tomás: no habría razón para preferir unos nombres, y propone la analogía"],
-    ["Aristóteles razona desde el mundo ya constituido", "El ejemplo del niño de la isla: lo completo no revela su origen", "Las pruebas del kalam tampoco demuestran", "Elige la creación por probabilidad y porque deja en pie la voluntad, los milagros y la Ley"],
-    ["Todos los mandamientos tienen razón; solo algunos detalles pueden no tenerla", "Dos fines: el bien del cuerpo (sociedad ordenada) y el bien del alma (opiniones verdaderas)", "Los sacrificios como concesión a las costumbres de una época y educación gradual", "Pregunta abierta: qué pasa con las normas cuando cambian las circunstancias"],
-    ["Maimónides interpreta la Escritura cuando contradice lo demostrado", "Spinoza: así el sentido depende de la filosofía y la gente común no podría entenderla", "Spinoza propone leer la Escritura por la Escritura y separar teología y filosofía", "Spinoza aprendió de Maimónides y separa lo que él quería unir"]
+    ["La razón y la Ley vienen del mismo Dios: el conflicto nace de leer mal (términos homónimos, la Torá habla en el lenguaje de los hombres)", "Solo se interpreta un versículo cuando su sentido literal choca con algo demostrado: por eso sí los del cuerpo de Dios y no el comienzo del mundo"],
+    ["Un atributo positivo introduce composición en Dios y lo mide con perfecciones nuestras; la negación no le añade nada", "Cada negación demostrada excluye algo y acerca: quien niega con prueba más cosas sabe más; el límite final es el silencio"],
+    ["De cómo funciona algo completo no se infiere cómo llegó a ser (el niño de la isla): ni la eternidad ni la creación se demuestran", "Prefiere la creación por probabilidad y porque un mundo necesario no deja lugar a la voluntad divina, los milagros ni la Ley"],
+    ["El kalam ajusta la realidad a la doctrina con una física a medida, y confunde imaginación con intelecto", "Prueba a Dios aun suponiendo un mundo eterno, para que la prueba valga en cualquier caso y no dependa de una tesis disputada"],
+    ["Las razones de los mandamientos se buscan en la historia: los sacrificios como concesión a un pueblo habituado a esos cultos, dirigida al único Dios", "La Ley educa por etapas, como la naturaleza, y queda abierta la pregunta por las normas cuando la época cambia"]
   ],
   ibnjaldun: [
-    ["Los historiadores aceptaban relatos por la autoridad de los transmisores", "Primero hay que preguntar si el hecho es posible según la naturaleza de la sociedad", "Ejemplo: el ejército de seiscientos mil israelitas de al-Masʿudi", "El método de los transmisores sirve para la Ley, no basta para los hechos"],
-    ["La ʿasabiyya es cohesión de grupo, no solo parentesco de sangre", "Es más fuerte en la vida beduina", "El grupo más cohesionado conquista el poder", "El lujo y la concentración del poder disuelven la cohesión"],
-    ["Habla de una tendencia natural con cifras: tres generaciones, unos 120 años", "Admite excepciones", "La injusticia del gobernante acelera la caída y la moderación la retrasa", "Generaliza desde el Magreb y al-Ándalus"],
-    ["Los dos parten de cómo se produce la vida material", "Los dos ven en el trabajo la fuente del valor", "Ciclo frente a progreso; cohesión frente a lucha de clases", "No hay pruebas de que Marx lo leyera"],
-    ["Pocos continuadores inmediatos; leído por los otomanos", "Descubierto por Europa en el siglo XIX y leído con categorías modernas", "Era un jurista malikí que criticó a los filósofos", "Aspectos incómodos: juicios sobre los africanos y conducta política"]
+    ["Juzgar por los transmisores no basta: un hecho imposible lo sigue siendo aunque lo cuenten personas honestas", "Primero se pregunta si el hecho es posible, y para eso hay que conocer la naturaleza de la vida social (ʿumrān)"],
+    ["La cohesión de la vida dura permite conquistar el poder", "El lujo y la concentración del mando, con mercenarios, disuelven la cohesión que lo hizo posible"],
+    ["El ciclo es una tendencia natural, no un plazo fijo", "Los gobernantes pueden retrasar o acelerar la ruina con justicia o injusticia"],
+    ["La religión apoyada en la cohesión multiplica la fuerza de un grupo; sin cohesión, una prédica fracasa", "Habla de la eficacia histórica de la religión, no de su verdad"],
+    ["La riqueza viene del trabajo, que depende de conservar su fruto", "La injusticia y los impuestos excesivos quitan el incentivo, bajan la actividad y la recaudación"]
   ],
   confucio: [
     ["Las Analectas plantean obligaciones recíprocas entre superior e inferior", "El gobernante que no gobierna pierde el nombre; Mencio admite derrocar al tirano", "La asimetría persiste: nada obliga al superior y las mujeres quedan excluidas", "La versión imperial de los tres vínculos endureció la jerarquía"],
