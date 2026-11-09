@@ -358,62 +358,38 @@ const DIAGRAMAS = {
       {t:"Memoria", d:"Guarda los significados que capta la facultad que juzga, como la que retiene imágenes guarda las formas sensibles."}]}
   ],
   ghazali: [
-    {tipo:"secuencia", titulo:"El camino del Munqidh", intro:"El que libra del extravío (c. 1106–1110): las etapas de la búsqueda de la certeza tal como Al-Ghazali las cuenta.", nota:"El orden es el del relato del propio Al-Ghazali, escrito años después y con intención apologética; los historiadores no lo toman como una crónica exacta.",
+    {tipo:"niveles", titulo:"Los grados del conocimiento humano", intro:"En El que libra del extravío, Al-Ghazali describe cómo se abren en el ser humano, una tras otra, facultades de conocer: cada una capta lo que la anterior no alcanza.", eje:"más alcance", nota:"El orden es del propio Al-Ghazali. Lo usa para defender la profecía: así como un ciego de nacimiento negaría los colores, quien solo tiene razón tiende a negar lo que la supera.",
      nodos:[
-      {t:"Las creencias heredadas", d:"Ve que los hijos de cristianos crecen cristianos y los de musulmanes, musulmanes, y decide buscar los fundamentos de la certeza."},
-      {t:"La duda de los sentidos", d:"La razón corrige a la vista: la sombra que parece quieta se mueve, la estrella que parece pequeña es mayor que la Tierra."},
-      {t:"La duda de la razón", d:"Quizás haya un juez superior a la razón, como la vigilia es superior al sueño. Sin primeros principios no hay prueba: dos meses de escepticismo."},
-      {t:"La luz en el corazón", d:"La salida no viene de argumentos, sino de una luz que Dios pone en el pecho y que devuelve su fuerza a los primeros principios."},
-      {t:"Examen de los buscadores", d:"Teólogos, filósofos y partidarios de un imán infalible: ninguno da la certeza que promete, aunque los filósofos aciertan en lógica y matemáticas."},
-      {t:"El camino sufí", d:"El saber más alto se saborea (dhawq): exige renunciar a la fama y a la riqueza. Por eso deja Bagdad en 1095."}]},
-    {tipo:"polos", titulo:"Al-Ghazali y Hume ante la causalidad", intro:"La discusión XVII de La incoherencia de los filósofos (1095) y la Investigación sobre el entendimiento humano de Hume (1748): un argumento parecido con fines distintos.", polos:{"izq":"Al-Ghazali","der":"Hume"}, nota:"El paralelo es estructural: no hay pruebas de que Hume haya leído a Al-Ghazali.",
-     nodos:[
-      {a:"El algodón arde «junto con» el fuego", b:"Solo vemos conjunción constante", d:"Los dos parten de lo mismo: la observación no capta la conexión necesaria entre causa y efecto, solo que los hechos van juntos."},
-      {a:"La costumbre de Dios", b:"La costumbre de la mente", d:"Para Al-Ghazali, lo que une los hechos es Dios, que los crea juntos según su costumbre. Para Hume, es la mente, que se habitúa a pasar de uno al otro."},
-      {a:"Dios crea el saber de la regularidad", b:"La naturaleza nos impone creer", d:"Al-Ghazali: Dios pone en nosotros el conocimiento de que no hará lo meramente posible. Hume: la naturaleza humana es demasiado fuerte para que la duda nos paralice."},
-      {a:"Salvar el milagro", b:"Desconfiar del milagro", d:"Al-Ghazali quiere mostrar que los milagros son posibles; Hume, en cambio, sostiene que nunca es razonable creer en el testimonio de un milagro."}]}
+      {t:"Profecía", d:"Un grado más alto en el que se abre otro ojo, capaz de ver lo oculto. El sueño da una muestra de él, y los sufíes lo saborean en su experiencia."},
+      {t:"Intelecto ('aql)", d:"Capta lo necesario, lo posible y lo imposible: cosas que ninguno de los grados anteriores puede alcanzar."},
+      {t:"Discernimiento (tamyiz)", d:"Hacia los siete años, el niño empieza a percibir cosas que están más allá del mundo de lo que se toca y se ve."},
+      {t:"Sentidos", d:"Primero el tacto, después la vista, el oído, el gusto y el olfato: cada uno capta lo que el anterior no podía captar."}]}
   ],
   averroes: [
-    {tipo:"niveles", titulo:"Tres clases de personas y de argumentos", intro:"Doctrina decisiva: los modos en que los seres humanos asienten a la verdad, del más riguroso al más común.", eje:"más certeza en las premisas", nota:"La jerarquía es de Averroes, pero no excluye a nadie de la verdad: la Ley habla a las tres clases, cada una con su método.",
+    {tipo:"partes", titulo:"Qué se hace con un pasaje de la Ley", intro:"Doctrina decisiva: las reglas de Averroes sobre cuándo se interpreta un texto, quién lo interpreta y a quién se le comunica.", centro:"Un pasaje de la Ley", nota:"Averroes no enumera estas reglas como una lista; la agrupación es una reconstrucción a partir de la Doctrina decisiva.",
      nodos:[
-      {t:"Gente de la demostración", d:"Los pocos que asienten solo a lo que se prueba a partir de premisas ciertas: los filósofos. Solo ellos están autorizados a interpretar los pasajes que chocan con lo demostrado."},
-      {t:"Gente de la dialéctica", d:"Los que se convencen con argumentos que parten de opiniones aceptadas: los teólogos del kalam. Averroes los acusa de haber sembrado dudas en la gente común."},
-      {t:"Gente de la retórica", d:"La gran mayoría, que asiente por imágenes, ejemplos y exhortaciones. El sentido literal de la Ley es para ellos la verdad en la forma que pueden recibir."}]},
-    {tipo:"polos", titulo:"¿Quema el fuego?", intro:"La incoherencia de la incoherencia (c. 1180), discusión sobre la causalidad: la respuesta de Averroes a La incoherencia de los filósofos de Al-Ghazali.", polos:{"izq":"Al-Ghazali","der":"Averroes"}, nota:"Al-Ghazali no niega que el mundo sea regular, sino que su regularidad sea necesaria con independencia de la voluntad de Dios.",
-     nodos:[
-      {a:"Solo observamos sucesión", b:"Las cosas tienen acciones propias", d:"Al-Ghazali: vemos que el algodón arde cuando lo toca el fuego, no que el fuego lo queme. Averroes: las naturalezas de las cosas se manifiestan en sus acciones."},
-      {a:"Dios crea cada efecto", b:"Sin acciones propias no hay esencias", d:"Para Al-Ghazali, lo que quema al algodón es Dios. Para Averroes, si el fuego no quemara no tendría definición: no se distinguiría del agua."},
-      {a:"El milagro: Dios rompe la costumbre", b:"Negar las causas es negar el intelecto", d:"Al-Ghazali quiere salvar la posibilidad de los milagros. Averroes responde que sin causas no hay ciencia, y lo que queda es sofística."}]}
+      {t:"Principios que no se interpretan", d:"La existencia de Dios, la profecía y la vida futura: los aceptan todos y por todos los métodos. Negarlos o reinterpretarlos sí es incredulidad."},
+      {t:"Sentido literal para la mayoría", d:"Quien asiente por imágenes y exhortaciones debe tomar el texto al pie de la letra: para él esa imagen es la verdad en la forma que puede recibir."},
+      {t:"Interpretación para quien demuestra", d:"Cuando el sentido literal choca con lo demostrado, el pasaje se lleva a un sentido figurado según los usos del árabe. Solo lo hace quien sabe demostrar."},
+      {t:"Error excusable del sabio", d:"Si quien es apto se equivoca al interpretar un pasaje difícil, se lo excusa, como al juez que se equivoca de buena fe después de esforzarse."},
+      {t:"Nada de interpretaciones en libros populares", d:"Las interpretaciones no se escriben para todos: a quien no puede seguirlas le quitan el sentido literal sin darle otro y lo llevan a la duda."}]}
   ],
   maimonides: [
-    {tipo:"secuencia", titulo:"Del atributo al silencio", intro:"Guía de perplejos I, 58-59: cómo se avanza en el conocimiento de Dios negando, desde la imagen corporal hasta la alabanza silenciosa.", nota:"Maimónides no presenta estos pasos como etapas numeradas; el orden es una reconstrucción a partir de los capítulos sobre los atributos (I, 50-60).",
+    {tipo:"secuencia", titulo:"El camino de la profecía", intro:"Según la segunda parte de la Guía, la profecía es una emanación que baja de Dios y atraviesa, en orden, distintas instancias hasta convertirse en palabras de un profeta. Ubicá cada paso.", nota:"Moisés es la excepción que la Guía señala: su profecía no pasa por la imaginación, no usa imágenes y es la única que da una Ley. El orden de los pasos es el que describe la Guía (II, 36-38); separar a Dios y al intelecto agente como dos pasos es una simplificación para el ejercicio.",
      nodos:[
-      {t:"Imaginar a Dios con cuerpo", d:"Tomar al pie de la letra los términos bíblicos que hablan de manos, ojos o un trono. Para Maimónides es el error más grave, y hay que enseñar a todos que Dios no es cuerpo."},
-      {t:"Afirmar atributos positivos", d:"Decir que Dios es sabio, poderoso o viviente como cualidades distintas. Introduce pluralidad en su unidad y lo mide con perfecciones humanas."},
-      {t:"Negar con prueba", d:"Entender que «viviente» significa que no es como lo inerte, y «uno», que no hay otro como Él. Cada negación demostrada acerca más, como saber que lo que hay en la casa no es planta ni mineral."},
-      {t:"Saber que no lo comprendemos", d:"El punto más alto del conocimiento humano de Dios: saber que existe y que su esencia nos supera, como el sol que los ojos débiles no pueden mirar."},
-      {t:"El silencio es alabanza", d:"Como toda alabanza contiene algo que lo rebaja, lo más adecuado es callar y contemplar. Las pocas fórmulas de la oración se dicen solo porque están en la Torá y las fijaron los profetas."}]},
-    {tipo:"partes", titulo:"Tres opiniones sobre el origen del mundo", intro:"Guía de perplejos II, 13-25: las posiciones que Maimónides distingue y la suya frente a ellas.", centro:"¿Cómo empezó el mundo?", nota:"La atribución a Platón es la de Maimónides, a partir de lecturas del Timeo; los intérpretes discuten si en algún pasaje Maimónides se acerca más a la opinión platónica de lo que declara.",
-     nodos:[
-      {t:"La Ley de Moisés: creación de la nada", d:"Dios creó el mundo, y con él el tiempo, después de la nada absoluta, por su voluntad. Es la opinión que Maimónides defiende como la más probable, aunque no demostrada."},
-      {t:"Platón: forma dada a una materia eterna", d:"Dios forma el mundo a partir de una materia que existe desde siempre. Para Maimónides no es incompatible con la Ley en principio, pero no está demostrada y no la adopta."},
-      {t:"Aristóteles: un mundo eterno y necesario", d:"El mundo existe desde siempre y procede de Dios por necesidad, sin voluntad que elija. Maimónides sostiene que Aristóteles no lo demostró y que esta tesis destruiría la Ley."},
-      {t:"El kalam: pruebas con átomos", d:"Los teólogos defienden la creación, pero con una física de átomos y accidentes construida a medida. Maimónides comparte su conclusión y rechaza sus pruebas."}]}
+      {t:"Dios, fuente de la emanación", d:"La profecía no es un invento humano: es una emanación que procede de Dios. Aun así, Dios puede impedir que la reciba alguien preparado."},
+      {t:"Intelecto agente", d:"La emanación llega por medio de este intermediario, el último de los intelectos separados, que también actualiza el conocimiento humano."},
+      {t:"Facultad racional del profeta", d:"La emanación llega primero al intelecto, que tiene que estar perfeccionado por el estudio. Si se queda acá, produce sabios, no profetas."},
+      {t:"Facultad imaginativa", d:"Después pasa a la imaginación, que tiene que ser fuerte y sana. Si llega solo acá, sin intelecto, produce gobernantes, legisladores o adivinos."},
+      {t:"Visiones y parábolas", d:"Por pasar por la imaginación, lo que el profeta comunica toma forma de imágenes y figuras, que después hay que saber leer."}]}
   ],
   ibnjaldun: [
-    {tipo:"ciclo", titulo:"Las cinco etapas de una dinastía", intro:"Muqaddima, sobre las dinastías: el recorrido de un poder desde la conquista hasta el derroche, que deja el lugar a un grupo nuevo.", nota:"Las cinco etapas son de Ibn Jaldún; que la última cierre el círculo con la llegada de otro grupo es la lectura de su teoría del ciclo, no una etapa que él numere.",
+    {tipo:"secuencia", titulo:"Las cuatro generaciones del prestigio", intro:"Muqaddima, sobre las dinastías: el prestigio de una familia o de un linaje suele durar cuatro generaciones, cada una con una relación distinta con lo que lo creó.", nota:"Ibn Jaldún presenta las cuatro generaciones como lo habitual, no como una ley sin excepciones; en otro pasaje habla de tres generaciones para la vida de una dinastía.",
      nodos:[
-      {t:"Conquista", d:"El grupo con más cohesión vence a la dinastía anterior. El gobernante comparte la gloria con los suyos y gobierna con ellos."},
-      {t:"Autocracia", d:"El gobernante concentra el poder en sí mismo, aparta a sus antiguos compañeros y se apoya en clientes y servidores."},
-      {t:"Ocio y prosperidad", d:"Momento de esplendor: se recauda bien, se construyen ciudades y monumentos, se disfruta de los frutos del poder."},
-      {t:"Conformismo", d:"El gobernante se limita a imitar a sus predecesores, satisfecho con lo heredado, sin entender lo que lo sostuvo."},
-      {t:"Derroche", d:"Se gasta en lujos y favoritos, se suben los impuestos, se pierde el apoyo y la cohesión: la dinastía queda expuesta a un grupo más fuerte."}]},
-    {tipo:"polos", titulo:"Beduinos y sedentarios", intro:"Muqaddima, sobre la vida beduina y la vida urbana: dos formas de vida cuya tensión mueve la historia.", polos:{"izq":"Badawa (vida beduina)","der":"Hadara (vida sedentaria)"}, nota:"Ibn Jaldún no idealiza a ninguno de los dos polos: la vida beduina tiene la fuerza, pero la civilización, las ciencias y los oficios solo florecen en la ciudad.",
-     nodos:[
-      {a:"Lo necesario", b:"Lo superfluo y el refinamiento", d:"La vida beduina se ocupa de sobrevivir; la ciudad nace del excedente y busca el lujo."},
-      {a:"Fuerte cohesión de grupo", b:"Cohesión debilitada", d:"En el desierto nadie sobrevive solo; en la ciudad cada uno confía en las murallas, las leyes y el gobierno."},
-      {a:"Valentía y autonomía", b:"Dependencia de leyes y soldados", d:"El beduino se defiende por sí mismo; el habitante de la ciudad delega su defensa y se vuelve temeroso."},
-      {a:"Pocas ciencias y oficios", b:"Ciencias, oficios y riqueza", d:"La división del trabajo y la población numerosa de la ciudad producen la civilización refinada."}]}
+      {t:"El que lo construye", d:"Conoce el costo de lo que logra, porque lo ganó con esfuerzo y con las virtudes que lo sostienen."},
+      {t:"El que lo conoció de cerca", d:"Aprendió del fundador por trato directo; conserva lo heredado, aunque ya no lo vivió desde el comienzo."},
+      {t:"El que lo imita por tradición", d:"Repite lo que vio hacer, por costumbre, sin entender por qué existía ni qué lo hizo posible."},
+      {t:"El que lo destruye", d:"Cree que el prestigio le corresponde por nacimiento, desprecia a quienes lo sostienen y lo pierde."}]}
   ],
   confucio: [
     {tipo:"polos", titulo:"La persona ejemplar y el hombre pequeño", intro:"Analectas: los rasgos del junzi se dan siempre por contraste con los del xiaoren, en pares.", polos:{"izq":"Jūnzǐ (persona ejemplar)","der":"Xiǎorén (hombre pequeño)"}, nota:"Ninguno de los dos es una clase social: Confucio arrebata la palabra junzi a la aristocracia y la convierte en un logro moral que se conquista con años de práctica.",
