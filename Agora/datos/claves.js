@@ -262,32 +262,32 @@ const CLAVES = {
     ["El aura es el aquí y ahora irrepetible de la obra, ligado al culto", "Su pérdida permite un arte fundado en la política y un público que examina", "El riesgo es la estetización de la política"]
   ],
   beauvoir: [
-    ["Beauvoir no niega las diferencias biológicas", "Esas diferencias no explican el lugar social de las mujeres", "El cuerpo es una situación, no una cosa", "Butler: Beauvoir mantuvo la idea de un sexo natural"],
-    ["La opresión tiene causas históricas y económicas", "La opresión ofrece ventajas y aceptarlas es mala fe", "Diferencia clave entre culpa y responsabilidad", "Crítica: a veces la dependencia es la única forma de sobrevivir"],
-    ["Beauvoir insiste en que la libertad está situada", "Sartre describía una libertad absoluta incluso para el prisionero", "Su ética exige crear condiciones para que otros sean libres", "Varias ideas atribuidas a Sartre aparecen antes en sus escritos"],
-    ["Suspensión de 1943, testimonio de Lamblin y petición de 1977", "Su propia ética condena reducir al otro a objeto", "Su teoría de la situación permite ver esas asimetrías", "No hace falta elegir entre descartar la obra y ocultar los hechos"],
-    ["Escribió desde la posición de una mujer blanca, europea y burguesa", "Feminismo negro y decolonial señalan raza, clase y colonización", "Bell hooks: trabajar fuera de casa fue necesidad, no conquista", "El libro como punto de partida, no última palabra"]
+    ["Reconoce las diferencias biológicas, pero niega que expliquen el lugar social de las mujeres", "El cuerpo es una situación, no un destino", "Lo que se llega a ser es una figura social, no un cuerpo"],
+    ["Entre los sexos, la oposición entre sujeto y Otro no es recíproca", "Las mujeres viven dispersas entre los hombres, sin pasado ni territorio común", "Es una situación histórica, no natural, y puede transformarse"],
+    ["Distingue culpa de responsabilidad", "La dependencia ofrece ventajas, y aceptarlas para no elegir es mala fe", "Objeción: no toda dependencia es una ventaja elegida"],
+    ["Un proyecto solo cobra sentido si otros, libres, lo retoman", "Criterio: es condenable reducir a otros a cosas, aunque sea en nombre de un ideal"],
+    ["Los hechos documentados, sin ocultarlos", "Su propia filosofía (situación, no reducir a otro a objeto) sirve para juzgar su conducta", "Ni descartar la obra ni ocultar los hechos"]
   ],
   levinas: [
-    ["Buber defiende la reciprocidad; el feminismo y Beauvoir critican el sacrificio y lo Otro femenino", "La asimetría vale en primera persona: no puedo exigírsela a otro", "La responsabilidad infinita es una estructura, no un programa que se cumple", "El tercero limita la responsabilidad y obliga a la justicia, también para mí"],
-    ["Heidegger se afilió al nazismo y la familia de Levinas fue asesinada por los nazis", "Si la comprensión del ser va primero, el otro queda subordinado a un horizonte impersonal", "Llama a la ontología filosofía del poder; opone la muerte del otro a la muerte propia", "La objeción valdría aunque Heidegger no hubiera sido nazi, y es discutible"],
-    ["Contexto: masacre de Sabra y Chatila bajo control del ejército israelí, entrevista con Malka y Finkielkraut", "Afirmó una responsabilidad por lo no hecho y que la persona es más santa que la tierra", "Dijo que el prójimo que ataca a otro puede volverse enemigo y hay que ver quién tiene razón", "Críticos ven un límite político; la teoría no excluye a nadie, pero el paso por el tercero deja el riesgo"],
-    ["El rostro se piensa como palabra que manda y suplica", "En 1986 dijo no saber si una serpiente tiene rostro, sin negárselo del todo a un animal", "El perro Bobby reconoció la humanidad de los prisioneros", "Si el rostro es exposición y vulnerabilidad, la ampliación es discutible pero no absurda"],
-    ["Separó sus libros filosóficos de los judíos y talmúdicos", "La filosofía no puede apoyarse en la autoridad de un versículo, sino en una experiencia examinable", "Quiso traducir al griego una sabiduría bíblica que la filosofía no había pensado", "El vocabulario de lo infinito y la santidad arrastra una carga religiosa que Derrida discutió"]
+    ["La imposibilidad de matar es ética y no real: el rostro no impide, manda y acusa", "El otro es el único ser al que puedo querer matar, porque escapa a mi poder"],
+    ["La relación con el otro precede al conocimiento y al lenguaje: la ética va antes que la ontología", "Levinas describe el sentido de la ética, no un código de normas"],
+    ["El tercero obliga a comparar a los incomparables: de ahí la justicia, la ley y el Estado", "La justicia tiene que dejarse corregir por los rostros", "Riesgo: sin criterios, el tercero puede servir para dejar de ver a alguien (la entrevista de 1982)"],
+    ["Subordinar el otro a la comprensión del ser convierte la relación en apropiación y poder", "La objeción valdría aunque Heidegger no hubiera sido nazi, y es discutible"],
+    ["La asimetría vale en primera persona: no se le puede exigir a otro, menos a una víctima", "El tercero limita la responsabilidad y me incluye en la justicia"]
   ],
   foucault: [
-    ["Objeción de Habermas y Fraser: la crítica pierde su fundamento normativo", "Foucault no dice que todo saber sea falso, sino que se produce en prácticas con efectos de poder", "La crítica muestra la contingencia de lo que se presenta como necesario", "Queda abierto si la contingencia basta para decir qué debe cambiar"],
-    ["El poder es una relación, un conducir conductas, no una sustancia", "Toda relación de poder supone libertad: sin ella hay fuerza, no poder", "Distingue relaciones de poder móviles de estados de dominación", "Riesgo: una resistencia tan dispersa que no se ve cómo organizarse"],
-    ["El hombre es una figura reciente del saber moderno, no la humanidad", "Rechazó fundar la justicia en una naturaleza humana (debate con Chomsky)", "En la práctica defendió presos, disidentes y refugiados", "Antihumanismo teórico no equivale a indiferencia moral"],
-    ["En 1978 escribió con fascinación sobre el levantamiento y la espiritualidad política", "Desoyó la advertencia sobre la situación de las mujeres", "Ante las ejecuciones escribió a Bazargan y publicó «¿Es inútil sublevarse?»", "Juzgar con sobriedad: no ocultar el error ni reducir toda la obra a él"],
-    ["Quien se sabe visible se vigila a sí mismo: métricas y puntajes como examen", "Diferencias: en las redes no hay encierro y todos miran a todos", "Deleuze: de las sociedades disciplinarias a las sociedades de control", "Usar a Foucault como caja de herramientas, no como dogma"]
+    ["No hay saber puro separado del poder, ni poder que no produzca saber", "No significa que todo saber sea falso", "Preguntar en qué prácticas se produce un saber y qué permite hacer con las personas"],
+    ["Cambia el blanco del castigo: del cuerpo como espectáculo a la conducta corregida en forma continua", "La misma técnica disciplinaria se extiende a escuela, cuartel y fábrica", "La prisión fracasa y sobrevive porque produce la delincuencia"],
+    ["El hombre como figura del saber moderno, objeto y sujeto a la vez", "Depende de la episteme de fines del siglo XVIII y podría borrarse", "Antihumanismo teórico no es indiferencia moral"],
+    ["Hacer morir o dejar vivir frente a hacer vivir y dejar morir", "El biopoder disciplina cuerpos y regula poblaciones", "El racismo de Estado separa quién debe vivir y quién puede morir"],
+    ["El poder es una relación que supone que el otro puede actuar de otro modo", "Donde hay poder hay resistencia; relaciones de poder frente a estados de dominación", "La libertad como práctica y trabajo sobre uno mismo"]
   ],
   avicena: [
-    ["El conocimiento de la propia existencia no depende de percibir el cuerpo", "Pensarse sin el cuerpo no prueba poder existir sin él", "Puede leerse como indicación y no como demostración completa", "Comparación con el cogito de Descartes y su objeción parecida"],
-    ["Saber qué es una cosa no dice si existe", "Toda criatura es posible por sí y necesaria por otro", "Tomás de Aquino retoma y transforma la distinción", "Objeciones: Averroes (existencia como accidente) y Kant (no es predicado real)"],
-    ["Parte de que algo existe y de la distinción posible/necesario", "No necesita negar una serie infinita de causas", "Punto débil: el paso de cada miembro al conjunto (Hume)", "Falta mostrar que el Necesario es el Dios de una religión"],
-    ["Al-Ghazali condena tres tesis: eternidad del mundo, conocimiento universal de lo particular, resurrección", "Critica que los filósofos no demuestran lo que dicen demostrar", "Defensa: mundo eterno pero causado, Dios conoce todo por sus causas, resurrección aceptada por revelación", "Averroes responde en La incoherencia de la incoherencia"],
-    ["Traducciones latinas en Toledo (Gundisalvo y Avendauth) y Gerardo de Cremona", "Influye en Alberto Magno, Tomás de Aquino y Duns Escoto", "El Canon fue manual de medicina hasta el siglo XVII", "El resumen de al-Ghazali se leyó en latín como obra de un filósofo"]
+    ["Muestra que saber que existo no depende de percibir el cuerpo", "Pensarme sin el cuerpo no prueba que pueda existir sin él", "Avicena lo presenta como aviso y defiende la inmaterialidad con otros argumentos"],
+    ["La esencia de una criatura no incluye su existencia", "Lo que existe sin que su esencia lo exija lo recibe de otro, mientras existe", "Solo en el Ser necesario esencia y existencia coinciden"],
+    ["Considera el conjunto de los posibles, finito o infinito, y no la cadena eslabón por eslabón", "El conjunto de los posibles es posible y su causa tiene que estar fuera de él", "Lo discutido es si el conjunto necesita una causa además de las de sus miembros"],
+    ["Una causa completa e inmutable produce su efecto siempre: depender no es haber empezado", "Dios es anterior al mundo en el ser, no en el tiempo", "El costo: parece que Dios no elige crear"],
+    ["Los sentidos y la imaginación preparan; la forma inteligible se recibe del intelecto agente", "La profecía es el grado más alto de la intuición, no una excepción a la teoría"]
   ],
   ghazali: [
     ["Criterio de certeza exigente en ambos y duda de la autoridad y de los sentidos", "Los dos usan el argumento del sueño", "Descartes elige la duda como método; Al-Ghazali la padece como enfermedad", "Descartes sale con argumentos; Al-Ghazali, por una luz divina y no por pruebas"],
