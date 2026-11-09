@@ -392,64 +392,41 @@ const DIAGRAMAS = {
       {t:"El que lo destruye", d:"Cree que el prestigio le corresponde por nacimiento, desprecia a quienes lo sostienen y lo pierde."}]}
   ],
   confucio: [
-    {tipo:"polos", titulo:"La persona ejemplar y el hombre pequeño", intro:"Analectas: los rasgos del junzi se dan siempre por contraste con los del xiaoren, en pares.", polos:{"izq":"Jūnzǐ (persona ejemplar)","der":"Xiǎorén (hombre pequeño)"}, nota:"Ninguno de los dos es una clase social: Confucio arrebata la palabra junzi a la aristocracia y la convierte en un logro moral que se conquista con años de práctica.",
+    {tipo:"secuencia", titulo:"Una vida de aprendizaje", intro:"Analectas 2.4: Confucio resume su propia formación por décadas, desde los quince hasta los setenta años.", nota:"El orden es el del texto. El sentido de algunas etapas se discute desde la Antigüedad, sobre todo la de los sesenta (el «oído dócil»).",
      nodos:[
-      {a:"Entiende lo justo (yì)", b:"Entiende lo provechoso (lì)", d:"El junzi se orienta por lo que corresponde hacer por ser correcto; el hombre pequeño, por lo que le conviene. Es el contraste que define a ambos."},
-      {a:"Busca en sí mismo", b:"Busca en los demás", d:"Ante una falla, el junzi examina su propia conducta; el hombre pequeño atribuye la responsabilidad a los otros y exige de ellos lo que no se exige a sí mismo."},
-      {a:"Armoniza sin uniformarse", b:"Se uniforma sin armonizar", d:"El par más fino: distingue el acuerdo genuino entre personas distintas de la mera conformidad, que copia a los demás sin concordar de verdad con ellos."}]},
-    {tipo:"secuencia", titulo:"La rectificación de los nombres", intro:"Analectas: la cadena que Confucio le expone a Zilu para explicar por qué lo primero en el gobierno es rectificar los nombres.",
-     nodos:[
-      {t:"Nombres incorrectos", d:"Se llama gobernante a quien no gobierna o padre a quien no actúa como padre: el nombre de una función ya no trae consigo las obligaciones que le corresponden."},
-      {t:"Lenguaje sin concordancia", d:"Si los nombres no son correctos, el lenguaje deja de concordar con la realidad: lo que se dice ya no corresponde a lo que efectivamente ocurre."},
-      {t:"Asuntos sin término", d:"Si el lenguaje no concuerda con la realidad, los asuntos no llegan a término: las órdenes y los acuerdos no pueden cumplirse porque no dicen lo que pretenden."},
-      {t:"Ritos y música marchitos", d:"Si los asuntos no llegan a término, los ritos y la música no florecen: se pierden las formas con que la comunidad cultiva el respeto y la armonía."},
-      {t:"Castigos sin blanco", d:"Si ritos y música no florecen, los castigos no dan en el blanco: la justicia penal pierde su criterio y castiga sin proporción ni acierto."},
-      {t:"Pueblo sin dónde pisar", d:"Al final de la cadena, el pueblo no sabe dónde poner los pies ni las manos: el desorden que empezó siendo semántico termina siendo judicial y social."}]}
+      {t:"A los quince, el corazón en el estudio", d:"El punto de partida no es un don sino una decisión: orientar el corazón hacia el aprendizaje."},
+      {t:"A los treinta, firme", d:"Ya se sostiene por sí mismo, con un lugar propio apoyado en los ritos."},
+      {t:"A los cuarenta, sin dudas", d:"Deja de vacilar ante lo que corresponde hacer: sus juicios ya no lo desorientan."},
+      {t:"A los cincuenta, el mandato del Cielo", d:"Conoce lo que el Cielo le encomienda y lo que no depende de él."},
+      {t:"A los sesenta, el oído dócil", d:"Escucha sin resistencia; según una lectura frecuente, entiende lo que oye sin que lo perturbe."},
+      {t:"A los setenta, deseo y norma coinciden", d:"Puede seguir los deseos de su corazón sin transgredir la medida: la forma ya es segunda naturaleza."}]}
   ],
   mozi: [
-    {tipo:"secuencia", titulo:"La escalera del capítulo 17", intro:"Mozi 17: cada peldaño perjudica más a otro y, por eso, es más injusto. En el último, el juicio de los señores se invierte.", nota:"El orden de los peldaños es el del texto. La inversión final es lo que el argumento denuncia: el mismo criterio dejaría de aplicarse cuando el daño es mayor.",
+    {tipo:"secuencia", titulo:"La escalera del capítulo 17", intro:"Mozi 17: cada peldaño perjudica más a otro y, por eso, es más injusto. En el último, el juicio de los señores se invierte.", nota:"El orden de los peldaños es el del texto.",
      nodos:[
       {t:"Robar duraznos y ciruelas del huerto", d:"Todos lo condenan y quien gobierna lo castiga: perjudica a otro para beneficiarse a sí mismo."},
       {t:"Robar perros, cerdos y gallinas", d:"Más injusto que robar fruta, porque el perjuicio a otro es mayor."},
-      {t:"Llevarse caballos y bueyes del establo", d:"Todavía más injusto: cuanto más se perjudica, mayor es la falta y más grave el crimen."},
-      {t:"Matar a un inocente para quitarle la ropa", d:"El peor de los casos individuales: merece una pena de muerte."},
-      {t:"Atacar a otro Estado", d:"Mata a miles y despoja de todo, pero los señores lo elogian y lo llaman justo: como quien ve mucho negro y dice blanco."}]},
-    {tipo:"polos", titulo:"Mozi y los confucianos", intro:"Los puntos de la disputa, pieza por pieza.", polos:{"izq":"Mozi","der":"Confucianos"}, nota:"El contraste simplifica: los dos condenaban la guerra de conquista y querían el bien del pueblo. Del lado confuciano se reúnen tesis de Confucio, Mencio y Xunzi.",
-     nodos:[
-      {a:"Cuidado imparcial (jiān ài)", b:"Amor graduado desde la familia", d:"Mozi pide considerar a los demás como propios; los confucianos ven en la piedad filial la raíz de la humanidad, que se extiende con la distancia."},
-      {a:"Lo recto es lo que beneficia a todos", b:"La rectitud vale más que el provecho", d:"Mozi mide lo correcto por el beneficio (lì); Confucio y Mencio oponen la rectitud (yì) al provecho."},
-      {a:"Funerales sobrios, volver al trabajo", b:"Funerales debidos y luto de tres años", d:"Para Mozi el luto largo empobrece y desordena; para Xunzi el rito da forma al dolor."},
-      {a:"La música de corte, un derroche", b:"La música forma y une a la comunidad", d:"Mozi no niega que la música sea agradable, sino que beneficie; Xunzi dice que Mozi no conoce la forma (wén)."},
-      {a:"Un Cielo con voluntad que premia", b:"Reserva sobre los espíritus y el destino", d:"Mozi acusa a los confucianos de no creer en los espíritus y de creer en el destino."}]}
+      {t:"Llevarse caballos y bueyes del establo", d:"Todavía más injusto: cuanto más se perjudica, mayor es la falta."},
+      {t:"Matar a un inocente para quitarle la ropa", d:"El peor de los casos individuales: lo que se le quita a otro ya es la vida."},
+      {t:"Atacar a otro Estado", d:"Mata a miles y despoja de todo, pero los señores lo elogian y lo llaman justo: como quien ve mucho negro y dice blanco."}]}
   ],
   laozi: [
-    {tipo:"polos", titulo:"Los opuestos que se generan", intro:"Capítulo 2: cada término nace junto con su contrario.", polos:{"izq":"yin","der":"yang"},
+    {tipo:"secuencia", titulo:"La caída del capítulo 38", intro:"El capítulo 38 enumera lo que aparece cada vez que se pierde lo anterior, hasta llegar al rito. Ubicá cada eslabón en su lugar.", nota:"El orden es del capítulo 38. Leerlo como una historia real de decadencia o como grados de una misma pérdida es interpretación.",
      nodos:[
-      {a:"Lo blando", b:"Lo duro", d:"El agua, blanda, vence a lo duro: el libro privilegia el polo débil."},
-      {a:"El vacío", b:"Lo lleno", d:"Lo útil de la vasija es su hueco (capítulo 11)."},
-      {a:"No actuar", b:"Actuar", d:"El wú wéi no es pasividad sino acción que no fuerza."}]},
-    {tipo:"secuencia", titulo:"La cascada de la pérdida", intro:"Capítulo 38, al comienzo del De Jing: cada virtud aparece cuando se ha perdido la anterior, desde el Dao hasta el rito.", nota:"En las tiras de Guodian, más antiguas, el pasaje paralelo del capítulo 18 no nombra la benevolencia ni la rectitud: el ataque frontal al confucianismo parece haberse endurecido con el tiempo.",
-     nodos:[
-      {t:"El Dao", d:"El fondo indecible del que todo sale. Mientras rige no hace falta proponerse nada: la virtud superior no se propone ser virtuosa y por eso tiene virtud."},
-      {t:"La virtud (dé)", d:"Perdido el Dao aparece la virtud. La virtud inferior, que no quiere perderse y se esfuerza por conservarse, según el capítulo 38 carece por eso mismo de virtud."},
-      {t:"La benevolencia (rén)", d:"Perdida la virtud aparece la benevolencia, el valor confuciano central. Para el libro, que haya que predicarla es síntoma de que algo ya se perdió, como dice también el capítulo 18."},
-      {t:"La rectitud (yì)", d:"Perdida la benevolencia aparece la rectitud: otro escalón de la caída, en el que lo correcto ya tiene que formularse y enseñarse en vez de darse por sí mismo."},
-      {t:"El rito (lǐ)", d:"Última estación de la caída: el rito es la corteza delgada de la lealtad y el comienzo del desorden. Es la acusación que cayó sobre el confucianismo entero."}]}
+      {t:"Dao", d:"El curso sin nombre de todas las cosas. Cuando se lo pierde, aparece la virtud."},
+      {t:"De (virtud)", d:"La eficacia propia de lo que es lo que es. Perdida, aparece la benevolencia."},
+      {t:"Ren (benevolencia)", d:"El afecto humano que se cultiva y se enseña. Perdido, aparece la rectitud."},
+      {t:"Yi (rectitud)", d:"Lo que corresponde hacer según el lugar de cada uno. Perdida, aparece el rito."},
+      {t:"Li (rito)", d:"La forma prescrita: según el capítulo, la corteza delgada de la lealtad y el comienzo del desorden."}]}
   ],
   mencioxunzi: [
-    {tipo:"partes", titulo:"Los cuatro brotes", intro:"Mencio 2A6: cada uno de los cuatro corazones que todos traen es el brote de una virtud.", centro:"El corazón (xīn) que no soporta el sufrimiento ajeno", nota:"El orden de las piezas sigue el de Mencio. «Brote» (duān) es la punta de un retoño: no es la virtud acabada, sino su comienzo, que hay que ensanchar.",
+    {tipo:"polos", titulo:"Dos lecturas del mismo material humano", intro:"Mencio y Xunzi se reconocen herederos de la misma enseñanza y se separan en cada punto que depende de qué es la naturaleza humana.", polos:{"izq":"Mencio","der":"Xunzi"}, nota:"La disposición en polos simplifica: los dos sostienen que cualquiera puede llegar a ser sabio, que el gobierno debe servir al pueblo y que los tiranos pierden su legitimidad.",
      nodos:[
-      {t:"Compasión → benevolencia (rén)", d:"El sobresalto ante el niño que va a caer al pozo. Es el brote del que Mencio da el ejemplo más vívido."},
-      {t:"Vergüenza y aversión → rectitud (yì)", d:"Sentir vergüenza del mal propio y aversión al ajeno: el brote del sentido de lo que corresponde hacer."},
-      {t:"Ceder y apartarse → rito (lǐ)", d:"La disposición a dar paso al otro, a no tomar primero. De ella crecen las formas del respeto."},
-      {t:"Distinguir lo correcto → sabiduría (zhì)", d:"El discernimiento entre lo correcto y lo incorrecto, que con el cultivo se vuelve sabiduría práctica."}]},
-    {tipo:"polos", titulo:"Mencio y Xunzi", intro:"Las dos herencias de Confucio, pieza por pieza.", polos:{"izq":"Mencio","der":"Xunzi"}, nota:"El contraste simplifica: en la práctica los dos coinciden en mucho, por ejemplo en que el tirano pierde la legitimidad y en que cualquiera puede llegar a ser un sabio.",
-     nodos:[
-      {a:"La naturaleza humana es buena", b:"La naturaleza humana es mala", d:"Para Mencio la naturaleza es la tendencia de desarrollo; para Xunzi, lo dado sin aprender, que sin forma lleva a la disputa."},
-      {a:"Cultivar brotes, como un agricultor", b:"Enderezar madera, como un artesano", d:"Las imágenes centrales: la planta que hay que proteger sin tirar de ella, y la madera torcida que necesita la prensa."},
-      {a:"El rito expresa lo que ya hay adentro", b:"El rito forma lo que todavía no hay", d:"Para Mencio el rito crece del brote de la deferencia; para Xunzi es obra de los sabios, como la vasija del alfarero."},
-      {a:"El Cielo, fuente moral del mandato", b:"El Cielo, curso regular de la naturaleza", d:"Mencio conserva el Cielo que ve como ve el pueblo; Xunzi lo despoja de intenciones: no premia ni castiga."},
-      {a:"Despertar al rey con su compasión", b:"Asegurar el orden con ritos y leyes", d:"Mencio apela a la compasión del gobernante; Xunzi prefiere instituciones que no dependan de ella."}]}
+      {a:"La naturaleza humana es buena", b:"La naturaleza humana es mala", d:"Para uno, lo propio del ser humano tiende al bien si nada lo daña; para el otro, lo dado son deseos que, seguidos sin forma, llevan a la disputa."},
+      {a:"Brotes que hay que cuidar", b:"Madera torcida que hay que enderezar", d:"La imagen del punto de partida: el retoño que asoma en el monte Niu o la madera que solo se endereza en la prensa."},
+      {a:"Ensanchar lo que ya se siente", b:"Acumular estudio junto a un maestro", d:"El método moral: extender la compasión de un caso a los parecidos, o acumular paso a paso lo que no se tenía, siguiendo un modelo."},
+      {a:"El rito expresa la deferencia", b:"El rito es obra de los sabios", d:"De dónde viene el rito: del brote de la deferencia que está en todos, o del trabajo reflexivo de los antiguos reyes, como la vasija sale del alfarero."},
+      {a:"El Cielo ve como ve el pueblo", b:"El curso del Cielo es constante", d:"Qué es el Cielo: una instancia moral que da y quita el mandato a través del pueblo, o el curso regular de la naturaleza, que no premia ni castiga."}]}
   ],
   zhuangzi: [
     {tipo:"partes", titulo:"¿Desde dónde se juzga?", intro:"Capítulo 2 (Qiwulun): las preguntas por el criterio correcto, que muestran que toda afirmación se hace desde algún lugar.", centro:"¿Quién sabe el criterio correcto?", nota:"No se sigue que nada sea verdad: Zhuangzi usa la incertidumbre como terapia contra la arrogancia del que discute, no como tesis de que todo da igual.",

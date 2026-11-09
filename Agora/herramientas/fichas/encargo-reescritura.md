@@ -52,7 +52,8 @@ sin relleno ni repeticiones. En las dos: si no hay mucho que decir, no inventes;
   Enunciados limpios, sin huecos; reparte la correcta entre posiciones.
 - **Términos** (uno por concepto, mismo orden): `{k, tapar}` si el término `k` aparece tal cual en la `d`
   del concepto (`tapar`: otras expresiones de la `d` que delatarían la respuesta, incluidas las palabras que
-  contienen `k` sin tildes: «virtù» → tapar «virtud»), o `{q:"¿…?"}` si no.
+  contienen `k` sin tildes: «virtù» → tapar «virtud»), o `{q:"¿…?"}` si no. Si `k` sin tildes tiene 3 letras o
+  menos («lǐ», «dé», «yì»), usá siempre `{q}`: aparecería dentro de otras palabras.
 - **Correcciones del diálogo existente** (obligatorias si hacen falta): si en el `dialogo` viejo el autor dice
   algo que no sostuvo (adagio posterior, rótulo que no usó, tesis de intérpretes modernos) o comenta a alguien
   posterior como si lo hubiera conocido, corregí SOLO esa frase. También errores evidentes en tesis/conexion.
