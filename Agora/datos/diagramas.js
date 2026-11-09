@@ -321,65 +321,41 @@ const DIAGRAMAS = {
       {a:"Diagnóstico: el mundo administrado", b:"Diagnóstico: mundo de la vida colonizado", d:"Para la primera generación, la administración total amenaza con cerrar toda salida; para Habermas, el dinero y el poder son útiles, y la patología es que invadan ámbitos que viven del entendimiento."}]}
   ],
   beauvoir: [
-    {tipo:"polos", titulo:"El Sujeto y lo Otro", intro:"El segundo sexo (1949): la oposición no recíproca con que, según Beauvoir, se construyó la relación entre los sexos.", polos:{"izq":"el hombre como Sujeto","der":"la mujer como lo Otro"}, nota:"No describe una naturaleza sino una situación construida históricamente; el horizonte de Beauvoir es la reciprocidad entre dos libertades.",
+    {tipo:"secuencia", titulo:"Las huidas de la libertad", intro:"Para una moral de la ambigüedad (1947): las actitudes con que se esquiva la libertad, en el orden en que el libro las expone, hasta la que la asume.", nota:"El orden es el de la exposición de Beauvoir; que cada figura corrija en parte a la anterior es una lectura, no un esquema que ella presente así.",
      nodos:[
-      {a:"Lo esencial", b:"Lo inesencial", d:"Tomando de Hegel la idea de que la conciencia se constituye oponiéndose a otra, Beauvoir muestra que el hombre se definió como lo esencial y definió a la mujer en relación con él."},
-      {a:"Lo neutro que se supone", b:"Tener que declararse mujer", d:"Un hombre nunca empieza presentándose como individuo de un sexo: se da por supuesto; una mujer tiene que declarar primero que es mujer."},
-      {a:"Trascendencia", b:"Inmanencia", d:"La existencia se proyecta hacia el futuro; la condición femenina ha consistido en confinar a las mujeres en la repetición y en una vida definida por los proyectos de otros."}]},
-    {tipo:"secuencia", titulo:"El recorrido de El segundo sexo", intro:"Cómo avanza El segundo sexo, de los supuestos destinos de la mujer a la posibilidad de su liberación.", nota:"Es una simplificación del plan de los dos volúmenes: «Los hechos y los mitos» y «La experiencia vivida».",
-     nodos:[
-      {t:"Los supuestos destinos", d:"La biología, el psicoanálisis y el materialismo histórico se examinan uno a uno, y ninguno explica por qué la mujer fue constituida como lo Otro."},
-      {t:"La historia", d:"Beauvoir recorre cómo, a lo largo de siglos, se construyó la situación de las mujeres, que no tienen un pasado común ni un territorio propio."},
-      {t:"Los mitos", d:"La literatura, la religión y el arte pensaron a la mujer como misterio, naturaleza, madre o musa; el mito del eterno femenino permite no ver a las mujeres concretas."},
-      {t:"La experiencia vivida", d:"El segundo volumen abre con «No se nace mujer: se llega a serlo» y describe cómo la niña aprende a ser mujer por la educación y los límites que recibe."},
-      {t:"Hacia la liberación", d:"La liberación exige renunciar a las ventajas de la complicidad y apunta a una relación recíproca en la que cada uno reconozca al otro como libertad."}]}
+      {t:"El subhombre", d:"Rechaza el impulso de la existencia: no se apasiona por nada, teme comprometerse y se refugia en la indiferencia y en lo que ya está dado."},
+      {t:"El hombre serio", d:"Se somete a un valor que cree absoluto, como la Patria o el Partido, y por eso puede sacrificarle todo, también a las demás personas."},
+      {t:"El nihilista", d:"Descubre que ningún valor está dado de antemano y concluye que nada vale: convierte la decepción del serio en negación de todo."},
+      {t:"El aventurero", d:"Se lanza a la acción por la acción misma, indiferente a los fines y a las personas que usa en el camino."},
+      {t:"El apasionado", d:"Se entrega a un objeto que vuelve absoluto, una persona o una obra, y el resto del mundo y de los otros deja de contar."},
+      {t:"La libertad que quiere otras libertades", d:"Asume la ambigüedad: elige sin garantía, sabe que puede fracasar y quiere su libertad junto con la de los demás."}]}
   ],
   levinas: [
-    {tipo:"polos", titulo:"Totalidad e infinito", intro:"Los dos polos de Totalidad e infinito (1961): la lógica que reduce lo Otro a lo Mismo y la relación que la desborda.", polos:{"izq":"totalidad","der":"infinito"}, nota:"La imagen de Ulises y Abraham es del ensayo «La huella del otro» (1963); los demás pares resumen el libro.",
+    {tipo:"polos", titulo:"Lo que se cierra y lo que se abre", intro:"Pares con que Levinas contrapone la totalidad, el reino de lo Mismo, a la relación con el otro, que la desborda.", polos:{"izq":"Totalidad (lo Mismo)","der":"Infinito (lo Otro)"}, nota:"La tabla es de Ágora: reúne pares de distintas obras (Ulises y Abraham vienen de «La huella del otro», 1963; el Decir y lo Dicho, de 1974). Lo Dicho no es un mal para Levinas: sin él no habría justicia.",
      nodos:[
-      {a:"Lo Mismo que comprende", b:"Lo Otro que desborda", d:"Comprender es volver propio lo extraño; el otro ser humano excede toda idea que tengo de él, como la idea de lo infinito en Descartes."},
-      {a:"Necesidad que se satisface", b:"Deseo que se ahonda", d:"La necesidad busca lo que le falta y se calma; el deseo metafísico se dirige a lo absolutamente otro y crece en lugar de saciarse."},
-      {a:"Ulises vuelve a su isla", b:"Abraham parte sin volver", d:"La filosofía de lo Mismo regresa siempre a sí misma; la relación con el otro es una salida sin retorno hacia lo desconocido."},
-      {a:"La ontología va primero", b:"La ética va primero", d:"Para la tradición, primero hay que comprender el ser; para Levinas, antes de comprender ya estoy llamado a responder al otro."},
-      {a:"La guerra suspende la moral", b:"El rostro dice «no matarás»", d:"En la totalidad cada individuo es una fuerza al servicio del conjunto; el rostro interrumpe esa lógica con una prohibición."}]},
-    {tipo:"secuencia", titulo:"Del hay a la justicia", intro:"Un recorrido por la obra de Levinas, desde la existencia anónima hasta las instituciones.", nota:"El orden es una reconstrucción didáctica de De la existencia al existente y Totalidad e infinito, no una secuencia temporal que Levinas proponga así.",
-     nodos:[
-      {t:"El hay: existir sin nadie", d:"Un existir anónimo e impersonal, sin sujeto, que se siente en el insomnio y en el horror de la noche."},
-      {t:"Hipóstasis: surge el existente", d:"Alguien toma posición y se arranca del murmullo del ser: nace un sujeto que existe por su cuenta."},
-      {t:"Gozo y morada: el yo separado", d:"El sujeto vive de las cosas, las disfruta y habita una casa: es un yo separado, todavía encerrado en lo Mismo."},
-      {t:"El rostro: el otro me interpela", d:"El otro irrumpe desnudo y sin defensa, desborda mi mundo y me dice «no matarás»: soy responsable de él."},
-      {t:"El tercero: hay que comparar", d:"El otro nunca está solo; hay un tercero, y la responsabilidad obliga a juzgar entre los incomparables."},
-      {t:"Justicia e instituciones", d:"Nacen la ley y el Estado, que vienen de la responsabilidad y tienen que dejarse corregir por los rostros."}]}
+      {a:"Necesidad", b:"Deseo metafísico", d:"La necesidad busca lo que le falta y se calma al obtenerlo; el deseo del otro no se satisface: se ahonda."},
+      {a:"Ulises vuelve a Ítaca", b:"Abraham deja su tierra", d:"La conciencia que recorre lo extraño para volver siempre a sí, frente a una salida sin retorno hacia lo desconocido."},
+      {a:"Comprender al otro", b:"Responder al rostro", d:"Comprender es abarcar y apropiarse; ante el rostro, que manda y suplica, solo cabe responder."},
+      {a:"La guerra", b:"La paz", d:"En la guerra cada uno es una fuerza al servicio del conjunto; la paz que Levinas busca no es un equilibrio de fuerzas, sino la relación con el otro."},
+      {a:"Lo Dicho", b:"El Decir", d:"El contenido que se tematiza y se ordena en sistema, frente al acto de dirigirse a alguien, que ningún tema agota."}]}
   ],
   foucault: [
-    {tipo:"polos", titulo:"Poder soberano y poder disciplinario", intro:"Vigilar y castigar (1975): dos formas de poder que se ven en el paso del suplicio a la prisión.", polos:{"izq":"soberanía","der":"disciplina"}, nota:"Foucault insiste en que las formas se superponen: la soberanía no desaparece cuando aparece la disciplina.",
+    {tipo:"partes", titulo:"Las piezas de la disciplina", intro:"Vigilar y castigar (1975), tercera parte: las técnicas con que el poder disciplinario fabrica cuerpos útiles y dóciles en la escuela, el cuartel, el taller y la prisión.", centro:"Poder disciplinario", nota:"Foucault agrupa estas técnicas en dos capítulos («Los cuerpos dóciles» y «Los medios del buen encauzamiento»); presentarlas como cinco piezas es una simplificación de trabajo.",
      nodos:[
-      {a:"Castigo espectacular", b:"Corrección discreta", d:"El suplicio de Damiens (1757) se hace en una plaza ante la multitud; la prisión corrige en secreto, con horarios y reglamentos."},
-      {a:"Golpea de vez en cuando", b:"Vigila siempre", d:"El soberano se manifiesta en momentos excepcionales; la disciplina es continua y minuciosa, y no deja tiempos muertos."},
-      {a:"El poder se hace visible", b:"Los sometidos se hacen visibles", d:"En la soberanía brilla el rey y su venganza; en la disciplina el poder se oculta y son los individuos los que quedan expuestos a la mirada."},
-      {a:"Destruye el cuerpo", b:"Fabrica cuerpos dóciles", d:"El suplicio marca y destruye; la disciplina ejercita los cuerpos para hacerlos más útiles y más obedientes a la vez."}]},
-    {tipo:"secuencia", titulo:"Las epistemes de Las palabras y las cosas", intro:"Las palabras y las cosas (1966): los suelos de saber que Foucault distingue en la cultura europea desde el siglo XVI.", nota:"Foucault presenta los cambios como discontinuidades, no como progreso; las fechas son aproximadas y el esquema fue criticado por rígido. Él mismo dejó de usar el concepto.",
-     nodos:[
-      {t:"Renacimiento: la semejanza", d:"Hasta fines del siglo XVI, conocer es descifrar parecidos y firmas entre las cosas: el mundo es un texto que hay que leer."},
-      {t:"Época clásica: la representación", d:"Siglos XVII y XVIII: conocer es ordenar y clasificar en tablas. Historia natural, gramática general y análisis de las riquezas."},
-      {t:"Modernidad: vida, trabajo y lenguaje", d:"Desde fines del siglo XVIII, biología, economía política y filología estudian lo que tiene historia y profundidad."},
-      {t:"Aparece el hombre", d:"Con la episteme moderna surge el hombre como objeto de las ciencias humanas y sujeto que funda el conocimiento."},
-      {t:"¿Un rostro de arena?", d:"Foucault sugiere que, si esa disposición cambiara, el hombre podría borrarse como un rostro dibujado en la arena a la orilla del mar."}]}
+      {t:"Distribución en el espacio", d:"Cada cuerpo en su lugar: celdas, filas, pupitres numerados. Separar a los individuos permite ubicarlos, compararlos y saber en todo momento dónde está cada uno."},
+      {t:"Control del tiempo", d:"El horario, heredado de los conventos, divide el día en tramos; el gesto se descompone y se ajusta a un ritmo, para que no quede tiempo perdido."},
+      {t:"Vigilancia jerárquica", d:"Un aparato de miradas en escalera: inspectores, monitores, capataces que vigilan y a su vez son vigilados. El edificio mismo se diseña para ver."},
+      {t:"Sanción normalizadora", d:"Pequeñas penas y premios por llegar tarde, distraerse o hablar: no castiga solo lo prohibido, sino todo desvío respecto de una norma de conducta."},
+      {t:"Examen", d:"Combina la mirada que vigila y la sanción que normaliza: mide, compara y deja un registro escrito que convierte a cada individuo en un caso."}]}
   ],
   avicena: [
-    {tipo:"niveles", titulo:"La emanación desde el Necesario", intro:"De lo uno procede solo uno: así explica Avicena cómo sale la multiplicidad del mundo de un principio simple.", eje:"del Uno a la multiplicidad", nota:"Avicena cuenta diez intelectos y nueve esferas; aquí los intermedios se agrupan en un solo nivel.",
+    {tipo:"partes", titulo:"Los sentidos internos", intro:"Lo que traen los cinco sentidos externos lo reciben, guardan y trabajan cinco facultades internas, según el Libro del alma.", centro:"Los sentidos internos", nota:"Avicena ubica estas facultades en los ventrículos del cerebro, de adelante hacia atrás, siguiendo la medicina galénica de su tiempo.",
      nodos:[
-      {t:"El Ser necesario por sí", d:"Uno y simple, su esencia es existir. Al pensarse a sí mismo, produce eternamente un único efecto: el primer intelecto."},
-      {t:"El primer intelecto", d:"Piensa al Necesario, y de ahí procede el segundo intelecto; piensa su existencia como necesaria por otro, y procede el alma de la primera esfera; piensa su ser como posible, y procede el cuerpo de esa esfera."},
-      {t:"Intelectos y esferas celestes", d:"El proceso se repite en cada intelecto: cada uno produce otro intelecto, el alma y el cuerpo de una esfera, hasta la esfera de la Luna."},
-      {t:"El intelecto agente (décimo)", d:"El último intelecto ya no produce otra esfera: gobierna el mundo sublunar, da las formas a la materia preparada e ilumina las almas humanas."},
-      {t:"El mundo debajo de la Luna", d:"El mundo de la generación y la corrupción: los cuatro elementos, las plantas, los animales y los seres humanos, cuyas formas vienen del dador de las formas."}]},
-    {tipo:"secuencia", titulo:"Los grados del intelecto humano", intro:"Cómo pasa nuestra mente de la pura capacidad al conocimiento, según el Libro del alma.", nota:"En cada paso de la potencia al acto, la forma inteligible se recibe del intelecto agente; los sentidos y la imaginación solo preparan el alma.",
-     nodos:[
-      {t:"Intelecto material", d:"Pura capacidad de conocer, como la del niño: nada está todavía escrito en él. Se llama material por semejanza con la materia, que puede recibir cualquier forma."},
-      {t:"Intelecto en hábito", d:"Ya posee los primeros principios evidentes, como que el todo es mayor que la parte, y con ellos puede empezar a razonar."},
-      {t:"Intelecto en acto", d:"Ha adquirido formas inteligibles y puede pensarlas cuando quiere, aunque no las esté pensando ahora, como quien sabe geometría y no está resolviendo un problema."},
-      {t:"Intelecto adquirido", d:"Contempla efectivamente las formas inteligibles, en contacto con el intelecto agente: es la perfección del alma racional."}]}
+      {t:"Sentido común", d:"Reúne en una sola percepción lo que traen la vista, el oído, el tacto, el gusto y el olfato: por él vemos la gota que cae como si fuera una línea."},
+      {t:"Imaginación retentiva", d:"Conserva las imágenes de lo percibido cuando la cosa ya no está delante: la otra facultad recibe, esta guarda."},
+      {t:"Imaginación compositiva", d:"Une y separa las imágenes guardadas, y así puede armar figuras que nadie vio. En el ser humano, al servicio del intelecto, se llama cogitativa."},
+      {t:"Estimativa", d:"Capta en lo percibido significados que no se ven, como la hostilidad del lobo que hace huir a la oveja."},
+      {t:"Memoria", d:"Guarda los significados que capta la facultad que juzga, como la que retiene imágenes guarda las formas sensibles."}]}
   ],
   ghazali: [
     {tipo:"secuencia", titulo:"El camino del Munqidh", intro:"El que libra del extravío (c. 1106–1110): las etapas de la búsqueda de la certeza tal como Al-Ghazali las cuenta.", nota:"El orden es el del relato del propio Al-Ghazali, escrito años después y con intención apologética; los historiadores no lo toman como una crónica exacta.",
