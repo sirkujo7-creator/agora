@@ -19,6 +19,14 @@ de los que se nombran acá. Escribí SOLO lo nuevo; un script lo une a la ficha 
   estudió la ficha; ninguna opción menciona a otros autores; la explicación nombra las opciones por su
   contenido, nunca por su posición («la primera…»).
 
+## Relevancia del autor (criterio de Juan)
+El encargo dice si la ficha es **completa** o **breve**. Los autores centrales de la historia de la filosofía
+se desarrollan a fondo (ficha completa). Los de menor peso histórico van en **ficha breve**: lo indispensable,
+sin relleno ni repeticiones. En las dos: si no hay mucho que decir, no inventes; quedate en el mínimo del rango.
+- **Completa**: conceptos 6-9, obras 3-5, segundo diálogo, preguntas 4-5, repaso 8. Comprobación: `rees`.
+- **Breve**: conceptos 4-6, obras 2-4, segundo diálogo solo si hay una aplicación real y sólida (si no, omití
+  `dialogos`), preguntas 3-4, repaso 5-6. Comprobación: `reesb` en lugar de `rees`.
+
 ## Qué escribir
 - **Conceptos** (6-9): cada uno un CONCEPTO (p. ej. «Arché», «Physis»), título de 1-4 palabras, explicación
   `d` de 70-130 palabras. NO títulos-frase, NO obras ni características disfrazadas de concepto. Sin repetir
