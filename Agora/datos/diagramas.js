@@ -287,58 +287,38 @@ const DIAGRAMAS = {
       {a:"El hombre tiene una naturaleza fija", b:"Lo humano no admite explicación", d:"Ortega: lo humano se explica, pero contando cómo llegó a ser lo que es: razón histórica."}]}
   ],
   zambrano: [
-    {tipo:"polos", titulo:"La separación entre filosofía y poesía", intro:"Filosofía y poesía (1939): los rasgos que, desde Platón, separaron al filósofo del poeta.", polos:{"izq":"filosofía","der":"poesía"}, nota:"La razón poética no elige el polo de la poesía: es una razón que sigue pensando, pero sin la violencia del concepto que quiere dominar.",
+    {tipo:"polos", titulo:"Individuo y persona", intro:"Persona y democracia (1958): los rasgos con que Zambrano opone el individuo abstracto a la persona concreta.", polos:{"izq":"individuo","der":"persona"}, nota:"La tabla ordena en pares lo que el libro desarrolla de manera continua.",
      nodos:[
-      {a:"La unidad del ser", b:"Lo múltiple y sensible", d:"El filósofo buscó la unidad del ser por medio del concepto; el poeta se quedó con lo múltiple, lo sensible, lo que no se deja reducir a concepto."},
-      {a:"Lo que no cambia", b:"Las apariencias y las pasiones", d:"Con Platón la verdad se situó en lo que no cambia, y la poesía, atada a las apariencias y las pasiones, quedó bajo sospecha: la República expulsa a los poetas."},
-      {a:"Querer poseer el todo", b:"No renunciar a nada", d:"La filosofía nace, dice Zambrano, de una violencia, de un querer poseer el todo; la poesía, de una fidelidad, de un no querer renunciar a nada de lo que aparece."},
-      {a:"Dueña de la verdad", b:"Palabra sin derecho a verdad", d:"La filosofía ganó el poder y se quedó con la verdad; la poesía quedó como algo sospechoso. Esa decisión definió una cultura que valoró el dominio y despreció lo frágil."}]},
-    {tipo:"partes", titulo:"Las vías de la razón poética", intro:"Los conceptos con que Zambrano despliega su propuesta de una razón que escucha, a lo largo de su obra.", centro:"Razón poética", nota:"Agrupar estos conceptos alrededor de la razón poética es una simplificación didáctica: Zambrano no los presenta como un sistema.",
-     nodos:[
-      {t:"Escuchar antes que dominar", d:"Frente al sujeto moderno que se apodera del mundo y lo vuelve objeto, una actitud receptiva: dejar que las cosas se muestren y atender a lo que no encaja en las categorías previas."},
-      {t:"La confesión como método", d:"Frente al sistema impersonal, la palabra de alguien que parte de su propia vida y confusión y se expone ante otro; su modelo es san Agustín."},
-      {t:"Claros y aurora", d:"Imágenes del conocimiento: la verdad más importante no se conquista con un método, se revela a quien está atento, como la luz que entra de pronto en un claro del bosque."},
-      {t:"Lo sagrado", d:"Fondo oscuro e inagotable de la realidad, anterior a los dioses. Expulsado por la modernidad, vuelve degradado como culto a la historia, al Estado o al líder."},
-      {t:"Persona, no individuo", d:"El individuo es una abstracción intercambiable; la persona, alguien concreto con intimidad e historia propia. La democracia es el orden que exige que cada uno pueda ser persona."},
-      {t:"El exilio como lugar", d:"Vivido de 1939 a 1984, el exilio es para ella una condición filosófica: quien ha perdido su lugar ve la fragilidad de toda pertenencia y la verdad de los vencidos."}]}
+      {a:"Unidad abstracta", b:"Alguien concreto", d:"El individuo es una unidad que se cuenta y se reemplaza; la persona es alguien con nombre, historia propia e intimidad."},
+      {a:"Definido por su función", b:"Ningún papel lo agota", d:"Al individuo lo define su papel o sus derechos formales; la persona tiene una intimidad que ninguna función social agota."},
+      {a:"Pieza de un proyecto", b:"Fin en sí, no víctima", d:"Las catástrofes del siglo XX trataron a las personas como piezas de un proyecto histórico; la persona no puede ofrecerse en sacrificio a un ídolo."},
+      {a:"Lo que cuenta el procedimiento", b:"Lo que exige la democracia", d:"Un procedimiento electoral cuenta individuos iguales; la democracia, para Zambrano, es la sociedad que exige que cada uno pueda ser persona."}]}
   ],
   arendt: [
-    {tipo:"partes", titulo:"Las tres actividades de la vida activa", intro:"La condición humana (1958): las tres actividades que Arendt distingue en la vida activa.", centro:"Vida activa", nota:"La crítica de Arendt es que la modernidad invirtió la jerarquía y lo convirtió todo en labor: una sociedad de trabajadores y consumidores.",
+    {tipo:"polos", titulo:"Poder y violencia", intro:"En Sobre la violencia, Arendt sostiene que poder y violencia no son grados de lo mismo, sino opuestos: donde uno domina por completo, el otro falta. Ubicá cada rasgo en su polo.", polos:{"izq":"Poder","der":"Violencia"}, nota:"Los rasgos de cada lado resumen el ensayo de 1970; los pares son una síntesis de Ágora, no una tabla de Arendt.",
      nodos:[
-      {t:"Labor", d:"Responde a la necesidad biológica: comer, limpiar, reproducir la vida. Sus productos se consumen en el mismo acto de vivir y hay que volver a empezar."},
-      {t:"Trabajo", d:"Fabrica cosas que duran, como una mesa, una casa o un libro, y así construye un mundo más estable que la vida individual."},
-      {t:"Acción", d:"Ocurre entre personas, sin mediación de cosas, por la palabra y el gesto; corresponde a la pluralidad, revela quién es cada uno y puede iniciar algo imprevisible."}]},
-    {tipo:"polos", titulo:"Poder y violencia", intro:"Sobre la violencia (1970): dos conceptos que la tradición confundía y que Arendt presenta como opuestos.", polos:{"izq":"poder","der":"violencia"}, nota:"No son grados de lo mismo: donde uno domina por completo, el otro falta.",
-     nodos:[
-      {a:"Actuar concertadamente", b:"Imponerse con instrumentos", d:"El poder es la capacidad humana de actuar en concierto; la violencia es instrumental: necesita herramientas para doblegar la voluntad ajena."},
-      {a:"Pertenece a un grupo", b:"Pocos contra muchos", d:"El poder nunca es de un individuo, existe mientras el grupo se mantiene unido; la violencia, en cambio, puede ser ejercida por unos pocos contra muchos."},
-      {a:"Se crea entre muchos", b:"Destruye, pero no crea", d:"La violencia puede destruir el poder, pero no puede crearlo. Un gobierno que necesita cada vez más violencia está perdiendo el poder."}]}
+      {a:"Actuar concertadamente", b:"Imponerse con instrumentos", d:"El poder nace cuando las personas actúan juntas; la violencia necesita herramientas: armas, medios técnicos."},
+      {a:"Depende del número", b:"Unos pocos contra muchos", d:"El poder crece con quienes se suman; la violencia puede prescindir del número: le basta estar armada."},
+      {a:"Pertenece a un grupo", b:"Puede ejercerla uno solo", d:"Nadie tiene poder por sí solo: quien está en el poder actúa en nombre de un grupo que lo autoriza; para la violencia alcanza un individuo con un arma."},
+      {a:"Necesita legitimidad", b:"Se justifica, nunca es legítima", d:"El poder se apoya en su origen, en que la gente se reunió; la violencia se justifica por un fin futuro, y esa justificación se debilita a medida que el fin se aleja."},
+      {a:"Puede crearse y crecer", b:"Solo puede destruir", d:"La violencia puede destruir el poder, pero de ella no sale nunca un poder nuevo."}]}
   ],
   sartre: [
-    {tipo:"polos", titulo:"El ser en-sí y el ser para-sí", intro:"El ser y la nada (1943): las dos regiones del ser que Sartre distingue.", polos:{"izq":"en-sí","der":"para-sí"}, nota:"El ser humano querría ser las dos cosas a la vez, libre y sólido como una cosa: es el ideal que la tradición llamó Dios. Por ser contradictorio, Sartre dice que el hombre es una pasión inútil.",
+    {tipo:"secuencia", titulo:"De la serie a la institución", intro:"Crítica de la razón dialéctica (1960): cómo se forman los grupos y cómo vuelven a petrificarse.", nota:"Sartre presenta este recorrido como la lógica de la experiencia de los grupos, no como una cronología obligatoria de toda historia; la institución tiende a recaer en la serialidad.",
      nodos:[
-      {a:"Es lo que es", b:"Es lo que no es", d:"La cosa coincide consigo misma, sin fisuras; la conciencia está siempre a distancia de sí, proyectada hacia lo que todavía no es."},
-      {a:"Macizo, sin posibilidades", b:"Proyecto, posibilidad", d:"Una piedra no se pregunta nada ni puede ser otra cosa; la conciencia existe eligiendo entre posibles."},
-      {a:"Pura positividad", b:"Introduce la nada", d:"En el mundo de las cosas no falta nada; la conciencia trae la ausencia, la pregunta y la negación, como cuando el café entero se organiza alrededor de que Pedro no está."}]},
-    {tipo:"partes", titulo:"Las tres palabras de la libertad", intro:"El existencialismo es un humanismo (1946): cómo se vive la libertad cuando no hay Dios ni naturaleza humana.", centro:"Libertad sin excusas", nota:"Sartre insiste en que ninguna de las tres lleva al quietismo: son la condición de la acción, no una invitación a no actuar.",
-     nodos:[
-      {t:"Angustia", d:"La conciencia de que, al elegir, elijo una imagen del ser humano: soy legislador para toda la humanidad, sin que nadie me garantice que elijo bien."},
-      {t:"Desamparo", d:"Si Dios no existe, no hay valores escritos en ningún cielo ni signos que decidan por mí; hasta el consejero lo elijo yo."},
-      {t:"Desesperación", d:"Solo cuento con lo que depende de mi voluntad: actúo sin esperar que otros o la historia aseguren el resultado."}]}
+      {t:"Serie", d:"Individuos separados e intercambiables frente a lo práctico-inerte, como los que esperan el bus: comparten una situación sin estar unidos."},
+      {t:"Grupo en fusión", d:"Una amenaza común hace que actúen juntos de golpe, como la multitud que tomó la Bastilla: la libertad se recupera en la acción común."},
+      {t:"Grupo juramentado", d:"Para no volver a dispersarse, los miembros se comprometen con un juramento, y la unión se asegura con el temor a la traición."},
+      {t:"Organización", d:"El grupo reparte funciones y tareas: cada miembro ocupa un lugar definido en la acción común."},
+      {t:"Institución", d:"Las funciones se fijan y se separan de quienes las cumplen: vuelven la inercia y la serialidad, ahora dentro del grupo."}]}
   ],
   frankfurt: [
-    {tipo:"ciclo", titulo:"La dialéctica de la Ilustración", intro:"Dialéctica de la Ilustración (1947): cómo la razón que libera del mito termina recayendo en él.", nota:"El esquema en pasos es una reconstrucción didáctica; Horkheimer y Adorno escriben en fragmentos y rechazan presentar la historia como un mecanismo necesario.",
+    {tipo:"polos", titulo:"Dos generaciones frente a la razón", intro:"Habermas no abandonó la teoría crítica: la reformuló. Ubicá cada afirmación en el polo que le corresponde.", polos:{"izq":"Horkheimer y Adorno","der":"Habermas"}, nota:"La oposición sigue la lectura de Habermas en El discurso filosófico de la modernidad (1985). Los defensores de Adorno discuten que su crítica carezca de criterio: lo ven en la atención a lo no idéntico y al sufrimiento.",
      nodos:[
-      {t:"El mito ya quiere explicar", d:"Los mitos ya narran, nombran y quieren controlar el mundo: en ellos empieza la ilustración."},
-      {t:"Liberarse del miedo", d:"La Ilustración, en sentido amplio, quiere quitar el miedo a los seres humanos y hacerlos señores de la naturaleza por el conocimiento."},
-      {t:"Todo se vuelve calculable", d:"Para dominar la naturaleza, el pensamiento la reduce a lo medible e intercambiable; lo que no entra en el cálculo deja de contar."},
-      {t:"Dominio sobre las personas", d:"El dominio sobre la naturaleza exterior se vuelve dominio sobre la naturaleza interior y sobre otros seres humanos, administrados como cosas."},
-      {t:"Recaída en mitología", d:"Lo dado se acepta como destino y la razón sirve a cualquier fin, también a la barbarie. Solo una Ilustración que reflexiona sobre sí misma rompe el ciclo."}]},
-    {tipo:"polos", titulo:"Dos maneras de coordinar la acción", intro:"Habermas, Teoría de la acción comunicativa (1981): la razón no se reduce al cálculo de medios.", polos:{"izq":"acción estratégica","der":"acción comunicativa"}, nota:"En la vida real las dos se mezclan; la distinción es un criterio para analizar, no una clasificación de personas.",
-     nodos:[
-      {a:"Busca el propio éxito", b:"Busca entenderse con el otro", d:"En la acción estratégica el otro es un medio para mis fines; en la comunicativa es alguien con quien busco un acuerdo."},
-      {a:"Influye con amenazas o incentivos", b:"Convence con razones criticables", d:"La estratégica actúa sobre el otro; la comunicativa eleva pretensiones de verdad, corrección y sinceridad que el otro puede rechazar."},
-      {a:"Coordina por dinero y poder", b:"Reproduce el mundo de la vida", d:"Los sistemas coordinan sin entenderse, y eso es eficaz; la patología es que colonicen la educación, la familia o la opinión pública."}]}
+      {a:"La razón se volvió instrumento de dominio", b:"La razón también es entendimiento", d:"La Dialéctica de la Ilustración ve en la razón que domina la naturaleza el germen de la dominación de los seres humanos; Habermas sostiene que la modernidad abrió además una racionalidad comunicativa."},
+      {a:"Modelo: un sujeto que domina objetos", b:"Modelo: hablantes que buscan entenderse", d:"Habermas reprocha a sus maestros haber pensado la razón desde la relación de un sujeto con objetos; él la piensa desde la relación entre hablantes."},
+      {a:"Crítica sin criterio positivo", b:"Criterio: lo que supone toda argumentación", d:"La objeción de la contradicción performativa: sin un criterio de racionalidad la crítica se queda en el aire. Habermas lo busca en lo que presupone quien argumenta en serio."},
+      {a:"Diagnóstico: el mundo administrado", b:"Diagnóstico: mundo de la vida colonizado", d:"Para la primera generación, la administración total amenaza con cerrar toda salida; para Habermas, el dinero y el poder son útiles, y la patología es que invadan ámbitos que viven del entendimiento."}]}
   ],
   beauvoir: [
     {tipo:"polos", titulo:"El Sujeto y lo Otro", intro:"El segundo sexo (1949): la oposición no recíproca con que, según Beauvoir, se construyó la relación entre los sexos.", polos:{"izq":"el hombre como Sujeto","der":"la mujer como lo Otro"}, nota:"No describe una naturaleza sino una situación construida históricamente; el horizonte de Beauvoir es la reciprocidad entre dos libertades.",

@@ -236,32 +236,30 @@ const CLAVES = {
     ["Critica un tipo humano, no una clase social ni el bienestar de las mayorías", "El hombre-masa no se exige nada e impone su opinión sin razones", "El criterio de minoría selecta es vago y abre la puerta al desprecio"]
   ],
   zambrano: [
-    ["La razón poética amplía la razón, no la abandona", "La razón discursiva se volvió excluyente", "Escucha lo que todavía no tiene concepto", "La confesión como método, una palabra expuesta que puede contradecirse"],
-    ["Para Ortega la vida es la realidad radical", "Ortega se quedó a mitad de camino según Zambrano", "La razón poética se deja transformar y escucha antes de comprender", "Diferencia de estilo: ensayo seguro frente a penumbra y confesión"],
-    ["El exilio es una condición desde la que se piensa", "Salió de España en 1939 y vivió fuera cuarenta y cinco años", "El exiliado ve la fragilidad de toda pertenencia y la verdad de los vencidos", "Vínculo con el desplazamiento forzado como forma de conocer"],
-    ["La democracia exige ser persona, no solo elegir gobernantes", "Contraste con la historia sacrificial y sus ídolos", "Cada uno tiene una intimidad que no se agota en su función", "Objeción: concepto más ético que político, sin diseño institucional"],
-    ["Lo sagrado es una dimensión de la experiencia humana", "Negado, reaparece degradado como culto al Estado o al líder", "No es anticientífica: niega que la ciencia dé cuenta de todo", "Las ideologías del siglo XX como religiones sustitutas"]
+    ["La razón poética amplía la razón: no renuncia a pensar, escucha lo que todavía no tiene concepto", "La confesión, palabra expuesta ante otro, como respuesta a la objeción de arbitrariedad"],
+    ["Lo sagrado es una dimensión de la experiencia anterior a los dioses, no una creencia que se abandona", "Negado, reaparece degradado en ídolos como el Estado, la historia o el líder, que piden víctimas"],
+    ["La democracia como sociedad que exige ser persona, frente a la historia sacrificial", "El procedimiento cuenta individuos intercambiables; la persona es alguien concreto"]
   ],
   arendt: [
-    ["Los crímenes no eran banales, su autor no era un monstruo", "Rechaza la teoría del engranaje y juzga a cada persona", "Eichmann merecía la horca según su epílogo", "Stangneth debilita el ejemplo pero no el concepto"],
-    ["La distinción clasifica actividades, no personas", "La modernidad reduce todo a la lógica de la labor", "Crítica feminista y marxista: desprecia la labor de mujeres y esclavos", "Objeción: excluye de la política cuestiones sociales como la pobreza"],
-    ["Ningún gobierno se sostiene solo con violencia", "Cuando el apoyo se retira, la violencia no alcanza", "Objeción de Weber: el monopolio de la violencia legítima define al Estado", "La palabra legítima ya supone reconocimiento de los otros"],
-    ["El derecho de refugiados responde a lo que Arendt describió", "La protección depende de que algún Estado acepte cumplirla", "Arendt hablaba de pertenencia política, no solo protección física", "Su solución parece depender del Estado nacional en crisis"],
-    ["En 1959 se opuso a imponer la integración escolar", "Distinguía esfera política de igualdad y esfera social", "Ellison le respondió desde la experiencia de los padres negros", "El caso muestra límites de separar lo social de lo político"]
+    ["La tiranía busca obediencia; el totalitarismo, una dominación total que elimina la espontaneidad", "Terror contra lo que alguien es, unido a una ideología que explica toda la historia", "Los campos muestran la meta: volver superfluos a los seres humanos"],
+    ["En Eichmann vio incapacidad de pensar desde el lugar de otro, no odio profundo", "Pensar es el diálogo consigo mismo: preguntarse si se puede vivir con lo que uno hace", "Quien no piensa queda disponible para cualquier cosa"],
+    ["Paradoja: quienes eran solo humanos se quedaron sin ningún derecho", "Lo perdido es un lugar en el mundo donde las acciones y opiniones cuentan", "El derecho básico es pertenecer a una comunidad política"],
+    ["La lógica de la labor (producir y consumir) se volvió la medida de todo", "La política se reduce a administrar necesidades y se pierde la acción"],
+    ["El poder es actuar juntos y depende del número; la violencia es instrumental", "Con violencia se obtiene obediencia, no poder: aparece donde el poder está en peligro"]
   ],
   sartre: [
-    ["No hay naturaleza humana, pero sí una condición humana común", "Cada elección afirma lo que parece bueno, y eso vale para todos", "Objeción: una libertad sin valores previos no justifica universalizar", "Sartre nunca publicó la moral que prometió"],
-    ["En El ser y la nada la libertad es total, incluso en la cárcel", "Beauvoir y Merleau-Ponty objetan que la opresión reduce la libertad", "Saint Genet: lo que hacemos con lo que hicieron de nosotros", "La tesis vale como advertencia contra la mala fe"],
-    ["No critica el trabajo bien hecho, sino identificarse con un papel", "Mala fe es tratarse a sí mismo como una cosa", "Objeción: el camarero actúa por necesidad económica, no por evasión", "La autenticidad no es un estado que se alcanza de una vez"],
-    ["La frase de A puerta cerrada no dice que toda relación sea mala", "Si la relación está viciada, el otro se vuelve un infierno", "Los personajes están muertos y ya no pueden actuar", "En El ser y la nada la relación con el otro sí es conflicto"],
-    ["Aciertos: oposición a la guerra de Argelia y a la tortura", "Errores: cercanía al Partido Comunista y elogios a la URSS en 1954", "Rechazó el Nobel para no volverse una institución", "Su propia filosofía le exige responder por sus actos sin excusas"]
+    ["En el ser humano no hay un concepto ni una naturaleza previa: primero existe y se define por lo que hace", "No niega la condición ni la situación: niega que decidan de antemano quiénes somos"],
+    ["La mala fe es identificarse con un papel como si fuera una esencia: tratarse como cosa", "Objeción: la actuación puede venir de la presión económica y no de una evasión"],
+    ["En El ser y la nada la libertad es total: cada uno decide el sentido de su situación", "Beauvoir y Merleau-Ponty objetaron el peso de la opresión, el cuerpo y la historia", "Saint Genet: lo que hacemos con lo que han hecho de nosotros"],
+    ["Cada elección propone una imagen de lo que el ser humano debe ser", "El paso de lo bueno para mí a lo bueno para todos no está justificado sin valores previos"],
+    ["La praxis en la escasez produce lo práctico-inerte, que limita a todos", "De la serie al grupo en fusión: la libertad se recupera en la acción colectiva"]
   ],
   frankfurt: [
-    ["La teoría tradicional tampoco es neutral: sus categorías dependen de una sociedad", "El interés emancipatorio no reemplaza la investigación empírica", "La teoría crítica pregunta para qué y para quién sirve el conocimiento", "Queda abierto quién define la emancipación; Habermas intenta responderlo"],
-    ["Habermas: una crítica total de la razón es una contradicción performativa", "El prólogo afirma que la libertad es inseparable del pensamiento ilustrado", "Adorno: pensar contra el pensamiento con los propios conceptos", "Réplica: el consenso idealizado puede olvidar el sufrimiento sin palabras"],
-    ["En 1949 escribió que escribir un poema después de Auschwitz es bárbaro", "Es un diagnóstico de la cultura cómplice, no una prohibición a los poetas", "En 1962 admitió con Enzensberger que la literatura debe resistir el veredicto", "En 1966: el sufrimiento tiene derecho a expresarse como el torturado a gritar"],
-    ["Separar el gusto de Adorno, injusto con el jazz, del análisis estructural", "La producción industrial estandariza y forma los deseos", "Objeción: las audiencias reinterpretan y resisten", "Marcuse: ¿quién decide qué necesidades son falsas?"],
-    ["No hay historia neutral: la tradición la conservaron los vencedores", "No se trata de invertir el sesgo sino de mostrar lo borrado y criticar el progreso", "Riesgo de subordinar los hechos a una causa", "Memoria de las víctimas en Colombia con contraste de testimonios"]
+    ["Las preguntas y categorías de la ciencia dependen de una sociedad determinada", "La teoría crítica agrega la pregunta de para qué y para quién sirve el conocimiento", "Toda teoría toma partido; la crítica lo hace a la vista"],
+    ["El mito ya buscaba explicar y dominar el mundo", "La razón reducida a cálculo convierte lo dado en destino y vuelve el dominio contra los seres humanos", "No es un rechazo de la razón sino una exigencia de que reflexione sobre sí misma"],
+    ["Contradicción performativa: la crítica total usa la razón que niega", "Habermas busca el criterio en los presupuestos de la argumentación", "La modernidad también abrió una racionalidad comunicativa"],
+    ["La crítica apunta a la forma de producción, no a la calidad de cada obra", "Las plataformas hacen visible la lógica de prever y fabricar deseos", "El público no es pasivo: reinterpreta y se apropia de lo que consume"],
+    ["El aura es el aquí y ahora irrepetible de la obra, ligado al culto", "Su pérdida permite un arte fundado en la política y un público que examina", "El riesgo es la estetización de la política"]
   ],
   beauvoir: [
     ["Beauvoir no niega las diferencias biológicas", "Esas diferencias no explican el lugar social de las mujeres", "El cuerpo es una situación, no una cosa", "Butler: Beauvoir mantuvo la idea de un sexo natural"],

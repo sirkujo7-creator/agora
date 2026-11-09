@@ -368,49 +368,44 @@ const TERMINOS = {
     {k:"hombre-masa", tapar:["La rebelión de las masas","masa"]}
   ],
   zambrano: [
-    {k:"razón poética", tapar:[]},
-    {q:"¿Qué significó para Zambrano la separación platónica entre filosofía y poesía?"},
-    {q:"¿Qué actitud de la razón le opone Zambrano a la razón moderna que se apodera del mundo?"},
-    {k:"confesión", tapar:[]},
-    {k:"lo sagrado", tapar:["sagrado"]},
-    {q:"¿Qué distingue Zambrano entre persona e individuo y qué consecuencias políticas extrae?"},
-    {k:"historia sacrificial", tapar:["sacrificaba","sacrificios"]},
-    {k:"exilio", tapar:["exiliada","exiliado"]},
-    {q:"¿Con qué imágenes piensa Zambrano la verdad que se revela en vez de conquistarse, y qué dice cada una?"}
+    {k:"razón poética", tapar:["poesía"]},
+    {q:"¿Qué forma de pensar, cuyo modelo es san Agustín, propone Zambrano frente al sistema como método para las verdades de la propia vida?"},
+    {k:"sagrado", tapar:[]},
+    {k:"persona", tapar:["personas"]},
+    {k:"historia sacrificial", tapar:[]}
   ],
   arendt: [
     {k:"totalitarismo", tapar:[]},
     {k:"derecho a tener derechos", tapar:[]},
-    {q:"¿Cuáles son las tres actividades de la vida activa según Arendt y qué distingue a cada una?"},
-    {k:"natalidad", tapar:["nacimiento"]},
+    {k:"vida activa", tapar:["vita activa"]},
+    {k:"natalidad", tapar:["nacimiento","haber nacido"]},
     {k:"pluralidad", tapar:[]},
-    {k:"banalidad del mal", tapar:[]},
-    {q:"¿Qué distingue Arendt entre pensar y juzgar, y qué relación tienen con la posibilidad de evitar el mal?"},
-    {q:"¿Cómo distingue Arendt el poder de la violencia y qué relación hay entre ambos?"},
-    {q:"¿Qué dos fragilidades tiene la acción según Arendt y qué remedios encuentra para ellas?"}
+    {q:"¿Qué expresión usó Arendt para decir que crímenes monstruosos pueden cometerse sin que su autor sea un monstruo?"},
+    {k:"Pensar", tapar:["pensar","piensa"]},
+    {k:"juicio", tapar:["Juzgar","juzgar","juzga"]},
+    {k:"poder", tapar:[]}
   ],
   sartre: [
-    {k:"la existencia precede a la esencia", tapar:[]},
-    {k:"condenado a ser libre", tapar:["condenado"]},
-    {q:"¿Qué entiende Sartre por angustia, desamparo y desesperación, y por qué ninguna de las tres lleva a no actuar?"},
+    {q:"¿Qué quiere decir Sartre con que en el ser humano la existencia va antes que la esencia, a diferencia de un objeto fabricado?"},
+    {k:"libertad", tapar:["libre"]},
+    {k:"angustia", tapar:[]},
     {k:"mala fe", tapar:[]},
-    {q:"¿Qué distingue el ser en-sí del ser para-sí en El ser y la nada?"},
+    {q:"¿Qué distingue el ser de las cosas del ser de la conciencia en El ser y la nada?"},
     {k:"mirada", tapar:["mira","mirón"]},
-    {q:"¿Qué relación hay, según Sartre, entre la situación en que vivimos y el proyecto que elegimos?"},
-    {k:"compromiso", tapar:["comprometida"]},
-    {q:"¿Qué son la praxis, la escasez y lo práctico-inerte en la Crítica de la razón dialéctica?"}
+    {q:"¿Qué relación hay, según Sartre, entre la situación en que vivimos y lo que nos proponemos?"},
+    {k:"compromiso", tapar:[]},
+    {k:"práctico-inerte", tapar:[]}
   ],
   frankfurt: [
-    {q:"¿Qué distingue Horkheimer entre teoría tradicional y teoría crítica en su ensayo de 1937?"},
-    {q:"¿Qué quieren decir Horkheimer y Adorno con que el mito ya es ilustración y la ilustración recae en mitología?"},
-    {k:"razón instrumental", tapar:["razón subjetiva o instrumental"]},
+    {k:"teoría crítica", tapar:[]},
+    {q:"¿Qué relación entre el pensamiento antiguo y la razón moderna ilustra la imagen de Ulises atado al mástil?"},
+    {k:"razón instrumental", tapar:["instrumental"]},
     {k:"industria cultural", tapar:[]},
-    {q:"¿Qué escribió Adorno sobre la poesía después de Auschwitz y cómo matizó después esa frase?"},
-    {q:"¿Cómo pide Benjamin escribir la historia en sus tesis de 1940 y qué representa el ángel de la historia?"},
+    {k:"no idéntico", tapar:[]},
     {k:"aura", tapar:[]},
-    {k:"unidimensional", tapar:[]},
-    {q:"¿Qué distingue Habermas entre acción estratégica y acción comunicativa, y qué llama colonización del mundo de la vida?"},
-    {q:"¿Por qué conviene decir que «Escuela de Frankfurt» es un rótulo posterior y qué fue el Instituto de Investigación Social?"}
+    {k:"a contrapelo", tapar:[]},
+    {k:"pensamiento unidimensional", tapar:["unidimensional"]},
+    {k:"acción comunicativa", tapar:[]}
   ],
   beauvoir: [
     {q:"¿Qué quiere decir Beauvoir con «No se nace mujer: se llega a serlo» y qué distinción posterior abrió?"},
