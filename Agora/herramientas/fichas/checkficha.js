@@ -3,7 +3,8 @@
 // Con un cuarto argumento «breve», acepta una ficha breve (autores de menor peso: menos conceptos, sin ejercicios avanzados obligatorios).
 const fs=require("fs"),vm=require("vm");
 const [id, modPath, extraPath, modo] = process.argv.slice(2);
-const REES = modo === "rees";   // reescritura de una ficha existente (encargo-reescritura.md)
+const REESB = modo === "reesb";  // reescritura breve: autores de menor peso histórico, sin relleno
+const REES = modo === "rees" || REESB;   // reescritura de una ficha existente (encargo-reescritura.md)
 const BREVE = modo === "breve" || REES;
 const errs=[], e=m=>errs.push(m);
 const x={};vm.createContext(x);
@@ -16,7 +17,8 @@ if(!x.L[id]) e("falta LECTURAS."+id); else {
   (x.L[id].preguntasLectura||[]).forEach((p,i)=>{ if(!p.opciones||!p.opciones.includes(p.r)) e(`preguntasLectura[${i}]: r no está en opciones`); });
 }
 const cnt=(k,a,b)=>{const n=(m[k]||[]).length; if(n<a||n>b) e(`${k}: ${n} (se esperan ${a}-${b})`);};
-if(REES){ cnt("conceptos",6,9); cnt("obras",3,5); cnt("cuestionario",4,5); }
+if(REESB){ cnt("conceptos",4,6); cnt("obras",2,4); cnt("cuestionario",3,4); }
+else if(REES){ cnt("conceptos",6,9); cnt("obras",3,5); cnt("cuestionario",4,5); }
 else if(BREVE){ cnt("conceptos",5,8); cnt("obras",2,4); cnt("actividades",2,3); cnt("cuestionario",3,5); cnt("reconstruccion",0,2); cnt("dilemas",0,1); }
 else { cnt("conceptos",8,10); cnt("obras",4,6); cnt("actividades",3,3); cnt("cuestionario",5,5); cnt("reconstruccion",2,2); cnt("dilemas",1,1); }
 (m.conceptos||[]).concat(m.obras||[]).forEach((c,i)=>{ if(!c.t||!c.d) e("concepto/obra sin t o d: "+i); });
@@ -46,8 +48,8 @@ if(extraPath){ let X; try{X=JSON.parse(fs.readFileSync(extraPath,"utf8"));}catch
   const ex=X.examen||{}; (ex.seleccion||[]).forEach((q,i)=>{ if(!q.situacion||!q.pregunta||!q.explicacion||(q.opciones||[]).length!==4||!(q.correcta>=0&&q.correcta<=3)) e(`examen.seleccion[${i}]`); if(ORD.test(q.explicacion||"")) e(`examen.seleccion[${i}]: nombra opción por posición`); });
   (ex.vf||[]).forEach((q,i)=>{ if(!q.afirmacion||typeof q.verdadero!=="boolean"||!q.explicacion) e(`examen.vf[${i}]`); });
   (ex.emparejar||[]).forEach((q,i)=>{ if(q.mod!==id||!q.idea) e(`examen.emparejar[${i}]: mod tiene que ser ${id}`); });
-  if(REES){ if(!Array.isArray(X.repaso)||X.repaso.length<8) e("repaso: 8 preguntas"); (X.repaso||[]).forEach((q,i)=>{ if(!q.pregunta||(q.opciones||[]).length!==4||!(q.correcta>=0&&q.correcta<=3)||!q.explicacion) e(`repaso[${i}]`); if(ORD.test(q.explicacion||"")) e(`repaso[${i}]: posición`); });
-    if(m.cadena||m.actividades) e("rees: quitar cadena y actividades"); if(m.rev!==2) e("rees: falta rev:2"); if(!Array.isArray(m.dialogos)||!m.dialogos.length) e("rees: falta el segundo diálogo (dialogos)"); }
+  if(REES){ if(!Array.isArray(X.repaso)||X.repaso.length<(REESB?5:8)) e(REESB?"repaso: 5-6 preguntas":"repaso: 8 preguntas"); (X.repaso||[]).forEach((q,i)=>{ if(!q.pregunta||(q.opciones||[]).length!==4||!(q.correcta>=0&&q.correcta<=3)||!q.explicacion) e(`repaso[${i}]`); if(ORD.test(q.explicacion||"")) e(`repaso[${i}]: posición`); });
+    if(m.cadena||m.actividades) e("rees: quitar cadena y actividades"); if(m.rev!==2) e("rees: falta rev:2"); if(!REESB&&(!Array.isArray(m.dialogos)||!m.dialogos.length)) e("rees: falta el segundo diálogo (dialogos)"); }
   if(!REES && ((ex.seleccion||[]).length<2||(ex.vf||[]).length<2||(ex.emparejar||[]).length<1)) e("examen: al menos 2 de selección, 2 V/F y 1 para emparejar");
   const txt=JSON.stringify(X)+fs.readFileSync(modPath,"utf8"); if(/[^\\]"[^"\n]*"[^:,\]\}\n]/.test("")) {}
 }
