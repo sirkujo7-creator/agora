@@ -429,58 +429,39 @@ const DIAGRAMAS = {
       {a:"El Cielo ve como ve el pueblo", b:"El curso del Cielo es constante", d:"Qué es el Cielo: una instancia moral que da y quita el mandato a través del pueblo, o el curso regular de la naturaleza, que no premia ni castiga."}]}
   ],
   zhuangzi: [
-    {tipo:"partes", titulo:"¿Desde dónde se juzga?", intro:"Capítulo 2 (Qiwulun): las preguntas por el criterio correcto, que muestran que toda afirmación se hace desde algún lugar.", centro:"¿Quién sabe el criterio correcto?", nota:"No se sigue que nada sea verdad: Zhuangzi usa la incertidumbre como terapia contra la arrogancia del que discute, no como tesis de que todo da igual.",
+    {tipo:"ciclo", titulo:"La muerte de la esposa", intro:"Ante Huizi, Zhuangzi describe la vida de su mujer como una serie de cambios a partir de lo indistinto. Ubicá cada momento en el ciclo.", nota:"El pasaje está en el capítulo 18, uno de los Exteriores, de otras manos. El texto compara los cambios con las cuatro estaciones; cerrar el círculo, con la vuelta de la muerte a lo indistinto, es una lectura.",
      nodos:[
-      {t:"Hábitat", d:"El hombre que duerme en lo húmedo enferma, la anguila no. ¿Cuál de los dos sabe dónde es correcto vivir?"},
-      {t:"Altura", d:"El mono se trepa a los árboles donde el hombre tiembla de miedo. Ninguno de los dos puede arbitrar desde fuera qué lugar es el seguro."},
-      {t:"Gusto", d:"Los ciervos comen pasto y otros animales prefieren alimentos que los humanos rechazan. ¿Quién conoce el sabor correcto, si cada especie mide con el suyo?"},
-      {t:"Belleza", d:"Los peces se hunden y los pájaros huyen ante las mujeres que los hombres celebran como las más bellas. ¿Cuál es la belleza verdadera?"}]},
-    {tipo:"secuencia", titulo:"El aprendizaje del cocinero Ding", intro:"Capítulo 3 (Yangshengzhu): las etapas por las que el cocinero llegó a una destreza que sigue la veta en vez de imponer un método.",
-     nodos:[
-      {t:"Ve bueyes enteros", d:"Al principio el cocinero solo percibe objetos: el buey es un bloque compacto contra el que el cuchillo tiene que abrirse paso."},
-      {t:"Ya no ve bueyes", d:"Después de tres años ya no ve bueyes enteros: su percepción pasó de los objetos a las articulaciones y los vacíos que hay entre ellas."},
-      {t:"Trabaja con la mente", d:"Ahora trabaja con la mente y no con los ojos: se mueve por los intersticios naturales, sin tocar tendones ni huesos, y su cuchillo dura diecinueve años sin afilarse."},
-      {t:"Se detiene ante el nudo", d:"Ante un nudo difícil, Ding se detiene, mira y va despacio. Esta pausa desmiente la lectura del fluir como espontaneidad sin esfuerzo ni atención."}]}
+      {t:"Lo indistinto", d:"Antes de nacer no había vida, ni forma, ni siquiera aliento: solo una mezcla sin distinciones."},
+      {t:"Aliento", d:"En medio de lo indistinto algo cambió y apareció el aliento, el qi."},
+      {t:"Forma", d:"El aliento cambió y apareció un cuerpo con forma."},
+      {t:"Vida", d:"La forma cambió y apareció la vida: la mujer que vivió con Zhuangzi y crió a sus hijos."},
+      {t:"Muerte", d:"Otro cambio la llevó a la muerte, como se suceden la primavera, el verano, el otoño y el invierno."}]}
   ],
   buda: [
-    {tipo:"secuencia", titulo:"Las cuatro nobles verdades", intro:"Primer sermón (Saṃyutta Nikāya 56.11): cada verdad viene con una tarea.", nota:"La comparación con el diagnóstico médico (enfermedad, causa, curación, remedio) la explicitan sobre todo textos posteriores; el primer sermón da la secuencia y las tareas.",
+    {tipo:"secuencia", titulo:"Las cuatro nobles verdades", intro:"El orden del primer sermón (Saṃyutta Nikāya 56.11): cada verdad viene con la tarea que le corresponde.", nota:"La comparación con un diagnóstico médico (enfermedad, causa, curación, remedio) la explicitan sobre todo textos posteriores; el primer sermón da la secuencia y las tareas.",
      nodos:[
-      {t:"Dukkha: comprenderlo", d:"Nacer, envejecer, enfermar, morir, estar unido a lo que no se quiere, separado de lo que se quiere: en resumen, los cinco agregados del aferramiento. Hay que comprenderlo plenamente."},
-      {t:"Origen: abandonar la sed", d:"La sed (taṇhā) de placeres, de existir y de no existir, que lleva a nuevas existencias. Hay que abandonarla."},
-      {t:"Cese: realizar el nirvana", d:"El desvanecimiento sin resto de esa misma sed: el nirvana. Hay que realizarlo."},
-      {t:"Camino: cultivar el sendero", d:"El noble óctuple sendero, camino medio entre el placer sensual y la mortificación. Hay que cultivarlo."}]},
-    {tipo:"partes", titulo:"El óctuple sendero en tres grupos", intro:"Los ocho factores del camino, agrupados como lo hace la monja Dhammadinnā en el Majjhima Nikāya (44).", centro:"Óctuple sendero", nota:"Los factores no son etapas sucesivas sino aspectos que se cultivan juntos; el orden de los grupos varía según los textos.",
-     nodos:[
-      {t:"Sabiduría: visión e intención", d:"Visión correcta (comprender las cuatro nobles verdades) e intención correcta (de renuncia, de no malevolencia, de no dañar)."},
-      {t:"Ética: habla, acción y medio de vida", d:"Habla sin mentira, calumnia, aspereza ni charla vana; acción sin matar, robar ni conducta sexual dañina; un medio de vida que no dañe, sin comerciar armas, personas, carne, embriagantes ni venenos."},
-      {t:"Mente: esfuerzo, atención y concentración", d:"Esfuerzo por abandonar los estados dañinos y cultivar los sanos; atención plena al cuerpo, las sensaciones, la mente y los fenómenos; concentración en las absorciones meditativas."}]}
+      {t:"Dukkha: comprenderlo", d:"Nacer, envejecer, enfermar y morir; estar unido a lo que no se quiere y separado de lo que se quiere: en resumen, los cinco agregados del aferramiento. Hay que comprenderlo plenamente."},
+      {t:"Origen: abandonar la sed", d:"La sed de placeres, de existir y de no existir, que lleva a nuevas existencias. Hay que abandonarla."},
+      {t:"Cese: realizar el nirvana", d:"El desvanecimiento sin resto de esa misma sed. Hay que realizarlo."},
+      {t:"Camino: cultivar el sendero", d:"El noble óctuple sendero, camino medio entre los placeres de los sentidos y la mortificación. Hay que cultivarlo."}]}
   ],
   nagarjuna: [
-    {tipo:"cuadrantes", titulo:"El tetralema (catuṣkoṭi)", intro:"Las cuatro alternativas que Nagarjuna examina y rechaza para cualquier tesis sobre la naturaleza propia de algo.",
+    {tipo:"secuencia", titulo:"La tétrada aplicada al surgimiento", intro:"Al comienzo de los Versos fundamentales, Nagarjuna examina las cuatro maneras en que algo con naturaleza propia podría surgir, y las rechaza todas. Tocá cada paso para ver por qué no funciona.", nota:"El orden de las cuatro alternativas es el del verso 1, 1 de los Versos fundamentales, que no da razones; las razones de cada rechazo las desarrollaron comentaristas como Buddhapālita y Candrakīrti. El último paso es la conclusión que la tradición saca del capítulo, no una quinta alternativa del verso.",
      nodos:[
-      {t:"Es", d:"Afirmar que la cosa existe con naturaleza propia."},
-      {t:"No es", d:"Negarla por completo: el nihilismo."},
-      {t:"Es y no es", d:"Afirmar ambas a la vez."},
-      {t:"Ni es ni no es", d:"Negar ambas. También se rechaza: la vacuidad no es una quinta tesis."}]},
-    {tipo:"partes", titulo:"Los tres sentidos de la dependencia", intro:"Cómo lee Nagarjuna la originación dependiente (pratītyasamutpāda): toda cosa depende a la vez de tres maneras, y por eso está vacía de svabhava.", centro:"La mesa: originación dependiente", nota:"Para Nagarjuna esta dependencia y la vacuidad son una sola tesis dicha en clave positiva y negativa: solo lo que carece de naturaleza propia puede surgir, cambiar y terminar.",
-     nodos:[
-      {t:"Depende de causas", d:"La mesa surge de su fabricación y de condiciones previas. Es la lectura budista más antigua: una cadena temporal en la que, surgiendo esto, surge aquello."},
-      {t:"Depende de partes", d:"La mesa no es nada aparte de las piezas que la componen y de su ensamblaje: no hay en ella un núcleo que sea mesa por sí mismo."},
-      {t:"Depende de designación", d:"El sentido más radical: la mesa es mesa también por el concepto con que la recortamos del mundo y por el uso que le damos."}]}
+      {t:"Surge de sí mismo", d:"Si ya estaba en sí mismo, ya existía: surgir sería repetir lo que ya hay, y el surgimiento no terminaría nunca."},
+      {t:"Surge de otra cosa", d:"Si causa y efecto tienen naturalezas propias del todo distintas, no hay vínculo entre ellos: cualquier cosa podría salir de cualquier otra."},
+      {t:"Surge de sí y de otro", d:"La combinación no salva nada: hereda a la vez los defectos de las dos primeras alternativas."},
+      {t:"Surge sin causa", d:"Si nada lo produce, todo podría aparecer en cualquier momento o nada aparecería: el mundo dejaría de ser regular."},
+      {t:"Originación dependiente", d:"Ninguna de las cuatro vale porque todas suponen naturaleza propia. Lo que aparece surge en dependencia, vacío de esencia: no es una quinta tesis sobre esencias."}]}
   ],
   shankara: [
-    {tipo:"partes", titulo:"La cuerda y la serpiente", intro:"La analogía de la superposición (adhyasa), del Brahmasutrabhashya, que funciona como modelo de todo el Advaita: qué representa cada elemento de la escena.", centro:"Adhyasa: la superposición", nota:"Es una lectura didáctica: Shankara usa la analogía de la cuerda y la serpiente, pero no la desarrolla pieza por pieza como acá.",
+    {tipo:"secuencia", titulo:"El camino del conocimiento", intro:"Cómo se llega, según Shankara, al conocimiento que libera: de los requisitos del discípulo al conocimiento directo. Ubicá cada paso.", nota:"Los requisitos los enumera al comienzo del comentario a los Brahma Sutras; la tríada de escuchar, reflexionar y meditar viene de la Brihadaranyaka Upanishad (2.4.5). Leerlos como etapas sucesivas es una simplificación: para Shankara, a un discípulo bien preparado el conocimiento puede surgirle ya al escuchar.",
      nodos:[
-      {t:"La cuerda", d:"Lo que está ahí todo el tiempo y no es afectado en nada por el error ni mejora con su disolución: Brahman, la única realidad."},
-      {t:"La serpiente", d:"Lo superpuesto, que nunca existió ni siquiera un instante y por eso no desaparece como una cosa: el mundo múltiple y el yo individual tomados por reales."},
-      {t:"La penumbra", d:"La condición que hace posible el error: avidya, la ignorancia sin comienzo que confunde al sujeto consciente con los atributos del cuerpo y del mundo."},
-      {t:"El miedo", d:"El salto hacia atrás y el corazón que late son reales: el error produce efectos, como el mundo produce efectos mientras dura la ignorancia."},
-      {t:"La luz", d:"El conocimiento (jnana) que revela que nunca hubo serpiente. La liberación no cambia la realidad sino la lectura: atman ya era Brahman."}]},
-    {tipo:"niveles", titulo:"Los tres niveles de verdad", intro:"Los tres grados en que el Advaita ordena lo que aparece, según la regla de cancelación por un conocimiento posterior.", eje:"lo que no se cancela", nota:"Contra los idealistas budistas, Shankara insiste en que el mundo de la vigilia no se reduce al sueño privado: por eso separa con firmeza el segundo nivel del tercero.",
-     nodos:[
-      {t:"Paramarthika (absoluto)", d:"El nivel último: allí solo hay Brahman, sin partes ni relación, y ninguna otra afirmación sobrevive. Nada puede cancelarlo porque no hay conocimiento posterior a él."},
-      {t:"Vyavaharika (práctico)", d:"El mundo compartido de las cosas, las personas, el karma y los deberes: coherente, estable e intersubjetivo mientras dura. Se cancela solo al realizar Brahman."},
-      {t:"Pratibhasika (aparente)", d:"Los errores privados, como la serpiente de la cuerda, el sueño o el espejismo, que se cancelan dentro del propio nivel práctico al encender la luz o despertar."}]}
+      {t:"Requisitos del discípulo", d:"Discernir lo eterno de lo pasajero, desapego, calma y dominio de sí, y deseo de liberación: sin esto el estudio no empieza."},
+      {t:"Escuchar (shravana)", d:"Recibir de un maestro la enseñanza de las Upanishads, con sus grandes dichos, como «eso eres tú»."},
+      {t:"Reflexionar (manana)", d:"Razonar sobre lo escuchado hasta disipar las dudas y las objeciones."},
+      {t:"Meditar (nididhyasana)", d:"Sostener la atención en lo comprendido para desarmar el hábito de tomarse por un cuerpo."},
+      {t:"Conocimiento directo", d:"Saberse Brahman: no se produce nada nuevo, cae el error. Puede ocurrir en esta vida."}]}
   ],
   dogen: [
     {tipo:"polos", titulo:"Práctica como medio o como realización", intro:"Cómo la unidad de práctica y realización (shushō-ittō), formulada en el Shōbōgenzō, invierte la idea instrumental de la práctica religiosa.", polos:{"izq":"Visión instrumental","der":"Shushō-ittō"},

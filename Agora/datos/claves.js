@@ -345,32 +345,32 @@ const CLAVES = {
     ["El rito no hace llover: vale como forma (wén), no como magia", "Tomarlo como cosa de espíritus lleva a esperar del Cielo lo que depende del gobierno", "Los ritos valen por cómo encauzan las emociones y ordenan la vida en común"]
   ],
   zhuangzi: [
-    ["Admitir que el relativismo aplicado a sí mismo parece autorrefutarse", "Zhuangzi muestra, no afirma: escepticismo terapéutico como la nasa abandonada", "Lo negado es un criterio neutral para arbitrar entre criterios", "El saber del cocinero es no proposicional y escapa a la paradoja"],
-    ["Distinguir entre dudar y titubear", "El cocinero Ding y el nadador actúan sin deliberar", "La duda apunta a criterios de discusión, no a la percepción entrenada", "En urgencias salva un protocolo y las decisiones vitales no se repiten"],
-    ["Destinatario distinto: Laozi al gobernante, Zhuangzi al individuo y su oficio", "Forma distinta: aforismo que afirma frente a anécdota que muestra", "Zhuangzi radicaliza la duda y desconfía incluso del fondo del Dao", "La etiqueta taoísmo (daojia) es una construcción retrospectiva Han"],
-    ["Juego de palabras: an significa cómo y también dónde", "Hui Shi presupone que el otro puede saber algo", "Reducción al absurdo del criterio escéptico del adversario", "No prueba que los peces sean felices; trata la frontera entre observar y suponer"],
-    ["Los Capítulos Interiores 1 a 7 se atribuyen a un solo autor", "Exteriores y Misceláneos reúnen corrientes posteriores distintas", "Escenas famosas como la de los peces están en los Exteriores", "No resolver contradicciones por evolución del autor; leer como tradición"]
+    ["El pasaje termina afirmando que entre Zhou y la mariposa hay alguna distinción", "La imagen habla de la transformación de las cosas, no de la existencia del mundo exterior", "Se conecta con la muerte como otra transformación"],
+    ["Shi y fei dependen del hablante y en un debate entre escuelas no hay árbitro neutral", "La salida es una actitud (el eje del Dao), no una tesis rival", "El escepticismo apunta contra cerrar la disputa desde un lugar privilegiado, no contra todo saber"],
+    ["Un saber práctico que sigue la estructura de la cosa y no se reduce a reglas", "Atención a cada caso, no automatismo", "Se ajusta a la materia en vez de imponerle distinciones fijas"],
+    ["La buena intención que impone a otro la propia medida", "Hundun es lo indiferenciado que muere al ser recortado en distinciones", "Alcanza a los que quieren mejorar a los demás según un modelo"],
+    ["No es indiferencia: reconoce el dolor y lo atraviesa", "Aplica la transformación de las cosas a la muerte, como el paso de las estaciones", "El pasaje es de un capítulo Exterior y su consuelo es discutible"]
   ],
   buda: [
-    ["Dukkha no significa que la vida sea solo dolor, sino insatisfacción de lo condicionado", "La tercera verdad afirma que dukkha puede cesar", "Estructura de diagnóstico y cura, no de lamento", "Objeción: parece desvalorizar bienes como el amor o el arte"],
-    ["Anattā niega un yo permanente, no la persona convencional", "Karma es la intención y produce efectos en el mismo proceso causal", "El renacimiento es continuidad causal, como la llama que enciende otra lámpara", "Reemplazar «¿quién?» por «¿de qué depende?»"],
-    ["Parábola de la flecha: esas preguntas no conducen a la liberación", "No es ignorancia: sabe más de lo que enseña (hojas del bosque)", "Responder sí o no lleva a eternalismo o aniquilacionismo", "Objeción: el budismo afirma otras tesis no comprobables, como el renacimiento"],
-    ["Las Upanishads y Shankara identifican el ātman con Brahman", "El Buda examina los cinco agregados y no encuentra un yo permanente", "Shankara llega a un testigo que queda; el Buda no deja residuo", "Mismo método y vocabulario, resultados contrarios"],
-    ["El Buda no escribió nada; transmisión oral de unos cuatro siglos", "Canon escrito en Sri Lanka en el siglo I a.C., en pali", "Comparar colecciones paralelas para hallar la capa más antigua", "La biografía legendaria es posterior a los discursos"]
+    ["Dukkha incluye la insatisfacción de lo agradable que pasa, no solo el dolor", "La tercera verdad afirma que dukkha puede cesar: diagnóstico seguido de cura"],
+    ["El karma es la intención y da frutos dentro del mismo proceso causal", "Ni el mismo ni otro: se rechazan el alma fija y el aniquilacionismo"],
+    ["Rechaza el supuesto que comparten los dos extremos, no se queda a mitad", "Kaccānagotta: ni «todo existe» ni «nada existe», sino origen dependiente"],
+    ["Parábola de la flecha: esas preguntas no conducen a la liberación", "Objeción: afirma otras tesis no comprobables, como el renacimiento"],
+    ["Transmisión oral de siglos antes de la escritura", "Comparar colecciones paralelas para hallar la capa más antigua"]
   ],
   nagarjuna: [
-    ["Nagarjuna no se exceptúa a sí mismo de la vacuidad", "La objeción supone que refutar exige naturaleza propia: petición de principio", "Declara no tener tesis propia y usa la reducción al absurdo", "Imagen del ser mágico que detiene a otro ser mágico"],
-    ["Capítulo 24: la vacuidad no destruye las cuatro nobles verdades", "Con naturaleza propia nada podría cambiar y el sufrimiento sería incesable", "Doctrina de las dos verdades: la ética opera en el nivel convencional", "La Guirnalda preciosa aconseja hospitales y liberar presos"],
-    ["Vacío significa no autosuficiencia, ausencia de svabhava, no inexistencia", "Vacuidad y originación dependiente son lo mismo", "El nihilismo es uno de los dos extremos que su camino evita", "Residuo real: una obra hecha solo de negaciones se parece al nihilismo"],
-    ["Ambos ven los problemas filosóficos como mal uso del lenguaje", "Imagen compartida: escalera que se tira y balsa que se deja", "Nagarjuna busca la liberación del sufrimiento y necesita las dos verdades", "Contraste con Sexto Empírico: Nagarjuna sí afirma saber algo"],
-    ["La vacuidad no es entidad ni propiedad última", "Imagen del purgante que se expulsa con lo purgado", "No hay regreso infinito: es una operación que se agota", "Persisten objeciones: dilema convencional o último y cambio a justificar una práctica"]
+    ["Lo que falta es la naturaleza propia, no la existencia", "Vacuidad y originación dependiente son la misma tesis", "El nihilismo es uno de los dos extremos que rechaza"],
+    ["Ataca el supuesto de que solo lo que tiene naturaleza propia puede refutar", "Lo vacío puede ser eficaz: el hombre mágico que detiene a otro", "No tiene tesis propia, y la salida tiene un costo discutido"],
+    ["Sin apoyarse en lo convencional no se enseña lo último", "Lo convencional es donde algo se dice y se hace, no un engaño", "La Guirnalda preciosa muestra que la ética sigue vigente"],
+    ["Rechaza las cuatro maneras de surgir: de sí, de otro, de ambos, sin causa", "La pregunta suponía cosas con naturaleza propia", "Lo que queda es la originación dependiente, no la negación de lo que aparece"],
+    ["Ninguno de los dos tiene naturaleza propia", "Lo que cambia es el aferramiento, no el mundo"]
   ],
   shankara: [
-    ["Parecidos reales: dos verdades, método negativo, herencia de Gaudapada", "Nagarjuna niega todo sustrato; Shankara afirma una conciencia autoluminosa", "Refuta extensamente al budismo en el comentario a los Brahma Sutras", "Ninguno refuta al otro sin apelar a su propia premisa"],
-    ["En el nivel vyavaharika el karma y las obligaciones son reales", "Maya no significa que nada importe", "La acción queda subordinada y el Advaita convivió con las castas", "Vivekananda derivó servicio social del mismo principio de identidad"],
-    ["Dilema: avidya en Brahman, en el jiva o en un tercero", "Shankara la declara sin comienzo (anadi): la pregunta está mal planteada", "El Advaita posterior la llama indefinible (anirvacaniya)", "Problema análogo al origen del mal en otras metafísicas monistas"],
-    ["Devoción y acción purifican y preparan, pero no liberan", "Moksha no es un efecto producido; lo producido perece", "Ishvara queda como saguna Brahman, verdad de rango inferior", "Ramanuja responde con la no dualidad cualificada y la bhakti como camino"],
-    ["En el nivel vyavaharika el jiva es plenamente agente y responsable", "Invocar la irrealidad del yo para eximirse es contradictorio", "Queda poco claro qué obliga al liberado (jivanmukta)", "Una ética de la identidad deja poco lugar a la alteridad y al deber"]
+    ["El error produce efectos reales aunque la serpiente nunca haya existido", "La cuerda no es afectada: la liberación cambia la lectura, no la realidad"],
+    ["Lo producido por una acción es efecto y termina", "Uno ya es Brahman: se trata de quitar un error", "El rito y la devoción preparan pero no liberan"],
+    ["El mundo vale en el punto de vista práctico y no es un sueño privado", "El criterio es la cancelación por un conocimiento posterior"],
+    ["Atman es Brahman en sentido de identidad", "Descartar todo lo que es objeto deja la conciencia testigo, que no se puede negar"],
+    ["El dilema: en Brahman, en el yo individual o en un tercero", "La ignorancia no tiene comienzo y no se explica sino que se termina", "La escuela posterior se dividió sobre dónde reside"]
   ],
   dogen: [
     ["Una iluminación producida por la práctica podría perderse", "Preguntar qué se gana es el hábito que zazen deshace", "Los budas ya despiertos siguieron sentándose", "Persiste la objeción: redescribe la motivación sin eliminarla"],
