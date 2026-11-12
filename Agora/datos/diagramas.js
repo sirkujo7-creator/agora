@@ -495,62 +495,38 @@ const DIAGRAMAS = {
       {t:"Géwù: hacer el bien y quitar el mal", d:"Rectificar los asuntos es seguir lo que el liángzhī distingue: hacer el bien y remover el mal en la intención y en la acción."}]}
   ],
   lascasas: [
-    {tipo:"secuencia", titulo:"Del encomendero al defensor", intro:"Las etapas de la vida de Las Casas que explican su pensamiento, de colono en las islas a polemista en la corte.", nota:"La selección de etapas es de Ágora; Las Casas mismo narró su vida como una conversión, y los historiadores discuten cuánto de ese relato es reconstrucción posterior.",
+    {tipo:"polos", titulo:"Valladolid, 1550-1551", intro:"Las dos posiciones que la junta de teólogos y juristas escuchó sobre si era lícito hacer la guerra a los indios antes de predicarles.", polos:{"izq":"Sepúlveda","der":"Las Casas"}, nota:"Los cuatro puntos resumen las dos posiciones tal como las recoge el sumario de Domingo de Soto; la agrupación en pares es de Ágora. La junta no emitió un veredicto formal.",
      nodos:[
-      {t:"Colono y encomendero (1502)", d:"Llega a La Española, busca oro y recibe indios en encomienda como cualquier otro colono; en 1513 participa como capellán en la conquista de Cuba."},
-      {t:"Conversión en Cuba (1514)", d:"Un pasaje del Eclesiástico sobre la ofrenda hecha con bienes injustos le hace ver la injusticia de todo el sistema; renuncia a sus indios."},
-      {t:"Procurador de los indios (1516)", d:"Cisneros lo nombra protector de los indios; propone reformas y, entre ellas, la licencia para llevar esclavos africanos, de la que se arrepentirá."},
-      {t:"Fraile dominico (1522)", d:"Tras el fracaso de Cumaná entra en la Orden de Santo Domingo, estudia teología y derecho y empieza la Historia de las Indias."},
-      {t:"Leyes Nuevas y obispado (1542-1547)", d:"Sus denuncias pesan en las Leyes Nuevas; como obispo de Chiapas exige restitución y choca con los encomenderos."},
-      {t:"Polemista en Valladolid (1550)", d:"Refuta a Sepúlveda ante la junta de teólogos y juristas, imprime sus tratados y sigue escribiendo hasta su muerte en 1566."}]},
-    {tipo:"polos", titulo:"Sepúlveda frente a Las Casas", intro:"La Controversia de Valladolid (1550-1551): las tesis enfrentadas sobre la guerra contra los indios.", polos:{"izq":"Sepúlveda","der":"Las Casas"}, nota:"Los dos argumentaban dentro de la escolástica y del cristianismo; la disputa no era sobre si evangelizar, sino sobre si era lícito hacerlo después de una guerra.",
-     nodos:[
-      {a:"Siervos por naturaleza", b:"Todas las naciones son hombres", d:"Sepúlveda aplica a los indios la servidumbre natural de Aristóteles; Las Casas responde que la razón es una sola en todos los pueblos y que los indios lo prueban con sus instituciones."},
-      {a:"Bárbaros en sentido estricto", b:"Bárbaros solo por lengua y fe", d:"Para Sepúlveda los indios carecen de vida civil; para Las Casas son bárbaros solo porque no escriben como los europeos y porque no son cristianos, sentidos que no justifican nada."},
-      {a:"Guerra para salvar inocentes", b:"La guerra mata más inocentes", d:"Sepúlveda justifica la guerra por los sacrificios humanos; Las Casas responde que la guerra causa muchas más víctimas inocentes que las que pretende salvar."},
-      {a:"Someter para predicar", b:"Predicar sin armas", d:"Para Sepúlveda la conquista previa facilita la predicación; para Las Casas la fe es libre y solo puede proponerse por persuasión."}]}
+      {a:"Los indios, siervos por naturaleza", b:"Una sola definición de hombre para todos", d:"Sepúlveda aplicaba a los indios la servidumbre natural de la Política; Las Casas respondía que tenían entendimiento, leyes y ciudades, y que la humanidad no admite grados."},
+      {a:"Bárbaros por carecer de razón", b:"Bárbaros por lengua o fe, no por razón", d:"Las Casas distinguió los sentidos de la palabra: los indios eran bárbaros solo por hablar otra lengua y no ser cristianos, sentidos que no justifican guerra ni servidumbre."},
+      {a:"La guerra protege a las víctimas inocentes", b:"La guerra mata a más inocentes", d:"Sepúlveda invocaba los sacrificios humanos; Las Casas respondía que la guerra causaba muchas más muertes inocentes que las que pretendía evitar."},
+      {a:"Someter primero para predicar después", b:"La fe solo se propone por persuasión", d:"Para Sepúlveda la conquista facilitaba la predicación; para Las Casas la fe es un acto libre que la fuerza no puede producir."}]}
   ],
   sorjuana: [
-    {tipo:"partes", titulo:"Defensa del saber de las mujeres", intro:"Los argumentos con que Sor Juana defiende ese derecho en la Respuesta a sor Filotea (1691).", centro:"El derecho de las mujeres al saber",
+    {tipo:"secuencia", titulo:"El viaje del alma en el Primero sueño", intro:"El recorrido del poema, de la noche al amanecer: dos intentos de conocerlo todo y dos detenciones.", nota:"El poema no tiene partes con título: las etapas y sus nombres resumen el recorrido.",
      nodos:[
-      {t:"Inclinación natural", d:"El deseo de saber es una inclinación que Dios puso en el entendimiento, y no hay razón para que se ejerza en los hombres y se prohíba en las mujeres."},
-      {t:"Mujeres sabias", d:"Ejemplos de la Biblia, como Débora o la reina de Saba, de la Antigüedad, como Hipatia, y de la Iglesia, como santa Paula, muestran que el saber femenino tiene precedentes."},
-      {t:"San Pablo reinterpretado", d:"Que las mujeres callen en la iglesia se refiere a la predicación pública en el templo, no al estudio privado ni a la escritura: disputa el sentido del texto sin rechazarlo."},
-      {t:"Escalones hacia la teología", d:"Lógica, retórica, historia o música son necesarias para entender la Escritura, de modo que los estudios profanos conducen a la teología, reina de las ciencias."},
-      {t:"Si Aristóteles hubiera guisado", d:"Aun sin libros, el trompo de unas niñas o el huevo en la cocina le enseñan; la curiosidad convierte en lugar de conocimiento un espacio asignado a las mujeres."}]},
-    {tipo:"secuencia", titulo:"El viaje del alma en Primero sueño", intro:"Primero sueño (1692): la noche en que el alma, libre del cuerpo dormido, intenta conocer el universo.", nota:"Es un resumen muy simplificado de un poema de casi mil versos.",
-     nodos:[
-      {t:"El cuerpo duerme", d:"Llega la noche y el cuerpo duerme; el poema describe su fisiología según la medicina de la época, mientras el alma queda libre para intentar conocer."},
-      {t:"La mirada intuitiva", d:"El alma intenta abarcar el universo entero de una sola mirada y queda deslumbrada por la inmensidad, como el ojo que mira el sol."},
-      {t:"El método discursivo", d:"Intenta entonces subir paso a paso por las categorías de los seres, como enseñaba la escolástica, y descubre que no comprende del todo ni siquiera una flor o una fuente."},
-      {t:"El ejemplo de Faetón", d:"Faetón, que se atrevió a conducir el carro del sol, figura la audacia de intentarlo: el fracaso es conciencia del límite, no condena del conocimiento."},
-      {t:"El despertar", d:"El cuerpo vuelve en sí, llega la luz del día y el sueño termina sin que el alma haya alcanzado el saber total que buscaba."}]}
+      {t:"El cuerpo se duerme", d:"Cae la noche y el cuerpo queda en reposo; el alma, libre de sus funciones, puede dedicarse a contemplar."},
+      {t:"Querer verlo todo de una mirada", d:"El alma intenta abarcar el universo entero con una sola intuición, desde lo alto, sin pasos intermedios."},
+      {t:"Deslumbramiento", d:"Como el ojo que mira el sol, el entendimiento queda cegado por la inmensidad de lo que quiso abarcar."},
+      {t:"Subir por las categorías", d:"Segundo intento, con método: recorrer los seres por orden, de los más simples a los más complejos, como enseñaba la escuela."},
+      {t:"Ni una flor se comprende del todo", d:"El alma advierte que no alcanza a entender por completo ni siquiera una sola cosa, y duda; Faetón aparece como ejemplo de audacia."},
+      {t:"Amanece y el cuerpo despierta", d:"Llega el día, el sueño se disuelve y el mundo vuelve, sin una conclusión triunfal."}]}
   ],
   peirce: [
-    {tipo:"ciclo", titulo:"Las tres inferencias de la investigación", intro:"Cómo avanza la investigación según Peirce: una hipótesis se propone, se desarrolla y se pone a prueba.",
+    {tipo:"secuencia", titulo:"Las etapas de la investigación", intro:"Para Peirce, la investigación encadena tres tipos de razonamiento, cada uno con su función, a partir de una sorpresa que interrumpe lo que creíamos.", nota:"El orden abducción, deducción, inducción lo da el propio Peirce en sus textos tardíos (por ejemplo, «Un argumento olvidado en favor de la realidad de Dios», 1908). Poner el hecho sorprendente al comienzo resume lo que dice sobre la duda en «La fijación de la creencia».",
      nodos:[
-      {t:"Abducción", d:"Ante un hecho sorprendente, se propone una hipótesis que lo haría esperable."},
-      {t:"Deducción", d:"Se derivan de la hipótesis consecuencias que se puedan observar."},
-      {t:"Inducción", d:"Se ponen a prueba esas consecuencias con la experiencia; el resultado confirma, corrige o descarta la hipótesis y abre una nueva sorpresa."}]},
-    {tipo:"secuencia", titulo:"Los cuatro métodos para fijar la creencia", intro:"La fijación de la creencia (1877): cada método falla donde el siguiente intenta responder, hasta llegar al científico.", nota:"El orden es el de la exposición de Peirce; su superioridad final no es que garantice acertar, sino que permite corregirse.",
-     nodos:[
-      {t:"Tenacidad", d:"Aferrarse a lo que uno ya cree y evitar toda información contraria. Funciona hasta que aparece alguien que cree lo opuesto y la duda vuelve."},
-      {t:"Autoridad", d:"Delegar la creencia en una institución que la impone: históricamente eficaz, pero ninguna autoridad regula todas las cuestiones y siempre hay quien compara con otras épocas o pueblos."},
-      {t:"Método a priori", d:"Aceptar lo que resulta agradable a la razón. Produce filosofías que oscilan como un péndulo entre modas, porque en el fondo también decide por gusto."},
-      {t:"Método científico", d:"Supone cosas reales cuyos caracteres no dependen de lo que opinemos, y así deja que algo externo corrija la creencia: es el único que puede descubrir que se equivocó."}]}
+      {t:"Hecho sorprendente", d:"Algo choca con lo que esperábamos, interrumpe un hábito y despierta una duda real."},
+      {t:"Abducción", d:"Se propone una hipótesis que, si fuera verdadera, haría esperable el hecho. Es el único paso que introduce una idea nueva."},
+      {t:"Deducción", d:"Se sacan las consecuencias de la hipótesis: qué tendría que pasar en otras situaciones si fuera verdadera."},
+      {t:"Inducción", d:"Se comparan esas consecuencias con la experiencia, y la hipótesis se acepta, se corrige o se descarta."}]}
   ],
   james: [
-    {tipo:"secuencia", titulo:"La teoría James-Lange de la emoción", intro:"Principios de psicología (1890): el orden que James propone entre percepción, cuerpo y emoción, contra el sentido común.", nota:"La teoría fue atacada por Cannon y recuperada en parte por Damasio: no está simplemente refutada ni simplemente vigente.",
+    {tipo:"partes", titulo:"Cuándo puede decidir la pasión", intro:"La voluntad de creer (1896): lo que tiene que reunir una opción para que, según James, sea legítimo que la decida nuestra naturaleza pasional.", centro:"La pasión decide", nota:"James define la opción genuina con los tres primeros rasgos; el cuarto no es parte de esa definición, sino la condición que agrega su tesis para que la pasión decida legítimamente.",
      nodos:[
-      {t:"Percepción del hecho", d:"Se percibe algo excitante, por ejemplo un oso. Para el sentido común, a esto seguiría el miedo y después la reacción del cuerpo."},
-      {t:"Reacción corporal", d:"El cuerpo reacciona directamente: corre, tiembla, se acelera el pulso, se contrae el estómago. No lloramos porque estamos tristes, sino que estamos tristes porque lloramos."},
-      {t:"Sentir los cambios: emoción", d:"La emoción es la percepción de esos cambios corporales. Si se le quita todo contenido corporal, sostiene James, no queda más que un juicio frío e incoloro."}]},
-    {tipo:"partes", titulo:"Cuándo es legítimo creer sin evidencia", intro:"La voluntad de creer (1896): las condiciones estrictas bajo las cuales James permite que factores no intelectuales inclinen la creencia.", centro:"Opción genuina", nota:"Sin estas condiciones la tesis es indefendible: el permiso es mucho más estrecho de lo que sugiere la caricatura de creer lo que conviene.",
-     nodos:[
-      {t:"Viva", d:"Las alternativas en juego se presentan a quien decide como posibilidades reales, que podría efectivamente llegar a creer."},
-      {t:"Forzosa", d:"No hay manera de escapar a la elección: suspender el juicio también es apostar, porque por temor al error se pierde la posibilidad de una verdad."},
-      {t:"De peso vital", d:"Lo que está en juego es importante, la ocasión es única o la decisión no se puede revertir, a diferencia de las elecciones triviales."},
-      {t:"Indecidible intelectualmente", d:"La evidencia y el razonamiento no alcanzan a zanjar la cuestión; si alcanzaran, habría que atenerse a ellos, como pedía Clifford."}]}
+      {t:"Viva", d:"Las dos alternativas son candidatas reales para quien elige: algo en él responde a cada una como posible."},
+      {t:"Forzosa", d:"No hay tercera salida: quedarse sin decidir tiene el mismo efecto que elegir una de las dos."},
+      {t:"Trascendental", d:"Se juega algo importante, la ocasión es única y lo que se decida no se puede deshacer."},
+      {t:"Indecidible por el intelecto", d:"Ni las pruebas ni el razonamiento alcanzan para zanjarla; donde alcanzan, hay que seguirlos."}]}
   ],
   dewey: [
     {tipo:"secuencia", titulo:"El patrón de la indagación", intro:"Lógica: teoría de la investigación (1938): cómo una situación indeterminada se transforma en una situación unificada.", nota:"Es una esquematización: en Cómo pensamos Dewey describe cinco fases de la reflexión que siguen un patrón parecido.",
