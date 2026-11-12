@@ -577,47 +577,42 @@ const TERMINOS = {
     {k:"Jivanmukti", tapar:["jivanmukti","liberación en vida","liberado"]}
   ],
   dogen: [
-    {k:"shikantaza (solo sentarse)", tapar:["shikantaza","shikan","solo sentarse"]},
-    {k:"genjōkōan", tapar:["genjō","kōan"]},
-    {k:"shushō-ittō (unidad de práctica y realización)", tapar:["shushō-ittō","shusho itto","unidad de práctica y realización"]},
-    {k:"busshō (naturaleza de Buda)", tapar:["busshō","naturaleza de Buda"]},
-    {k:"uji (ser-tiempo)", tapar:["uji","ser-tiempo"]},
-    {k:"shinjin datsuraku", tapar:["datsuraku","dejar caer cuerpo y mente"]},
-    {q:"¿Qué secuencia de pasos del Genjōkōan lleva desde estudiar el camino del Buda hasta ser realizado por las diez mil cosas?"},
-    {q:"¿Por qué critica Dōgen la práctica que espera el despertar como un premio futuro?"},
-    {q:"¿Qué jerarquía religiosa borra Dōgen con el cargo del tenzo, y cómo?"}
+    {k:"Shikantaza", tapar:["solamente sentarse","shikan","solamente"]},
+    {k:"hishiryō", tapar:["hishiryo","Hishiryō","no-pensamiento","más allá del pensar"]},
+    {k:"Shushō-ittō", tapar:["Shusho-itto","shusho-itto","una sola cosa"]},
+    {k:"Busshō", tapar:["Bussho","bussho","naturaleza de Buda"]},
+    {k:"Genjōkōan", tapar:["Genjokoan","genjokoan","Genjō"]},
+    {k:"Shinjin datsuraku", tapar:["datsuraku","dejar caer cuerpo y mente"]},
+    {q:"¿Qué nombre le da Dōgen a la tesis de que el tiempo es existencia y toda existencia es tiempo?"},
+    {k:"Gyōji", tapar:["Gyoji","gyoji","práctica continua"]}
   ],
   gandhi: [
-    {k:"satyagraha", tapar:["firmeza en la verdad"]},
-    {k:"ahimsa", tapar:[]},
-    {k:"swaraj", tapar:["autogobierno"]},
-    {q:"¿Cómo define Gandhi la civilización moderna en Hind Swaraj y qué le opone?"},
-    {q:"¿Qué relación hay, según Gandhi, entre los medios y el fin, y qué muestra el ejemplo del reloj?"},
-    {k:"desobediencia civil", tapar:["no cooperación"]},
-    {k:"marcha de la sal", tapar:[]},
-    {q:"¿En qué se opusieron Gandhi y Ambedkar sobre las castas y qué pasó en 1932?"}
+    {k:"satyagraha", tapar:["satya","agraha","firmeza en la verdad"]},
+    {k:"ahimsa", tapar:["no dañar"]},
+    {k:"swaraj", tapar:["swadeshi","autogobierno"]},
+    {q:"¿Qué relación hay, según Gandhi, entre la forma de luchar y lo que se consigue?"},
+    {q:"¿Por qué, para Gandhi, un pueblo puede desarmar un gobierno sin usar armas?"}
   ],
   nishida: [
-    {k:"experiencia pura", tapar:["junsui keiken"]},
-    {k:"basho (lugar)", tapar:["basho","lugar"]},
-    {k:"nada absoluta", tapar:["zettai mu"]},
-    {q:"¿Por qué, según Nishida, la nada absoluta no debe entenderse como una ausencia?"},
-    {k:"identidad absolutamente contradictoria", tapar:["zettai mujunteki jiko dōitsu"]},
-    {k:"jikaku (autoconciencia)", tapar:["jikaku","autoconciencia"]},
-    {k:"lógica del predicado", tapar:["predicado"]},
-    {k:"acción-intuición", tapar:["kōiteki chokkan"]},
-    {k:"Escuela de Kioto", tapar:["Kioto"]}
+    {k:"experiencia pura", tapar:["Junsui keiken"]},
+    {k:"autoconciencia", tapar:["Jikaku"]},
+    {k:"basho", tapar:["Basho","lugar"]},
+    {q:"¿Cómo se llama el giro con que Nishida, en lugar de buscar el sujeto último del juicio, busca lo universal que abarca a todo sujeto?"},
+    {k:"nada absoluta", tapar:["Zettai mu"]},
+    {k:"identidad absolutamente contradictoria", tapar:["La identidad absolutamente contradictoria","zettai mujunteki jiko dōitsu"]},
+    {k:"acción-intuición", tapar:["Kōiteki chokkan"]},
+    {k:"correspondencia inversa", tapar:["Gyakutaiō"]}
   ],
   wangyangming: [
-    {k:"liángzhī (conocimiento innato del bien)", tapar:["liángzhī","conocimiento innato"]},
-    {k:"unidad de conocimiento y acción", tapar:["zhīxíng héyī"]},
-    {k:"géwù (investigar las cosas)", tapar:["géwù","investigar las cosas"]},
-    {k:"xīn jí lǐ (la mente es el principio)", tapar:["xīn jí lǐ","la mente es el principio"]},
-    {k:"flores del acantilado", tapar:["acantilado"]},
-    {q:"¿Por qué Wang Yangming considera que el método de Zhu Xi tiene consecuencias prácticas catastróficas?"},
-    {k:"yì (intención)", tapar:["yì","intención","intenciones"]},
-    {k:"shì shàng mó liàn (pulirse en los asuntos)", tapar:["shì shàng mó liàn","pulirse en los asuntos","se pule"]},
-    {k:"wànwù yītǐ (un solo cuerpo con los diez mil seres)", tapar:["wànwù yītǐ","un solo cuerpo"]}
+    {k:"liángzhī", tapar:["liangzhi","conocimiento bueno o innato"]},
+    {k:"Zhīxíng héyī", tapar:["zhixing heyi","la unidad de conocimiento y acción"]},
+    {q:"¿Qué fórmula, retomada de Lu Xiangshan, sostiene que el orden de la conducta no está en las cosas sino en la mente-corazón?"},
+    {k:"Géwù", tapar:["gewu","rectificar los asuntos"]},
+    {q:"¿Cómo se llama el movimiento de la mente hacia un asunto, donde para Wang aparecen el bien y el mal?"},
+    {k:"Sīyù", tapar:["siyu","el deseo egoísta"]},
+    {q:"¿Qué fórmula de sus últimos años resumía, según Wang, todo lo que había enseñado?"},
+    {q:"¿Qué expresión dice que el ser humano forma una continuidad con el cielo, la tierra y todas las cosas?"},
+    {q:"¿Qué expresión pide cultivarse en medio de las tareas reales y no solo en la quietud?"}
   ],
   lascasas: [
     {q:"¿Cómo pasó Las Casas de encomendero a defensor de los indios y qué texto provocó su conversión en 1514?"},

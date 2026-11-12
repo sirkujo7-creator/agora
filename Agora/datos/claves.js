@@ -373,31 +373,31 @@ const CLAVES = {
     ["El dilema: en Brahman, en el yo individual o en un tercero", "La ignorancia no tiene comienzo y no se explica sino que se termina", "La escuela posterior se dividió sobre dónde reside"]
   ],
   dogen: [
-    ["Una iluminación producida por la práctica podría perderse", "Preguntar qué se gana es el hábito que zazen deshace", "Los budas ya despiertos siguieron sentándose", "Persiste la objeción: redescribe la motivación sin eliminarla"],
-    ["La instrucción de no buscar nada tiene forma de búsqueda", "La paradoja se disuelve en el ejercicio, no en la descripción", "Bodaishin: orientarse sin perseguir un objeto futuro", "La paradoja es productiva, pero solo se verifica desde adentro"],
-    ["Dōgen no niega la sucesión: la leña se vuelve ceniza", "Afirma la causalidad moral rigurosa con el koan del zorro salvaje", "Rechaza la subordinación de los momentos, no su encadenamiento", "Falta una teoría de la conexión y la memoria queda ambigua"],
-    ["Los tres desarman las sustancias fijas; Dōgen hereda el Madhyamaka", "Nagarjuna argumenta y niega; Dōgen vuelve a lo concreto", "Zhuangzi quita las reglas; Dōgen usa la disciplina monástica minuciosa", "El uji afirma la identidad de ser y tiempo, un paso metafísico"],
-    ["La transmisión fuera de las escrituras no es rechazo del lenguaje", "Las palabras expresan el despertar; el universo entero es escritura", "Fuerza la lengua para que el lector tropiece, no para informar", "Tensión entre universalidad de sentarse y la dificultad del Shōbōgenzō"]
+    ["Lo que ya se es no se manifiesta sin práctica", "La práctica no es un medio, pero tampoco es prescindible"],
+    ["Tenerla supone una semilla oculta que desarrollar", "Serla hace de la práctica expresión y no extracción", "La impermanencia misma es naturaleza de Buda"],
+    ["Dōgen no niega la sucesión", "La leña ocupa plenamente su posición de leña", "El tiempo no es un recipiente: cada ser es su tiempo"],
+    ["Se empieza examinando la propia experiencia, no negando el yo", "Llevado al final, el examen no encuentra un yo separado", "Las cosas confirman a uno, y no al revés"],
+    ["No es dejar la mente en blanco ni suprimir pensamientos", "Advertir el pensamiento y dejarlo ir sin perseguirlo", "Ni pensar en algo ni esforzarse por no pensar"]
   ],
   gandhi: [
-    ["No fue un filósofo académico: su pensamiento está en artículos, cartas y una autobiografía", "Formuló tesis examinables por sí mismas: medios y fines, poder y cooperación, swaraj como dominio de sí", "Sus campañas eran experimentos con la verdad: ideas puestas a prueba en la acción", "Contrapartida: pensamiento disperso, contradictorio y apoyado en convicciones religiosas"],
-    ["Para Gandhi era un principio: nadie posee la verdad entera y nadie tiene derecho a matar por ella", "Como técnica depende de condiciones: opinión pública, prensa, dependencia del poder respecto de los gobernados", "Objeciones de Arendt (frente a Hitler o Stalin, masacre) y de Fanon (la violencia del colonizado)", "Su consejo a los judíos alemanes en 1938 muestra el costo de mantener el principio en cualquier caso"],
-    ["Define la civilización moderna por hacer del bienestar corporal el fin de la vida", "Le opone la civilización como conducta del deber y dominio de sí", "Diagnóstico político: un swaraj copiado sería el dominio inglés sin los ingleses", "Lo insostenible: la condena de ferrocarriles, abogados y médicos y la aldea idealizada, que Ambedkar criticó"],
-    ["En Sudáfrica escribió sobre los africanos con prejuicios raciales y luchó por los indios, no por la mayoría negra", "Combatió la intocabilidad pero defendió el varna, y su ayuno de 1932 forzó el Pacto de Poona", "Sus experimentos de castidad con mujeres jóvenes que dependían de él fueron objetados por sus colaboradores", "No refutan solos su argumento, pero obligan a preguntar a quién incluía su liberación y cómo usó su autoridad"]
+    ["La resistencia pasiva es el arma del débil: no golpea porque no puede y conserva el odio", "El satyagraha es activo: desobedece en público, no daña y acepta el castigo", "Busca convertir al adversario, no doblegarlo"],
+    ["El medio decide qué es lo obtenido: con los medios de los ingleses se obtiene un poder sostenido por el miedo", "El ejemplo del reloj: robado, comprado o regalado según el medio", "Punto débil: la historia no muestra una conexión necesaria entre medios y resultados"],
+    ["Los indios entregaron la India al desear la civilización de los ingleses", "Sin dominio de uno mismo se tendría el dominio inglés sin los ingleses", "La aldea y la rueca fueron discutidas por Nehru y por Ambedkar"],
+    ["Son hechos documentados: ni callarlos ni volverlos lo único", "Obligan a preguntar a quién incluía su idea de liberación", "Muestran los límites de la no violencia frente a un adversario sin conciencia"]
   ],
   nishida: [
-    ["Objeción del mito de lo dado de Sellars", "Dilema: sin estructura no funda juicios; con estructura ya no es pura", "Nishida propone una unidad activa con forma no conceptual", "Nishida abandonó luego el vocabulario psicológico de su primer libro"],
-    ["Un principio indefinible parece una explicación vacía", "Su rendimiento se juzga caso por caso", "Pensar la conciencia como campo disuelve enigmas cartesianos", "El paso del campo visual a la nada absoluta se hace por analogía"],
-    ["Contradicción en sentido estricto llevaría a la explosión lógica", "Lectura sólida: oposición entre polos que se determinan mutuamente", "Si es coherente es menos original; si es original, es incoherente", "Comparación con la Aufhebung de Hegel y con lógicas paraconsistentes"],
-    ["Hechos: documento de 1943 para el Ejército y crítica al fanatismo", "Tres posiciones: nacionalismo estructural, separación de la obra o lectura de puntos precisos", "Paralelo con Heidegger y sus diferencias biográficas", "La diferencia personal no cancela la pregunta sobre los conceptos"],
-    ["Parentesco buscado: ambos rechazan sustancias con naturaleza propia", "La śūnyatā es negativa y se aplica a sí misma", "La nada absoluta cumple un papel positivo como lugar último", "Un madhyamika vería en ella vacuidad convertida en fundamento"]
+    ["El yo es un resultado de la experiencia, no su punto de partida", "La reflexión separa después sujeto y objeto de una unidad previa", "Preguntar cómo un sujeto encerrado llega al mundo plantea mal el problema"],
+    ["Describir la experiencia pura ya es reflexionar, y su vocabulario parecía psicológico", "El intento con la autoconciencia no lo resolvió", "Cambia la pregunta: no qué es la experiencia sino dónde ocurre (basho)"],
+    ["La nada relativa es falta de algo y se opone al ser", "La nada absoluta es el lugar en que ser y no ser aparecen, como el campo visual", "No niega el valor: dice que el fundamento no es un ente"],
+    ["Los opuestos se determinan y se niegan a la vez, sin un tercero que los absorba", "La tensión es la forma de lo real, no una etapa superada", "El mundo histórico se rehace en cada acción, sin final que lo cierre"],
+    ["Su lógica permitía criticar que una nación se pusiera como absoluta", "También usó lo universal en lo particular para hablar de la casa imperial y de Asia oriental", "La pregunta es dónde sus conceptos ofrecieron poca resistencia"]
   ],
   wangyangming: [
-    ["La tesis parece infalsable: ninguna conducta cuenta como contraejemplo", "Los ejemplos del hedor y el dolor son percepciones, no juicios morales", "Wang la presenta como remedio y se juzga por su rendimiento práctico", "La akrasia aristotélica explica lo mismo sin volverse infalsable"],
-    ["La escuela de Taizhou mostró el riesgo de espontaneísmo", "El liángzhī suele ordenar lo incómodo, no lo conveniente", "Examinar la intención naciente y pulirse en los asuntos", "Un criterio externo tampoco garantiza nada; solo traslada el problema"],
-    ["Ambos rechazan una autoridad moral externa", "Kant: ley universal y prueba de universalización; desconfía del sentimiento", "Wang: respuesta afectiva inmediata, situada y particular", "Kant gana un criterio público; Wang gana sensibilidad y motivación"],
-    ["Zhu Xi era la base oficial de los exámenes imperiales desde 1313", "Discutir géwù era discutir quién accedía al poder", "Las Conclusiones definitivas se entienden como estrategia de legitimación", "Mostrar la función política no refuta la doctrina: falacia genética"],
-    ["Sofocó la rebelión del príncipe de Ning en poco más de un mes", "Su doctrina designa la acción como terreno de prueba", "La eficacia no es criterio de verdad moral y un caso no prueba nada", "Sus campañas incluyeron represión sangrienta"]
+    ["Un saber que no se actúa todavía no es saber", "Ver un color hermoso ya es amarlo y oler un hedor ya es rechazarlo", "El deseo egoísta corta la unidad de saber y hacer"],
+    ["Si el principio de la piedad filial estuviera en los padres, desaparecería al morir ellos", "La mente es el principio: lo que se debe hacer no se busca afuera"],
+    ["Géwù pasa a significar rectificar los asuntos hacia los que se dirige la intención", "El trabajo moral se hace en cada asunto y en la intención, no en un estudio infinito previo"],
+    ["La sustancia de la mente no tiene bien ni mal; el bien y el mal aparecen en la intención", "El liángzhī conoce el bien y el mal, y rectificar los asuntos es hacer el bien y quitar el mal", "La primera frase parecía chocar con la bondad de la naturaleza humana"],
+    ["Las reacciones espontáneas ante el niño, el animal, la planta y la piedra muestran una continuidad real", "De sentir compasión no se sigue cómo priorizar entre los seres"]
   ],
   lascasas: [
     ["Las cifras de muertos no son un recuento y las epidemias pesaron mucho", "Las epidemias golpearon a pueblos ya sometidos a guerra y trabajo forzado", "Muchas matanzas narradas están confirmadas por otras fuentes", "El uso propagandístico no vuelve falsa la denuncia ni justifica condenar a un pueblo"],

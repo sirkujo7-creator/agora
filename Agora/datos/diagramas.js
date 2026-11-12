@@ -464,62 +464,35 @@ const DIAGRAMAS = {
       {t:"Conocimiento directo", d:"Saberse Brahman: no se produce nada nuevo, cae el error. Puede ocurrir en esta vida."}]}
   ],
   dogen: [
-    {tipo:"polos", titulo:"Práctica como medio o como realización", intro:"Cómo la unidad de práctica y realización (shushō-ittō), formulada en el Shōbōgenzō, invierte la idea instrumental de la práctica religiosa.", polos:{"izq":"Visión instrumental","der":"Shushō-ittō"},
+    {tipo:"ciclo", titulo:"El círculo de la práctica continua", intro:"En el fascículo Gyōji, Dōgen dice que la práctica de los budas no se corta: sus cuatro momentos se suceden sin un instante de separación y vuelven a empezar.", nota:"Los cuatro momentos y la imagen del círculo (dōkan, el anillo del camino) son del propio Dōgen; dónde empieza el círculo es convencional, porque ninguno es el final.",
      nodos:[
-      {a:"Practicar para iluminarse", b:"Practicar es ya realizar", d:"Una iluminación producida por la práctica sería algo producido, y lo producido termina; por eso zazen no prepara nada, sino que actualiza la naturaleza de Buda."},
-      {a:"Tener naturaleza de Buda", b:"Ser naturaleza de Buda", d:"Dōgen relee la frase del Sutra del Nirvana: si los seres la tienen, sería una semilla oculta que desarrollar; si la son, la práctica es expresión y no extracción."},
-      {a:"El koan como acertijo", b:"El koan que se actualiza", d:"Para el Rinzai el koan es un enigma que se resuelve en la sala de entrevistas; para Dōgen, genjōkōan es la realidad presente misma manifestándose completa."},
-      {a:"Cocinar antes de practicar", b:"Cocinar es la práctica", d:"El cargo de tenzo borra la jerarquía entre tareas espirituales y de mantenimiento: lavar los cuencos tampoco es un medio para un después, es la práctica entera."}]},
-    {tipo:"secuencia", titulo:"Estudiarse y olvidarse a uno mismo", intro:"La secuencia del Genjōkōan, en la que cada paso invierte al anterior, del estudio del camino a ser realizado por las cosas.",
-     nodos:[
-      {t:"Estudiar el camino del Buda", d:"El punto de partida: el camino no se estudia como una doctrina exterior, porque estudiarlo consiste en volver la atención sobre la propia experiencia."},
-      {t:"Estudiarse a uno mismo", d:"No se empieza por disolver el yo, que sería saltear el trabajo, sino por el examen más minucioso de la propia experiencia, llevado hasta el final."},
-      {t:"Olvidarse de uno mismo", d:"Ese examen llevado hasta el final descubre que no hay un yo separado que examinar: cuerpo y mente se dejan caer (shinjin datsuraku)."},
-      {t:"Realizado por las cosas", d:"Se invierte la dirección: uno no ilumina el mundo, es confirmado por él. Llevar el yo hacia las cosas es ilusión; que las cosas se realicen a través de uno es despertar."}]}
+      {t:"Despertar la aspiración (hosshin)", d:"Surge el deseo de recorrer el camino. No es un punto de partida que se deja atrás: vuelve a surgir en cada vuelta."},
+      {t:"Practicar (shugyō)", d:"Sentarse, cocinar, trabajar: la práctica no es un medio para lo que sigue, sino el ejercicio de lo que ya se es."},
+      {t:"Despertar (bodai)", d:"El despertar no clausura el camino: lo que se realiza se sigue practicando, como los budas que siguieron sentándose."},
+      {t:"Nirvana (nehan)", d:"La extinción del sufrimiento no es una salida del círculo: desde ella se vuelve a la aspiración y a la práctica, sin interrupción."}]}
   ],
   gandhi: [
-    {tipo:"polos", titulo:"Fuerza bruta y fuerza del alma", intro:"Hind Swaraj, capítulos XVI y XVII: las dos fuerzas con que se puede respaldar una demanda.", polos:{"izq":"Fuerza bruta","der":"Fuerza del alma"}, nota:"Las tres primeras filas resumen Hind Swaraj; la idea de convertir al adversario está sobre todo en escritos posteriores sobre el satyagraha.",
+    {tipo:"capas", titulo:"El círculo oceánico", intro:"Cómo imaginaba Gandhi una India libre: no una pirámide sostenida desde abajo, sino círculos que se amplían desde el individuo.", nota:"La imagen está en un artículo de Harijan de julio de 1946. Los nombres de las capas resumen el texto; Gandhi no las numeró.",
      nodos:[
-      {a:"Amenaza con hacer daño al otro", b:"Acepta sufrir uno mismo", d:"La fuerza de las armas dice «te haré daño si no me lo das»; la del alma asegura derechos por medio del sufrimiento propio."},
-      {a:"Lo obtenido dura lo que dura el miedo", b:"Solo podés gobernarnos si te obedecemos", d:"Lo que se gana por el miedo hay que sostenerlo por el miedo; la fuerza del alma retira la cooperación de la que depende todo gobierno."},
-      {a:"Fuerza al gobierno a derogar la ley", b:"Desobedece en público y acepta la pena", d:"Ante una ley injusta, la fuerza bruta obliga al gobierno con violencia a derogarla; la del alma la desobedece a la vista de todos y acepta el castigo."},
-      {a:"Busca vencer al adversario", b:"Busca convertir al adversario", d:"La meta del satyagraha no es destruir al otro sino llevarlo a reconocer la injusticia; por eso excluye el odio."}]},
-    {tipo:"secuencia", titulo:"La marcha de la sal (1930–1931)", intro:"Cómo una campaña contra el impuesto a la sal se volvió el símbolo de la lucha por la independencia.",
-     nodos:[
-      {t:"Carta al virrey (2 de marzo)", d:"Gandhi le escribe a Lord Irwin, enumera los males del dominio británico y le anuncia que, si no hay respuesta, desobedecerá las leyes de la sal."},
-      {t:"Salida de Sabarmati (12 de marzo)", d:"Parte de su áshram con 78 seguidores elegidos, de distintas regiones y religiones."},
-      {t:"Veinticuatro días a pie hasta Dandi", d:"Unos 385 kilómetros, hablando en cada aldea; la prensa nacional e internacional sigue la marcha."},
-      {t:"Un puñado de sal (6 de abril)", d:"En la playa de Dandi recoge sal natural y viola así el monopolio británico; miles lo imitan en toda la costa."},
-      {t:"Desobediencia masiva y cárcel", d:"Decenas de miles de detenidos, Gandhi entre ellos; en Dharasana, la policía golpea a manifestantes que no se defienden."},
-      {t:"Pacto Gandhi-Irwin (marzo de 1931)", d:"El gobierno libera a los presos y negocia con Gandhi, que viaja a Londres; la independencia todavía tardará dieciséis años."}]}
+      {t:"El individuo que se gobierna", d:"El centro es la persona dueña de sí misma, dispuesta a sacrificarse por su aldea: el swaraj empieza en el dominio de uno mismo."},
+      {t:"La aldea que se basta a sí misma", d:"Produce su alimento y su ropa, decide sus asuntos y está dispuesta a sacrificarse por el círculo de aldeas."},
+      {t:"El círculo de aldeas", d:"Las aldeas se unen en círculos cada vez más amplios, sin que el de afuera aplaste al de adentro."},
+      {t:"La nación entera", d:"El círculo más amplio no ejerce el poder sobre los de adentro: les da fuerza y la recibe de ellos."}]}
   ],
   nishida: [
-    {tipo:"secuencia", titulo:"El itinerario de Nishida", intro:"Las cuatro etapas de su obra, de Una investigación sobre el bien (1911) a su último ensayo (1945), cada una respondiendo a un problema de la anterior.", nota:"Es una simplificación: los conceptos se superponen entre etapas, y las fechas son las de las obras donde cada uno aparece con más claridad.",
+    {tipo:"niveles", titulo:"Los lugares", intro:"En el ensayo «Basho» (1926), cada lugar está contenido en otro más amplio, hasta llegar a uno que ya no está en ningún otro. Ubicá cada lugar, del más abarcador al más estrecho.", eje:"cada nivel envuelve a los de abajo", nota:"Es la versión simple del ensayo de 1926; en obras de los años siguientes Nishida afinó la escala con otros niveles intermedios y cambió algunos nombres.",
      nodos:[
-      {t:"Experiencia pura (1911)", d:"Antes de que haya un yo que percibe y un mundo percibido ya hay experiencia: escuchar el sonido antes de reconocerlo como campana. La división sujeto-objeto es un producto tardío."},
-      {t:"Autoconciencia (1917)", d:"Si describir la experiencia pura la destruye, hay que pensar la reflexión: jikaku como un acto que se refleja en sí sin salir de sí. El libro termina confesando su fracaso."},
-      {t:"Lógica del lugar (1927)", d:"De ese fracaso nace el basho: el fundamento no es un sujeto ni una sustancia sino el campo donde algo se determina, cuyo nivel último es la nada absoluta."},
-      {t:"Mundo histórico (1945)", d:"La lógica del lugar se aplica al mundo hecho de cuerpos, técnicas e instituciones: mundo e individuo se determinan mutuamente, en identidad absolutamente contradictoria."}]},
-    {tipo:"polos", titulo:"Sustancia y lugar", intro:"Cómo la lógica del lugar, desde Del que actúa al que ve (1927), invierte la lógica aristotélica del sujeto y la metafísica de la sustancia.", polos:{"izq":"Metafísica de la sustancia","der":"Lógica del lugar (basho)"}, nota:"Sus críticos analíticos objetan que la maniobra trata una relación gramatical como si fuera una estructura del ser.",
-     nodos:[
-      {a:"Busca el sujeto último", b:"Busca el predicado último", d:"Aristóteles busca lo que siempre es sujeto y nunca predicado, la sustancia individual; Nishida, el universal predicativo, el campo que nunca puede ocupar el lugar del sujeto."},
-      {a:"El fundamento es un algo", b:"El fundamento es un dónde", d:"El fundamento deja de ser una cosa entre las cosas y pasa a ser la condición, como el campo visual, que permite que algo se determine sin ser él mismo visto."},
-      {a:"Fundamento como ser", b:"Fundamento como nada", d:"De Aristóteles a Heidegger, Occidente piensa el fundamento como ser; Nishida lo piensa como nada absoluta (zettai mu), traducción filosófica de la vacuidad budista."},
-      {a:"Conciencia, cosa entre cosas", b:"Conciencia como campo", d:"Si la maniobra es legítima, la conciencia no es una sustancia pensante frente a otra extensa, y el problema cartesiano de su relación se disuelve."}]}
+      {t:"Lugar de la nada absoluta", d:"El último lugar: no está contenido en ningún otro y no se opone a nada. En él aparecen tanto el ser como la nada relativa, y por eso no puede ser objeto de ningún juicio."},
+      {t:"Lugar de la nada relativa", d:"El campo de la conciencia: no es ninguno de los objetos, pero se define frente a ellos. Es una nada que todavía se opone al ser, como el sujeto se opone al objeto."},
+      {t:"Lugar del ser", d:"El ámbito de los objetos, que se relacionan y se determinan unos a otros: aquí una cosa es sujeto de juicios y recibe predicados, como el caballo que es blanco."}]}
   ],
   wangyangming: [
-    {tipo:"polos", titulo:"Zhu Xi y Wang Yangming", intro:"Las inversiones con que Wang, en el Chuanxilu y el Daxue Wen, se opone a la ortodoxia de Zhu Xi sobre el cultivo moral.", polos:{"izq":"Zhu Xi","der":"Wang Yangming"}, nota:"Es el contraste tal como lo plantea Wang: la caricatura es injusta con Zhu Xi, que también insistía en la reverencia interior; Wang discute sobre todo con el Zhu Xi del currículo estatal.",
+    {tipo:"secuencia", titulo:"Las cuatro sentencias", intro:"En 1527, antes de partir a su última campaña, Wang resumió su enseñanza en cuatro frases. Van desde la mente en reposo hasta la acción que rectifica.", nota:"Es el orden de las cuatro sentencias, discutidas con sus discípulos en el puente Tianquan (Chuanxilu, parte III). Leerlas como pasos sucesivos es una simplificación: Wang las presentó como una sola enseñanza, y sus discípulos Qian Dehong y Wang Ji discutieron cómo entender la primera.",
      nodos:[
-      {a:"El principio, en las cosas", b:"La mente es el principio", d:"Para Wang (xīn jí lǐ), si el principio de la piedad filial estuviera en el padre, desaparecería al morir él; por eso está en la mente del hijo."},
-      {a:"Géwù: llegar al fondo", b:"Géwù: rectificar", d:"Zhu Xi lee investigar las cosas como agotar el principio de cada una; Wang lee gé como enderezar lo torcido, y wù como los asuntos hacia los que se dirige la intención."},
-      {a:"Primero saber, luego actuar", b:"Saber y actuar son uno", d:"Contra el aprendizaje en dos etapas, Wang sostiene que quien sabe y no hace nunca supo del todo: quien huele un olor fétido ya lo detesta, sin decisión intermedia."},
-      {a:"Cultivarse en la lectura", b:"Pulirse en los asuntos", d:"Quien solo alcanza la calma sentado se derrumba ante la prueba; el liángzhī se verifica en los asuntos concretos, cuando hay algo en juego."}]},
-    {tipo:"secuencia", titulo:"Las cuatro sentencias", intro:"El esquema discutido en el debate del puente Tianquan, que ubica el trabajo moral en el instante en que se levanta una intención.", nota:"El orden es lógico, no una sucesión de pasos en el tiempo: las cuatro sentencias describen un único movimiento de la mente.",
-     nodos:[
-      {t:"La mente en sí", d:"La mente-corazón en sí misma no tiene bien ni mal. Por eso el trabajo moral no consiste en agregarle algo que falta sino en despejar lo que la obstruye."},
-      {t:"El movimiento de la intención", d:"El bien y el mal aparecen cuando se mueve la intención (yì). Para Wang la intención ya es acción incipiente: quien alberga una intención mezquina ya actuó."},
-      {t:"El liángzhī discierne", d:"El conocimiento innato del bien distingue lo bueno de lo malo en esa intención, como un sol que nunca se apaga aunque las nubes del egoísmo lo tapen."},
-      {t:"Rectificar los asuntos", d:"Géwù en la lectura de Wang: hacer el bien y remover el mal donde nacen, sin dejar pasar el primer movimiento torcido, porque después ya hay que combatir un hábito."}]}
+      {t:"Sustancia de la mente: sin bien ni mal", d:"La mente en sí misma, antes de moverse hacia un asunto, no tiene bien ni mal: está más allá de esa oposición."},
+      {t:"Intención que se mueve: bien y mal", d:"Cuando la mente se dirige a algo aparece la intención (yì), y en ella surge el bien o el mal."},
+      {t:"Liángzhī: conoce el bien y el mal", d:"El conocimiento innato distingue en cada caso si la intención es recta o torcida, sin necesidad de aprenderlo."},
+      {t:"Géwù: hacer el bien y quitar el mal", d:"Rectificar los asuntos es seguir lo que el liángzhī distingue: hacer el bien y remover el mal en la intención y en la acción."}]}
   ],
   lascasas: [
     {tipo:"secuencia", titulo:"Del encomendero al defensor", intro:"Las etapas de la vida de Las Casas que explican su pensamiento, de colono en las islas a polemista en la corte.", nota:"La selección de etapas es de Ágora; Las Casas mismo narró su vida como una conversión, y los historiadores discuten cuánto de ese relato es reconstrucción posterior.",
