@@ -615,49 +615,41 @@ const TERMINOS = {
     {q:"¿Qué expresión pide cultivarse en medio de las tareas reales y no solo en la quietud?"}
   ],
   lascasas: [
-    {q:"¿Cómo pasó Las Casas de encomendero a defensor de los indios y qué texto provocó su conversión en 1514?"},
-    {k:"encomienda", tapar:["encomendaba","encomendero","encomenderos"]},
-    {q:"¿Qué dijo Antonio de Montesinos en su sermón de Adviento de 1511 y qué relación tuvo con Las Casas?"},
-    {q:"¿Qué quiere decir Las Casas con que todas las naciones del mundo son hombres y qué consecuencias políticas saca de eso?"},
-    {k:"bárbaros", tapar:["bárbaro","bárbara"]},
-    {k:"único modo", tapar:["Único modo"]},
-    {k:"restitución", tapar:["restituir","restituyeran","devolviendo","devolver"]},
-    {k:"siervos por naturaleza", tapar:["servidumbre natural"]},
-    {k:"Leyes Nuevas", tapar:[]},
-    {q:"¿Qué recomendó Las Casas sobre los esclavos africanos y qué escribió después sobre ese consejo?"}
+    {k:"encomienda", tapar:["encomiendas","encomendero","encomenderos"]},
+    {q:"¿Qué sostiene Las Casas sobre la definición de hombre cuando la aplica a todos los pueblos?"},
+    {k:"bárbaro", tapar:["bárbaros","barbaro","barbaros"]},
+    {k:"servidumbre natural", tapar:["servidumbre"]},
+    {q:"¿Cuál es, según Las Casas, el único método legítimo para proponer la fe a un pueblo, y por qué?"},
+    {k:"restitución", tapar:["restitucion","devolviendo","devolvieran","devolver"]}
   ],
   sorjuana: [
-    {q:"¿Qué tesis central defiende Sor Juana en la Respuesta y con qué ejemplos la sostiene?"},
-    {q:"¿Cómo reinterpreta Sor Juana la frase de san Pablo que mandaba callar a las mujeres en la iglesia?"},
-    {q:"¿Cómo justifica Sor Juana ante la Iglesia haber estudiado lógica, retórica, física o música?"},
-    {q:"¿Qué frase célebre de la Respuesta convierte la cocina en lugar de conocimiento, y qué muestra?"},
-    {q:"¿Qué dos maneras de conocer pone en escena el Primero sueño y cómo terminan?"},
-    {q:"¿Qué hizo Sor Juana en 1693 y 1694, y por qué se debate el sentido de esa renuncia?"},
-    {k:"doble moral", tapar:[]},
-    {q:"¿Cómo aparece en la obra de Sor Juana la relación entre cuerpo, mente y género?"},
-    {q:"¿Qué rasgos de la vida y la obra de Sor Juana expresan una conciencia americana?"}
+    {k:"inclinación", tapar:["inclinacion"]},
+    {q:"¿Cómo responde Sor Juana a la frase de san Pablo que manda callar a las mujeres?"},
+    {k:"escala", tapar:["escalones"]},
+    {q:"¿Qué aprendió Sor Juana cuando le prohibieron leer?"},
+    {q:"¿De qué dos maneras intenta conocer el alma en el Primero sueño?"},
+    {k:"doble moral", tapar:["misma medida"]}
   ],
   peirce: [
-    {k:"máxima pragmática", tapar:["máxima"]},
-    {q:"¿Qué cuatro métodos para fijar la creencia distingue Peirce y qué ventaja tiene el último?"},
-    {k:"indagación", tapar:[]},
-    {k:"semiótica triádica", tapar:["semiótica","triádica"]},
-    {k:"falibilismo", tapar:["falibilista"]},
-    {k:"comunidad de investigadores", tapar:["comunidad"]},
-    {k:"realismo escolástico", tapar:["realismo"]},
-    {k:"abducción", tapar:["abductiva"]},
-    {k:"sinequismo y tiquismo", tapar:["sinequismo","tiquismo"]}
+    {q:"¿Qué regla propuso Peirce en 1878 para aclarar el significado de un concepto?"},
+    {q:"¿Cuáles son los dos estados entre los que se mueve la investigación según Peirce?"},
+    {k:"falibilismo", tapar:["falibilista","falible"]},
+    {q:"¿Quién llegaría a la verdad, según Peirce, al final de la investigación?"},
+    {k:"abducción", tapar:["abductiva","abductivo"]},
+    {k:"semiosis", tapar:["semiótica"]},
+    {q:"¿Cuáles son las tres categorías con las que Peirce describe todo lo que aparece en la experiencia?"},
+    {q:"¿Qué posición medieval sobre los generales retomó Peirce contra el nominalismo?"},
+    {q:"¿Con qué dos doctrinas sostuvo Peirce que el azar y la continuidad son reales?"}
   ],
   james: [
-    {k:"pragmatismo", tapar:["pragmaticismo"]},
-    {k:"corriente de conciencia", tapar:["corriente"]},
-    {k:"voluntad de creer", tapar:[]},
+    {k:"método pragmático", tapar:["pragmatismo"]},
+    {q:"¿Cómo se vuelve verdadera una idea, según James?"},
+    {k:"corriente", tapar:["río"]},
+    {k:"hábito", tapar:[]},
+    {k:"emoción", tapar:[]},
+    {k:"opción genuina", tapar:["genuina"]},
     {k:"empirismo radical", tapar:["empirismo"]},
-    {k:"pluralismo", tapar:["universo inacabado"]},
-    {k:"teoría James-Lange", tapar:["Lange"]},
-    {k:"valor en efectivo", tapar:["cash value"]},
-    {k:"yoes sociales", tapar:["yo social"]},
-    {k:"frutos y no raíces", tapar:[]}
+    {k:"pluralismo", tapar:["plural"]}
   ],
   dewey: [
     {k:"instrumentalismo", tapar:["instrumento"]},
