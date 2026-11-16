@@ -631,60 +631,36 @@ const DIAGRAMAS = {
       {a:"Conocer para explicar", b:"Conocer para transformar", d:"El conocimiento se pone a prueba en la acción, en un ritmo de reflexión y práctica que obliga a volver a investigar."}]}
   ],
   zuleta: [
-    {tipo:"polos", titulo:"Facilidad o dificultad", intro:"Los ideales de felicidad que Zuleta critica en Elogio de la dificultad (1980) y lo que propone en su lugar.", polos:{"izq":"Deseo de facilidad","der":"Elogio de la dificultad"}, nota:"El elogio de la dificultad no es una apología del sufrimiento: la dificultad bien vivida es condición de la libertad y del reconocimiento mutuo.",
+    {tipo:"polos", titulo:"Dos maneras de vivir el conflicto", intro:"Lo que hace la lógica de la guerra con el conflicto y lo que hace con él una democracia, según «Sobre la guerra» y Sobre la idealización.", polos:{"izq":"Lógica de la guerra","der":"Conflicto democrático"}, nota:"La organización en pares es didáctica; Zuleta desarrolla estas ideas en ensayos y conferencias distintos.",
      nodos:[
-      {a:"Un amor sin conflictos", b:"Soportar al otro como es", d:"Deseamos un amor en el que el otro adivine nuestros deseos; Zuleta propone aceptar al otro con su diferencia, sin exigirle que coincida con la imagen."},
-      {a:"Una sociedad reconciliada", b:"El conflicto tramitado", d:"Frente al ideal de una sociedad sin tensiones donde todos piensen igual, el conflicto es constitutivo del vínculo social y la paz es la capacidad de tramitarlo."},
-      {a:"Un saber sin esfuerzo", b:"Leer y pensar como trabajo", d:"Frente a una verdad que no exija cambiar, leer es interpretar, dejarse cuestionar por el texto y arriesgarse a ser transformado por él."}]},
-    {tipo:"secuencia", titulo:"De la idealización a la guerra", intro:"Cómo el deseo de facilidad desemboca en sectarismo y violencia, según Sobre la idealización y Sobre la guerra.", nota:"El encadenamiento en pasos es una reconstrucción didáctica; Zuleta lo expone en ensayos y conferencias distintos, no como una serie numerada.",
-     nodos:[
-      {t:"Ideales de felicidad", d:"Deseamos un paraíso sin dificultades: una pareja, un grupo o un partido que coincidan sin resto con lo que esperamos."},
-      {t:"Idealización de los nuestros", d:"Se atribuye al propio grupo o a la pareja una perfección que no tiene, y se deja de ver la ambivalencia real de personas y grupos."},
-      {t:"Satanización del otro", d:"Cuando la realidad no se parece al ideal, se busca un culpable y se lo pone afuera: la idealización tiene como reverso la satanización."},
-      {t:"Pensamiento binario", d:"El mundo queda dividido en nosotros, los buenos, y ellos, los malos; para Zuleta esta estructura explica buena parte del sectarismo político colombiano."},
-      {t:"La guerra como fiesta", d:"La guerra une al grupo contra un enemigo, suprime dudas y ambivalencias y da a cada uno un lugar; por eso también se la desea."}]}
+      {a:"Suprimir al adversario", b:"Reconocer al adversario", d:"La guerra resuelve la oposición eliminando al otro; la democracia le da cauces para que se exprese sin que nadie sea suprimido."},
+      {a:"Nosotros puros, ellos malvados", b:"Ambivalencia en los dos lados", d:"La idealización pone todo el mal afuera; reconocer la ambivalencia admite que el propio grupo se equivoca y que el otro tiene razones."},
+      {a:"Unanimidad sin dudas", b:"Desacuerdo y duda", d:"La fiesta de la guerra suspende las diferencias internas; la vida democrática exige soportar el desacuerdo y la incertidumbre."},
+      {a:"La paz como fin del conflicto", b:"La paz como conflicto tramitado", d:"Soñar con una sociedad sin conflictos es otra forma del deseo de facilidad; la paz es la capacidad de vivirlos sin destruir al otro."}]}
   ],
   rorty: [
-    {tipo:"secuencia", titulo:"La invención del espejo", intro:"Cómo se instaló la metáfora de la mente como espejo, según La filosofía y el espejo de la naturaleza (1979), y qué propone Rorty.",
+    {tipo:"polos", titulo:"El metafísico y el ironista", intro:"Los contrastes con que Contingencia, ironía y solidaridad (1989) opone dos actitudes ante el propio vocabulario final.", polos:{"izq":"Metafísico","der":"Ironista"}, nota:"Los pares abrevian la descripción de Rorty. Él aclara que un metafísico puede ser liberal, y que la ironía es una actitud para la vida privada, no un programa político.",
      nodos:[
-      {t:"Descartes: el espacio interior", d:"Crea el espacio interior al agrupar bajo un mismo rótulo el dolor de muelas y la idea de triángulo, algo que a un griego le habría parecido raro."},
-      {t:"Locke: causa por justificación", d:"Convierte la imagen en psicología de las ideas y confunde la explicación causal de cómo se forman las ideas con su justificación."},
-      {t:"Kant: la epistemología tribunal", d:"Sistematiza el conjunto: la epistemología fija de antemano las condiciones de todo conocimiento posible y juzga a las demás disciplinas."},
-      {t:"Los problemas perennes", d:"Escepticismo, mundo exterior y relación mente-cuerpo parecen descubrimientos sobre la condición humana, pero son efecto de una manera particular de hablar."},
-      {t:"Abandonar la metáfora", d:"La metáfora no se refuta, se abandona: no hace falta una teoría mejor de la representación sino dejar de hablar de representaciones."}]},
-    {tipo:"polos", titulo:"Lo privado y lo público", intro:"La separación con la que Contingencia, ironía y solidaridad (1989) sostiene a la vez la ironía y el compromiso liberal.", polos:{"izq":"Privado","der":"Público"}, nota:"Rorty no afirma que las esferas nunca choquen: cuando chocan no hay teoría que resuelva, y el límite público es no hacer sufrir a otros con la autocreación.",
-     nodos:[
-      {a:"Autocreación irónica", b:"Solidaridad", d:"En lo privado, redescribirse e inventar un vocabulario propio; en lo público, reducir el sufrimiento, evitar la humillación y ampliar la libertad."},
-      {a:"Nietzsche, Proust, Nabokov", b:"Mill, Dewey, Orwell", d:"Los héroes de cada esfera: los autores de la autocreación, admirables pero no políticos, y los de la reforma social contra la crueldad."},
-      {a:"¿Cómo debo vivir?", b:"¿Qué debo a los demás?", d:"El error de casi toda la filosofía, según Rorty, fue buscar una única teoría que respondiera las dos preguntas a la vez."}]}
+      {a:"Hay una naturaleza real por descubrir", b:"Nada tiene una naturaleza intrínseca", d:"El metafísico cree que detrás de las apariencias hay una esencia real que el buen vocabulario capta; el ironista piensa que esa pregunta ya no le sirve."},
+      {a:"Su léxico toca la realidad", b:"Ningún léxico está más cerca de lo real", d:"Para el metafísico, las palabras de su vocabulario final corresponden a algo; el ironista no cree que el suyo esté más cerca de la realidad que los ajenos."},
+      {a:"Argumentar desde premisas comunes", b:"Redescribir para cambiar de vocabulario", d:"El metafísico confía en inferencias que parten de lo que todos aceptan; el ironista ofrece descripciones nuevas que hagan ver mal las viejas."},
+      {a:"Leer para hallar la teoría verdadera", b:"Leer para conocer otros vocabularios", d:"El metafísico lee buscando la doctrina correcta; el ironista lee mucho para ampliar su repertorio y poner a prueba el propio vocabulario."}]}
   ],
   west: [
-    {tipo:"partes", titulo:"Las fuentes del pragmatismo profético", intro:"Las tres tradiciones que West combina en su posición propia, ya reunidas en Prophesy Deliverance! (1982).", centro:"Pragmatismo profético", nota:"La objeción es si un compromiso tan firme no se vuelve fundamento encubierto; West responde que una opción asumida no es una verdad garantizada.",
+    {tipo:"polos", titulo:"Optimismo y esperanza trágica", intro:"West insiste en que no son grados de la misma actitud sino dos actitudes distintas. Ubicá cada rasgo en su polo.", polos:{"izq":"Optimismo","der":"Esperanza trágica"},
      nodos:[
-      {t:"Pragmatismo", d:"Aporta el falibilismo, el antifundacionalismo y el historicismo: toda creencia es revisable y toda idea responde a una situación concreta, sin piso metafísico."},
-      {t:"Tradición profética negra", d:"De la iglesia negra, el blues y el góspel: la denuncia de la injusticia desde quienes la padecen y la memoria del sufrimiento como material de pensamiento."},
-      {t:"Análisis marxista de clase", d:"Aprendido en Marx, Lukács y Gramsci: la atención a la explotación y la tesis de que sin transformar las condiciones materiales la mejora moral es decorativa."}]},
-    {tipo:"secuencia", titulo:"El nihilismo como amenaza vivida", intro:"De dónde viene el nihilismo y qué respuesta exige, según el primer ensayo de Race Matters (1993).", nota:"Leer el capítulo como sermón sobre la responsabilidad individual es leer lo contrario de lo que dice: el orden causal empieza por las estructuras.",
-     nodos:[
-      {t:"Condiciones materiales e históricas", d:"Lo primero son siglos de degradación y despojo acumulado: instituciones, vivienda, escuelas y políticas penales, no actitudes individuales."},
-      {t:"La lógica del mercado", d:"Un mercado que convierte todo, incluida la propia identidad, en mercancía que se compra y se descarta agrava el daño."},
-      {t:"Nihilismo vivido", d:"No la doctrina filosófica sino la experiencia de una vida sin sentido, sin esperanza y, sobre todo, sin amor: un daño anímico que es consecuencia, no causa."},
-      {t:"Política de la conversión", d:"Como no desaparece solo aunque mejoren las condiciones, exige una afirmación colectiva apoyada en instituciones comunitarias reales que restaure el sentido del propio valor."}]}
+      {a:"Un pronóstico sobre el resultado", b:"Una postura de quien participa", d:"El optimista calcula que las cosas van a mejorar; la esperanza trágica no promete nada sobre el resultado."},
+      {a:"Mira la evidencia como espectador", b:"Actúa sin esperar garantías", d:"Uno observa desde afuera y saca conclusiones; el otro está metido en la lucha y sigue en ella."},
+      {a:"Abandona si los datos empeoran", b:"No cambia de conducta ante la derrota", d:"La diferencia se ve cuando las cosas salen mal: el optimismo se derrumba, la esperanza trágica no dependía de los datos."},
+      {a:"Tiende a minimizar la catástrofe", b:"Mira la catástrofe de frente", d:"El modelo de West es el blues: canta el sufrimiento sin negarlo ni consolarse con promesas."}]}
   ],
   wiredu: [
-    {tipo:"polos", titulo:"Mayoría y consenso", intro:"Dos maneras de decidir en democracia, según «Democracy and Consensus» de Wiredu.", polos:{"izq":"Democracia mayoritaria","der":"Democracia por consenso"},
+    {tipo:"polos", titulo:"Dos maneras de decidir", intro:"Wiredu contrasta la democracia de mayorías con partidos, importada tras las independencias, con la democracia por consenso que toma de los consejos asante. Ubicá cada rasgo en su polo.", polos:{"izq":"Democracia de mayorías","der":"Democracia por consenso"}, nota:"Los rasgos resumen el ensayo «Democracy and Consensus»; la objeción de Eze (que el consenso puede esconder presión) no está en el esquema.",
      nodos:[
-      {a:"La mayoría decide por todos", b:"Se delibera hasta acordar qué hacer", d:"En un sistema se cuenta quién es más; en el otro se discute hasta encontrar una decisión que todos puedan aceptar."},
-      {a:"La minoría espera la próxima elección", b:"La minoría es escuchada e influye", d:"Wiredu distingue estar representado formalmente de estar representado en las decisiones."},
-      {a:"Partidos que compiten por el poder", b:"Representantes elegidos, sin partidos", d:"La propuesta de Wiredu no es un partido único: suprime la competencia de partidos para que todos participen, no para que decida uno."},
-      {a:"El ganador se lleva todo", b:"Suspensión voluntaria del desacuerdo", d:"La minoría acepta lo que se hará sin tener que admitir que estaba equivocada."}]},
-    {tipo:"partes", titulo:"La persona en el pensamiento akan", intro:"Los componentes con que la tradición akan describe a la persona (onipa).", centro:"Onipa (la persona)", nota:"La interpretación es discutida: Wiredu leyó el okra y el sunsum como no inmateriales en sentido cartesiano; Kwame Gyekye, como espirituales. Las traducciones al español son aproximadas.",
-     nodos:[
-      {t:"Okra", d:"Principio de vida que viene de Dios (Onyame); lleva el destino de cada uno y se va con la muerte."},
-      {t:"Sunsum", d:"Se asocia con la personalidad y el carácter de cada uno."},
-      {t:"Honam (el cuerpo)", d:"El cuerpo, que en la descripción akan no se opone a una mente pura como en Descartes."},
-      {t:"Mogya (sangre de la madre)", d:"Ubica a la persona en su linaje matrilineal (abusua), del que dependen la herencia y la pertenencia."},
-      {t:"Ntoro (lo que viene del padre)", d:"Elemento transmitido por el padre, asociado con el carácter."}]}
+      {a:"Se vota y la mayoría gana", b:"Se delibera hasta acordar qué hacer", d:"El procedimiento: contar votos o seguir discutiendo hasta encontrar una decisión que todos puedan aceptar."},
+      {a:"Representación formal", b:"Representación en las decisiones", d:"Tener un representante que siempre pierde no es lo mismo que pesar en lo que se decide."},
+      {a:"Partidos que compiten por el poder", b:"Representantes elegidos sin partidos", d:"Wiredu propone un sistema sin partidos, que no es de partido único."},
+      {a:"La minoría se somete al número", b:"La minoría suspende su desacuerdo", d:"En el consenso, la minoría acepta lo que se hará sin renunciar a su opinión."}]}
   ],
   falacias: [
     {tipo:"partes", titulo:"Dónde falla una falacia", intro:"Una clasificación de estudio para ordenar las falacias del taller según el punto en que el argumento falla.", centro:"¿Por qué el argumento no sostiene?", nota:"Es una simplificación didáctica: Aristóteles divide solo entre falacias del lenguaje y fuera del lenguaje, y varias falacias caben en más de un grupo.",
