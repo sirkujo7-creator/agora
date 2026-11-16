@@ -652,48 +652,38 @@ const TERMINOS = {
     {k:"pluralismo", tapar:["plural"]}
   ],
   dewey: [
-    {k:"instrumentalismo", tapar:["instrumento"]},
-    {k:"situación indeterminada", tapar:[]},
-    {k:"aprender haciendo", tapar:["educación progresiva"]},
-    {q:"¿Qué es la democracia para Dewey, además de una forma de gobierno, y con qué criterios se la evalúa?"},
-    {k:"principio de continuidad", tapar:["continuidad","continuo"]},
+    {k:"instrumentalismo", tapar:["instrumentos","instrumento"]},
+    {k:"situación indeterminada", tapar:["indeterminada"]},
+    {k:"hábito", tapar:["hábitos","habituales"]},
+    {k:"aserción garantizada", tapar:["garantizado","garantía","garantizada"]},
+    {k:"experiencia", tapar:["experiencias","Experiencia y educación"]},
     {k:"teoría del espectador", tapar:["espectador"]},
-    {k:"crecimiento", tapar:["growth","creciendo"]},
-    {k:"eclipse del público", tapar:["público","eclipsado"]},
-    {q:"¿Qué critica Dewey del museo y cómo reconecta el arte con la experiencia cotidiana?"}
+    {k:"crecimiento", tapar:["crecer","crece"]},
+    {q:"¿Qué es la democracia para Dewey, además de una forma de gobierno, y con qué dos criterios se la juzga?"},
+    {k:"público", tapar:["públicos"]}
   ],
   marti: [
-    {k:"nuestra América", tapar:["Nuestra América"]},
-    {k:"creador", tapar:["crear","creadora","crea"]},
-    {k:"hombre natural", tapar:["hombres naturales"]},
-    {q:"¿Qué quiere decir Martí con «injértese en nuestras repúblicas el mundo; pero el tronco ha de ser el de nuestras repúblicas»?"},
-    {q:"¿Qué significa «no hay odio de razas, porque no hay razas» y qué límites tiene esa afirmación en el mismo ensayo?"},
-    {q:"¿Por qué el peligro mayor de nuestra América es, según Martí, el desdén del vecino del norte y no una maldad suya?"},
-    {q:"¿Qué relación ve Martí entre ser culto y ser libre, y cómo la aplicó en La Edad de Oro y en los maestros ambulantes?"},
-    {k:"guerra necesaria", tapar:[]},
-    {k:"modernismo", tapar:["modernista","modernistas"]}
+    {k:"nuestra América", tapar:[]},
+    {k:"creador", tapar:[]},
+    {k:"falsa erudición", tapar:["erudición"]},
+    {k:"injerto", tapar:["tronco"]},
+    {k:"razas de librería", tapar:["librería"]},
+    {k:"vecino formidable", tapar:["vecino"]}
   ],
   vasconcelos: [
-    {k:"raza cósmica", tapar:["quinta raza"]},
-    {k:"mestizaje", tapar:["mestiza"]},
-    {q:"¿Cómo periodiza Vasconcelos la historia humana y qué lugar le da a la estética frente a la razón?"},
-    {q:"¿Qué le reprocha Vasconcelos al pragmatismo anglosajón y por qué esa contraposición es débil?"},
-    {q:"¿Cómo tradujo Vasconcelos su filosofía en política educativa y qué objeciones recibe ese programa?"},
-    {q:"¿Qué lugar le da Vasconcelos a lo indígena en la síntesis americana y qué se le critica?"},
-    {k:"monismo estético", tapar:["monismo"]},
-    {q:"¿Qué giro político dio Vasconcelos después de 1929 y por qué complica su legado?"},
-    {q:"¿Qué lema escribió Vasconcelos para la UNAM y qué dos lecturas admite?"}
+    {k:"raza cósmica", tapar:["quinta","cósmica"]},
+    {k:"mestizaje", tapar:["mezcla"]},
+    {q:"¿En qué tres períodos divide Vasconcelos la historia humana, y cuál considera todavía por venir?"},
+    {k:"ley del gusto", tapar:["gusto"]},
+    {k:"monismo estético", tapar:["Monismo","monismo","estético"]}
   ],
   mariategui: [
-    {q:"¿Qué quiere decir Mariátegui con que el socialismo en América no debe ser «calco y copia», y qué malentendido hay que evitar?"},
-    {q:"¿Por qué sostiene Mariátegui que el problema del indio es el problema de la tierra?"},
-    {k:"gamonalismo", tapar:["gamonal","gamonales"]},
-    {q:"¿Qué seis maneras de plantear el problema del indio descarta Mariátegui, y por qué no alcanzan?"},
-    {k:"comunidad", tapar:["comunidades","ayllu","elementos de socialismo práctico"]},
+    {k:"creación heroica", tapar:["calco y copia"]},
+    {q:"¿Dónde ubica Mariátegui la raíz de la cuestión indígena, y por qué fracasan las soluciones que no la tocan?"},
+    {k:"gamonalismo", tapar:["Gamonal","gamonal"]},
+    {k:"socialismo práctico", tapar:[]},
     {k:"mito", tapar:["mitos"]},
-    {q:"¿Cómo describe Mariátegui la economía peruana, y qué conclusión política saca de la falta de una burguesía nacional?"},
-    {q:"¿Qué separó a Mariátegui de Haya de la Torre y del APRA en 1928?"},
-    {q:"¿Por qué chocó Mariátegui con la Komintern, y qué pasó con su partido después de su muerte?"}
+    {q:"¿Qué sobrevive de la colonia en la sierra peruana, según el esquema económico de Mariátegui?"}
   ],
   zea: [
     {k:"filosofía sin más", tapar:["filosofía a secas","sin adjetivo"]},

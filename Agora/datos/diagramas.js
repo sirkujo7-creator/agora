@@ -529,65 +529,38 @@ const DIAGRAMAS = {
       {t:"Indecidible por el intelecto", d:"Ni las pruebas ni el razonamiento alcanzan para zanjarla; donde alcanzan, hay que seguirlos."}]}
   ],
   dewey: [
-    {tipo:"secuencia", titulo:"El patrón de la indagación", intro:"Lógica: teoría de la investigación (1938): cómo una situación indeterminada se transforma en una situación unificada.", nota:"Es una esquematización: en Cómo pensamos Dewey describe cinco fases de la reflexión que siguen un patrón parecido.",
+    {tipo:"polos", titulo:"Las dos escuelas", intro:"Experiencia y educación (1938), capítulo 1: los contrastes con que Dewey describe la educación tradicional y la progresiva de su tiempo.", polos:{"izq":"Educación tradicional","der":"Educación progresiva"}, nota:"Dewey no se pone sin más del lado progresivo: advierte que una educación que solo se define negando la tradicional no sabe qué hacer, y que necesita una filosofía de la experiencia. Los pares siguen, abreviados, su propia lista.",
      nodos:[
-      {t:"Situación indeterminada", d:"No una duda mental que alguien decide tener, sino una constelación objetiva de organismo y entorno que está desequilibrada, confusa o bloqueada."},
-      {t:"Formulación del problema", d:"El paso más difícil: convertir la perplejidad difusa en un problema formulado, porque un problema bien planteado ya está medio resuelto y uno mal planteado condena la investigación."},
-      {t:"Hipótesis", d:"Se proponen ideas que son planes de acción y no descripciones: instrumentos para reorganizar la situación."},
-      {t:"Desarrollo de consecuencias", d:"Se razona sobre lo que implicaría cada hipótesis si se la pusiera en práctica, para saber qué habría que hacer y qué cabría esperar."},
-      {t:"Prueba por intervención", d:"La prueba no consiste solo en mirar sino en intervenir efectivamente en la situación, y una idea falla objetivamente si la situación no se reorganiza."},
-      {t:"Situación unificada", d:"El resultado no es el descubrimiento de una verdad que esperaba, sino una situación nueva, determinada en sus distinciones y relaciones, que convierte los elementos originales en un todo."}]},
-    {tipo:"polos", titulo:"Espectador o participante", intro:"La búsqueda de la certeza (1929): la imagen contemplativa del conocer que Dewey critica, frente a la suya.", polos:{"izq":"teoría del espectador","der":"instrumentalismo"}, nota:"Si conocer transforma, cuesta explicar cómo averiguamos algo del mundo tal como es: fue la objeción más repetida, y Dewey respondió que hereda el supuesto en discusión.",
-     nodos:[
-      {a:"Contemplar desde fuera", b:"Intervenir en la situación", d:"La tradición concibió el conocer según el modelo de la visión: un sujeto situado fuera contempla un objeto ya hecho. Para Dewey, conocer es una forma de hacer."},
-      {a:"Conocer es no alterar nada", b:"Conocer es operar y modificar", d:"El químico conoce una sustancia sometiéndola a operaciones que la modifican: sabe lo que la cosa hace bajo condiciones controladas, no lo que era antes."},
-      {a:"La idea como copia", b:"La idea como herramienta", d:"Una idea no es un espejo de una realidad previa, como un martillo no se parece al clavo; se juzga por lo que permite hacer."},
-      {a:"Lo más real, lo inmóvil", b:"Cambiar el mundo inestable", d:"Ante un mundo peligroso, la filosofía buscó refugio en un orden inmutable alcanzado por el pensamiento puro; Dewey propone, en cambio, cambiar el mundo mediante la acción."}]}
+      {a:"Imposición desde arriba", b:"Cultivo de la individualidad", d:"La escuela tradicional impone desde arriba y desde afuera normas, contenidos y métodos de adultos; la progresiva le opone la expresión y el cultivo de la individualidad de cada alumno."},
+      {a:"Disciplina externa", b:"Actividad libre", d:"Al orden mantenido por la autoridad y la obediencia, la escuela progresiva le opone la actividad libre de los estudiantes."},
+      {a:"Aprender de textos y maestros", b:"Aprender por la experiencia", d:"En la escuela tradicional el saber viene hecho en los libros y en la voz del maestro; la progresiva quiere que se aprenda a través de la experiencia propia."},
+      {a:"Destrezas aisladas por ejercitación", b:"Destrezas como medio para fines vivos", d:"Las técnicas que antes se adquirían repitiendo ejercicios sueltos pasan a adquirirse como medios para alcanzar fines que le importan directamente al alumno."},
+      {a:"Preparación para un futuro remoto", b:"Aprovechar la vida presente", d:"La escuela tradicional justifica lo que enseña por su utilidad en una vida adulta lejana; la progresiva quiere aprovechar las oportunidades de la vida presente."}]}
   ],
   marti: [
     {tipo:"polos", titulo:"El gobernante importador y el creador", intro:"Las dos figuras que Nuestra América contrapone: el que gobierna con libros ajenos y el que gobierna conociendo su país.", polos:{"izq":"Gobernante importador","der":"Gobernante creador"}, nota:"Las etiquetas resumen frases del ensayo; la organización en pares es de Ágora.",
      nodos:[
       {a:"Sabe cómo se gobierna el francés", b:"Sabe con qué elementos está hecho su país", d:"El buen gobernante en América no es el que conoce los modelos extranjeros, sino el que conoce la composición real de su pueblo."},
-      {a:"Leyes heredadas de otros pueblos", b:"Instituciones nacidas del país", d:"Con un decreto de Hamilton no se para al potro del llanero: las formas de gobierno tienen que acomodarse a los elementos propios."},
+      {a:"Leyes heredadas de otros pueblos", b:"Instituciones nacidas del país", d:"Con un decreto de Hamilton no se para el potro del llanero: las formas de gobierno tienen que acomodarse a los elementos propios."},
       {a:"Lee para copiar", b:"Lee para aplicar", d:"Martí no rechaza el libro extranjero: injerta el mundo en el tronco propio y usa lo ajeno para responder a problemas de aquí."},
-      {a:"Falsa erudición", b:"Conocimiento del país", d:"No hay batalla entre civilización y barbarie, sino entre la falsa erudición y la naturaleza: conocer el país es el único modo de librarlo de tiranías."},
-      {a:"Gobierna sin el hombre natural", b:"La razón de todos en las cosas de todos", d:"La república que se hizo con los campesinos e indios no puede gobernarse contra ellos ni sin ellos."}]},
-    {tipo:"secuencia", titulo:"El recorrido de Nuestra América", intro:"Los pasos del ensayo de 1891, del aldeano vanidoso a la negación del odio de razas.", nota:"El ensayo avanza por imágenes y no por apartados; la división en pasos es de Ágora.",
-     nodos:[
-      {t:"El aldeano vanidoso", d:"Cree que el mundo es su aldea y no ve a los gigantes de siete leguas: los pueblos de América tienen que despertar y conocerse para unirse."},
-      {t:"Los sietemesinos", d:"Los que no tienen fe en su tierra y se avergüenzan de la madre india: Martí los opone al orgullo de nuestras repúblicas dolorosas."},
-      {t:"El gobierno ha de nacer del país", d:"La incapacidad no está en los pueblos sino en quienes los rigen con leyes ajenas; gobernante, en un pueblo nuevo, quiere decir creador."},
-      {t:"La colonia continuó en la república", d:"La independencia cambió las formas pero no el espíritu; el tigre de la colonia vuelve de noche con zarpas de terciopelo."},
-      {t:"Crear es la palabra de pase", d:"La generación nueva lee para aplicar y no para copiar, y empieza a preguntarse cómo somos."},
-      {t:"El vecino formidable y las razas", d:"El peligro mayor es el desdén del vecino que no nos conoce; y no hay odio de razas, porque no hay razas."}]}
+      {a:"Falsa erudición", b:"Naturaleza", d:"No hay batalla entre la civilización y la barbarie, sino entre la falsa erudición y la naturaleza: el saber de libro que no conoce el país contra el país real."},
+      {a:"Gobierna sin el hombre natural", b:"La razón de todos en las cosas de todos", d:"La independencia se hizo con los campesinos e indios; la república no puede gobernarse contra ellos ni sin ellos."}]}
   ],
   vasconcelos: [
-    {tipo:"secuencia", titulo:"Los tres estados de la humanidad", intro:"La periodización de la historia que Vasconcelos propone en La raza cósmica (1925), del pasado guerrero al porvenir estético.", nota:"La periodización se afirma más que se prueba, y un tercer estado guiado por el gusto ofrece menos garantías contra el abuso que el de las normas jurídicas.",
+    {tipo:"secuencia", titulo:"Los tres períodos de la historia", intro:"Vasconcelos ordena la historia humana en tres estados según lo que guía la conducta y las uniones entre pueblos. Ubicá cada uno en su lugar.",
      nodos:[
-      {t:"Estado material o guerrero", d:"Rige la fuerza bruta: las uniones entre pueblos y personas se deciden por conquista y sometimiento, no por elección."},
-      {t:"Estado intelectual o político", d:"Rigen la razón, la norma jurídica y el cálculo; Vasconcelos lo identifica con la modernidad y con la hegemonía anglosajona."},
-      {t:"Estado estético o espiritual", d:"Todavía por venir: las decisiones se guiarán por el gusto y el amor, y la ley del gusto sustituirá a la coerción y a la selección natural darwiniana."}]},
-    {tipo:"polos", titulo:"La raza cósmica: lo que niega y lo que conserva", intro:"Las dos mitades de la tesis de La raza cósmica (1925), que un lector honesto debe poder enunciar a la vez.", polos:{"izq":"Lo que la tesis niega","der":"Lo que la tesis conserva"}, nota:"Escrita contra la pureza racial y el expansionismo anglosajón, la tesis usa el vocabulario jerárquico que combate: ninguna mitad anula ni absuelve a la otra.",
-     nodos:[
-      {a:"Una jerarquía fija de razas", b:"La raza como sujeto histórico", d:"Rechaza que las razas estén ordenadas de una vez para siempre, pero sigue tomando la raza como unidad real del análisis histórico."},
-      {a:"Que la mezcla degenere", b:"La síntesis como mejoramiento", d:"Contra la antropología de 1925, el mestizaje no degrada; pero la quinta raza se proyecta como mejora, lo que supone tipos humanos mejores y peores."},
-      {a:"Una raza destinada a dominar", b:"El vocabulario eugenésico", d:"Ninguna raza debe imponerse, y sin embargo el texto habla de selección, de eliminación de tipos inferiores y de un cruce dirigido por el gusto."}]}
+      {t:"Período material o guerrero", d:"Manda la fuerza: los pueblos se unen por conquista y el más fuerte impone su ley."},
+      {t:"Período intelectual o político", d:"Mandan la razón, la norma y el cálculo de la utilidad; Vasconcelos lo asocia con la modernidad y el predominio anglosajón."},
+      {t:"Período espiritual o estético", d:"Todavía por venir: la conducta y las uniones se guiarán por la belleza y el amor, según la ley del gusto."}]}
   ],
   mariategui: [
-    {tipo:"partes", titulo:"Seis soluciones que no alcanzan", intro:"«El problema del indio»: las seis maneras de plantear la cuestión que Mariátegui descarta, todas alrededor de la raíz que dejan intacta.", centro:"La tierra: latifundio y servidumbre", nota:"El orden y la agrupación siguen la enumeración del propio ensayo; las razones de cada pieza están resumidas.",
+    {tipo:"secuencia", titulo:"La evolución económica del Perú", intro:"El recorrido del «Esquema de la evolución económica», primero de los Siete ensayos: cómo se llega a un país partido entre feudalidad y capitalismo dependiente.", nota:"La división en cinco momentos sigue las secciones del ensayo de forma simplificada.",
      nodos:[
-      {t:"Administrativa", d:"Ordenanzas y decretos de protección se acumulan desde la colonia, pero el gamonal, como antes el encomendero, sabe que la práctica es distinta."},
-      {t:"Jurídica", d:"La reforma de las leyes no tiene más valor que la administrativa frente a un feudalismo intacto; sin disolver el feudo no funciona ningún derecho liberal."},
-      {t:"Étnica", d:"Esperar la emancipación del cruce con inmigrantes blancos repite el viejo repertorio imperialista de razas inferiores."},
-      {t:"Moral o humanitaria", d:"Confía en conmover a los opresores; la prédica humanitaria no detuvo ni suavizó la explotación colonial."},
-      {t:"Educacional", d:"La escuela no puede funcionar dentro del latifundio: el gamonal tiene interés en la ignorancia del indio y el maestro queda sometido."},
-      {t:"Eclesiástica", d:"Ni siquiera la autoridad de frailes como Las Casas logró más que leyes sabias que no cambiaron la suerte de los indios."}]},
-    {tipo:"polos", titulo:"Mariátegui frente a Haya de la Torre", intro:"La polémica de 1928 sobre el APRA: dos maneras de pensar la lucha contra el imperialismo en América Latina.", polos:{"izq":"Haya de la Torre (APRA)","der":"Mariátegui"}, nota:"La oposición está simplificada: los dos venían del mismo movimiento y sus posiciones se fueron precisando en la polémica misma.",
-     nodos:[
-      {a:"Imperialismo, primera etapa del capitalismo", b:"Imperialismo y feudalidad, aliados", d:"Para Haya el capital extranjero trae el capitalismo a América Latina; para Mariátegui se apoya en la feudalidad sobreviviente y la refuerza."},
-      {a:"Clases medias al frente", b:"Obreros y campesinos al frente", d:"Haya confía en las clases medias como fuerza decisiva; Mariátegui, en los obreros y en los campesinos indígenas."},
-      {a:"Estado antiimperialista primero", b:"Antiimperialismo dentro del socialismo", d:"Haya propone una etapa nacional antes del socialismo; Mariátegui sostiene que el antiimperialismo solo no es programa."},
-      {a:"Partido nacionalista", b:"Partido socialista de clase", d:"En 1928 Haya convierte el frente en partido con candidato propio; Mariátegui funda el Partido Socialista del Perú."}]}
+      {t:"Economía incaica", d:"Una economía agraria organizada en comunidades, con trabajo colectivo; Mariátegui la llama comunismo inkaico y ve en ella el origen de la comunidad."},
+      {t:"Conquista y colonia", d:"La conquista destruye esa economía sin poner otra igual de productiva: impone el latifundio y la servidumbre, y extrae metales."},
+      {t:"Independencia", d:"Cambia el régimen político, pero no la estructura: la vieja clase terrateniente se viste de burguesía republicana."},
+      {t:"Guano y salitre", d:"Las exportaciones del siglo XIX abren el país al capital extranjero y dan origen a una clase capitalista en la costa, sin liquidar la feudalidad."},
+      {t:"Un país partido en dos", d:"Feudalidad en la sierra, capitalismo de exportación dependiente en la costa: sin una burguesía capaz de liquidar el feudo, la tarea pasa al socialismo."}]}
   ],
   zea: [
     {tipo:"secuencia", titulo:"Hacia una filosofía sin más", intro:"El argumento de La filosofía americana como filosofía sin más (1969), de la pregunta mal planteada a la consigna final.", nota:"La división en pasos es una reconstrucción; la objeción que la ficha discute es que una desigualdad institucional no desaparece por declararla mal planteada.",
