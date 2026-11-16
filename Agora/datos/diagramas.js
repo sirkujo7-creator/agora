@@ -598,61 +598,37 @@ const DIAGRAMAS = {
       {t:"Conciencia crítica de la dominación", d:"La filosofía toma esa situación como problema, la piensa con rigor y contribuye a superarla: así puede volverse auténtica."}]}
   ],
   freire: [
-    {tipo:"secuencia", titulo:"El método de las palabras generadoras", intro:"Los pasos del método de alfabetización de adultos, tal como Freire lo describe en La educación como práctica de la libertad.", nota:"Freire insistía en que no es una técnica aislable: si se aplican los pasos sin diálogo, el método se vuelve bancario.",
+    {tipo:"secuencia", titulo:"Cómo se alfabetiza con palabras generadoras", intro:"El método que Freire probó en el nordeste brasileño va de la vida de la comunidad a la palabra escrita, y no al revés.", nota:"El orden sigue la exposición de La educación como práctica de la libertad, simplificada: allí Freire incluye también la preparación de fichas para los coordinadores, y antes de las palabras el grupo discute qué es la cultura.",
      nodos:[
-      {t:"Investigar el universo vocabular", d:"El equipo escucha a la comunidad y registra las palabras que usa para hablar de su vida, su trabajo y sus conflictos."},
-      {t:"Elegir las palabras generadoras", d:"Se seleccionan unas dieciséis o diecisiete palabras por su peso existencial y su riqueza fonética, como tijolo, ladrillo."},
-      {t:"Codificar en imágenes", d:"Cada palabra se presenta en una imagen que representa una situación real de la vida de los participantes."},
-      {t:"Decodificar en el círculo de cultura", d:"Coordinador y participantes discuten la situación de la imagen: qué muestra, por qué pasa, qué se puede hacer."},
-      {t:"Separar en familias silábicas", d:"La palabra se divide en sílabas y cada una se despliega en su familia: ta, te, ti, to, tu."},
-      {t:"Crear palabras nuevas", d:"Los participantes combinan las sílabas para formar sus propias palabras, y descubren que pueden escribir su mundo."}]},
-    {tipo:"polos", titulo:"Dos concepciones de la educación", intro:"Pedagogía del oprimido, capítulo 2: la educación bancaria frente a la problematizadora.", polos:{"izq":"bancaria","der":"problematizadora"}, nota:"La oposición no es entre exponer y no exponer, sino entre dos relaciones con el saber y con los educandos.",
-     nodos:[
-      {a:"Depositar comunicados", b:"Plantear problemas", d:"La bancaria transfiere un saber terminado; la problematizadora presenta la realidad como algo que se puede investigar."},
-      {a:"El educador sabe, el educando no", b:"Ambos aprenden y enseñan", d:"La bancaria fija los papeles; la problematizadora supera la contradicción: el educador también es educado en el diálogo."},
-      {a:"Memorizar y repetir", b:"Conocer críticamente", d:"En la bancaria el educando archiva; en la problematizadora reconstruye el saber como sujeto."},
-      {a:"Adaptarse al mundo", b:"Transformar el mundo", d:"La bancaria forma personas que se ajustan a lo dado; la problematizadora, personas que lo leen como histórico y modificable."}]}
+      {t:"Investigar el universo vocabular", d:"El equipo convive con la comunidad y registra las palabras que la gente usa para hablar de su trabajo, su vida y sus conflictos."},
+      {t:"Elegir las palabras generadoras", d:"Se escogen unas dieciséis o diecisiete palabras por su peso existencial y por su riqueza fonética, de modo que cubran las dificultades de la lengua."},
+      {t:"Codificar situaciones en imágenes", d:"Cada palabra se presenta en una lámina que muestra una situación real del grupo, como una obra en construcción para tijolo."},
+      {t:"Descodificar en el círculo de cultura", d:"Coordinador y participantes discuten la imagen: qué muestra, por qué pasa, qué se podría hacer. Solo después aparece la palabra escrita."},
+      {t:"Descomponer en familias silábicas", d:"La palabra se separa en sílabas y cada una se despliega en su familia (ta, te, ti, to, tu); con esas piezas los participantes forman palabras nuevas."}]}
   ],
   rawls: [
-    {tipo:"secuencia", titulo:"La secuencia de cuatro etapas", intro:"Teoría de la justicia, § 31: cómo se aplican los principios elegidos en la posición original, levantando el velo poco a poco.", nota:"Rawls presenta la secuencia como un recurso para ordenar el razonamiento, no como una descripción de cómo se hacen de hecho las constituciones y las leyes.",
+    {tipo:"secuencia", titulo:"La secuencia de cuatro etapas", intro:"Rawls imagina que el velo de ignorancia se levanta de a poco: en cada etapa se decide algo distinto y se sabe un poco más. Ubicá cada etapa en su orden.", nota:"La secuencia está en Teoría de la justicia, § 31.",
      nodos:[
-      {t:"Posición original", d:"Con el velo completo, las partes eligen los dos principios de la justicia sin saber nada de sí mismas ni de su sociedad particular."},
-      {t:"Convención constituyente", d:"El velo se levanta en parte: se conocen los hechos generales de la propia sociedad, y se diseña una constitución que asegure las libertades básicas iguales."},
-      {t:"Etapa legislativa", d:"Se hacen las leyes y las políticas económicas y sociales, guiadas por la igualdad equitativa de oportunidades y el principio de diferencia."},
-      {t:"Aplicación por jueces y funcionarios", d:"El velo desaparece: se conocen todos los hechos, y las reglas se aplican a casos particulares."}]},
-    {tipo:"polos", titulo:"Utilitarismo y justicia como equidad", intro:"Las diferencias que Rawls subraya entre su teoría y la del adversario que eligió en 1971.", polos:{"izq":"utilitarismo","der":"justicia como equidad"}, nota:"Es la presentación de Rawls; muchos utilitaristas, como Mill, defendieron las libertades con sus propios argumentos.",
-     nodos:[
-      {a:"Maximizar la suma de bienestar", b:"Proteger al menos aventajado", d:"El utilitarismo juzga las instituciones por el bienestar total o promedio; el principio de diferencia, por cómo quedan los que peor están."},
-      {a:"La sociedad como una sola persona", b:"La distinción entre personas", d:"Sumar satisfacciones de todos trata a la sociedad como un individuo que compensa pérdidas con ganancias; Rawls responde que cada uno tiene una sola vida."},
-      {a:"Libertades según el cálculo", b:"Libertades con prioridad", d:"Para el utilitarista, las libertades valen mientras produzcan más bienestar; para Rawls, no se negocian a cambio de ventajas económicas."},
-      {a:"Primero el bien, luego lo correcto", b:"Lo justo antes que lo bueno", d:"El utilitarismo define el bien y manda maximizarlo; Rawls pone límites a las concepciones del bien que se pueden perseguir."}]}
+      {t:"Posición original", d:"Se eligen los dos principios de justicia sin saber nada de la propia sociedad ni del lugar que uno ocupa en ella."},
+      {t:"Convención constituyente", d:"Se diseña la constitución que protege las libertades básicas: ya se conocen los hechos generales de la propia sociedad, pero no la situación personal."},
+      {t:"Etapa legislativa", d:"Se dictan las leyes y las políticas económicas y sociales, guiadas por el segundo principio y con la información económica disponible."},
+      {t:"Aplicación de las reglas", d:"Jueces y funcionarios aplican las reglas a casos particulares: el velo cae del todo y cada uno conoce su situación."}]}
   ],
   dussel: [
-    {tipo:"capas", titulo:"Centro y periferia", intro:"La modernidad vista desde fuera de su centro.",
+    {tipo:"polos", titulo:"La arquitectura de la Ética de la liberación", intro:"Ética de la liberación (1998): los tres principios de la fundamentación y su versión crítica, cuando aparece la víctima.", polos:{"izq":"Fundamentación","der":"Crítica desde la víctima"}, nota:"La correspondencia entre los tres principios y sus tres momentos críticos es la estructura del libro: los capítulos 1 a 3 fundamentan, los capítulos 4 a 6 vuelven sobre lo mismo desde las víctimas. Los rótulos breves son una simplificación de Ágora.",
      nodos:[
-      {t:"Centro", d:"Europa, que desde 1492 se constituye como centro del sistema-mundo."},
-      {t:"Periferia", d:"América, África y Asia, incorporadas como periferia explotada."},
-      {t:"Exterioridad", d:"Lo que el sistema no logra incluir: el Otro que interpela desde fuera."}]},
-    {tipo:"secuencia", titulo:"El mito de la modernidad", intro:"Los cuatro pasos del argumento que, según 1492: el encubrimiento del Otro (1992), justifica la violencia colonial como misión civilizatoria.", nota:"Dussel sostiene que el esquema no es antiguo: reaparece casi intacto en la retórica de intervenciones humanitarias y en el lenguaje del desarrollo.",
-     nodos:[
-      {t:"Autocomprensión superior", d:"La cultura europea se entiende a sí misma como la más desarrollada, con criterios de desarrollo que ella misma fija."},
-      {t:"El deber de desarrollar", d:"De esa superioridad no deduce un derecho sino una obligación moral de desarrollar a las culturas atrasadas: la expansión se vive sinceramente como servicio."},
-      {t:"La resistencia como culpa", d:"Si el bárbaro se opone al proceso civilizatorio, su resistencia se interpreta como culpa o inmadurez, y eso autoriza la fuerza como pedagogía o castigo justo."},
-      {t:"Víctimas como costo inevitable", d:"Las víctimas no se niegan: se contabilizan como precio necesario del progreso. Resultado: la víctima es declarada culpable de su propia victimación."}]}
+      {a:"Producir y reproducir la vida", b:"Juzgar el sistema que produce víctimas", d:"Principio material: la vida humana concreta es el criterio. En su momento crítico, un sistema que niega la vida de sus víctimas no puede ser bueno."},
+      {a:"Acuerdo simétrico de los afectados", b:"Consenso crítico de las víctimas", d:"Principio formal: una norma vale si la acuerdan los afectados. En su momento crítico, las víctimas excluidas construyen su propio consenso contra el que las negó."},
+      {a:"Hacer solo lo realizable", b:"Transformar: el principio liberación", d:"Principio de factibilidad: lo acordado tiene que poder hacerse, sin utopías imposibles ni conservadurismo. En su momento crítico, se trata de transformar las instituciones que producen víctimas."}]}
   ],
   falsborda: [
-    {tipo:"ciclo", titulo:"El ciclo de la investigación-acción participativa", intro:"Investigar, devolver, actuar y reflexionar: la investigación participativa no termina en un informe, sino que vuelve a empezar.", nota:"El orden y los nombres de las fases son una esquematización didáctica: Fals Borda describió el proceso como un ritmo entre reflexión y acción, no como una receta de pasos fijos.",
+    {tipo:"polos", titulo:"Investigar sobre la gente o con la gente", intro:"Lo que cambia, según Fals Borda, cuando la investigación social deja de tratar a la comunidad como objeto y la hace coautora.", polos:{"izq":"Investigación tradicional","der":"Investigación-acción participativa"}, nota:"El contraste es una esquematización: Fals Borda no tiraba a la basura la investigación tradicional, y técnicas como la entrevista, el archivo o la encuesta sirven en los dos polos.",
      nodos:[
-      {t:"Pregunta construida con la comunidad", d:"El problema no lo define solo el investigador: se discute con la comunidad, que conoce su realidad y sabe qué necesita entender."},
-      {t:"Investigación colectiva", d:"La información se recoge entre todos, combinando técnicas académicas con el saber popular, la memoria oral y la recuperación crítica de la historia."},
-      {t:"Devolución sistemática", d:"Lo aprendido vuelve a la comunidad en formas que pueda comprender y discutir: cartillas, relatos, radio, teatro, reuniones."},
-      {t:"Acción transformadora", d:"La comunidad usa ese conocimiento para actuar sobre su situación: organizarse, reclamar, negociar, cambiar prácticas."},
-      {t:"Reflexión sobre lo hecho", d:"Se evalúa qué pasó con la acción, qué se aprendió y qué falta saber, y de ahí salen nuevas preguntas para otro ciclo."}]},
-    {tipo:"polos", titulo:"Los dos canales de la Historia doble de la Costa", intro:"Historia doble de la Costa (1979–1986): cada página doble cuenta la misma historia en dos registros.", polos:{"izq":"canal A","der":"canal B"}, nota:"Los dos canales no se oponen: se complementan. La forma del libro muestra que ningún registro es completo sin el otro.",
-     nodos:[
-      {a:"Página izquierda: relato", b:"Página derecha: interpretación", d:"El canal A narra los hechos con personajes y episodios; el canal B desarrolla la teoría, el método y la discusión con otros autores."},
-      {a:"Para la gente de la región", b:"Para los lectores académicos", d:"El canal A está pensado para que lo lean los campesinos y pescadores de los que habla; el canal B, para la comunidad científica."},
-      {a:"Memoria oral y baúles familiares", b:"Fuentes, archivos y conceptos", d:"El relato se apoya en lo que contaron los mayores y en los papeles guardados por las familias; la interpretación explicita fuentes y construye conceptos como la cultura anfibia."}]}
+      {a:"El investigador define la pregunta", b:"La pregunta se construye con la comunidad", d:"Quién decide qué vale la pena investigar: el académico solo, o el académico junto con quienes viven el problema."},
+      {a:"La comunidad es fuente de datos", b:"La comunidad es coautora", d:"La relación sujeto-objeto se reemplaza por una entre sujetos que conocen juntos, cada uno con su saber."},
+      {a:"Los resultados van a la academia", b:"Lo aprendido vuelve a la comunidad", d:"La devolución sistemática hace que el conocimiento regrese en cartillas, relatos, radio o teatro, en formas que la comunidad pueda discutir y usar."},
+      {a:"Neutralidad declarada", b:"Compromiso explícito y riguroso", d:"Toda investigación le sirve a alguien; la participativa lo dice abiertamente, y por eso le exige más rigor, no menos."},
+      {a:"Conocer para explicar", b:"Conocer para transformar", d:"El conocimiento se pone a prueba en la acción, en un ritmo de reflexión y práctica que obliga a volver a investigar."}]}
   ],
   zuleta: [
     {tipo:"polos", titulo:"Facilidad o dificultad", intro:"Los ideales de felicidad que Zuleta critica en Elogio de la dificultad (1980) y lo que propone en su lugar.", polos:{"izq":"Deseo de facilidad","der":"Elogio de la dificultad"}, nota:"El elogio de la dificultad no es una apología del sufrimiento: la dificultad bien vivida es condición de la libertad y del reconocimiento mutuo.",

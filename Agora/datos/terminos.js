@@ -719,49 +719,44 @@ const TERMINOS = {
     {q:"¿Cómo puede volverse auténtica, según Salazar Bondy, una filosofía hecha en medio de la dependencia?"}
   ],
   freire: [
-    {k:"educación bancaria", tapar:["bancaria"]},
-    {k:"educación problematizadora", tapar:["problematizadora"]},
-    {q:"¿Qué quiere decir Freire con que el oprimido aloja al opresor, y qué consecuencias tiene para la liberación?"},
-    {k:"concientización", tapar:[]},
-    {k:"diálogo", tapar:["antidiálogo"]},
-    {k:"palabras generadoras", tapar:["círculo de cultura"]},
+    {k:"educación bancaria", tapar:["bancaria","bancario","banco","depositar"]},
+    {k:"educación problematizadora", tapar:["problematizadora","problemas"]},
+    {k:"diálogo", tapar:["antidialógica","conversa"]},
+    {k:"dualidad", tapar:[]},
+    {q:"¿Cómo llama Freire al paso de una conciencia que vive la realidad como destino a una que busca sus causas y actúa?"},
     {k:"praxis", tapar:[]},
-    {q:"¿Qué son los temas generadores, las situaciones límite y el inédito viable, y cómo se relacionan?"},
-    {q:"¿Cómo distingue Freire la autoridad del autoritarismo y del espontaneísmo en el aula?"}
+    {k:"palabras generadoras", tapar:["generadoras"]},
+    {k:"inédito viable", tapar:[]},
+    {k:"lectura del mundo", tapar:["lectura de la palabra"]}
   ],
   rawls: [
-    {k:"justicia como equidad", tapar:["fairness"]},
-    {k:"velo de ignorancia", tapar:["posición original"]},
-    {q:"¿Cuáles son los dos principios de la justicia de Rawls y en qué orden de prioridad están?"},
-    {k:"principio de diferencia", tapar:["lotería natural"]},
+    {q:"¿Cómo llamó Rawls a su teoría, según la cual los principios son justos porque se acordarían en una situación inicial equitativa?"},
+    {q:"¿Cómo se llama la situación imaginaria en la que unas partes eligen los principios de justicia detrás de un velo de ignorancia?"},
+    {q:"¿Qué nombre recibe la regla según la cual las libertades básicas iguales no se pueden cambiar por más riqueza, ni siquiera para los más pobres?"},
+    {q:"¿Qué exigencia pide que quienes tienen el mismo talento y la misma disposición a usarlo tengan las mismas perspectivas, vengan de la familia que vengan?"},
+    {k:"principio de diferencia", tapar:[]},
     {k:"bienes primarios", tapar:[]},
-    {q:"¿Por qué sostiene Rawls que el utilitarismo no toma en serio la distinción entre personas?"},
-    {k:"prioridad de lo justo sobre lo bueno", tapar:[]},
     {k:"equilibrio reflexivo", tapar:[]},
-    {k:"consenso entrecruzado", tapar:["overlapping consensus"]},
-    {k:"razón pública", tapar:[]}
+    {k:"consenso entrecruzado", tapar:[]},
+    {k:"razón pública", tapar:["razones públicas"]}
   ],
   dussel: [
-    {k:"exterioridad", tapar:[]},
-    {k:"analéctica", tapar:["ana-logos","analéctico"]},
+    {k:"Totalidad", tapar:["totalidades"]},
+    {k:"exterioridad", tapar:["exterior","exteriores"]},
+    {k:"analéctico", tapar:["analéctica"]},
     {k:"mito de la modernidad", tapar:[]},
     {k:"transmodernidad", tapar:[]},
     {k:"principio material", tapar:[]},
-    {q:"Además del principio material, ¿qué otros dos principios exige la ética de Dussel y qué pide cada uno?"},
-    {q:"¿Por qué sostiene Dussel que un sistema no puede diagnosticar desde dentro lo que produce, y quién sí puede?"},
-    {q:"¿Cómo fue la polémica de Dussel con Apel y qué cambió en cada sistema?"},
-    {q:"¿Qué otros autores y divisiones internas tuvo la Filosofía de la Liberación además de Dussel?"}
+    {k:"víctimas", tapar:["víctima","victimación"]},
+    {k:"fetichismo del poder", tapar:["fetichismo"]}
   ],
   falsborda: [
-    {k:"investigación-acción participativa", tapar:["IAP"]},
-    {q:"¿Por qué propone Fals Borda pasar de una relación sujeto-objeto a una relación sujeto-sujeto en la investigación social?"},
-    {k:"ciencia propia", tapar:["colonialismo intelectual"]},
+    {k:"investigación-acción participativa", tapar:["IAP","investigación participativa"]},
+    {q:"¿Qué relación entre investigador y comunidad propone Fals Borda en lugar de la de sujeto y objeto?"},
+    {k:"ciencia propia", tapar:["propia"]},
     {k:"sentipensante", tapar:[]},
-    {k:"devolución sistemática", tapar:[]},
-    {q:"¿Para qué sirve, según Fals Borda, recuperar críticamente la historia de una comunidad?"},
-    {q:"¿Cómo responde Fals Borda a la objeción de que el compromiso destruye la objetividad?"},
-    {q:"¿Qué cambió La violencia en Colombia (1962) en la manera de estudiar la guerra de mediados del siglo XX?"},
-    {k:"cultura anfibia", tapar:["hombre hicotea","hicotea"]}
+    {k:"devolución sistemática", tapar:["devolución","devolver"]},
+    {k:"cultura anfibia", tapar:["anfibia","anfibio","anfibios"]}
   ],
   zuleta: [
     {k:"elogio de la dificultad", tapar:["dificultad"]},
