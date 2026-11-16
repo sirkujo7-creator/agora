@@ -759,47 +759,37 @@ const TERMINOS = {
     {k:"cultura anfibia", tapar:["anfibia","anfibio","anfibios"]}
   ],
   zuleta: [
-    {k:"elogio de la dificultad", tapar:["dificultad"]},
-    {k:"idealización", tapar:["idealizar","idealiza"]},
-    {k:"conflicto", tapar:[]},
-    {k:"guerra como fiesta", tapar:["guerra"]},
-    {q:"¿Cómo entiende Zuleta la lectura y qué le critica a la escuela al respecto?"},
-    {k:"deseo de saber", tapar:[]},
-    {q:"¿Cómo entiende Zuleta la democracia más allá del procedimiento electoral?"},
-    {k:"maestros de la sospecha", tapar:[]},
-    {q:"¿Cómo se formó Zuleta y por qué su obra es en gran parte oral?"}
+    {k:"dificultad", tapar:["dificultades","difícil"]},
+    {k:"idealización", tapar:["idealizar","idealiza","idealizacion"]},
+    {k:"conflicto", tapar:["conflictos"]},
+    {k:"fiesta", tapar:[]},
+    {k:"deseo de saber", tapar:[]}
   ],
   rorty: [
-    {k:"espejo de la naturaleza", tapar:["espejo"]},
-    {k:"antifundacionalismo", tapar:[]},
+    {k:"espejo", tapar:["espejos"]},
+    {k:"antifundacionalismo", tapar:["fundamento","fundamentos"]},
+    {k:"justificación", tapar:["justificar","justificada","justificarse"]},
+    {k:"edificante", tapar:["edificación"]},
+    {k:"contingencia", tapar:["Contingente","contingente"]},
     {k:"vocabulario final", tapar:["léxico último"]},
-    {k:"ironista liberal", tapar:["ironista"]},
-    {q:"¿Por qué separa Rorty lo público de lo privado y qué objeción recibe esa separación?"},
-    {q:"Si no hay una esencia humana común, ¿cómo se amplía la solidaridad según Rorty?"},
-    {k:"neopragmatismo", tapar:["pragmatismo"]},
-    {k:"izquierda cultural", tapar:[]},
-    {k:"etnocentrismo", tapar:["etnocéntrico"]}
+    {k:"ironista", tapar:["ironistas","ironía"]},
+    {k:"solidaridad", tapar:["solidario","solidarios"]},
+    {k:"etnocentrismo", tapar:["etnocéntrico","etnocéntricos"]}
   ],
   west: [
-    {k:"pragmatismo profético", tapar:["profética"]},
-    {k:"nihilismo", tapar:[]},
-    {q:"¿Qué dos afirmaciones sostiene West a la vez sobre el racismo y la responsabilidad, y qué reproches recibe?"},
-    {k:"tradición profética", tapar:["profética"]},
-    {q:"¿Qué toma West del marxismo y qué del cristianismo, y cómo maneja las tensiones entre ambos?"},
-    {k:"fundamentalismo de mercado", tapar:["fundamentalismo"]},
-    {q:"¿Qué le debe West a Rorty y qué le reprocha?"},
-    {k:"intelectual público", tapar:["filosofía pública"]},
-    {k:"esperanza trágica", tapar:["tragicómica"]}
+    {k:"pragmatismo profético", tapar:["pragmatista","pragmatismo","profético"]},
+    {q:"¿Cómo llama West a la maniobra con que los pragmatistas, desde Emerson, esquivaron el problema de fundamentar el conocimiento para ocuparse de la democracia?"},
+    {k:"mirada normativa", tapar:["mirada","normativa"]},
+    {k:"nihilismo", tapar:["nihilista"]},
+    {k:"esperanza trágica", tapar:["esperanza","tragicómica"]}
   ],
   wiredu: [
-    {k:"descolonización conceptual", tapar:["Descolonizar conceptualmente","descolonizar conceptualmente","descolonizar el pensamiento"]},
-    {q:"¿Qué le pasa al «pienso, luego existo» de Descartes cuando se lo traduce al akan, y qué concluye Wiredu de eso?"},
-    {q:"¿Con qué componentes describen los akan a la persona, y qué se discute sobre ellos?"},
-    {k:"consenso", tapar:["sin partidos","suspensión voluntaria del desacuerdo"]},
-    {k:"etnofilosofía", tapar:["Etnofilosofía"]},
-    {k:"ubuntu", tapar:["Ubuntu","umuntu ngumuntu ngabantu"]},
-    {q:"¿Cómo entró el ubuntu en la transición sudafricana tras el apartheid, y qué le reprocharon sus críticos?"},
-    {k:"imparcialidad compasiva", tapar:["Imparcialidad compasiva"]}
+    {q:"¿Cómo llamó Wiredu al examen crítico, hecho a través de la traducción a la propia lengua, de las categorías heredadas de la colonia?"},
+    {q:"¿Qué componentes tiene la persona según los akan, y por qué Wiredu negó que allí hubiera un dualismo de mente y cuerpo?"},
+    {q:"¿Qué forma de gobierno propuso Wiredu, inspirada en los consejos asante, en la que la minoría acepta la decisión sin abandonar su opinión?"},
+    {q:"¿Cómo llamó Hountondji a la reconstrucción de la filosofía implícita de un pueblo entero, y qué pensaba Wiredu de esa crítica?"},
+    {k:"ubuntu", tapar:["Ubuntu"]},
+    {k:"imparcialidad compasiva", tapar:["imparcialidad","compasiva"]}
   ],
   falacias: [
     {k:"ad hominem", tapar:[]},
