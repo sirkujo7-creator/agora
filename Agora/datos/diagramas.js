@@ -563,61 +563,39 @@ const DIAGRAMAS = {
       {t:"Un país partido en dos", d:"Feudalidad en la sierra, capitalismo de exportación dependiente en la costa: sin una burguesía capaz de liquidar el feudo, la tarea pasa al socialismo."}]}
   ],
   zea: [
-    {tipo:"secuencia", titulo:"Hacia una filosofía sin más", intro:"El argumento de La filosofía americana como filosofía sin más (1969), de la pregunta mal planteada a la consigna final.", nota:"La división en pasos es una reconstrucción; la objeción que la ficha discute es que una desigualdad institucional no desaparece por declararla mal planteada.",
+    {tipo:"polos", titulo:"Superponer o asumir", intro:"Dos maneras de relacionarse con las ideas ajenas y con el propio pasado, según Zea.", polos:{"izq":"Superponer e imitar","der":"Asumir y asimilar"}, nota:"La agrupación en pares es una reconstrucción de Ágora a partir de varias obras de Zea.",
      nodos:[
-      {t:"La pregunta mal planteada", d:"Preguntar si existe una filosofía latinoamericana presupone un tribunal ante el cual habría que acreditarse antes de filosofar."},
-      {t:"El tribunal es histórico", d:"Ese tribunal no es una instancia neutral sino un producto de la colonia, que el colonizado interioriza y sigue administrando por su cuenta."},
-      {t:"Nadie más pidió permiso", d:"Ningún griego se preguntó si había filosofía griega antes de hacerla, ni ningún alemán pidió autorización para pensar desde Königsberg: filosofaban desde su circunstancia."},
-      {t:"Partir de nosotros mismos", d:"Tomar la propia situación histórica y social como punto de partida legítimo, evitando tanto el universalismo abstracto como el particularismo cerrado."},
-      {t:"Lo americano por añadidura", d:"Hay que hacer pura y simplemente filosofía sobre problemas reales; lo americano aparecerá como resultado del trabajo honesto y no como propósito."}]},
-    {tipo:"polos", titulo:"Zea y Dussel: tres diferencias", intro:"En qué se separa Zea de la Filosofía de la Liberación de Dussel, que se formó leyéndolo y comparte su diagnóstico de la dependencia.", polos:{"izq":"Zea","der":"Dussel"},
-     nodos:[
-      {a:"América como conciencia histórica", b:"La víctima, el excluido", d:"El sujeto del filosofar: para Zea, un nosotros cultural americano amplio; para Dussel, el oprimido, categoría que corta transversalmente ese nosotros y lo divide."},
-      {a:"Participar en Occidente", b:"Exterioridad y transmodernidad", d:"Para Zea, América Latina es parte de Occidente y debe participar en él con voz propia; Dussel propone un exterior que no se define desde el proyecto moderno."},
-      {a:"Ser reconocida filosofía sin más", b:"Sospechar del reconocimiento", d:"Zea busca la incorporación en pie de igualdad; Dussel sospecha que el reconocimiento es la trampa, porque lo otorga el mismo centro que produjo la exclusión."}]}
+      {a:"Adoptar una doctrina por su prestigio", b:"Usarla para un problema propio", d:"Imitar es tomar una teoría como moda; asimilar es usarla como instrumento, aunque en ese uso se transforme."},
+      {a:"Negar el pasado y empezar de cero", b:"Hacerse cargo del pasado para superarlo", d:"Cada generación quiso borrar la anterior; Zea propone el proyecto asuntivo: integrar lo vivido en lugar de taparlo."},
+      {a:"Pedir permiso para filosofar", b:"Partir de la propia circunstancia", d:"Acreditarse ante un tribunal ajeno o pensar, como cualquier filósofo, desde la situación en que uno está."},
+      {a:"Buscar una filosofía exótica", b:"Hacer filosofía sin adjetivo", d:"Lo americano no se busca como tema ni como diferencia pintoresca: aparece en el trabajo honesto sobre problemas reales."}]}
   ],
   fanon: [
-    {tipo:"secuencia", titulo:"Las tres fases del intelectual colonizado", intro:"Los momentos que Fanon distingue en «Sobre la cultura nacional», en Los condenados de la tierra, para la relación del intelectual colonizado con su cultura.", nota:"Fanon presenta las fases como un esquema para orientarse, no como una ley: un mismo escritor puede mezclarlas o quedarse en una.",
+    {tipo:"secuencia", titulo:"La experiencia vivida del negro", intro:"El movimiento del capítulo quinto de Piel negra, máscaras blancas: de un cuerpo que se vive con naturalidad a la búsqueda, una tras otra, de salidas que fallan.", nota:"Las etapas siguen el orden del capítulo, pero los rótulos son de Ágora. El filósofo de la cuarta etapa es Sartre, en «Orfeo negro» (1948).",
      nodos:[
-      {t:"Asimilación", d:"El intelectual demuestra que ha asimilado la cultura del colonizador: escribe como los autores de la metrópoli y busca su aprobación."},
-      {t:"Rememoración", d:"Inquieto, decide recordar quién es: vuelve a las leyendas, al folclor y a un pasado idealizado, a menudo mirándolos con ojos de extranjero."},
-      {t:"Combate", d:"Se une a la lucha de su pueblo y produce una literatura de combate, nacional y revolucionaria, que despierta al pueblo en vez de exhibirlo."}]},
-    {tipo:"polos", titulo:"Hegel y la situación colonial", intro:"Piel negra, máscaras blancas, capítulo 7: por qué la dialéctica del señor y el siervo no se cumple tal cual entre el amo colonial y el colonizado.", polos:{"izq":"Hegel: señor y siervo","der":"Fanon: amo colonial y colonizado"}, nota:"La comparación la hace Fanon en el texto y en una nota al pie; la disposición en pares es de Ágora.",
-     nodos:[
-      {a:"El señor busca reconocimiento", b:"El amo busca el trabajo del esclavo", d:"En Hegel la lucha es por ser reconocido; Fanon dice que el amo colonial se ríe de la conciencia del esclavo y solo quiere su trabajo."},
-      {a:"Reciprocidad que puede invertirse", b:"Relación sin reciprocidad", d:"La dialéctica hegeliana avanza porque el reconocimiento tiene que ser mutuo; en la colonia esa exigencia no rige para el amo."},
-      {a:"El siervo se vuelca hacia el objeto", b:"El esclavo se vuelve hacia el amo", d:"El siervo hegeliano se forma trabajando la cosa; según Fanon, el esclavo antillano abandona el objeto y quiere ser como el amo."},
-      {a:"Libertad conquistada en la lucha", b:"Libertad otorgada por decreto", d:"En las Antillas la abolición llegó desde París en 1848: según Fanon, el negro fue actuado y esa libertad le resultó ajena."}]}
+      {t:"Un cuerpo que se orienta en el mundo", d:"Antes del encuentro, el cuerpo se vive como cualquiera: un esquema con el que uno se mueve, alcanza las cosas y cruza la calle sin pensarlo."},
+      {t:"«¡Mira, un negro!»: objeto entre objetos", d:"Un niño lo señala y el esquema corporal se derrumba: aparece el esquema histórico-racial y Fanon se descubre definido por su piel."},
+      {t:"Apelar a la razón y a la ciencia", d:"Intenta probar que no hay inferioridad: los argumentos y los datos le dan la razón, pero la mirada de los otros no cambia."},
+      {t:"Refugio en la negritud", d:"Busca entonces el orgullo: un pasado, una cultura y una sensibilidad negras que el desprecio colonial había negado."},
+      {t:"La negritud vuelta una etapa", d:"Un filósofo blanco presenta esa negritud como un momento pasajero de una dialéctica; Fanon siente que le quitan la experiencia que necesitaba vivir."},
+      {t:"Sin salida: el llanto", d:"El capítulo termina sin solución: entre la nada y lo infinito, Fanon se echa a llorar. La salida la buscará el resto del libro."}]}
   ],
   kusch: [
-    {tipo:"polos", titulo:"El ser y el estar", intro:"Las dos actitudes ante la vida que Kusch contrapone en América profunda.", polos:{"izq":"Ser","der":"Estar"}, nota:"Kusch no los presenta como bandos: su fórmula final, el estar siendo, los une. Ordenarlos en pares es una síntesis de Ágora.",
+    {tipo:"polos", titulo:"Dos actitudes ante la vida", intro:"Kusch contrapone el ser y el estar. Ubicá a cada lado lo que corresponde a cada actitud.", polos:{"izq":"Ser","der":"Estar"}, nota:"Los pares son de Kusch, pero ordenarlos en dos columnas acentúa el dualismo que sus críticos le reprochan; él mismo sostiene que en América el ser ocurre sobre un fondo de estar (estar siendo).",
      nodos:[
-      {a:"Ser alguien", b:"Estar aquí, nomás", d:"El ciudadano necesita afirmarse y llegar a ser alguien; el estar se sabe situado en un lugar, sin esa urgencia."},
-      {a:"Pulcritud", b:"Hedor", d:"La limpieza de objetos e ideas protege al ciudadano; lo que queda fuera de ella lo percibe como hedor."},
-      {a:"Dominar objetos", b:"Buscar amparo", d:"El ser se defiende de lo imprevisible dominándolo; el estar busca un equilibrio con fuerzas que no domina."},
-      {a:"Pensar causal", b:"Pensar seminal", d:"Uno busca causas para intervenir; el otro se pregunta cómo hacer que la vida germine y dé fruto."},
-      {a:"La ciudad", b:"El altiplano y el pueblo", d:"Los lugares donde Kusch encuentra cada actitud, aunque sostiene que las dos están en toda vida humana."}]},
-    {tipo:"secuencia", titulo:"El recorrido de América profunda", intro:"De la incomodidad del viajero a la tesis sobre el sentido de América.", nota:"El orden reconstruye la marcha del argumento del libro; es una lectura de Ágora, no una división del autor.",
-     nodos:[
-      {t:"El viajero siente hedor", d:"El porteño llega al altiplano y percibe ese mundo como sucio y amenazante."},
-      {t:"El hedor delata un miedo", d:"La reacción habla del ciudadano: teme quedar a la intemperie, reducido al mero estar."},
-      {t:"Dos respuestas al miedo", d:"El ciudadano lo tapa con pulcritud y objetos; el mundo andino lo enfrenta con el rito y el equilibrio."},
-      {t:"Ser y estar", d:"De ese contraste salen las dos actitudes ante la vida que organizan el libro."},
-      {t:"La fagocitación", d:"Por debajo del progreso, el estar absorbe al ser importado y lo vive a su manera."}]}
+      {a:"La ciudad pulcra", b:"El altiplano y el mercado", d:"Dónde ubica Kusch cada actitud: el centro de la ciudad moderna frente al mundo indígena y popular."},
+      {a:"Dominar objetos", b:"Buscar amparo", d:"Ante lo imprevisible, uno se protege acumulando cosas y proyectos; el otro busca equilibrio y amparo en un mundo que no controla."},
+      {a:"Pensamiento causal", b:"Pensamiento seminal", d:"Buscar causas para intervenir, o preguntarse cómo hacer que la vida germine y dé fruto."},
+      {a:"La técnica", b:"El rito", d:"El medio con que cada actitud enfrenta el miedo a la intemperie."}]}
   ],
   salazarbondy: [
-    {tipo:"secuencia", titulo:"De la dominación a la autenticidad posible", intro:"El razonamiento de ¿Existe una filosofía de nuestra América? (1968), del hecho histórico a la salida que propone.", nota:"La división en pasos es una reconstrucción de Ágora. El paso más discutido es el que va de la dominación social a la conciencia engañada.",
+    {tipo:"secuencia", titulo:"Del diagnóstico a la salida", intro:"El argumento de ¿Existe una filosofía de nuestra América?, desde la causa histórica hasta la salida que propone.", nota:"El orden en cinco pasos es una reconstrucción del argumento del libro, no una división que haga el autor.",
      nodos:[
-      {t:"Una filosofía de importación", d:"Cada corriente llega de Europa, se adopta con retraso, se comenta y se abandona cuando llega la siguiente, sin formar tradición propia."},
-      {t:"Una sociedad dependiente", d:"La economía, la política y la cultura de la región se organizan en función de centros de poder externos."},
-      {t:"Una conciencia engañada", d:"Una cultura de la dominación piensa con las categorías del dominador y mira lo propio como atraso: la imitación es un síntoma, no un vicio individual."},
-      {t:"Pensar la propia dominación", d:"La filosofía puede ser auténtica ya si toma la dominación como su problema y desmonta las ideas que la presentan como natural."},
-      {t:"Contribuir a superarla", d:"La autenticidad plena va junto con un cambio histórico: por eso el diagnóstico desemboca en un programa de liberación."}]},
-    {tipo:"polos", titulo:"La polémica de 1968-1969", intro:"Dónde se separan Salazar Bondy y Zea, que comparten el diagnóstico de la dependencia del pensamiento latinoamericano.", polos:{"izq":"Salazar Bondy","der":"Zea"},
-     nodos:[
-      {a:"Todavía no hay filosofía auténtica", b:"La pregunta está mal planteada", d:"Salazar Bondy responde que no a la pregunta por una filosofía propia; Zea sostiene que la pregunta misma presupone un tribunal que no hay que aceptar."},
-      {a:"Las condiciones deforman la conciencia", b:"Toda filosofía parte de una circunstancia", d:"Para Salazar Bondy, pensar desde una circunstancia dominada no garantiza nada; para Zea, pensar con rigor la propia circunstancia es lo que hizo cualquier filosofía."},
-      {a:"Autenticidad junto con la liberación", b:"Autenticidad por el trabajo riguroso", d:"Salazar Bondy liga la autenticidad a superar la dependencia; Zea la pone en algo que se puede hacer ahora: filosofar sin pedir permiso."}]}
+      {t:"Dependencia", d:"Las sociedades latinoamericanas son subdesarrolladas y su economía y su política se organizan en función de centros externos."},
+      {t:"Cultura de la dominación", d:"La sujeción se reproduce por dentro: las élites toman como modelo lo que viene del centro y miran lo propio como atraso."},
+      {t:"Filosofía imitativa", d:"Se adoptan doctrinas de prestigio sin preguntar a qué problemas responden, y sin formar una tradición propia."},
+      {t:"Conciencia mistificada", d:"Al pensar con categorías ajenas, la filosofía da una imagen falsa de su realidad y de sí misma."},
+      {t:"Conciencia crítica de la dominación", d:"La filosofía toma esa situación como problema, la piensa con rigor y contribuye a superarla: así puede volverse auténtica."}]}
   ],
   freire: [
     {tipo:"secuencia", titulo:"El método de las palabras generadoras", intro:"Los pasos del método de alfabetización de adultos, tal como Freire lo describe en La educación como práctica de la libertad.", nota:"Freire insistía en que no es una técnica aislable: si se aplican los pasos sin diálogo, el método se vuelve bancario.",

@@ -686,46 +686,37 @@ const TERMINOS = {
     {q:"¿Qué sobrevive de la colonia en la sierra peruana, según el esquema económico de Mariátegui?"}
   ],
   zea: [
-    {k:"filosofía sin más", tapar:["filosofía a secas","sin adjetivo"]},
-    {k:"conciencia histórica", tapar:["conciencia"]},
-    {k:"colonialismo mental", tapar:["dependencia intelectual"]},
-    {k:"partir de nosotros mismos", tapar:[]},
-    {q:"¿Cómo responde Zea al lugar que Hegel le asigna a América en la historia universal?"},
-    {k:"asimilismo", tapar:["mentalidad imitativa"]},
-    {q:"¿En qué coinciden y en qué difieren Zea y la Filosofía de la Liberación de Dussel?"},
-    {q:"¿Qué toma y qué rechaza Zea del marxismo, de la Escuela de Frankfurt y del indigenismo?"},
-    {q:"¿Qué hizo Zea institucionalmente para que la historia de las ideas latinoamericanas fuera una disciplina?"}
+    {k:"circunstancia", tapar:["circunstancias"]},
+    {k:"filosofía sin más", tapar:["sin adjetivo","pura y simplemente filosofía"]},
+    {q:"¿Qué distingue Zea entre adoptar una doctrina extranjera por su prestigio y usarla para un problema propio?"},
+    {q:"¿Cómo describe Zea la manera en que cada generación latinoamericana trató su propio pasado, y qué propone en su lugar?"},
+    {k:"conciencia", tapar:[]}
   ],
   fanon: [
-    {q:"¿Qué descubre Fanon en «La experiencia vivida del negro» cuando la mirada de un niño lo señala?"},
-    {k:"epidermización", tapar:["sociogenia"]},
-    {q:"¿Por qué, según Fanon, dominar a la perfección el francés no libera al antillano colonizado?"},
-    {q:"¿Qué significa la imagen de las «máscaras blancas», y qué dos salidas falsas rechaza Fanon?"},
-    {q:"¿Por qué, según Fanon, la dialéctica hegeliana del amo y el esclavo no se cumple en la situación colonial?"},
-    {k:"negritud", tapar:[]},
-    {q:"¿Qué aprendió Fanon como psiquiatra en Blida, y por qué renunció en 1956?"},
-    {q:"¿Cómo describe Fanon el mundo colonial en «Sobre la violencia», y qué dice y qué no dice sobre la violencia?"},
-    {k:"burguesía nacional", tapar:["burguesía"]},
-    {k:"nuevo humanismo", tapar:["humanismo","hombre nuevo"]}
+    {k:"esquema histórico-racial", tapar:["histórico-racial","historico-racial"]},
+    {k:"epidermización", tapar:["epidermizacion","piel"]},
+    {k:"sociogenia", tapar:["social e histórico"]},
+    {q:"¿Qué nombre recibe la promesa colonial de igualdad para quien adopte la lengua y las maneras de la metrópoli, que Fanon describe como una máscara blanca?"},
+    {k:"reconocimiento", tapar:["reconocida","reconocido"]},
+    {q:"¿Qué movimiento de Césaire, Senghor y Damas reivindicó la cultura negra, y Fanon aceptó como momento necesario pero no como meta?"},
+    {k:"descolonización", tapar:["descolonizacion"]},
+    {k:"burguesía", tapar:["burguesia"]},
+    {k:"hombre nuevo", tapar:["humanismo"]}
   ],
   kusch: [
-    {q:"¿Qué dos actitudes ante la vida nombra Kusch aprovechando que el castellano tiene dos verbos donde otras lenguas tienen uno?"},
-    {k:"hedor", tapar:["hedor de América","pulcritud"]},
-    {q:"¿Qué teme, según Kusch, el ciudadano que se rodea de objetos e instituciones, y cómo enfrenta ese mismo temor el mundo andino?"},
-    {k:"fagocitación", tapar:["fagocitar","Fagocitar","fagocitando"]},
-    {k:"estar siendo", tapar:[]},
-    {q:"¿Dónde buscó Kusch un pensamiento que la universidad no reconocía, y qué lógica distinta de la científica creyó encontrar allí?"},
-    {k:"geocultura", tapar:["Geocultura"]},
-    {q:"¿Qué le reprochan a Kusch sus críticos sobre su manera de presentar al indígena y al pueblo, y qué responden sus defensores?"}
+    {q:"¿Con qué par de verbos del castellano nombra Kusch dos actitudes ante la vida?"},
+    {k:"hedor", tapar:[]},
+    {k:"fagocitación", tapar:["Fagocitar"]},
+    {k:"estar siendo", tapar:["gerundio"]},
+    {k:"seminal", tapar:["germine"]},
+    {q:"¿Cómo llama Kusch a la idea de que todo pensamiento nace de un suelo?"}
   ],
   salazarbondy: [
-    {q:"¿Qué pregunta exactamente Salazar Bondy cuando se pregunta si existe una filosofía de nuestra América, y qué responde?"},
-    {k:"inauténtica", tapar:["inautenticidad","imitativa","imitativo"]},
-    {k:"cultura de la dominación", tapar:["dominada","dominado"]},
-    {q:"Si la inautenticidad viene de la dominación, ¿cómo puede la filosofía volverse auténtica sin esperar a que termine la dependencia?"},
-    {q:"¿En qué coinciden y en qué se separan Salazar Bondy y Zea en la polémica de 1968-1969?"},
-    {q:"¿Cómo se relaciona Salazar Bondy con la filosofía analítica, y qué tensión plantea eso con su tesis central?"},
-    {q:"¿Qué papel tuvo Salazar Bondy en la reforma educativa del gobierno de Velasco, y qué pregunta deja?"}
+    {k:"autenticidad", tapar:["auténtica","auténtico","inautenticidad","inauténtica"]},
+    {k:"filosofía imitativa", tapar:["imitación","imitativa","imitar"]},
+    {k:"mistificación", tapar:["mistificado","mistificada"]},
+    {k:"cultura de la dominación", tapar:["dominación","dominada","dominador"]},
+    {q:"¿Cómo puede volverse auténtica, según Salazar Bondy, una filosofía hecha en medio de la dependencia?"}
   ],
   freire: [
     {k:"educación bancaria", tapar:["bancaria"]},
