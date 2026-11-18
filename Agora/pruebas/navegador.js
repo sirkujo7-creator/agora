@@ -178,6 +178,22 @@ function servidor(){
   comprobar(puntos === nFichas - 1 && resaltados >= 2, `el mapa muestra ${puntos} fichas y resalta una constelación (${resaltados} puntos)`);
   comprobar(casosOk === casos && ejesOk === ejes, `${consts.length} constelaciones: ${casosOk}/${casos} casos aceptan su respuesta y ${ejesOk}/${ejes} ejes se resuelven`);
 
+  // 6c. Mapas: la línea de tiempo mueve filósofos, poderes y hechos; tocar un punto o un hecho abre su tarjeta
+  await p.click('#mainTabs button[data-tab="mapas"]');
+  await p.evaluate(() => { mapaRegion = "medit"; renderMapas(); mapaMover(-540); });
+  const mTales = await p.locator('#mapaSvg .mfilo:not(.tenue) text', { hasText: "Tales" }).count();
+  const mPoderes = await p.locator("#mapaSvg .mpoder").count();
+  await p.locator('#mapaSvg .mfilo:not(.tenue)').first().click();
+  const mCard = await p.locator("#mapaSel .mapacard").count();
+  await p.evaluate(() => mapaMover(-490));
+  const mEv = await p.locator("#mapaEventos .mapaev").count();
+  await p.locator("#mapaEventos .mapaev").first().click();
+  const mEvCard = (await p.textContent("#mapaSel")).length > 40;
+  const mTodas = await p.evaluate(() => MAPA_EPOCAS.every(e => { mapaMover(e.desde); return document.querySelectorAll("#mapaSvg .mpoder").length === e.poderes.length; }));
+  await p.evaluate(() => { mapaRegion = "mundo"; renderMapas(); mapaMover(1950); });
+  const mVivos1950 = await p.locator('#mapaSvg .mfilo:not(.tenue)').count();
+  comprobar(mTales === 1 && mPoderes > 0 && mCard === 1 && mEv > 0 && mEvCard && mTodas && mVivos1950 > 5, `mapas: Tales en -540 (${mPoderes} poderes), tarjetas de filósofo y de hecho, todas las épocas se dibujan, ${mVivos1950} vivos en 1950`);
+
   // 6b. Corrientes: el río, cada corriente abre con sus fichas, el ejercicio de la intrusa y el juego
   const corrs = await p.evaluate(() => CORRIENTES.map(c => ({ id: c.id, n: c.autores.length })));
   await p.click('#mainTabs button[data-tab="corrientes"]');

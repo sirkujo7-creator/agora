@@ -38,8 +38,8 @@ for (const trad of fs.readdirSync(dirMod)) for (const f of fs.readdirSync(path.j
 if (errores.length) fin();
 
 const ctx = {}; vm.createContext(ctx);
-vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, DIAGRAMAS: typeof DIAGRAMAS==='undefined' ? null : DIAGRAMAS, TEXTOS: typeof TEXTOS==='undefined' ? null : TEXTOS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS, CORRIENTES: typeof CORRIENTES==='undefined' ? null : CORRIENTES, REPASO: typeof REPASO==='undefined' ? null : REPASO};", ctx);
-const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, VIDAS, DIAGRAMAS, TEXTOS, EXAMEN_FINAL, CLAVES, TERMINOS, CORRIENTES, REPASO } = ctx.__d;
+vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, DIAGRAMAS: typeof DIAGRAMAS==='undefined' ? null : DIAGRAMAS, TEXTOS: typeof TEXTOS==='undefined' ? null : TEXTOS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS, CORRIENTES: typeof CORRIENTES==='undefined' ? null : CORRIENTES, REPASO: typeof REPASO==='undefined' ? null : REPASO, MAPA: typeof MAPA_LUGARES==='undefined' ? null : {L:MAPA_LUGARES, V:MAPA_VIAJES, E:MAPA_EVENTOS, P:MAPA_EPOCAS, T:typeof MAPA_TIERRA==='string'}};", ctx);
+const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, VIDAS, DIAGRAMAS, TEXTOS, EXAMEN_FINAL, CLAVES, TERMINOS, CORRIENTES, REPASO, MAPA } = ctx.__d;
 
 const ids = new Set();
 for (const m of MODULES) {
@@ -272,11 +272,28 @@ if (REPASO) Object.entries(REPASO).forEach(([id, qs]) => {
   });
 });
 
+// Mapas (datos/mapas.js): cada ficha con su lugar y sus años, épocas contiguas, viajes y hechos con fichas que existen.
+if (MAPA) {
+  const ids = new Set(MODULES.filter(m => m.trad !== "metodo").map(m => m.id)), coord = (lat, lon) => typeof lat === "number" && typeof lon === "number" && Math.abs(lat) <= 90 && Math.abs(lon) <= 180;
+  if (!MAPA.T) err("mapas: falta MAPA_TIERRA (datos/mapa-base.js)");
+  ids.forEach(id => { const l = MAPA.L[id]; if (!l) return err(`mapas: ${id} sin lugar`);
+    if (!l.lugar || !coord(l.lat, l.lon) || !(l.nace < l.muere)) err(`mapas: lugar de ${id} incompleto`);
+    (l.otros || []).forEach(o => { if (!o.lugar || !o.nota || !coord(o.lat, o.lon)) err(`mapas: otro lugar de ${id} incompleto`); }); });
+  Object.keys(MAPA.L).forEach(id => { if (!ids.has(id)) err(`mapas: lugar de una ficha que no existe (${id})`); });
+  MAPA.P.forEach((e, i) => { if (i && e.desde !== MAPA.P[i - 1].hasta) err(`mapas: hueco entre épocas en ${e.desde}`);
+    if (!e.titulo || !e.texto || !(e.desde < e.hasta)) err(`mapas: época ${i} incompleta`);
+    (e.poderes || []).forEach(p => { if (!p.nombre || !Array.isArray(p.poly) || p.poly.length < 3 || p.poly.some(([lo, la]) => !coord(la, lo))) err(`mapas: poder «${p.nombre}» mal dibujado`); }); });
+  MAPA.V.forEach(v => { if (!ids.has(v.mod) || !v.titulo || !v.texto || !Array.isArray(v.ruta) || v.ruta.length < 2 || v.ruta.some(([lo, la]) => !coord(la, lo))) err(`mapas: viaje «${v.titulo}» incompleto`); });
+  MAPA.E.forEach(v => { if (!v.titulo || !v.texto || !coord(v.lat, v.lon) || typeof v.anio !== "number") err(`mapas: hecho «${v.titulo}» incompleto`);
+    (v.fichas || []).forEach(f => { if (!ids.has(f)) err(`mapas: el hecho «${v.titulo}» nombra una ficha que no existe (${f})`); }); });
+}
+
 const conEj = MODULES.filter(m => m.cadena && (m.reconstruccion || []).length && (m.dilemas || []).length).map(m => m.id);
 console.log(`Fichas: ${MODULES.length} · con los 3 ejercicios avanzados: ${conEj.length}`);
 console.log(`Pendientes de ejercicios avanzados: ${MODULES.filter(m => !conEj.includes(m.id)).map(m => m.id).join(", ") || "ninguna"}`);
 console.log(`Constelaciones: ${CONSTELACIONES.length} · casos: ${CONSTELACIONES.reduce((n, c) => n + (c.preguntas || [c.pregunta]).length, 0)} · con eje: ${CONSTELACIONES.filter(c => c.eje).length}`);
 if (CORRIENTES) console.log(`Corrientes: ${CORRIENTES.length} · con ficha: ${new Set(CORRIENTES.flatMap(c => c.autores.map(a => a.mod))).size} fichas enlazadas`);
+if (MAPA) console.log(`Mapas: ${Object.keys(MAPA.L).length} lugares · ${MAPA.P.length} épocas · ${MAPA.V.length} viajes · ${MAPA.E.length} hechos`);
 if (EXAMEN_FINAL) console.log(`Examen final: ${EXAMEN_FINAL.seleccion.length} de selección · ${EXAMEN_FINAL.vf.length} de verdadero o falso · ${EXAMEN_FINAL.emparejar.length} ideas para emparejar`);
 fin();
 
