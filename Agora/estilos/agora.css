@@ -818,8 +818,11 @@ footer{font-family:var(--font-ui);}
 .mapaanio b{font-family:var(--font-display);font-weight:400;font-size:1.3rem;color:var(--ink);}
 .mapamarco{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow);}
 .mapasvg{display:block;width:100%;height:auto;aspect-ratio:16/9;max-height:72vh;}
-.mapasvg .mmar{fill:var(--eu-soft);}
-.mapasvg .mtierra{fill:var(--surface-2);stroke:var(--line-strong);}
+.mapasvg{--mar:#DCE6F0;--tierra:#EFE6D4;--costa:#C9BBA0;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .mapasvg{--mar:#16202C;--tierra:#3B3428;--costa:#5A5040;}}
+:root[data-theme="dark"] .mapasvg{--mar:#16202C;--tierra:#3B3428;--costa:#5A5040;}
+.mapasvg .mmar{fill:var(--mar);}
+.mapasvg .mtierra{fill:var(--tierra);stroke:var(--costa);}
 .mapasvg .mpoder polygon{fill-opacity:.13;stroke-opacity:.55;stroke-dasharray:none;stroke-linejoin:round;}
 .mapasvg .mpodernom{font-family:var(--font-display);text-anchor:middle;opacity:.85;pointer-events:none;}
 .mapasvg .mviaje{fill:none;stroke:var(--accent);opacity:.8;cursor:pointer;}

@@ -7,7 +7,7 @@ const polys=[];for(const f of geo.features){const g=f.geometry;(g.type==="Polygo
 const area=r=>{let a=0;for(let i=0;i<r.length;i++){const[x1,y1]=r[i],[x2,y2]=r[(i+1)%r.length];a+=x1*y2-x2*y1;}return Math.abs(a/2);};
 const enDet=r=>r.some(([lo,la])=>lo>-12&&lo<75&&la>20&&la<62);
 let d="",n=0;
-for(const p of polys){const r=p[0]; if(Math.max(...r.map(c=>c[1]))<-56) continue;
+for(const p of polys){let r=p[0]; if(r.some((c,i)=>i&&Math.abs(c[0]-r[i-1][0])>180)) r=r.map(([lo,la])=>[lo<-150?lo+360:lo,la]); if(Math.max(...r.map(c=>c[1]))<-56) continue;
   const a=area(r); if(a<(enDet(r)?0.02:0.6)) continue;
   // simplify: drop points closer than tol to previous
   const tol=enDet(r)?0.12:0.35; const out=[];let last=null;
