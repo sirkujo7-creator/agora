@@ -277,7 +277,7 @@ if (MAPA) {
   const ids = new Set(MODULES.filter(m => m.trad !== "metodo").map(m => m.id)), coord = (lat, lon) => typeof lat === "number" && typeof lon === "number" && Math.abs(lat) <= 90 && Math.abs(lon) <= 180;
   if (!MAPA.T) err("mapas: falta MAPA_TIERRA (datos/mapa-base.js)");
   ids.forEach(id => { const l = MAPA.L[id]; if (!l) return err(`mapas: ${id} sin lugar`);
-    if (!l.lugar || !coord(l.lat, l.lon) || !(l.nace < l.muere)) err(`mapas: lugar de ${id} incompleto`);
+    if (!l.lugar || !coord(l.lat, l.lon) || !(l.muere == null || l.nace < l.muere)) err(`mapas: lugar de ${id} incompleto`);
     (l.otros || []).forEach(o => { if (!o.lugar || !o.nota || !coord(o.lat, o.lon)) err(`mapas: otro lugar de ${id} incompleto`); }); });
   Object.keys(MAPA.L).forEach(id => { if (!ids.has(id)) err(`mapas: lugar de una ficha que no existe (${id})`); });
   MAPA.P.forEach((e, i) => { if (i && e.desde !== MAPA.P[i - 1].hasta) err(`mapas: hueco entre épocas en ${e.desde}`);

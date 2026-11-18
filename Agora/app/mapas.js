@@ -29,11 +29,11 @@ function mapaAnioTxt(a){ return a < 0 ? `${-a} a.C.` : `${a}`; }
 function mapaEpoca(a){ const E = mapaDatos().epocas; return E.find(e=>a >= e.desde && a < e.hasta) || E[E.length-1]; }
 function mapaVivos(a){
   const L = mapaDatos().lugares;
-  return MODULES.filter(m=>L[m.id] && L[m.id].nace <= a && a <= L[m.id].muere);
+  return MODULES.filter(m=>L[m.id] && L[m.id].nace <= a && (L[m.id].muere == null || a <= L[m.id].muere));
 }
 function mapaPasados(a){
   const L = mapaDatos().lugares;
-  return MODULES.filter(m=>L[m.id] && L[m.id].muere < a);
+  return MODULES.filter(m=>L[m.id] && L[m.id].muere != null && L[m.id].muere < a);
 }
 /* Eventos visibles: los de la época actual. */
 function mapaEventos(a){
