@@ -144,6 +144,7 @@ const TABS = [
   {id:"inicio", label:"Inicio"},
   {id:"modulos", label:"Fichas"},
   {id:"corrientes", label:"Corrientes"},
+  {id:"mapas", label:"Mapas"},
   {id:"constelaciones", label:"Constelaciones"},
   {id:"examenes", label:"Exámenes"},
   {id:"consejos", label:"Tips"},
@@ -167,6 +168,8 @@ function showView(id){
   /* El examen final no tiene cronómetro, pero si se sale a mitad se descarta, igual que el otro. */
   if(id !== "examenes" && finalState) cerrarExamenFinal();
   if(id === "constelaciones"){ constelActual = null; renderConstelaciones(); }
+  if(id === "mapas" && typeof renderMapas === "function") renderMapas();
+  if(id !== "mapas" && typeof mapaPlay !== "undefined" && mapaPlay){ clearInterval(mapaPlay); mapaPlay = null; }
   if(id === "corrientes" && typeof renderCorrientes === "function"){ corrActual = null; corrJuego = null; renderCorrientes(); }
   $all(".view").forEach(v=>v.classList.remove("active"));
   const v = document.getElementById("view-"+id);
