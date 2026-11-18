@@ -863,3 +863,5 @@ footer{font-family:var(--font-ui);}
 .mleytrad i,.mleysw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px;}
 .mleysw{border-radius:3px;opacity:.7;flex:none;}
 .mapapoderes li{line-height:1.35;}
+.mapasvg .mpoderfecha{font-family:var(--font-ui);opacity:.8;}
+@media (max-width:640px){.mapasvg{aspect-ratio:1/1;max-height:none;}}
