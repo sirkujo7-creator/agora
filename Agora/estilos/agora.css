@@ -846,3 +846,20 @@ footer{font-family:var(--font-ui);}
 .mapacard{margin-top:12px;}
 .mapacard.guerra{border-left:4px solid var(--bad);}
 .mapaotros{margin:6px 0 8px 18px;padding:0;font-size:.95rem;}
+.mapacapas{margin:0 0 10px;}
+.mapasvg .mregion{font-family:var(--font-display);font-style:italic;fill:var(--ink-soft);text-anchor:middle;letter-spacing:.04em;opacity:.8;pointer-events:none;paint-order:stroke;stroke:var(--tierra);stroke-width:.3;}
+.mapasvg .mpodernom{paint-order:stroke;stroke:var(--tierra);stroke-width:.35;letter-spacing:.02em;}
+.mapaleyenda{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:12px 0;}
+.mapaconv,.mapapoderes{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:10px 14px;font-family:var(--font-ui);font-size:.86rem;}
+.mapaconv summary{cursor:pointer;font-weight:600;}
+.mapapoderes h4{margin:0 0 6px;font-family:var(--font-ui);font-size:.9rem;}
+.mleylista,.mapapoderes ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px;}
+.mleylista li{display:flex;gap:10px;align-items:flex-start;line-height:1.35;}
+.mleylista svg{flex:none;margin-top:1px;}
+.mleypoder{fill:var(--accent);fill-opacity:.15;stroke:var(--accent);stroke-opacity:.6;}
+.mleyregion{font-family:var(--font-display);font-style:italic;font-size:11px;fill:var(--ink-soft);}
+.mleyviaje{stroke:var(--accent);stroke-width:1.6;stroke-dasharray:4 3;}
+.mleytrads{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;color:var(--ink-soft);}
+.mleytrad i,.mleysw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px;}
+.mleysw{border-radius:3px;opacity:.7;flex:none;}
+.mapapoderes li{line-height:1.35;}

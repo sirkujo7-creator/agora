@@ -6,6 +6,9 @@
    y a quién afectó. Nada de esto se guarda en el progreso. */
 const MAPA_MIN = -650, MAPA_MAX = 2000, MAPA_KX = 0.88;
 let mapaAnio = -550, mapaRegion = "medit", mapaElegido = null, mapaPlay = null;
+/* Capas que se prenden y se apagan; los filósofos ya muertos, apagados al empezar para no llenar el mapa. */
+let mapaCapas = {poderes:true, filos:true, muertos:false, viajes:true, hechos:true};
+const MAPA_CAPAS = [["poderes","Territorios"],["filos","Filósofos vivos"],["muertos","Ya fallecidos"],["viajes","Viajes"],["hechos","Guerras y hechos"]];
 
 /* Regiones: cajas en grados [lon0, lat0, lon1, lat1] (oeste, norte, este, sur). */
 const MAPA_REGIONES = [
@@ -61,9 +64,10 @@ function renderMapas(){
         <button class="btn sm" id="mapaPlayBtn" onclick="mapaReproducir()">${mapaPlay ? "❚❚ Pausa" : "▶ Recorrer"}</button>
       </div>
     </div>
+    <div class="evalrow mapacapas" role="group" aria-label="Qué mostrar">${MAPA_CAPAS.map(([k,l])=>`<button class="chip ${mapaCapas[k]?'active':''}" aria-pressed="${mapaCapas[k]}" onclick="mapaCapa('${k}')">${mapaCapas[k]?'✓ ':''}${l}</button>`).join("")}</div>
     <div class="mapaanio"><span id="mapaAnioTxt"></span> · <b id="mapaEpocaTit"></b></div>
     <div class="mapamarco"><svg id="mapaSvg" class="mapasvg" role="img" aria-label="Mapa histórico"></svg></div>
-    <p class="muted mapanota">Fronteras aproximadas: muestran dónde estaba el poder, no límites exactos. Los puntos tenues son filósofos que ya murieron ese año; las líneas punteadas, sus viajes.</p>
+    <div id="mapaLeyenda" class="mapaleyenda"></div>
     <div id="mapaEpocaTxt" class="lecnote"></div>
     <div id="mapaSel"></div>
     <h3 class="mapah3">Guerras y hechos de esta época</h3>
@@ -71,6 +75,7 @@ function renderMapas(){
   dibujarMapa();
 }
 function mapaIrRegion(k){ mapaRegion = k; renderMapas(); }
+function mapaCapa(k){ mapaCapas[k] = !mapaCapas[k]; renderMapas(); }
 function mapaMover(a){ mapaAnio = Math.max(MAPA_MIN, Math.min(MAPA_MAX, a)); dibujarMapa(); }
 function mapaPaso(dir){
   const E = mapaDatos().epocas, e = mapaEpoca(mapaAnio), i = E.indexOf(e);
@@ -99,10 +104,12 @@ function dibujarMapa(){
   const fs = (px)=>(px*k).toFixed(2);
   const poderes = (e ? e.poderes : []).map((p,i)=>{
     const pts = p.poly.map(([lon,lat])=>mapaP(lon,lat));
-    const cx = pts.reduce((s,q)=>s+q[0],0)/pts.length, cy = pts.reduce((s,q)=>s+q[1],0)/pts.length;
+    const [cx, cy] = p.etiqueta ? mapaP(p.etiqueta[0], p.etiqueta[1]) : [pts.reduce((s,q)=>s+q[0],0)/pts.length, pts.reduce((s,q)=>s+q[1],0)/pts.length];
     return `<g class="mpoder"><polygon points="${mapaPts(p.poly)}" style="fill:${mapaColor(i)};stroke:${mapaColor(i)}" stroke-width="${fs(1.2)}"/>
-      <text x="${cx.toFixed(2)}" y="${cy.toFixed(2)}" font-size="${fs(12)}" class="mpodernom" style="fill:${mapaColor(i)}">${escapeHtml(p.nombre)}</text></g>`;
+      <text x="${cx.toFixed(2)}" y="${cy.toFixed(2)}" font-size="${fs(13)}" class="mpodernom" style="fill:${mapaColor(i)}">${escapeHtml(mapaCorto(p.nombre))}</text></g>`;
   }).join("");
+  const regiones = mapaCapas.poderes && e ? (e.regiones||[]).map(r=>{ const [x,y] = mapaP(r.lon, r.lat);
+    return `<text x="${x.toFixed(2)}" y="${y.toFixed(2)}" font-size="${fs(11)}" class="mregion">${escapeHtml(r.nombre)}</text>`; }).join("") : "";
   const vivosIds = new Set(vivos.map(m=>m.id));
   const viajes = D.viajes.filter(v=>vivosIds.has(v.mod) && mapaAnio >= v.anio - 5 && mapaAnio <= v.anio + 20).map((v,i)=>
     `<polyline class="mviaje" points="${mapaPts(v.ruta)}" stroke-width="${fs(1.6)}" stroke-dasharray="${fs(5)} ${fs(4)}" marker-end="url(#mflecha)" onclick="mapaVerViaje(${D.viajes.indexOf(v)})"><title>${escapeHtml(v.titulo)}</title></polyline>`).join("");
@@ -125,7 +132,8 @@ function dibujarMapa(){
   svg.innerHTML = `<defs><marker id="mflecha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="mflechap"/></marker></defs>
     <rect x="${c.x}" y="${c.y}" width="${c.w}" height="${c.h}" class="mmar"/>
     <path d="${MAPA_TIERRA}" class="mtierra" stroke-width="${fs(0.6)}"/>
-    ${poderes}${viajes}${pasados.map(m=>punto(m,false)).join("")}${eventos}${vivos.slice().sort((a,b)=>(mapaElegido && b.id===mapaElegido.mod) - (mapaElegido && a.id===mapaElegido.mod)).map(m=>punto(m,true)).join("")}`;
+    ${mapaCapas.poderes ? poderes : ""}${regiones}${mapaCapas.viajes ? viajes : ""}${mapaCapas.muertos ? pasados.map(m=>punto(m,false)).join("") : ""}${mapaCapas.hechos ? eventos : ""}${!mapaCapas.filos ? "" : vivos.slice().sort((a,b)=>(mapaElegido && b.id===mapaElegido.mod) - (mapaElegido && a.id===mapaElegido.mod)).map(m=>punto(m,true)).join("")}`;
+  $("#mapaLeyenda").innerHTML = mapaLeyendaHTML(e);
   $("#mapaAnioTxt").textContent = mapaAnioTxt(mapaAnio);
   $("#mapaEpocaTit").textContent = e ? e.titulo : "";
   $("#mapaEpocaTxt").innerHTML = e ? `<b>${mapaAnioTxt(e.desde)} – ${mapaAnioTxt(e.hasta)}</b> · ${escapeHtml(e.texto)}` : "";
@@ -158,4 +166,25 @@ function mapaVerEvento(i){
     ${(v.fichas||[]).length ? `<div class="row">${v.fichas.map(mapaFichaLink).join("")}</div>` : ""}</article>`;
   dibujarMapa();
   $("#mapaSel").scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+
+/* Nombre corto para el mapa: sin la fecha entre paréntesis (va completo en la leyenda). */
+function mapaCorto(n){ return n.replace(/\s*\(.*?\)\s*/g," ").trim(); }
+/* Convenciones: qué significa cada marca y, abajo, los territorios de la época con su color. */
+function mapaLeyendaHTML(e){
+  const icono = svg => `<svg viewBox="0 0 24 16" width="24" height="16" aria-hidden="true">${svg}</svg>`;
+  const trads = Object.keys(LEVELS).filter(t=>t!=="metodo").map(t=>`<span class="mleytrad"><i style="background:var(--${LEVELS[t].clr})"></i>${escapeHtml(LEVELS[t].label)}</span>`).join("");
+  const conv = [
+    [icono(`<rect x="2" y="3" width="20" height="10" rx="2" class="mleypoder"/>`), "Territorio de un poder de la época (fronteras aproximadas: dónde se ejercía el poder, no límites exactos)"],
+    [icono(`<text x="12" y="12" text-anchor="middle" class="mleyregion">Ab</text>`), "Nombre de una región tal como se llamaba entonces"],
+    [icono(`<circle cx="12" cy="8" r="5" style="fill:var(--eu)"/>`), "Filósofo vivo ese año, con el color de su tradición"],
+    [icono(`<circle cx="12" cy="8" r="3" style="fill:var(--eu);opacity:.35"/>`), "Filósofo que ya había muerto (capa «Ya fallecidos»)"],
+    [icono(`<line x1="2" y1="8" x2="20" y2="8" class="mleyviaje"/><path d="M17,4 L22,8 L17,12 z" class="mflechap"/>`), "Viaje que importó para su pensamiento (se muestra cerca del año en que lo hizo)"],
+    [icono(`<rect x="8" y="4" width="8" height="8" transform="rotate(45 12 8)" style="fill:var(--bad)"/>`), "Guerra"],
+    [icono(`<rect x="8" y="4" width="8" height="8" transform="rotate(45 12 8)" style="fill:var(--ink-soft)"/>`), "Otro hecho histórico que cambió lo que se pensaba o escribía"]];
+  const poderes = e && mapaCapas.poderes ? e.poderes.map((p,i)=>`<li><i class="mleysw" style="background:${mapaColor(i)}"></i><b>${escapeHtml(p.nombre)}</b>${p.d ? `: ${escapeHtml(p.d)}` : ""}</li>`).join("") : "";
+  return `<details class="mapaconv" open><summary>Convenciones</summary>
+      <ul class="mleylista">${conv.map(([i,t])=>`<li>${i}<span>${t}</span></li>`).join("")}</ul>
+      <div class="mleytrads">${trads}</div></details>
+    ${poderes ? `<div class="mapapoderes"><h4>Territorios en ${escapeHtml(e.titulo)}</h4><ul>${poderes}</ul></div>` : ""}`;
 }
