@@ -190,9 +190,13 @@ function servidor(){
   await p.locator("#mapaEventos .mapaev").first().click();
   const mEvCard = (await p.textContent("#mapaSel")).length > 40;
   const mTodas = await p.evaluate(() => MAPA_EPOCAS.every(e => { mapaMover(e.desde); return document.querySelectorAll("#mapaSvg .mpoder").length === e.poderes.length; }));
-  await p.evaluate(() => { mapaRegion = "mundo"; renderMapas(); mapaMover(1950); });
+  const vb0 = await p.getAttribute("#mapaSvg", "viewBox");
+  await p.click('.mapazoom button[aria-label="Acercar"]'); await p.waitForTimeout(250);
+  const vb1 = await p.getAttribute("#mapaSvg", "viewBox");
+  const mZoom = +vb1.split(" ")[2] < +vb0.split(" ")[2] * 0.7;
+  await p.evaluate(() => { mapaRegion = "mundo"; mapaVista = null; renderMapas(); mapaMover(1950); });
   const mVivos1950 = await p.locator('#mapaSvg .mfilo:not(.tenue)').count();
-  comprobar(mTales === 1 && mPoderes > 0 && mCard === 1 && mEv > 0 && mEvCard && mTodas && mVivos1950 > 5, `mapas: Tales en -560 (${mPoderes} poderes), tarjetas de filósofo y de hecho, todas las épocas se dibujan, ${mVivos1950} vivos en 1950`);
+  comprobar(mZoom && mTales === 1 && mPoderes > 0 && mCard === 1 && mEv > 0 && mEvCard && mTodas && mVivos1950 > 5, `mapas: se acerca con +, Tales en -560 (${mPoderes} poderes), tarjetas de filósofo y de hecho, todas las épocas se dibujan, ${mVivos1950} vivos en 1950`);
 
   // 6b. Corrientes: el río, cada corriente abre con sus fichas, el ejercicio de la intrusa y el juego
   const corrs = await p.evaluate(() => CORRIENTES.map(c => ({ id: c.id, n: c.autores.length })));

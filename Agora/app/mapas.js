@@ -10,6 +10,8 @@ const MAPA_CORTOS = {tales:"Tales y los milesios", estoicos:"Estoicos", hobbeslo
 const MAPA_MIN = -650, MAPA_MAX = 2000, MAPA_KX = 0.88;
 let mapaAnio = -550, mapaRegion = "medit", mapaElegido = null, mapaPlay = null;
 /* Capas que se prenden y se apagan; los filósofos ya muertos, apagados al empezar para no llenar el mapa. */
+/* Vista acercada o desplazada por la persona (null = la caja de la región). */
+let mapaVista = null, mapaUltima = null, mapaRedibujo = null;
 let mapaCapas = {poderes:true, filos:true, muertos:false, viajes:true, hechos:true};
 const MAPA_CAPAS = [["poderes","Territorios"],["filos","Filósofos vivos"],["muertos","Ya fallecidos"],["viajes","Viajes"],["hechos","Guerras y hechos"]];
 
@@ -70,15 +72,17 @@ function renderMapas(){
     </div>
     <div class="evalrow mapacapas" role="group" aria-label="Qué mostrar">${MAPA_CAPAS.map(([k,l])=>`<button class="chip ${mapaCapas[k]?'active':''}" aria-pressed="${mapaCapas[k]}" onclick="mapaCapa('${k}')">${mapaCapas[k]?'✓ ':''}${l}</button>`).join("")}</div>
     <div class="mapaanio"><span id="mapaAnioTxt"></span> · <b id="mapaEpocaTit"></b></div>
-    <div class="mapamarco"><svg id="mapaSvg" class="mapasvg" role="img" aria-label="Mapa histórico"></svg></div>
+    <div class="mapamarco"><svg id="mapaSvg" class="mapasvg" role="img" aria-label="Mapa histórico: pellizcá o usá + y − para acercar, arrastrá para moverte"></svg>
+      <div class="mapazoom"><button class="btn sm" onclick="mapaZoom(0.6)" aria-label="Acercar">+</button><button class="btn sm" onclick="mapaZoom(1/0.6)" aria-label="Alejar">−</button><button class="btn sm" onclick="mapaVista=null;dibujarMapa()" aria-label="Volver a la región" title="Volver a la región">⟲</button></div></div>
     <div id="mapaLeyenda" class="mapaleyenda"></div>
     <div id="mapaEpocaTxt" class="lecnote"></div>
     <div id="mapaSel"></div>
     <h3 class="mapah3">Guerras y hechos de esta época</h3>
     <div id="mapaEventos" class="mapaeventos"></div>`;
+  mapaGestos($("#mapaSvg"));
   dibujarMapa();
 }
-function mapaIrRegion(k){ mapaRegion = k; renderMapas(); }
+function mapaIrRegion(k){ mapaRegion = k; mapaVista = null; renderMapas(); }
 function mapaCapa(k){ mapaCapas[k] = !mapaCapas[k]; renderMapas(); }
 function mapaMover(a){ mapaAnio = Math.max(MAPA_MIN, Math.min(MAPA_MAX, a)); dibujarMapa(); }
 function mapaPaso(dir){
@@ -102,7 +106,7 @@ function mapaReproducir(){
 
 function dibujarMapa(){
   const svg = $("#mapaSvg"); if(!svg) return;
-  const D = mapaDatos(), c = mapaCaja(svg.clientWidth && svg.clientWidth < 640 ? 1 : 16/9), k = c.w / Math.max(svg.clientWidth || 900, 320);   // k: unidades del mapa por píxel en pantalla
+  const D = mapaDatos(), c = mapaVista || mapaCaja(svg.clientWidth && svg.clientWidth < 640 ? 1 : 16/9); mapaUltima = c; const k = c.w / Math.max(svg.clientWidth || 900, 320);   // k: unidades del mapa por píxel en pantalla
   const e = mapaEpoca(mapaAnio), vivos = mapaVivos(mapaAnio), pasados = mapaPasados(mapaAnio), evs = mapaEventos(mapaAnio);
   svg.setAttribute("viewBox", `${c.x} ${c.y} ${c.w} ${c.h}`);
   const fs = (px)=>(px*k).toFixed(2);
@@ -195,4 +199,50 @@ function mapaLeyendaHTML(e){
       <ul class="mleylista">${conv.map(([i,t])=>`<li>${i}<span>${t}</span></li>`).join("")}</ul>
       <div class="mleytrads">${trads}</div></details>
     ${poderes ? `<div class="mapapoderes"><h4>Territorios en ${escapeHtml(e.titulo)}</h4><ul>${poderes}</ul></div>` : ""}`;
+}
+
+/* --- Acercar y mover, como un mapa de teléfono ---
+   Durante el gesto solo cambia el viewBox (rápido); al soltar se vuelve a dibujar para que los
+   nombres conserven su tamaño en pantalla y aparezcan los que antes no entraban. */
+function mapaPonerVista(v){
+  const svg = $("#mapaSvg"); if(!svg || !v) return;
+  const w = Math.max(2, Math.min(420, v.w)), h = v.h * w / v.w;
+  mapaVista = {x: v.x + (v.w - w)/2, y: v.y + (v.h - h)/2, w, h};
+  svg.setAttribute("viewBox", `${mapaVista.x} ${mapaVista.y} ${mapaVista.w} ${mapaVista.h}`);
+  clearTimeout(mapaRedibujo); mapaRedibujo = setTimeout(dibujarMapa, 160);
+}
+function mapaZoom(f, fx=0.5, fy=0.5){
+  const c = mapaVista || mapaUltima; if(!c) return;
+  const w = Math.max(2, Math.min(420, c.w*f)), h = c.h * w / c.w;
+  mapaPonerVista({x: c.x + (c.w - w)*fx, y: c.y + (c.h - h)*fy, w, h});
+}
+function mapaGestos(svg){
+  if(!svg) return;
+  const pts = new Map(); let movio = false, ini = null;
+  const rel = ev=>{ const r = svg.getBoundingClientRect(); return [(ev.clientX - r.left)/r.width, (ev.clientY - r.top)/r.height]; };
+  svg.addEventListener("wheel", ev=>{ ev.preventDefault(); const [fx,fy] = rel(ev); mapaZoom(Math.exp(ev.deltaY*0.0015), fx, fy); }, {passive:false});
+  svg.addEventListener("pointerdown", ev=>{ pts.set(ev.pointerId, [ev.clientX, ev.clientY]); movio = false;
+    ini = {c: {...(mapaVista || mapaUltima)}, p: [...pts.values()].map(q=>[...q])}; });
+  svg.addEventListener("pointermove", ev=>{
+    if(!pts.has(ev.pointerId) || !ini) return;
+    pts.set(ev.pointerId, [ev.clientX, ev.clientY]);
+    const r = svg.getBoundingClientRect(), u = ini.c.w / r.width, P = [...pts.values()];
+    if(P.length === 1 && ini.p.length === 1){
+      const dx = P[0][0] - ini.p[0][0], dy = P[0][1] - ini.p[0][1];
+      if(Math.hypot(dx, dy) > 5) movio = true;
+      if(movio){ svg.setPointerCapture(ev.pointerId); mapaPonerVista({x: ini.c.x - dx*u, y: ini.c.y - dy*u, w: ini.c.w, h: ini.c.h}); }
+    } else if(P.length >= 2 && ini.p.length >= 2){
+      movio = true;
+      const d0 = Math.hypot(ini.p[0][0]-ini.p[1][0], ini.p[0][1]-ini.p[1][1]), d1 = Math.hypot(P[0][0]-P[1][0], P[0][1]-P[1][1]);
+      const f = d0 / Math.max(d1, 1), m0 = [(ini.p[0][0]+ini.p[1][0])/2 - r.left, (ini.p[0][1]+ini.p[1][1])/2 - r.top];
+      const m1 = [(P[0][0]+P[1][0])/2 - r.left, (P[0][1]+P[1][1])/2 - r.top];
+      const w = ini.c.w*f, h = ini.c.h*f;
+      const gx = ini.c.x + m0[0]*u, gy = ini.c.y + m0[1]*u;           // punto del mapa bajo los dedos al empezar
+      mapaPonerVista({x: gx - m1[0]*(w/r.width), y: gy - m1[1]*(w/r.width), w, h});
+    }
+  });
+  const fin = ev=>{ pts.delete(ev.pointerId); ini = pts.size ? {c: {...(mapaVista || mapaUltima)}, p: [...pts.values()].map(q=>[...q])} : null; };
+  svg.addEventListener("pointerup", fin); svg.addEventListener("pointercancel", fin);
+  // si fue un arrastre, el toque no abre la tarjeta del punto que quedó debajo
+  svg.addEventListener("click", ev=>{ if(movio){ ev.stopPropagation(); ev.preventDefault(); movio = false; } }, true);
 }
