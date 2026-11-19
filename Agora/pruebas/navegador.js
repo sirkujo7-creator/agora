@@ -178,25 +178,25 @@ function servidor(){
   comprobar(puntos === nFichas - 1 && resaltados >= 2, `el mapa muestra ${puntos} fichas y resalta una constelación (${resaltados} puntos)`);
   comprobar(casosOk === casos && ejesOk === ejes, `${consts.length} constelaciones: ${casosOk}/${casos} casos aceptan su respuesta y ${ejesOk}/${ejes} ejes se resuelven`);
 
-  // 6c. Mapas: la línea de tiempo mueve filósofos, poderes y hechos; tocar un punto o un hecho abre su tarjeta
+  // 6c. Mapas: la línea de tiempo mueve filósofos, territorios y hechos; tocar algo abre su desplegable; se acerca
   await p.click('#mainTabs button[data-tab="mapas"]');
-  await p.evaluate(() => { mapaRegion = "medit"; renderMapas(); mapaMover(-560); });
-  const mTales = await p.locator('#mapaSvg .mfilo:not(.tenue) text', { hasText: "Tales" }).count();
+  await p.evaluate(() => { mapaRegion = "medit"; mapaVista = null; renderMapas(); mapaMover(-560); });
+  const mTales = await p.locator('#mapaCapaTxt .mnom.filo', { hasText: "Tales" }).count();
   const mPoderes = await p.locator("#mapaSvg .mpoder").count();
-  await p.locator('#mapaSvg .mfilo:not(.tenue)').first().click();
-  const mCard = await p.locator("#mapaSel .mapacard").count();
+  await p.locator('#mapaCapaTxt .mpunto').first().click();
+  const mAbierto = await p.locator("#mapaPaneles .mapaitem.sel[open]").count();
   await p.evaluate(() => mapaMover(-490));
-  const mEv = await p.locator("#mapaEventos .mapaev").count();
-  await p.locator("#mapaEventos .mapaev").first().click();
-  const mEvCard = (await p.textContent("#mapaSel")).length > 40;
-  const mTodas = await p.evaluate(() => MAPA_EPOCAS.every(e => { mapaMover(e.desde); return document.querySelectorAll("#mapaSvg .mpoder").length === e.poderes.length; }));
+  const mEv = await p.locator("#ms-hechos .mapaitem").count();
+  await p.locator("#mapaCapaTxt .mrombo").first().click();
+  const mEvAbierto = (await p.locator("#mapaPaneles .mapaitem.sel[open] .mapaitemtxt").textContent()).length > 40;
+  const mTodas = await p.evaluate(() => MAPA_EPOCAS.every(e => { mapaMover(e.desde); return document.querySelectorAll("#mapaSvg .mpoder").length === e.poderes.length && document.querySelectorAll("#ms-terr .mapaitem").length === e.poderes.length; }));
   const vb0 = await p.getAttribute("#mapaSvg", "viewBox");
-  await p.click('.mapazoom button[aria-label="Acercar"]'); await p.waitForTimeout(250);
+  await p.click('.mapazoom button[aria-label="Acercar"]'); await p.waitForTimeout(150);
   const vb1 = await p.getAttribute("#mapaSvg", "viewBox");
   const mZoom = +vb1.split(" ")[2] < +vb0.split(" ")[2] * 0.7;
   await p.evaluate(() => { mapaRegion = "mundo"; mapaVista = null; renderMapas(); mapaMover(1950); });
-  const mVivos1950 = await p.locator('#mapaSvg .mfilo:not(.tenue)').count();
-  comprobar(mZoom && mTales === 1 && mPoderes > 0 && mCard === 1 && mEv > 0 && mEvCard && mTodas && mVivos1950 > 5, `mapas: se acerca con +, Tales en -560 (${mPoderes} poderes), tarjetas de filósofo y de hecho, todas las épocas se dibujan, ${mVivos1950} vivos en 1950`);
+  const mVivos1950 = await p.locator('#mapaCapaTxt .mpunto:not(.tenue)').count();
+  comprobar(mZoom && mTales === 1 && mPoderes > 0 && mAbierto === 1 && mEv > 0 && mEvAbierto && mTodas && mVivos1950 > 5, `mapas: se acerca con +, Tales en -560 (${mPoderes} territorios), tocar un punto o un hecho abre su desplegable, todas las épocas se dibujan, ${mVivos1950} vivos en 1950`);
 
   // 6b. Corrientes: el río, cada corriente abre con sus fichas, el ejercicio de la intrusa y el juego
   const corrs = await p.evaluate(() => CORRIENTES.map(c => ({ id: c.id, n: c.autores.length })));

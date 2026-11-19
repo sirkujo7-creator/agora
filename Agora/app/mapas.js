@@ -1,27 +1,32 @@
 /* ============================= MAPAS =============================
    Sección «Mapas» (datos/mapas.js sobre el mapa base de datos/mapa-base.js). Una línea de tiempo
-   (deslizador de -650 a 2000) mueve todo el mapa: los poderes de esa época con fronteras aproximadas,
-   los filósofos vivos ese año (los anteriores quedan como puntos tenues), sus viajes y las guerras o
-   hechos que marcaron el pensamiento. Tocar un punto abre su ficha resumida; tocar un hecho, qué pasó
-   y a quién afectó. Nada de esto se guarda en el progreso. */
+   (deslizador de -650 a 2000, con marcas de épocas y hechos) mueve todo el mapa: los territorios de esa
+   época, los filósofos vivos ese año, sus viajes y las guerras o hechos que marcaron el pensamiento.
+   Dos capas: el SVG dibuja la geometría (tierra, territorios, viajes) con trazos que no engordan al
+   acercar, y encima una capa HTML pone puntos y nombres a tamaño fijo en pantalla (en el iPhone el
+   texto SVG escalado se veía cortado). Se acerca y se mueve como un mapa de teléfono. Debajo, cuatro
+   desplegables explican lo que se ve: territorios, filósofos, guerras y hechos, viajes.
+   Nada de esto se guarda en el progreso. */
 /* Nombres en el mapa de las fichas de varios autores (el resto, el nombre de la ficha). */
 const MAPA_CORTOS = {tales:"Tales y los milesios", estoicos:"Estoicos", hobbeslocke:"Hobbes y Locke", pascalmontaigne:"Montaigne y Pascal",
   mencioxunzi:"Mencio y Xunzi", marx:"Marx y Engels", frankfurt:"Escuela de Frankfurt"};
 const MAPA_MIN = -650, MAPA_MAX = 2000, MAPA_KX = 0.88;
-let mapaAnio = -550, mapaRegion = "medit", mapaElegido = null, mapaPlay = null;
+let mapaAnio = -550, mapaRegion = "medit", mapaPlay = null;
+/* Vista acercada o desplazada por la persona (null = la caja de la región); mapaUltima = la que se ve. */
+let mapaVista = null, mapaUltima = null, mapaCuadro = null;
 /* Capas que se prenden y se apagan; los filósofos ya muertos, apagados al empezar para no llenar el mapa. */
-/* Vista acercada o desplazada por la persona (null = la caja de la región). */
-let mapaVista = null, mapaUltima = null, mapaRedibujo = null;
 let mapaCapas = {poderes:true, filos:true, muertos:false, viajes:true, hechos:true};
 const MAPA_CAPAS = [["poderes","Territorios"],["filos","Filósofos vivos"],["muertos","Ya fallecidos"],["viajes","Viajes"],["hechos","Guerras y hechos"]];
 
-/* Regiones: cajas en grados [lon0, lat0, lon1, lat1] (oeste, norte, este, sur). */
+/* Regiones: cajas en grados [lon0, lat0, lon1, lat1] (oeste, norte, este, sur). La caja entera
+   siempre entra en el marco (en el celular el marco es más alto que ancho); desde ahí se acerca. */
 const MAPA_REGIONES = [
-  ["mundo","Mundo",[-125,72,150,-45]],
-  ["medit","Mediterráneo",[-11,50,52,24]],
-  ["europa","Europa",[-12,62,42,34]],
-  ["asia","Asia",[55,50,145,0]],
-  ["america","Américas",[-125,50,-30,-45]],
+  ["mundo","Mundo",[-170,78,180,-56]],
+  ["medit","Mediterráneo",[-10,47,45,24]],
+  ["europa","Europa",[-25,71,60,34]],
+  ["oriente","Oriente Medio",[20,45,75,10]],
+  ["asia","Asia",[60,55,148,-10]],
+  ["america","Américas",[-170,72,-30,-56]],
   ["africa","África",[-20,38,55,-36]]];
 
 function mapaDatos(){
@@ -29,7 +34,8 @@ function mapaDatos(){
     lugares: typeof MAPA_LUGARES !== "undefined" ? MAPA_LUGARES : {},
     viajes: typeof MAPA_VIAJES !== "undefined" ? MAPA_VIAJES : [],
     eventos: typeof MAPA_EVENTOS !== "undefined" ? MAPA_EVENTOS : [],
-    epocas: typeof MAPA_EPOCAS !== "undefined" ? MAPA_EPOCAS : []};
+    epocas: typeof MAPA_EPOCAS !== "undefined" ? MAPA_EPOCAS : [],
+    bios: typeof MAPA_BIOS !== "undefined" ? MAPA_BIOS : {}};
 }
 function mapaP(lon, lat){ return [lon*MAPA_KX, -lat]; }
 function mapaPts(arr){ return arr.map(([lon,lat])=>mapaP(lon,lat).map(n=>n.toFixed(2)).join(",")).join(" "); }
@@ -48,38 +54,52 @@ function mapaEventos(a){
   const e = mapaEpoca(a); if(!e) return [];
   return mapaDatos().eventos.filter(v=>v.anio >= e.desde && v.anio < e.hasta).sort((x,y)=>x.anio-y.anio);
 }
+/* Viajes visibles: los de filósofos vivos, cerca del año en que los hicieron. */
+function mapaViajesVisibles(a){
+  const vivos = new Set(mapaVivos(a).map(m=>m.id));
+  return mapaDatos().viajes.filter(v=>vivos.has(v.mod) && a >= v.anio - 5 && a <= v.anio + 20);
+}
+function mapaRatio(){ const s = $("#mapaSvg"); return s && s.clientWidth && s.clientHeight ? s.clientWidth / s.clientHeight : 16/9; }
 function mapaCaja(ratio){
   const r = (MAPA_REGIONES.find(r=>r[0]===mapaRegion) || MAPA_REGIONES[0])[2];
   const [x0,y0] = mapaP(r[0], r[1]), [x1,y1] = mapaP(r[2], r[3]);
   let w = x1-x0, h = y1-y0, x = x0, y = y0;
-  if(w/h > ratio && ratio < 1.2){ const nw = h*ratio; x += (w-nw)/2; w = nw; }   // celular: se recorta a los costados
-  else if(w/h > ratio){ const nh = w/ratio; y -= (nh-h)/2; h = nh; } else { const nw = h*ratio; x -= (nw-w)/2; w = nw; }
+  if(w/h > ratio){ const nh = w/ratio; y -= (nh-h)/2; h = nh; } else { const nw = h*ratio; x -= (nw-w)/2; w = nw; }
   return {x, y, w, h};
 }
 function mapaColor(i){ return ["#B4532E","#3E5C9A","#2F8467","#B08A2E","#7A4E9C","#9C3D5A"][i % 6]; }
+function mapaCorto(n){ return n.replace(/\s*\(.*?\)\s*/g," ").trim(); }
+function mapaNombre(m){ return MAPA_CORTOS[m.id] || m.nombre.replace(/\s*\(.*\)/,""); }
+function mapaClr(m){ return LEVELS[m.trad] ? LEVELS[m.trad].clr : "me"; }
 
 function renderMapas(){
   const body = $("#mapasBody"); if(!body) return;
+  const E = mapaDatos().epocas, ev = mapaDatos().eventos, pos = a=>((a - MAPA_MIN)/(MAPA_MAX - MAPA_MIN)*100).toFixed(2);
   body.innerHTML = `
     <div class="mapacontroles">
       <div class="evalrow" role="group" aria-label="Región">${MAPA_REGIONES.map(([k,l])=>`<button class="chip ${k===mapaRegion?'active':''}" aria-pressed="${k===mapaRegion}" onclick="mapaIrRegion('${k}')">${l}</button>`).join("")}</div>
       <div class="mapatiempo">
         <button class="btn sm ghost" onclick="mapaPaso(-1)" aria-label="Época anterior">◀</button>
-        <input type="range" id="mapaRango" min="${MAPA_MIN}" max="${MAPA_MAX}" step="5" value="${mapaAnio}" oninput="mapaMover(+this.value)" aria-label="Año">
+        <div class="mapariel">
+          <input type="range" id="mapaRango" min="${MAPA_MIN}" max="${MAPA_MAX}" step="5" value="${mapaAnio}" oninput="mapaMover(+this.value)" aria-label="Año">
+          <div class="mapamarcas" aria-hidden="true">${E.map(e=>`<i class="mmepoca" style="left:${pos(e.desde)}%"></i>`).join("")}${ev.map(v=>`<i class="mmhecho ${v.tipo==='guerra'?'guerra':''}" style="left:${pos(v.anio)}%"></i>`).join("")}</div>
+        </div>
         <button class="btn sm ghost" onclick="mapaPaso(1)" aria-label="Época siguiente">▶</button>
         <button class="btn sm" id="mapaPlayBtn" onclick="mapaReproducir()">${mapaPlay ? "❚❚ Pausa" : "▶ Recorrer"}</button>
       </div>
     </div>
     <div class="evalrow mapacapas" role="group" aria-label="Qué mostrar">${MAPA_CAPAS.map(([k,l])=>`<button class="chip ${mapaCapas[k]?'active':''}" aria-pressed="${mapaCapas[k]}" onclick="mapaCapa('${k}')">${mapaCapas[k]?'✓ ':''}${l}</button>`).join("")}</div>
     <div class="mapaanio"><span id="mapaAnioTxt"></span> · <b id="mapaEpocaTit"></b></div>
-    <div class="mapamarco"><svg id="mapaSvg" class="mapasvg" role="img" aria-label="Mapa histórico: pellizcá o usá + y − para acercar, arrastrá para moverte"></svg>
-      <div class="mapazoom"><button class="btn sm" onclick="mapaZoom(0.6)" aria-label="Acercar">+</button><button class="btn sm" onclick="mapaZoom(1/0.6)" aria-label="Alejar">−</button><button class="btn sm" onclick="mapaVista=null;dibujarMapa()" aria-label="Volver a la región" title="Volver a la región">⟲</button></div></div>
-    <div id="mapaLeyenda" class="mapaleyenda"></div>
+    <div class="mapamarco" id="mapaMarco">
+      <svg id="mapaSvg" class="mapasvg" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <div id="mapaCapaTxt" class="mapacapatxt" role="group" aria-label="Mapa histórico: pellizcá o usá + y − para acercar, arrastrá para moverte"></div>
+      <div class="mapazoom"><button class="btn sm" onclick="mapaZoom(0.6)" aria-label="Acercar">+</button><button class="btn sm" onclick="mapaZoom(1/0.6)" aria-label="Alejar">−</button><button class="btn sm" onclick="mapaVista=null;mapaUbicar()" aria-label="Volver a la región" title="Volver a la región">⟲</button></div>
+    </div>
+    <p class="muted mapanota">Pellizcá o usá + y − para acercar; arrastrá para moverte. Tocá un punto, un rombo o una línea para ver su explicación abajo.</p>
     <div id="mapaEpocaTxt" class="lecnote"></div>
-    <div id="mapaSel"></div>
-    <h3 class="mapah3">Guerras y hechos de esta época</h3>
-    <div id="mapaEventos" class="mapaeventos"></div>`;
-  mapaGestos($("#mapaSvg"));
+    <div id="mapaPaneles" class="mapapaneles"></div>
+    <details class="mapaconv"><summary>Convenciones del mapa</summary><div id="mapaConv"></div></details>`;
+  mapaGestos($("#mapaMarco"));
   dibujarMapa();
 }
 function mapaIrRegion(k){ mapaRegion = k; mapaVista = null; renderMapas(); }
@@ -99,150 +119,160 @@ function mapaReproducir(){
     mapaPlay = setInterval(()=>{
       if(!document.getElementById("mapaSvg") || mapaAnio >= MAPA_MAX){ clearInterval(mapaPlay); mapaPlay = null; const b = $("#mapaPlayBtn"); if(b) b.textContent = "▶ Recorrer"; return; }
       mapaMover(mapaAnio + 10); const r = $("#mapaRango"); if(r) r.value = mapaAnio;
-    }, 120);
+    }, 160);
   }
   const b = $("#mapaPlayBtn"); if(b) b.textContent = mapaPlay ? "❚❚ Pausa" : "▶ Recorrer";
 }
 
+/* --- La geometría (SVG): cambia con la época y las capas, no con el zoom --- */
 function dibujarMapa(){
   const svg = $("#mapaSvg"); if(!svg) return;
-  const D = mapaDatos(), c = mapaVista || mapaCaja(svg.clientWidth && svg.clientWidth < 640 ? 1 : 16/9); mapaUltima = c; const k = c.w / Math.max(svg.clientWidth || 900, 320);   // k: unidades del mapa por píxel en pantalla
-  const e = mapaEpoca(mapaAnio), vivos = mapaVivos(mapaAnio), pasados = mapaPasados(mapaAnio), evs = mapaEventos(mapaAnio);
-  svg.setAttribute("viewBox", `${c.x} ${c.y} ${c.w} ${c.h}`);
-  const fs = (px)=>(px*k).toFixed(2);
-  const ocupadas = [];
-  const libre = (x, y, ancho, alto=11)=>{ const b = [x, y-alto*k, x+ancho, y+3*k];
-    if(ocupadas.some(o=>b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1])) return false;
-    ocupadas.push(b); return true; };
-  const vivosIds = new Set(vivos.map(m=>m.id));
-  const viajes = D.viajes.filter(v=>vivosIds.has(v.mod) && mapaAnio >= v.anio - 5 && mapaAnio <= v.anio + 20).map((v,i)=>
-    `<polyline class="mviaje" points="${mapaPts(v.ruta)}" stroke-width="${fs(1.6)}" stroke-dasharray="${fs(5)} ${fs(4)}" marker-end="url(#mflecha)" onclick="mapaVerViaje(${D.viajes.indexOf(v)})"><title>${escapeHtml(v.titulo)}</title></polyline>`).join("");
-  const punto = (m, vivo)=>{
-    const L = D.lugares[m.id], [x,y] = mapaP(L.lon, L.lat), clr = LEVELS[m.trad] ? LEVELS[m.trad].clr : "me";
-    const nom = MAPA_CORTOS[m.id] || m.nombre.replace(/\s*\(.*\)/,"");
-    const conNombre = vivo && libre(x+6*k, y+4*k, nom.length*6.6*k);
-    return `<g class="mfilo ${vivo?'':'tenue'} ${mapaElegido && mapaElegido.mod===m.id?'sel':''}" tabindex="0" role="button" aria-label="${escapeHtml(m.nombre)}" onclick="mapaVerFilo('${m.id}')" onkeydown="if(event.key==='Enter')mapaVerFilo('${m.id}')">
-      <circle cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="${fs(vivo?5:3)}" style="fill:var(--${clr})"/>
-      <title>${escapeHtml(m.nombre)}</title>
-      ${conNombre ? `<text x="${(x+6*k).toFixed(2)}" y="${(y+4*k).toFixed(2)}" font-size="${fs(12)}">${escapeHtml(nom)}</text>` : ""}</g>`;
-  };
-  const eventos = evs.map(v=>{ const [x,y] = mapaP(v.lon, v.lat);
-    return `<g class="mevento ${v.tipo==='guerra'?'guerra':''}" tabindex="0" role="button" aria-label="${escapeHtml(v.titulo)}" onclick="mapaVerEvento(${D.eventos.indexOf(v)})" onkeydown="if(event.key==='Enter')mapaVerEvento(${D.eventos.indexOf(v)})">
-      <rect x="${(x-4*k).toFixed(2)}" y="${(y-4*k).toFixed(2)}" width="${fs(8)}" height="${fs(8)}" transform="rotate(45 ${x.toFixed(2)} ${y.toFixed(2)})"/><title>${escapeHtml(v.titulo)}</title></g>`; }).join("");
-  const filosSvg = !mapaCapas.filos ? "" : vivos.slice().sort((a,b)=>(mapaElegido && b.id===mapaElegido.mod) - (mapaElegido && a.id===mapaElegido.mod)).map(m=>punto(m,true)).join("");
-  const poderes = (e ? e.poderes : []).map((p,i)=>{
-    const pts = p.poly.map(([lon,lat])=>mapaP(lon,lat));
-    const [cx, cy] = p.etiqueta ? mapaP(p.etiqueta[0], p.etiqueta[1]) : [pts.reduce((s,q)=>s+q[0],0)/pts.length, pts.reduce((s,q)=>s+q[1],0)/pts.length];
-    const nom = mapaCorto(p.nombre), fecha = (p.nombre.match(/\(([^)]*)\)/)||[])[1], ancho = Math.max(nom.length*6.4, fecha ? fecha.length*5 : 0)*k;
-    const ve = libre(cx - ancho/2, cy + (fecha ? 11*k : 0), ancho, fecha ? 24 : 12);
-    return `<g class="mpoder"><polygon points="${mapaPts(p.poly)}" clip-path="url(#mclip)" style="fill:${mapaColor(i)};stroke:${mapaColor(i)}" stroke-width="${fs(1.6)}"/>
-      ${ve ? "" : "<!-- sin lugar -->"}<text x="${cx.toFixed(2)}" y="${cy.toFixed(2)}" font-size="${fs(13)}" class="mpodernom" style="fill:${mapaColor(i)}${ve ? "" : ";display:none"}">${escapeHtml(nom)}${fecha ? `<tspan x="${cx.toFixed(2)}" dy="${fs(12)}" font-size="${fs(10)}" class="mpoderfecha">${escapeHtml(fecha)}</tspan>` : ""}</text></g>`;
-  }).join("");
-  const regiones = mapaCapas.poderes && e ? (e.regiones||[]).map(r=>{ const [x,y] = mapaP(r.lon, r.lat);
-    const ancho = r.nombre.length*5.6*k;
-    return libre(x - ancho/2, y, ancho) ? `<text x="${x.toFixed(2)}" y="${y.toFixed(2)}" font-size="${fs(11)}" class="mregion">${escapeHtml(r.nombre)}</text>` : ""; }).join("") : "";
-  svg.innerHTML = `<defs><marker id="mflecha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="mflechap"/></marker><clipPath id="mclip"><path d="${MAPA_TIERRA}"/></clipPath></defs>
-    <rect x="${c.x}" y="${c.y}" width="${c.w}" height="${c.h}" class="mmar"/>
-    <path d="${MAPA_TIERRA}" class="mtierra" stroke-width="${fs(0.6)}"/>
-    ${mapaCapas.poderes ? poderes : ""}${regiones}${mapaCapas.viajes ? viajes : ""}${mapaCapas.muertos ? pasados.map(m=>punto(m,false)).join("") : ""}${mapaCapas.hechos ? eventos : ""}${filosSvg}`;
-  $("#mapaLeyenda").innerHTML = mapaLeyendaHTML(e);
+  const e = mapaEpoca(mapaAnio);
+  const poderes = mapaCapas.poderes && e ? e.poderes.map((p,i)=>
+    `<polygon class="mpoder" points="${mapaPts(p.poly)}" clip-path="url(#mclip)" style="fill:${mapaColor(i)};stroke:${mapaColor(i)}" vector-effect="non-scaling-stroke"/>`).join("") : "";
+  const viajes = mapaCapas.viajes ? mapaViajesVisibles(mapaAnio).map(v=>
+    `<polyline class="mviaje" points="${mapaPts(v.ruta)}" vector-effect="non-scaling-stroke"/>`).join("") : "";
+  svg.innerHTML = `<defs><clipPath id="mclip"><path d="${MAPA_TIERRA}"/></clipPath></defs>
+    <rect x="-400" y="-100" width="800" height="200" class="mmar"/>
+    <path d="${MAPA_TIERRA}" class="mtierra" vector-effect="non-scaling-stroke"/>${poderes}${viajes}`;
   $("#mapaAnioTxt").textContent = mapaAnioTxt(mapaAnio);
   $("#mapaEpocaTit").textContent = e ? e.titulo : "";
   $("#mapaEpocaTxt").innerHTML = e ? `<b>${mapaAnioTxt(e.desde)} – ${mapaAnioTxt(e.hasta)}</b> · ${escapeHtml(e.texto)}` : "";
-  $("#mapaEventos").innerHTML = evs.length ? evs.map(v=>`<button class="mapaev ${v.tipo==='guerra'?'guerra':''}" onclick="mapaVerEvento(${D.eventos.indexOf(v)})"><span class="mapaevanio">${mapaAnioTxt(v.anio)}</span> ${escapeHtml(v.titulo)}</button>`).join("") : `<p class="muted">No hay hechos cargados para esta época.</p>`;
+  $("#mapaPaneles").innerHTML = mapaPanelesHTML(e);
+  $("#mapaConv").innerHTML = mapaConvencionesHTML();
+  mapaUbicar();
 }
 
+/* --- La capa de nombres y marcas (HTML): se recalcula con cada movimiento o zoom --- */
+function mapaUbicar(){
+  const svg = $("#mapaSvg"), capa = $("#mapaCapaTxt"); if(!svg || !capa) return;
+  const W = svg.clientWidth || 900, H = svg.clientHeight || 500;
+  const c = mapaVista || mapaCaja(W/H); mapaUltima = c;
+  svg.setAttribute("viewBox", `${c.x} ${c.y} ${c.w} ${c.h}`);
+  const D = mapaDatos(), e = mapaEpoca(mapaAnio);
+  const aPx = (lon, lat)=>{ const [x,y] = mapaP(lon, lat); return [(x - c.x)/c.w*W, (y - c.y)/c.h*H]; };
+  const dentro = ([x,y])=>x >= 4 && x <= W - 4 && y >= 4 && y <= H - 4;
+  const ocupadas = [];
+  const libre = (x0, y0, x1, y1)=>{
+    if(x0 < 2 || x1 > W - 2 || y0 < 2 || y1 > H - 2) return false;
+    if(ocupadas.some(o=>x0 < o[2] && x1 > o[0] && y0 < o[3] && y1 > o[1])) return false;
+    ocupadas.push([x0, y0, x1, y1]); return true; };
+  const ancho = (t, px)=>t.length * px * 0.56;
+  let html = "";
+  // 1) marcas: filósofos vivos, ya fallecidos y hechos (siempre se dibujan; reservan su lugar)
+  const vivos = mapaCapas.filos ? mapaVivos(mapaAnio) : [], muertos = mapaCapas.muertos ? mapaPasados(mapaAnio) : [];
+  const evs = mapaCapas.hechos ? mapaEventos(mapaAnio) : [];
+  muertos.forEach(m=>{ const L = D.lugares[m.id], p = aPx(L.lon, L.lat); if(!dentro(p)) return;
+    html += `<button class="mpunto tenue" style="left:${p[0].toFixed(1)}px;top:${p[1].toFixed(1)}px;--c:var(--${mapaClr(m)})" onclick="mapaAbrir('f-${m.id}')" aria-label="${escapeHtml(m.nombre)}" title="${escapeHtml(m.nombre)}"></button>`; });
+  const filos = vivos.map(m=>{ const L = D.lugares[m.id]; return {m, p: aPx(L.lon, L.lat)}; }).filter(f=>dentro(f.p));
+  filos.forEach(({m,p})=>{ ocupadas.push([p[0]-6, p[1]-6, p[0]+6, p[1]+6]);
+    html += `<button class="mpunto" style="left:${p[0].toFixed(1)}px;top:${p[1].toFixed(1)}px;--c:var(--${mapaClr(m)})" onclick="mapaAbrir('f-${m.id}')" aria-label="${escapeHtml(m.nombre)}" title="${escapeHtml(m.nombre)}"></button>`; });
+  evs.forEach(v=>{ const p = aPx(v.lon, v.lat); if(!dentro(p)) return;
+    if(filos.some(f=>Math.hypot(f.p[0]-p[0], f.p[1]-p[1]) < 14)){ p[0] -= 12; p[1] -= 12; }   // no tapar a un filósofo en el mismo lugar ocupadas.push([p[0]-7, p[1]-7, p[0]+7, p[1]+7]);
+    html += `<button class="mrombo ${v.tipo==='guerra'?'guerra':''}" style="left:${p[0].toFixed(1)}px;top:${p[1].toFixed(1)}px" onclick="mapaAbrir('h-${D.eventos.indexOf(v)}')" aria-label="${escapeHtml(v.titulo)}" title="${escapeHtml(v.titulo)}"></button>`; });
+  // 2) nombres, por prioridad: filósofos, territorios, regiones; el que no entra no se escribe
+  filos.forEach(({m,p})=>{ const t = mapaNombre(m), w = ancho(t, 13.5);
+    const lados = [[p[0]+8, p[1]-9], [p[0]-8-w, p[1]-9], [p[0]-w/2, p[1]-27], [p[0]-w/2, p[1]+8]];
+    const ok = lados.find(([x,y])=>libre(x, y, x+w, y+18)); if(!ok) return;
+    html += `<span class="mnom filo" style="left:${ok[0].toFixed(1)}px;top:${ok[1].toFixed(1)}px" onclick="mapaAbrir('f-${m.id}')">${escapeHtml(t)}</span>`; });
+  if(mapaCapas.poderes && e) e.poderes.forEach((pd,i)=>{
+    const q = pd.etiqueta ? aPx(pd.etiqueta[0], pd.etiqueta[1]) : null; if(!q || !dentro(q)) return;
+    const t = mapaCorto(pd.nombre), fecha = (pd.nombre.match(/\(([^)]*)\)/)||[])[1], w = Math.max(ancho(t, 15), fecha ? ancho(fecha, 11) : 0);
+    if(!libre(q[0]-w/2, q[1]-10, q[0]+w/2, q[1]+(fecha?24:10))) return;
+    html += `<span class="mnom poder" style="left:${(q[0]-w/2).toFixed(1)}px;top:${(q[1]-10).toFixed(1)}px;width:${w.toFixed(0)}px;--c:${mapaColor(i)}" onclick="mapaAbrir('t-${i}')">${escapeHtml(t)}${fecha ? `<small>${escapeHtml(fecha)}</small>` : ""}</span>`; });
+  if(mapaCapas.poderes && e) (e.regiones||[]).forEach(r=>{ const q = aPx(r.lon, r.lat); if(!dentro(q)) return;
+    const w = ancho(r.nombre, 13); if(!libre(q[0]-w/2, q[1]-9, q[0]+w/2, q[1]+9)) return;
+    html += `<span class="mnom region" style="left:${(q[0]-w/2).toFixed(1)}px;top:${(q[1]-9).toFixed(1)}px;width:${w.toFixed(0)}px">${escapeHtml(r.nombre)}</span>`; });
+  capa.innerHTML = html;
+}
+
+/* --- Desplegables: territorios, filósofos, guerras y hechos, viajes --- */
 function mapaFichaLink(id){
   const m = moduleById(id); if(!m) return "";
-  return `<button class="corrchip" onclick="openModule('${id}')">${escapeHtml(m.nombre)}</button>`;
+  return `<button class="corrchip" onclick="openModule('${id}')">Abrir la ficha de ${escapeHtml(mapaNombre(m))} →</button>`;
 }
-function mapaVerFilo(id){
-  const D = mapaDatos(), m = moduleById(id), L = D.lugares[id]; if(!m || !L) return;
-  mapaElegido = {mod:id};
-  const viajes = D.viajes.filter(v=>v.mod===id);
-  $("#mapaSel").innerHTML = `<article class="activity mapacard">
-    <h4>${escapeHtml(m.nombre)}</h4>
-    <p class="muted">${escapeHtml(m.fechas)} · pensó sobre todo en ${escapeHtml(L.lugar)}</p>
-    ${(L.otros||[]).length ? `<ul class="mapaotros">${L.otros.map(o=>`<li><b>${escapeHtml(o.lugar)}</b>: ${escapeHtml(o.nota)}</li>`).join("")}</ul>` : ""}
-    ${viajes.map(v=>`<p><b>${escapeHtml(v.titulo)}</b> (${mapaAnioTxt(v.anio)}${v.seguro?"":", según la tradición"}). ${escapeHtml(v.texto)}</p>`).join("")}
-    <div class="row">${mapaFichaLink(id)}</div></article>`;
-  dibujarMapa();
+function mapaPanelesHTML(e){
+  const D = mapaDatos(), vivos = mapaVivos(mapaAnio), evs = mapaEventos(mapaAnio), viajes = mapaViajesVisibles(mapaAnio);
+  const item = (id, titulo, cuerpo, marca="")=>`<details class="mapaitem" id="mi-${id}"><summary>${marca}<span>${titulo}</span></summary><div class="mapaitemtxt">${cuerpo}</div></details>`;
+  const sec = (id, titulo, n, lista, vacio)=>`<details class="mapasec" id="ms-${id}"><summary>${titulo} <span class="muted">(${n})</span></summary>${n ? lista : `<p class="muted">${vacio}</p>`}</details>`;
+  const terr = e ? e.poderes.map((p,i)=>item(`t-${i}`, escapeHtml(p.nombre), `<p>${escapeHtml(p.d || "")}</p>`, `<i class="mleysw" style="background:${mapaColor(i)}"></i>`)).join("") : "";
+  const filos = vivos.map(m=>{ const L = D.lugares[m.id], bio = D.bios[m.id];
+    const otros = (L.otros||[]).map(o=>`<li><b>${escapeHtml(o.lugar)}</b>: ${escapeHtml(o.nota)}</li>`).join("");
+    return item(`f-${m.id}`, escapeHtml(mapaNombre(m)), `<p class="muted">${escapeHtml(m.fechas)} · pensó sobre todo en ${escapeHtml(L.lugar)}</p>${bio ? `<p>${escapeHtml(bio)}</p>` : ""}${otros ? `<ul class="mapaotros">${otros}</ul>` : ""}<div class="row">${mapaFichaLink(m.id)}</div>`, `<i class="mleypunto" style="background:var(--${mapaClr(m)})"></i>`); }).join("");
+  const hechos = evs.map(v=>item(`h-${D.eventos.indexOf(v)}`, `<span class="mapaevanio">${mapaAnioTxt(v.anio)}</span> ${escapeHtml(v.titulo)}`, `<p>${escapeHtml(v.texto)}</p>${(v.fichas||[]).length ? `<div class="row">${v.fichas.map(mapaFichaLink).join("")}</div>` : ""}`, `<i class="mleyrombo ${v.tipo==='guerra'?'guerra':''}"></i>`)).join("");
+  const via = viajes.map(v=>{ const m = moduleById(v.mod);
+    return item(`v-${D.viajes.indexOf(v)}`, `${escapeHtml(v.titulo)}`, `<p class="muted">${mapaAnioTxt(v.anio)}${v.seguro ? "" : " · lo cuenta la tradición, no es seguro"}</p><p>${escapeHtml(v.texto)}</p><div class="row">${mapaFichaLink(v.mod)}</div>`, `<i class="mleyviajei"></i>`); }).join("");
+  return sec("terr", "Territorios de esta época", e ? e.poderes.length : 0, terr, "—")
+    + sec("filos", "Filósofos vivos en " + mapaAnioTxt(mapaAnio), vivos.length, filos, "Ningún filósofo con ficha vivía este año.")
+    + sec("hechos", "Guerras y hechos de esta época", evs.length, hechos, "No hay hechos cargados para esta época.")
+    + sec("viajes", "Viajes en torno a " + mapaAnioTxt(mapaAnio), viajes.length, via, "Nadie estaba de viaje cerca de este año.");
 }
-function mapaVerViaje(i){ const v = mapaDatos().viajes[i]; if(v) mapaVerFilo(v.mod); }
-function mapaVerEvento(i){
-  const v = mapaDatos().eventos[i]; if(!v) return;
-  mapaElegido = null;
-  $("#mapaSel").innerHTML = `<article class="activity mapacard ${v.tipo==='guerra'?'guerra':''}">
-    <h4>${escapeHtml(v.titulo)} <span class="muted">· ${mapaAnioTxt(v.anio)}</span></h4>
-    <p>${escapeHtml(v.texto)}</p>
-    ${(v.fichas||[]).length ? `<div class="row">${v.fichas.map(mapaFichaLink).join("")}</div>` : ""}</article>`;
-  dibujarMapa();
-  $("#mapaSel").scrollIntoView({behavior:"smooth", block:"nearest"});
+/* Tocar algo en el mapa abre su explicación en los desplegables. */
+function mapaAbrir(id){
+  const it = document.getElementById("mi-" + id); if(!it) return;
+  const sec = it.closest(".mapasec"); if(sec) sec.open = true;
+  $all(".mapaitem.sel").forEach(x=>x.classList.remove("sel"));
+  it.open = true; it.classList.add("sel");
+  it.scrollIntoView({behavior:"smooth", block:"center"});
 }
-
-/* Nombre corto para el mapa: sin la fecha entre paréntesis (va completo en la leyenda). */
-function mapaCorto(n){ return n.replace(/\s*\(.*?\)\s*/g," ").trim(); }
-/* Convenciones: qué significa cada marca y, abajo, los territorios de la época con su color. */
-function mapaLeyendaHTML(e){
-  const icono = svg => `<svg viewBox="0 0 24 16" width="24" height="16" aria-hidden="true">${svg}</svg>`;
+function mapaConvencionesHTML(){
   const trads = Object.keys(LEVELS).filter(t=>t!=="metodo").map(t=>`<span class="mleytrad"><i style="background:var(--${LEVELS[t].clr})"></i>${escapeHtml(LEVELS[t].label)}</span>`).join("");
   const conv = [
-    [icono(`<rect x="2" y="3" width="20" height="10" rx="2" class="mleypoder"/>`), "Territorio de un poder de la época (fronteras aproximadas: dónde se ejercía el poder, no límites exactos)"],
-    [icono(`<text x="12" y="12" text-anchor="middle" class="mleyregion">Ab</text>`), "Nombre de una región tal como se llamaba entonces"],
-    [icono(`<circle cx="12" cy="8" r="5" style="fill:var(--eu)"/>`), "Filósofo vivo ese año, con el color de su tradición"],
-    [icono(`<circle cx="12" cy="8" r="3" style="fill:var(--eu);opacity:.35"/>`), "Filósofo que ya había muerto (capa «Ya fallecidos»)"],
-    [icono(`<line x1="2" y1="8" x2="20" y2="8" class="mleyviaje"/><path d="M17,4 L22,8 L17,12 z" class="mflechap"/>`), "Viaje que importó para su pensamiento (se muestra cerca del año en que lo hizo)"],
-    [icono(`<rect x="8" y="4" width="8" height="8" transform="rotate(45 12 8)" style="fill:var(--bad)"/>`), "Guerra"],
-    [icono(`<rect x="8" y="4" width="8" height="8" transform="rotate(45 12 8)" style="fill:var(--ink-soft)"/>`), "Otro hecho histórico que cambió lo que se pensaba o escribía"]];
-  const poderes = e && mapaCapas.poderes ? e.poderes.map((p,i)=>`<li><i class="mleysw" style="background:${mapaColor(i)}"></i><b>${escapeHtml(p.nombre)}</b>${p.d ? `: ${escapeHtml(p.d)}` : ""}</li>`).join("") : "";
-  return `<details class="mapaconv" open><summary>Convenciones</summary>
-      <ul class="mleylista">${conv.map(([i,t])=>`<li>${i}<span>${t}</span></li>`).join("")}</ul>
-      <div class="mleytrads">${trads}</div></details>
-    ${poderes ? `<div class="mapapoderes"><h4>Territorios en ${escapeHtml(e.titulo)}</h4><ul>${poderes}</ul></div>` : ""}`;
+    [`<i class="mleysw" style="background:var(--accent)"></i>`, "Territorio de un poder de la época. Las fronteras son aproximadas: muestran dónde se ejercía el poder, no límites exactos."],
+    [`<i class="mleyregion">Ab</i>`, "Nombre de una región tal como se llamaba entonces."],
+    [`<i class="mleypunto" style="background:var(--eu)"></i>`, "Filósofo vivo ese año, con el color de su tradición."],
+    [`<i class="mleypunto tenue" style="background:var(--eu)"></i>`, "Filósofo que ya había muerto (capa «Ya fallecidos»)."],
+    [`<i class="mleyviajei"></i>`, "Viaje que importó para su pensamiento (se ve cerca del año en que lo hizo)."],
+    [`<i class="mleyrombo guerra"></i>`, "Guerra."],
+    [`<i class="mleyrombo"></i>`, "Otro hecho que cambió lo que se pensaba o escribía."],
+    [`<i class="mleymarca"></i>`, "En la línea del tiempo, las rayas marcan dónde empieza cada época y los puntos, las guerras y los hechos."]];
+  return `<ul class="mleylista">${conv.map(([i,t])=>`<li>${i}<span>${t}</span></li>`).join("")}</ul><div class="mleytrads">${trads}</div>`;
 }
 
 /* --- Acercar y mover, como un mapa de teléfono ---
-   Durante el gesto solo cambia el viewBox (rápido); al soltar se vuelve a dibujar para que los
-   nombres conserven su tamaño en pantalla y aparezcan los que antes no entraban. */
+   La geometría usa trazos que no engordan (vector-effect) y la capa de nombres se recalcula en
+   cada cuadro: así el texto queda nítido a cualquier zoom y aparecen nombres al acercar. */
 function mapaPonerVista(v){
   const svg = $("#mapaSvg"); if(!svg || !v) return;
   const w = Math.max(2, Math.min(420, v.w)), h = v.h * w / v.w;
   mapaVista = {x: v.x + (v.w - w)/2, y: v.y + (v.h - h)/2, w, h};
-  svg.setAttribute("viewBox", `${mapaVista.x} ${mapaVista.y} ${mapaVista.w} ${mapaVista.h}`);
-  clearTimeout(mapaRedibujo); mapaRedibujo = setTimeout(dibujarMapa, 160);
+  if(!mapaCuadro) mapaCuadro = requestAnimationFrame(()=>{ mapaCuadro = null; mapaUbicar(); });
 }
 function mapaZoom(f, fx=0.5, fy=0.5){
   const c = mapaVista || mapaUltima; if(!c) return;
   const w = Math.max(2, Math.min(420, c.w*f)), h = c.h * w / c.w;
   mapaPonerVista({x: c.x + (c.w - w)*fx, y: c.y + (c.h - h)*fy, w, h});
 }
-function mapaGestos(svg){
-  if(!svg) return;
+function mapaGestos(marco){
+  if(!marco) return;
   const pts = new Map(); let movio = false, ini = null;
-  const rel = ev=>{ const r = svg.getBoundingClientRect(); return [(ev.clientX - r.left)/r.width, (ev.clientY - r.top)/r.height]; };
-  svg.addEventListener("wheel", ev=>{ ev.preventDefault(); const [fx,fy] = rel(ev); mapaZoom(Math.exp(ev.deltaY*0.0015), fx, fy); }, {passive:false});
-  svg.addEventListener("pointerdown", ev=>{ pts.set(ev.pointerId, [ev.clientX, ev.clientY]); movio = false;
-    ini = {c: {...(mapaVista || mapaUltima)}, p: [...pts.values()].map(q=>[...q])}; });
-  svg.addEventListener("pointermove", ev=>{
+  const rel = ev=>{ const r = marco.getBoundingClientRect(); return [(ev.clientX - r.left)/r.width, (ev.clientY - r.top)/r.height]; };
+  // Safari en iPhone agranda toda la página con el pellizco: se lo impide dentro del mapa
+  ["gesturestart","gesturechange","gestureend"].forEach(t=>marco.addEventListener(t, ev=>ev.preventDefault()));
+  marco.addEventListener("wheel", ev=>{ ev.preventDefault(); const [fx,fy] = rel(ev); mapaZoom(Math.exp(ev.deltaY*0.0015), fx, fy); }, {passive:false});
+  const empezar = ()=>{ ini = {c: {...(mapaVista || mapaUltima)}, p: [...pts.values()].map(q=>[...q])}; };
+  marco.addEventListener("pointerdown", ev=>{ if(ev.target.closest(".mapazoom")) return; pts.set(ev.pointerId, [ev.clientX, ev.clientY]); movio = false; empezar(); });
+  marco.addEventListener("pointermove", ev=>{
     if(!pts.has(ev.pointerId) || !ini) return;
     pts.set(ev.pointerId, [ev.clientX, ev.clientY]);
-    const r = svg.getBoundingClientRect(), u = ini.c.w / r.width, P = [...pts.values()];
+    const r = marco.getBoundingClientRect(), u = ini.c.w / r.width, P = [...pts.values()];
     if(P.length === 1 && ini.p.length === 1){
       const dx = P[0][0] - ini.p[0][0], dy = P[0][1] - ini.p[0][1];
-      if(Math.hypot(dx, dy) > 5) movio = true;
-      if(movio){ svg.setPointerCapture(ev.pointerId); mapaPonerVista({x: ini.c.x - dx*u, y: ini.c.y - dy*u, w: ini.c.w, h: ini.c.h}); }
+      if(Math.hypot(dx, dy) > 6) movio = true;
+      if(movio){ try{ marco.setPointerCapture(ev.pointerId); }catch(e){} mapaPonerVista({x: ini.c.x - dx*u, y: ini.c.y - dy*u, w: ini.c.w, h: ini.c.h}); }
     } else if(P.length >= 2 && ini.p.length >= 2){
       movio = true;
       const d0 = Math.hypot(ini.p[0][0]-ini.p[1][0], ini.p[0][1]-ini.p[1][1]), d1 = Math.hypot(P[0][0]-P[1][0], P[0][1]-P[1][1]);
-      const f = d0 / Math.max(d1, 1), m0 = [(ini.p[0][0]+ini.p[1][0])/2 - r.left, (ini.p[0][1]+ini.p[1][1])/2 - r.top];
+      const f = d0 / Math.max(d1, 1), w = ini.c.w*f, h = ini.c.h*f;
+      const m0 = [(ini.p[0][0]+ini.p[1][0])/2 - r.left, (ini.p[0][1]+ini.p[1][1])/2 - r.top];
       const m1 = [(P[0][0]+P[1][0])/2 - r.left, (P[0][1]+P[1][1])/2 - r.top];
-      const w = ini.c.w*f, h = ini.c.h*f;
-      const gx = ini.c.x + m0[0]*u, gy = ini.c.y + m0[1]*u;           // punto del mapa bajo los dedos al empezar
+      const gx = ini.c.x + m0[0]*u, gy = ini.c.y + m0[1]*u;   // el punto del mapa que estaba bajo los dedos
       mapaPonerVista({x: gx - m1[0]*(w/r.width), y: gy - m1[1]*(w/r.width), w, h});
-    }
+    } else if(P.length >= 2) empezar();
   });
-  const fin = ev=>{ pts.delete(ev.pointerId); ini = pts.size ? {c: {...(mapaVista || mapaUltima)}, p: [...pts.values()].map(q=>[...q])} : null; };
-  svg.addEventListener("pointerup", fin); svg.addEventListener("pointercancel", fin);
-  // si fue un arrastre, el toque no abre la tarjeta del punto que quedó debajo
-  svg.addEventListener("click", ev=>{ if(movio){ ev.stopPropagation(); ev.preventDefault(); movio = false; } }, true);
+  const fin = ev=>{ pts.delete(ev.pointerId); if(pts.size) empezar(); else ini = null; };
+  marco.addEventListener("pointerup", fin); marco.addEventListener("pointercancel", fin);
+  // si fue un arrastre, el toque no abre lo que quedó debajo del dedo
+  marco.addEventListener("click", ev=>{ if(movio && !ev.target.closest(".mapazoom")){ ev.stopPropagation(); ev.preventDefault(); movio = false; } }, true);
+  if(!window.__mapaResize){ window.__mapaResize = true; addEventListener("resize", ()=>{ if($("#mapaSvg")) mapaUbicar(); }); }
 }

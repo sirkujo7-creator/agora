@@ -38,7 +38,7 @@ for (const trad of fs.readdirSync(dirMod)) for (const f of fs.readdirSync(path.j
 if (errores.length) fin();
 
 const ctx = {}; vm.createContext(ctx);
-vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, DIAGRAMAS: typeof DIAGRAMAS==='undefined' ? null : DIAGRAMAS, TEXTOS: typeof TEXTOS==='undefined' ? null : TEXTOS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS, CORRIENTES: typeof CORRIENTES==='undefined' ? null : CORRIENTES, REPASO: typeof REPASO==='undefined' ? null : REPASO, MAPA: typeof MAPA_LUGARES==='undefined' ? null : {L:MAPA_LUGARES, V:MAPA_VIAJES, E:MAPA_EVENTOS, P:MAPA_EPOCAS, T:typeof MAPA_TIERRA==='string'}};", ctx);
+vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, DIAGRAMAS: typeof DIAGRAMAS==='undefined' ? null : DIAGRAMAS, TEXTOS: typeof TEXTOS==='undefined' ? null : TEXTOS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS, CORRIENTES: typeof CORRIENTES==='undefined' ? null : CORRIENTES, REPASO: typeof REPASO==='undefined' ? null : REPASO, MAPA: typeof MAPA_LUGARES==='undefined' ? null : {B:typeof MAPA_BIOS==='undefined' ? {} : MAPA_BIOS, L:MAPA_LUGARES, V:MAPA_VIAJES, E:MAPA_EVENTOS, P:MAPA_EPOCAS, T:typeof MAPA_TIERRA==='string'}};", ctx);
 const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, VIDAS, DIAGRAMAS, TEXTOS, EXAMEN_FINAL, CLAVES, TERMINOS, CORRIENTES, REPASO, MAPA } = ctx.__d;
 
 const ids = new Set();
@@ -276,7 +276,7 @@ if (REPASO) Object.entries(REPASO).forEach(([id, qs]) => {
 if (MAPA) {
   const ids = new Set(MODULES.filter(m => m.trad !== "metodo").map(m => m.id)), coord = (lat, lon) => typeof lat === "number" && typeof lon === "number" && Math.abs(lat) <= 90 && Math.abs(lon) <= 180;
   if (!MAPA.T) err("mapas: falta MAPA_TIERRA (datos/mapa-base.js)");
-  ids.forEach(id => { const l = MAPA.L[id]; if (!l) return err(`mapas: ${id} sin lugar`);
+  ids.forEach(id => { if (!MAPA.B[id]) err(`mapas: ${id} sin biografía corta (MAPA_BIOS)`); const l = MAPA.L[id]; if (!l) return err(`mapas: ${id} sin lugar`);
     if (!l.lugar || !coord(l.lat, l.lon) || !(l.muere == null || l.nace < l.muere)) err(`mapas: lugar de ${id} incompleto`);
     (l.otros || []).forEach(o => { if (!o.lugar || !o.nota || !coord(o.lat, o.lon)) err(`mapas: otro lugar de ${id} incompleto`); }); });
   Object.keys(MAPA.L).forEach(id => { if (!ids.has(id)) err(`mapas: lugar de una ficha que no existe (${id})`); });
