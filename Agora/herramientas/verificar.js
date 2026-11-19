@@ -38,7 +38,7 @@ for (const trad of fs.readdirSync(dirMod)) for (const f of fs.readdirSync(path.j
 if (errores.length) fin();
 
 const ctx = {}; vm.createContext(ctx);
-vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, DIAGRAMAS: typeof DIAGRAMAS==='undefined' ? null : DIAGRAMAS, TEXTOS: typeof TEXTOS==='undefined' ? null : TEXTOS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS, CORRIENTES: typeof CORRIENTES==='undefined' ? null : CORRIENTES, REPASO: typeof REPASO==='undefined' ? null : REPASO, MAPA: typeof MAPA_LUGARES==='undefined' ? null : {B:typeof MAPA_BIOS==='undefined' ? {} : MAPA_BIOS, L:MAPA_LUGARES, V:MAPA_VIAJES, E:MAPA_EVENTOS, P:MAPA_EPOCAS, T:typeof MAPA_TIERRA==='string'}};", ctx);
+vm.runInContext(codigo + "\n;globalThis.__d = {LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA: typeof EPOCA==='undefined' ? null : EPOCA, VIDAS: typeof VIDAS==='undefined' ? null : VIDAS, DIAGRAMAS: typeof DIAGRAMAS==='undefined' ? null : DIAGRAMAS, TEXTOS: typeof TEXTOS==='undefined' ? null : TEXTOS, EXAMEN_FINAL: typeof EXAMEN_FINAL==='undefined' ? null : EXAMEN_FINAL, CLAVES: typeof CLAVES==='undefined' ? null : CLAVES, TERMINOS: typeof TERMINOS==='undefined' ? null : TERMINOS, CORRIENTES: typeof CORRIENTES==='undefined' ? null : CORRIENTES, REPASO: typeof REPASO==='undefined' ? null : REPASO, MAPA: typeof MAPA_LUGARES==='undefined' ? null : {B:typeof MAPA_BIOS==='undefined' ? {} : MAPA_BIOS, C:typeof MAPA_CENTROS==='undefined' ? [] : MAPA_CENTROS, R:typeof MAPA_RUTAS==='undefined' ? [] : MAPA_RUTAS, Q:typeof MAPA_RECORRIDOS==='undefined' ? {} : MAPA_RECORRIDOS, L:MAPA_LUGARES, V:MAPA_VIAJES, E:MAPA_EVENTOS, P:MAPA_EPOCAS, T:typeof MAPA_TIERRA==='string'}};", ctx);
 const { LEVELS, MODULES, LECTURAS, CONSTELACIONES, EPOCA, VIDAS, DIAGRAMAS, TEXTOS, EXAMEN_FINAL, CLAVES, TERMINOS, CORRIENTES, REPASO, MAPA } = ctx.__d;
 
 const ids = new Set();
@@ -283,6 +283,10 @@ if (MAPA) {
   MAPA.P.forEach((e, i) => { if (i && e.desde !== MAPA.P[i - 1].hasta) err(`mapas: hueco entre épocas en ${e.desde}`);
     if (!e.titulo || !e.texto || !(e.desde < e.hasta)) err(`mapas: época ${i} incompleta`);
     (e.poderes || []).forEach(p => { if (!p.nombre || !Array.isArray(p.poly) || p.poly.length < 3 || p.poly.some(([lo, la]) => !coord(la, lo))) err(`mapas: poder «${p.nombre}» mal dibujado`); }); });
+  ids.forEach(id => { const q = MAPA.Q[id]; if (!q || !q.length) return err(`mapas: ${id} sin recorrido (MAPA_RECORRIDOS)`);
+    q.forEach((t, i) => { if (!t.lugar || !t.nota || !coord(t.lat, t.lon) || typeof t.anio !== "number" || (i && t.anio < q[i-1].anio)) err(`mapas: parada ${i} del recorrido de ${id} incompleta o fuera de orden`); }); });
+  MAPA.C.forEach(c => { if (!c.nombre || !c.texto || !coord(c.lat, c.lon) || typeof c.desde !== "number") err(`mapas: centro «${c.nombre}» incompleto`); (c.fichas || []).forEach(f => { if (!ids.has(f)) err(`mapas: el centro «${c.nombre}» nombra una ficha que no existe (${f})`); }); });
+  MAPA.R.forEach(r => { if (!r.titulo || !r.texto || !(r.etapas || []).length || r.etapas.some(t => !coord(t.lat, t.lon) || !t.lugar)) err(`mapas: ruta «${r.titulo}» incompleta`); (r.fichas || []).forEach(f => { if (!ids.has(f)) err(`mapas: la ruta «${r.titulo}» nombra una ficha que no existe (${f})`); }); });
   MAPA.V.forEach(v => { if (!ids.has(v.mod) || !v.titulo || !v.texto || !Array.isArray(v.ruta) || v.ruta.length < 2 || v.ruta.some(([lo, la]) => !coord(la, lo))) err(`mapas: viaje «${v.titulo}» incompleto`); });
   MAPA.E.forEach(v => { if (!v.titulo || !v.texto || !coord(v.lat, v.lon) || typeof v.anio !== "number") err(`mapas: hecho «${v.titulo}» incompleto`);
     (v.fichas || []).forEach(f => { if (!ids.has(f)) err(`mapas: el hecho «${v.titulo}» nombra una ficha que no existe (${f})`); }); });
@@ -293,7 +297,7 @@ console.log(`Fichas: ${MODULES.length} · con los 3 ejercicios avanzados: ${conE
 console.log(`Pendientes de ejercicios avanzados: ${MODULES.filter(m => !conEj.includes(m.id)).map(m => m.id).join(", ") || "ninguna"}`);
 console.log(`Constelaciones: ${CONSTELACIONES.length} · casos: ${CONSTELACIONES.reduce((n, c) => n + (c.preguntas || [c.pregunta]).length, 0)} · con eje: ${CONSTELACIONES.filter(c => c.eje).length}`);
 if (CORRIENTES) console.log(`Corrientes: ${CORRIENTES.length} · con ficha: ${new Set(CORRIENTES.flatMap(c => c.autores.map(a => a.mod))).size} fichas enlazadas`);
-if (MAPA) console.log(`Mapas: ${Object.keys(MAPA.L).length} lugares · ${MAPA.P.length} épocas · ${MAPA.V.length} viajes · ${MAPA.E.length} hechos`);
+if (MAPA) console.log(`Mapas: ${Object.keys(MAPA.L).length} lugares · ${MAPA.P.length} épocas · ${MAPA.V.length} viajes · ${MAPA.E.length} hechos · ${MAPA.C.length} centros del saber · ${MAPA.R.length} rutas de ideas`);
 if (EXAMEN_FINAL) console.log(`Examen final: ${EXAMEN_FINAL.seleccion.length} de selección · ${EXAMEN_FINAL.vf.length} de verdadero o falso · ${EXAMEN_FINAL.emparejar.length} ideas para emparejar`);
 fin();
 
