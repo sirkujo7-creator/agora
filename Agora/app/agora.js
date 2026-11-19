@@ -389,6 +389,7 @@ function renderVida(){
   $("#detBody").innerHTML = panoramaHTML() + `
     <div class="vida" style="margin-top:22px;">
       <p class="vidalema">${v.lema}</p>
+      ${typeof mapaSeguirA === "function" && typeof MAPA_LUGARES !== "undefined" && MAPA_LUGARES[d.id] ? `<button class="btn sm ghost vidamapa" onclick="irAlMapa('${d.id}')">🗺 Ver su recorrido en el mapa</button>` : ""}
       <section class="cinta" aria-label="Línea de tiempo">
         <div class="cintahead">
           <span class="kicker">Línea de tiempo · ${v.hitos.length} momentos</span>

@@ -15,8 +15,10 @@ let mapaAnio = -550, mapaRegion = "medit", mapaPlay = null;
 /* Vista acercada o desplazada por la persona (null = la caja de la región); mapaUltima = la que se ve. */
 let mapaVista = null, mapaUltima = null, mapaCuadro = null;
 /* Capas que se prenden y se apagan; los filósofos ya muertos, apagados al empezar para no llenar el mapa. */
-let mapaCapas = {poderes:true, filos:true, muertos:false, viajes:true, hechos:true};
-const MAPA_CAPAS = [["poderes","Territorios"],["filos","Filósofos vivos"],["muertos","Ya fallecidos"],["viajes","Viajes"],["hechos","Guerras y hechos"]];
+let mapaCapas = {poderes:true, filos:true, muertos:false, viajes:true, hechos:true, centros:true, rutas:false};
+/* «Seguir a un filósofo»: id de la ficha cuyo recorrido de vida se dibuja (MAPA_RECORRIDOS). */
+let mapaSeguir = null;
+const MAPA_CAPAS = [["poderes","Territorios"],["filos","Filósofos vivos"],["muertos","Ya fallecidos"],["viajes","Viajes"],["hechos","Guerras y hechos"],["centros","Centros del saber"],["rutas","Rutas de las ideas"]];
 
 /* Regiones: cajas en grados [lon0, lat0, lon1, lat1] (oeste, norte, este, sur). La caja entera
    siempre entra en el marco (en el celular el marco es más alto que ancho); desde ahí se acerca. */
@@ -35,7 +37,10 @@ function mapaDatos(){
     viajes: typeof MAPA_VIAJES !== "undefined" ? MAPA_VIAJES : [],
     eventos: typeof MAPA_EVENTOS !== "undefined" ? MAPA_EVENTOS : [],
     epocas: typeof MAPA_EPOCAS !== "undefined" ? MAPA_EPOCAS : [],
-    bios: typeof MAPA_BIOS !== "undefined" ? MAPA_BIOS : {}};
+    bios: typeof MAPA_BIOS !== "undefined" ? MAPA_BIOS : {},
+    centros: typeof MAPA_CENTROS !== "undefined" ? MAPA_CENTROS : [],
+    rutas: typeof MAPA_RUTAS !== "undefined" ? MAPA_RUTAS : [],
+    recorridos: typeof MAPA_RECORRIDOS !== "undefined" ? MAPA_RECORRIDOS : {}};
 }
 function mapaP(lon, lat){ return [lon*MAPA_KX, -lat]; }
 function mapaPts(arr){ return arr.map(([lon,lat])=>mapaP(lon,lat).map(n=>n.toFixed(2)).join(",")).join(" "); }
@@ -59,6 +64,10 @@ function mapaViajesVisibles(a){
   const vivos = new Set(mapaVivos(a).map(m=>m.id));
   return mapaDatos().viajes.filter(v=>vivos.has(v.mod) && a >= v.anio - 5 && a <= v.anio + 20);
 }
+/* Centros del saber activos ese año; rutas en curso (se dibujan hasta la etapa que ya ocurrió). */
+function mapaCentros(a){ return mapaDatos().centros.filter(c=>c.desde <= a && (c.hasta == null || a <= c.hasta)); }
+function mapaRutas(a){ return mapaDatos().rutas.filter(r=>r.desde <= a && a <= r.hasta + 60); }
+function mapaEtapasHasta(r, a){ return r.etapas.filter(t=>t.anio <= a); }
 function mapaRatio(){ const s = $("#mapaSvg"); return s && s.clientWidth && s.clientHeight ? s.clientWidth / s.clientHeight : 16/9; }
 function mapaCaja(ratio){
   const r = (MAPA_REGIONES.find(r=>r[0]===mapaRegion) || MAPA_REGIONES[0])[2];
@@ -106,6 +115,13 @@ function renderMapas(){
         <button class="btn sm" id="mapaPlayBtn" onclick="mapaReproducir()">${mapaPlay ? "❚❚ Pausa" : "▶ Recorrer"}</button>
       </div>
     </div>
+    <div class="mapaseguir">
+      <label>Seguir a un filósofo
+        <select id="mapaSeguirSel" onchange="mapaSeguirA(this.value)"><option value="">— elegí uno —</option>${MODULES.filter(m=>mapaDatos().lugares[m.id]).slice().sort((a,b)=>mapaDatos().lugares[a.id].nace - mapaDatos().lugares[b.id].nace).map(m=>`<option value="${m.id}" ${m.id===mapaSeguir?'selected':''}>${escapeHtml(mapaNombre(m))}</option>`).join("")}</select>
+      </label>
+      ${mapaSeguir ? `<button class="btn sm ghost" onclick="mapaSeguirA('')">Dejar de seguir</button>` : ""}
+    </div>
+    <div id="mapaRecorrido"></div>
     <div class="evalrow mapacapas" role="group" aria-label="Qué mostrar">${MAPA_CAPAS.map(([k,l])=>`<button class="chip ${mapaCapas[k]?'active':''}" aria-pressed="${mapaCapas[k]}" onclick="mapaCapa('${k}')">${mapaCapas[k]?'✓ ':''}${l}</button>`).join("")}</div>
     <div class="mapaanio"><span id="mapaAnioTxt"></span> · <b id="mapaEpocaTit"></b> <span class="muted mapafrontnota" id="mapaFrontNota"></span></div>
     <div class="mapamarco" id="mapaMarco">
@@ -154,9 +170,14 @@ function dibujarMapa(){
     `<polygon class="mpoder" points="${mapaPts(p.poly)}" clip-path="url(#mclip)" style="fill:${mapaColor(i)};stroke:${mapaColor(i)}" vector-effect="non-scaling-stroke"/>`).join("") : "";
   const viajes = mapaCapas.viajes ? mapaViajesVisibles(mapaAnio).map(v=>
     `<polyline class="mviaje" points="${mapaPts(v.ruta)}" vector-effect="non-scaling-stroke"/>`).join("") : "";
+  const rutas = mapaCapas.rutas ? mapaRutas(mapaAnio).map(r=>{ const et = mapaEtapasHasta(r, mapaAnio);
+    return et.length > 1 ? `<polyline class="mruta" points="${mapaPts(et.map(t=>[t.lon,t.lat]))}" vector-effect="non-scaling-stroke"/>` : ""; }).join("") : "";
+  const rec = mapaSeguir ? (mapaDatos().recorridos[mapaSeguir]||[]).filter(t=>t.anio <= mapaAnio) : [];
+  const recorrido = rec.length > 1 ? `<polyline class="mrecorrido" points="${mapaPts(rec.map(t=>[t.lon,t.lat]))}" vector-effect="non-scaling-stroke"/>` : "";
   svg.innerHTML = `<defs><clipPath id="mclip"><path d="${MAPA_TIERRA}"/></clipPath></defs>
     <rect x="-400" y="-100" width="800" height="200" class="mmar"/>
-    <path d="${MAPA_TIERRA}" class="mtierra" vector-effect="non-scaling-stroke"/>${poderes}${viajes}`;
+    <path d="${MAPA_TIERRA}" class="mtierra" vector-effect="non-scaling-stroke"/>${poderes}${rutas}${viajes}${recorrido}`;
+  $("#mapaRecorrido").innerHTML = mapaRecorridoHTML();
   $("#mapaAnioTxt").textContent = mapaAnioTxt(mapaAnio);
   $("#mapaEpocaTit").textContent = e ? e.titulo : "";
   const nf = $("#mapaFrontNota"); if(nf) nf.textContent = mapaCapas.poderes ? (F ? `Fronteras de c. ${mapaAnioTxt(fa)}` : "Cargando las fronteras…") : "";
@@ -193,6 +214,15 @@ function mapaUbicar(){
   evs.forEach(v=>{ const p = aPx(v.lon, v.lat); if(!dentro(p)) return;
     if(filos.some(f=>Math.hypot(f.p[0]-p[0], f.p[1]-p[1]) < 14)){ p[0] -= 12; p[1] -= 12; }   // no tapar a un filósofo en el mismo lugar ocupadas.push([p[0]-7, p[1]-7, p[0]+7, p[1]+7]);
     html += `<button class="mrombo ${v.tipo==='guerra'?'guerra':''}" style="left:${p[0].toFixed(1)}px;top:${p[1].toFixed(1)}px" onclick="mapaAbrir('h-${D.eventos.indexOf(v)}')" aria-label="${escapeHtml(v.titulo)}" title="${escapeHtml(v.titulo)}"></button>`; });
+  if(mapaCapas.centros) mapaCentros(mapaAnio).forEach(cn=>{ const p = aPx(cn.lon, cn.lat); if(!dentro(p)) return;
+    if(filos.some(f=>Math.hypot(f.p[0]-p[0], f.p[1]-p[1]) < 14)){ p[0] += 12; p[1] -= 12; }
+    ocupadas.push([p[0]-7, p[1]-7, p[0]+7, p[1]+7]);
+    html += `<button class="mcentro" style="left:${p[0].toFixed(1)}px;top:${p[1].toFixed(1)}px" onclick="mapaAbrir('c-${D.centros.indexOf(cn)}')" aria-label="${escapeHtml(cn.nombre)}" title="${escapeHtml(cn.nombre)}"></button>`; });
+  if(mapaCapas.rutas) mapaRutas(mapaAnio).forEach(r=>{ mapaEtapasHasta(r, mapaAnio).forEach(t=>{ const p = aPx(t.lon, t.lat); if(!dentro(p)) return;
+    html += `<button class="metapa" style="left:${p[0].toFixed(1)}px;top:${p[1].toFixed(1)}px" onclick="mapaAbrir('r-${D.rutas.indexOf(r)}')" aria-label="${escapeHtml(r.titulo + ": " + t.lugar)}" title="${escapeHtml(r.titulo + " · " + t.lugar + " (" + mapaAnioTxt(t.anio) + ")")}"></button>`; }); });
+  if(mapaSeguir) (D.recorridos[mapaSeguir]||[]).forEach((t,i)=>{ if(t.anio > mapaAnio) return; const p = aPx(t.lon, t.lat); if(!dentro(p)) return;
+    ocupadas.push([p[0]-10, p[1]-10, p[0]+10, p[1]+10]);
+    html += `<button class="mparada" style="left:${p[0].toFixed(1)}px;top:${p[1].toFixed(1)}px" onclick="mapaIrParada(${i})" aria-label="${escapeHtml(t.lugar)}" title="${escapeHtml(t.lugar + " · " + mapaAnioTxt(t.anio))}">${i+1}</button>`; });
   // 2) nombres, por prioridad: filósofos, territorios, regiones; el que no entra no se escribe
   filos.forEach(({m,p})=>{ const t = mapaNombre(m), w = ancho(t, 13.5);
     const lados = [[p[0]+8, p[1]-9], [p[0]-8-w, p[1]-9], [p[0]-w/2, p[1]-27], [p[0]-w/2, p[1]+8]];
@@ -239,10 +269,14 @@ function mapaPanelesHTML(e){
   const hechos = evs.map(v=>item(`h-${D.eventos.indexOf(v)}`, `<span class="mapaevanio">${mapaAnioTxt(v.anio)}</span> ${escapeHtml(v.titulo)}`, `<p>${escapeHtml(v.texto)}</p>${(v.fichas||[]).length ? `<div class="row">${v.fichas.map(mapaFichaLink).join("")}</div>` : ""}`, `<i class="mleyrombo ${v.tipo==='guerra'?'guerra':''}"></i>`)).join("");
   const via = viajes.map(v=>{ const m = moduleById(v.mod);
     return item(`v-${D.viajes.indexOf(v)}`, `${escapeHtml(v.titulo)}`, `<p class="muted">${mapaAnioTxt(v.anio)}${v.seguro ? "" : " · lo cuenta la tradición, no es seguro"}</p><p>${escapeHtml(v.texto)}</p><div class="row">${mapaFichaLink(v.mod)}</div>`, `<i class="mleyviajei"></i>`); }).join("");
+  const cens = mapaCentros(mapaAnio), cen = cens.map(cn=>item(`c-${D.centros.indexOf(cn)}`, escapeHtml(cn.nombre), `<p class="muted">${mapaAnioTxt(cn.desde)} – ${cn.hasta == null ? "hoy" : mapaAnioTxt(cn.hasta)} · ${escapeHtml(cn.tipo)}</p><p>${escapeHtml(cn.texto)}</p>${(cn.fichas||[]).length ? `<div class="row">${cn.fichas.map(mapaFichaLink).join("")}</div>` : ""}`, `<i class="mleycentro"></i>`)).join("");
+  const rus = mapaRutas(mapaAnio), ru = rus.map(r=>item(`r-${D.rutas.indexOf(r)}`, escapeHtml(r.titulo), `<p>${escapeHtml(r.texto)}</p><ol class="mapaetapas">${r.etapas.map(t=>`<li class="${t.anio <= mapaAnio ? '' : 'futura'}"><b>${escapeHtml(t.lugar)}</b> <span class="muted">(${mapaAnioTxt(t.anio)})</span>: ${escapeHtml(t.nota)}</li>`).join("")}</ol>${(r.fichas||[]).length ? `<div class="row">${r.fichas.map(mapaFichaLink).join("")}</div>` : ""}`, `<i class="mleyruta"></i>`)).join("");
   return sec("terr", "Poderes principales de esta época", e ? e.poderes.length : 0, terr, "—")
     + sec("filos", "Filósofos vivos en " + mapaAnioTxt(mapaAnio), vivos.length, filos, "Ningún filósofo con ficha vivía este año.")
     + sec("hechos", "Guerras y hechos de esta época", evs.length, hechos, "No hay hechos cargados para esta época.")
-    + sec("viajes", "Viajes en torno a " + mapaAnioTxt(mapaAnio), viajes.length, via, "Nadie estaba de viaje cerca de este año.");
+    + sec("viajes", "Viajes en torno a " + mapaAnioTxt(mapaAnio), viajes.length, via, "Nadie estaba de viaje cerca de este año.")
+    + sec("centros", "Centros del saber activos", cens.length, cen, "No hay centros cargados para este año.")
+    + sec("rutas", "Rutas de las ideas en curso", rus.length, ru, "Ninguna ruta en curso este año.");
 }
 /* Tocar algo en el mapa abre su explicación en los desplegables. */
 function mapaAbrir(id){
@@ -264,6 +298,9 @@ function mapaConvencionesHTML(){
     [`<i class="mleyviajei"></i>`, "Viaje que importó para su pensamiento (se ve cerca del año en que lo hizo)."],
     [`<i class="mleyrombo guerra"></i>`, "Guerra."],
     [`<i class="mleyrombo"></i>`, "Otro hecho que cambió lo que se pensaba o escribía."],
+    [`<i class="mleycentro"></i>`, "Centro del saber activo ese año: escuela, biblioteca, universidad, casa de traducción."],
+    [`<i class="mleyruta"></i>`, "Ruta de las ideas (capa apagada al empezar): cómo viajaron textos y escuelas; se dibuja hasta la etapa que ya ocurrió."],
+    [`<i class="mparadaley">1</i>`, "Parada del recorrido de vida del filósofo que estás siguiendo."],
     [`<i class="mleymarca"></i>`, "En la línea del tiempo, las rayas marcan dónde empieza cada época y los puntos, las guerras y los hechos."]];
   return `<ul class="mleylista">${conv.map(([i,t])=>`<li>${i}<span>${t}</span></li>`).join("")}</ul><div class="mleytrads">${trads}</div>`;
 }
@@ -315,3 +352,40 @@ function mapaGestos(marco){
   marco.addEventListener("click", ev=>{ if(movio && !ev.target.closest(".mapazoom")){ ev.stopPropagation(); ev.preventDefault(); movio = false; } }, true);
   if(!window.__mapaResize){ window.__mapaResize = true; addEventListener("resize", ()=>{ if($("#mapaSvg")) mapaUbicar(); }); }
 }
+
+/* --- Seguir a un filósofo: su recorrido de vida, parada por parada --- */
+function mapaSeguirA(id){
+  mapaSeguir = id || null;
+  const R = id ? (mapaDatos().recorridos[id] || []) : [];
+  if(R.length){
+    mapaAnio = R[0].anio; mapaCapas.filos = true;
+    // la vista abarca todas las paradas, con margen
+    const pts = R.map(t=>mapaP(t.lon, t.lat)), xs = pts.map(p=>p[0]), ys = pts.map(p=>p[1]);
+    const W = ($("#mapaSvg")||{}).clientWidth || 900, H = ($("#mapaSvg")||{}).clientHeight || 500, ratio = W/H;
+    let x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+    let w = Math.max(x1-x0, 8)*1.5, h = Math.max(y1-y0, 6)*1.5, cx = (x0+x1)/2, cy = (y0+y1)/2;
+    if(w/h > ratio) h = w/ratio; else w = h*ratio;
+    mapaVista = {x: cx - w/2, y: cy - h/2, w, h};
+  }
+  renderMapas();
+}
+function mapaIrParada(i){
+  const R = mapaDatos().recorridos[mapaSeguir] || [], t = R[i]; if(!t) return;
+  mapaAnio = t.anio; const r = $("#mapaRango"); if(r) r.value = mapaAnio;
+  dibujarMapa();
+  const li = document.getElementById("mp-" + i); if(li) li.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+function mapaRecorridoHTML(){
+  if(!mapaSeguir) return "";
+  const m = moduleById(mapaSeguir), R = mapaDatos().recorridos[mapaSeguir] || []; if(!m) return "";
+  const actual = R.reduce((k,t,i)=>t.anio <= mapaAnio ? i : k, 0);
+  return `<div class="maparecorrido">
+    <div class="row"><b>Recorrido de ${escapeHtml(mapaNombre(m))}</b>
+      <span class="spacer"></span>
+      <button class="btn sm ghost" onclick="mapaIrParada(${Math.max(0, actual-1)})" aria-label="Parada anterior">◀</button>
+      <button class="btn sm ghost" onclick="mapaIrParada(${Math.min(R.length-1, actual+1)})" aria-label="Parada siguiente">▶</button></div>
+    <ol>${R.map((t,i)=>`<li id="mp-${i}" class="${i===actual?'actual':''} ${t.anio > mapaAnio ? 'futura' : ''}" onclick="mapaIrParada(${i})"><span class="mparadaley">${i+1}</span><span><b>${escapeHtml(t.lugar)}</b> <span class="muted">${mapaAnioTxt(t.anio)}</span><br>${escapeHtml(t.nota)}</span></li>`).join("")}</ol>
+    ${mapaFichaLink(mapaSeguir)}</div>`;
+}
+/* Desde «Vida y contexto» de una ficha. */
+function irAlMapa(id){ showView("mapas"); mapaSeguirA(id); }

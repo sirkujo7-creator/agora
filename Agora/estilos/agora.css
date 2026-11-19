@@ -885,3 +885,22 @@ footer{font-family:var(--font-ui);}
 .mnom.estado.pueblo{font-style:italic;font-size:12px;filter:none;}
 .mleysw.borde{background:transparent;border:1.5px dashed var(--ink-soft);opacity:1;}
 .mapafrontnota{font-family:var(--font-ui);font-size:.82rem;margin-left:6px;}
+.mapasvg .mruta{fill:none;stroke:#7A4E9C;stroke-width:4px;stroke-opacity:.45;stroke-linecap:round;stroke-linejoin:round;}
+.mapasvg .mrecorrido{fill:none;stroke:var(--ink);stroke-width:2.5px;stroke-opacity:.75;stroke-dasharray:2 5;stroke-linecap:round;}
+.mcentro{width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:3px;background:var(--surface);border:2.5px solid var(--accent);padding:0;cursor:pointer;}
+.metapa{width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:#7A4E9C;border:1.5px solid var(--surface);padding:0;cursor:pointer;opacity:.85;}
+.mparada{width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:var(--ink);color:var(--surface);font:600 11px/20px var(--font-ui);padding:0;border:2px solid var(--surface);cursor:pointer;text-align:center;}
+.mleycentro{display:inline-block;width:11px;height:11px;border-radius:3px;border:2.5px solid var(--accent);flex:none;}
+.mleyruta{display:inline-block;width:18px;height:0;border-top:4px solid rgba(122,78,156,.5);flex:none;margin-top:6px!important;border-radius:2px;}
+.mparadaley{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--ink);color:var(--surface);font:600 10px var(--font-ui);flex:none;font-style:normal;}
+.mapaseguir{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 10px;font-family:var(--font-ui);font-size:.9rem;}
+.mapaseguir select{font:inherit;margin-left:6px;padding:6px 10px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);max-width:62vw;}
+.maparecorrido{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:10px 14px;margin:0 0 12px;font-family:var(--font-ui);font-size:.9rem;}
+.maparecorrido .spacer{flex:1;}
+.maparecorrido ol{list-style:none;margin:8px 0;padding:0;display:grid;gap:6px;max-height:240px;overflow:auto;}
+.maparecorrido li{display:flex;gap:10px;align-items:flex-start;cursor:pointer;padding:4px 6px;border-radius:8px;line-height:1.35;}
+.maparecorrido li.actual{background:var(--surface-2);}
+.maparecorrido li.futura{opacity:.55;}
+.mapaetapas{margin:0 0 8px 18px;padding:0;font-size:.95rem;}
+.mapaetapas li.futura{opacity:.55;}
+.vidamapa{margin:4px 0 14px;}
