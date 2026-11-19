@@ -3,9 +3,10 @@
    abierta con doble clic desde file:// no se registra y todo sigue igual.
    Al instalarse lee index.html y fuentes/fuentes.css para saber qué guardar, así que
    no hay que mantener una lista de archivos a mano al agregar fichas.
-   Estrategia: responde desde la caché y en segundo plano trae la versión nueva
-   (la próxima vez que se abra, ya está actualizada). */
-const CACHE = "agora-v1";
+   Estrategia: primero la red (con internet siempre se ve la última versión) y, si no hay
+   conexión, la copia guardada. Antes respondía desde la caché y la versión nueva recién
+   aparecía la vez siguiente: Juan veía cambios viejos en el celular. */
+const CACHE = "agora-v2";
 const BASE = ["./", "./index.html", "./manifest.webmanifest", "./fuentes/fuentes.css",
   "./iconos/icono-192.png", "./iconos/icono-512.png", "./iconos/favicon.png", "./iconos/apple-touch-icon.png"];
 
@@ -37,9 +38,8 @@ self.addEventListener("fetch", ev=>{
   if(req.method !== "GET" || new URL(req.url).origin !== location.origin) return;
   ev.respondWith((async()=>{
     const cache = await caches.open(CACHE);
-    const guardada = await cache.match(req, {ignoreSearch:true});
-    const red = fetch(req).then(r=>{ if(r && r.ok) cache.put(req, r.clone()); return r; }).catch(()=>null);
-    if(guardada){ ev.waitUntil(red); return guardada; }
-    return (await red) || (req.mode==="navigate" ? cache.match("./index.html") : Response.error());
+    const red = await fetch(req, {cache:"no-cache"}).catch(()=>null);
+    if(red && red.ok){ ev.waitUntil(cache.put(req, red.clone())); return red; }
+    return (await cache.match(req, {ignoreSearch:true})) || red || (req.mode==="navigate" ? cache.match("./index.html") : Response.error());
   })());
 });
