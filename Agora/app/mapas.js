@@ -67,6 +67,24 @@ function mapaCaja(ratio){
   if(w/h > ratio){ const nh = w/ratio; y -= (nh-h)/2; h = nh; } else { const nw = h*ratio; x -= (nw-w)/2; w = nw; }
   return {x, y, w, h};
 }
+/* --- Fronteras históricas (datos/fronteras/<año>.js, historical-basemaps, GPL-3.0): la división política
+   completa de cada época. Se cargan cuando hacen falta; mientras tanto se ven los poderes de MAPA_EPOCAS. --- */
+const MAPA_FRONT_ANIOS = [-700,-500,-400,-323,-300,-200,-100,-1,100,200,300,400,500,600,700,800,900,1000,1100,1200,1279,1300,1400,1492,1500,1530,1600,1650,1700,1715,1783,1800,1815,1880,1900,1914,1920,1938,1945,1960,1994,2000];
+const MAPA_FRONTERAS = {}, mapaFrontPedidas = {};
+function mapaFronterasCargadas(a, lista){ MAPA_FRONTERAS[a] = lista; if($("#mapaSvg") && mapaFrontAnio(mapaAnio) === a) dibujarMapa(); }
+function mapaFrontAnio(a){ let r = MAPA_FRONT_ANIOS[0]; for(const x of MAPA_FRONT_ANIOS) if(x <= a) r = x; return r; }
+function mapaCargarFronteras(a){
+  if(MAPA_FRONTERAS[a] || mapaFrontPedidas[a]) return;
+  mapaFrontPedidas[a] = true;
+  const sc = document.createElement("script"); sc.src = `datos/fronteras/${a}.js`;
+  sc.onerror = ()=>{ mapaFrontPedidas[a] = false; };
+  document.head.appendChild(sc);
+}
+function mapaNomEs(n){ const t = typeof MAPA_NOMBRES_ES !== "undefined" && MAPA_NOMBRES_ES[n]; return t ? t[0] : n; }
+function mapaEsPueblo(n){ const t = typeof MAPA_NOMBRES_ES !== "undefined" && MAPA_NOMBRES_ES[n]; return t ? t[1] === "p" : false; }
+/* Color estable por nombre: el mismo Estado conserva su color a lo largo de las épocas. */
+const MAPA_PALETA = ["#B4532E","#3E5C9A","#2F8467","#B08A2E","#7A4E9C","#9C3D5A","#4E8A9C","#8A6A3E","#5E7A2E","#A0567A"];
+function mapaColorDe(n){ let h = 0; for(const ch of n) h = (h*31 + ch.charCodeAt(0)) >>> 0; return MAPA_PALETA[h % MAPA_PALETA.length]; }
 function mapaColor(i){ return ["#B4532E","#3E5C9A","#2F8467","#B08A2E","#7A4E9C","#9C3D5A"][i % 6]; }
 function mapaCorto(n){ return n.replace(/\s*\(.*?\)\s*/g," ").trim(); }
 function mapaNombre(m){ return MAPA_CORTOS[m.id] || m.nombre.replace(/\s*\(.*\)/,""); }
@@ -89,13 +107,13 @@ function renderMapas(){
       </div>
     </div>
     <div class="evalrow mapacapas" role="group" aria-label="Qué mostrar">${MAPA_CAPAS.map(([k,l])=>`<button class="chip ${mapaCapas[k]?'active':''}" aria-pressed="${mapaCapas[k]}" onclick="mapaCapa('${k}')">${mapaCapas[k]?'✓ ':''}${l}</button>`).join("")}</div>
-    <div class="mapaanio"><span id="mapaAnioTxt"></span> · <b id="mapaEpocaTit"></b></div>
+    <div class="mapaanio"><span id="mapaAnioTxt"></span> · <b id="mapaEpocaTit"></b> <span class="muted mapafrontnota" id="mapaFrontNota"></span></div>
     <div class="mapamarco" id="mapaMarco">
       <svg id="mapaSvg" class="mapasvg" preserveAspectRatio="none" aria-hidden="true"></svg>
       <div id="mapaCapaTxt" class="mapacapatxt" role="group" aria-label="Mapa histórico: pellizcá o usá + y − para acercar, arrastrá para moverte"></div>
       <div class="mapazoom"><button class="btn sm" onclick="mapaZoom(0.6)" aria-label="Acercar">+</button><button class="btn sm" onclick="mapaZoom(1/0.6)" aria-label="Alejar">−</button><button class="btn sm" onclick="mapaVista=null;mapaUbicar()" aria-label="Volver a la región" title="Volver a la región">⟲</button></div>
     </div>
-    <p class="muted mapanota">Pellizcá o usá + y − para acercar; arrastrá para moverte. Tocá un punto, un rombo o una línea para ver su explicación abajo.</p>
+    <p class="muted mapanota">Pellizcá o usá + y − para acercar; arrastrá para moverte. Tocá un punto o un rombo para ver su explicación abajo. Fronteras: <a href="https://github.com/aourednik/historical-basemaps" target="_blank" rel="noopener">historical-basemaps</a> (A. Ourednik y colaboradores, GPL-3.0).</p>
     <div id="mapaEpocaTxt" class="lecnote"></div>
     <div id="mapaPaneles" class="mapapaneles"></div>
     <details class="mapaconv"><summary>Convenciones del mapa</summary><div id="mapaConv"></div></details>`;
@@ -128,7 +146,11 @@ function mapaReproducir(){
 function dibujarMapa(){
   const svg = $("#mapaSvg"); if(!svg) return;
   const e = mapaEpoca(mapaAnio);
-  const poderes = mapaCapas.poderes && e ? e.poderes.map((p,i)=>
+  const fa = mapaFrontAnio(mapaAnio), F = MAPA_FRONTERAS[fa];
+  if(mapaCapas.poderes && !F) mapaCargarFronteras(fa);
+  const poderes = !mapaCapas.poderes ? "" : F ? `<g clip-path="url(#mclip)">${F.map(([n,,,,prec,d])=>{ const pueblo = mapaEsPueblo(n);
+      return `<path class="mfront ${pueblo?'pueblo':''} ${prec<2?'aprox':''}" d="${d}" style="--c:${pueblo ? 'var(--ink-faint)' : mapaColorDe(n)}" vector-effect="non-scaling-stroke"><title>${escapeHtml(mapaNomEs(n))}</title></path>`; }).join("")}</g>`
+    : e ? e.poderes.map((p,i)=>
     `<polygon class="mpoder" points="${mapaPts(p.poly)}" clip-path="url(#mclip)" style="fill:${mapaColor(i)};stroke:${mapaColor(i)}" vector-effect="non-scaling-stroke"/>`).join("") : "";
   const viajes = mapaCapas.viajes ? mapaViajesVisibles(mapaAnio).map(v=>
     `<polyline class="mviaje" points="${mapaPts(v.ruta)}" vector-effect="non-scaling-stroke"/>`).join("") : "";
@@ -137,6 +159,7 @@ function dibujarMapa(){
     <path d="${MAPA_TIERRA}" class="mtierra" vector-effect="non-scaling-stroke"/>${poderes}${viajes}`;
   $("#mapaAnioTxt").textContent = mapaAnioTxt(mapaAnio);
   $("#mapaEpocaTit").textContent = e ? e.titulo : "";
+  const nf = $("#mapaFrontNota"); if(nf) nf.textContent = mapaCapas.poderes ? (F ? `Fronteras de c. ${mapaAnioTxt(fa)}` : "Cargando las fronteras…") : "";
   $("#mapaEpocaTxt").innerHTML = e ? `<b>${mapaAnioTxt(e.desde)} – ${mapaAnioTxt(e.hasta)}</b> · ${escapeHtml(e.texto)}` : "";
   $("#mapaPaneles").innerHTML = mapaPanelesHTML(e);
   $("#mapaConv").innerHTML = mapaConvencionesHTML();
@@ -175,12 +198,19 @@ function mapaUbicar(){
     const lados = [[p[0]+8, p[1]-9], [p[0]-8-w, p[1]-9], [p[0]-w/2, p[1]-27], [p[0]-w/2, p[1]+8]];
     const ok = lados.find(([x,y])=>libre(x, y, x+w, y+18)); if(!ok) return;
     html += `<span class="mnom filo" style="left:${ok[0].toFixed(1)}px;top:${ok[1].toFixed(1)}px" onclick="mapaAbrir('f-${m.id}')">${escapeHtml(t)}</span>`; });
-  if(mapaCapas.poderes && e) e.poderes.forEach((pd,i)=>{
+  const F = MAPA_FRONTERAS[mapaFrontAnio(mapaAnio)], esc = W / c.w;
+  if(mapaCapas.poderes && F) F.slice().sort((a,b)=>b[3]-a[3]).forEach(([n,lx,ly,area])=>{
+    const t = mapaNomEs(n), pueblo = mapaEsPueblo(n), px = pueblo ? 12 : 13.5, w = ancho(t, px);
+    if(Math.sqrt(area)*esc < Math.max(w*0.45, 30)) return;                      // territorio muy chico para su nombre a este zoom
+    const q = [(lx - c.x)*esc, (ly - c.y)/c.h*H]; if(!dentro(q)) return;
+    if(!libre(q[0]-w/2, q[1]-9, q[0]+w/2, q[1]+9)) return;
+    html += `<span class="mnom estado ${pueblo?'pueblo':''}" style="left:${(q[0]-w/2).toFixed(1)}px;top:${(q[1]-9).toFixed(1)}px;width:${w.toFixed(0)}px;--c:${pueblo ? 'var(--ink-soft)' : mapaColorDe(n)}">${escapeHtml(t)}</span>`; });
+  if(mapaCapas.poderes && e && !F) e.poderes.forEach((pd,i)=>{
     const q = pd.etiqueta ? aPx(pd.etiqueta[0], pd.etiqueta[1]) : null; if(!q || !dentro(q)) return;
     const t = mapaCorto(pd.nombre), fecha = (pd.nombre.match(/\(([^)]*)\)/)||[])[1], w = Math.max(ancho(t, 15), fecha ? ancho(fecha, 11) : 0);
     if(!libre(q[0]-w/2, q[1]-10, q[0]+w/2, q[1]+(fecha?24:10))) return;
     html += `<span class="mnom poder" style="left:${(q[0]-w/2).toFixed(1)}px;top:${(q[1]-10).toFixed(1)}px;width:${w.toFixed(0)}px;--c:${mapaColor(i)}" onclick="mapaAbrir('t-${i}')">${escapeHtml(t)}${fecha ? `<small>${escapeHtml(fecha)}</small>` : ""}</span>`; });
-  if(mapaCapas.poderes && e) (e.regiones||[]).forEach(r=>{ const q = aPx(r.lon, r.lat); if(!dentro(q)) return;
+  if(mapaCapas.poderes && e && !F) (e.regiones||[]).forEach(r=>{ const q = aPx(r.lon, r.lat); if(!dentro(q)) return;
     const w = ancho(r.nombre, 13); if(!libre(q[0]-w/2, q[1]-9, q[0]+w/2, q[1]+9)) return;
     html += `<span class="mnom region" style="left:${(q[0]-w/2).toFixed(1)}px;top:${(q[1]-9).toFixed(1)}px;width:${w.toFixed(0)}px">${escapeHtml(r.nombre)}</span>`; });
   capa.innerHTML = html;
@@ -202,7 +232,7 @@ function mapaPanelesHTML(e){
   const hechos = evs.map(v=>item(`h-${D.eventos.indexOf(v)}`, `<span class="mapaevanio">${mapaAnioTxt(v.anio)}</span> ${escapeHtml(v.titulo)}`, `<p>${escapeHtml(v.texto)}</p>${(v.fichas||[]).length ? `<div class="row">${v.fichas.map(mapaFichaLink).join("")}</div>` : ""}`, `<i class="mleyrombo ${v.tipo==='guerra'?'guerra':''}"></i>`)).join("");
   const via = viajes.map(v=>{ const m = moduleById(v.mod);
     return item(`v-${D.viajes.indexOf(v)}`, `${escapeHtml(v.titulo)}`, `<p class="muted">${mapaAnioTxt(v.anio)}${v.seguro ? "" : " · lo cuenta la tradición, no es seguro"}</p><p>${escapeHtml(v.texto)}</p><div class="row">${mapaFichaLink(v.mod)}</div>`, `<i class="mleyviajei"></i>`); }).join("");
-  return sec("terr", "Territorios de esta época", e ? e.poderes.length : 0, terr, "—")
+  return sec("terr", "Poderes principales de esta época", e ? e.poderes.length : 0, terr, "—")
     + sec("filos", "Filósofos vivos en " + mapaAnioTxt(mapaAnio), vivos.length, filos, "Ningún filósofo con ficha vivía este año.")
     + sec("hechos", "Guerras y hechos de esta época", evs.length, hechos, "No hay hechos cargados para esta época.")
     + sec("viajes", "Viajes en torno a " + mapaAnioTxt(mapaAnio), viajes.length, via, "Nadie estaba de viaje cerca de este año.");
@@ -218,8 +248,10 @@ function mapaAbrir(id){
 function mapaConvencionesHTML(){
   const trads = Object.keys(LEVELS).filter(t=>t!=="metodo").map(t=>`<span class="mleytrad"><i style="background:var(--${LEVELS[t].clr})"></i>${escapeHtml(LEVELS[t].label)}</span>`).join("");
   const conv = [
-    [`<i class="mleysw" style="background:var(--accent)"></i>`, "Territorio de un poder de la época. Las fronteras son aproximadas: muestran dónde se ejercía el poder, no límites exactos."],
-    [`<i class="mleyregion">Ab</i>`, "Nombre de una región tal como se llamaba entonces."],
+    [`<i class="mleysw" style="background:var(--accent)"></i>`, "Estado de la época (imperio, reino, califato, república…). Cada uno conserva su color a lo largo del tiempo."],
+    [`<i class="mleysw borde"></i>`, "Borde punteado: frontera poco conocida o aproximada; borde continuo: mejor documentada."],
+    [`<i class="mleysw" style="background:var(--ink-faint)"></i>`, "Pueblos y culturas sin Estado (agricultores, nómadas, cazadores-recolectores)."],
+    [`<i class="mleyregion">Ab</i>`, "Nombre de cada Estado o pueblo tal como se lo conoce en la historia; los chicos aparecen al acercar."],
     [`<i class="mleypunto" style="background:var(--eu)"></i>`, "Filósofo vivo ese año, con el color de su tradición."],
     [`<i class="mleypunto tenue" style="background:var(--eu)"></i>`, "Filósofo que ya había muerto (capa «Ya fallecidos»)."],
     [`<i class="mleyviajei"></i>`, "Viaje que importó para su pensamiento (se ve cerca del año en que lo hizo)."],
