@@ -199,6 +199,16 @@ function servidor(){
   const mZoom = +vb1.split(" ")[2] < +vb0.split(" ")[2] * 0.7;
   await p.evaluate(() => { mapaRegion = "mundo"; mapaVista = null; renderMapas(); mapaMover(1950); });
   const mVivos1950 = await p.locator('#mapaCapaTxt .mpunto:not(.tenue)').count();
+  await p.evaluate(() => { mapaCapas.rutas = true; mapaMover(1150); });
+  const mCentros = await p.locator("#mapaCapaTxt .mcentro").count(), mEtapas = await p.locator("#mapaCapaTxt .metapa").count();
+  await p.evaluate(() => { mapaCapas.rutas = false; openModule("maimonides", "vida"); });
+  await p.click(".vidamapa");
+  const mParadas0 = await p.locator("#mapaCapaTxt .mparada").count();
+  await p.evaluate(() => mapaIrParada(MAPA_RECORRIDOS.maimonides.length - 1));
+  const mParadas = await p.locator("#mapaCapaTxt .mparada").count(), mLista = await p.locator("#mapaRecorrido li").count();
+  const mSeguir = mParadas0 >= 1 && mParadas > mParadas0 && mLista === await p.evaluate(() => MAPA_RECORRIDOS.maimonides.length);
+  await p.evaluate(() => mapaSeguirA(""));
+  comprobar(mCentros > 0 && mEtapas > 0 && mSeguir, `mapas: centros del saber (${mCentros}) y rutas de ideas (${mEtapas} etapas) en 1150; «Ver su recorrido» lleva de la ficha de Maimónides a sus ${mLista} paradas`);
   comprobar(mZoom && mTales === 1 && mPoderes > 0 && mAbierto === 1 && mEv > 0 && mEvAbierto && mTodas && mVivos1950 > 5, `mapas: se acerca con +, Tales en -560 (${mPoderes} territorios con fronteras históricas), las 42 fechas cargan, tocar un punto o un hecho abre su desplegable, todas las épocas se dibujan, ${mVivos1950} vivos en 1950`);
 
   // 6b. Corrientes: el río, cada corriente abre con sus fichas, el ejercicio de la intrusa y el juego
