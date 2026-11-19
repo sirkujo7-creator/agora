@@ -200,11 +200,18 @@ function mapaUbicar(){
     html += `<span class="mnom filo" style="left:${ok[0].toFixed(1)}px;top:${ok[1].toFixed(1)}px" onclick="mapaAbrir('f-${m.id}')">${escapeHtml(t)}</span>`; });
   const F = MAPA_FRONTERAS[mapaFrontAnio(mapaAnio)], esc = W / c.w;
   if(mapaCapas.poderes && F) F.slice().sort((a,b)=>b[3]-a[3]).forEach(([n,lx,ly,area])=>{
-    const t = mapaNomEs(n), pueblo = mapaEsPueblo(n), px = pueblo ? 12 : 13.5, w = ancho(t, px);
-    if(Math.sqrt(area)*esc < Math.max(w*0.45, 30)) return;                      // territorio muy chico para su nombre a este zoom
+    const t = mapaNomEs(n), pueblo = mapaEsPueblo(n), px = pueblo ? 12 : 13.5;
+    if(!t.trim() || t.trim() === "?") return;
+    // los nombres largos van en dos líneas, cortados en el espacio más cercano al medio
+    let lineas = [t];
+    if(t.length > 13 && t.includes(" ")){ const pal = t.split(" "); let mejor = 1, dif = 1e9;
+      for(let i = 1; i < pal.length; i++){ const a = pal.slice(0,i).join(" ").length, b = pal.slice(i).join(" ").length; if(Math.abs(a-b) < dif){ dif = Math.abs(a-b); mejor = i; } }
+      lineas = [pal.slice(0,mejor).join(" "), pal.slice(mejor).join(" ")]; }
+    const w = Math.max(...lineas.map(l=>ancho(l, px))), alto = lineas.length * 16;
+    if(Math.sqrt(area)*esc < Math.max(w*0.6, 30)) return;                      // territorio muy chico para su nombre a este zoom
     const q = [(lx - c.x)*esc, (ly - c.y)/c.h*H]; if(!dentro(q)) return;
-    if(!libre(q[0]-w/2, q[1]-9, q[0]+w/2, q[1]+9)) return;
-    html += `<span class="mnom estado ${pueblo?'pueblo':''}" style="left:${(q[0]-w/2).toFixed(1)}px;top:${(q[1]-9).toFixed(1)}px;width:${w.toFixed(0)}px;--c:${pueblo ? 'var(--ink-soft)' : mapaColorDe(n)}">${escapeHtml(t)}</span>`; });
+    if(!libre(q[0]-w/2, q[1]-alto/2, q[0]+w/2, q[1]+alto/2)) return;
+    html += `<span class="mnom estado ${pueblo?'pueblo':''}" style="left:${(q[0]-w/2).toFixed(1)}px;top:${(q[1]-alto/2).toFixed(1)}px;width:${w.toFixed(0)}px;--c:${pueblo ? 'var(--ink-soft)' : mapaColorDe(n)}">${lineas.map(escapeHtml).join("<br>")}</span>`; });
   if(mapaCapas.poderes && e && !F) e.poderes.forEach((pd,i)=>{
     const q = pd.etiqueta ? aPx(pd.etiqueta[0], pd.etiqueta[1]) : null; if(!q || !dentro(q)) return;
     const t = mapaCorto(pd.nombre), fecha = (pd.nombre.match(/\(([^)]*)\)/)||[])[1], w = Math.max(ancho(t, 15), fecha ? ancho(fecha, 11) : 0);
