@@ -182,21 +182,24 @@ function servidor(){
   await p.click('#mainTabs button[data-tab="mapas"]');
   await p.evaluate(() => { mapaRegion = "medit"; mapaVista = null; renderMapas(); mapaMover(-560); });
   const mTales = await p.locator('#mapaCapaTxt .mnom.filo', { hasText: "Tales" }).count();
-  const mPoderes = await p.locator("#mapaSvg .mpoder").count();
+  await p.waitForFunction(() => document.querySelectorAll("#mapaSvg .mfront").length > 0);
+  const mPoderes = await p.locator("#mapaSvg .mfront").count();
   await p.locator('#mapaCapaTxt .mpunto').first().click();
   const mAbierto = await p.locator("#mapaPaneles .mapaitem.sel[open]").count();
   await p.evaluate(() => mapaMover(-490));
   const mEv = await p.locator("#ms-hechos .mapaitem").count();
   await p.locator("#mapaCapaTxt .mrombo").first().click();
   const mEvAbierto = (await p.locator("#mapaPaneles .mapaitem.sel[open] .mapaitemtxt").textContent()).length > 40;
-  const mTodas = await p.evaluate(() => MAPA_EPOCAS.every(e => { mapaMover(e.desde); return document.querySelectorAll("#mapaSvg .mpoder").length === e.poderes.length && document.querySelectorAll("#ms-terr .mapaitem").length === e.poderes.length; }));
+  await p.evaluate(() => MAPA_FRONT_ANIOS.forEach(mapaCargarFronteras));
+  await p.waitForFunction(() => MAPA_FRONT_ANIOS.every(a => MAPA_FRONTERAS[a]), null, { timeout: 30000 });
+  const mTodas = await p.evaluate(() => MAPA_EPOCAS.every(e => { mapaMover(e.desde); return document.querySelectorAll("#mapaSvg .mfront").length > 20 && document.querySelectorAll("#ms-terr .mapaitem").length === e.poderes.length; }));
   const vb0 = await p.getAttribute("#mapaSvg", "viewBox");
   await p.click('.mapazoom button[aria-label="Acercar"]'); await p.waitForTimeout(150);
   const vb1 = await p.getAttribute("#mapaSvg", "viewBox");
   const mZoom = +vb1.split(" ")[2] < +vb0.split(" ")[2] * 0.7;
   await p.evaluate(() => { mapaRegion = "mundo"; mapaVista = null; renderMapas(); mapaMover(1950); });
   const mVivos1950 = await p.locator('#mapaCapaTxt .mpunto:not(.tenue)').count();
-  comprobar(mZoom && mTales === 1 && mPoderes > 0 && mAbierto === 1 && mEv > 0 && mEvAbierto && mTodas && mVivos1950 > 5, `mapas: se acerca con +, Tales en -560 (${mPoderes} territorios), tocar un punto o un hecho abre su desplegable, todas las épocas se dibujan, ${mVivos1950} vivos en 1950`);
+  comprobar(mZoom && mTales === 1 && mPoderes > 0 && mAbierto === 1 && mEv > 0 && mEvAbierto && mTodas && mVivos1950 > 5, `mapas: se acerca con +, Tales en -560 (${mPoderes} territorios con fronteras históricas), las 42 fechas cargan, tocar un punto o un hecho abre su desplegable, todas las épocas se dibujan, ${mVivos1950} vivos en 1950`);
 
   // 6b. Corrientes: el río, cada corriente abre con sus fichas, el ejercicio de la intrusa y el juego
   const corrs = await p.evaluate(() => CORRIENTES.map(c => ({ id: c.id, n: c.autores.length })));
